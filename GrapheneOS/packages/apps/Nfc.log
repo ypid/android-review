@@ -1,0 +1,258 @@
+commit f6ba308ed9199e9021ffb1888d96fa3a843f8701
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2015-06-06 10:40:51-0400
+
+    disable NFC by default
+---
+ src/com/android/nfc/NfcService.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/nfc/NfcService.java b/src/com/android/nfc/NfcService.java
+index 837940cf9e7593a4734d829fd87f111c7409c8c4..75c01791db81caa953b54e76b620d3b2b953d281 100644
+--- a/src/com/android/nfc/NfcService.java
++++ b/src/com/android/nfc/NfcService.java
+@@ -116,21 +116,21 @@ import java.util.stream.Collectors;
+ 
+ public class NfcService implements DeviceHostListener {
+     static final boolean DBG = false;
+     static final String TAG = "NfcService";
+ 
+     public static final String SERVICE_NAME = "nfc";
+ 
+     public static final String PREF = "NfcServicePrefs";
+ 
+     static final String PREF_NFC_ON = "nfc_on";
+-    static final boolean NFC_ON_DEFAULT = true;
++    static final boolean NFC_ON_DEFAULT = false;
+     static final String PREF_NDEF_PUSH_ON = "ndef_push_on";
+     static final boolean NDEF_PUSH_ON_DEFAULT = false;
+     static final String PREF_SECURE_NFC_ON = "secure_nfc_on";
+     static final boolean SECURE_NFC_ON_DEFAULT = false;
+     static final String PREF_FIRST_BEAM = "first_beam";
+     static final String PREF_FIRST_BOOT = "first_boot";
+ 
+     static final String PREF_ANTENNA_BLOCKED_MESSAGE_SHOWN = "antenna_blocked_message_shown";
+     static final boolean ANTENNA_BLOCKED_MESSAGE_SHOWN_DEFAULT = false;
+ 
+
+commit 79ed071404df9d7ac8dc0ef467b06fb77befafbb
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2019-03-17 20:58:37-0400
+
+    constify JNINativeMethod tables
+---
+ nci/jni/NativeLlcpConnectionlessSocket.cpp | 2 +-
+ nci/jni/NativeLlcpServiceSocket.cpp        | 2 +-
+ nci/jni/NativeLlcpSocket.cpp               | 2 +-
+ nci/jni/NativeNfcManager.cpp               | 2 +-
+ nci/jni/NativeNfcTag.cpp                   | 2 +-
+ nci/jni/NativeP2pDevice.cpp                | 2 +-
+ 6 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/nci/jni/NativeLlcpConnectionlessSocket.cpp b/nci/jni/NativeLlcpConnectionlessSocket.cpp
+index e43dbff323184406099d3cd28b714bcfbb24e838..78e33285722d6fe1b60367153bab4f5b2a047149 100644
+--- a/nci/jni/NativeLlcpConnectionlessSocket.cpp
++++ b/nci/jni/NativeLlcpConnectionlessSocket.cpp
+@@ -273,21 +273,21 @@ static jboolean nativeLlcpConnectionlessSocket_doClose(JNIEnv* e, jobject o) {
+     return JNI_FALSE;
+   }
+   return JNI_TRUE;
+ }
+ 
+ /*****************************************************************************
+ **
+ ** Description:     JNI functions
+ **
+ *****************************************************************************/
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {"doSendTo", "(I[B)Z", (void*)nativeLlcpConnectionlessSocket_doSendTo},
+     {"doReceiveFrom", "(I)Lcom/android/nfc/LlcpPacket;",
+      (void*)nativeLlcpConnectionlessSocket_doReceiveFrom},
+     {"doClose", "()Z", (void*)nativeLlcpConnectionlessSocket_doClose},
+ };
+ 
+ /*******************************************************************************
+ **
+ ** Function:        register_com_android_nfc_NativeLlcpConnectionlessSocket
+ **
+diff --git a/nci/jni/NativeLlcpServiceSocket.cpp b/nci/jni/NativeLlcpServiceSocket.cpp
+index 76ffeea599d5b6c18a8d8b086db46d6d08428d77..4d2297c426a0d11ee06c344e248f72b829e9b6a4 100644
+--- a/nci/jni/NativeLlcpServiceSocket.cpp
++++ b/nci/jni/NativeLlcpServiceSocket.cpp
+@@ -121,21 +121,21 @@ static jboolean nativeLlcpServiceSocket_doClose(JNIEnv* e, jobject o) {
+ 
+   DLOG_IF(INFO, nfc_debug_enabled) << StringPrintf("%s: exit", __func__);
+   return JNI_TRUE;
+ }
+ 
+ /*****************************************************************************
+ **
+ ** Description:     JNI functions
+ **
+ *****************************************************************************/
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {"doAccept", "(III)Lcom/android/nfc/dhimpl/NativeLlcpSocket;",
+      (void*)nativeLlcpServiceSocket_doAccept},
+     {"doClose", "()Z", (void*)nativeLlcpServiceSocket_doClose},
+ };
+ 
+ /*******************************************************************************
+ **
+ ** Function:        register_com_android_nfc_NativeLlcpServiceSocket
+ **
+ ** Description:     Regisgter JNI functions with Java Virtual Machine.
+diff --git a/nci/jni/NativeLlcpSocket.cpp b/nci/jni/NativeLlcpSocket.cpp
+index 0ee0d2488da1c09ea621a154a340159f6bdd76be..fa49ec9488afa8aa077296c32905527e3b6a7e51 100644
+--- a/nci/jni/NativeLlcpSocket.cpp
++++ b/nci/jni/NativeLlcpSocket.cpp
+@@ -207,21 +207,21 @@ static jint nativeLlcpSocket_doGetRemoteSocketRW(JNIEnv* e, jobject o) {
+ 
+   DLOG_IF(INFO, nfc_debug_enabled) << StringPrintf("%s: exit", __func__);
+   return rw;
+ }
+ 
+ /*****************************************************************************
+ **
+ ** Description:     JNI functions
+ **
+ *****************************************************************************/
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {"doConnect", "(I)Z", (void*)nativeLlcpSocket_doConnect},
+     {"doConnectBy", "(Ljava/lang/String;)Z",
+      (void*)nativeLlcpSocket_doConnectBy},
+     {"doClose", "()Z", (void*)nativeLlcpSocket_doClose},
+     {"doSend", "([B)Z", (void*)nativeLlcpSocket_doSend},
+     {"doReceive", "([B)I", (void*)nativeLlcpSocket_doReceive},
+     {"doGetRemoteSocketMiu", "()I",
+      (void*)nativeLlcpSocket_doGetRemoteSocketMIU},
+     {"doGetRemoteSocketRw", "()I", (void*)nativeLlcpSocket_doGetRemoteSocketRW},
+ };
+diff --git a/nci/jni/NativeNfcManager.cpp b/nci/jni/NativeNfcManager.cpp
+index 5048262c9750ad427ae6dc0cbc62414e8c1ed7c0..7d8d90a9464bc73dc986329cb29b981735181315 100644
+--- a/nci/jni/NativeNfcManager.cpp
++++ b/nci/jni/NativeNfcManager.cpp
+@@ -1994,21 +1994,21 @@ static jboolean nfcManager_doSetNfcSecure(JNIEnv* e, jobject o,
+ 
+ static jstring nfcManager_doGetNfaStorageDir(JNIEnv* e, jobject o) {
+   string nfaStorageDir = NfcConfig::getString(NAME_NFA_STORAGE, "/data/nfc");
+   return e->NewStringUTF(nfaStorageDir.c_str());
+ }
+ /*****************************************************************************
+ **
+ ** JNI functions for android-4.0.1_r1
+ **
+ *****************************************************************************/
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {"doDownload", "()Z", (void*)nfcManager_doDownload},
+ 
+     {"initializeNativeStructure", "()Z", (void*)nfcManager_initNativeStruc},
+ 
+     {"doInitialize", "()Z", (void*)nfcManager_doInitialize},
+ 
+     {"doDeinitialize", "()Z", (void*)nfcManager_doDeinitialize},
+ 
+     {"sendRawFrame", "([B)Z", (void*)nfcManager_sendRawFrame},
+ 
+diff --git a/nci/jni/NativeNfcTag.cpp b/nci/jni/NativeNfcTag.cpp
+index ddae94e9003f0699c31839c751def603cbd94567..c51dc1383146dd903e4c1577cec7bca2a8a5bab9 100644
+--- a/nci/jni/NativeNfcTag.cpp
++++ b/nci/jni/NativeNfcTag.cpp
+@@ -1843,21 +1843,21 @@ void nativeNfcTag_releaseRfInterfaceMutexLock() {
+   sRfInterfaceMutex.unlock();
+   DLOG_IF(INFO, nfc_debug_enabled)
+       << StringPrintf("%s: sRfInterfaceMutex unlock", __func__);
+ }
+ 
+ /*****************************************************************************
+ **
+ ** JNI functions for Android 4.0.3
+ **
+ *****************************************************************************/
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {"doConnect", "(I)I", (void*)nativeNfcTag_doConnect},
+     {"doDisconnect", "()Z", (void*)nativeNfcTag_doDisconnect},
+     {"doReconnect", "()I", (void*)nativeNfcTag_doReconnect},
+     {"doHandleReconnect", "(I)I", (void*)nativeNfcTag_doHandleReconnect},
+     {"doTransceive", "([BZ[I)[B", (void*)nativeNfcTag_doTransceive},
+     {"doGetNdefType", "(II)I", (void*)nativeNfcTag_doGetNdefType},
+     {"doCheckNdef", "([I)I", (void*)nativeNfcTag_doCheckNdef},
+     {"doRead", "()[B", (void*)nativeNfcTag_doRead},
+     {"doWrite", "([B)Z", (void*)nativeNfcTag_doWrite},
+     {"doPresenceCheck", "()Z", (void*)nativeNfcTag_doPresenceCheck},
+diff --git a/nci/jni/NativeP2pDevice.cpp b/nci/jni/NativeP2pDevice.cpp
+index 23f5db4132caf3c0af55e7fd1947a97ec95c49db..396c6d0cdb1924106b727dbc378f92a232eb7c81 100644
+--- a/nci/jni/NativeP2pDevice.cpp
++++ b/nci/jni/NativeP2pDevice.cpp
+@@ -51,21 +51,21 @@ static jbyteArray nativeP2pDeviceDoReceive(JNIEnv*, jobject) {
+ static jboolean nativeP2pDeviceDoSend(JNIEnv*, jobject, jbyteArray) {
+   DLOG_IF(INFO, nfc_debug_enabled) << StringPrintf("%s", __func__);
+   return JNI_TRUE;
+ }
+ 
+ /*****************************************************************************
+ **
+ ** Description:     JNI functions
+ **
+ *****************************************************************************/
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {"doConnect", "()Z", (void*)nativeP2pDeviceDoConnect},
+     {"doDisconnect", "()Z", (void*)nativeP2pDeviceDoDisconnect},
+     {"doTransceive", "([B)[B", (void*)nativeP2pDeviceDoTransceive},
+     {"doReceive", "()[B", (void*)nativeP2pDeviceDoReceive},
+     {"doSend", "([B)Z", (void*)nativeP2pDeviceDoSend},
+ };
+ 
+ /*******************************************************************************
+ **
+ ** Function:        register_com_android_nfc_NativeP2pDevice
+
+commit eca88e7486adefc6ffc6d664c27b065ccf79f0c5 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Maoliang Tang <tangmaoliang@xiaomi.com>
+Date:   Fri 2020-07-31 20:55:38+0800
+
+    Avoid NFC continuous crash
+    
+    Some apps with poor quality don't want to export their
+    acitvities used to read tag to external for security reasons,
+    In this case, NFC would enter a continuous crash due to SecurityException
+    when detects a tag and try to dispatch.
+    
+    Hence, We should resolve it by catch the SecurityException.
+    
+    Bug: 162643562
+    Test: manual test with com.chinamworld.main AP
+    
+    Signed-off-by: Maoliang Tang <tangmaoliang@xiaomi.com>
+    Change-Id: I9557a3730c741dcae65d88e10e5e944f06925e94
+---
+ src/com/android/nfc/NfcRootActivity.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/com/android/nfc/NfcRootActivity.java b/src/com/android/nfc/NfcRootActivity.java
+index cc216f2ea5efbd55ba50dc4cb51fc0199c5004b1..b0b340f54e3382aa2975d7229e8671c1d04a891d 100644
+--- a/src/com/android/nfc/NfcRootActivity.java
++++ b/src/com/android/nfc/NfcRootActivity.java
+@@ -30,16 +30,17 @@ public class NfcRootActivity extends Activity {
+     @Override
+     protected void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+         Intent intent = getIntent();
+         if (intent != null && intent.hasExtra(EXTRA_LAUNCH_INTENT)) {
+             final Intent launchIntent = intent.getParcelableExtra(EXTRA_LAUNCH_INTENT);
+             if (launchIntent != null) {
+                 try {
+                     startActivityAsUser(launchIntent, UserHandle.CURRENT);
+                 } catch (ActivityNotFoundException e) {
++                } catch (SecurityException e) {
+                 }
+             }
+         }
+         finish();
+     }
+ }

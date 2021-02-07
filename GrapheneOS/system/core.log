@@ -1,0 +1,244 @@
+commit a2b3e04d73ea63ed2a3c681a3946bddf7cb9cda7
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2018-12-13 09:26:25-0500
+
+    increase max_map_count for hardened malloc
+---
+ rootdir/init.rc | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index a9af0b094da4e7bbdde03fbe98ca200566e1289e..b1f554316023a574876293cf280deff18b1621fc 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -847,20 +847,22 @@ on boot
+     # parameters to match how it is managing things.
+     write /proc/sys/vm/overcommit_memory 1
+     write /proc/sys/vm/min_free_order_shift 4
+ 
+     # System server manages zram writeback
+     chown root system /sys/block/zram0/idle
+     chmod 0664 /sys/block/zram0/idle
+     chown root system /sys/block/zram0/writeback
+     chmod 0664 /sys/block/zram0/writeback
+ 
++    write /proc/sys/vm/max_map_count 524240
++
+     # Tweak background writeout
+     write /proc/sys/vm/dirty_expire_centisecs 200
+     write /proc/sys/vm/dirty_background_ratio  5
+ 
+     # F2FS tuning. Set cp_interval larger than dirty_expire_centisecs
+     # to avoid power consumption when system becomes mostly idle. Be careful
+     # to make it too large, since it may bring userdata loss, if they
+     # are not aware of using fsync()/sync() to prepare sudden power-cut.
+     write /sys/fs/f2fs/${dev.mnt.blk.data}/cp_interval 200
+     write /sys/fs/f2fs/${dev.mnt.blk.data}/gc_urgent_sleep_time 50
+
+commit b4c444166c2206b6af43d811fc2e3c3445c1e088
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2015-02-06 11:46:34-0500
+
+    tighten up mount permissions
+---
+ init/first_stage_init.cpp | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/init/first_stage_init.cpp b/init/first_stage_init.cpp
+index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bfaca8ad97 100644
+--- a/init/first_stage_init.cpp
++++ b/init/first_stage_init.cpp
+@@ -185,31 +185,31 @@ int FirstStageMain(int argc, char** argv) {
+     // Clear the umask.
+     umask(0);
+ 
+     CHECKCALL(clearenv());
+     CHECKCALL(setenv("PATH", _PATH_DEFPATH, 1));
+     // Get the basic filesystem setup we need put together in the initramdisk
+     // on / and then we'll let the rc file figure out the rest.
+     CHECKCALL(mount("tmpfs", "/dev", "tmpfs", MS_NOSUID, "mode=0755"));
+     CHECKCALL(mkdir("/dev/pts", 0755));
+     CHECKCALL(mkdir("/dev/socket", 0755));
+-    CHECKCALL(mount("devpts", "/dev/pts", "devpts", 0, NULL));
++    CHECKCALL(mount("devpts", "/dev/pts", "devpts", MS_NOSUID|MS_NOEXEC, NULL));
+ #define MAKE_STR(x) __STRING(x)
+-    CHECKCALL(mount("proc", "/proc", "proc", 0, "hidepid=2,gid=" MAKE_STR(AID_READPROC)));
++    CHECKCALL(mount("proc", "/proc", "proc", MS_NOSUID|MS_NODEV|MS_NOEXEC, "hidepid=2,gid=" MAKE_STR(AID_READPROC)));
+ #undef MAKE_STR
+     // Don't expose the raw commandline to unprivileged processes.
+     CHECKCALL(chmod("/proc/cmdline", 0440));
+     std::string cmdline;
+     android::base::ReadFileToString("/proc/cmdline", &cmdline);
+     gid_t groups[] = {AID_READPROC};
+     CHECKCALL(setgroups(arraysize(groups), groups));
+-    CHECKCALL(mount("sysfs", "/sys", "sysfs", 0, NULL));
++    CHECKCALL(mount("sysfs", "/sys", "sysfs", MS_NOSUID|MS_NODEV|MS_NOEXEC, NULL));
+     CHECKCALL(mount("selinuxfs", "/sys/fs/selinux", "selinuxfs", 0, NULL));
+ 
+     CHECKCALL(mknod("/dev/kmsg", S_IFCHR | 0600, makedev(1, 11)));
+ 
+     if constexpr (WORLD_WRITABLE_KMSG) {
+         CHECKCALL(mknod("/dev/kmsg_debug", S_IFCHR | 0622, makedev(1, 11)));
+     }
+ 
+     CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
+     CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
+
+commit c5c31e0ee999ff8fcecc47933eb0be4cd5c61f87
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2015-02-06 11:41:57-0500
+
+    zero sensitive information with explicit_bzero
+---
+ init/security.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/init/security.cpp b/init/security.cpp
+index 6cbe642c081b13c12d7d951b0620d2dcf52e4b89..82fc8ca6413cb55f1ea7ef53968cc64968243478 100644
+--- a/init/security.cpp
++++ b/init/security.cpp
+@@ -71,20 +71,21 @@ Result<void> MixHwrngIntoLinuxRngAction(const BuiltinArguments&) {
+     while (total_bytes_written < sizeof(buf)) {
+         ssize_t chunk_size =
+             TEMP_FAILURE_RETRY(read(hwrandom_fd, buf, sizeof(buf) - total_bytes_written));
+         if (chunk_size == -1) {
+             return ErrnoError() << "Failed to read from /dev/hw_random";
+         } else if (chunk_size == 0) {
+             return Error() << "Failed to read from /dev/hw_random: EOF";
+         }
+ 
+         chunk_size = TEMP_FAILURE_RETRY(write(urandom_fd, buf, chunk_size));
++        explicit_bzero(buf, chunk_size);
+         if (chunk_size == -1) {
+             return ErrnoError() << "Failed to write to /dev/urandom";
+         }
+         total_bytes_written += chunk_size;
+     }
+ 
+     LOG(INFO) << "Mixed " << total_bytes_written << " bytes from /dev/hw_random into /dev/urandom";
+     return {};
+ }
+ 
+
+commit f1ca8ebce016690896eaf441699f7ad09cdb109e
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2016-06-15 17:51:42-0400
+
+    add properties for controlling deny_new_usb
+---
+ rootdir/init.rc | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index b1f554316023a574876293cf280deff18b1621fc..84fa56e5b2da2bd883d9a6216b4cc0bc34b81273 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -989,20 +989,32 @@ on property:sys.boot_completed=1
+ # system server cannot write to /proc/sys files,
+ # and chown/chmod does not work for /proc/sys/ entries.
+ # So proxy writes through init.
+ on property:sys.sysctl.extra_free_kbytes=*
+     write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}
+ 
+ # "tcp_default_init_rwnd" Is too long!
+ on property:sys.sysctl.tcp_def_init_rwnd=*
+     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
+ 
++on property:persist.security.deny_new_usb=disabled
++    write /proc/sys/kernel/deny_new_usb 0
++
++on property:persist.security.deny_new_usb=enabled
++    write /proc/sys/kernel/deny_new_usb 1
++
++on property:persist.security.deny_new_usb=dynamic
++    write /proc/sys/kernel/deny_new_usb 1
++
++on property:security.deny_new_usb=*
++    write /proc/sys/kernel/deny_new_usb ${security.deny_new_usb}
++
+ # perf_event_open syscall security:
+ # Newer kernels have the ability to control the use of the syscall via SELinux
+ # hooks. init tests for this, and sets sys_init.perf_lsm_hooks to 1 if the
+ # kernel has the hooks. In this case, the system-wide perf_event_paranoid
+ # sysctl is set to -1 (unrestricted use), and the SELinux policy is used for
+ # controlling access. On older kernels, the paranoid value is the only means of
+ # controlling access. It is normally 3 (allow only root), but the shell user
+ # can lower it to 1 (allowing thread-scoped pofiling) via security.perf_harden.
+ on property:sys.init.perf_lsm_hooks=1
+     write /proc/sys/kernel/perf_event_paranoid -1
+
+commit a0b9e74e8f4857a042a517f9c2cf9c05134d2360
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2019-07-16 14:49:29-0400
+
+    enable kernel mitigations for link races
+---
+ rootdir/init.rc | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index 84fa56e5b2da2bd883d9a6216b4cc0bc34b81273..724ea32b6c5af3711d90dcfc803ea2caacd4c83e 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -221,20 +221,23 @@ on init
+     mkdir /mnt/runtime/full/self 0755 root root
+ 
+     # Symlink to keep legacy apps working in multi-user world
+     symlink /storage/self/primary /mnt/sdcard
+     symlink /mnt/user/0/primary /mnt/runtime/default/self/primary
+ 
+     write /proc/sys/kernel/panic_on_oops 1
+     write /proc/sys/kernel/hung_task_timeout_secs 0
+     write /proc/cpu/alignment 4
+ 
++    write /proc/sys/fs/protected_hardlinks 1
++    write /proc/sys/fs/protected_symlinks 1
++
+     # scheduler tunables
+     # Disable auto-scaling of scheduler tunables with hotplug. The tunables
+     # will vary across devices in unpredictable ways if allowed to scale with
+     # cpu cores.
+     write /proc/sys/kernel/sched_tunable_scaling 0
+     write /proc/sys/kernel/sched_latency_ns 10000000
+     write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
+     write /proc/sys/kernel/sched_child_runs_first 0
+ 
+     write /proc/sys/kernel/randomize_va_space 2
+
+commit 5e0cefbf81dddbf8622280e9b48bab25da853b3f (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2019-07-16 14:54:28-0400
+
+    enable kernel mitigations for file spoofing
+---
+ rootdir/init.rc | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index 724ea32b6c5af3711d90dcfc803ea2caacd4c83e..bdcde4528f3b6a34821c38e3a23660743717da11 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -224,20 +224,23 @@ on init
+     symlink /storage/self/primary /mnt/sdcard
+     symlink /mnt/user/0/primary /mnt/runtime/default/self/primary
+ 
+     write /proc/sys/kernel/panic_on_oops 1
+     write /proc/sys/kernel/hung_task_timeout_secs 0
+     write /proc/cpu/alignment 4
+ 
+     write /proc/sys/fs/protected_hardlinks 1
+     write /proc/sys/fs/protected_symlinks 1
+ 
++    write /proc/sys/fs/protected_fifos 2
++    write /proc/sys/fs/protected_regular 2
++
+     # scheduler tunables
+     # Disable auto-scaling of scheduler tunables with hotplug. The tunables
+     # will vary across devices in unpredictable ways if allowed to scale with
+     # cpu cores.
+     write /proc/sys/kernel/sched_tunable_scaling 0
+     write /proc/sys/kernel/sched_latency_ns 10000000
+     write /proc/sys/kernel/sched_wakeup_granularity_ns 2000000
+     write /proc/sys/kernel/sched_child_runs_first 0
+ 
+     write /proc/sys/kernel/randomize_va_space 2

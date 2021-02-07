@@ -1,0 +1,153 @@
+commit 853a04238f2578be6339fcac15c9684465428cc2
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 08:03:50-0400
+
+    remove useless sdcard menu entry
+---
+ recovery_ui/device.cpp | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/recovery_ui/device.cpp b/recovery_ui/device.cpp
+index d46df92d3335fbb62d0285cd077ede2b8e2aed1c..312d8d8e9c1ec3fd3a88c01c64d159f1630a971f 100644
+--- a/recovery_ui/device.cpp
++++ b/recovery_ui/device.cpp
+@@ -24,21 +24,20 @@
+ #include <android-base/logging.h>
+ 
+ #include "otautil/boot_state.h"
+ #include "recovery_ui/ui.h"
+ 
+ static std::vector<std::pair<std::string, Device::BuiltinAction>> g_menu_actions{
+   { "Reboot system now", Device::REBOOT },
+   { "Reboot to bootloader", Device::REBOOT_BOOTLOADER },
+   { "Enter fastboot", Device::ENTER_FASTBOOT },
+   { "Apply update from ADB", Device::APPLY_ADB_SIDELOAD },
+-  { "Apply update from SD card", Device::APPLY_SDCARD },
+   { "Wipe data/factory reset", Device::WIPE_DATA },
+   { "Wipe cache partition", Device::WIPE_CACHE },
+   { "Mount /system", Device::MOUNT_SYSTEM },
+   { "View recovery logs", Device::VIEW_RECOVERY_LOGS },
+   { "Run graphics test", Device::RUN_GRAPHICS_TEST },
+   { "Run locale test", Device::RUN_LOCALE_TEST },
+   { "Enter rescue", Device::ENTER_RESCUE },
+   { "Power off", Device::SHUTDOWN },
+ };
+ 
+
+commit aa7319a7cf22d9d96a8c682c71c2c2ca0f5a9499
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 08:04:44-0400
+
+    rebranding
+---
+ fastboot/fastboot.cpp | 2 +-
+ recovery.cpp          | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/fastboot/fastboot.cpp b/fastboot/fastboot.cpp
+index a0930087c7ee4194c82e19f521fa3bbf5eb45a7d..97aad2054e59d0db5eb5bb427e2d1ba007744e9e 100644
+--- a/fastboot/fastboot.cpp
++++ b/fastboot/fastboot.cpp
+@@ -32,21 +32,21 @@
+ static const std::vector<std::pair<std::string, Device::BuiltinAction>> kFastbootMenuActions{
+   { "Reboot system now", Device::REBOOT_FROM_FASTBOOT },
+   { "Enter recovery", Device::ENTER_RECOVERY },
+   { "Reboot to bootloader", Device::REBOOT_BOOTLOADER },
+   { "Power off", Device::SHUTDOWN_FROM_FASTBOOT },
+ };
+ 
+ Device::BuiltinAction StartFastboot(Device* device, const std::vector<std::string>& /* args */) {
+   RecoveryUI* ui = device->GetUI();
+ 
+-  std::vector<std::string> title_lines = { "Android Fastboot" };
++  std::vector<std::string> title_lines = { "GrapheneOS Fastboot" };
+   title_lines.push_back("Product name - " + android::base::GetProperty("ro.product.device", ""));
+   title_lines.push_back("Bootloader version - " + android::base::GetProperty("ro.bootloader", ""));
+   title_lines.push_back("Baseband version - " +
+                         android::base::GetProperty("ro.build.expect.baseband", ""));
+   title_lines.push_back("Serial number - " + android::base::GetProperty("ro.serialno", ""));
+   title_lines.push_back(std::string("Secure boot - ") +
+                         ((android::base::GetProperty("ro.secure", "") == "1") ? "yes" : "no"));
+   title_lines.push_back("HW version - " + android::base::GetProperty("ro.revision", ""));
+ 
+   ui->ResetKeyInterruptStatus();
+diff --git a/recovery.cpp b/recovery.cpp
+index 7675121d4d42afa9f3b2db0f8447dae9d52827e7..d26275b39c75f963355417a5b19770edeabf5257 100644
+--- a/recovery.cpp
++++ b/recovery.cpp
+@@ -696,21 +696,21 @@ Device::BuiltinAction start_recovery(Device* device, const std::vector<std::stri
+   ui->SetSystemUpdateText(security_update);
+ 
+   int st_cur, st_max;
+   if (!device->GetStage().has_value() &&
+       sscanf(device->GetStage().value().c_str(), "%d/%d", &st_cur, &st_max) == 2) {
+     ui->SetStage(st_cur, st_max);
+   }
+ 
+   std::vector<std::string> title_lines =
+       android::base::Split(android::base::GetProperty("ro.bootimage.build.fingerprint", ""), ":");
+-  title_lines.insert(std::begin(title_lines), "Android Recovery");
++  title_lines.insert(std::begin(title_lines), "GrapheneOS Recovery");
+   ui->SetTitle(title_lines);
+ 
+   ui->ResetKeyInterruptStatus();
+   device->StartRecovery();
+ 
+   printf("Command:");
+   for (const auto& arg : args) {
+     printf(" \"%s\"", arg.c_str());
+   }
+   printf("\n\n");
+
+commit 21116900dfb172eeee9bc813a67bc28da70c6bcc (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-08-19 09:31:04-0400
+
+    reject updates with serialno constraints
+---
+ install/install.cpp | 16 ++--------------
+ 1 file changed, 2 insertions(+), 14 deletions(-)
+
+diff --git a/install/install.cpp b/install/install.cpp
+index d404997dce55a37b3f2ebe033112f6f48686ba00..26d7c766495a3ae4fa3b09c4d4408de13edc4175 100644
+--- a/install/install.cpp
++++ b/install/install.cpp
+@@ -197,36 +197,24 @@ bool CheckPackageMetadata(const std::map<std::string, std::string>& metadata, Ot
+     return false;
+   }
+ 
+   auto device = android::base::GetProperty("ro.product.device", "");
+   auto pkg_device = get_value(metadata, "pre-device");
+   if (pkg_device != device || pkg_device.empty()) {
+     LOG(ERROR) << "Package is for product " << pkg_device << " but expected " << device;
+     return false;
+   }
+ 
+-  // We allow the package to not have any serialno; and we also allow it to carry multiple serial
+-  // numbers split by "|"; e.g. serialno=serialno1|serialno2|serialno3 ... We will fail the
+-  // verification if the device's serialno doesn't match any of these carried numbers.
+   auto pkg_serial_no = get_value(metadata, "serialno");
+   if (!pkg_serial_no.empty()) {
+-    auto device_serial_no = android::base::GetProperty("ro.serialno", "");
+-    bool serial_number_match = false;
+-    for (const auto& number : android::base::Split(pkg_serial_no, "|")) {
+-      if (device_serial_no == android::base::Trim(number)) {
+-        serial_number_match = true;
+-      }
+-    }
+-    if (!serial_number_match) {
+-      LOG(ERROR) << "Package is for serial " << pkg_serial_no;
+-      return false;
+-    }
++    LOG(ERROR) << "Serial number constraint not permitted: " << pkg_serial_no;
++    return INSTALL_ERROR;
+   }
+ 
+   if (ota_type == OtaType::AB) {
+     return CheckAbSpecificMetadata(metadata);
+   }
+ 
+   return true;
+ }
+ 
+ bool SetUpAbUpdateCommands(const std::string& package, ZipArchiveHandle zip, int status_fd,

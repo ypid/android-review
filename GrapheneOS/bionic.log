@@ -1,0 +1,1780 @@
+commit 6df0814bd10843a4305ec652fc4a11338f900274
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2015-02-05 21:53:16-0500
+
+    add a real explicit_bzero implementation
+    
+    Clang, GCC and other compilers special-case standard C functions like
+    memset. Calls to memset will be optimized out.
+    
+    OpenBSD provides explicit_bzero to work around this but Android simply
+    defines it as memset so nothing prevents it from being optimized away.
+    
+    This implementation uses a memory read constraint via empty inline
+    assembly rather than something that may be broken via link-time
+    optimization in the future.
+---
+ libc/Android.bp                                        | 1 +
+ libc/bionic/explicit_bzero.cpp (new)                   | 7 +++++++
+ libc/include/string.h                                  | 1 +
+ libc/libc.map.txt                                      | 1 +
+ libc/upstream-openbsd/android/include/openbsd-compat.h | 2 --
+ 5 files changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/libc/Android.bp b/libc/Android.bp
+index d3271ae919c1507ccf5ebf32dcd3546163aa4338..043a03245dc3af4d0b690ccffa9ffd3ee1c3073a 100644
+--- a/libc/Android.bp
++++ b/libc/Android.bp
+@@ -1021,20 +1021,21 @@ cc_library_static {
+         "bionic/clock_getcpuclockid.cpp",
+         "bionic/clock_nanosleep.cpp",
+         "bionic/clone.cpp",
+         "bionic/ctype.cpp",
+         "bionic/dirent.cpp",
+         "bionic/dup.cpp",
+         "bionic/environ.cpp",
+         "bionic/error.cpp",
+         "bionic/eventfd.cpp",
+         "bionic/exec.cpp",
++        "bionic/explicit_bzero.cpp",
+         "bionic/faccessat.cpp",
+         "bionic/fchmod.cpp",
+         "bionic/fchmodat.cpp",
+         "bionic/fcntl.cpp",
+         "bionic/fdsan.cpp",
+         "bionic/fdtrack.cpp",
+         "bionic/ffs.cpp",
+         "bionic/fgetxattr.cpp",
+         "bionic/flistxattr.cpp",
+         "bionic/flockfile.cpp",
+diff --git a/libc/bionic/explicit_bzero.cpp b/libc/bionic/explicit_bzero.cpp
+new file mode 100644
+index 0000000000000000000000000000000000000000..b06daa13868bb1c6f4c84f078c63468871b63cf5
+--- /dev/null
++++ b/libc/bionic/explicit_bzero.cpp
+@@ -0,0 +1,7 @@
++#include <string.h>
++
++void* explicit_bzero(void* s, size_t n) {
++  void *ptr = memset(s, 0, n);
++  __asm__ __volatile__("" : : "r"(ptr) : "memory");
++  return ptr;
++}
+diff --git a/libc/include/string.h b/libc/include/string.h
+index 0cc5611aa835f5359808f6e8e8673a61db201275..befffd082889a1a9f9eb4a783d24270e15a8bccd 100644
+--- a/libc/include/string.h
++++ b/libc/include/string.h
+@@ -49,20 +49,21 @@ extern "C++" const void* memrchr(const void* __s, int __ch, size_t __n) __RENAME
+ #else
+ void* memrchr(const void* __s, int __ch, size_t __n) __attribute_pure__;
+ #endif
+ int memcmp(const void* __lhs, const void* __rhs, size_t __n) __attribute_pure__;
+ void* memcpy(void*, const void*, size_t);
+ #if defined(__USE_GNU)
+ void* mempcpy(void* __dst, const void* __src, size_t __n) __INTRODUCED_IN(23);
+ #endif
+ void* memmove(void* __dst, const void* __src, size_t __n);
+ void* memset(void* __dst, int __ch, size_t __n);
++void* explicit_bzero(void *s, size_t n);
+ void* memmem(const void* __haystack, size_t __haystack_size, const void* __needle, size_t __needle_size) __attribute_pure__;
+ 
+ char* strchr(const char* __s, int __ch) __attribute_pure__;
+ char* __strchr_chk(const char* __s, int __ch, size_t __n) __INTRODUCED_IN(18);
+ #if defined(__USE_GNU)
+ #if defined(__cplusplus)
+ extern "C++" char* strchrnul(char* __s, int __ch) __RENAME(strchrnul) __attribute_pure__ __INTRODUCED_IN(24);
+ extern "C++" const char* strchrnul(const char* __s, int __ch) __RENAME(strchrnul) __attribute_pure__ __INTRODUCED_IN(24);
+ #else
+ char* strchrnul(const char* __s, int __ch) __attribute_pure__ __INTRODUCED_IN(24);
+diff --git a/libc/libc.map.txt b/libc/libc.map.txt
+index 4bfb8a23207e3d3cb1f57139e7798077b5205951..36803984e933b5f575b446d44c3c1862187c315a 100644
+--- a/libc/libc.map.txt
++++ b/libc/libc.map.txt
+@@ -325,20 +325,21 @@ LIBC {
+     eventfd_read;
+     eventfd_write;
+     execl;
+     execle;
+     execlp;
+     execv;
+     execve;
+     execvp;
+     execvpe; # introduced=21
+     exit;
++    explicit_bzero; # introduced=30
+     faccessat;
+     fallocate; # introduced=21
+     fallocate64; # introduced=21
+     fchdir;
+     fchmod;
+     fchmodat;
+     fchown;
+     fchownat;
+     fclose;
+     fcntl;
+diff --git a/libc/upstream-openbsd/android/include/openbsd-compat.h b/libc/upstream-openbsd/android/include/openbsd-compat.h
+index 878f71cec695b2fd26b1e30d4fadc907b94115e7..79a2604259c2f4bbd49d77994f61d6c67b8979a9 100644
+--- a/libc/upstream-openbsd/android/include/openbsd-compat.h
++++ b/libc/upstream-openbsd/android/include/openbsd-compat.h
+@@ -46,22 +46,20 @@ extern const char* __progname;
+ #define _N _CTYPE_D
+ #define _S _CTYPE_S
+ #define _P _CTYPE_P
+ #define _C _CTYPE_C
+ #define _X _CTYPE_X
+ #define _B _CTYPE_B
+ 
+ /* OpenBSD has this, but we can't really implement it correctly on Linux. */
+ #define issetugid() 0
+ 
+-#define explicit_bzero(p, s) memset(p, 0, s)
+-
+ /* OpenBSD has these in <sys/param.h>, but "ALIGN" isn't something we want to reserve. */
+ #define ALIGNBYTES (sizeof(uintptr_t) - 1)
+ #define ALIGN(p) (((uintptr_t)(p) + ALIGNBYTES) &~ ALIGNBYTES)
+ 
+ /* OpenBSD has this in paths.h. But this directory doesn't normally exist.
+  * Even when it does exist, only the 'shell' user has permissions.
+  */
+ #define _PATH_TMP "/data/local/tmp/"
+ 
+ /* Use appropriate shell depending on process's executable. */
+
+commit a9d4f262bdf4f94fba0c608e218a30f0e4c167e8
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2018-12-05 01:51:56-0500
+
+    use Scudo on 32-bit and hardened_malloc on 64-bit
+    
+    Co-authored-by: anupritaisno1 <www.anuprita804@gmail.com>
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/Android.bp                        | 38 +++++++++++++++++++------
+ libc/bionic/h_malloc_wrapper.cpp (new) | 51 ++++++++++++++++++++++++++++++++++
+ libc/bionic/malloc_common.h            |  8 ++++++
+ 3 files changed, 88 insertions(+), 9 deletions(-)
+
+diff --git a/libc/Android.bp b/libc/Android.bp
+index 043a03245dc3af4d0b690ccffa9ffd3ee1c3073a..44567e06ed34220d3a4040eb5279f15c3960c4f5 100644
+--- a/libc/Android.bp
++++ b/libc/Android.bp
+@@ -43,20 +43,22 @@ libc_common_flags = [
+     "-Werror=int-to-pointer-cast",
+     "-Werror=type-limits",
+     "-Werror",
+ 
+     // Clang's exit-time destructor registration hides __dso_handle, but
+     // __dso_handle needs to have default visibility on ARM32. See b/73485611.
+     "-Wexit-time-destructors",
+ 
+     // GWP-ASan requires platform TLS.
+     "-fno-emulated-tls",
++
++    "-DH_MALLOC_PREFIX",
+ ]
+ 
+ // Define some common cflags
+ // ========================================================
+ cc_defaults {
+     name: "libc_defaults",
+     defaults: ["linux_bionic_supported"],
+     cflags: libc_common_flags,
+     asflags: libc_common_flags,
+     conlyflags: ["-std=gnu99"],
+@@ -103,40 +105,58 @@ libc_scudo_product_variables = {
+ }
+ 
+ // Defaults for native allocator libs/includes to make it
+ // easier to change.
+ // To disable scudo for the non-svelte config remove the line:
+ //     product_variables: libc_scudo_product_variables,
+ // in the cc_defaults below.
+ // ========================================================
+ cc_defaults {
+     name: "libc_native_allocator_defaults",
++    whole_static_libs: ["libc_jemalloc_wrapper"],
++    multilib: {
++        lib32: {
++            cflags: ["-DUSE_SCUDO"],
++            whole_static_libs: ["libscudo"],
++            exclude_static_libs: [
++                "libjemalloc5",
++                "libc_jemalloc_wrapper",
++            ],
++        },
++        lib64: {
++            cflags: ["-DH_MALLOC_PREFIX"],
++            whole_static_libs: ["libhardened_malloc"],
++        },
++    },
+ 
+-    whole_static_libs: [
+-        "libjemalloc5",
+-        "libc_jemalloc_wrapper",
+-    ],
+     header_libs: ["gwp_asan_headers"],
+-    product_variables: libc_scudo_product_variables,
+ }
+ 
+ // Functions not implemented by jemalloc directly, or that need to
+ // be modified for Android.
+ cc_library_static {
+     name: "libc_jemalloc_wrapper",
+     defaults: ["libc_defaults"],
+-    srcs: ["bionic/jemalloc_wrapper.cpp"],
++    multilib: {
++        lib32: {
++            // Used to pull in the jemalloc/hardened_malloc include directory so that if the
++            // library is removed, the include directory is also removed.
++            srcs: ["bionic/jemalloc_wrapper.cpp"],
++            static_libs: ["libjemalloc5"],
++        },
++        lib64: {
++            srcs: ["bionic/h_malloc_wrapper.cpp"],
++            static_libs: ["libhardened_malloc"],
++        },
++    },
+     cflags: ["-fvisibility=hidden"],
+ 
+-    // Used to pull in the jemalloc include directory so that if the
+-    // library is removed, the include directory is also removed.
+-    static_libs: ["libjemalloc5"],
+ }
+ 
+ // ========================================================
+ // libc_bootstrap.a - -fno-stack-protector and -ffreestanding
+ // ========================================================
+ //
+ // Code that implements the stack protector (or that runs before TLS has been set up) needs to be
+ // compiled with -fno-stack-protector, since it accesses the stack canary TLS slot. In the linker,
+ // some of this code runs before ifunc resolvers have made string.h functions work, so compile with
+ // -ffreestanding.
+diff --git a/libc/bionic/h_malloc_wrapper.cpp b/libc/bionic/h_malloc_wrapper.cpp
+new file mode 100644
+index 0000000000000000000000000000000000000000..5fb0968c27715c51ec6fa9ff6e2d8dc673c4707c
+--- /dev/null
++++ b/libc/bionic/h_malloc_wrapper.cpp
+@@ -0,0 +1,51 @@
++#include <errno.h>
++#include <malloc.h>
++#include <sys/param.h>
++#include <unistd.h>
++
++#include <private/MallocXmlElem.h>
++
++#include "h_malloc.h"
++
++__BEGIN_DECLS
++int h_malloc_info(int options, FILE* fp);
++__END_DECLS
++
++int h_malloc_info(int options, FILE* fp) {
++  if (options != 0) {
++    errno = EINVAL;
++    return -1;
++  }
++
++  fflush(fp);
++  int fd = fileno(fp);
++  MallocXmlElem root(fd, "malloc", "version=\"jemalloc-1\"");
++
++  // Dump all of the large allocations in the arenas.
++  for (size_t i = 0; i < h_mallinfo_narenas(); i++) {
++    struct mallinfo mi = h_mallinfo_arena_info(i);
++    if (mi.hblkhd != 0) {
++      MallocXmlElem arena_elem(fd, "heap", "nr=\"%d\"", i);
++      {
++        MallocXmlElem(fd, "allocated-large").Contents("%zu", mi.ordblks);
++        MallocXmlElem(fd, "allocated-huge").Contents("%zu", mi.uordblks);
++        MallocXmlElem(fd, "allocated-bins").Contents("%zu", mi.fsmblks);
++
++        size_t total = 0;
++        for (size_t j = 0; j < h_mallinfo_nbins(); j++) {
++          struct mallinfo mi = h_mallinfo_bin_info(i, j);
++          if (mi.ordblks != 0) {
++            MallocXmlElem bin_elem(fd, "bin", "nr=\"%d\"", j);
++            MallocXmlElem(fd, "allocated").Contents("%zu", mi.ordblks);
++            MallocXmlElem(fd, "nmalloc").Contents("%zu", mi.uordblks);
++            MallocXmlElem(fd, "ndalloc").Contents("%zu", mi.fordblks);
++            total += mi.ordblks;
++          }
++        }
++        MallocXmlElem(fd, "bins-total").Contents("%zu", total);
++      }
++    }
++  }
++
++  return 0;
++}
+diff --git a/libc/bionic/malloc_common.h b/libc/bionic/malloc_common.h
+index 4afcc4a8d5f3ceb1df0e0126de0a976c6cbb8f53..cca9e52021fe88bd5ba19e707999fc560782ce2c 100644
+--- a/libc/bionic/malloc_common.h
++++ b/libc/bionic/malloc_common.h
+@@ -60,22 +60,30 @@ __END_DECLS
+ #include "scudo.h"
+ #define Malloc(function)  scudo_ ## function
+ 
+ #elif defined(USE_SCUDO_SVELTE)
+ 
+ #include "scudo.h"
+ #define Malloc(function)  scudo_svelte_ ## function
+ 
+ #else
+ 
++#ifdef __LP64__
++#include "h_malloc.h"
++#define Malloc(function)  h_ ## function
++__BEGIN_DECLS
++int h_malloc_info(int options, FILE* fp);
++__END_DECLS
++#else
+ #include "jemalloc.h"
+ #define Malloc(function)  je_ ## function
++#endif
+ 
+ #endif
+ 
+ #endif
+ 
+ const MallocDispatch* NativeAllocatorDispatch();
+ 
+ static inline const MallocDispatch* GetDispatchTable() {
+   return atomic_load_explicit(&__libc_globals->current_dispatch_table, memory_order_acquire);
+ }
+
+commit 6f52d20a2b204263f9410b5a0d52ff29f9939a91
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2015-02-08 01:18:54-0500
+
+    replace brk and sbrk with stubs
+    
+    Pretend that there is never room to grow the heap in order to prevent
+    usage of these unsafe legacy functions. There are likely no users of
+    these in practice as it is inherently broken to use them outside of
+    malloc.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/brk.cpp | 48 ++++++++----------------------------------------
+ 1 file changed, 8 insertions(+), 40 deletions(-)
+
+diff --git a/libc/bionic/brk.cpp b/libc/bionic/brk.cpp
+index 566c33a7a6d3fc6d0b9331ee450946bbc5d5bb28..ef93055139b1a1bbf75ae12b7ee877dfdc15f30c 100644
+--- a/libc/bionic/brk.cpp
++++ b/libc/bionic/brk.cpp
+@@ -22,55 +22,23 @@
+  * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  * SUCH DAMAGE.
+  */
+ 
+ #include <errno.h>
+ #include <unistd.h>
+ 
+-#if defined(__LP64__)
+-static void* __bionic_brk;
+-#else
+-void* __bionic_brk; // Accidentally exported by the NDK.
++#if !defined(__LP64__)
++void* __bionic_brk = reinterpret_cast<void*>(-1); // Accidentally exported by the NDK.
+ #endif
+ 
+-extern "C" void* __brk(void* __addr);
+-
+-int brk(void* end_data) {
+-  __bionic_brk = __brk(end_data);
+-  if (__bionic_brk < end_data) {
+-    errno = ENOMEM;
+-    return -1;
+-  }
+-  return 0;
++int brk(void*) {
++  errno = ENOMEM;
++  return -1;
+ }
+ 
+-void* sbrk(ptrdiff_t increment) {
+-  // Initialize __bionic_brk if necessary.
+-  if (__bionic_brk == nullptr) {
+-    __bionic_brk = __brk(nullptr);
+-  }
+-
+-  // Don't ask the kernel if we already know the answer.
+-  if (increment == 0) {
+-    return __bionic_brk;
+-  }
+-
+-  // Avoid overflow.
+-  uintptr_t old_brk = reinterpret_cast<uintptr_t>(__bionic_brk);
+-  if ((increment > 0 && static_cast<uintptr_t>(increment) > (UINTPTR_MAX - old_brk)) ||
+-      (increment < 0 && static_cast<uintptr_t>(-increment) > old_brk)) {
+-    errno = ENOMEM;
+-    return reinterpret_cast<void*>(-1);
+-  }
+-
+-  void* desired_brk = reinterpret_cast<void*>(old_brk + increment);
+-  __bionic_brk = __brk(desired_brk);
+-  if (__bionic_brk < desired_brk) {
+-    errno = ENOMEM;
+-    return reinterpret_cast<void*>(-1);
+-  }
+-
+-  return reinterpret_cast<void*>(old_brk);
++void* sbrk(ptrdiff_t) {
++  errno = ENOMEM;
++  return reinterpret_cast<void*>(-1);
+ }
+
+commit bba9df84feb3508f69437a16ff1d433a008e5426
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2017-06-27 19:27:12-0400
+
+    document that fields before cached_pid break it
+    
+    Adding a field above this results in either that field or the tid field
+    (depending on if it's above that too) being set to zero by vfork.
+    Ideally that assembly would be replaced with a C++ wrapper but in the
+    meantime this adds a comment to save time for someone else.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_internal.h | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/libc/bionic/pthread_internal.h b/libc/bionic/pthread_internal.h
+index 1f055f59e2b9c5c1e488e9dc5192f81bede8a848..d58725baf17bd3c55da50bd081200ba3ba70b952 100644
+--- a/libc/bionic/pthread_internal.h
++++ b/libc/bionic/pthread_internal.h
+@@ -63,20 +63,21 @@ enum ThreadJoinState {
+ class thread_local_dtor;
+ 
+ class pthread_internal_t {
+  public:
+   class pthread_internal_t* next;
+   class pthread_internal_t* prev;
+ 
+   pid_t tid;
+ 
+  private:
++  // accessed from vfork asm via offset of field, so don't put fields above this
+   uint32_t cached_pid_ : 31;
+   uint32_t vforked_ : 1;
+ 
+  public:
+   bool is_vforked() { return vforked_; }
+ 
+   pid_t invalidate_cached_pid() {
+     pid_t old_value;
+     get_cached_pid(&old_value);
+     set_cached_pid(0);
+
+commit cce142df39e6705ee420f9bdd81822c356801f30
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2019-03-04 04:26:04-0500
+
+    use blocking getrandom and avoid urandom fallback
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/getentropy.cpp | 26 ++------------------------
+ 1 file changed, 2 insertions(+), 24 deletions(-)
+
+diff --git a/libc/bionic/getentropy.cpp b/libc/bionic/getentropy.cpp
+index 9c93e713b71f58c899152c468b2017de86972e2a..9b4085267509366cd1448f98ee77ab4e07b18c72 100644
+--- a/libc/bionic/getentropy.cpp
++++ b/libc/bionic/getentropy.cpp
+@@ -26,53 +26,31 @@
+  * SUCH DAMAGE.
+  */
+ 
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <sys/random.h>
+ #include <unistd.h>
+ 
+ #include "private/ScopedFd.h"
+ 
+-static int getentropy_urandom(void* buffer, size_t buffer_size, int saved_errno) {
+-  ScopedFd fd(TEMP_FAILURE_RETRY(open("/dev/urandom", O_RDONLY | O_NOFOLLOW | O_CLOEXEC, 0)));
+-  if (fd.get() == -1) return -1;
+-
+-  size_t collected = 0;
+-  while (collected < buffer_size) {
+-    ssize_t count = TEMP_FAILURE_RETRY(read(fd.get(), static_cast<char*>(buffer) + collected,
+-                                            buffer_size - collected));
+-    if (count == -1) return -1;
+-    collected += count;
+-  }
+-
+-  errno = saved_errno;
+-  return 0;
+-}
+-
+ int getentropy(void* buffer, size_t buffer_size) {
+   if (buffer_size > 256) {
+     errno = EIO;
+     return -1;
+   }
+ 
+   int saved_errno = errno;
+ 
+   size_t collected = 0;
+   while (collected < buffer_size) {
+     long count = TEMP_FAILURE_RETRY(getrandom(static_cast<char*>(buffer) + collected,
+-                                              buffer_size - collected, GRND_NONBLOCK));
++                                              buffer_size - collected, 0));
+     if (count == -1) {
+-      // EAGAIN: there isn't enough entropy right now.
+-      // ENOSYS/EINVAL: getrandom(2) or GRND_NONBLOCK isn't supported.
+-      // EFAULT: `buffer` is invalid.
+-      // Try /dev/urandom regardless because it can't hurt,
+-      // and we don't need to optimize the EFAULT case.
+-      // See http://b/33059407 and http://b/67015565.
+-      return getentropy_urandom(buffer, buffer_size, saved_errno);
++      return -1;
+     }
+     collected += count;
+   }
+ 
+   errno = saved_errno;
+   return 0;
+ }
+
+commit cc09b082db0d100b28d4c27848636aa7913fff79
+Author: anupritaisno1 <www.anuprita804@gmail.com>
+Date:   Thu 2020-09-17 04:01:15+0000
+
+    run clang-format on libc/bionic/getentropy.cpp
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/getentropy.cpp | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/libc/bionic/getentropy.cpp b/libc/bionic/getentropy.cpp
+index 9b4085267509366cd1448f98ee77ab4e07b18c72..c9438ad2b3eedb26db12bef0ada2f551414ca354 100644
+--- a/libc/bionic/getentropy.cpp
++++ b/libc/bionic/getentropy.cpp
+@@ -36,21 +36,21 @@
+ int getentropy(void* buffer, size_t buffer_size) {
+   if (buffer_size > 256) {
+     errno = EIO;
+     return -1;
+   }
+ 
+   int saved_errno = errno;
+ 
+   size_t collected = 0;
+   while (collected < buffer_size) {
+-    long count = TEMP_FAILURE_RETRY(getrandom(static_cast<char*>(buffer) + collected,
+-                                              buffer_size - collected, 0));
++    long count = TEMP_FAILURE_RETRY(
++        getrandom(static_cast<char*>(buffer) + collected, buffer_size - collected, 0));
+     if (count == -1) {
+       return -1;
+     }
+     collected += count;
+   }
+ 
+   errno = saved_errno;
+   return 0;
+ }
+
+commit 7554859e616ead994587f80456fae379b07db117
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2016-09-19 07:57:43-0400
+
+    fix undefined out-of-bounds accesses in sched.h
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/include/sched.h | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/libc/include/sched.h b/libc/include/sched.h
+index 3260231cf0a32361a08df81e883cfb16550e5334..00c2a4a45257acc99b1acb2bdd74c4078db445cd 100644
+--- a/libc/include/sched.h
++++ b/libc/include/sched.h
+@@ -63,21 +63,24 @@ int setns(int __fd, int __ns_type) __INTRODUCED_IN(21);
+ #else
+ #define CPU_SETSIZE 32
+ #endif
+ 
+ #define __CPU_BITTYPE  unsigned long int  /* mandated by the kernel  */
+ #define __CPU_BITS     (8 * sizeof(__CPU_BITTYPE))
+ #define __CPU_ELT(x)   ((x) / __CPU_BITS)
+ #define __CPU_MASK(x)  ((__CPU_BITTYPE)1 << ((x) & (__CPU_BITS - 1)))
+ 
+ typedef struct {
+-  __CPU_BITTYPE  __bits[ CPU_SETSIZE / __CPU_BITS ];
++  union {
++    __CPU_BITTYPE  __bits_minimum[ CPU_SETSIZE / __CPU_BITS ];
++    __CPU_BITTYPE  __bits[0];
++  };
+ } cpu_set_t;
+ 
+ int sched_setaffinity(pid_t __pid, size_t __set_size, const cpu_set_t* __set);
+ int sched_getaffinity(pid_t __pid, size_t __set_size, cpu_set_t* __set);
+ 
+ #define CPU_ZERO(set)          CPU_ZERO_S(sizeof(cpu_set_t), set)
+ #define CPU_SET(cpu, set)      CPU_SET_S(cpu, sizeof(cpu_set_t), set)
+ #define CPU_CLR(cpu, set)      CPU_CLR_S(cpu, sizeof(cpu_set_t), set)
+ #define CPU_ISSET(cpu, set)    CPU_ISSET_S(cpu, sizeof(cpu_set_t), set)
+ #define CPU_COUNT(set)         CPU_COUNT_S(sizeof(cpu_set_t), set)
+
+commit ac944e404219129647dd16ddc3956d1ddea44bbf
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2016-11-19 09:56:14-0500
+
+    stop implicitly marking mappings as mergeable
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/mmap.cpp | 19 +------------------
+ 1 file changed, 1 insertion(+), 18 deletions(-)
+
+diff --git a/libc/bionic/mmap.cpp b/libc/bionic/mmap.cpp
+index 9aad0b3156096da250e490279f642ae28e9afa28..6bf0ecfd16378207c58b971f6b28f21392145b3c 100644
+--- a/libc/bionic/mmap.cpp
++++ b/libc/bionic/mmap.cpp
+@@ -32,46 +32,29 @@
+ #include <unistd.h>
+ 
+ #include "platform/bionic/macros.h"
+ #include "private/ErrnoRestorer.h"
+ 
+ // mmap2(2) is like mmap(2), but the offset is in 4096-byte blocks, not bytes.
+ extern "C" void*  __mmap2(void*, size_t, int, int, int, size_t);
+ 
+ #define MMAP2_SHIFT 12 // 2**12 == 4096
+ 
+-static bool kernel_has_MADV_MERGEABLE = true;
+-
+ void* mmap64(void* addr, size_t size, int prot, int flags, int fd, off64_t offset) {
+   if (offset < 0 || (offset & ((1UL << MMAP2_SHIFT)-1)) != 0) {
+     errno = EINVAL;
+     return MAP_FAILED;
+   }
+ 
+   // prevent allocations large enough for `end - start` to overflow
+   size_t rounded = __BIONIC_ALIGN(size, PAGE_SIZE);
+   if (rounded < size || rounded > PTRDIFF_MAX) {
+     errno = ENOMEM;
+     return MAP_FAILED;
+   }
+ 
+-  bool is_private_anonymous =
+-      (flags & (MAP_PRIVATE | MAP_ANONYMOUS)) == (MAP_PRIVATE | MAP_ANONYMOUS);
+-  bool is_stack_or_grows_down = (flags & (MAP_STACK | MAP_GROWSDOWN)) != 0;
+-
+-  void* result = __mmap2(addr, size, prot, flags, fd, offset >> MMAP2_SHIFT);
+-
+-  if (result != MAP_FAILED && kernel_has_MADV_MERGEABLE &&
+-      is_private_anonymous && !is_stack_or_grows_down) {
+-    ErrnoRestorer errno_restorer;
+-    int rc = madvise(result, size, MADV_MERGEABLE);
+-    if (rc == -1 && errno == EINVAL) {
+-      kernel_has_MADV_MERGEABLE = false;
+-    }
+-  }
+-
+-  return result;
++  return __mmap2(addr, size, prot, flags, fd, offset >> MMAP2_SHIFT);
+ }
+ 
+ void* mmap(void* addr, size_t size, int prot, int flags, int fd, off_t offset) {
+   return mmap64(addr, size, prot, flags, fd, static_cast<off64_t>(offset));
+ }
+
+commit cf7795cdee9e111a0e14e99ca85d6c82b94bcdae
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2016-07-16 23:55:16-0400
+
+    replace VLA formatting with dprintf-like function
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/bionic_systrace.cpp | 10 +---------
+ 1 file changed, 1 insertion(+), 9 deletions(-)
+
+diff --git a/libc/bionic/bionic_systrace.cpp b/libc/bionic/bionic_systrace.cpp
+index fd97712982204cd680b9190bbfa28a53331cfc69..acd9b76814f046df3a12ec78ffe0105dd0c15163 100644
+--- a/libc/bionic/bionic_systrace.cpp
++++ b/libc/bionic/bionic_systrace.cpp
+@@ -20,22 +20,20 @@
+ #include <stdlib.h>
+ #include <string.h>
+ 
+ #include "private/bionic_lock.h"
+ #include "private/bionic_systrace.h"
+ #include "private/CachedProperty.h"
+ 
+ #include <async_safe/log.h>
+ #include <cutils/trace.h> // For ATRACE_TAG_BIONIC.
+ 
+-#define WRITE_OFFSET   32
+-
+ static Lock g_lock;
+ static CachedProperty g_debug_atrace_tags_enableflags("debug.atrace.tags.enableflags");
+ static uint64_t g_tags;
+ static int g_trace_marker_fd = -1;
+ 
+ static bool should_trace() {
+   g_lock.lock();
+   if (g_debug_atrace_tags_enableflags.DidChange()) {
+     g_tags = strtoull(g_debug_atrace_tags_enableflags.Get(), nullptr, 0);
+   }
+@@ -58,29 +56,23 @@ static int get_trace_marker_fd() {
+ void bionic_trace_begin(const char* message) {
+   if (!should_trace()) {
+     return;
+   }
+ 
+   int trace_marker_fd = get_trace_marker_fd();
+   if (trace_marker_fd == -1) {
+     return;
+   }
+ 
+-  // If bionic tracing has been enabled, then write the message to the
+-  // kernel trace_marker.
+-  int length = strlen(message);
+-  char buf[length + WRITE_OFFSET];
+-  size_t len = async_safe_format_buffer(buf, length + WRITE_OFFSET, "B|%d|%s", getpid(), message);
+-
+   // Tracing may stop just after checking property and before writing the message.
+   // So the write is acceptable to fail. See b/20666100.
+-  TEMP_FAILURE_RETRY(write(trace_marker_fd, buf, len));
++  async_safe_format_fd(trace_marker_fd, "B|%d|%s", getpid(), message);
+ }
+ 
+ void bionic_trace_end() {
+   if (!should_trace()) {
+     return;
+   }
+ 
+   int trace_marker_fd = get_trace_marker_fd();
+   if (trace_marker_fd == -1) {
+     return;
+
+commit a22d31a6bf4267407c8651b759e78c37c769ea2b
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2015-07-17 21:32:05-0400
+
+    increase default pthread stack to 8MiB on 64-bit
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_internal.h | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/libc/bionic/pthread_internal.h b/libc/bionic/pthread_internal.h
+index d58725baf17bd3c55da50bd081200ba3ba70b952..a108f5cc0d328a03330d93167574905f3a9d449a 100644
+--- a/libc/bionic/pthread_internal.h
++++ b/libc/bionic/pthread_internal.h
+@@ -227,19 +227,23 @@ __LIBC_HIDDEN__ void pthread_key_clean_all(void);
+ #define SIGNAL_STACK_SIZE_WITHOUT_GUARD (32 * 1024)
+ #else
+ #define SIGNAL_STACK_SIZE_WITHOUT_GUARD (16 * 1024)
+ #endif
+ 
+ // Traditionally we gave threads a 1MiB stack. When we started
+ // allocating per-thread alternate signal stacks to ease debugging of
+ // stack overflows, we subtracted the same amount we were using there
+ // from the default thread stack size. This should keep memory usage
+ // roughly constant.
++#ifdef __LP64__
++#define PTHREAD_STACK_SIZE_DEFAULT ((8 * 1024 * 1024) - SIGNAL_STACK_SIZE_WITHOUT_GUARD)
++#else
+ #define PTHREAD_STACK_SIZE_DEFAULT ((1 * 1024 * 1024) - SIGNAL_STACK_SIZE_WITHOUT_GUARD)
++#endif
+ 
+ // Leave room for a guard page in the internally created signal stacks.
+ #define SIGNAL_STACK_SIZE (SIGNAL_STACK_SIZE_WITHOUT_GUARD + PTHREAD_GUARD_SIZE)
+ 
+ // Needed by fork.
+ __LIBC_HIDDEN__ extern void __bionic_atfork_run_prepare();
+ __LIBC_HIDDEN__ extern void __bionic_atfork_run_child();
+ __LIBC_HIDDEN__ extern void __bionic_atfork_run_parent();
+
+commit 6c6196a8b9dabdad6ab02f4ddb07e516d70e7ea3
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2016-10-01 05:11:44-0400
+
+    make __stack_chk_guard read-only at runtime
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/__libc_init_main_thread.cpp | 15 ++++++++++++---
+ 1 file changed, 12 insertions(+), 3 deletions(-)
+
+diff --git a/libc/bionic/__libc_init_main_thread.cpp b/libc/bionic/__libc_init_main_thread.cpp
+index 56a8488888c4b37892d6dee18da02306f0d9a167..7c8256cd67895e69e849b431cd9788451d414afc 100644
+--- a/libc/bionic/__libc_init_main_thread.cpp
++++ b/libc/bionic/__libc_init_main_thread.cpp
+@@ -21,38 +21,44 @@
+  * BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+  * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  * SUCH DAMAGE.
+  */
+ 
+ #include "libc_init_common.h"
+ 
++#include <limits.h>
++#include <sys/mman.h>
++
+ #include <async_safe/log.h>
+ 
+ #include "private/KernelArgumentBlock.h"
+ #include "private/bionic_arc4random.h"
+ #include "private/bionic_defs.h"
+ #include "private/bionic_elf_tls.h"
+ #include "private/bionic_globals.h"
+-#include "private/bionic_ssp.h"
+ #include "pthread_internal.h"
+ 
+ extern "C" pid_t __getpid();
+ extern "C" int __set_tid_address(int* tid_address);
+ 
+ // Declared in "private/bionic_ssp.h".
+-uintptr_t __stack_chk_guard = 0;
++__attribute__((aligned(PAGE_SIZE)))
++uintptr_t __stack_chk_guard[PAGE_SIZE / sizeof(uintptr_t)] = {0};
+ 
+ static pthread_internal_t main_thread;
+ 
++void __libc_init_global_stack_chk_guard(KernelArgumentBlock& args) {
++}
++
+ // Setup for the main thread. For dynamic executables, this is called by the
+ // linker _before_ libc is mapped in memory. This means that all writes to
+ // globals from this function will apply to linker-private copies and will not
+ // be visible from libc later on.
+ //
+ // Note: this function creates a pthread_internal_t for the initial thread and
+ // stores the pointer in TLS, but does not add it to pthread's thread list. This
+ // has to be done later from libc itself (see __libc_init_common).
+ //
+ // This is in a file by itself because it needs to be built with
+@@ -115,21 +121,24 @@ extern "C" void __libc_init_main_thread_late() {
+   // We don't want to explicitly set the main thread's scheduler attributes (http://b/68328561).
+   pthread_attr_setinheritsched(&main_thread.attr, PTHREAD_INHERIT_SCHED);
+   // The main thread has no guard page.
+   pthread_attr_setguardsize(&main_thread.attr, 0);
+   // User code should never see this; we'll compute it when asked.
+   pthread_attr_setstacksize(&main_thread.attr, 0);
+ 
+   // The TLS stack guard is set from the global, so ensure that we've initialized the global
+   // before we initialize the TLS. Dynamic executables will initialize their copy of the global
+   // stack protector from the one in the main thread's TLS.
+-  __libc_safe_arc4random_buf(&__stack_chk_guard, sizeof(__stack_chk_guard));
++  __libc_safe_arc4random_buf(&__stack_chk_guard[0], sizeof(__stack_chk_guard[0]));
++  if (mprotect(__stack_chk_guard, sizeof(__stack_chk_guard), PROT_READ) == -1) {
++    async_safe_fatal("mprotect __stack_chk_guard: %s", strerror(errno));
++  }
+   __init_tcb_stack_guard(__get_bionic_tcb());
+ 
+   __init_thread(&main_thread);
+ 
+   __init_additional_stacks(&main_thread);
+ }
+ 
+ // Once all ELF modules are loaded, allocate the final copy of the main thread's
+ // static TLS memory.
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+
+commit f24322a661c0babab40d787ca9b669ae3c2654aa
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2017-03-12 17:49:13-0400
+
+    on 64-bit, zero the leading stack canary byte
+    
+    This reduces entropy of the canary from 64-bit to 56-bit in exchange for
+    mitigating non-terminated C string overflows.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/__libc_init_main_thread.cpp | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/libc/bionic/__libc_init_main_thread.cpp b/libc/bionic/__libc_init_main_thread.cpp
+index 7c8256cd67895e69e849b431cd9788451d414afc..554477674a2d201b98b751c01f96c1bde7a25820 100644
+--- a/libc/bionic/__libc_init_main_thread.cpp
++++ b/libc/bionic/__libc_init_main_thread.cpp
+@@ -42,22 +42,25 @@
+ 
+ extern "C" pid_t __getpid();
+ extern "C" int __set_tid_address(int* tid_address);
+ 
+ // Declared in "private/bionic_ssp.h".
+ __attribute__((aligned(PAGE_SIZE)))
+ uintptr_t __stack_chk_guard[PAGE_SIZE / sizeof(uintptr_t)] = {0};
+ 
+ static pthread_internal_t main_thread;
+ 
+-void __libc_init_global_stack_chk_guard(KernelArgumentBlock& args) {
+-}
++#if __LP64__
++static const uintptr_t canary_mask = __BYTE_ORDER__ == __ORDER_LITTLE_ENDIAN__ ?
++  0xffffffffffffff00UL :
++  0x00ffffffffffffffUL;
++#endif
+ 
+ // Setup for the main thread. For dynamic executables, this is called by the
+ // linker _before_ libc is mapped in memory. This means that all writes to
+ // globals from this function will apply to linker-private copies and will not
+ // be visible from libc later on.
+ //
+ // Note: this function creates a pthread_internal_t for the initial thread and
+ // stores the pointer in TLS, but does not add it to pthread's thread list. This
+ // has to be done later from libc itself (see __libc_init_common).
+ //
+@@ -122,20 +125,24 @@ extern "C" void __libc_init_main_thread_late() {
+   pthread_attr_setinheritsched(&main_thread.attr, PTHREAD_INHERIT_SCHED);
+   // The main thread has no guard page.
+   pthread_attr_setguardsize(&main_thread.attr, 0);
+   // User code should never see this; we'll compute it when asked.
+   pthread_attr_setstacksize(&main_thread.attr, 0);
+ 
+   // The TLS stack guard is set from the global, so ensure that we've initialized the global
+   // before we initialize the TLS. Dynamic executables will initialize their copy of the global
+   // stack protector from the one in the main thread's TLS.
+   __libc_safe_arc4random_buf(&__stack_chk_guard[0], sizeof(__stack_chk_guard[0]));
++#if __LP64__
++  // Sacrifice 8 bits of entropy on 64-bit to mitigate non-terminated C string overflows
++  __stack_chk_guard[0] &= canary_mask;
++#endif
+   if (mprotect(__stack_chk_guard, sizeof(__stack_chk_guard), PROT_READ) == -1) {
+     async_safe_fatal("mprotect __stack_chk_guard: %s", strerror(errno));
+   }
+   __init_tcb_stack_guard(__get_bionic_tcb());
+ 
+   __init_thread(&main_thread);
+ 
+   __init_additional_stacks(&main_thread);
+ }
+ 
+
+commit 858ae11fdce79b5301f040c2521d1bb10261b18e
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2015-12-02 23:37:28-0500
+
+    switch pthread_atfork handler allocation to mmap
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_atfork.cpp | 35 +++++++++++++++++++++++++++++------
+ 1 file changed, 29 insertions(+), 6 deletions(-)
+
+diff --git a/libc/bionic/pthread_atfork.cpp b/libc/bionic/pthread_atfork.cpp
+index 0dcabdfb2de0584d98321237aab2f19a3e982da9..6306052ee3b95cb11c53aa93a1f968d5f2afc4d3 100644
+--- a/libc/bionic/pthread_atfork.cpp
++++ b/libc/bionic/pthread_atfork.cpp
+@@ -22,34 +22,39 @@
+  * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  * SUCH DAMAGE.
+  */
+ 
+ #include <errno.h>
+ #include <pthread.h>
+ #include <stdlib.h>
++#include <sys/mman.h>
++#include <sys/prctl.h>
++#include <unistd.h>
+ 
+ #include "platform/bionic/macros.h"
+ 
+ struct atfork_t {
+   atfork_t* next;
+   atfork_t* prev;
+ 
+   void (*prepare)(void);
+   void (*child)(void);
+   void (*parent)(void);
+ 
+   void* dso_handle;
+ };
+ 
++static atfork_t* pool;
++
+ class atfork_list_t {
+  public:
+   constexpr atfork_list_t() : first_(nullptr), last_(nullptr) {}
+ 
+   template<typename F>
+   void walk_forward(F f) {
+     for (atfork_t* it = first_; it != nullptr; it = it->next) {
+       f(it);
+     }
+   }
+@@ -94,21 +99,22 @@ class atfork_list_t {
+     } else {
+       first_ = entry->next;
+     }
+ 
+     if (entry->next != nullptr) {
+       entry->next->prev = entry->prev;
+     } else {
+       last_ = entry->prev;
+     }
+ 
+-    free(entry);
++    entry->next = pool;
++    pool = entry;
+   }
+ 
+   atfork_t* first_;
+   atfork_t* last_;
+ 
+   BIONIC_DISALLOW_COPY_AND_ASSIGN(atfork_list_t);
+ };
+ 
+ static pthread_mutex_t g_atfork_list_mutex = PTHREAD_RECURSIVE_MUTEX_INITIALIZER_NP;
+ static atfork_list_t g_atfork_list;
+@@ -147,32 +153,49 @@ void __bionic_atfork_run_parent() {
+       it->parent();
+     }
+   });
+ 
+   pthread_mutex_unlock(&g_atfork_list_mutex);
+ }
+ 
+ // __register_atfork is the name used by glibc
+ extern "C" int __register_atfork(void (*prepare)(void), void (*parent)(void),
+                                  void(*child)(void), void* dso) {
+-  atfork_t* entry = reinterpret_cast<atfork_t*>(malloc(sizeof(atfork_t)));
+-  if (entry == nullptr) {
+-    return ENOMEM;
++  pthread_mutex_lock(&g_atfork_list_mutex);
++
++  if (!pool) {
++    size_t page_size = getpagesize();
++    char* page = static_cast<char*>(mmap(NULL, page_size, PROT_READ|PROT_WRITE,
++                                         MAP_ANONYMOUS|MAP_PRIVATE, -1, 0));
++    if (page == MAP_FAILED) {
++      pthread_mutex_unlock(&g_atfork_list_mutex);
++      return ENOMEM;
++    }
++
++    prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, page, page_size,
++      "atfork handlers");
++
++    for (char* it = page; it < page + page_size - sizeof(atfork_t); it += sizeof(atfork_t)) {
++      atfork_t* node = reinterpret_cast<atfork_t*>(it);
++      node->next = pool;
++      pool = node;
++    }
+   }
+ 
++  atfork_t* entry = pool;
++  pool = entry->next;
++
+   entry->prepare = prepare;
+   entry->parent = parent;
+   entry->child = child;
+   entry->dso_handle = dso;
+ 
+-  pthread_mutex_lock(&g_atfork_list_mutex);
+-
+   g_atfork_list.push_back(entry);
+ 
+   pthread_mutex_unlock(&g_atfork_list_mutex);
+ 
+   return 0;
+ }
+ 
+ extern "C" __LIBC_HIDDEN__ void __unregister_atfork(void* dso) {
+   pthread_mutex_lock(&g_atfork_list_mutex);
+   g_atfork_list.remove_if([&](const atfork_t* entry) {
+
+commit b2619f88039845856c6c4772732914eaf5e8cd32
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2015-12-03 12:58:31-0500
+
+    add memory protection for pthread_atfork handlers
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_atfork.cpp | 34 ++++++++++++++++++++++++++++++++--
+ 1 file changed, 32 insertions(+), 2 deletions(-)
+
+diff --git a/libc/bionic/pthread_atfork.cpp b/libc/bionic/pthread_atfork.cpp
+index 6306052ee3b95cb11c53aa93a1f968d5f2afc4d3..d59f3ae54bc39930a304b6790da874599b0cefa6 100644
+--- a/libc/bionic/pthread_atfork.cpp
++++ b/libc/bionic/pthread_atfork.cpp
+@@ -40,20 +40,21 @@ struct atfork_t {
+   atfork_t* prev;
+ 
+   void (*prepare)(void);
+   void (*child)(void);
+   void (*parent)(void);
+ 
+   void* dso_handle;
+ };
+ 
+ static atfork_t* pool;
++static atfork_t* page_list;
+ 
+ class atfork_list_t {
+  public:
+   constexpr atfork_list_t() : first_(nullptr), last_(nullptr) {}
+ 
+   template<typename F>
+   void walk_forward(F f) {
+     for (atfork_t* it = first_; it != nullptr; it = it->next) {
+       f(it);
+     }
+@@ -153,53 +154,82 @@ void __bionic_atfork_run_parent() {
+       it->parent();
+     }
+   });
+ 
+   pthread_mutex_unlock(&g_atfork_list_mutex);
+ }
+ 
+ // __register_atfork is the name used by glibc
+ extern "C" int __register_atfork(void (*prepare)(void), void (*parent)(void),
+                                  void(*child)(void), void* dso) {
++  size_t page_size = getpagesize();
++
+   pthread_mutex_lock(&g_atfork_list_mutex);
+ 
++  for (atfork_t* page_it = page_list; page_it; page_it = page_it->next) {
++    mprotect(page_it, page_size, PROT_READ|PROT_WRITE);
++  }
++
+   if (!pool) {
+-    size_t page_size = getpagesize();
+     char* page = static_cast<char*>(mmap(NULL, page_size, PROT_READ|PROT_WRITE,
+                                          MAP_ANONYMOUS|MAP_PRIVATE, -1, 0));
+     if (page == MAP_FAILED) {
++      for (atfork_t* page_it = page_list; page_it; page_it = page_it->next) {
++        mprotect(page_it, page_size, PROT_READ);
++      }
++
+       pthread_mutex_unlock(&g_atfork_list_mutex);
+       return ENOMEM;
+     }
+ 
+     prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, page, page_size,
+       "atfork handlers");
+ 
+-    for (char* it = page; it < page + page_size - sizeof(atfork_t); it += sizeof(atfork_t)) {
++    for (char* it = page + sizeof(atfork_t); it < page + page_size - sizeof(atfork_t); it += sizeof(atfork_t)) {
+       atfork_t* node = reinterpret_cast<atfork_t*>(it);
+       node->next = pool;
+       pool = node;
+     }
++
++    atfork_t* page_node = reinterpret_cast<atfork_t*>(page);
++    page_node->next = page_list;
++    page_list = page_node;
+   }
+ 
+   atfork_t* entry = pool;
+   pool = entry->next;
+ 
+   entry->prepare = prepare;
+   entry->parent = parent;
+   entry->child = child;
+   entry->dso_handle = dso;
+ 
+   g_atfork_list.push_back(entry);
+ 
++  for (atfork_t* page_it = page_list; page_it; page_it = page_it->next) {
++    mprotect(page_it, page_size, PROT_READ);
++  }
++
+   pthread_mutex_unlock(&g_atfork_list_mutex);
+ 
+   return 0;
+ }
+ 
+ extern "C" __LIBC_HIDDEN__ void __unregister_atfork(void* dso) {
+   pthread_mutex_lock(&g_atfork_list_mutex);
++
++  size_t page_size = getpagesize();
++
++  for (atfork_t* page_it = page_list; page_it; page_it = page_it->next) {
++    mprotect(page_it, page_size, PROT_READ|PROT_WRITE);
++  }
++
+   g_atfork_list.remove_if([&](const atfork_t* entry) {
+     return entry->dso_handle == dso;
+   });
++
++  for (atfork_t* page_it = page_list; page_it; page_it = page_it->next) {
++    mprotect(page_it, page_size, PROT_READ);
++  }
++
+   pthread_mutex_unlock(&g_atfork_list_mutex);
+ }
+
+commit 89c5ef0de14a5f3f32b8b9f5caeff0092f7bda68
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2016-01-27 18:02:15-0500
+
+    add XOR mangling mitigation for thread-local dtors
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/__cxa_thread_atexit_impl.cpp | 8 +++++---
+ libc/bionic/libc_init_common.cpp         | 2 ++
+ libc/private/bionic_globals.h            | 1 +
+ 3 files changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/libc/bionic/__cxa_thread_atexit_impl.cpp b/libc/bionic/__cxa_thread_atexit_impl.cpp
+index 99077c101dfc1bea4854ae81b3660f5aaaaad520..74608513ef0fba63d5c4018a865c9f90c7648635 100644
+--- a/libc/bionic/__cxa_thread_atexit_impl.cpp
++++ b/libc/bionic/__cxa_thread_atexit_impl.cpp
+@@ -6,58 +6,60 @@
+  * You may obtain a copy of the License at
+  *
+  *      http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
++#include <stdint.h>
+ #include <sys/cdefs.h>
+ 
+ #include <private/bionic_defs.h>
++#include <private/bionic_globals.h>
+ 
+ #include "pthread_internal.h"
+ 
+ class thread_local_dtor {
+  public:
+-  void (*func) (void *);
++  uintptr_t func;
+   void *arg;
+   void *dso_handle; // unused...
+   thread_local_dtor* next;
+ };
+ 
+ extern "C" int __cxa_thread_atexit_impl(void (*func) (void *), void *arg, void *dso_handle);
+ extern "C" void __loader_add_thread_local_dtor(void* dso_handle) __attribute__((weak));
+ extern "C" void __loader_remove_thread_local_dtor(void* dso_handle) __attribute__((weak));
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ int __cxa_thread_atexit_impl(void (*func) (void *), void *arg, void *dso_handle) {
+   thread_local_dtor* dtor = new thread_local_dtor();
+ 
+-  dtor->func = func;
++  dtor->func = __libc_globals->dtor_cookie ^ reinterpret_cast<uintptr_t>(func);
+   dtor->arg = arg;
+   dtor->dso_handle = dso_handle;
+ 
+   pthread_internal_t* thread = __get_thread();
+   dtor->next = thread->thread_local_dtors;
+   thread->thread_local_dtors = dtor;
+   if (__loader_add_thread_local_dtor != nullptr) {
+     __loader_add_thread_local_dtor(dso_handle);
+   }
+   return 0;
+ }
+ 
+ extern "C" __LIBC_HIDDEN__ void __cxa_thread_finalize() {
+   pthread_internal_t* thread = __get_thread();
+   while (thread->thread_local_dtors != nullptr) {
+     thread_local_dtor* current = thread->thread_local_dtors;
+     thread->thread_local_dtors = current->next;
+ 
+-    current->func(current->arg);
++    (reinterpret_cast<void (*)(void*)>(__libc_globals->dtor_cookie ^ current->func))(current->arg);
+     if (__loader_remove_thread_local_dtor != nullptr) {
+       __loader_remove_thread_local_dtor(current->dso_handle);
+     }
+     delete current;
+   }
+ }
+diff --git a/libc/bionic/libc_init_common.cpp b/libc/bionic/libc_init_common.cpp
+index a82ca50b69885881e18661ddb52d066a9535c701..2ad0b58c5a48348b2aeeba8f3198c4a912793110 100644
+--- a/libc/bionic/libc_init_common.cpp
++++ b/libc/bionic/libc_init_common.cpp
+@@ -38,20 +38,21 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/auxv.h>
+ #include <sys/personality.h>
+ #include <sys/time.h>
+ #include <unistd.h>
+ 
+ #include <async_safe/log.h>
+ 
+ #include "private/WriteProtected.h"
++#include "private/bionic_arc4random.h"
+ #include "private/bionic_defs.h"
+ #include "private/bionic_globals.h"
+ #include "private/bionic_tls.h"
+ #include "private/thread_private.h"
+ #include "pthread_internal.h"
+ 
+ extern "C" int __system_properties_init(void);
+ 
+ __LIBC_HIDDEN__ WriteProtected<libc_globals> __libc_globals;
+ 
+@@ -59,20 +60,21 @@ __LIBC_HIDDEN__ WriteProtected<libc_globals> __libc_globals;
+ const char* __progname;
+ 
+ void __libc_init_globals() {
+   // Initialize libc globals that are needed in both the linker and in libc.
+   // In dynamic binaries, this is run at least twice for different copies of the
+   // globals, once for the linker's copy and once for the one in libc.so.
+   __libc_globals.initialize();
+   __libc_globals.mutate([](libc_globals* globals) {
+     __libc_init_vdso(globals);
+     __libc_init_setjmp_cookie(globals);
++    arc4random_buf(&globals->dtor_cookie, sizeof(globals->dtor_cookie));
+   });
+ }
+ 
+ #if !defined(__LP64__)
+ static void __check_max_thread_id() {
+   if (gettid() > 65535) {
+     async_safe_fatal("Limited by the size of pthread_mutex_t, 32 bit bionic libc only accepts "
+                      "pid <= 65535, but current pid is %d", gettid());
+   }
+ }
+diff --git a/libc/private/bionic_globals.h b/libc/private/bionic_globals.h
+index 6e7eb76e405e9f8a1bee8cab34f63051635707f8..1b75ca0ee68464659e438990a43f4db5bf43adb0 100644
+--- a/libc/private/bionic_globals.h
++++ b/libc/private/bionic_globals.h
+@@ -36,20 +36,21 @@
+ 
+ #include "private/bionic_allocator.h"
+ #include "private/bionic_elf_tls.h"
+ #include "private/bionic_fdsan.h"
+ #include "private/bionic_malloc_dispatch.h"
+ #include "private/bionic_vdso.h"
+ #include "private/WriteProtected.h"
+ 
+ struct libc_globals {
+   vdso_entry vdso[VDSO_END];
++  long dtor_cookie;
+   long setjmp_cookie;
+   uintptr_t heap_pointer_tag;
+ 
+   // In order to allow a complete switch between dispatch tables without
+   // the need for copying each function by function in the structure,
+   // use a single atomic pointer to switch.
+   // The current_dispatch_table pointer can only ever be set to a complete
+   // table. Any dispatch table that is pointed to by current_dispatch_table
+   // cannot be modified after that. If the pointer changes in the future,
+   // the old pointer must always stay valid.
+
+commit 1086016d8a1866df36b8a679fd2c608cb123bdf6
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2016-01-29 20:20:09-0500
+
+    use a better pthread_attr junk filling pattern
+    
+    Guarantee that junk filled pointers will fault, at least on pure 64-bit.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_attr.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/libc/bionic/pthread_attr.cpp b/libc/bionic/pthread_attr.cpp
+index 3c4b169eedf031331e6d0af4cead84dc13cb7d3f..a27201706e5367d9b9969977770f6a0b67d6e605 100644
+--- a/libc/bionic/pthread_attr.cpp
++++ b/libc/bionic/pthread_attr.cpp
+@@ -46,21 +46,21 @@ int pthread_attr_init(pthread_attr_t* attr) {
+   attr->stack_base = nullptr;
+   attr->stack_size = PTHREAD_STACK_SIZE_DEFAULT;
+   attr->guard_size = PTHREAD_GUARD_SIZE;
+   attr->sched_policy = SCHED_NORMAL;
+   attr->sched_priority = 0;
+   return 0;
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ int pthread_attr_destroy(pthread_attr_t* attr) {
+-  memset(attr, 0x42, sizeof(pthread_attr_t));
++  memset(attr, 0xdf, sizeof(pthread_attr_t));
+   return 0;
+ }
+ 
+ __BIONIC_WEAK_FOR_NATIVE_BRIDGE
+ int pthread_attr_setinheritsched(pthread_attr_t* attr, int flag) {
+   if (flag == PTHREAD_EXPLICIT_SCHED) {
+     attr->flags &= ~PTHREAD_ATTR_FLAG_INHERIT;
+     attr->flags |= PTHREAD_ATTR_FLAG_EXPLICIT;
+   } else if (flag == PTHREAD_INHERIT_SCHED) {
+     attr->flags |= PTHREAD_ATTR_FLAG_INHERIT;
+
+commit f38cf9145fe8af68a844f74758bb1e91f421d053
+Author: Renlord <me@renlord.com>
+Date:   Thu 2019-09-12 14:51:51+1000
+
+    add guard page(s) between static_tls and stack
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_create.cpp | 29 +++++++++++++++++++----------
+ 1 file changed, 19 insertions(+), 10 deletions(-)
+
+diff --git a/libc/bionic/pthread_create.cpp b/libc/bionic/pthread_create.cpp
+index d4a8bef2699ece1a6957d6cda8b7f53bd3ffd8af..eac53cac855444791a7858a1080498fb37908419 100644
+--- a/libc/bionic/pthread_create.cpp
++++ b/libc/bionic/pthread_create.cpp
+@@ -192,61 +192,70 @@ int __init_thread(pthread_internal_t* thread) {
+ 
+ 
+ // Allocate a thread's primary mapping. This mapping includes static TLS and
+ // optionally a stack. Static TLS includes ELF TLS segments and the bionic_tls
+ // struct.
+ //
+ // The stack_guard_size must be a multiple of the PAGE_SIZE.
+ ThreadMapping __allocate_thread_mapping(size_t stack_size, size_t stack_guard_size) {
+   const StaticTlsLayout& layout = __libc_shared_globals()->static_tls_layout;
+ 
+-  // Allocate in order: stack guard, stack, static TLS, guard page.
++  // Allocate in order: stack guard, stack, guard page, static TLS, guard page.
+   size_t mmap_size;
+   if (__builtin_add_overflow(stack_size, stack_guard_size, &mmap_size)) return {};
++  if (__builtin_add_overflow(mmap_size, PTHREAD_GUARD_SIZE, &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, layout.size(), &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, PTHREAD_GUARD_SIZE, &mmap_size)) return {};
+ 
+   // Align the result to a page size.
+   const size_t unaligned_size = mmap_size;
+   mmap_size = __BIONIC_ALIGN(mmap_size, PAGE_SIZE);
+   if (mmap_size < unaligned_size) return {};
+ 
+-  // Create a new private anonymous map. Make the entire mapping PROT_NONE, then carve out a
+-  // read+write area in the middle.
++  // Create a new private anonymous map. Make the entire mapping PROT_NONE, then carve out
++  // read+write areas for the stack and static TLS
+   const int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE;
+   char* const space = static_cast<char*>(mmap(nullptr, mmap_size, PROT_NONE, flags, -1, 0));
+   if (space == MAP_FAILED) {
+     async_safe_format_log(ANDROID_LOG_WARN,
+                           "libc",
+                           "pthread_create failed: couldn't allocate %zu-bytes mapped space: %s",
+                           mmap_size, strerror(errno));
+     return {};
+   }
+-  const size_t writable_size = mmap_size - stack_guard_size - PTHREAD_GUARD_SIZE;
+-  if (mprotect(space + stack_guard_size,
+-               writable_size,
+-               PROT_READ | PROT_WRITE) != 0) {
++
++  if (mprotect(space + stack_guard_size, stack_size, PROT_READ | PROT_WRITE) != 0) {
+     async_safe_format_log(ANDROID_LOG_WARN, "libc",
+                           "pthread_create failed: couldn't mprotect R+W %zu-byte thread mapping region: %s",
+-                          writable_size, strerror(errno));
++                          stack_size, strerror(errno));
++    munmap(space, mmap_size);
++    return {};
++  }
++
++  char* const static_tls_space = space + stack_guard_size + stack_size + PTHREAD_GUARD_SIZE;
++
++  if (mprotect(static_tls_space, layout.size(), PROT_READ | PROT_WRITE) != 0) {
++    async_safe_format_log(ANDROID_LOG_WARN, "libc",
++                          "pthread_create failed: couldn't mprotect R+W %zu-byte static TLS mapping region: %s",
++                          layout.size(), strerror(errno));
+     munmap(space, mmap_size);
+     return {};
+   }
+ 
+   ThreadMapping result = {};
+   result.mmap_base = space;
+   result.mmap_size = mmap_size;
+   result.mmap_base_unguarded = space + stack_guard_size;
+   result.mmap_size_unguarded = mmap_size - stack_guard_size - PTHREAD_GUARD_SIZE;
+-  result.static_tls = space + mmap_size - PTHREAD_GUARD_SIZE - layout.size();
++  result.static_tls = static_tls_space;
+   result.stack_base = space;
+-  result.stack_top = result.static_tls;
++  result.stack_top = space + stack_guard_size + stack_size;
+   return result;
+ }
+ 
+ static int __allocate_thread(pthread_attr_t* attr, bionic_tcb** tcbp, void** child_stack) {
+   ThreadMapping mapping;
+   char* stack_top;
+   bool stack_clean = false;
+ 
+   if (attr->stack_base == nullptr) {
+     // The caller didn't provide a stack, so allocate one.
+
+commit 4415fb9d1bd867e50e35583cb546a34eb8db0411
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2019-10-10 22:52:49-0400
+
+    move pthread_internal_t behind guard page
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_create.cpp | 19 +++++++++----------
+ 1 file changed, 9 insertions(+), 10 deletions(-)
+
+diff --git a/libc/bionic/pthread_create.cpp b/libc/bionic/pthread_create.cpp
+index eac53cac855444791a7858a1080498fb37908419..336e69b597b523459dc75016f9c191842af87dfa 100644
+--- a/libc/bionic/pthread_create.cpp
++++ b/libc/bionic/pthread_create.cpp
+@@ -192,24 +192,27 @@ int __init_thread(pthread_internal_t* thread) {
+ 
+ 
+ // Allocate a thread's primary mapping. This mapping includes static TLS and
+ // optionally a stack. Static TLS includes ELF TLS segments and the bionic_tls
+ // struct.
+ //
+ // The stack_guard_size must be a multiple of the PAGE_SIZE.
+ ThreadMapping __allocate_thread_mapping(size_t stack_size, size_t stack_guard_size) {
+   const StaticTlsLayout& layout = __libc_shared_globals()->static_tls_layout;
+ 
+-  // Allocate in order: stack guard, stack, guard page, static TLS, guard page.
++  size_t thread_page_size = __BIONIC_ALIGN(sizeof(pthread_internal_t), PAGE_SIZE);
++
++  // Allocate in order: stack guard, stack, guard page, pthread_internal_t, static TLS, guard page.
+   size_t mmap_size;
+   if (__builtin_add_overflow(stack_size, stack_guard_size, &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, PTHREAD_GUARD_SIZE, &mmap_size)) return {};
++  if (__builtin_add_overflow(mmap_size, thread_page_size, &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, layout.size(), &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, PTHREAD_GUARD_SIZE, &mmap_size)) return {};
+ 
+   // Align the result to a page size.
+   const size_t unaligned_size = mmap_size;
+   mmap_size = __BIONIC_ALIGN(mmap_size, PAGE_SIZE);
+   if (mmap_size < unaligned_size) return {};
+ 
+   // Create a new private anonymous map. Make the entire mapping PROT_NONE, then carve out
+   // read+write areas for the stack and static TLS
+@@ -224,23 +227,24 @@ ThreadMapping __allocate_thread_mapping(size_t stack_size, size_t stack_guard_si
+   }
+ 
+   if (mprotect(space + stack_guard_size, stack_size, PROT_READ | PROT_WRITE) != 0) {
+     async_safe_format_log(ANDROID_LOG_WARN, "libc",
+                           "pthread_create failed: couldn't mprotect R+W %zu-byte thread mapping region: %s",
+                           stack_size, strerror(errno));
+     munmap(space, mmap_size);
+     return {};
+   }
+ 
+-  char* const static_tls_space = space + stack_guard_size + stack_size + PTHREAD_GUARD_SIZE;
++  char* const thread = space + stack_guard_size + stack_size + PTHREAD_GUARD_SIZE;
++  char* const static_tls_space = thread + thread_page_size;
+ 
+-  if (mprotect(static_tls_space, layout.size(), PROT_READ | PROT_WRITE) != 0) {
++  if (mprotect(thread, thread_page_size + layout.size(), PROT_READ | PROT_WRITE) != 0) {
+     async_safe_format_log(ANDROID_LOG_WARN, "libc",
+                           "pthread_create failed: couldn't mprotect R+W %zu-byte static TLS mapping region: %s",
+                           layout.size(), strerror(errno));
+     munmap(space, mmap_size);
+     return {};
+   }
+ 
+   ThreadMapping result = {};
+   result.mmap_base = space;
+   result.mmap_size = mmap_size;
+@@ -271,27 +275,22 @@ static int __allocate_thread(pthread_attr_t* attr, bionic_tcb** tcbp, void** chi
+     stack_top = mapping.stack_top;
+     attr->stack_base = mapping.stack_base;
+     stack_clean = true;
+   } else {
+     mapping = __allocate_thread_mapping(0, PTHREAD_GUARD_SIZE);
+     if (mapping.mmap_base == nullptr) return EAGAIN;
+ 
+     stack_top = static_cast<char*>(attr->stack_base) + attr->stack_size;
+   }
+ 
+-  // Carve out space from the stack for the thread's pthread_internal_t. This
+-  // memory isn't counted in pthread_attr_getstacksize.
+-
+-  // To safely access the pthread_internal_t and thread stack, we need to find a 16-byte aligned boundary.
+-  stack_top = align_down(stack_top - sizeof(pthread_internal_t), 16);
+-
+-  pthread_internal_t* thread = reinterpret_cast<pthread_internal_t*>(stack_top);
++  pthread_internal_t* thread = reinterpret_cast<pthread_internal_t*>(
++      mapping.static_tls - __BIONIC_ALIGN(sizeof(pthread_internal_t), PAGE_SIZE));
+   if (!stack_clean) {
+     // If thread was not allocated by mmap(), it may not have been cleared to zero.
+     // So assume the worst and zero it.
+     memset(thread, 0, sizeof(pthread_internal_t));
+   }
+ 
+   // Locate static TLS structures within the mapped region.
+   const StaticTlsLayout& layout = __libc_shared_globals()->static_tls_layout;
+   auto tcb = reinterpret_cast<bionic_tcb*>(mapping.static_tls + layout.offset_bionic_tcb());
+   auto tls = reinterpret_cast<bionic_tls*>(mapping.static_tls + layout.offset_bionic_tls());
+
+commit e24f30ee7c08751b5e4fce92771321a36b6d8086 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Renlord <me@renlord.com>
+Date:   Sun 2019-10-20 08:17:11+1100
+
+    add secondary stack randomization
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ libc/bionic/pthread_create.cpp | 32 +++++++++++++++++++++++++++-----
+ libc/include/sys/cdefs.h       |  1 +
+ 2 files changed, 28 insertions(+), 5 deletions(-)
+
+diff --git a/libc/bionic/pthread_create.cpp b/libc/bionic/pthread_create.cpp
+index 336e69b597b523459dc75016f9c191842af87dfa..3008e3cd2784cce3bf479565cc3072d114fe569d 100644
+--- a/libc/bionic/pthread_create.cpp
++++ b/libc/bionic/pthread_create.cpp
+@@ -22,20 +22,21 @@
+  * OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED
+  * AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+  * SUCH DAMAGE.
+  */
+ 
+ #include <pthread.h>
+ 
+ #include <errno.h>
++#include <stdlib.h>
+ #include <string.h>
+ #include <sys/mman.h>
+ #include <sys/prctl.h>
+ #include <sys/random.h>
+ #include <unistd.h>
+ 
+ #include "pthread_internal.h"
+ 
+ #include <async_safe/log.h>
+ 
+@@ -192,26 +193,38 @@ int __init_thread(pthread_internal_t* thread) {
+ 
+ 
+ // Allocate a thread's primary mapping. This mapping includes static TLS and
+ // optionally a stack. Static TLS includes ELF TLS segments and the bionic_tls
+ // struct.
+ //
+ // The stack_guard_size must be a multiple of the PAGE_SIZE.
+ ThreadMapping __allocate_thread_mapping(size_t stack_size, size_t stack_guard_size) {
+   const StaticTlsLayout& layout = __libc_shared_globals()->static_tls_layout;
+ 
++  // round up if the given stack size is not in multiples of PAGE_SIZE
++  stack_size = __BIONIC_ALIGN(stack_size, PAGE_SIZE);
+   size_t thread_page_size = __BIONIC_ALIGN(sizeof(pthread_internal_t), PAGE_SIZE);
+ 
+-  // Allocate in order: stack guard, stack, guard page, pthread_internal_t, static TLS, guard page.
++  // Place a randomly sized gap above the stack, up to 10% as large as the stack
++  // on 32-bit and 50% on 64-bit where virtual memory is plentiful.
++#if __LP64__
++  size_t max_gap_size = stack_size / 2;
++#else
++  size_t max_gap_size = stack_size / 10;
++#endif
++  // Make sure random stack top guard size are multiples of PAGE_SIZE.
++  size_t gap_size = __BIONIC_ALIGN(arc4random_uniform(max_gap_size), PAGE_SIZE);
++
++  // Allocate in order: stack guard, stack, (random) guard page(s), pthread_internal_t, static TLS, guard page.
+   size_t mmap_size;
+   if (__builtin_add_overflow(stack_size, stack_guard_size, &mmap_size)) return {};
+-  if (__builtin_add_overflow(mmap_size, PTHREAD_GUARD_SIZE, &mmap_size)) return {};
++  if (__builtin_add_overflow(mmap_size, gap_size, &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, thread_page_size, &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, layout.size(), &mmap_size)) return {};
+   if (__builtin_add_overflow(mmap_size, PTHREAD_GUARD_SIZE, &mmap_size)) return {};
+ 
+   // Align the result to a page size.
+   const size_t unaligned_size = mmap_size;
+   mmap_size = __BIONIC_ALIGN(mmap_size, PAGE_SIZE);
+   if (mmap_size < unaligned_size) return {};
+ 
+   // Create a new private anonymous map. Make the entire mapping PROT_NONE, then carve out
+@@ -219,47 +232,56 @@ ThreadMapping __allocate_thread_mapping(size_t stack_size, size_t stack_guard_si
+   const int flags = MAP_PRIVATE | MAP_ANONYMOUS | MAP_NORESERVE;
+   char* const space = static_cast<char*>(mmap(nullptr, mmap_size, PROT_NONE, flags, -1, 0));
+   if (space == MAP_FAILED) {
+     async_safe_format_log(ANDROID_LOG_WARN,
+                           "libc",
+                           "pthread_create failed: couldn't allocate %zu-bytes mapped space: %s",
+                           mmap_size, strerror(errno));
+     return {};
+   }
+ 
+-  if (mprotect(space + stack_guard_size, stack_size, PROT_READ | PROT_WRITE) != 0) {
++  // Stack is at the lower end of mapped space, stack guard region is at the lower end of stack.
++  // Make the usable portion of the stack between the guard region and random gap readable and
++  // writable.
++  if (mprotect((space + stack_guard_size), stack_size, PROT_READ | PROT_WRITE) == -1) {
+     async_safe_format_log(ANDROID_LOG_WARN, "libc",
+                           "pthread_create failed: couldn't mprotect R+W %zu-byte thread mapping region: %s",
+                           stack_size, strerror(errno));
+     munmap(space, mmap_size);
+     return {};
+   }
++  prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, space, stack_guard_size, "stack guard");
++  char* const stack_top_guard = space + stack_guard_size + stack_size;
++  prctl(PR_SET_VMA, PR_SET_VMA_ANON_NAME, stack_top_guard, gap_size, "stack top guard");
+ 
+-  char* const thread = space + stack_guard_size + stack_size + PTHREAD_GUARD_SIZE;
++  char* const thread = space + stack_guard_size + stack_size + gap_size;
+   char* const static_tls_space = thread + thread_page_size;
+ 
+   if (mprotect(thread, thread_page_size + layout.size(), PROT_READ | PROT_WRITE) != 0) {
+     async_safe_format_log(ANDROID_LOG_WARN, "libc",
+                           "pthread_create failed: couldn't mprotect R+W %zu-byte static TLS mapping region: %s",
+                           layout.size(), strerror(errno));
+     munmap(space, mmap_size);
+     return {};
+   }
+ 
+   ThreadMapping result = {};
+   result.mmap_base = space;
+   result.mmap_size = mmap_size;
+   result.mmap_base_unguarded = space + stack_guard_size;
+   result.mmap_size_unguarded = mmap_size - stack_guard_size - PTHREAD_GUARD_SIZE;
+   result.static_tls = static_tls_space;
+   result.stack_base = space;
+-  result.stack_top = space + stack_guard_size + stack_size;
++  // Choose a random base within the first page of the stack. Waste no more
++  // than the space originally wasted by pthread_internal_t for compatibility.
++  result.stack_top = space + stack_guard_size + stack_size - arc4random_uniform(sizeof(pthread_internal_t));
++  result.stack_top = reinterpret_cast<char*>(__BIONIC_ALIGN_DOWN(reinterpret_cast<size_t>(result.stack_top), 16));
+   return result;
+ }
+ 
+ static int __allocate_thread(pthread_attr_t* attr, bionic_tcb** tcbp, void** child_stack) {
+   ThreadMapping mapping;
+   char* stack_top;
+   bool stack_clean = false;
+ 
+   if (attr->stack_base == nullptr) {
+     // The caller didn't provide a stack, so allocate one.
+diff --git a/libc/include/sys/cdefs.h b/libc/include/sys/cdefs.h
+index b4556a74e5ca17630796656a5f01827cb7752ab3..5b0b4fb097f2adf6313115277b47a1c86a6b002d 100644
+--- a/libc/include/sys/cdefs.h
++++ b/libc/include/sys/cdefs.h
+@@ -54,20 +54,21 @@
+     __asm__(".global " #alias "\n" \
+             #alias " = " #sym);
+ 
+ #if defined(__cplusplus)
+ #define __BIONIC_CAST(_k,_t,_v) (_k<_t>(_v))
+ #else
+ #define __BIONIC_CAST(_k,_t,_v) ((_t) (_v))
+ #endif
+ 
+ #define __BIONIC_ALIGN(__value, __alignment) (((__value) + (__alignment)-1) & ~((__alignment)-1))
++#define __BIONIC_ALIGN_DOWN(value, alignment) ((value) & ~((alignment) - 1))
+ 
+ /*
+  * The __CONCAT macro is used to concatenate parts of symbol names, e.g.
+  * with "#define OLD(foo) __CONCAT(old,foo)", OLD(foo) produces oldfoo.
+  * The __CONCAT macro is a bit tricky -- make sure you don't put spaces
+  * in between its arguments.  __CONCAT can also concatenate double-quoted
+  * strings produced by the __STRING macro, but this only works with ANSI C.
+  */
+ 
+ #define	__P(protos)	protos		/* full-blown ANSI C */

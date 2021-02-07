@@ -1,0 +1,68 @@
+commit 0916395494b07a03f333d1610ce77d56a8d41d4c
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2020-03-14 21:26:00-0400
+
+    use scrypt for key derivation used to encrypt keys
+---
+ tools/make_key | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/make_key b/tools/make_key
+index a6cf49c0dd8f7ba513eab4203f39805547a0eddb..ec55e684a055f126b388e9283dbecdc744485632 100755
+--- a/tools/make_key
++++ b/tools/make_key
+@@ -63,16 +63,16 @@ fi
+ openssl req -new -x509 ${hash} -key ${two} -out $1.x509.pem \
+   -days 10000 -subj "$2" &
+ 
+ if [ "${password}" == "" ]; then
+   echo "creating ${1}.pk8 with no password"
+   openssl pkcs8 -in ${one} -topk8 -outform DER -out $1.pk8 -nocrypt
+ else
+   echo "creating ${1}.pk8 with password [${password}]"
+   export password
+   openssl pkcs8 -in ${one} -topk8 -outform DER -out $1.pk8 \
+-    -passout env:password
++    -passout env:password -scrypt
+   unset password
+ fi
+ 
+ wait
+ wait
+
+commit 53690c92a77b58de1a8eeffff136adf2ac3c5189 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-06-15 04:19:22-0400
+
+    make_key: use 4096-bit RSA keys
+---
+ tools/make_key | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/make_key b/tools/make_key
+index ec55e684a055f126b388e9283dbecdc744485632..bdcd27d237469409724fd438277ee8685c8e1e04 100755
+--- a/tools/make_key
++++ b/tools/make_key
+@@ -43,21 +43,21 @@ trap 'rm -rf ${tmpdir}; echo; exit 1' EXIT INT QUIT
+ one=${tmpdir}/one
+ two=${tmpdir}/two
+ mknod ${one} p
+ mknod ${two} p
+ chmod 0600 ${one} ${two}
+ 
+ read -p "Enter password for '$1' (blank for none; password will be visible): " \
+   password
+ 
+ if [ "${3}" = "rsa" -o "$#" -eq 2 ]; then
+-  ( openssl genrsa -f4 2048 | tee ${one} > ${two} ) &
++  ( openssl genrsa -f4 4096 | tee ${one} > ${two} ) &
+   hash="-sha256"
+ elif [ "${3}" = "ec" ]; then
+   ( openssl ecparam -name prime256v1 -genkey -noout | tee ${one} > ${two} ) &
+   hash="-sha256"
+ else
+   echo "Only accepts RSA or EC keytypes."
+   exit 1
+ fi
+ 
+ openssl req -new -x509 ${hash} -key ${two} -out $1.x509.pem \

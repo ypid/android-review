@@ -1,0 +1,150 @@
+commit 7dfeac73046c39c2365cbd5efe5deea059661e28
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2017-08-23 20:28:03-0400
+
+    use -fwrapv when signed overflow checking is off
+---
+ cc/cc.go       |  2 ++
+ cc/sanitize.go | 12 ++++++++++++
+ 2 files changed, 14 insertions(+)
+
+diff --git a/cc/cc.go b/cc/cc.go
+index 0f874f13c998e860c314dbd513f3d3b724c1dcdf..16b0258f34bd2b1ad8a70096014faa1369c59c7d 100644
+--- a/cc/cc.go
++++ b/cc/cc.go
+@@ -1471,20 +1471,22 @@ func (c *Module) GenerateAndroidBuildActions(actx android.ModuleContext) {
+ 		flags = c.compiler.compilerFlags(ctx, flags, deps)
+ 	}
+ 	if c.linker != nil {
+ 		flags = c.linker.linkerFlags(ctx, flags)
+ 	}
+ 	if c.stl != nil {
+ 		flags = c.stl.flags(ctx, flags)
+ 	}
+ 	if c.sanitize != nil {
+ 		flags = c.sanitize.flags(ctx, flags)
++	} else {
++		flags.Local.CFlags = append(flags.Local.CFlags, "-fwrapv")
+ 	}
+ 	if c.coverage != nil {
+ 		flags, deps = c.coverage.flags(ctx, flags, deps)
+ 	}
+ 	if c.lto != nil {
+ 		flags = c.lto.flags(ctx, flags)
+ 	}
+ 	if c.pgo != nil {
+ 		flags = c.pgo.flags(ctx, flags)
+ 	}
+diff --git a/cc/sanitize.go b/cc/sanitize.go
+index 463a02ac2590c4fa71abe5989a52dfe28089cd5e..7c92b41dc69a092bc5535125ce47c56fa5d6640c 100644
+--- a/cc/sanitize.go
++++ b/cc/sanitize.go
+@@ -451,23 +451,35 @@ func (sanitize *sanitize) flags(ctx ModuleContext, flags Flags) Flags {
+ 		flags.Local.LdFlags = append(flags.Local.LdFlags,
+ 			minimalRuntimePath,
+ 			"-Wl,--exclude-libs,"+minimalRuntimeLib)
+ 	}
+ 
+ 	if sanitize.Properties.BuiltinsDep {
+ 		flags.libFlags = append([]string{builtinsRuntimePath}, flags.libFlags...)
+ 	}
+ 
+ 	if !sanitize.Properties.SanitizerEnabled && !sanitize.Properties.UbsanRuntimeDep {
++		flags.Local.CFlags = append(flags.Local.CFlags, "-fwrapv")
+ 		return flags
+ 	}
+ 
++        wrapv := true
++        for _, element := range sanitize.Properties.Sanitizers {
++                if (element == "signed-integer-overflow" || element == "integer" || element == "undefined") {
++                        wrapv = false
++                        break
++                }
++        }
++        if wrapv {
++                flags.Local.CFlags = append(flags.Local.CFlags, "-fwrapv")
++        }
++
+ 	if Bool(sanitize.Properties.Sanitize.Address) {
+ 		if ctx.Arch().ArchType == android.Arm {
+ 			// Frame pointer based unwinder in ASan requires ARM frame setup.
+ 			// TODO: put in flags?
+ 			flags.RequiredInstructionSet = "arm"
+ 		}
+ 		flags.Local.CFlags = append(flags.Local.CFlags, asanCflags...)
+ 		flags.Local.LdFlags = append(flags.Local.LdFlags, asanLdflags...)
+ 
+ 		if ctx.Host() {
+
+commit d1ac24cb7e380d2277ce39317e52220369ecd330
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2020-04-23 16:34:04-0400
+
+    use SCHED_BATCH for the build
+---
+ soong_ui.bash | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/soong_ui.bash b/soong_ui.bash
+index c1c236b9d6f0bbbc95f7bed1f8c1889bd56ff73d..c2b21aaab1d7c478aad19383fe8140a3a35d387a 100755
+--- a/soong_ui.bash
++++ b/soong_ui.bash
+@@ -7,20 +7,22 @@
+ # You may obtain a copy of the License at
+ #
+ #     http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
++chrt -bp 0 $$
++
+ # To track how long we took to startup. %N isn't supported on Darwin, but
+ # that's detected in the Go code, which skips calculating the startup time.
+ export TRACE_BEGIN_SOONG=$(date +%s%N)
+ 
+ # Function to find top of the source tree (if $TOP isn't set) by walking up the
+ # tree.
+ function gettop
+ {
+     local TOPFILE=build/soong/root.bp
+     if [ -n "${TOP-}" -a -f "${TOP-}/${TOPFILE}" ] ; then
+
+commit 628bff1386fa63997b19eab444414499b54165de (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: anupritaisno1 <www.anuprita804@gmail.com>
+Date:   Sun 2020-09-13 09:35:41+0000
+
+    make hardened malloc available to apexes
+---
+ apex/apex.go | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/apex/apex.go b/apex/apex.go
+index 7da8e1cf2154a1c9c58c800629cf0847658135ec..66534426a12bbce85f85611106b1b35f874637b0 100644
+--- a/apex/apex.go
++++ b/apex/apex.go
+@@ -563,20 +563,21 @@ func makeApexAvailableBaseline() map[string][]string {
+ 		"libc_tzcode",
+ 		"libc_unwind_static",
+ 		"libdebuggerd",
+ 		"libdebuggerd_common_headers",
+ 		"libdebuggerd_handler_core",
+ 		"libdebuggerd_handler_fallback",
+ 		"libdexfile_external_headers",
+ 		"libdexfile_support",
+ 		"libdexfile_support_static",
+ 		"libdl_static",
++		"libhardened_malloc",
+ 		"libjemalloc5",
+ 		"liblinker_main",
+ 		"liblinker_malloc",
+ 		"liblz4",
+ 		"liblzma",
+ 		"libprocinfo",
+ 		"libpropertyinfoparser",
+ 		"libscudo",
+ 		"libstdc++",
+ 		"libsystemproperties",

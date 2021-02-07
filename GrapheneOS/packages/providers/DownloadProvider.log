@@ -1,0 +1,35 @@
+commit e91ef2f4beda842a2567eedfed56a0fa84599d57 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2017-08-06 08:19:36-0400
+
+    remove legacy NETWORK permission group reference
+---
+ AndroidManifest.xml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 43cf258edf1ff16e4ccb440848431adb5383ecb5..dfce071d93e3fa522b9a768d035b44e0eb27857e 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -22,21 +22,20 @@
+         android:protectionLevel="signature" />
+ 
+     <!-- Allows to download non-purgeable files to the cache partition through the public API -->
+     <permission android:name="android.permission.DOWNLOAD_CACHE_NON_PURGEABLE"
+         android:label="@string/permlab_downloadCacheNonPurgeable"
+         android:description="@string/permdesc_downloadCacheNonPurgeable"
+         android:protectionLevel="signatureOrSystem"/>
+ 
+     <!-- Allows to queue downloads without a notification shown while the download runs. -->
+     <permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION"
+-        android:permissionGroup="android.permission-group.NETWORK"
+         android:label="@string/permlab_downloadWithoutNotification"
+         android:description="@string/permdesc_downloadWithoutNotification"
+         android:protectionLevel="normal"/>
+ 
+     <!-- Allows an app to access all downloads in the system via the /all_downloads/ URIs.  The
+          protection level could be relaxed in the future to support third-party download
+          managers. -->
+     <permission android:name="android.permission.ACCESS_ALL_DOWNLOADS"
+         android:label="@string/permlab_accessAllDownloads"
+         android:description="@string/permdesc_accessAllDownloads"

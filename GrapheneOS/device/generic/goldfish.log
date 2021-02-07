@@ -1,0 +1,26 @@
+commit b595d8fcafac4f1ac4457303574e4e85ce9640d9 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2020-06-05 03:15:21-0400
+
+    mk_combined_img: stop hard-wiring path to python
+---
+ tools/mk_combined_img.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/mk_combined_img.py b/tools/mk_combined_img.py
+index 1e35dc6787972d1f253cb68d8ac4a47cebf0692e..78dd28801cc24a83a266c5de72b1b4b2fe98669e 100755
+--- a/tools/mk_combined_img.py
++++ b/tools/mk_combined_img.py
+@@ -1,11 +1,11 @@
+-#!/usr/bin/python
++#!/usr/bin/env python
+ 
+ from __future__ import print_function
+ 
+ import argparse
+ import codecs
+ import operator
+ import os
+ import sys
+ from subprocess import Popen, PIPE
+ from tempfile import mkstemp

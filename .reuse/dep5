@@ -1,0 +1,14 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: android-review
+Upstream-Contact: Robin Schneider <ypid@riseup.net>
+Source: https://github.com/ypid/android-review
+
+Files: GrapheneOS/additional_repo_path.list
+Copyright: 2021 Robin Schneider <ypid@riseup.net>
+License: CC0-1.0
+
+# I am not enabling this entry because then I would have to check each upstream
+# project for the license.
+# Files: GrapheneOS/*
+# Copyright: GrapheneOS developers
+# License: Depending on upstream. Mostly Apache-2.0 or MIT

@@ -1,0 +1,40 @@
+commit cd7d719649777e313aba2d14762152d4979bd292 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2017-07-01 13:21:18-0400
+
+    add alloc_size attributes to the allocator
+    
+    This results in expanded _FORTIFY_SOURCE coverage.
+---
+ osi/include/allocator.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/osi/include/allocator.h b/osi/include/allocator.h
+index 3a4141f384c5973af026c625a4a69785bf1424ab..4fa059eb14ceb3a1cf022bc44b4ccbce804b4018 100644
+--- a/osi/include/allocator.h
++++ b/osi/include/allocator.h
+@@ -30,22 +30,22 @@ typedef struct {
+   free_fn free;
+ } allocator_t;
+ 
+ // allocator_t abstractions for the osi_*alloc and osi_free functions
+ extern const allocator_t allocator_malloc;
+ extern const allocator_t allocator_calloc;
+ 
+ char* osi_strdup(const char* str);
+ char* osi_strndup(const char* str, size_t len);
+ 
+-void* osi_malloc(size_t size);
+-void* osi_calloc(size_t size);
++void* osi_malloc(size_t size) __attribute__((alloc_size(1)));
++void* osi_calloc(size_t size) __attribute__((alloc_size(1)));
+ void osi_free(void* ptr);
+ 
+ // Free a buffer that was previously allocated with function |osi_malloc|
+ // or |osi_calloc| and reset the pointer to that buffer to NULL.
+ // |p_ptr| is a pointer to the buffer pointer to be reset.
+ // |p_ptr| cannot be NULL.
+ void osi_free_and_reset(void** p_ptr);
+ 
+ // Dump allocation-related statistics and debug info to the |fd| file
+ // descriptor.

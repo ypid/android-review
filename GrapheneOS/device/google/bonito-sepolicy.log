@@ -1,0 +1,36 @@
+commit f4bb878691d10f1e15408a0b203ac5c60bbff112 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-04-06 08:41:19-0400
+
+    update for isolated_app split
+    b246b6eb5aa78348798794edef258ab7816742fb removed the need for one of the policy updates
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ vendor/qcom/common/hal_drm_widevine.te | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/vendor/qcom/common/hal_drm_widevine.te b/vendor/qcom/common/hal_drm_widevine.te
+index a5c125e202cd4946f0e7dd1c376065f6c3c8bca4..3f7eb14f2a643d284ef139b52a3f5329d0dbc339 100644
+--- a/vendor/qcom/common/hal_drm_widevine.te
++++ b/vendor/qcom/common/hal_drm_widevine.te
+@@ -1,18 +1,18 @@
+ type hal_drm_widevine, domain;
+ type hal_drm_widevine_exec, exec_type, vendor_file_type, file_type;
+ 
+ init_daemon_domain(hal_drm_widevine)
+ 
+ hal_server_domain(hal_drm_widevine, hal_drm)
+ 
+ vndbinder_use(hal_drm_widevine);
+ 
+ allow hal_drm mediacodec:fd use;
+-allow hal_drm { appdomain -isolated_app }:fd use;
++allow hal_drm { appdomain -isolated_app -isolated_base_app }:fd use;
+ 
+ allow hal_drm_widevine hal_allocator_server:fd use;
+ 
+ allow hal_drm_widevine mediadrm_vendor_data_file:dir create_dir_perms;
+ allow hal_drm_widevine mediadrm_vendor_data_file:file create_file_perms;
+ allow hal_drm_widevine hal_display_config_hwservice:hwservice_manager find;
+ binder_call(hal_drm_widevine, hal_graphics_composer_default)

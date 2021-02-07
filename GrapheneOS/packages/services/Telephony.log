@@ -1,0 +1,36 @@
+commit fa6c9d723cb47a540be721aec57b877937302237 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2017-08-04 13:00:56-0400
+
+    enable Verizon visual voicemail support
+---
+ res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/res/values/config.xml b/res/values/config.xml
+index 7e710687299547260e0d78787a1e785906c17c60..b92035f38372816ba88b3eef15dc8ea99f936ef4 100644
+--- a/res/values/config.xml
++++ b/res/values/config.xml
+@@ -205,21 +205,21 @@
+     <string name="config_simUnlockUiClass" translatable="false">@null</string>
+ 
+     <!-- Flag indicating whether to allow visual voicemail if available on the device.[DO NOT TRANSLATE] -->
+     <bool name="allow_visual_voicemail">true</bool>
+ 
+     <!-- The package to handle visual voicemail if the default dialer or the package
+     CarrierConfigManager.KEY_CARRIER_VVM_PACKAGE_NAME_STRING does not handle it -->
+     <string name="system_visual_voicemail_client" translatable="false"/>
+ 
+     <!-- Flag to enable VVM3 visual voicemail. VVM3 is used by Verizon Wireless. -->
+-    <bool name="vvm3_enabled">false</bool>
++    <bool name="vvm3_enabled">true</bool>
+ 
+     <!-- Flag indicating whether to allow pstn phone accounts [DO NOT TRANSLATE] -->
+     <bool name="config_pstn_phone_accounts_enabled">true</bool>
+ 
+     <!-- Flag indicating whether the the emergency phone account should be emergency calls only -->
+     <bool name="config_emergency_account_emergency_calls_only">false</bool>
+ 
+     <!-- Whether the emergency only account can make emergency calls -->
+     <bool name="config_pstnCanPlaceEmergencyCalls">true</bool>
+ 

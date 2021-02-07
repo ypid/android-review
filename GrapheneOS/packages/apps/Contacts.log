@@ -1,0 +1,233 @@
+commit 87368ae4c91b835e74b25218ba11c263fa944560
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2017-07-27 17:26:39-0400
+
+    remove useless no-op privacy policy / terms of use
+---
+ res/xml/preference_about.xml                       | 12 ----------
+ .../preference/AboutPreferenceFragment.java        | 28 ----------------------
+ 2 files changed, 40 deletions(-)
+
+diff --git a/res/xml/preference_about.xml b/res/xml/preference_about.xml
+index a109db68ed657688ffda3cbf1d005e05ff93fa03..6b31d238f0d857a5dc7294900f5ef2e93fb910f5 100644
+--- a/res/xml/preference_about.xml
++++ b/res/xml/preference_about.xml
+@@ -18,23 +18,11 @@
+     <Preference
+             android:icon="@null"
+             android:key="@string/pref_build_version_key"
+             android:title="@string/about_build_version"/>
+ 
+     <Preference
+             android:icon="@null"
+             android:key="@string/pref_open_source_licenses_key"
+             android:title="@string/about_open_source_licenses"
+             android:summary="@string/about_open_source_licenses_summary"/>
+-
+-    <Preference
+-            android:icon="@null"
+-            android:key="@string/pref_privacy_policy_key"
+-            android:title="@string/about_privacy_policy">
+-    </Preference>
+-
+-    <Preference
+-            android:icon="@null"
+-            android:key="@string/pref_terms_of_service_key"
+-            android:title="@string/about_terms_of_service">
+-    </Preference>
+ </PreferenceScreen>
+diff --git a/src/com/android/contacts/preference/AboutPreferenceFragment.java b/src/com/android/contacts/preference/AboutPreferenceFragment.java
+index 378948033ac42c95473a48016d3e2f765935a76d..721ab0460a31ba3c22b4a602c02c514028ef7e1a 100644
+--- a/src/com/android/contacts/preference/AboutPreferenceFragment.java
++++ b/src/com/android/contacts/preference/AboutPreferenceFragment.java
+@@ -27,24 +27,20 @@ import android.preference.Preference;
+ import android.preference.PreferenceFragment;
+ import android.widget.Toast;
+ 
+ import com.android.contacts.R;
+ import com.android.contacts.activities.LicenseActivity;
+ 
+ /**
+  * This fragment shows the preferences for "about".
+  */
+ public class AboutPreferenceFragment extends PreferenceFragment {
+-
+-    public static final String PRIVACY_POLICY_URL = "http://www.google.com/policies/privacy";
+-    public static final String TERMS_OF_SERVICE_URL = "http://www.google.com/policies/terms";
+-
+     public static AboutPreferenceFragment newInstance() {
+         return new AboutPreferenceFragment();
+     }
+ 
+     @Override
+     public void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+ 
+         // Load the preferences from an XML resource
+         addPreferencesFromResource(R.xml.preference_about);
+@@ -56,44 +52,20 @@ public class AboutPreferenceFragment extends PreferenceFragment {
+             final Preference versionPreference = findPreference(
+                     getString(R.string.pref_build_version_key));
+             versionPreference.setSummary(info.versionName);
+         } catch (PackageManager.NameNotFoundException e) {
+             // Nothing
+         }
+ 
+         final Preference licensePreference = findPreference(
+                 getString(R.string.pref_open_source_licenses_key));
+         licensePreference.setIntent(new Intent(getActivity(), LicenseActivity.class));
+-
+-        final Preference privacyPolicyPreference = findPreference("pref_privacy_policy");
+-        final Preference termsOfServicePreference = findPreference("pref_terms_of_service");
+-
+-        final Preference.OnPreferenceClickListener listener =
+-                new Preference.OnPreferenceClickListener() {
+-            @Override
+-            public boolean onPreferenceClick(Preference preference) {
+-                try {
+-                    if (preference == privacyPolicyPreference) {
+-                        startActivityForUrl(PRIVACY_POLICY_URL);
+-                    } else if (preference == termsOfServicePreference) {
+-                        startActivityForUrl(TERMS_OF_SERVICE_URL);
+-                    }
+-                } catch (ActivityNotFoundException ex) {
+-                    Toast.makeText(getContext(), getString(R.string.url_open_error_toast),
+-                            Toast.LENGTH_SHORT).show();
+-                }
+-                return true;
+-            }
+-        };
+-
+-        privacyPolicyPreference.setOnPreferenceClickListener(listener);
+-        termsOfServicePreference.setOnPreferenceClickListener(listener);
+     }
+ 
+     @Override
+     public Context getContext() {
+         return getActivity();
+     }
+ 
+     private void startActivityForUrl(String urlString) {
+         final Intent intent = new Intent();
+         intent.setAction(Intent.ACTION_VIEW);
+
+commit 920e98146a02c465f1cf04b3ae20b29bd248ce36 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2017-08-22 02:51:36-0400
+
+    remove 'to Google' from Contacts backup notice
+---
+ res/values-en-rAU/strings.xml | 2 +-
+ res/values-en-rGB/strings.xml | 2 +-
+ res/values-en-rIN/strings.xml | 2 +-
+ res/values/strings.xml        | 2 +-
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/res/values-en-rAU/strings.xml b/res/values-en-rAU/strings.xml
+index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e6840bbac9f2 100644
+--- a/res/values-en-rAU/strings.xml
++++ b/res/values-en-rAU/strings.xml
+@@ -179,21 +179,21 @@
+     <string name="clear_default" msgid="2055883863621491533">"Clear default"</string>
+     <string name="toast_text_copied" msgid="845906090076228771">"Text copied"</string>
+     <string name="cancel_confirmation_dialog_message" msgid="7486892574762212762">"Discard changes?"</string>
+     <string name="cancel_confirmation_dialog_cancel_editing_button" msgid="8280294641821133477">"Discard"</string>
+     <string name="cancel_confirmation_dialog_keep_editing_button" msgid="7117943783437253341">"Cancel"</string>
+     <string name="leave_customize_confirmation_dialog_message" msgid="5330853530872707231">"Discard customisations?"</string>
+     <string name="enter_contact_name" msgid="521859148893732679">"Search contacts"</string>
+     <string name="title_edit_group" msgid="4246193439931854759">"Remove contacts"</string>
+     <string name="local_profile_title" msgid="1613784248702623410">"My local profile"</string>
+     <string name="external_profile_title" msgid="2706282819025406927">"My <xliff:g id="EXTERNAL_SOURCE">%1$s</xliff:g> profile"</string>
+-    <string name="contact_editor_prompt_zero_accounts" msgid="4468363031413457746">"Take a moment to add an account that will back up your contacts to Google."</string>
++    <string name="contact_editor_prompt_zero_accounts" msgid="4468363031413457746">"Take a moment to add an account that will back up your contacts."</string>
+     <string name="contact_editor_prompt_one_account" msgid="765343809177951169">"New contacts will be saved to <xliff:g id="ACCOUNT_NAME">%1$s</xliff:g>."</string>
+     <string name="contact_editor_prompt_multiple_accounts" msgid="1543322760761168351">"Choose a default account for new contacts:"</string>
+     <string name="contact_editor_title_new_contact" msgid="7534775011591770343">"Create new contact"</string>
+     <string name="contact_editor_title_existing_contact" msgid="3647774955741654029">"Edit contact"</string>
+     <string name="contact_editor_title_read_only_contact" msgid="5494810291515292596">"View only"</string>
+     <string name="contact_editor_pick_raw_contact_to_edit_dialog_title" msgid="4478782370280424187">"Choose contact to edit"</string>
+     <string name="contact_editor_pick_linked_contact_dialog_title" msgid="3332134735168016293">"Linked contacts"</string>
+     <string name="contact_editor_add_linked_contact" msgid="2895453741206196138">"Add"</string>
+     <string name="contact_editor_unlink_contacts" msgid="8399419729744305687">"Unlink"</string>
+     <string name="add_account" msgid="3071396624500839020">"Add account"</string>
+diff --git a/res/values-en-rGB/strings.xml b/res/values-en-rGB/strings.xml
+index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e6840bbac9f2 100644
+--- a/res/values-en-rGB/strings.xml
++++ b/res/values-en-rGB/strings.xml
+@@ -179,21 +179,21 @@
+     <string name="clear_default" msgid="2055883863621491533">"Clear default"</string>
+     <string name="toast_text_copied" msgid="845906090076228771">"Text copied"</string>
+     <string name="cancel_confirmation_dialog_message" msgid="7486892574762212762">"Discard changes?"</string>
+     <string name="cancel_confirmation_dialog_cancel_editing_button" msgid="8280294641821133477">"Discard"</string>
+     <string name="cancel_confirmation_dialog_keep_editing_button" msgid="7117943783437253341">"Cancel"</string>
+     <string name="leave_customize_confirmation_dialog_message" msgid="5330853530872707231">"Discard customisations?"</string>
+     <string name="enter_contact_name" msgid="521859148893732679">"Search contacts"</string>
+     <string name="title_edit_group" msgid="4246193439931854759">"Remove contacts"</string>
+     <string name="local_profile_title" msgid="1613784248702623410">"My local profile"</string>
+     <string name="external_profile_title" msgid="2706282819025406927">"My <xliff:g id="EXTERNAL_SOURCE">%1$s</xliff:g> profile"</string>
+-    <string name="contact_editor_prompt_zero_accounts" msgid="4468363031413457746">"Take a moment to add an account that will back up your contacts to Google."</string>
++    <string name="contact_editor_prompt_zero_accounts" msgid="4468363031413457746">"Take a moment to add an account that will back up your contacts."</string>
+     <string name="contact_editor_prompt_one_account" msgid="765343809177951169">"New contacts will be saved to <xliff:g id="ACCOUNT_NAME">%1$s</xliff:g>."</string>
+     <string name="contact_editor_prompt_multiple_accounts" msgid="1543322760761168351">"Choose a default account for new contacts:"</string>
+     <string name="contact_editor_title_new_contact" msgid="7534775011591770343">"Create new contact"</string>
+     <string name="contact_editor_title_existing_contact" msgid="3647774955741654029">"Edit contact"</string>
+     <string name="contact_editor_title_read_only_contact" msgid="5494810291515292596">"View only"</string>
+     <string name="contact_editor_pick_raw_contact_to_edit_dialog_title" msgid="4478782370280424187">"Choose contact to edit"</string>
+     <string name="contact_editor_pick_linked_contact_dialog_title" msgid="3332134735168016293">"Linked contacts"</string>
+     <string name="contact_editor_add_linked_contact" msgid="2895453741206196138">"Add"</string>
+     <string name="contact_editor_unlink_contacts" msgid="8399419729744305687">"Unlink"</string>
+     <string name="add_account" msgid="3071396624500839020">"Add account"</string>
+diff --git a/res/values-en-rIN/strings.xml b/res/values-en-rIN/strings.xml
+index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e6840bbac9f2 100644
+--- a/res/values-en-rIN/strings.xml
++++ b/res/values-en-rIN/strings.xml
+@@ -179,21 +179,21 @@
+     <string name="clear_default" msgid="2055883863621491533">"Clear default"</string>
+     <string name="toast_text_copied" msgid="845906090076228771">"Text copied"</string>
+     <string name="cancel_confirmation_dialog_message" msgid="7486892574762212762">"Discard changes?"</string>
+     <string name="cancel_confirmation_dialog_cancel_editing_button" msgid="8280294641821133477">"Discard"</string>
+     <string name="cancel_confirmation_dialog_keep_editing_button" msgid="7117943783437253341">"Cancel"</string>
+     <string name="leave_customize_confirmation_dialog_message" msgid="5330853530872707231">"Discard customisations?"</string>
+     <string name="enter_contact_name" msgid="521859148893732679">"Search contacts"</string>
+     <string name="title_edit_group" msgid="4246193439931854759">"Remove contacts"</string>
+     <string name="local_profile_title" msgid="1613784248702623410">"My local profile"</string>
+     <string name="external_profile_title" msgid="2706282819025406927">"My <xliff:g id="EXTERNAL_SOURCE">%1$s</xliff:g> profile"</string>
+-    <string name="contact_editor_prompt_zero_accounts" msgid="4468363031413457746">"Take a moment to add an account that will back up your contacts to Google."</string>
++    <string name="contact_editor_prompt_zero_accounts" msgid="4468363031413457746">"Take a moment to add an account that will back up your contacts."</string>
+     <string name="contact_editor_prompt_one_account" msgid="765343809177951169">"New contacts will be saved to <xliff:g id="ACCOUNT_NAME">%1$s</xliff:g>."</string>
+     <string name="contact_editor_prompt_multiple_accounts" msgid="1543322760761168351">"Choose a default account for new contacts:"</string>
+     <string name="contact_editor_title_new_contact" msgid="7534775011591770343">"Create new contact"</string>
+     <string name="contact_editor_title_existing_contact" msgid="3647774955741654029">"Edit contact"</string>
+     <string name="contact_editor_title_read_only_contact" msgid="5494810291515292596">"View only"</string>
+     <string name="contact_editor_pick_raw_contact_to_edit_dialog_title" msgid="4478782370280424187">"Choose contact to edit"</string>
+     <string name="contact_editor_pick_linked_contact_dialog_title" msgid="3332134735168016293">"Linked contacts"</string>
+     <string name="contact_editor_add_linked_contact" msgid="2895453741206196138">"Add"</string>
+     <string name="contact_editor_unlink_contacts" msgid="8399419729744305687">"Unlink"</string>
+     <string name="add_account" msgid="3071396624500839020">"Add account"</string>
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 56c4aaa03198dea61eb729e750e02ca1539e0d66..22f657ead8a6385706fbe1bef3cacd72c652c983 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -525,21 +525,21 @@
+     <!-- Title of the edit label view in selection mode when contacts are being selected for removal.[CHAR LIMIT=40] -->
+     <string name="title_edit_group">Remove contacts</string>
+ 
+     <!-- Header label in the contact editor for a profile that is local to the device only (and not associated with any account) [CHAR LIMIT=25] -->
+     <string name="local_profile_title">My local profile</string>
+ 
+     <!-- Header label in the contact editor for a profile that comes from an external third-party app whose name is given by source [CHAR LIMIT=20] -->
+     <string name="external_profile_title">My <xliff:g id="external_source">%1$s</xliff:g> profile</string>
+ 
+     <!-- Message in the contact editor prompt that notifies the user that the newly created contact will not be saved to any account, and prompts addition of an account [CHAR LIMIT=NONE] -->
+-    <string name="contact_editor_prompt_zero_accounts">Take a minute to add an account that will back up your contacts to Google.</string>
++    <string name="contact_editor_prompt_zero_accounts">Take a minute to add an account that will back up your contacts.</string>
+ 
+     <!-- Message in the contact editor prompt that asks the user if it's okay to save the newly created contact to the account shown. [CHAR LIMIT=NONE] -->
+     <string name="contact_editor_prompt_one_account">New contacts will be saved to <xliff:g id="account_name">%1$s</xliff:g>.</string>
+ 
+     <!-- Message in the contact editor prompt that asks the user which account they want to save the newly created contact to. [CHAR LIMIT=NONE] -->
+     <string name="contact_editor_prompt_multiple_accounts">Choose a default account for new contacts:</string>
+ 
+     <!-- Title of the editor activity when creating a new contact. The char
+          limit is short and cannot be increased, since this needs to be displayed in a single line
+          at a pre-determined text size. [CHAR LIMIT=20] -->

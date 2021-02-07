@@ -1,0 +1,1100 @@
+commit b7a4581384780d320fb6183e5809bf3bc2255eef
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2018-11-23 04:27:20-0500
+
+    enable ro.control_privapp_permissions=enforce
+---
+ core/main.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/core/main.mk b/core/main.mk
+index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8e2678cb9 100644
+--- a/core/main.mk
++++ b/core/main.mk
+@@ -258,20 +258,21 @@ endif
+ 
+ ## user/userdebug ##
+ 
+ user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
+ enable_target_debugging := true
+ tags_to_install :=
+ ifneq (,$(user_variant))
+   # Target is secure in user builds.
+   ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=1
+   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
++  ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
+ 
+   ifeq ($(user_variant),user)
+     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+   endif
+ 
+   ifeq ($(user_variant),userdebug)
+     # Pick up some extra useful tools
+     tags_to_install += debug
+   else
+     # Disable debugging in plain user builds.
+
+commit 9a8d0878db9052666ae65a95065b40ced9829467
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 07:24:59-0400
+
+    include Updater app when OFFICIAL_BUILD=true
+---
+ target/product/media_system.mk | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/target/product/media_system.mk b/target/product/media_system.mk
+index 4d507b5fb05a17bf1208a6cbcb9385cee9ec7384..dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662 100644
+--- a/target/product/media_system.mk
++++ b/target/product/media_system.mk
+@@ -30,20 +30,24 @@ PRODUCT_PACKAGES += \
+     ethernet-service \
+     fsck.f2fs \
+     HTMLViewer \
+     libfilterpack_imageproc \
+     libwebviewchromium_loader \
+     libwebviewchromium_plat_support \
+     make_f2fs \
+     requestsync \
+     StatementService \
+ 
++ifeq ($(OFFICIAL_BUILD),true)
++    PRODUCT_PACKAGES += Updater
++endif
++
+ PRODUCT_HOST_PACKAGES += \
+     fsck.f2fs \
+ 
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.software.webview.xml:system/etc/permissions/android.software.webview.xml
+ 
+ ifneq (REL,$(PLATFORM_VERSION_CODENAME))
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
+ endif
+
+commit 1248bc7cd7f863021dcbe8f6d871d5fd4aad800d
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 07:59:56-0400
+
+    include Stk in base telephony support
+---
+ target/product/aosp_base_telephony.mk | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/target/product/aosp_base_telephony.mk b/target/product/aosp_base_telephony.mk
+index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c8082fc5febf 100644
+--- a/target/product/aosp_base_telephony.mk
++++ b/target/product/aosp_base_telephony.mk
+@@ -9,11 +9,12 @@
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+ 
+ PRODUCT_PACKAGES += \
+-    messaging
++    messaging \
++    Stk
+
+commit 97ce06d0377939608f2d7e2788f5c2446ac8c370
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 07:28:11-0400
+
+    always use dex preopt
+---
+ core/dex_preopt_config.mk | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/core/dex_preopt_config.mk b/core/dex_preopt_config.mk
+index ccf53f52295bfaceb718df5c5e51da87f535e2b4..7fb3644291a1e95ce256c4d85dd164dbfba4853d 100644
+--- a/core/dex_preopt_config.mk
++++ b/core/dex_preopt_config.mk
+@@ -1,33 +1,28 @@
+ DEX_PREOPT_CONFIG := $(SOONG_OUT_DIR)/dexpreopt.config
+ 
+ # The default value for LOCAL_DEX_PREOPT
+-DEX_PREOPT_DEFAULT ?= true
++DEX_PREOPT_DEFAULT := true
+ 
+ # The default filter for which files go into the system_other image (if it is
+ # being used). Note that each pattern p here matches both '/<p>' and /system/<p>'.
+ # To bundle everything one should set this to '%'.
+ SYSTEM_OTHER_ODEX_FILTER ?= \
+     app/% \
+     priv-app/% \
+     system_ext/app/% \
+     system_ext/priv-app/% \
+     product/app/% \
+     product/priv-app/% \
+ 
+ # Conditional to building on linux, as dex2oat currently does not work on darwin.
+ ifeq ($(HOST_OS),linux)
+-  ifeq (eng,$(TARGET_BUILD_VARIANT))
+-    # For an eng build only pre-opt the boot image and system server. This gives reasonable performance
+-    # and still allows a simple workflow: building in frameworks/base and syncing.
+-    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
+-  endif
+   # Add mini-debug-info to the boot classpath unless explicitly asked not to.
+   ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
+     PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
+   endif
+ 
+   # Non eng linux builds must have preopt enabled so that system server doesn't run as interpreter
+   # only. b/74209329
+   ifeq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+     ifneq (true,$(WITH_DEXPREOPT))
+       ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
+
+commit 83c6b78caf72ee672f4a506b2d5eb5440badf2ef
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2016-08-28 14:14:10-0400
+
+    disable ART JIT and JIT profiling
+---
+ target/product/runtime_libart.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
+index ad361dc09e98da5ddb72a45b4e1b50d1d240441e..e1b5b92867a4542f034e853a72111f24b9396fe3 100644
+--- a/target/product/runtime_libart.mk
++++ b/target/product/runtime_libart.mk
+@@ -38,22 +38,22 @@ PRODUCT_PACKAGES += \
+     cacerts \
+ 
+ PRODUCT_PACKAGES += \
+     hiddenapi-package-whitelist.xml \
+ 
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     dalvik.vm.image-dex2oat-Xms=64m \
+     dalvik.vm.image-dex2oat-Xmx=64m \
+     dalvik.vm.dex2oat-Xms=64m \
+     dalvik.vm.dex2oat-Xmx=512m \
+-    dalvik.vm.usejit=true \
+-    dalvik.vm.usejitprofiles=true \
++    dalvik.vm.usejit=false \
++    dalvik.vm.usejitprofiles=false \
+     dalvik.vm.dexopt.secondary=true \
+     dalvik.vm.appimageformat=lz4
+ 
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     ro.dalvik.vm.native.bridge=0
+ 
+ # Different dexopt types for different package update/install times.
+ # On eng builds, make "boot" reasons only extract for faster turnaround.
+ ifeq (eng,$(TARGET_BUILD_VARIANT))
+     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+
+commit 6b3e4e58d8f097e8749d50aaf640edbbafcc44af
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2016-09-07 23:27:07-0400
+
+    disable dexopt profile usage
+    
+    Profiling is disabled, but make sure that profiles are not used at all.
+---
+ target/product/runtime_libart.mk | 9 +++------
+ 1 file changed, 3 insertions(+), 6 deletions(-)
+
+diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
+index e1b5b92867a4542f034e853a72111f24b9396fe3..a7fafa485b312eb29cac0003e1237b697b79353e 100644
+--- a/target/product/runtime_libart.mk
++++ b/target/product/runtime_libart.mk
+@@ -58,27 +58,24 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ ifeq (eng,$(TARGET_BUILD_VARIANT))
+     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+         pm.dexopt.first-boot=extract \
+         pm.dexopt.boot=extract
+ else
+     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+         pm.dexopt.first-boot=quicken \
+         pm.dexopt.boot=verify
+ endif
+ 
+-# The install filter is speed-profile in order to enable the use of
+-# profiles from the dex metadata files. Note that if a profile is not provided
+-# or if it is empty speed-profile is equivalent to (quicken + empty app image).
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+-    pm.dexopt.install=speed-profile \
+-    pm.dexopt.bg-dexopt=speed-profile \
+-    pm.dexopt.ab-ota=speed-profile \
++    pm.dexopt.install=speed \
++    pm.dexopt.bg-dexopt=speed \
++    pm.dexopt.ab-ota=speed \
+     pm.dexopt.inactive=verify \
+     pm.dexopt.shared=speed
+ 
+ # Pass file with the list of updatable boot class path packages to dex2oat.
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
+ 
+ # Enable resolution of startup const strings.
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     dalvik.vm.dex2oat-resolve-startup-strings=true
+
+commit c7b717bdb9b4a8c518d2a7c125bc413533f1a7d0
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2016-09-29 01:02:28-0400
+
+    stop relying on background compilation
+    
+    The interpreter is too slow without the JIT to help it.
+---
+ target/product/runtime_libart.mk | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
+
+diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
+index a7fafa485b312eb29cac0003e1237b697b79353e..5523a2dd29b0b2ad23457824a1643ddba37dcfe1 100644
+--- a/target/product/runtime_libart.mk
++++ b/target/product/runtime_libart.mk
+@@ -46,33 +46,23 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     dalvik.vm.dex2oat-Xms=64m \
+     dalvik.vm.dex2oat-Xmx=512m \
+     dalvik.vm.usejit=false \
+     dalvik.vm.usejitprofiles=false \
+     dalvik.vm.dexopt.secondary=true \
+     dalvik.vm.appimageformat=lz4
+ 
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     ro.dalvik.vm.native.bridge=0
+ 
+-# Different dexopt types for different package update/install times.
+-# On eng builds, make "boot" reasons only extract for faster turnaround.
+-ifeq (eng,$(TARGET_BUILD_VARIANT))
+-    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+-        pm.dexopt.first-boot=extract \
+-        pm.dexopt.boot=extract
+-else
+-    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+-        pm.dexopt.first-boot=quicken \
+-        pm.dexopt.boot=verify
+-endif
+-
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
++    pm.dexopt.first-boot=speed \
++    pm.dexopt.boot=speed \
+     pm.dexopt.install=speed \
+     pm.dexopt.bg-dexopt=speed \
+     pm.dexopt.ab-ota=speed \
+     pm.dexopt.inactive=verify \
+     pm.dexopt.shared=speed
+ 
+ # Pass file with the list of updatable boot class path packages to dex2oat.
+ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+     dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
+ 
+
+commit 18568e401ceffce0111bca1e287ee6e0b7995a8e
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 07:42:53-0400
+
+    add Auditor app
+---
+ target/product/handheld_product.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e274dc77e5d 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -15,20 +15,21 @@
+ #
+ 
+ # This makefile contains the product partition contents for
+ # a generic phone or tablet device. Only add something here if
+ # it definitely doesn't belong on other types of devices (if it
+ # does, use base_product.mk).
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
+ 
+ # /product packages
+ PRODUCT_PACKAGES += \
++    Auditor \
+     Browser2 \
+     Calendar \
+     Camera2 \
+     Contacts \
+     DeskClock \
+     Gallery2 \
+     LatinIME \
+     Music \
+     OneTimeInitializer \
+     preinstalled-packages-platform-handheld-product.xml \
+
+commit 3e387c68d673400cc01f4a5cc53a116adebcfd2f
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 07:43:04-0400
+
+    add PdfViewer app
+---
+ target/product/handheld_product.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512715f1a99 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -25,17 +25,18 @@ PRODUCT_PACKAGES += \
+     Auditor \
+     Browser2 \
+     Calendar \
+     Camera2 \
+     Contacts \
+     DeskClock \
+     Gallery2 \
+     LatinIME \
+     Music \
+     OneTimeInitializer \
++    PdfViewer \
+     preinstalled-packages-platform-handheld-product.xml \
+     QuickSearchBox \
+     SettingsIntelligence \
+     frameworks-base-overlays
+ 
+ PRODUCT_PACKAGES_DEBUG += \
+     frameworks-base-overlays-debug
+
+commit d0ae1533e38a1e534f6c5f1bd88f88745f270228
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2016-06-17 07:13:49-0400
+
+    set deny_new_usb feature to dynamic by default
+---
+ core/main.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/core/main.mk b/core/main.mk
+index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78a55979cf 100644
+--- a/core/main.mk
++++ b/core/main.mk
+@@ -259,20 +259,21 @@ endif
+ ## user/userdebug ##
+ 
+ user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
+ enable_target_debugging := true
+ tags_to_install :=
+ ifneq (,$(user_variant))
+   # Target is secure in user builds.
+   ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=1
+   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
+   ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
++  ADDITIONAL_DEFAULT_PROPERTIES += persist.security.deny_new_usb=dynamic
+ 
+   ifeq ($(user_variant),user)
+     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+   endif
+ 
+   ifeq ($(user_variant),userdebug)
+     # Pick up some extra useful tools
+     tags_to_install += debug
+   else
+     # Disable debugging in plain user builds.
+
+commit c9b19d03721e40037af1d6197692c155f0bb0c3f
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2016-09-13 22:05:56-0400
+
+    use -fwrapv when signed overflow checking is off
+---
+ core/config_sanitizers.mk | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/core/config_sanitizers.mk b/core/config_sanitizers.mk
+index efb21e7c6a532c8dd7ce63950d187a4bf37a4ba4..41d7fe5dbf3b4a471bd96bc568593ad0534ac58f 100644
+--- a/core/config_sanitizers.mk
++++ b/core/config_sanitizers.mk
+@@ -440,10 +440,16 @@ endif
+ # http://b/119329758, Android core does not boot up with this sanitizer yet.
+ # Previously sanitized modules might not pass new implicit-integer-sign-change check.
+ # Disable this check unless it has been explicitly specified.
+ ifneq ($(findstring fsanitize,$(my_cflags)),)
+   ifneq ($(findstring integer,$(my_cflags)),)
+     ifeq ($(findstring sanitize=implicit-integer-sign-change,$(my_cflags)),)
+       my_cflags += -fno-sanitize=implicit-integer-sign-change
+     endif
+   endif
+ endif
++
++ifeq ($(filter signed-integer-overflow integer undefined,$(my_sanitize)),)
++  ifeq ($(filter -ftrapv,$(my_cflags)),)
++    my_cflags += -fwrapv
++  endif
++endif
+
+commit c142c906b919d5d0cd70b118abbb997f2661700b
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2019-09-06 08:18:49-0400
+
+    add ExactCalculator app
+---
+ target/product/handheld_product.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00cb08eb2a 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -21,20 +21,21 @@
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
+ 
+ # /product packages
+ PRODUCT_PACKAGES += \
+     Auditor \
+     Browser2 \
+     Calendar \
+     Camera2 \
+     Contacts \
+     DeskClock \
++    ExactCalculator \
+     Gallery2 \
+     LatinIME \
+     Music \
+     OneTimeInitializer \
+     PdfViewer \
+     preinstalled-packages-platform-handheld-product.xml \
+     QuickSearchBox \
+     SettingsIntelligence \
+     frameworks-base-overlays
+ 
+
+commit 8f87fa49a2c069af3cb6ae53d59e179da9334ade
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2019-09-09 00:28:44-0400
+
+    force !WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY
+---
+ core/board_config.mk | 2 ++
+ core/product.mk      | 1 -
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/core/board_config.mk b/core/board_config.mk
+index 86162b6f37eca5da4d11b3acccee8b0f2999e933..9aad5c17d863b0c60c5c0f84b5a8ffd59cfccc88 100644
+--- a/core/board_config.mk
++++ b/core/board_config.mk
+@@ -45,20 +45,21 @@ _board_strip_readonly_list := \
+   TARGET_BOARD_PLATFORM \
+   TARGET_BOARD_PLATFORM_GPU \
+   TARGET_BOOTLOADER_BOARD_NAME \
+   TARGET_FS_CONFIG_GEN \
+   TARGET_NO_BOOTLOADER \
+   TARGET_NO_KERNEL \
+   TARGET_NO_RECOVERY \
+   TARGET_NO_RADIOIMAGE \
+   TARGET_HARDWARE_3D \
+   WITH_DEXPREOPT \
++  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY \
+ 
+ # File system variables
+ _board_strip_readonly_list += \
+   BOARD_FLASH_BLOCK_SIZE \
+   BOARD_BOOTIMAGE_PARTITION_SIZE \
+   BOARD_RECOVERYIMAGE_PARTITION_SIZE \
+   BOARD_SYSTEMIMAGE_PARTITION_SIZE \
+   BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE \
+   BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE \
+   BOARD_USERDATAIMAGE_PARTITION_SIZE \
+@@ -99,20 +100,21 @@ _build_broken_var_list += \
+               $(DEFAULT_ERROR_BUILD_MODULE_TYPES), \
+     BUILD_BROKEN_USES_$(m))
+ 
+ _board_true_false_vars := $(_build_broken_var_list)
+ _board_strip_readonly_list += $(_build_broken_var_list) \
+   BUILD_BROKEN_NINJA_USES_ENV_VARS
+ 
+ # Conditional to building on linux, as dex2oat currently does not work on darwin.
+ ifeq ($(HOST_OS),linux)
+   WITH_DEXPREOPT := true
++  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
+ endif
+ 
+ # ###############################################################
+ # Broken build defaults
+ # ###############################################################
+ $(foreach v,$(_build_broken_var_list),$(eval $(v) :=))
+ BUILD_BROKEN_NINJA_USES_ENV_VARS :=
+ 
+ # Boards may be defined under $(SRC_TARGET_DIR)/board/$(TARGET_DEVICE)
+ # or under vendor/*/$(TARGET_DEVICE).  Search in both places, but
+diff --git a/core/product.mk b/core/product.mk
+index f8ba5936f8043c6965692408d2b3299b3f38ea99..f60e9c4c124c6fcbc4d07864a80fcb45f0a3599f 100644
+--- a/core/product.mk
++++ b/core/product.mk
+@@ -542,21 +542,20 @@ define _resolve-short-product-name
+   )
+ endef
+ define resolve-short-product-name
+ $(strip $(call _resolve-short-product-name,$(1)))
+ endef
+ 
+ # BoardConfig variables that are also inherited in product mks. Should ideally
+ # be cleaned up to not be product variables.
+ _readonly_late_variables := \
+   DEVICE_PACKAGE_OVERLAYS \
+-  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY \
+ 
+ # Modified internally in the build system
+ _readonly_late_variables += \
+   PRODUCT_COPY_FILES \
+   PRODUCT_DEX_PREOPT_NEVER_ALLOW_STRIPPING \
+   PRODUCT_DEX_PREOPT_BOOT_FLAGS \
+ 
+ _readonly_early_variables := $(filter-out $(_readonly_late_variables),$(_product_var_list))
+ 
+ #
+
+commit 288394a74b66e74a30a823dd00a10be22a67c975
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2019-09-09 01:16:05-0400
+
+    use speed mode for dexpreopt
+---
+ core/product_config.mk               | 2 ++
+ target/product/go_defaults_common.mk | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/core/product_config.mk b/core/product_config.mk
+index a16af05cf4bd5842b7aa6e643fd0023ad9d36316..3c99424ac4f827f28334b48edd687e7e7121e6bd 100644
+--- a/core/product_config.mk
++++ b/core/product_config.mk
+@@ -363,20 +363,22 @@ ifdef OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE
+     PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := $(OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE)
+   endif
+ else ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
+   # No shipping level defined
+ else ifeq ($(call math_gt,$(PRODUCT_SHIPPING_API_LEVEL),29),true)
+   PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
+ endif
+ 
+ $(KATI_obsolete_var OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE,Use PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE instead)
+ 
++PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
++
+ define product-overrides-config
+ $$(foreach rule,$$(PRODUCT_$(1)_OVERRIDES),\
+     $$(if $$(filter 2,$$(words $$(subst :,$$(space),$$(rule)))),,\
+         $$(error Rule "$$(rule)" in PRODUCT_$(1)_OVERRIDE is not <module_name>:<new_value>)))
+ endef
+ 
+ $(foreach var, \
+     MANIFEST_PACKAGE_NAME \
+     PACKAGE_NAME \
+     CERTIFICATE, \
+diff --git a/target/product/go_defaults_common.mk b/target/product/go_defaults_common.mk
+index ca171dff5c6151eb818271161c8051f7894b0160..17a3ac75e81b95c594e7dea087765a0089a58d05 100644
+--- a/target/product/go_defaults_common.mk
++++ b/target/product/go_defaults_common.mk
+@@ -15,21 +15,21 @@
+ #
+ 
+ # Sets Android Go recommended default product options..
+ 
+ 
+ # Set lowram options and enable traced by default
+ PRODUCT_PROPERTY_OVERRIDES += \
+      ro.config.low_ram=true \
+ 
+ # Speed profile services and wifi-service to reduce RAM and storage.
+-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
++PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed
+ 
+ # Always preopt extracted APKs to prevent extracting out of the APK for gms
+ # modules.
+ PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
+ 
+ # Use a profile based boot image for this device. Note that this is currently a
+ # generic profile and not Android Go optimized.
+ PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
+ PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+ 
+
+commit 139fb8c6a9afe5523e2e7e34a9f50bc84604f51c
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2019-09-21 08:44:23-0400
+
+    mainline: disable updatable apex for simplicity
+---
+ target/product/mainline_system.mk | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/target/product/mainline_system.mk b/target/product/mainline_system.mk
+index a787707a04451c9aab2aa20adeb2cc5ef0116997..1f22163c32669377d5147755d17f69a98d3d5e04 100644
+--- a/target/product/mainline_system.mk
++++ b/target/product/mainline_system.mk
+@@ -14,23 +14,20 @@
+ # limitations under the License.
+ #
+ 
+ # This makefile is the basis of a generic system image for a handheld device.
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_system.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_system.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_default.mk)
+ # Add adb keys to debuggable AOSP builds (if they exist)
+ $(call inherit-product-if-exists, vendor/google/security/adb/vendor_key.mk)
+ 
+-# Enable updating of APEXes
+-$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+-
+ # Shared java libs
+ PRODUCT_PACKAGES += \
+     com.android.nfc_extras \
+ 
+ # Applications
+ PRODUCT_PACKAGES += \
+     LiveWallpapersPicker \
+     PartnerBookmarksProvider \
+     PresencePolling \
+     RcsService \
+
+commit 5101b941b6541406ddb7c2c34a82a3bb5a653ad0
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-02-17 04:21:18-0500
+
+    replace Browser2 with TrichromeChrome
+---
+ target/product/handheld_product.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff402030b08b 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -16,28 +16,28 @@
+ 
+ # This makefile contains the product partition contents for
+ # a generic phone or tablet device. Only add something here if
+ # it definitely doesn't belong on other types of devices (if it
+ # does, use base_product.mk).
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
+ 
+ # /product packages
+ PRODUCT_PACKAGES += \
+     Auditor \
+-    Browser2 \
+     Calendar \
+     Camera2 \
+     Contacts \
+     DeskClock \
+     ExactCalculator \
+     Gallery2 \
+     LatinIME \
+     Music \
+     OneTimeInitializer \
+     PdfViewer \
+     preinstalled-packages-platform-handheld-product.xml \
+     QuickSearchBox \
+     SettingsIntelligence \
++    TrichromeChrome \
+     frameworks-base-overlays
+ 
+ PRODUCT_PACKAGES_DEBUG += \
+     frameworks-base-overlays-debug
+
+commit 9fdca505a7856b32327527d38902db5817439d69
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-02-17 04:23:07-0500
+
+    replace webview with TrichromeWebView
+---
+ target/product/media_product.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/target/product/media_product.mk b/target/product/media_product.mk
+index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49722f9750 100644
+--- a/target/product/media_product.mk
++++ b/target/product/media_product.mk
+@@ -15,11 +15,11 @@
+ #
+ 
+ # This makefile contains the product partition contents for
+ # media-capable devices (non-wearables). Only add something here
+ # if it definitely doesn't belong on wearables. Otherwise, choose
+ # base_product.mk.
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/base_product.mk)
+ 
+ # /product packages
+ PRODUCT_PACKAGES += \
+-    webview \
++    TrichromeWebView \
+
+commit 346e8d080384decd72dcfe234cfae34744914b73
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-09-16 00:55:25-0400
+
+    add Seedvault as backup provider
+---
+ target/product/media_system.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/target/product/media_system.mk b/target/product/media_system.mk
+index dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662..77b77fef89594c0ed5c04b20d8f3f32273835aa2 100644
+--- a/target/product/media_system.mk
++++ b/target/product/media_system.mk
+@@ -34,20 +34,22 @@ PRODUCT_PACKAGES += \
+     libwebviewchromium_loader \
+     libwebviewchromium_plat_support \
+     make_f2fs \
+     requestsync \
+     StatementService \
+ 
+ ifeq ($(OFFICIAL_BUILD),true)
+     PRODUCT_PACKAGES += Updater
+ endif
+ 
++PRODUCT_PACKAGES += Seedvault
++
+ PRODUCT_HOST_PACKAGES += \
+     fsck.f2fs \
+ 
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.software.webview.xml:system/etc/permissions/android.software.webview.xml
+ 
+ ifneq (REL,$(PLATFORM_VERSION_CODENAME))
+ PRODUCT_COPY_FILES += \
+     frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
+ endif
+
+commit 00fa8b8147e517dae82bc603ec5f01aa511048f0
+Author: Renlord <me@renlord.com>
+Date:   Wed 2020-03-11 18:08:31+1100
+
+    add SetupWizard
+---
+ target/product/handheld_system.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/target/product/handheld_system.mk b/target/product/handheld_system.mk
+index 77c103d7eeccca74b9192359053af34ff922c3f0..28608fabe21f317a27e93081d74b5bb2278b264a 100644
+--- a/target/product/handheld_system.mk
++++ b/target/product/handheld_system.mk
+@@ -55,20 +55,21 @@ PRODUCT_PACKAGES += \
+     ManagedProvisioning \
+     MmsService \
+     MtpService \
+     MusicFX \
+     NfcNci \
+     PacProcessor \
+     PrintRecommendationService \
+     PrintSpooler \
+     ProxyHandler \
+     screenrecord \
++    SetupWizard \
+     SecureElement \
+     SharedStorageBackup \
+     SimAppDialog \
+     Telecom \
+     TelephonyProvider \
+     TeleService \
+     Traceur \
+     UserDictionaryProvider \
+     VpnDialogs \
+     vr \
+
+commit d10595325ca5a0bd99c6130502ff7bf2ec250d39
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-03-16 18:01:18-0400
+
+    disable BOARD_USES_SYSTEM_OTHER_ODEX for mainline
+    
+    The system_other image is gone after the first update and the OS ends up
+    needing to compile the code for these apps as part of performing each OS
+    update. GrapheneOS doesn't use JIT compilation and the AOT compilation
+    isn't guided by JIT profiles so this ends up using the same amount of
+    space and doing a bunch of unnecessary work on each device. It also
+    reduces the scope of verified boot by having the compiled odex code for
+    base system apps outside of the verified system partition.
+---
+ target/board/BoardConfigMainlineCommon.mk | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/target/board/BoardConfigMainlineCommon.mk b/target/board/BoardConfigMainlineCommon.mk
+index bf015e502468da3231b417df160651e9783a9059..e26bceff2299824b50602319eda446bd0c58220a 100644
+--- a/target/board/BoardConfigMainlineCommon.mk
++++ b/target/board/BoardConfigMainlineCommon.mk
+@@ -20,24 +20,20 @@ TARGET_COPY_OUT_PRODUCT := product
+ BOARD_USES_METADATA_PARTITION := true
+ 
+ BOARD_VNDK_VERSION := current
+ 
+ # Required flag for non-64 bit devices from P.
+ TARGET_USES_64_BIT_BINDER := true
+ 
+ # 64 bit mediadrmserver
+ TARGET_ENABLE_MEDIADRM_64 := true
+ 
+-# Puts odex files on system_other, as well as causing dex files not to get
+-# stripped from APKs.
+-BOARD_USES_SYSTEM_OTHER_ODEX := true
+-
+ # Audio: must using XML format for Treblized devices
+ USE_XML_AUDIO_POLICY_CONF := 1
+ 
+ # Bluetooth defines
+ # TODO(b/123695868): Remove the need for this
+ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := build/make/target/board/mainline_arm64/bluetooth
+ 
+ BOARD_AVB_ENABLE := true
+ BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+ 
+
+commit 7594d51f96bab6733770e95054bd52b06be7032d
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2020-03-17 16:52:01-0400
+
+    use speed filter for boot images and non-prebuilts
+---
+ core/product_config.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/core/product_config.mk b/core/product_config.mk
+index 3c99424ac4f827f28334b48edd687e7e7121e6bd..10dfda5a4179fb516ad8c50b32b9e5f8e4110bd9 100644
+--- a/core/product_config.mk
++++ b/core/product_config.mk
+@@ -364,20 +364,22 @@ ifdef OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE
+   endif
+ else ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
+   # No shipping level defined
+ else ifeq ($(call math_gt,$(PRODUCT_SHIPPING_API_LEVEL),29),true)
+   PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
+ endif
+ 
+ $(KATI_obsolete_var OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE,Use PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE instead)
+ 
+ PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
++PRODUCT_DEX_PREOPT_BOOT_FLAGS := --compiler-filter=speed
++PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=speed
+ 
+ define product-overrides-config
+ $$(foreach rule,$$(PRODUCT_$(1)_OVERRIDES),\
+     $$(if $$(filter 2,$$(words $$(subst :,$$(space),$$(rule)))),,\
+         $$(error Rule "$$(rule)" in PRODUCT_$(1)_OVERRIDE is not <module_name>:<new_value>)))
+ endef
+ 
+ $(foreach var, \
+     MANIFEST_PACKAGE_NAME \
+     PACKAGE_NAME \
+
+commit 67a11f34f81d146d2e33a5a32231b6c2b082dae0
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2020-05-12 21:02:49-0400
+
+    always use UTC as the time zone for build dates
+---
+ core/main.mk             | 2 +-
+ core/version_defaults.mk | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/main.mk b/core/main.mk
+index e95a7ea62332bd8d6f141da182ae2f78a55979cf..2ccc28d25e54acb4f6a69045284ee5b5aadef5d5 100644
+--- a/core/main.mk
++++ b/core/main.mk
+@@ -39,21 +39,21 @@ include $(BUILD_SYSTEM)/clang/config.mk
+ # without changing the command line every time.  Avoids rebuilds
+ # when using ninja.
+ $(shell mkdir -p $(SOONG_OUT_DIR) && \
+     echo -n $(BUILD_NUMBER) > $(SOONG_OUT_DIR)/build_number.txt)
+ BUILD_NUMBER_FILE := $(SOONG_OUT_DIR)/build_number.txt
+ .KATI_READONLY := BUILD_NUMBER_FILE
+ $(KATI_obsolete_var BUILD_NUMBER,See https://android.googlesource.com/platform/build/+/master/Changes.md#BUILD_NUMBER)
+ $(BUILD_NUMBER_FILE):
+ 	touch $@
+ 
+-DATE_FROM_FILE := date -d @$(BUILD_DATETIME_FROM_FILE)
++DATE_FROM_FILE := date -ud @$(BUILD_DATETIME_FROM_FILE)
+ .KATI_READONLY := DATE_FROM_FILE
+ 
+ # Pick a reasonable string to use to identify files.
+ ifeq ($(strip $(HAS_BUILD_NUMBER)),false)
+   # BUILD_NUMBER has a timestamp in it, which means that
+   # it will change every time.  Pick a stable value.
+   FILE_NAME_TAG := eng.$(BUILD_USERNAME)
+ else
+   FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
+ endif
+diff --git a/core/version_defaults.mk b/core/version_defaults.mk
+index 6ac90d8d3593504870d2e02b7865ff9144ccf64d..f371f6135d8507075603227ad94f673aedda678f 100644
+--- a/core/version_defaults.mk
++++ b/core/version_defaults.mk
+@@ -268,21 +268,21 @@ ifndef BUILD_ID
+   BUILD_ID := UNKNOWN
+ endif
+ .KATI_READONLY := BUILD_ID
+ 
+ ifndef BUILD_DATETIME
+   # Used to reproduce builds by setting the same time. Must be the number
+   # of seconds since the Epoch.
+   BUILD_DATETIME := $(shell date +%s)
+ endif
+ 
+-DATE := date -d @$(BUILD_DATETIME)
++DATE := date -ud @$(BUILD_DATETIME)
+ .KATI_READONLY := DATE
+ 
+ # Everything should be using BUILD_DATETIME_FROM_FILE instead.
+ # BUILD_DATETIME and DATE can be removed once BUILD_NUMBER moves
+ # to soong_ui.
+ $(KATI_obsolete_var BUILD_DATETIME,Use BUILD_DATETIME_FROM_FILE)
+ 
+ HAS_BUILD_NUMBER := true
+ ifndef BUILD_NUMBER
+   # BUILD_NUMBER should be set to the source control value that
+
+commit 9b77ed4235d26c7c9430594d5678e8bbfae7cf4b
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2020-05-16 19:44:32-0400
+
+    raise minimum supported API level to 28
+    
+    This matches the minimum API level required by the Play Store for both
+    new apps and app updates, so this is not an aggressive requirement:
+    
+    https://developer.android.com/distribute/best-practices/develop/target-sdk
+    
+    There were various backwards incompatible improvements to privacy and
+    security from API 23 to API 28. In particular, API 28 introduced the
+    new SELinux sandbox using a per-app-per-profile security level (MLS) to
+    provide a unique security domain for each app instance. Previously, MLS
+    was used to isolate profiles by using per-profile security levels. The
+    finer-grained security levels prevent apps from directly sharing data
+    without going through intents, eliminating many common vulnerabilities
+    and giving the OS better control over how apps can communicate.
+---
+ core/version_defaults.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/version_defaults.mk b/core/version_defaults.mk
+index f371f6135d8507075603227ad94f673aedda678f..e992260e7dc66d1010d69f8395115ff028c3ab08 100644
+--- a/core/version_defaults.mk
++++ b/core/version_defaults.mk
+@@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
+   # anyone trying to parse it as an integer will probably get "0".
+   BUILD_NUMBER := eng.$(shell echo $${BUILD_USERNAME:0:6}).$(shell $(DATE) +%Y%m%d.%H%M%S)
+   HAS_BUILD_NUMBER := false
+ endif
+ .KATI_READONLY := BUILD_NUMBER HAS_BUILD_NUMBER
+ 
+ ifndef PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
+   # Used to set minimum supported target sdk version. Apps targeting sdk
+   # version lower than the set value will result in a warning being shown
+   # when any activity from the app is started.
+-  PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION := 23
++  PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION := 28
+ endif
+ .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
+
+commit 7879aeb4c23993d9a068b6975f8aca1b0d0dd4b8
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-09-16 18:05:27-0400
+
+    add otatools.zip files for factory images
+---
+ core/Makefile | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/core/Makefile b/core/Makefile
+index 45ad60f41630e50bb3d2ea4d9937bbfc870ec8f7..a6fbc83abfd5d1fdb610f99b76149746884e44e3 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -4193,20 +4193,27 @@ endif
+ ifneq (,$(wildcard external/avb))
+ INTERNAL_OTATOOLS_PACKAGE_FILES += \
+   $(sort $(shell find external/avb/test/data -type f -name "testkey_*.pem" -o \
+       -name "atx_metadata.bin"))
+ endif
+ ifeq (true,$(PRODUCT_SUPPORTS_VBOOT))
+ INTERNAL_OTATOOLS_PACKAGE_FILES += \
+   $(sort $(shell find external/vboot_reference/tests/devkeys -type f))
+ endif
+ 
++# Factory images
++INTERNAL_OTATOOLS_PACKAGE_FILES += \
++  device/common/clear-factory-images-variables.sh \
++  device/common/generate-factory-images-common.sh \
++  device/linaro/hikey/factory-images/generate-factory-images-hikey.sh \
++  device/linaro/hikey/factory-images/generate-factory-images-hikey960.sh
++
+ INTERNAL_OTATOOLS_RELEASETOOLS := \
+   $(sort $(shell find build/make/tools/releasetools -name "*.pyc" -prune -o \
+       \( -type f -o -type l \) -print))
+ 
+ BUILT_OTATOOLS_PACKAGE := $(PRODUCT_OUT)/otatools.zip
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_ZIP_ROOT := $(call intermediates-dir-for,PACKAGING,otatools)/otatools
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_PACKAGE_FILES := $(INTERNAL_OTATOOLS_PACKAGE_FILES)
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_RELEASETOOLS := $(INTERNAL_OTATOOLS_RELEASETOOLS)
+ $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
+ $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
+
+commit af0f82d46b0a947acf770007a9a12901364a9252
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2020-09-17 10:53:00-0400
+
+    disable enforce RRO for mainline devices
+    
+    RROs are currently incompatible with exec-based spawning. This also
+    impacts the wrapper spawning model for the stock OS which is available
+    by default, making it an upstream bug rather than a missing feature for
+    exec-based spawning in GrapheneOS.
+---
+ target/product/mainline_system.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/target/product/mainline_system.mk b/target/product/mainline_system.mk
+index 1f22163c32669377d5147755d17f69a98d3d5e04..db2af7d1d2c958cef76a0969ea46a7cf677b4730 100644
+--- a/target/product/mainline_system.mk
++++ b/target/product/mainline_system.mk
+@@ -108,21 +108,21 @@ PRODUCT_HOST_PACKAGES += \
+ # Include all zygote init scripts. "ro.zygote" will select one of them.
+ PRODUCT_COPY_FILES += \
+     system/core/rootdir/init.zygote32.rc:system/etc/init/hw/init.zygote32.rc \
+     system/core/rootdir/init.zygote64.rc:system/etc/init/hw/init.zygote64.rc \
+     system/core/rootdir/init.zygote32_64.rc:system/etc/init/hw/init.zygote32_64.rc \
+     system/core/rootdir/init.zygote64_32.rc:system/etc/init/hw/init.zygote64_32.rc \
+ 
+ # Enable dynamic partition size
+ PRODUCT_USE_DYNAMIC_PARTITION_SIZE := true
+ 
+-PRODUCT_ENFORCE_RRO_TARGETS := *
++#PRODUCT_ENFORCE_RRO_TARGETS := *
+ 
+ PRODUCT_NAME := mainline_system
+ PRODUCT_BRAND := generic
+ 
+ # Define /system partition-specific product properties to identify that /system
+ # partition is mainline_system.
+ PRODUCT_SYSTEM_NAME := mainline
+ PRODUCT_SYSTEM_BRAND := Android
+ PRODUCT_SYSTEM_MANUFACTURER := Android
+ PRODUCT_SYSTEM_MODEL := mainline
+
+commit 0552238fd97290fde3e40035e6c616f2834e1ab5 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2020-05-05 19:06:23-0400
+
+    set device specific build ids
+---
+ core/build_id.mk | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/core/build_id.mk b/core/build_id.mk
+index 938cdeff3a720556ce915d4665086469e36305d9..43a01e0dafbb35bae009f9a24e2a8213f1ac9fa2 100644
+--- a/core/build_id.mk
++++ b/core/build_id.mk
+@@ -11,11 +11,15 @@
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ # BUILD_ID is usually used to specify the branch name
+ # (like "MAIN") or a branch name and a release candidate
+ # (like "CRB01").  It must be a single word, and is
+ # capitalized by convention.
+ 
+-BUILD_ID=RQ1A.210105.003
++ifneq (,$(filter aosp_bonito aosp_sargo aosp_sunfish,$(TARGET_PRODUCT)))
++    BUILD_ID=RQ1A.210105.002
++else
++    BUILD_ID=RQ1A.210105.003
++endif

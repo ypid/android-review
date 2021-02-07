@@ -1,0 +1,145 @@
+commit 48346c5d6ae216b37ed970776165e5343faec7ca
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-11-25 03:54:51-0500
+
+    default to GrapheneOS connectivity check server
+---
+ res/values/config.xml | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/res/values/config.xml b/res/values/config.xml
+index d6a11abe196fa157b908a1ccd67f7c8de856032b..e3f07b317772fb77b1c82f9bda49f2131ca18d69 100644
+--- a/res/values/config.xml
++++ b/res/values/config.xml
+@@ -6,40 +6,40 @@
+     The overlays must apply to the config_* values, not the default_* values. The default_*
+     values are meant to be the default when no other configuration is specified.
+     -->
+     <!-- HTTP URL for network validation, to use for detecting captive portals. -->
+     <!-- default_captive_portal_http_url is not configured as overlayable so
+          OEMs that wish to change captive_portal_http_url configuration must
+          do so via configuring runtime resource overlay to
+          config_captive_portal_http_url and *NOT* by changing or overlaying
+          this resource. It will break if the enforcement of overlayable starts.
+          -->
+-    <string name="default_captive_portal_http_url" translatable="false">http://connectivitycheck.gstatic.com/generate_204</string>
++    <string name="default_captive_portal_http_url" translatable="false">http://connectivitycheck.grapheneos.network/generate_204</string>
+     <!-- HTTPS URL for network validation, to use for confirming internet connectivity. -->
+     <!-- default_captive_portal_https_url is not configured as overlayable so
+          OEMs that wish to change captive_portal_https_url configuration must
+          do so via configuring runtime resource overlay to
+          config_captive_portal_https_url and *NOT* by changing or overlaying
+          this resource. It will break if the enforcement of overlayable starts.
+          -->
+-    <string name="default_captive_portal_https_url" translatable="false">https://www.google.com/generate_204</string>
++    <string name="default_captive_portal_https_url" translatable="false">https://connectivitycheck.grapheneos.network/generate_204</string>
+ 
+     <!-- List of fallback URLs to use for detecting captive portals. -->
+     <!-- default_captive_portal_fallback_urls is not configured as overlayable
+          so OEMs that wish to change captive_portal_fallback_urls configuration
+          must do so via configuring runtime resource overlay to
+          config_captive_portal_fallback_urls and *NOT* by changing or overlaying
+          this resource. It will break if the enforcement of overlayable starts.
+          -->
+     <string-array name="default_captive_portal_fallback_urls" translatable="false">
+-        <item>http://www.google.com/gen_204</item>
+-        <item>http://play.googleapis.com/generate_204</item>
++        <item>http://grapheneos.network/gen_204</item>
++        <item>http://grapheneos.network/generate_204</item>
+     </string-array>
+     <!-- Configuration hooks for the above settings.
+          Empty by default but may be overridden by RROs. -->
+     <integer name="config_captive_portal_dns_probe_timeout"></integer>
+     <!--suppress CheckTagEmptyBody: overlayable resource to use as configuration hook -->
+     <string name="config_captive_portal_http_url" translatable="false"></string>
+     <!--suppress CheckTagEmptyBody: overlayable resource to use as configuration hook -->
+     <string name="config_captive_portal_https_url" translatable="false"></string>
+     <!-- Literal commas are not allowed in the url configuration because they
+          are used as a separator internally. -->
+
+commit de1cf7b0eeb16cdc8ba80ca583eb8989dd918991
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-11-25 06:30:31-0500
+
+    remove China connectivity server overlay
+    
+    This will need to be handled differently.
+---
+ res/values-mcc460/config.xml (gone) | 24 ------------------------
+ 1 file changed, 24 deletions(-)
+
+diff --git a/res/values-mcc460/config.xml b/res/values-mcc460/config.xml
+deleted file mode 100644
+index 2863edd734c10b5325750152756ea4ee7d0fda76..0000000000000000000000000000000000000000
+--- a/res/values-mcc460/config.xml
++++ /dev/null
+@@ -1,24 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-<resources>
+-    <!-- Network validation URL configuration for devices using a Chinese SIM (MCC 460).
+-         The below URLs are often whitelisted by captive portals, so they should not be used in the
+-         general case as this could degrade the user experience (portals not detected properly).
+-         However in China the default URLs are not accessible in general. The below alternatives
+-         should allow users to connect to local networks normally. -->
+-    <!-- default_captive_portal_https_url is not configured as overlayable so
+-         OEMs that wish to change captive_portal_https_url configuration must
+-         do so via configuring runtime resource overlay to
+-         config_captive_portal_https_url and *NOT* by changing or overlaying
+-         this resource. It will break if the enforcement of overlayable starts.
+-         -->
+-    <string name="default_captive_portal_https_url" translatable="false">https://connectivitycheck.gstatic.com/generate_204</string>
+-    <!-- default_captive_portal_fallback_urls is not configured as overlayable
+-         so OEMs that wish to change captive_portal_fallback_urls configuration
+-         must do so via configuring runtime resource overlay to
+-         config_captive_portal_fallback_urls and *NOT* by changing or overlaying
+-         this resource. It will break if the enforcement of overlayable starts.
+-         -->
+-    <string-array name="default_captive_portal_fallback_urls" translatable="false">
+-        <item>http://www.googleapis.cn/generate_204</item>
+-    </string-array>
+-</resources>
+
+commit 38ae0908d5d049737d56aab05a9ea7f67121818c (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-12-28 20:57:14-0500
+
+    update unused hard-wired fallback URLs
+---
+ src/android/net/util/NetworkStackUtils.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/android/net/util/NetworkStackUtils.java b/src/android/net/util/NetworkStackUtils.java
+index 94de7c3979e56a40e8282a20c5729a276734673d..c73ca517032417e6548164c3af5398110312d5f1 100755
+--- a/src/android/net/util/NetworkStackUtils.java
++++ b/src/android/net/util/NetworkStackUtils.java
+@@ -163,28 +163,28 @@ public class NetworkStackUtils {
+      * List of fallback probe specs to use for detecting captive portals. This is an alternative to
+      * fallback URLs that provides more flexibility on detection rules. Empty, so unused by default.
+      */
+     public static final String[] DEFAULT_CAPTIVE_PORTAL_FALLBACK_PROBE_SPECS =
+             new String[] {};
+ 
+     /**
+      * The default list of HTTP URLs to use for detecting captive portals.
+      */
+     public static final String[] DEFAULT_CAPTIVE_PORTAL_HTTP_URLS =
+-            new String [] {"http://connectivitycheck.gstatic.com/generate_204"};
++            new String [] {"http://connectivitycheck.grapheneos.network/generate_204"};
+ 
+     /**
+      * The default list of HTTPS URLs for network validation, to use for confirming internet
+      * connectivity.
+      */
+     public static final String[] DEFAULT_CAPTIVE_PORTAL_HTTPS_URLS =
+-            new String [] {"https://www.google.com/generate_204"};
++            new String [] {"https://connectivitycheck.grapheneos.network/generate_204"};
+ 
+     /**
+      * @deprecated Considering boolean experiment flag is likely to cause misconfiguration
+      *             particularly when NetworkStack module rolls back to previous version. It's
+      *             much safer to determine whether or not to enable one specific experimental
+      *             feature by comparing flag version with module version.
+      */
+     @Deprecated
+     public static final String DHCP_INIT_REBOOT_ENABLED = "dhcp_init_reboot_enabled";
+ 

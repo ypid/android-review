@@ -1,0 +1,73 @@
+commit c6940aa063f67221bd3b097c88999b3ae5ad3207
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2016-12-06 22:05:39-0500
+
+    disable hard-wired QuickSearchBox widget
+---
+ src/com/android/launcher3/config/FeatureFlags.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index 88a9abaf8d49b9bac3f5d19afa88165e1c199201..d4a65f05bbf92abdab5f3402147cdc0306c9f396 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -45,21 +45,21 @@ public final class FeatureFlags {
+ 
+     /**
+      * True when the build has come from Android Studio and is being used for local debugging.
+      */
+     public static final boolean IS_STUDIO_BUILD = BuildConfig.DEBUG;
+ 
+     /**
+      * Enable moving the QSB on the 0th screen of the workspace. This is not a configuration feature
+      * and should be modified at a project level.
+      */
+-    public static final boolean QSB_ON_FIRST_SCREEN = true;
++    public static final boolean QSB_ON_FIRST_SCREEN = false;
+ 
+     /**
+      * Feature flag to handle define config changes dynamically instead of killing the process.
+      *
+      *
+      * To add a new flag that can be toggled through the flags UI:
+      *
+      * Declare a new ToggleableFlag below. Give it a unique key (e.g. "QSB_ON_FIRST_SCREEN"),
+      *    and set a default value for the flag. This will be the default value on Debug builds.
+      */
+
+commit 18171765cea04cf4583048fdf1284cb19b67ce54 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2019-11-14 07:32:46-0500
+
+    rebranding
+---
+ quickstep/res/values/strings.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/quickstep/res/values/strings.xml b/quickstep/res/values/strings.xml
+index 769d29838ae4e9f9944cbce48d97e9ad12d18097..263163622464d56f4cced80247b368c41cef2420 100644
+--- a/quickstep/res/values/strings.xml
++++ b/quickstep/res/values/strings.xml
+@@ -12,21 +12,21 @@
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+ <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+ 
+     <!-- Application name -->
+-    <string name="derived_app_name" translatable="false">Quickstep</string>
++    <string name="derived_app_name" translatable="false">GrapheneOS Launcher</string>
+ 
+     <!-- Options for recent tasks -->
+     <!-- Title for an option to enter split screen mode for a given app -->
+     <string name="recent_task_option_split_screen">Split screen</string>
+     <!-- Title for an option to keep an app pinned to the screen until it is unpinned -->
+     <string name="recent_task_option_pin">Pin</string>
+     <!-- Title for an option to enter freeform mode for a given app -->
+     <string name="recent_task_option_freeform">Freeform</string>
+ 
+     <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->

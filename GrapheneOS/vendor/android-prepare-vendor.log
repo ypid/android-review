@@ -1,0 +1,234 @@
+commit 7acb3d84a2ae678b1c87ed3786364c9dcc9de2f3
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-03-23 18:40:03-0400
+
+    temporarily disable preopt
+---
+ execute-all.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/execute-all.sh b/execute-all.sh
+index b35c773a490211613666b07333b8673b58928d29..ac6d8771b4a5b71753f57ae13c2cdc6525837903 100755
+--- a/execute-all.sh
++++ b/execute-all.sh
+@@ -722,20 +722,22 @@ case $BYTECODE_REPAIR_METHOD in
+ 
+     # LOCAL_DEX_PREOPT can be safely used so enable globally for /system
+     FORCE_PREOPT=true
+     ;;
+   *)
+     echo "[-] Invalid bytecode repair method"
+     abort 1
+     ;;
+ esac
+ 
++FORCE_PREOPT=false
++
+ # If deodex all not set provide a list of packages to repair
+ if [ $DEODEX_ALL = false ]; then
+   BYTECODE_LIST="$TMP_WORK_DIR/bytecode_list.txt"
+   jqIncRawArray "$API_LEVEL" "$CONFIG_TYPE" "system-bytecode" "$CONFIG_FILE" > "$BYTECODE_LIST"
+   jqIncRawArray "$API_LEVEL" "$CONFIG_TYPE" "product-bytecode" "$CONFIG_FILE" >> "$BYTECODE_LIST"
+   jqIncRawArray "$API_LEVEL" "$CONFIG_TYPE" "system_ext-bytecode" "$CONFIG_FILE" >> "$BYTECODE_LIST"
+   REPAIR_SCRIPT_ARG+=( --bytecode-list "$BYTECODE_LIST")
+ fi
+ 
+ # If a timestamp is set, pass it to repair script
+
+commit 6fa0c92577f9c17f3dfd8c45b37a3020f358f717 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-01-03 11:49:36-0500
+
+    use more init files from AOSP
+---
+ blueline/config.json   | 1 +
+ bonito/config.json     | 1 +
+ coral/config.json      | 1 +
+ crosshatch/config.json | 1 +
+ flame/config.json      | 1 +
+ sargo/config.json      | 1 +
+ sunfish/config.json    | 1 +
+ 7 files changed, 7 insertions(+)
+
+diff --git a/blueline/config.json b/blueline/config.json
+index 53a59de87e180e46ddab7e9fb43654fc2dc166f7..c3514a06b30427a911b3a4d2737d32369de9a76f 100644
+--- a/blueline/config.json
++++ b/blueline/config.json
+@@ -283,20 +283,21 @@
+         "etc/init/android.hardware.power-service.pixel-libperfmgr.rc",
+         "etc/init/android.hardware.power.stats@1.0-service.pixel.rc",
+         "etc/init/android.hardware.secure_element@1.1-service-disabled.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.1-service.crosshatch.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hardware.google.light@1.0-service.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/hw/init.sdm845.rc",
+         "etc/init/pixelstats-vendor.crosshatch.rc",
+         "etc/init/small_hals.crosshatch-service.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+diff --git a/bonito/config.json b/bonito/config.json
+index cfb57277c1d1b4b652a9480339e04b21bd055cab..baa14d7fe0a9db02a38f86b9ac88dafa9fc218a2 100644
+--- a/bonito/config.json
++++ b/bonito/config.json
+@@ -287,20 +287,21 @@
+         "etc/init/android.hardware.power-service.pixel-libperfmgr.rc",
+         "etc/init/android.hardware.power.stats@1.0-service.pixel.rc",
+         "etc/init/android.hardware.secure_element@1.1-service-disabled.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.1-service.bonito.rc",
+         "etc/init/android.hardware.vibrator-service.drv2624.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/hw/init.sdm670.rc",
+         "etc/init/pixelstats-vendor.bonito.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256",
+diff --git a/coral/config.json b/coral/config.json
+index b5719f04dd4b8b19348fd00a007b28dae504a0c6..834b3aa333210b2870932bf03044f18edd27fd9a 100644
+--- a/coral/config.json
++++ b/coral/config.json
+@@ -250,20 +250,21 @@
+         "etc/init/android.hardware.secure_element@1.0-service.st.rc",
+         "etc/init/android.hardware.sensors@2.0-service-multihal.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.2-service.coral.rc",
+         "etc/init/android.hardware.vibrator-service.cs40l25.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hardware.google.light@1.1-service.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/init.pixel.rc",
+         "etc/init/ipacm.rc",
+         "etc/init/pixelstats-vendor.coral.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+diff --git a/crosshatch/config.json b/crosshatch/config.json
+index 43b5465d406e135a5634a579c82fd8959efedcea..fd085bc0bf040a7916eb200f7671013aea1370a7 100644
+--- a/crosshatch/config.json
++++ b/crosshatch/config.json
+@@ -283,20 +283,21 @@
+         "etc/init/android.hardware.power-service.pixel-libperfmgr.rc",
+         "etc/init/android.hardware.power.stats@1.0-service.pixel.rc",
+         "etc/init/android.hardware.secure_element@1.1-service-disabled.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.1-service.crosshatch.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hardware.google.light@1.0-service.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/hw/init.sdm845.rc",
+         "etc/init/pixelstats-vendor.crosshatch.rc",
+         "etc/init/small_hals.crosshatch-service.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+diff --git a/flame/config.json b/flame/config.json
+index 6912625ee8c30f9f3c6939c80a4c8cee37ab6655..2a69f3d6eaf8130622c1ec3c5d7047c1d3559f90 100644
+--- a/flame/config.json
++++ b/flame/config.json
+@@ -250,20 +250,21 @@
+         "etc/init/android.hardware.secure_element@1.0-service.st.rc",
+         "etc/init/android.hardware.sensors@2.0-service-multihal.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.2-service.coral.rc",
+         "etc/init/android.hardware.vibrator-service.cs40l25.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hardware.google.light@1.1-service.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/init.pixel.rc",
+         "etc/init/ipacm.rc",
+         "etc/init/pixelstats-vendor.coral.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+diff --git a/sargo/config.json b/sargo/config.json
+index cf5fc1ad40f869a6dfa1143c21b116b1c20991e2..5c31abb49d05495723c79bad8c42e978e3987fbb 100644
+--- a/sargo/config.json
++++ b/sargo/config.json
+@@ -287,20 +287,21 @@
+         "etc/init/android.hardware.power-service.pixel-libperfmgr.rc",
+         "etc/init/android.hardware.power.stats@1.0-service.pixel.rc",
+         "etc/init/android.hardware.secure_element@1.1-service-disabled.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.1-service.bonito.rc",
+         "etc/init/android.hardware.vibrator-service.drv2624.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/hw/init.sdm670.rc",
+         "etc/init/pixelstats-vendor.bonito.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.system_ext_sepolicy_and_mapping.sha256",
+diff --git a/sunfish/config.json b/sunfish/config.json
+index 2e6c508bf29ba9748d70c6033ca11cf1c0d7e6d1..f94fdf942e75bf8aa2c95ed79d160e4114e39ae5 100644
+--- a/sunfish/config.json
++++ b/sunfish/config.json
+@@ -239,20 +239,21 @@
+         "etc/init/android.hardware.secure_element@1.0-service.st.rc",
+         "etc/init/android.hardware.sensors@2.0-service-multihal.rc",
+         "etc/init/android.hardware.thermal@2.0-service.pixel.rc",
+         "etc/init/android.hardware.usb@1.2-service.sunfish.rc",
+         "etc/init/android.hardware.vibrator@1.3-service.sunfish.rc",
+         "etc/init/android.hardware.wifi.supplicant-service.rc",
+         "etc/init/boringssl_self_test.rc",
+         "etc/init/chre_daemon.rc",
+         "etc/init/hardware.google.light@1.1-service.rc",
+         "etc/init/hostapd.android.rc",
++        "etc/init/init.pixel.rc",
+         "etc/init/ipacm.rc",
+         "etc/init/pixelstats-vendor.sunfish.rc",
+         "etc/init/vendor_flash_recovery.rc",
+         "etc/init/vndservicemanager.rc",
+         "etc/mkshrc",
+         "etc/passwd",
+         "etc/seccomp_policy/configstore@1.1.policy",
+         "etc/selinux/plat_pub_versioned.cil",
+         "etc/selinux/precompiled_sepolicy.plat_sepolicy_and_mapping.sha256",
+         "etc/selinux/precompiled_sepolicy.product_sepolicy_and_mapping.sha256",

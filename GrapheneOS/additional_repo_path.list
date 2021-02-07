@@ -1,0 +1,17 @@
+branding
+device/amlogic/yukawa
+device/amlogic/yukawa-kernel
+external/Auditor
+external/PdfViewer
+external/hardened_malloc
+external/seedvault
+external/vanadium
+kernel/google/coral
+kernel/google/crosshatch
+kernel/google/sunfish
+packages/apps/ExactCalculator
+packages/apps/F-DroidPrivilegedExtension
+packages/apps/SetupWizard
+packages/apps/Updater
+prebuilts/android-emulator
+script

@@ -1,0 +1,515 @@
+commit 4aa37473fc44bab8e9a67b2f2b39bf66938bacca
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2018-12-12 01:10:55-0500
+
+    include AVB custom key with factory images [1/2]
+---
+ clear-factory-images-variables.sh |  1 +
+ generate-factory-images-common.sh | 22 ++++++++++++++++++++++
+ 2 files changed, 23 insertions(+)
+
+diff --git a/clear-factory-images-variables.sh b/clear-factory-images-variables.sh
+index dc508e120fbe4df2c58985dd318f7a5123831916..799f6c4cca21821925bd09a088422b8eb771d0ce 100644
+--- a/clear-factory-images-variables.sh
++++ b/clear-factory-images-variables.sh
+@@ -5,20 +5,21 @@
+ # You may obtain a copy of the License at
+ #
+ #      http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
++unset AVB_PKMD
+ unset BOOTLOADER
+ unset BOOTLOADERFILE
+ unset BOOTLOADERSRC
+ unset BUILD
+ unset CDMARADIO
+ unset CDMARADIOFILE
+ unset DEVICE
+ unset ERASE
+ unset PRODUCT
+ unset RADIO
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 55fa1704a94dd92d029b503209cd3f9d32aec87c..7e3fa1449ff68ae860edd5970ff2b873bd1d66bd 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -75,20 +75,24 @@ then
+ fi
+ if test "$CDMARADIO" != ""
+ then
+   if test "$CDMARADIOFILE" = ""
+   then
+     cp tmp/RADIO/radio-cdma.img tmp/$PRODUCT-$VERSION/radio-cdma-$DEVICE-$CDMARADIO.img
+   else
+     cp $CDMARADIOFILE tmp/$PRODUCT-$VERSION/radio-cdma-$DEVICE-$CDMARADIO.img
+   fi
+ fi
++if test "$AVB_PKMD" != ""
++then
++  cp "$AVB_PKMD" tmp/$PRODUCT-$VERSION/avb_pkmd.bin
++fi
+ 
+ # Write flash-all.sh
+ cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ #!/bin/sh
+ 
+ # Copyright 2012 The Android Open Source Project
+ #
+ # Licensed under the Apache License, Version 2.0 (the "License");
+ # you may not use this file except in compliance with the License.
+ # You may obtain a copy of the License at
+@@ -150,20 +154,29 @@ sleep $SLEEPDURATION
+ EOF
+ fi
+ if test "$CDMARADIO" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ fi
++if test "$AVB_PKMD" != ""
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
++fastboot erase avb_custom_key
++fastboot flash avb_custom_key avb_pkmd.bin
++fastboot reboot-bootloader
++sleep $SLEEPDURATION
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot -w update image-$PRODUCT-$VERSION.zip
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+ :: Copyright 2012 The Android Open Source Project
+ ::
+@@ -225,20 +238,29 @@ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ EOF
+ fi
+ if test "$CDMARADIO" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ EOF
+ fi
++if test "$AVB_PKMD" != ""
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
++fastboot erase avb_custom_key
++fastboot flash avb_custom_key avb_pkmd.bin
++fastboot reboot-bootloader
++ping -n $SLEEPDURATION 127.0.0.1 >nul
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot -w update image-$PRODUCT-$VERSION.zip
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+ # Write flash-base.sh
+ cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+
+commit 382417baddc10123f5543582b933d1e536d51d75
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2019-03-16 12:54:05-0400
+
+    use https for common gps configuration
+---
+ gps/gps.conf_AS      | 6 +++---
+ gps/gps.conf_AS_SUPL | 6 +++---
+ gps/gps.conf_EU      | 6 +++---
+ gps/gps.conf_EU_SUPL | 6 +++---
+ gps/gps.conf_US      | 6 +++---
+ gps/gps.conf_US_SUPL | 6 +++---
+ 6 files changed, 18 insertions(+), 18 deletions(-)
+
+diff --git a/gps/gps.conf_AS b/gps/gps.conf_AS
+index ce3a4e2cb8c4d8ec3cbc0f2f72e079e64d12a345..4a788f98c2b2f212e62367edc73825edde966770 100644
+--- a/gps/gps.conf_AS
++++ b/gps/gps.conf_AS
+@@ -1,3 +1,3 @@
+-XTRA_SERVER_1=http://xtra1.gpsonextra.net/xtra.bin
+-XTRA_SERVER_2=http://xtra2.gpsonextra.net/xtra.bin
+-XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin
++XTRA_SERVER_1=https://xtra1.gpsonextra.net/xtra.bin
++XTRA_SERVER_2=https://xtra2.gpsonextra.net/xtra.bin
++XTRA_SERVER_3=https://xtra3.gpsonextra.net/xtra.bin
+diff --git a/gps/gps.conf_AS_SUPL b/gps/gps.conf_AS_SUPL
+index a0e2a7d14896c21c63b182900a83b2949ab5b44b..27c95e74132b42ba633f0e420db38c185ab9eea2 100644
+--- a/gps/gps.conf_AS_SUPL
++++ b/gps/gps.conf_AS_SUPL
+@@ -1,5 +1,5 @@
+-XTRA_SERVER_1=http://xtra1.gpsonextra.net/xtra.bin
+-XTRA_SERVER_2=http://xtra2.gpsonextra.net/xtra.bin
+-XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin
++XTRA_SERVER_1=https://xtra1.gpsonextra.net/xtra.bin
++XTRA_SERVER_2=https://xtra2.gpsonextra.net/xtra.bin
++XTRA_SERVER_3=https://xtra3.gpsonextra.net/xtra.bin
+ SUPL_HOST=supl.google.com
+ SUPL_PORT=7276
+diff --git a/gps/gps.conf_EU b/gps/gps.conf_EU
+index ce3a4e2cb8c4d8ec3cbc0f2f72e079e64d12a345..4a788f98c2b2f212e62367edc73825edde966770 100644
+--- a/gps/gps.conf_EU
++++ b/gps/gps.conf_EU
+@@ -1,3 +1,3 @@
+-XTRA_SERVER_1=http://xtra1.gpsonextra.net/xtra.bin
+-XTRA_SERVER_2=http://xtra2.gpsonextra.net/xtra.bin
+-XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin
++XTRA_SERVER_1=https://xtra1.gpsonextra.net/xtra.bin
++XTRA_SERVER_2=https://xtra2.gpsonextra.net/xtra.bin
++XTRA_SERVER_3=https://xtra3.gpsonextra.net/xtra.bin
+diff --git a/gps/gps.conf_EU_SUPL b/gps/gps.conf_EU_SUPL
+index a0e2a7d14896c21c63b182900a83b2949ab5b44b..27c95e74132b42ba633f0e420db38c185ab9eea2 100644
+--- a/gps/gps.conf_EU_SUPL
++++ b/gps/gps.conf_EU_SUPL
+@@ -1,5 +1,5 @@
+-XTRA_SERVER_1=http://xtra1.gpsonextra.net/xtra.bin
+-XTRA_SERVER_2=http://xtra2.gpsonextra.net/xtra.bin
+-XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin
++XTRA_SERVER_1=https://xtra1.gpsonextra.net/xtra.bin
++XTRA_SERVER_2=https://xtra2.gpsonextra.net/xtra.bin
++XTRA_SERVER_3=https://xtra3.gpsonextra.net/xtra.bin
+ SUPL_HOST=supl.google.com
+ SUPL_PORT=7276
+diff --git a/gps/gps.conf_US b/gps/gps.conf_US
+index ce3a4e2cb8c4d8ec3cbc0f2f72e079e64d12a345..4a788f98c2b2f212e62367edc73825edde966770 100644
+--- a/gps/gps.conf_US
++++ b/gps/gps.conf_US
+@@ -1,3 +1,3 @@
+-XTRA_SERVER_1=http://xtra1.gpsonextra.net/xtra.bin
+-XTRA_SERVER_2=http://xtra2.gpsonextra.net/xtra.bin
+-XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin
++XTRA_SERVER_1=https://xtra1.gpsonextra.net/xtra.bin
++XTRA_SERVER_2=https://xtra2.gpsonextra.net/xtra.bin
++XTRA_SERVER_3=https://xtra3.gpsonextra.net/xtra.bin
+diff --git a/gps/gps.conf_US_SUPL b/gps/gps.conf_US_SUPL
+index a0e2a7d14896c21c63b182900a83b2949ab5b44b..27c95e74132b42ba633f0e420db38c185ab9eea2 100644
+--- a/gps/gps.conf_US_SUPL
++++ b/gps/gps.conf_US_SUPL
+@@ -1,5 +1,5 @@
+-XTRA_SERVER_1=http://xtra1.gpsonextra.net/xtra.bin
+-XTRA_SERVER_2=http://xtra2.gpsonextra.net/xtra.bin
+-XTRA_SERVER_3=http://xtra3.gpsonextra.net/xtra.bin
++XTRA_SERVER_1=https://xtra1.gpsonextra.net/xtra.bin
++XTRA_SERVER_2=https://xtra2.gpsonextra.net/xtra.bin
++XTRA_SERVER_3=https://xtra3.gpsonextra.net/xtra.bin
+ SUPL_HOST=supl.google.com
+ SUPL_PORT=7276
+
+commit 83624bf330cd54f2b398e115916f6e229615d723
+Author: SatelliteSnyper <51929686+SatelliteSnyper@users.noreply.github.com>
+Date:   Mon 2019-06-17 20:12:05+0000
+
+    use --skip-reboot to stay in fastboot mode
+    
+    This allows locking the bootloader without needing to reboot back into
+    fastboot mode.
+---
+ generate-factory-images-common.sh | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 7e3fa1449ff68ae860edd5970ff2b873bd1d66bd..c476ee62494098bf1d28f88b3226101ee2390ad2 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -164,21 +164,21 @@ fi
+ if test "$AVB_PKMD" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot erase avb_custom_key
+ fastboot flash avb_custom_key avb_pkmd.bin
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+-fastboot -w update image-$PRODUCT-$VERSION.zip
++fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+ :: Copyright 2012 The Android Open Source Project
+ ::
+ :: Licensed under the Apache License, Version 2.0 (the "License");
+ :: you may not use this file except in compliance with the License.
+@@ -248,21 +248,21 @@ fi
+ if test "$AVB_PKMD" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot erase avb_custom_key
+ fastboot flash avb_custom_key avb_pkmd.bin
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ EOF
+ fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+-fastboot -w update image-$PRODUCT-$VERSION.zip
++fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+ # Write flash-base.sh
+ cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+ #!/bin/sh
+ 
+
+commit 53f95105ee15043944589314469f693cf74a4714
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2020-05-01 15:52:26-0400
+
+    use more sensible factory images zip naming scheme
+---
+ generate-factory-images-common.sh | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index c476ee62494098bf1d28f88b3226101ee2390ad2..b82c430c51a57de4e64e988146d32163566c2997 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -316,15 +316,14 @@ if test "$CDMARADIO" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+ fastboot flash radio-cdma radio-cdma-$DEVICE-$CDMARADIO.img
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ fi
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-base.sh
+ 
+ # Create the distributable package
+-(cd tmp ; zip -r ../$PRODUCT-$VERSION-factory.zip $PRODUCT-$VERSION)
+-mv $PRODUCT-$VERSION-factory.zip $PRODUCT-$VERSION-factory-$(sha256sum < $PRODUCT-$VERSION-factory.zip | cut -b -8).zip
++(cd tmp; mv $PRODUCT-$VERSION $PRODUCT-factory-$VERSION; zip -r ../$PRODUCT-factory-$VERSION.zip $PRODUCT-factory-$VERSION)
+ 
+ # Clean up
+ rm -rf tmp
+
+commit 4ef1b91b7b903c8d2483b2baa38bf971104438c3
+Author: JTL <jtl999@users.noreply.github.com>
+Date:   Mon 2020-06-01 10:45:25-0700
+
+    Fastboot version detection on Windows using inline PowerShell
+---
+ generate-factory-images-common.sh | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index b82c430c51a57de4e64e988146d32163566c2997..502c8650beae6a49e7c53200686f58d164b8b280 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -186,20 +186,41 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ ::
+ ::      http://www.apache.org/licenses/LICENSE-2.0
+ ::
+ :: Unless required by applicable law or agreed to in writing, software
+ :: distributed under the License is distributed on an "AS IS" BASIS,
+ :: WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ :: See the License for the specific language governing permissions and
+ :: limitations under the License.
+ 
+ PATH=%PATH%;"%SYSTEMROOT%\System32"
++
++:: Detect Fastboot version with inline PowerShell
++:: Should work with Windows 7 and later
++
++@PowerShell ^
++\$version=fastboot --version; ^
++try { ^
++    \$verNum = \$version[0].substring(17, 6); ^
++    \$verNum = \$verNum.replace('.', ''); ^
++    if ((-Not (\$verNum -gt 2802)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
++        Exit 1 ^
++    } ^
++} catch { ^
++    Exit 1 ^
++}
++
++IF %ERRORLEVEL% NEQ 0 (
++  ECHO fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html
++  EXIT /B
++)
++
+ EOF
+ if test "$UNLOCKBOOTLOADER" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot oem unlock
+ EOF
+ fi
+ if test "$ERASEALL" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+
+commit 0efdad26bec4bda1c61f08950237fa4f2f18112a
+Author: Chirayu Desai <chirayudesai1@gmail.com>
+Date:   Wed 2020-06-03 03:59:34+0530
+
+    Reboot to bootloader after installing update
+    
+    * Can't lock bootloader from fastbootd,
+      reboot to bootloader to allow that.
+    * Doesn't hurt on other devices, keeps the script simple.
+---
+ generate-factory-images-common.sh | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 502c8650beae6a49e7c53200686f58d164b8b280..7f2741d9776b7f8ca81e6f919463122ce0f04c34 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -165,20 +165,22 @@ if test "$AVB_PKMD" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot erase avb_custom_key
+ fastboot flash avb_custom_key avb_pkmd.bin
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
++fastboot reboot-bootloader
++sleep $SLEEPDURATION
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+ :: Copyright 2012 The Android Open Source Project
+ ::
+ :: Licensed under the Apache License, Version 2.0 (the "License");
+ :: you may not use this file except in compliance with the License.
+@@ -270,20 +272,22 @@ if test "$AVB_PKMD" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot erase avb_custom_key
+ fastboot flash avb_custom_key avb_pkmd.bin
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ EOF
+ fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
++fastboot reboot-bootloader
++ping -n $SLEEPDURATION 127.0.0.1 >nul
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+ # Write flash-base.sh
+ cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+ #!/bin/sh
+ 
+
+commit cc6f9ec67ef6a3941e337a28dea2d160b3d3584e (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Maxim Baz <git@maximbaz.com>
+Date:   Tue 2020-10-27 16:25:20+0100
+
+    gracefully handle absence of fastboot
+---
+ generate-factory-images-common.sh | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f002ca514ba 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -98,20 +98,25 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ # You may obtain a copy of the License at
+ #
+ #      http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
++if ! command -v fastboot > /dev/null; then
++  echo "fastboot not found; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html and add it to the shell PATH"
++  exit 1
++fi
++
+ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 2802 ]; then
+   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
+   exit 1
+ fi
+ EOF
+ if test "$UNLOCKBOOTLOADER" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot oem unlock
+ EOF
+@@ -192,20 +197,22 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ :: distributed under the License is distributed on an "AS IS" BASIS,
+ :: WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ :: See the License for the specific language governing permissions and
+ :: limitations under the License.
+ 
+ PATH=%PATH%;"%SYSTEMROOT%\System32"
+ 
+ :: Detect Fastboot version with inline PowerShell
+ :: Should work with Windows 7 and later
+ 
++where /q fastboot || ECHO fastboot not found; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html and add it to the shell PATH && EXIT /B
++
+ @PowerShell ^
+ \$version=fastboot --version; ^
+ try { ^
+     \$verNum = \$version[0].substring(17, 6); ^
+     \$verNum = \$verNum.replace('.', ''); ^
+     if ((-Not (\$verNum -gt 2802)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
+         Exit 1 ^
+     } ^
+ } catch { ^
+     Exit 1 ^
+@@ -298,20 +305,25 @@ cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+ # You may obtain a copy of the License at
+ #
+ #      http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
++if ! command -v fastboot > /dev/null; then
++  echo "fastboot not found; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html and add it to the shell PATH"
++  exit 1
++fi
++
+ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 2802 ]; then
+   echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
+   exit 1
+ fi
+ EOF
+ if test "$XLOADER" != ""
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
+ fastboot flash xloader xloader-$DEVICE-$XLOADER.img
+ EOF

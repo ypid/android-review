@@ -1,0 +1,36 @@
+commit c34b037486b38bed7a45b26f736e9fe4a8c931f2 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-01-04 19:56:14-0500
+
+    constify JNINativeMethod table
+---
+ framesequence/jni/FrameSequenceJNI.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/framesequence/jni/FrameSequenceJNI.cpp b/framesequence/jni/FrameSequenceJNI.cpp
+index c701f033fc8118d838f55c074295c58bf3ba8685..4041733d93df154cc2b233683957b6e2c10104f0 100644
+--- a/framesequence/jni/FrameSequenceJNI.cpp
++++ b/framesequence/jni/FrameSequenceJNI.cpp
+@@ -134,21 +134,21 @@ static jlong JNICALL nativeGetFrame(
+     }
+ 
+     int pixelStride = info.stride >> 2;
+     jlong delayMs = frameSequenceState->drawFrame(frameNr,
+             (Color8888*) pixels, pixelStride, previousFrameNr);
+ 
+     AndroidBitmap_unlockPixels(env, bitmap);
+     return delayMs;
+ }
+ 
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+     {   "nativeDecodeByteArray",
+         "([BII)L" JNI_PACKAGE "/FrameSequence;",
+         (void*) nativeDecodeByteArray
+     },
+     {   "nativeDecodeByteBuffer",
+         "(Ljava/nio/ByteBuffer;II)L" JNI_PACKAGE "/FrameSequence;",
+         (void*) nativeDecodeByteBuffer
+     },
+     {   "nativeDecodeStream",
+         "(Ljava/io/InputStream;[B)L" JNI_PACKAGE "/FrameSequence;",

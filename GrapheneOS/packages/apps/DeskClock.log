@@ -1,0 +1,3094 @@
+commit 5df681557fe114d0dfd503338e25d11a8ea447a7
+Author: Marko Man <darkobas@gmail.com>
+Date:   Mon 2020-02-24 20:05:46+0100
+
+    Require USE_FULL_SCREEN_INTENT permission
+    
+    * This is required for apps targeting API 29
+    
+    Test: m
+    Signed-off-by: Luca Stefani <luca.stefani.ge1@gmail.com>
+    Change-Id: I249ffa5480aae5bb03cd43409a4eb0e69091d476
+---
+ AndroidManifest.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index fbceb3efd129ed986249392f7ab79fed6500dfbc..d2219612668053ba13fe19e40eb28d02f0cb9844 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -23,20 +23,21 @@
+     <original-package android:name="com.android.deskclock" />
+ 
+     <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="25" />
+ 
+     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+     <uses-permission android:name="android.permission.WAKE_LOCK" />
+     <uses-permission android:name="android.permission.VIBRATE" />
+     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
++    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+ 
+     <!-- WRITE_SETTINGS is required to record the upcoming alarm prior to L -->
+     <uses-permission
+         android:name="android.permission.WRITE_SETTINGS"
+         android:maxSdkVersion="19" />
+     <!-- READ_PHONE_STATE is required to determine when a phone call exists prior to M -->
+     <uses-permission
+         android:name="android.permission.READ_PHONE_STATE"
+         android:maxSdkVersion="22" />
+ 
+
+commit 27b188de63e01142f9ceac95c9a9aabcb0afd1f2
+Author: Marko Man <darkobas@gmail.com>
+Date:   Fri 2020-02-21 12:22:50+0100
+
+    Change most notfications category
+    
+    Due to androids limited dnd implementation all notifications with
+    category_alarm will make sound even in dnd mode. Not all DeskClock's
+    notifications are actually alarms. Change appropriate notifications
+    to category_event, so that notifications sounds an be muted when
+    Do not disturb is turned on.
+    
+    Change-Id: I5a5eb26fac85357e108e3008f7b57f053f81b599
+---
+ src/com/android/deskclock/alarms/AlarmNotifications.java | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/src/com/android/deskclock/alarms/AlarmNotifications.java b/src/com/android/deskclock/alarms/AlarmNotifications.java
+index 5dc44c9157d3a8a215294fd66cdc7b7b3041725f..b01413796dd0fae53402ba8683c32d77f473439c 100644
+--- a/src/com/android/deskclock/alarms/AlarmNotifications.java
++++ b/src/com/android/deskclock/alarms/AlarmNotifications.java
+@@ -121,21 +121,21 @@ final class AlarmNotifications {
+                          .setShowWhen(false)
+                         .setContentTitle(context.getString(
+                                 R.string.alarm_alert_predismiss_title))
+                         .setContentText(AlarmUtils.getAlarmText(
+                                 context, instance, true /* includeLabel */))
+                         .setColor(ContextCompat.getColor(context, R.color.default_background))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setAutoCancel(false)
+                         .setSortKey(createSortKey(instance))
+                         .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+-                        .setCategory(NotificationCompat.CATEGORY_ALARM)
++                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setLocalOnly(true);
+ 
+         if (Utils.isNOrLater()) {
+             builder.setGroup(UPCOMING_GROUP_KEY);
+         }
+ 
+         // Setup up hide notification
+         Intent hideIntent = AlarmStateManager.createStateChangeIntent(context,
+                 AlarmStateManager.ALARM_DELETE_TAG, instance,
+@@ -179,21 +179,21 @@ final class AlarmNotifications {
+                         .setShowWhen(false)
+                         .setContentTitle(context.getString(
+                                 R.string.alarm_alert_predismiss_title))
+                         .setContentText(AlarmUtils.getAlarmText(
+                                 context, instance, true /* includeLabel */))
+                         .setColor(ContextCompat.getColor(context, R.color.default_background))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setAutoCancel(false)
+                         .setSortKey(createSortKey(instance))
+                         .setPriority(NotificationCompat.PRIORITY_HIGH)
+-                        .setCategory(NotificationCompat.CATEGORY_ALARM)
++                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setLocalOnly(true);
+ 
+         if (Utils.isNOrLater()) {
+             builder.setGroup(UPCOMING_GROUP_KEY);
+         }
+ 
+         // Setup up dismiss action
+         Intent dismissIntent = AlarmStateManager.createStateChangeIntent(context,
+                 AlarmStateManager.ALARM_DISMISS_TAG, instance, AlarmInstance.PREDISMISSED_STATE);
+@@ -300,21 +300,21 @@ final class AlarmNotifications {
+         if (summary == null
+                 || !Objects.equals(summary.contentIntent, firstUpcoming.contentIntent)) {
+             summary = new NotificationCompat.Builder(context, ALARM_NOTIFICATION_CHANNEL_ID)
+                     .setShowWhen(false)
+                     .setContentIntent(firstUpcoming.contentIntent)
+                     .setColor(ContextCompat.getColor(context, R.color.default_background))
+                     .setSmallIcon(R.drawable.stat_notify_alarm)
+                     .setGroup(UPCOMING_GROUP_KEY)
+                     .setGroupSummary(true)
+                     .setPriority(NotificationCompat.PRIORITY_HIGH)
+-                    .setCategory(NotificationCompat.CATEGORY_ALARM)
++                    .setCategory(NotificationCompat.CATEGORY_EVENT)
+                     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                     .setLocalOnly(true)
+                     .build();
+             nm.notify(ALARM_GROUP_NOTIFICATION_ID, summary);
+         }
+     }
+ 
+     private static void updateMissedAlarmGroupNotification(Context context,
+             int canceledNotificationId, Notification postedNotification) {
+         if (!Utils.isNOrLater()) {
+@@ -348,21 +348,21 @@ final class AlarmNotifications {
+                 nm.createNotificationChannel(channel);
+             }
+             summary = new NotificationCompat.Builder(context, ALARM_NOTIFICATION_CHANNEL_ID)
+                     .setShowWhen(false)
+                     .setContentIntent(firstMissed.contentIntent)
+                     .setColor(ContextCompat.getColor(context, R.color.default_background))
+                     .setSmallIcon(R.drawable.stat_notify_alarm)
+                     .setGroup(MISSED_GROUP_KEY)
+                     .setGroupSummary(true)
+                     .setPriority(NotificationCompat.PRIORITY_HIGH)
+-                    .setCategory(NotificationCompat.CATEGORY_ALARM)
++                    .setCategory(NotificationCompat.CATEGORY_EVENT)
+                     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                     .setLocalOnly(true)
+                     .build();
+             nm.notify(ALARM_GROUP_MISSED_NOTIFICATION_ID, summary);
+         }
+     }
+ 
+     static synchronized void showSnoozeNotification(Context context,
+             AlarmInstance instance) {
+         LogUtils.v("Displaying snoozed notification for alarm instance: " + instance.mId);
+@@ -371,21 +371,21 @@ final class AlarmNotifications {
+                 context, ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID)
+                         .setShowWhen(false)
+                         .setContentTitle(instance.getLabelOrDefault(context))
+                         .setContentText(context.getString(R.string.alarm_alert_snooze_until,
+                                 AlarmUtils.getFormattedTime(context, instance.getAlarmTime())))
+                         .setColor(ContextCompat.getColor(context, R.color.default_background))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setAutoCancel(false)
+                         .setSortKey(createSortKey(instance))
+                         .setPriority(NotificationCompat.PRIORITY_MAX)
+-                        .setCategory(NotificationCompat.CATEGORY_ALARM)
++                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setLocalOnly(true);
+ 
+         if (Utils.isNOrLater()) {
+             builder.setGroup(UPCOMING_GROUP_KEY);
+         }
+ 
+         // Setup up dismiss action
+         Intent dismissIntent = AlarmStateManager.createStateChangeIntent(context,
+                 AlarmStateManager.ALARM_DISMISS_TAG, instance, AlarmInstance.DISMISSED_STATE);
+@@ -422,21 +422,21 @@ final class AlarmNotifications {
+         NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                 context, ALARM_MISSED_NOTIFICATION_CHANNEL_ID)
+                         .setShowWhen(false)
+                         .setContentTitle(context.getString(R.string.alarm_missed_title))
+                         .setContentText(instance.mLabel.isEmpty() ? alarmTime :
+                                 context.getString(R.string.alarm_missed_text, alarmTime, label))
+                         .setColor(ContextCompat.getColor(context, R.color.default_background))
+                         .setSortKey(createSortKey(instance))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setPriority(NotificationCompat.PRIORITY_HIGH)
+-                        .setCategory(NotificationCompat.CATEGORY_ALARM)
++                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setLocalOnly(true);
+ 
+         if (Utils.isNOrLater()) {
+             builder.setGroup(MISSED_GROUP_KEY);
+         }
+ 
+         final int id = instance.hashCode();
+ 
+         // Setup dismiss intent
+
+commit bf28d53f66be6c9699ecf552b810b2b23d7d166f
+Author: Bill Yi <byi@google.com>
+Date:   Tue 2020-01-28 10:57:54-0800
+
+    Import translations. DO NOT MERGE
+    
+    BUG:148403740
+    
+    TEST: m DeskClock
+    
+    Change-Id: Id46664969a3c6682b661086b2276f18a49e41eef
+    Auto-generated-cl: translation import
+---
+ res/values-ur/strings.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/res/values-ur/strings.xml b/res/values-ur/strings.xml
+index a586636c1e359fe221c6e7ec2469b634c4de2ee2..f3d2a5537c4f4d22ce050604abea8f175cb30ac0 100644
+--- a/res/values-ur/strings.xml
++++ b/res/values-ur/strings.xml
+@@ -232,22 +232,22 @@
+     <string name="timer_cancel" msgid="3572868404230815644">"منسوخ کریں"</string>
+     <string name="timer_canceled" msgid="7327923392567128060">"ٹائمر منسوخ ہو گیا"</string>
+     <string name="timer_times_up" msgid="9190440395938519009">"وقت ختم ہو گیا"</string>
+     <string name="timer_multi_times_up" msgid="1239104626836080409">"<xliff:g id="NUM_TIMERS">%d</xliff:g> ٹائمرز کی میعاد ختم ہوگئی"</string>
+     <string name="timer_multi_missed" msgid="9085073572920385362">"<xliff:g id="NUMBER">%d</xliff:g> ٹائمرز چھوٹ گئے"</string>
+     <string name="timer_notification_label" msgid="4933184831583137249">"ٹائمر"</string>
+     <string name="missed_timer_notification_label" msgid="6661928727623284334">"ٹائمر چھوٹ گيا"</string>
+     <string name="missed_named_timer_notification_label" msgid="665604640028289175">"ٹائمر چھوٹ گیا: <xliff:g id="NAME">%s</xliff:g>"</string>
+     <string name="timer_pause" msgid="3748323712728398743">"موقوف کریں"</string>
+     <string name="timer_reset_all" msgid="7530633132757866087">"تمام ٹائمرز دوبارہ ترتیب دیں"</string>
+-    <string name="hours_minutes_seconds" msgid="5680088738059791288">"<xliff:g id="SECONDS">%3$02d</xliff:g>:<xliff:g id="MINUTES">%2$02d</xliff:g>:<xliff:g id="HOURS">%1$d</xliff:g>"</string>
+-    <string name="minutes_seconds" msgid="6189446107009577914">"<xliff:g id="SECONDS">%2$02d</xliff:g>:<xliff:g id="MINUTES">%1$d</xliff:g>"</string>
++    <string name="hours_minutes_seconds" msgid="5680088738059791288">"<xliff:g id="SECONDS">%1$02d</xliff:g>:<xliff:g id="MINUTES">%2$02d</xliff:g>:<xliff:g id="HOURS">%3$d</xliff:g>"</string>
++    <string name="minutes_seconds" msgid="6189446107009577914">"<xliff:g id="SECONDS">%1$02d</xliff:g>:<xliff:g id="MINUTES">%2$d</xliff:g>"</string>
+     <!-- no translation found for seconds (6550091082396571898) -->
+     <skip />
+   <string-array name="sw_share_strings">
+     <item msgid="842841032273927988">"آپ کی رفتار بہت زیادہ ہے۔"</item>
+     <item msgid="6332879039890727169">"اپنی محنت کا پھل کھائیں۔"</item>
+     <item msgid="815382761274660130">"‏Androids کو تیزی کیلئے جانا جاتا ہے، لیکن آپ کے جتنا تیز نہیں!"</item>
+     <item msgid="7916250650982813737">"اوہ۔"</item>
+     <item msgid="6836603904515182333">"‏L33t اوقات۔"</item>
+     <item msgid="7508085100680861631">"اتنی زبردست رفتار۔"</item>
+     <item msgid="5961245252909589573">"آئیے وقت دوبارہ ترتیب دیں۔"</item>
+
+commit 7beb3497dc8832acee6734ac2506cbf9df191e5a
+Author: Raman Tenneti <rtenneti@google.com>
+Date:   Tue 2020-07-07 15:31:29-0700
+
+    AOSP/DeskClock - Call executePendingTransactions only if mFragmentManager is not destroyed. Fixes the crash bug. Code matches internal code.
+    
+    BUG: 153590150
+    
+    Test: manual - Tested the DeskClock UI manually and tested the timer.
+    
+    $ make -j 40
+    
+    ... 6117353 Jul  7 15:27 out/target/product/bonito/product/app/DeskClock/DeskClock.apk
+    
+    $ adb install -r -d -t out/target/product/bonito/product/app/DeskClock/DeskClock.apk
+    
+    Change-Id: I582013ebffef2c8d1ec16255ea531d874d14a968
+---
+ src/com/android/deskclock/timer/TimerPagerAdapter.java | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/src/com/android/deskclock/timer/TimerPagerAdapter.java b/src/com/android/deskclock/timer/TimerPagerAdapter.java
+index 5255f16b638fc6776b9df340ba9a086446f72f8d..224d71d164b82413e54d73ee2a65102411a8d160 100644
+--- a/src/com/android/deskclock/timer/TimerPagerAdapter.java
++++ b/src/com/android/deskclock/timer/TimerPagerAdapter.java
+@@ -130,21 +130,24 @@ class TimerPagerAdapter extends PagerAdapter implements TimerListener {
+                 setItemVisible(mCurrentPrimaryItem, true);
+             }
+         }
+     }
+ 
+     @Override
+     public void finishUpdate(ViewGroup container) {
+         if (mCurrentTransaction != null) {
+             mCurrentTransaction.commitAllowingStateLoss();
+             mCurrentTransaction = null;
+-            mFragmentManager.executePendingTransactions();
++
++            if (!mFragmentManager.isDestroyed()) {
++                mFragmentManager.executePendingTransactions();
++            }
+         }
+     }
+ 
+     @Override
+     public void timerAdded(Timer timer) {
+         notifyDataSetChanged();
+     }
+ 
+     @Override
+     public void timerRemoved(Timer timer) {
+
+commit cf17f4eede03b4f1081ca26d8b04598992db12ed
+Author: Raman Tenneti <rtenneti@google.com>
+Date:   Mon 2020-07-13 11:40:02-0700
+
+    AOSP/DeskClock: Improve AlarmNotification priority to pop up alarm  notification.
+    
+    Root cause: Because alarm notification is IMPORT_DEFAULT in AOSP R,
+    there is no alarm alert pop up when alarm on time.
+    
+    Solution: Improve the priority to IMPORT_HIGH.
+    
+    Merging b/153362039#comment6 and I have added HIGH at one of the missed locations.
+    
+    Changed IMPORTANCE_DEFAULT to IMPORTANCE_HIGH in showHighPriorityNotification,
+    updateUpcomingAlarmGroupNotification and updateMissedAlarmGroupNotification methods.
+    
+    BUG: 153362039
+    
+    Test: manual - Tested the DeskClock UI manually and tested the alarm, stopwatch and timer.
+    
+    $ make -j 40
+    $ ls -l  out/target/product/bonito/product/app/DeskClock/DeskClock.apk
+      -rw-r----- 1 rtenneti primarygroup 6117353 Jul 13 11:35 out/target/product/bonito/product/app/DeskClock/DeskClock.apk
+    
+    $ adb install -r out/target/product/bonito/product/app/DeskClock/DeskClock.apk
+    
+    + Verified by setting up the alaram and waiting for the alarm to go off.
+    
+    Change-Id: I7d97fe6a39b016a9b9850849b38e1a1b98410807
+---
+ src/com/android/deskclock/alarms/AlarmNotifications.java | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/src/com/android/deskclock/alarms/AlarmNotifications.java b/src/com/android/deskclock/alarms/AlarmNotifications.java
+index b01413796dd0fae53402ba8683c32d77f473439c..c7994966b5a07373198755a9ed02c6e6ae57fa47 100644
+--- a/src/com/android/deskclock/alarms/AlarmNotifications.java
++++ b/src/com/android/deskclock/alarms/AlarmNotifications.java
+@@ -206,21 +206,21 @@ final class AlarmNotifications {
+         // Setup content action if instance is owned by alarm
+         Intent viewAlarmIntent = createViewAlarmIntent(context, instance);
+         builder.setContentIntent(PendingIntent.getActivity(context, id,
+                 viewAlarmIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+ 
+         NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+             NotificationChannel channel = new NotificationChannel(
+                     ALARM_HIGH_PRIORITY_NOTIFICATION_CHANNEL_ID,
+                     context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
++                    NotificationManagerCompat.IMPORTANCE_HIGH);
+             nm.createNotificationChannel(channel);
+         }
+         final Notification notification = builder.build();
+         nm.notify(id, notification);
+         updateUpcomingAlarmGroupNotification(context, -1, notification);
+     }
+ 
+     @TargetApi(Build.VERSION_CODES.N)
+     private static boolean isGroupSummary(Notification n) {
+         return (n.flags & Notification.FLAG_GROUP_SUMMARY) == Notification.FLAG_GROUP_SUMMARY;
+@@ -278,21 +278,21 @@ final class AlarmNotifications {
+             int canceledNotificationId, Notification postedNotification) {
+         if (!Utils.isNOrLater()) {
+             return;
+         }
+ 
+         final NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+             NotificationChannel channel = new NotificationChannel(
+                     ALARM_NOTIFICATION_CHANNEL_ID,
+                     context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
++                    NotificationManagerCompat.IMPORTANCE_HIGH);
+             nm.createNotificationChannel(channel);
+         }
+ 
+         final Notification firstUpcoming = getFirstActiveNotification(context, UPCOMING_GROUP_KEY,
+                 canceledNotificationId, postedNotification);
+         if (firstUpcoming == null) {
+             nm.cancel(ALARM_GROUP_NOTIFICATION_ID);
+             return;
+         }
+ 
+@@ -319,39 +319,39 @@ final class AlarmNotifications {
+             int canceledNotificationId, Notification postedNotification) {
+         if (!Utils.isNOrLater()) {
+             return;
+         }
+ 
+         final NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+             NotificationChannel channel = new NotificationChannel(
+                     ALARM_NOTIFICATION_CHANNEL_ID,
+                     context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
++                    NotificationManagerCompat.IMPORTANCE_HIGH);
+             nm.createNotificationChannel(channel);
+         }
+ 
+         final Notification firstMissed = getFirstActiveNotification(context, MISSED_GROUP_KEY,
+                 canceledNotificationId, postedNotification);
+         if (firstMissed == null) {
+             nm.cancel(ALARM_GROUP_MISSED_NOTIFICATION_ID);
+             return;
+         }
+ 
+         Notification summary = getActiveGroupSummaryNotification(context, MISSED_GROUP_KEY);
+         if (summary == null
+                 || !Objects.equals(summary.contentIntent, firstMissed.contentIntent)) {
+             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                 NotificationChannel channel = new NotificationChannel(
+                         ALARM_MISSED_NOTIFICATION_CHANNEL_ID,
+                         context.getString(R.string.default_label),
+-                        NotificationManagerCompat.IMPORTANCE_DEFAULT);
++                        NotificationManagerCompat.IMPORTANCE_HIGH);
+                 nm.createNotificationChannel(channel);
+             }
+             summary = new NotificationCompat.Builder(context, ALARM_NOTIFICATION_CHANNEL_ID)
+                     .setShowWhen(false)
+                     .setContentIntent(firstMissed.contentIntent)
+                     .setColor(ContextCompat.getColor(context, R.color.default_background))
+                     .setSmallIcon(R.drawable.stat_notify_alarm)
+                     .setGroup(MISSED_GROUP_KEY)
+                     .setGroupSummary(true)
+                     .setPriority(NotificationCompat.PRIORITY_HIGH)
+
+commit 50470708720e1583f3603061321f787eb680e59c
+Author: Michael W <baddaemon87@gmail.com>
+Date:   Fri 2020-06-05 10:57:35+0800
+
+    DeskClock: Rework notification channel implementation
+    
+    * Alarm notifications etc. are important and should be on high
+      importance level.
+    * On contrast, upcoming alarms etc. should not have sounds or vibrations
+      attached to them.
+    * In addition, we need to fix strings for notification channel.
+    * In order to achieve this, we need to create some new channels because
+      you can't change the priority for existing channels
+    * Delete old channels on boot and update the names of existing channels if
+      they already exist (they get created with the first notification
+      requiring them)
+    * Move creation of upcoming alarm notifications into one place
+    
+    Test: manual - Tested the DeskClock UI manually and tested that every possible
+    notification behaves as expected.
+    
+    Co-authored-by: Wang Han <416810799@qq.com>
+    Change-Id: I6d2e9abd6a822a62b3313c62b0617d8d9211948e
+---
+ res/values/strings.xml                             |   8 +
+ src/com/android/deskclock/AlarmInitReceiver.java   |   2 +
+ .../android/deskclock/NotificationUtils.java (new) | 169 ++++++++++++++++++++
+ src/com/android/deskclock/Utils.java               |   7 +
+ .../deskclock/alarms/AlarmNotifications.java       | 177 ++++-----------------
+ .../deskclock/alarms/AlarmStateManager.java        |   4 +-
+ src/com/android/deskclock/data/StopwatchModel.java |   1 -
+ .../data/StopwatchNotificationBuilder.java         |  21 +--
+ src/com/android/deskclock/data/TimerModel.java     |   1 -
+ .../deskclock/data/TimerNotificationBuilder.java   |  28 ++--
+ 10 files changed, 238 insertions(+), 180 deletions(-)
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 443d182e31fd3f3bd7a81a58dc2c9c6ff2946c8d..c96668615e0435c7ac40d4de04bb427c6eb31230 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -1062,11 +1062,19 @@
+     -->
+     <string name="no_firing_alarms">No firing alarms</string>
+ 
+     <!-- String that represents that the user has snoozed an alarm through a voice action for 10
+     minutes.
+     %s represents alarm time, e.g. 14:20
+     [CHAR LIMIT=NONE]
+     -->
+     <string name="alarm_is_snoozed"><xliff:g id="alarm_time" example="14:20">%s</xliff:g> alarm snoozed for 10 minutes</string>
+ 
++    <!-- Strings for notification channel. -->
++    <string name="firing_alarms_timers_channel">Firing alarms &amp; timers</string>
++    <string name="alarm_missed_channel">Missed alarms</string>
++    <string name="alarm_snooze_channel">Snoozed alarms</string>
++    <string name="alarm_upcoming_channel">Upcoming alarms</string>
++    <string name="stopwatch_channel">Stopwatch</string>
++    <string name="timer_channel">Timer</string>
++
+ </resources>
+diff --git a/src/com/android/deskclock/AlarmInitReceiver.java b/src/com/android/deskclock/AlarmInitReceiver.java
+index 8bd7cdec714476ef9e24d04ab040cc21518ec71e..a126ed679b9015ea9a0ae4881857e449e7e24bac 100644
+--- a/src/com/android/deskclock/AlarmInitReceiver.java
++++ b/src/com/android/deskclock/AlarmInitReceiver.java
+@@ -18,20 +18,21 @@ package com.android.deskclock;
+ 
+ import android.annotation.SuppressLint;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.os.PowerManager.WakeLock;
+ 
+ import com.android.deskclock.alarms.AlarmStateManager;
+ import com.android.deskclock.controller.Controller;
+ import com.android.deskclock.data.DataModel;
++import com.android.deskclock.NotificationUtils;
+ 
+ public class AlarmInitReceiver extends BroadcastReceiver {
+ 
+     /**
+      * When running on N devices, we're interested in the boot completed event that is sent while
+      * the user is still locked, so that we can schedule alarms.
+      */
+     @SuppressLint("InlinedApi")
+     private static final String ACTION_BOOT_COMPLETED = Utils.isNOrLater()
+             ? Intent.ACTION_LOCKED_BOOT_COMPLETED : Intent.ACTION_BOOT_COMPLETED;
+@@ -67,20 +68,21 @@ public class AlarmInitReceiver extends BroadcastReceiver {
+             // Stopwatch and timer data need to be updated on time change so the reboot
+             // functionality works as expected.
+         } else if (Intent.ACTION_TIME_CHANGED.equals(action)) {
+             DataModel.getDataModel().updateAfterTimeSet();
+         }
+ 
+         // Update shortcuts so they exist for the user.
+         if (Intent.ACTION_BOOT_COMPLETED.equals(action)
+                 || Intent.ACTION_LOCALE_CHANGED.equals(action)) {
+             Controller.getController().updateShortcuts();
++            NotificationUtils.updateNotificationChannels(context);
+         }
+ 
+         // Notifications are canceled by the system on application upgrade. This broadcast signals
+         // that the new app is free to rebuild the notifications using the existing data.
+         // Additionally on new app installs, make sure to enable shortcuts immediately as opposed
+         // to waiting for system reboot.
+         if (Intent.ACTION_MY_PACKAGE_REPLACED.equals(action)) {
+             DataModel.getDataModel().updateAllNotifications();
+             Controller.getController().updateShortcuts();
+         }
+diff --git a/src/com/android/deskclock/NotificationUtils.java b/src/com/android/deskclock/NotificationUtils.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..3919ae7d3d5e19d92453e6e04fffa439c9c636c3
+--- /dev/null
++++ b/src/com/android/deskclock/NotificationUtils.java
+@@ -0,0 +1,169 @@
++/*
++ * Copyright (C) 2020 The LineageOS Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.deskclock;
++
++import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_DEFAULT;
++import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_HIGH;
++import static androidx.core.app.NotificationManagerCompat.IMPORTANCE_LOW;
++
++import android.app.NotificationChannel;
++import android.content.Context;
++import android.util.ArraySet;
++import android.util.Log;
++import androidx.core.app.NotificationManagerCompat;
++
++import com.android.deskclock.Utils;
++
++import java.util.HashMap;
++import java.util.Map;
++import java.util.Set;
++
++public class NotificationUtils {
++
++    private static final String TAG = NotificationUtils.class.getSimpleName();
++
++    /**
++     * Notification channel containing all missed alarm notifications.
++     */
++    public static final String ALARM_MISSED_NOTIFICATION_CHANNEL_ID = "alarmMissedNotification";
++
++    /**
++     * Notification channel containing all upcoming alarm notifications.
++     */
++    public static final String ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID = "alarmUpcomingNotification";
++
++    /**
++     * Notification channel containing all snooze notifications.
++     */
++    public static final String ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID = "alarmSnoozingNotification";
++
++    /**
++     * Notification channel containing all firing alarm and timer notifications.
++     */
++    public static final String FIRING_NOTIFICATION_CHANNEL_ID = "firingAlarmsAndTimersNotification";
++
++    /**
++     * Notification channel containing all TimerModel notifications.
++     */
++    public static final String TIMER_MODEL_NOTIFICATION_CHANNEL_ID = "timerNotification";
++
++    /**
++     * Notification channel containing all stopwatch notifications.
++     */
++    public static final String STOPWATCH_NOTIFICATION_CHANNEL_ID = "stopwatchNotification";
++
++    /**
++     * Values used to bitmask certain channel defaults
++     */
++    private static final int PLAY_SOUND = 0x01;
++    private static final int ENABLE_LIGHTS = 0x02;
++    private static final int ENABLE_VIBRATION = 0x04;
++
++    private static Map<String, int[]> CHANNEL_PROPS = new HashMap<String, int[]>();
++    static {
++        CHANNEL_PROPS.put(ALARM_MISSED_NOTIFICATION_CHANNEL_ID, new int[]{
++                R.string.alarm_missed_channel,
++                IMPORTANCE_HIGH
++        });
++        CHANNEL_PROPS.put(ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID, new int[]{
++                R.string.alarm_snooze_channel,
++                IMPORTANCE_LOW
++        });
++        CHANNEL_PROPS.put(ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID, new int[]{
++                R.string.alarm_upcoming_channel,
++                IMPORTANCE_LOW
++        });
++        CHANNEL_PROPS.put(FIRING_NOTIFICATION_CHANNEL_ID, new int[]{
++                R.string.firing_alarms_timers_channel,
++                IMPORTANCE_HIGH,
++                ENABLE_LIGHTS
++        });
++        CHANNEL_PROPS.put(STOPWATCH_NOTIFICATION_CHANNEL_ID, new int[]{
++                R.string.stopwatch_channel,
++                IMPORTANCE_LOW
++        });
++        CHANNEL_PROPS.put(TIMER_MODEL_NOTIFICATION_CHANNEL_ID, new int[]{
++                R.string.timer_channel,
++                IMPORTANCE_LOW
++        });
++    }
++
++    public static void createChannel(Context context, String id) {
++        if (!Utils.isOOrLater()) {
++            return;
++        }
++
++        if (!CHANNEL_PROPS.containsKey(id)) {
++            Log.e(TAG, "Invalid channel requested: " + id);
++            return;
++        }
++
++        int[] properties = (int[]) CHANNEL_PROPS.get(id);
++        int nameId = properties[0];
++        int importance = properties[1];
++        NotificationChannel channel = new NotificationChannel(
++                id, context.getString(nameId), importance);
++        if (properties.length >= 3) {
++            int bits = properties[2];
++            channel.enableLights((bits & ENABLE_LIGHTS) != 0);
++            channel.enableVibration((bits & ENABLE_VIBRATION) != 0);
++            if ((bits & PLAY_SOUND) == 0) {
++                channel.setSound(null, null);
++            }
++        }
++        NotificationManagerCompat nm = NotificationManagerCompat.from(context);
++        nm.createNotificationChannel(channel);
++    }
++
++    private static void deleteChannel(NotificationManagerCompat nm, String channelId) {
++        NotificationChannel channel = nm.getNotificationChannel(channelId);
++        if (channel != null) {
++            nm.deleteNotificationChannel(channelId);
++        }
++    }
++
++    private static Set<String> getAllExistingChannelIds(NotificationManagerCompat nm) {
++        Set<String> result = new ArraySet<>();
++        for (NotificationChannel channel : nm.getNotificationChannels()) {
++            result.add(channel.getId());
++        }
++        return result;
++    }
++
++    public static void updateNotificationChannels(Context context) {
++        if (!Utils.isOOrLater()) {
++            return;
++        }
++
++        NotificationManagerCompat nm = NotificationManagerCompat.from(context);
++
++        // These channels got a new behavior so we need to recreate them with new ids
++        deleteChannel(nm, "alarmLowPriorityNotification");
++        deleteChannel(nm, "alarmHighPriorityNotification");
++        deleteChannel(nm, "StopwatchNotification");
++        deleteChannel(nm, "alarmNotification");
++        deleteChannel(nm, "TimerModelNotification");
++        deleteChannel(nm, "alarmSnoozeNotification");
++
++        // We recreate all existing channels so any language change or our name changes propagate
++        // to the actual channels
++        Set<String> existingChannelIds = getAllExistingChannelIds(nm);
++        for (String id : existingChannelIds) {
++            createChannel(context, id);
++        }
++    }
++}
+diff --git a/src/com/android/deskclock/Utils.java b/src/com/android/deskclock/Utils.java
+index 0c9daf60361109b7323cc3519a6f2238873baa59..6d97912f729389ac0df22fa6c45224696e83975d 100644
+--- a/src/com/android/deskclock/Utils.java
++++ b/src/com/android/deskclock/Utils.java
+@@ -149,20 +149,27 @@ public class Utils {
+         return BuildCompat.isAtLeastN();
+     }
+ 
+     /**
+      * @return {@code true} if the device is {@link Build.VERSION_CODES#N_MR1} or later
+      */
+     public static boolean isNMR1OrLater() {
+         return BuildCompat.isAtLeastNMR1();
+     }
+ 
++    /**
++     * @return {@code true} if the device is {@link Build.VERSION_CODES#O} or later
++     */
++    public static boolean isOOrLater() {
++        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.O;
++    }
++
+     /**
+      * @param resourceId identifies an application resource
+      * @return the Uri by which the application resource is accessed
+      */
+     public static Uri getResourceUri(Context context, @AnyRes int resourceId) {
+         return new Uri.Builder()
+                 .scheme(ContentResolver.SCHEME_ANDROID_RESOURCE)
+                 .authority(context.getPackageName())
+                 .path(String.valueOf(resourceId))
+                 .build();
+diff --git a/src/com/android/deskclock/alarms/AlarmNotifications.java b/src/com/android/deskclock/alarms/AlarmNotifications.java
+index c7994966b5a07373198755a9ed02c6e6ae57fa47..2dcd0f9e3c52a506a52e9a9e8d12f12dce31d17c 100644
+--- a/src/com/android/deskclock/alarms/AlarmNotifications.java
++++ b/src/com/android/deskclock/alarms/AlarmNotifications.java
+@@ -8,81 +8,58 @@
+  *      http://www.apache.org/licenses/LICENSE-2.0
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ package com.android.deskclock.alarms;
+ 
++import static com.android.deskclock.NotificationUtils.ALARM_MISSED_NOTIFICATION_CHANNEL_ID;
++import static com.android.deskclock.NotificationUtils.ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID;
++import static com.android.deskclock.NotificationUtils.ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID;
++import static com.android.deskclock.NotificationUtils.FIRING_NOTIFICATION_CHANNEL_ID;
++
+ import android.annotation.TargetApi;
+ import android.app.Notification;
+ import android.app.NotificationChannel;
+ import android.app.NotificationManager;
+ import android.app.PendingIntent;
+ import android.app.Service;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.res.Resources;
+ import android.os.Build;
+ import android.service.notification.StatusBarNotification;
+ import androidx.core.app.NotificationCompat;
+ import androidx.core.app.NotificationManagerCompat;
+ import androidx.core.content.ContextCompat;
+ 
+ import com.android.deskclock.AlarmClockFragment;
+ import com.android.deskclock.AlarmUtils;
+ import com.android.deskclock.DeskClock;
+ import com.android.deskclock.LogUtils;
++import com.android.deskclock.NotificationUtils;
+ import com.android.deskclock.R;
+ import com.android.deskclock.Utils;
+ import com.android.deskclock.provider.Alarm;
+ import com.android.deskclock.provider.AlarmInstance;
+ 
+ import java.text.DateFormat;
+ import java.text.SimpleDateFormat;
+ import java.util.Locale;
+ import java.util.Objects;
+ 
+ final class AlarmNotifications {
+     static final String EXTRA_NOTIFICATION_ID = "extra_notification_id";
+ 
+-    /**
+-     * Notification channel containing all low priority notifications.
+-     */
+-    private static final String ALARM_LOW_PRIORITY_NOTIFICATION_CHANNEL_ID =
+-            "alarmLowPriorityNotification";
+-
+-    /**
+-     * Notification channel containing all high priority notifications.
+-     */
+-    private static final String ALARM_HIGH_PRIORITY_NOTIFICATION_CHANNEL_ID =
+-            "alarmHighPriorityNotification";
+-
+-    /**
+-     * Notification channel containing all snooze notifications.
+-     */
+-    private static final String ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID =
+-            "alarmSnoozeNotification";
+-
+-    /**
+-     * Notification channel containing all missed notifications.
+-     */
+-    private static final String ALARM_MISSED_NOTIFICATION_CHANNEL_ID =
+-            "alarmMissedNotification";
+-
+-    /**
+-     * Notification channel containing all alarm notifications.
+-     */
+-    private static final String ALARM_NOTIFICATION_CHANNEL_ID = "alarmNotification";
+-
+     /**
+      * Formats times such that chronological order and lexicographical order agree.
+      */
+     private static final DateFormat SORT_KEY_FORMAT =
+             new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS", Locale.US);
+ 
+     /**
+      * This value is coordinated with group ids from
+      * {@link com.android.deskclock.data.NotificationModel}
+      */
+@@ -105,124 +82,71 @@ final class AlarmNotifications {
+      * {@link com.android.deskclock.data.NotificationModel}
+      */
+     private static final int ALARM_GROUP_MISSED_NOTIFICATION_ID = Integer.MAX_VALUE - 5;
+ 
+     /**
+      * This value is coordinated with notification ids from
+      * {@link com.android.deskclock.data.NotificationModel}
+      */
+     private static final int ALARM_FIRING_NOTIFICATION_ID = Integer.MAX_VALUE - 7;
+ 
+-    static synchronized void showLowPriorityNotification(Context context,
+-            AlarmInstance instance) {
+-        LogUtils.v("Displaying low priority notification for alarm instance: " + instance.mId);
++    static synchronized void showUpcomingNotification(Context context,
++            AlarmInstance instance, boolean lowPriority) {
++        LogUtils.v("Displaying upcoming alarm notification for alarm instance: " + instance.mId +
++                "low priority: " + lowPriority);
+ 
+         NotificationCompat.Builder builder = new NotificationCompat.Builder(
+-                 context, ALARM_LOW_PRIORITY_NOTIFICATION_CHANNEL_ID)
++                 context, ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID)
+                          .setShowWhen(false)
+                         .setContentTitle(context.getString(
+                                 R.string.alarm_alert_predismiss_title))
+                         .setContentText(AlarmUtils.getAlarmText(
+                                 context, instance, true /* includeLabel */))
+                         .setColor(ContextCompat.getColor(context, R.color.default_background))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setAutoCancel(false)
+                         .setSortKey(createSortKey(instance))
+-                        .setPriority(NotificationCompat.PRIORITY_DEFAULT)
++                        .setPriority(NotificationCompat.PRIORITY_LOW)
+                         .setCategory(NotificationCompat.CATEGORY_EVENT)
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setLocalOnly(true);
+ 
+         if (Utils.isNOrLater()) {
+             builder.setGroup(UPCOMING_GROUP_KEY);
+         }
+ 
+-        // Setup up hide notification
+-        Intent hideIntent = AlarmStateManager.createStateChangeIntent(context,
+-                AlarmStateManager.ALARM_DELETE_TAG, instance,
+-                AlarmInstance.HIDE_NOTIFICATION_STATE);
+         final int id = instance.hashCode();
+-        builder.setDeleteIntent(PendingIntent.getService(context, id,
+-                hideIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+-
+-        // Setup up dismiss action
+-        Intent dismissIntent = AlarmStateManager.createStateChangeIntent(context,
+-                AlarmStateManager.ALARM_DISMISS_TAG, instance, AlarmInstance.PREDISMISSED_STATE);
+-        builder.addAction(R.drawable.ic_alarm_off_24dp,
+-                context.getString(R.string.alarm_alert_dismiss_text),
+-                PendingIntent.getService(context, id,
+-                        dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+-
+-        // Setup content action if instance is owned by alarm
+-        Intent viewAlarmIntent = createViewAlarmIntent(context, instance);
+-        builder.setContentIntent(PendingIntent.getActivity(context, id,
+-                viewAlarmIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+-
+-        NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    ALARM_LOW_PRIORITY_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
+-            nm.createNotificationChannel(channel);
+-        }
+-        final Notification notification = builder.build();
+-        nm.notify(id, notification);
+-        updateUpcomingAlarmGroupNotification(context, -1, notification);
+-    }
+-
+-    static synchronized void showHighPriorityNotification(Context context,
+-            AlarmInstance instance) {
+-        LogUtils.v("Displaying high priority notification for alarm instance: " + instance.mId);
+-
+-        NotificationCompat.Builder builder = new NotificationCompat.Builder(
+-                context, ALARM_HIGH_PRIORITY_NOTIFICATION_CHANNEL_ID)
+-                        .setShowWhen(false)
+-                        .setContentTitle(context.getString(
+-                                R.string.alarm_alert_predismiss_title))
+-                        .setContentText(AlarmUtils.getAlarmText(
+-                                context, instance, true /* includeLabel */))
+-                        .setColor(ContextCompat.getColor(context, R.color.default_background))
+-                        .setSmallIcon(R.drawable.stat_notify_alarm)
+-                        .setAutoCancel(false)
+-                        .setSortKey(createSortKey(instance))
+-                        .setPriority(NotificationCompat.PRIORITY_HIGH)
+-                        .setCategory(NotificationCompat.CATEGORY_EVENT)
+-                        .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+-                        .setLocalOnly(true);
+-
+-        if (Utils.isNOrLater()) {
+-            builder.setGroup(UPCOMING_GROUP_KEY);
++        if (lowPriority) {
++            // Setup up hide notification
++            Intent hideIntent = AlarmStateManager.createStateChangeIntent(context,
++                    AlarmStateManager.ALARM_DELETE_TAG, instance,
++                    AlarmInstance.HIDE_NOTIFICATION_STATE);
++
++            builder.setDeleteIntent(PendingIntent.getService(context, id,
++                    hideIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+         }
+ 
+         // Setup up dismiss action
+         Intent dismissIntent = AlarmStateManager.createStateChangeIntent(context,
+                 AlarmStateManager.ALARM_DISMISS_TAG, instance, AlarmInstance.PREDISMISSED_STATE);
+-        final int id = instance.hashCode();
+         builder.addAction(R.drawable.ic_alarm_off_24dp,
+                 context.getString(R.string.alarm_alert_dismiss_text),
+                 PendingIntent.getService(context, id,
+                         dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+ 
+         // Setup content action if instance is owned by alarm
+         Intent viewAlarmIntent = createViewAlarmIntent(context, instance);
+         builder.setContentIntent(PendingIntent.getActivity(context, id,
+                 viewAlarmIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+ 
+         NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    ALARM_HIGH_PRIORITY_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_HIGH);
+-            nm.createNotificationChannel(channel);
+-        }
++        NotificationUtils.createChannel(context, ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID);
+         final Notification notification = builder.build();
+         nm.notify(id, notification);
+         updateUpcomingAlarmGroupNotification(context, -1, notification);
+     }
+ 
+     @TargetApi(Build.VERSION_CODES.N)
+     private static boolean isGroupSummary(Notification n) {
+         return (n.flags & Notification.FLAG_GROUP_SUMMARY) == Notification.FLAG_GROUP_SUMMARY;
+     }
+ 
+@@ -274,87 +198,67 @@ final class AlarmNotifications {
+         return null;
+     }
+ 
+     private static void updateUpcomingAlarmGroupNotification(Context context,
+             int canceledNotificationId, Notification postedNotification) {
+         if (!Utils.isNOrLater()) {
+             return;
+         }
+ 
+         final NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    ALARM_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_HIGH);
+-            nm.createNotificationChannel(channel);
+-        }
+-
+         final Notification firstUpcoming = getFirstActiveNotification(context, UPCOMING_GROUP_KEY,
+                 canceledNotificationId, postedNotification);
+         if (firstUpcoming == null) {
+             nm.cancel(ALARM_GROUP_NOTIFICATION_ID);
+             return;
+         }
+ 
+         Notification summary = getActiveGroupSummaryNotification(context, UPCOMING_GROUP_KEY);
+         if (summary == null
+                 || !Objects.equals(summary.contentIntent, firstUpcoming.contentIntent)) {
+-            summary = new NotificationCompat.Builder(context, ALARM_NOTIFICATION_CHANNEL_ID)
++            NotificationUtils.createChannel(context, ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID);
++            summary = new NotificationCompat.Builder(context,
++                        ALARM_UPCOMING_NOTIFICATION_CHANNEL_ID)
+                     .setShowWhen(false)
+                     .setContentIntent(firstUpcoming.contentIntent)
+                     .setColor(ContextCompat.getColor(context, R.color.default_background))
+                     .setSmallIcon(R.drawable.stat_notify_alarm)
+                     .setGroup(UPCOMING_GROUP_KEY)
+                     .setGroupSummary(true)
+-                    .setPriority(NotificationCompat.PRIORITY_HIGH)
++                    .setPriority(NotificationCompat.PRIORITY_LOW)
+                     .setCategory(NotificationCompat.CATEGORY_EVENT)
+                     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                     .setLocalOnly(true)
+                     .build();
+             nm.notify(ALARM_GROUP_NOTIFICATION_ID, summary);
+         }
+     }
+ 
+     private static void updateMissedAlarmGroupNotification(Context context,
+             int canceledNotificationId, Notification postedNotification) {
+         if (!Utils.isNOrLater()) {
+             return;
+         }
+ 
+         final NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    ALARM_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_HIGH);
+-            nm.createNotificationChannel(channel);
+-        }
+-
+         final Notification firstMissed = getFirstActiveNotification(context, MISSED_GROUP_KEY,
+                 canceledNotificationId, postedNotification);
+         if (firstMissed == null) {
+             nm.cancel(ALARM_GROUP_MISSED_NOTIFICATION_ID);
+             return;
+         }
+ 
+         Notification summary = getActiveGroupSummaryNotification(context, MISSED_GROUP_KEY);
+         if (summary == null
+                 || !Objects.equals(summary.contentIntent, firstMissed.contentIntent)) {
+-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-                NotificationChannel channel = new NotificationChannel(
+-                        ALARM_MISSED_NOTIFICATION_CHANNEL_ID,
+-                        context.getString(R.string.default_label),
+-                        NotificationManagerCompat.IMPORTANCE_HIGH);
+-                nm.createNotificationChannel(channel);
+-            }
+-            summary = new NotificationCompat.Builder(context, ALARM_NOTIFICATION_CHANNEL_ID)
++            NotificationUtils.createChannel(context, ALARM_MISSED_NOTIFICATION_CHANNEL_ID);
++            summary = new NotificationCompat.Builder(context, ALARM_MISSED_NOTIFICATION_CHANNEL_ID)
+                     .setShowWhen(false)
+                     .setContentIntent(firstMissed.contentIntent)
+                     .setColor(ContextCompat.getColor(context, R.color.default_background))
+                     .setSmallIcon(R.drawable.stat_notify_alarm)
+                     .setGroup(MISSED_GROUP_KEY)
+                     .setGroupSummary(true)
+                     .setPriority(NotificationCompat.PRIORITY_HIGH)
+                     .setCategory(NotificationCompat.CATEGORY_EVENT)
+                     .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                     .setLocalOnly(true)
+@@ -370,21 +274,21 @@ final class AlarmNotifications {
+         NotificationCompat.Builder builder = new NotificationCompat.Builder(
+                 context, ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID)
+                         .setShowWhen(false)
+                         .setContentTitle(instance.getLabelOrDefault(context))
+                         .setContentText(context.getString(R.string.alarm_alert_snooze_until,
+                                 AlarmUtils.getFormattedTime(context, instance.getAlarmTime())))
+                         .setColor(ContextCompat.getColor(context, R.color.default_background))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setAutoCancel(false)
+                         .setSortKey(createSortKey(instance))
+-                        .setPriority(NotificationCompat.PRIORITY_MAX)
++                        .setPriority(NotificationCompat.PRIORITY_LOW)
+                         .setCategory(NotificationCompat.CATEGORY_EVENT)
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setLocalOnly(true);
+ 
+         if (Utils.isNOrLater()) {
+             builder.setGroup(UPCOMING_GROUP_KEY);
+         }
+ 
+         // Setup up dismiss action
+         Intent dismissIntent = AlarmStateManager.createStateChangeIntent(context,
+@@ -394,27 +298,21 @@ final class AlarmNotifications {
+                 context.getString(R.string.alarm_alert_dismiss_text),
+                 PendingIntent.getService(context, id,
+                         dismissIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+ 
+         // Setup content action if instance is owned by alarm
+         Intent viewAlarmIntent = createViewAlarmIntent(context, instance);
+         builder.setContentIntent(PendingIntent.getActivity(context, id,
+                 viewAlarmIntent, PendingIntent.FLAG_UPDATE_CURRENT));
+ 
+         NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
+-            nm.createNotificationChannel(channel);
+-        }
++        NotificationUtils.createChannel(context, ALARM_SNOOZE_NOTIFICATION_CHANNEL_ID);
+         final Notification notification = builder.build();
+         nm.notify(id, notification);
+         updateUpcomingAlarmGroupNotification(context, -1, notification);
+     }
+ 
+     static synchronized void showMissedNotification(Context context,
+             AlarmInstance instance) {
+         LogUtils.v("Displaying missed notification for alarm instance: " + instance.mId);
+ 
+         String label = instance.mLabel;
+@@ -447,38 +345,32 @@ final class AlarmNotifications {
+ 
+         // Setup content intent
+         Intent showAndDismiss = AlarmInstance.createIntent(context, AlarmStateManager.class,
+                 instance.mId);
+         showAndDismiss.putExtra(EXTRA_NOTIFICATION_ID, id);
+         showAndDismiss.setAction(AlarmStateManager.SHOW_AND_DISMISS_ALARM_ACTION);
+         builder.setContentIntent(PendingIntent.getBroadcast(context, id,
+                 showAndDismiss, PendingIntent.FLAG_UPDATE_CURRENT));
+ 
+         NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    ALARM_MISSED_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
+-            nm.createNotificationChannel(channel);
+-        }
++        NotificationUtils.createChannel(context, ALARM_MISSED_NOTIFICATION_CHANNEL_ID);
+         final Notification notification = builder.build();
+         nm.notify(id, notification);
+         updateMissedAlarmGroupNotification(context, -1, notification);
+     }
+ 
+     static synchronized void showAlarmNotification(Service service, AlarmInstance instance) {
+         LogUtils.v("Displaying alarm notification for alarm instance: " + instance.mId);
+ 
+         Resources resources = service.getResources();
+         NotificationCompat.Builder notification = new NotificationCompat.Builder(
+-                service, ALARM_NOTIFICATION_CHANNEL_ID)
++                service, FIRING_NOTIFICATION_CHANNEL_ID)
+                         .setContentTitle(instance.getLabelOrDefault(service))
+                         .setContentText(AlarmUtils.getFormattedTime(
+                                 service, instance.getAlarmTime()))
+                         .setColor(ContextCompat.getColor(service, R.color.default_background))
+                         .setSmallIcon(R.drawable.stat_notify_alarm)
+                         .setOngoing(true)
+                         .setAutoCancel(false)
+                         .setDefaults(NotificationCompat.DEFAULT_LIGHTS)
+                         .setWhen(0)
+                         .setCategory(NotificationCompat.CATEGORY_ALARM)
+@@ -513,45 +405,46 @@ final class AlarmNotifications {
+         // Setup fullscreen intent
+         Intent fullScreenIntent = AlarmInstance.createIntent(service, AlarmActivity.class,
+                 instance.mId);
+         // set action, so we can be different then content pending intent
+         fullScreenIntent.setAction("fullscreen_activity");
+         fullScreenIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |
+                 Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+         notification.setFullScreenIntent(PendingIntent.getActivity(service,
+                 ALARM_FIRING_NOTIFICATION_ID, fullScreenIntent, PendingIntent.FLAG_UPDATE_CURRENT),
+                 true);
+-        notification.setPriority(NotificationCompat.PRIORITY_MAX);
++        notification.setPriority(NotificationCompat.PRIORITY_HIGH);
+ 
++        NotificationUtils.createChannel(service, FIRING_NOTIFICATION_CHANNEL_ID);
+         clearNotification(service, instance);
+         service.startForeground(ALARM_FIRING_NOTIFICATION_ID, notification.build());
+     }
+ 
+     static synchronized void clearNotification(Context context, AlarmInstance instance) {
+         LogUtils.v("Clearing notifications for alarm instance: " + instance.mId);
+         NotificationManagerCompat nm = NotificationManagerCompat.from(context);
+         final int id = instance.hashCode();
+         nm.cancel(id);
+         updateUpcomingAlarmGroupNotification(context, id, null);
+         updateMissedAlarmGroupNotification(context, id, null);
+     }
+ 
+     /**
+      * Updates the notification for an existing alarm. Use if the label has changed.
+      */
+     static void updateNotification(Context context, AlarmInstance instance) {
+         switch (instance.mAlarmState) {
+             case AlarmInstance.LOW_NOTIFICATION_STATE:
+-                showLowPriorityNotification(context, instance);
++                showUpcomingNotification(context, instance, true);
+                 break;
+             case AlarmInstance.HIGH_NOTIFICATION_STATE:
+-                showHighPriorityNotification(context, instance);
++                showUpcomingNotification(context, instance, false);
+                 break;
+             case AlarmInstance.SNOOZE_STATE:
+                 showSnoozeNotification(context, instance);
+                 break;
+             case AlarmInstance.MISSED_STATE:
+                 showMissedNotification(context, instance);
+                 break;
+             default:
+                 LogUtils.d("No notification to update");
+         }
+diff --git a/src/com/android/deskclock/alarms/AlarmStateManager.java b/src/com/android/deskclock/alarms/AlarmStateManager.java
+index 0f70a0fe929ff4714613ad76f2dcc71fde9a90e1..768442f5be364b25e0519ca000c81345cbe30356 100644
+--- a/src/com/android/deskclock/alarms/AlarmStateManager.java
++++ b/src/com/android/deskclock/alarms/AlarmStateManager.java
+@@ -376,21 +376,21 @@ public final class AlarmStateManager extends BroadcastReceiver {
+      */
+     public static void setLowNotificationState(Context context, AlarmInstance instance) {
+         LogUtils.i("Setting low notification state to instance " + instance.mId);
+ 
+         // Update alarm state in db
+         ContentResolver contentResolver = context.getContentResolver();
+         instance.mAlarmState = AlarmInstance.LOW_NOTIFICATION_STATE;
+         AlarmInstance.updateInstance(contentResolver, instance);
+ 
+         // Setup instance notification and scheduling timers
+-        AlarmNotifications.showLowPriorityNotification(context, instance);
++        AlarmNotifications.showUpcomingNotification(context, instance, true);
+         scheduleInstanceStateChange(context, instance.getHighNotificationTime(),
+                 instance, AlarmInstance.HIGH_NOTIFICATION_STATE);
+     }
+ 
+     /**
+      * This will set the alarm instance to the HIDE_NOTIFICATION_STATE and update
+      * the application notifications and schedule any state changes that need
+      * to occur in the future.
+      *
+      * @param context  application context
+@@ -420,21 +420,21 @@ public final class AlarmStateManager extends BroadcastReceiver {
+      */
+     public static void setHighNotificationState(Context context, AlarmInstance instance) {
+         LogUtils.i("Setting high notification state to instance " + instance.mId);
+ 
+         // Update alarm state in db
+         ContentResolver contentResolver = context.getContentResolver();
+         instance.mAlarmState = AlarmInstance.HIGH_NOTIFICATION_STATE;
+         AlarmInstance.updateInstance(contentResolver, instance);
+ 
+         // Setup instance notification and scheduling timers
+-        AlarmNotifications.showHighPriorityNotification(context, instance);
++        AlarmNotifications.showUpcomingNotification(context, instance, false);
+         scheduleInstanceStateChange(context, instance.getAlarmTime(),
+                 instance, AlarmInstance.FIRED_STATE);
+     }
+ 
+     /**
+      * This will set the alarm instance to the FIRED_STATE and update
+      * the application notifications and schedule any state changes that need
+      * to occur in the future.
+      *
+      * @param context  application context
+diff --git a/src/com/android/deskclock/data/StopwatchModel.java b/src/com/android/deskclock/data/StopwatchModel.java
+index b5c93f9230f8d02f5fd93e1855c0a63aa34efe93..764f2232eb50b1e31ab616cc6af22a4e7647918b 100644
+--- a/src/com/android/deskclock/data/StopwatchModel.java
++++ b/src/com/android/deskclock/data/StopwatchModel.java
+@@ -228,21 +228,20 @@ final class StopwatchModel {
+ 
+         // Notification should be hidden if the stopwatch has no time or the app is open.
+         if (stopwatch.isReset() || mNotificationModel.isApplicationInForeground()) {
+             mNotificationManager.cancel(mNotificationModel.getStopwatchNotificationId());
+             return;
+         }
+ 
+         // Otherwise build and post a notification reflecting the latest stopwatch state.
+         final Notification notification =
+                 mNotificationBuilder.build(mContext, mNotificationModel, stopwatch);
+-        mNotificationBuilder.buildChannel(mContext, mNotificationManager);
+         mNotificationManager.notify(mNotificationModel.getStopwatchNotificationId(), notification);
+     }
+ 
+     private List<Lap> getMutableLaps() {
+         if (mLaps == null) {
+             mLaps = StopwatchDAO.getLaps(mPrefs);
+         }
+ 
+         return mLaps;
+     }
+diff --git a/src/com/android/deskclock/data/StopwatchNotificationBuilder.java b/src/com/android/deskclock/data/StopwatchNotificationBuilder.java
+index d21fe80bfc56ca6b916f0003629ffe00986c11c4..71405f11b1eb6e1e64160ead259e343df1adf530 100644
+--- a/src/com/android/deskclock/data/StopwatchNotificationBuilder.java
++++ b/src/com/android/deskclock/data/StopwatchNotificationBuilder.java
+@@ -9,67 +9,55 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.data;
+ 
++import static com.android.deskclock.NotificationUtils.STOPWATCH_NOTIFICATION_CHANNEL_ID;
++
+ import android.app.Notification;
+ import android.app.NotificationChannel;
+ import android.app.PendingIntent;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.res.Resources;
+ import android.os.SystemClock;
+ import androidx.annotation.DrawableRes;
+ import androidx.annotation.StringRes;
+ import androidx.core.app.NotificationCompat;
+ import androidx.core.app.NotificationCompat.Action;
+ import androidx.core.app.NotificationCompat.Builder;
+ import androidx.core.app.NotificationManagerCompat;
+ import androidx.core.content.ContextCompat;
+ import android.widget.RemoteViews;
+ 
++import com.android.deskclock.NotificationUtils;
+ import com.android.deskclock.R;
+ import com.android.deskclock.Utils;
+ import com.android.deskclock.events.Events;
+ import com.android.deskclock.stopwatch.StopwatchService;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ import static android.view.View.GONE;
+ import static android.view.View.VISIBLE;
+ 
+ /**
+  * Builds notification to reflect the latest state of the stopwatch and recorded laps.
+  */
+ class StopwatchNotificationBuilder {
+ 
+-    /**
+-     * Notification channel containing all stopwatch notifications.
+-     */
+-    private static final String STOPWATCH_NOTIFICATION_CHANNEL_ID = "StopwatchNotification";
+-
+-    public void buildChannel(Context context, NotificationManagerCompat notificationManager) {
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    STOPWATCH_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
+-            notificationManager.createNotificationChannel(channel);
+-        }
+-    }
+-
+     public Notification build(Context context, NotificationModel nm, Stopwatch stopwatch) {
+         @StringRes final int eventLabel = R.string.label_notification;
+ 
+         // Intent to load the app when the notification is tapped.
+         final Intent showApp = new Intent(context, StopwatchService.class)
+                 .setAction(StopwatchService.ACTION_SHOW_STOPWATCH)
+                 .putExtra(Events.EXTRA_EVENT_LABEL, eventLabel);
+ 
+         final PendingIntent pendingShowApp = PendingIntent.getService(context, 0, showApp,
+                 PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_UPDATE_CURRENT);
+@@ -144,26 +132,27 @@ class StopwatchNotificationBuilder {
+             content.setViewVisibility(R.id.state, VISIBLE);
+         }
+ 
+         final Builder notification = new NotificationCompat.Builder(
+                 context, STOPWATCH_NOTIFICATION_CHANNEL_ID)
+                         .setLocalOnly(true)
+                         .setOngoing(running)
+                         .setCustomContentView(content)
+                         .setContentIntent(pendingShowApp)
+                         .setAutoCancel(stopwatch.isPaused())
+-                        .setPriority(Notification.PRIORITY_MAX)
++                        .setPriority(Notification.PRIORITY_LOW)
+                         .setSmallIcon(R.drawable.stat_notify_stopwatch)
+                         .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                         .setColor(ContextCompat.getColor(context, R.color.default_background));
+ 
+         if (Utils.isNOrLater()) {
+             notification.setGroup(nm.getStopwatchNotificationGroupKey());
+         }
+ 
+         for (Action action : actions) {
+             notification.addAction(action);
+         }
+ 
++        NotificationUtils.createChannel(context, STOPWATCH_NOTIFICATION_CHANNEL_ID);
+         return notification.build();
+     }
+ }
+diff --git a/src/com/android/deskclock/data/TimerModel.java b/src/com/android/deskclock/data/TimerModel.java
+index 54dfeaba95681a45ddbfda89996198cd8a064e2b..33f02c51f4fa97f8c3834772c00b716408cebf35 100644
+--- a/src/com/android/deskclock/data/TimerModel.java
++++ b/src/com/android/deskclock/data/TimerModel.java
+@@ -746,21 +746,20 @@ final class TimerModel {
+             return;
+         }
+ 
+         // Sort the unexpired timers to locate the next one scheduled to expire.
+         Collections.sort(unexpired, Timer.EXPIRY_COMPARATOR);
+ 
+         // Otherwise build and post a notification reflecting the latest unexpired timers.
+         final Notification notification =
+                 mNotificationBuilder.build(mContext, mNotificationModel, unexpired);
+         final int notificationId = mNotificationModel.getUnexpiredTimerNotificationId();
+-        mNotificationBuilder.buildChannel(mContext, mNotificationManager);
+         mNotificationManager.notify(notificationId, notification);
+     }
+ 
+     /**
+      * Updates the notification controlling missed timers. This notification is only displayed when
+      * the application is not open.
+      */
+     void updateMissedNotification() {
+         // Notifications should be hidden if the app is open.
+         if (mNotificationModel.isApplicationInForeground()) {
+diff --git a/src/com/android/deskclock/data/TimerNotificationBuilder.java b/src/com/android/deskclock/data/TimerNotificationBuilder.java
+index efd4297c3361bd601ea4dabac4507fd9575cfd18..59727ab7a51e62f6d0d99131083f1fd9c7dab75b 100644
+--- a/src/com/android/deskclock/data/TimerNotificationBuilder.java
++++ b/src/com/android/deskclock/data/TimerNotificationBuilder.java
+@@ -9,75 +9,64 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.data;
+ 
++import static com.android.deskclock.NotificationUtils.FIRING_NOTIFICATION_CHANNEL_ID;
++import static com.android.deskclock.NotificationUtils.TIMER_MODEL_NOTIFICATION_CHANNEL_ID;
++
+ import android.annotation.TargetApi;
+ import android.app.AlarmManager;
+ import android.app.Notification;
+ import android.app.NotificationChannel;
+ import android.app.PendingIntent;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.res.Resources;
+ import android.os.Build;
+ import android.os.SystemClock;
+ import androidx.annotation.DrawableRes;
+ import androidx.core.app.NotificationCompat;
+ import androidx.core.app.NotificationManagerCompat;
+ import androidx.core.content.ContextCompat;
+ import android.text.TextUtils;
+ import android.widget.RemoteViews;
+ 
+ import com.android.deskclock.AlarmUtils;
++import com.android.deskclock.NotificationUtils;
+ import com.android.deskclock.R;
+ import com.android.deskclock.Utils;
+ import com.android.deskclock.events.Events;
+ import com.android.deskclock.timer.ExpiredTimersActivity;
+ import com.android.deskclock.timer.TimerService;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ import static androidx.core.app.NotificationCompat.Action;
+ import static androidx.core.app.NotificationCompat.Builder;
+ import static android.text.format.DateUtils.MINUTE_IN_MILLIS;
+ import static android.text.format.DateUtils.SECOND_IN_MILLIS;
+ 
+ /**
+  * Builds notifications to reflect the latest state of the timers.
+  */
+ class TimerNotificationBuilder {
+ 
+-    /**
+-     * Notification channel containing all TimerModel notifications.
+-     */
+-    private static final String TIMER_MODEL_NOTIFICATION_CHANNEL_ID = "TimerModelNotification";
+-
+     private static final int REQUEST_CODE_UPCOMING = 0;
+     private static final int REQUEST_CODE_MISSING = 1;
+ 
+-    public void buildChannel(Context context, NotificationManagerCompat notificationManager) {
+-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+-            NotificationChannel channel = new NotificationChannel(
+-                    TIMER_MODEL_NOTIFICATION_CHANNEL_ID,
+-                    context.getString(R.string.default_label),
+-                    NotificationManagerCompat.IMPORTANCE_DEFAULT);
+-            notificationManager.createNotificationChannel(channel);
+-        }
+-    }
+-
+     public Notification build(Context context, NotificationModel nm, List<Timer> unexpired) {
+         final Timer timer = unexpired.get(0);
+         final int count = unexpired.size();
+ 
+         // Compute some values required below.
+         final boolean running = timer.isRunning();
+         final Resources res = context.getResources();
+ 
+         final long base = getChronometerBase(timer);
+         final String pname = context.getPackageName();
+@@ -165,21 +154,21 @@ class TimerNotificationBuilder {
+                 PendingIntent.getService(context, REQUEST_CODE_UPCOMING, showApp,
+                         PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_UPDATE_CURRENT);
+ 
+         final Builder notification = new NotificationCompat.Builder(
+                 context, TIMER_MODEL_NOTIFICATION_CHANNEL_ID)
+                         .setOngoing(true)
+                         .setLocalOnly(true)
+                         .setShowWhen(false)
+                         .setAutoCancel(false)
+                         .setContentIntent(pendingShowApp)
+-                        .setPriority(Notification.PRIORITY_HIGH)
++                        .setPriority(Notification.PRIORITY_LOW)
+                         .setCategory(NotificationCompat.CATEGORY_ALARM)
+                         .setSmallIcon(R.drawable.stat_notify_timer)
+                         .setSortKey(nm.getTimerNotificationSortKey())
+                         .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
+                         .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                         .setColor(ContextCompat.getColor(context, R.color.default_background));
+ 
+         for (Action action : actions) {
+             notification.addAction(action);
+         }
+@@ -218,20 +207,21 @@ class TimerNotificationBuilder {
+                 // Cancel the update notification callback.
+                 final PendingIntent pi = PendingIntent.getService(context, 0, updateNotification,
+                         PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_NO_CREATE);
+                 if (pi != null) {
+                     am.cancel(pi);
+                     pi.cancel();
+                 }
+             }
+         }
+ 
++        NotificationUtils.createChannel(context, TIMER_MODEL_NOTIFICATION_CHANNEL_ID);
+         return notification.build();
+     }
+ 
+     Notification buildHeadsUp(Context context, List<Timer> expired) {
+         final Timer timer = expired.get(0);
+ 
+         // First action intent is to reset all timers.
+         @DrawableRes final int icon1 = R.drawable.ic_stop_24dp;
+         final Intent reset = TimerService.createResetExpiredTimersIntent(context);
+         final PendingIntent intent1 = Utils.pendingServiceIntent(context, reset);
+@@ -273,47 +263,48 @@ class TimerNotificationBuilder {
+         // Content intent shows the timer full screen when clicked.
+         final Intent content = new Intent(context, ExpiredTimersActivity.class);
+         final PendingIntent contentIntent = Utils.pendingActivityIntent(context, content);
+ 
+         // Full screen intent has flags so it is different than the content intent.
+         final Intent fullScreen = new Intent(context, ExpiredTimersActivity.class)
+                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_NO_USER_ACTION);
+         final PendingIntent pendingFullScreen = Utils.pendingActivityIntent(context, fullScreen);
+ 
+         final Builder notification = new NotificationCompat.Builder(
+-                context, TIMER_MODEL_NOTIFICATION_CHANNEL_ID)
++                context, FIRING_NOTIFICATION_CHANNEL_ID)
+                         .setOngoing(true)
+                         .setLocalOnly(true)
+                         .setShowWhen(false)
+                         .setAutoCancel(false)
+                         .setContentIntent(contentIntent)
+-                        .setPriority(Notification.PRIORITY_MAX)
++                        .setPriority(Notification.PRIORITY_HIGH)
+                         .setDefaults(Notification.DEFAULT_LIGHTS)
+                         .setSmallIcon(R.drawable.stat_notify_timer)
+                         .setFullScreenIntent(pendingFullScreen, true)
+                         .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                         .setColor(ContextCompat.getColor(context, R.color.default_background));
+ 
+         for (Action action : actions) {
+             notification.addAction(action);
+         }
+ 
+         if (Utils.isNOrLater()) {
+             notification.setCustomContentView(buildChronometer(pname, base, true, stateText));
+         } else {
+             final CharSequence contentTextPreN = count == 1
+                     ? context.getString(R.string.timer_times_up)
+                     : context.getString(R.string.timer_multi_times_up, count);
+ 
+             notification.setContentTitle(stateText).setContentText(contentTextPreN);
+         }
+ 
++        NotificationUtils.createChannel(context, FIRING_NOTIFICATION_CHANNEL_ID);
+         return notification.build();
+     }
+ 
+     Notification buildMissed(Context context, NotificationModel nm,
+             List<Timer> missedTimers) {
+         final Timer timer = missedTimers.get(0);
+         final int count = missedTimers.size();
+ 
+         // Compute some values required below.
+         final long base = getChronometerBase(timer);
+@@ -380,20 +371,21 @@ class TimerNotificationBuilder {
+ 
+         if (Utils.isNOrLater()) {
+             notification.setCustomContentView(buildChronometer(pname, base, true, stateText))
+                     .setGroup(nm.getTimerNotificationGroupKey());
+         } else {
+             final CharSequence contentText = AlarmUtils.getFormattedTime(context,
+                     timer.getWallClockExpirationTime());
+             notification.setContentText(contentText).setContentTitle(stateText);
+         }
+ 
++        NotificationUtils.createChannel(context, TIMER_MODEL_NOTIFICATION_CHANNEL_ID);
+         return notification.build();
+     }
+ 
+     /**
+      * @param timer the timer on which to base the chronometer display
+      * @return the time at which the chronometer will/did reach 0:00 in realtime
+      */
+     private static long getChronometerBase(Timer timer) {
+         // The in-app timer display rounds *up* to the next second for positive timer values. Mirror
+         // that behavior in the notification's Chronometer by padding in an extra second as needed.
+
+commit 88506e0ffaa160e806d99a3344b606da959dab28
+Author: Colin Marsch <colinmarsch@google.com>
+Date:   Mon 2020-08-17 12:49:28-0500
+
+    AOSP/DeskClock - Update Fragment related code to use AndroidX
+    
+    Kotlin AndroidX upgrades, as well as Java AndroidX upgrades to ensure
+    both DeskClock and DeskClockJava targets pass the tests.
+    
+    Test: manual, tested the DeskClock UI. As well tests were ran as follows
+    
+    $ source build/envsetup.sh
+    $ lunch aosp_sargo-userdebug
+    $ make DeskClock
+    $ adb install out/target/product/sargo/product/app/DeskClock/DeskClock.apk
+    $ atest DeskClockTests
+    $ make DeskClockJava
+    $ adb install out/target/product/sargo/product/app/DeskClockJava/DeskClockJava.apk
+    $ atest DeskClockTests
+    
+    BUG: 157255731
+    Change-Id: I4e038932e913a125265bcf5c0091f69e34ec16ce
+---
+ src/com/android/deskclock/AlarmClockFragment.java  | 17 ++++++++--------
+ src/com/android/deskclock/DeskClock.java           | 19 +++++++++---------
+ src/com/android/deskclock/DeskClockFragment.java   |  6 +++---
+ .../android/deskclock/FragmentTabPagerAdapter.java | 23 +++++++++++-----------
+ src/com/android/deskclock/LabelDialogFragment.java | 14 ++++++-------
+ .../deskclock/alarms/AlarmTimeClickHandler.java    |  4 ++--
+ .../deskclock/alarms/TimePickerDialogFragment.java |  8 ++++----
+ src/com/android/deskclock/provider/Alarm.java      |  2 +-
+ src/com/android/deskclock/timer/TimerFragment.java |  2 +-
+ .../android/deskclock/timer/TimerItemFragment.java |  2 +-
+ .../android/deskclock/timer/TimerPagerAdapter.java | 14 ++++++-------
+ 11 files changed, 56 insertions(+), 55 deletions(-)
+
+diff --git a/src/com/android/deskclock/AlarmClockFragment.java b/src/com/android/deskclock/AlarmClockFragment.java
+index 5c02d0316135aa2499f71cf6d98617b2298f9dbb..8198b58baf1805539a0cd084263897af72d8b1ea 100644
+--- a/src/com/android/deskclock/AlarmClockFragment.java
++++ b/src/com/android/deskclock/AlarmClockFragment.java
+@@ -9,53 +9,54 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock;
+ 
+-import android.app.LoaderManager;
+ import android.content.Context;
+ import android.content.Intent;
+-import android.content.Loader;
+ import android.database.Cursor;
+ import android.graphics.drawable.Drawable;
+ import android.os.Bundle;
+ import android.os.SystemClock;
+-import androidx.annotation.NonNull;
+-import com.google.android.material.snackbar.Snackbar;
+-import androidx.recyclerview.widget.LinearLayoutManager;
+-import androidx.recyclerview.widget.RecyclerView;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
+ import android.widget.Button;
+ import android.widget.ImageView;
+ import android.widget.TextView;
++import androidx.annotation.NonNull;
++import androidx.loader.app.LoaderManager;
++import androidx.loader.content.Loader;
++import androidx.recyclerview.widget.LinearLayoutManager;
++import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.android.deskclock.alarms.AlarmTimeClickHandler;
+ import com.android.deskclock.alarms.AlarmUpdateHandler;
+ import com.android.deskclock.alarms.ScrollHandler;
+ import com.android.deskclock.alarms.TimePickerDialogFragment;
+ import com.android.deskclock.alarms.dataadapter.AlarmItemHolder;
+ import com.android.deskclock.alarms.dataadapter.CollapsedAlarmViewHolder;
+ import com.android.deskclock.alarms.dataadapter.ExpandedAlarmViewHolder;
+ import com.android.deskclock.provider.Alarm;
+ import com.android.deskclock.provider.AlarmInstance;
+ import com.android.deskclock.uidata.UiDataModel;
+ import com.android.deskclock.widget.EmptyViewController;
+ import com.android.deskclock.widget.toast.SnackbarManager;
+ import com.android.deskclock.widget.toast.ToastManager;
+ 
++import com.google.android.material.snackbar.Snackbar;
++
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ import static com.android.deskclock.uidata.UiDataModel.Tab.ALARMS;
+ 
+ /**
+  * A fragment that displays a list of alarm time and allows interaction with them.
+  */
+ public final class AlarmClockFragment extends DeskClockFragment implements
+         LoaderManager.LoaderCallbacks<Cursor>,
+@@ -95,21 +96,21 @@ public final class AlarmClockFragment extends DeskClockFragment implements
+     /**
+      * The public no-arg constructor required by all fragments.
+      */
+     public AlarmClockFragment() {
+         super(ALARMS);
+     }
+ 
+     @Override
+     public void onCreate(Bundle savedState) {
+         super.onCreate(savedState);
+-        mCursorLoader = getLoaderManager().initLoader(0, null, this);
++        mCursorLoader = LoaderManager.getInstance(this).initLoader(0, null, this);
+         if (savedState != null) {
+             mExpandedAlarmId = savedState.getLong(KEY_EXPANDED_ID, Alarm.INVALID_ID);
+         }
+     }
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedState) {
+         // Inflate the layout for this fragment
+         final View v = inflater.inflate(R.layout.alarm_clock, container, false);
+         final Context context = getActivity();
+@@ -179,21 +180,21 @@ public final class AlarmClockFragment extends DeskClockFragment implements
+         itemAnimator.setMoveDuration(300L);
+         mRecyclerView.setItemAnimator(itemAnimator);
+         return v;
+     }
+ 
+     @Override
+     public void onStart() {
+         super.onStart();
+ 
+         if (!isTabSelected()) {
+-            TimePickerDialogFragment.removeTimeEditDialog(getFragmentManager());
++            TimePickerDialogFragment.removeTimeEditDialog(getParentFragmentManager());
+         }
+     }
+ 
+     @Override
+     public void onResume() {
+         super.onResume();
+ 
+         // Schedule a runnable to update the "Today/Tomorrow" values displayed for non-repeating
+         // alarms when midnight passes.
+         UiDataModel.getUiDataModel().addMidnightCallback(mMidnightUpdater, 100);
+diff --git a/src/com/android/deskclock/DeskClock.java b/src/com/android/deskclock/DeskClock.java
+index e53fbebb607fd61dadcb0631b102df12bde0a642..a6a36628fb5b228de40374f272283ab44945a724 100644
+--- a/src/com/android/deskclock/DeskClock.java
++++ b/src/com/android/deskclock/DeskClock.java
+@@ -13,53 +13,54 @@
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock;
+ 
+ import android.animation.Animator;
+ import android.animation.AnimatorListenerAdapter;
+ import android.animation.AnimatorSet;
+ import android.animation.ValueAnimator;
+-import android.app.Fragment;
+ import android.content.Intent;
+ import android.graphics.drawable.Drawable;
+ import android.os.Bundle;
+-import androidx.annotation.StringRes;
+-import com.google.android.material.snackbar.Snackbar;
+-import com.google.android.material.tabs.TabLayout;
+-import androidx.viewpager.widget.ViewPager;
+-import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+-import androidx.appcompat.app.ActionBar;
+-import androidx.appcompat.widget.Toolbar;
+ import android.view.KeyEvent;
+ import android.view.Menu;
+ import android.view.MenuItem;
+ import android.view.View;
+ import android.view.View.OnClickListener;
+ import android.widget.Button;
+ import android.widget.ImageView;
+ import android.widget.TextView;
++import androidx.annotation.StringRes;
++import androidx.appcompat.app.ActionBar;
++import androidx.appcompat.widget.Toolbar;
++import androidx.fragment.app.Fragment;
++import androidx.viewpager.widget.ViewPager;
++import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
+ 
+ import com.android.deskclock.actionbarmenu.MenuItemControllerFactory;
+ import com.android.deskclock.actionbarmenu.NightModeMenuItemController;
+ import com.android.deskclock.actionbarmenu.OptionsMenuManager;
+ import com.android.deskclock.actionbarmenu.SettingsMenuItemController;
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.DataModel.SilentSetting;
+ import com.android.deskclock.data.OnSilentSettingsListener;
+ import com.android.deskclock.events.Events;
+ import com.android.deskclock.provider.Alarm;
+ import com.android.deskclock.uidata.TabListener;
+ import com.android.deskclock.uidata.UiDataModel;
+ import com.android.deskclock.widget.toast.SnackbarManager;
+ 
++import com.google.android.material.snackbar.Snackbar;
++import com.google.android.material.tabs.TabLayout;
++
+ import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_DRAGGING;
+ import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_IDLE;
+ import static androidx.viewpager.widget.ViewPager.SCROLL_STATE_SETTLING;
+ import static android.text.format.DateUtils.SECOND_IN_MILLIS;
+ import static com.android.deskclock.AnimatorUtils.getScaleAnimator;
+ 
+ /**
+  * The main activity of the application which displays 4 different tabs contains alarms, world
+  * clocks, timers and a stopwatch.
+  */
+@@ -385,21 +386,21 @@ public class DeskClock extends BaseActivity
+     @Override
+     public boolean onOptionsItemSelected(MenuItem item) {
+         return mOptionsMenuManager.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+     }
+ 
+     /**
+      * Called by the LabelDialogFormat class after the dialog is finished.
+      */
+     @Override
+     public void onDialogLabelSet(Alarm alarm, String label, String tag) {
+-        final Fragment frag = getFragmentManager().findFragmentByTag(tag);
++        final Fragment frag = getSupportFragmentManager().findFragmentByTag(tag);
+         if (frag instanceof AlarmClockFragment) {
+             ((AlarmClockFragment) frag).setLabel(alarm, label);
+         }
+     }
+ 
+     /**
+      * Listens for keyboard activity for the tab fragments to handle if necessary. A tab may want to
+      * respond to key presses even if they are not currently focused.
+      */
+     @Override
+diff --git a/src/com/android/deskclock/DeskClockFragment.java b/src/com/android/deskclock/DeskClockFragment.java
+index a9e3fc659c4453266ae60ec5c11730b6c27e1386..1f51a332e2f90234fb0c710321cdb74ebd19fbf6 100644
+--- a/src/com/android/deskclock/DeskClockFragment.java
++++ b/src/com/android/deskclock/DeskClockFragment.java
+@@ -9,26 +9,26 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock;
+ 
+-import android.app.Fragment;
+-import androidx.annotation.ColorInt;
+-import androidx.annotation.NonNull;
+ import android.view.KeyEvent;
+ import android.widget.Button;
+ import android.widget.ImageView;
++import androidx.annotation.ColorInt;
++import androidx.annotation.NonNull;
++import androidx.fragment.app.Fragment;
+ 
+ import com.android.deskclock.uidata.UiDataModel;
+ import com.android.deskclock.uidata.UiDataModel.Tab;
+ 
+ public abstract class DeskClockFragment extends Fragment implements FabContainer, FabController {
+ 
+     /** The tab associated with this fragment. */
+     private final Tab mTab;
+ 
+     /** The container that houses the fab and its left and right buttons. */
+diff --git a/src/com/android/deskclock/FragmentTabPagerAdapter.java b/src/com/android/deskclock/FragmentTabPagerAdapter.java
+index 3682c86e4cd71eb3012f5565c026093ad788797c..de3e25c356a7943a9176b560c7747096b7695865 100644
+--- a/src/com/android/deskclock/FragmentTabPagerAdapter.java
++++ b/src/com/android/deskclock/FragmentTabPagerAdapter.java
+@@ -9,28 +9,27 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock;
+ 
+-import android.app.Fragment;
+-import android.app.FragmentManager;
+-import android.app.FragmentTransaction;
+-import androidx.legacy.app.FragmentCompat;
+-import androidx.viewpager.widget.PagerAdapter;
+ import android.util.ArrayMap;
+ import android.view.View;
+ import android.view.ViewGroup;
++import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentTransaction;
++import androidx.viewpager.widget.PagerAdapter;
+ 
+ import com.android.deskclock.uidata.UiDataModel;
+ 
+ import java.util.Map;
+ 
+ /**
+  * This adapter produces the DeskClockFragments that are the content of the DeskClock tabs. The
+  * adapter presents the tabs in LTR and RTL order depending on the text layout direction for the
+  * current locale. To prevent issues when switching between LTR and RTL, fragments are registered
+  * with the manager using position-independent tags, which is an important departure from
+@@ -48,21 +47,21 @@ final class FragmentTabPagerAdapter extends PagerAdapter {
+ 
+     /** The active fragment transaction if one exists. */
+     private FragmentTransaction mCurrentTransaction;
+ 
+     /** The current fragment displayed to the user. */
+     private Fragment mCurrentPrimaryItem;
+ 
+     FragmentTabPagerAdapter(DeskClock deskClock) {
+         mDeskClock = deskClock;
+         mFragmentCache = new ArrayMap<>(getCount());
+-        mFragmentManager = deskClock.getFragmentManager();
++        mFragmentManager = deskClock.getSupportFragmentManager();
+     }
+ 
+     @Override
+     public int getCount() {
+         return UiDataModel.getUiDataModel().getTabCount();
+     }
+ 
+     /**
+      * @param position the left-to-right index of the fragment to be returned
+      * @return the fragment displayed at the given {@code position}
+@@ -112,48 +111,48 @@ final class FragmentTabPagerAdapter extends PagerAdapter {
+         final UiDataModel.Tab tab = UiDataModel.getUiDataModel().getTabAt(position);
+         Fragment fragment = mFragmentManager.findFragmentByTag(tab.name());
+         if (fragment != null) {
+             mCurrentTransaction.attach(fragment);
+         } else {
+             fragment = getDeskClockFragment(position);
+             mCurrentTransaction.add(container.getId(), fragment, tab.name());
+         }
+ 
+         if (fragment != mCurrentPrimaryItem) {
+-            FragmentCompat.setMenuVisibility(fragment, false);
+-            FragmentCompat.setUserVisibleHint(fragment, false);
++            fragment.setMenuVisibility(false);
++            fragment.setUserVisibleHint(false);
+         }
+ 
+         return fragment;
+     }
+ 
+     @Override
+     public void destroyItem(ViewGroup container, int position, Object object) {
+         if (mCurrentTransaction == null) {
+             mCurrentTransaction = mFragmentManager.beginTransaction();
+         }
+         final DeskClockFragment fragment = (DeskClockFragment) object;
+         fragment.setFabContainer(null);
+         mCurrentTransaction.detach(fragment);
+     }
+ 
+     @Override
+     public void setPrimaryItem(ViewGroup container, int position, Object object) {
+         final Fragment fragment = (Fragment) object;
+         if (fragment != mCurrentPrimaryItem) {
+             if (mCurrentPrimaryItem != null) {
+-                FragmentCompat.setMenuVisibility(mCurrentPrimaryItem, false);
+-                FragmentCompat.setUserVisibleHint(mCurrentPrimaryItem, false);
++                mCurrentPrimaryItem.setMenuVisibility(false);
++                mCurrentPrimaryItem.setUserVisibleHint(false);
+             }
+             if (fragment != null) {
+-                FragmentCompat.setMenuVisibility(fragment, true);
+-                FragmentCompat.setUserVisibleHint(fragment, true);
++                fragment.setMenuVisibility(true);
++                fragment.setUserVisibleHint(true);
+             }
+             mCurrentPrimaryItem = fragment;
+         }
+     }
+ 
+     @Override
+     public void finishUpdate(ViewGroup container) {
+         if (mCurrentTransaction != null) {
+             mCurrentTransaction.commitAllowingStateLoss();
+             mCurrentTransaction = null;
+diff --git a/src/com/android/deskclock/LabelDialogFragment.java b/src/com/android/deskclock/LabelDialogFragment.java
+index 0fa0eab0d4fbd60b0b57726d98091fdf26134a76..d997cdb78b0559b8b8550f1aed3a4fa94cd63267 100644
+--- a/src/com/android/deskclock/LabelDialogFragment.java
++++ b/src/com/android/deskclock/LabelDialogFragment.java
+@@ -10,40 +10,40 @@
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License
+  */
+ 
+ package com.android.deskclock;
+ 
+ import android.app.Dialog;
+-import android.app.DialogFragment;
+-import android.app.Fragment;
+-import android.app.FragmentManager;
+-import android.app.FragmentTransaction;
+ import android.content.Context;
+ import android.content.DialogInterface;
+ import android.content.res.ColorStateList;
+ import android.graphics.Color;
+ import android.os.Bundle;
+-import androidx.annotation.NonNull;
+-import androidx.appcompat.app.AlertDialog;
+-import androidx.appcompat.widget.AppCompatEditText;
+ import android.text.Editable;
+ import android.text.InputType;
+ import android.text.TextUtils;
+ import android.text.TextWatcher;
+ import android.view.KeyEvent;
+ import android.view.Window;
+ import android.view.inputmethod.EditorInfo;
+ import android.widget.TextView;
++import androidx.annotation.NonNull;
++import androidx.appcompat.app.AlertDialog;
++import androidx.appcompat.widget.AppCompatEditText;
++import androidx.fragment.app.DialogFragment;
++import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentTransaction;
+ 
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.Timer;
+ import com.android.deskclock.provider.Alarm;
+ 
+ import static android.view.WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE;
+ 
+ /**
+  * DialogFragment to edit label.
+  */
+diff --git a/src/com/android/deskclock/alarms/AlarmTimeClickHandler.java b/src/com/android/deskclock/alarms/AlarmTimeClickHandler.java
+index 6c9464946b84c91f896c80ab9d1eaf0bea26e7f5..acc7ec03aa191e46bc621a0111ee57f88fd11a33 100644
+--- a/src/com/android/deskclock/alarms/AlarmTimeClickHandler.java
++++ b/src/com/android/deskclock/alarms/AlarmTimeClickHandler.java
+@@ -9,25 +9,25 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.alarms;
+ 
+-import android.app.Fragment;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.os.Bundle;
+ import android.os.Vibrator;
++import androidx.fragment.app.Fragment;
+ 
+ import com.android.deskclock.AlarmClockFragment;
+ import com.android.deskclock.LabelDialogFragment;
+ import com.android.deskclock.LogUtils;
+ import com.android.deskclock.R;
+ import com.android.deskclock.alarms.dataadapter.AlarmItemHolder;
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.Weekdays;
+ import com.android.deskclock.events.Events;
+ import com.android.deskclock.provider.Alarm;
+@@ -175,21 +175,21 @@ public final class AlarmTimeClickHandler {
+ 
+         final Intent intent =
+                 RingtonePickerActivity.createAlarmRingtonePickerIntent(context, alarm);
+         context.startActivity(intent);
+     }
+ 
+     public void onEditLabelClicked(Alarm alarm) {
+         Events.sendAlarmEvent(R.string.action_set_label, R.string.label_deskclock);
+         final LabelDialogFragment fragment =
+                 LabelDialogFragment.newInstance(alarm, alarm.label, mFragment.getTag());
+-        LabelDialogFragment.show(mFragment.getFragmentManager(), fragment);
++        LabelDialogFragment.show(mFragment.getParentFragmentManager(), fragment);
+     }
+ 
+     public void onTimeSet(int hourOfDay, int minute) {
+         if (mSelectedAlarm == null) {
+             // If mSelectedAlarm is null then we're creating a new alarm.
+             final Alarm a = new Alarm();
+             a.hour = hourOfDay;
+             a.minutes = minute;
+             a.enabled = true;
+             mAlarmUpdateHandler.asyncAddAlarm(a);
+diff --git a/src/com/android/deskclock/alarms/TimePickerDialogFragment.java b/src/com/android/deskclock/alarms/TimePickerDialogFragment.java
+index 33fc757e33c8400a058898ff4c119baca3b7c803..05d962b06b02008b7f002b0c46bb3d7bd35f7465 100644
+--- a/src/com/android/deskclock/alarms/TimePickerDialogFragment.java
++++ b/src/com/android/deskclock/alarms/TimePickerDialogFragment.java
+@@ -10,30 +10,30 @@
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.alarms;
+ 
+ import android.app.Dialog;
+-import android.app.DialogFragment;
+-import android.app.Fragment;
+-import android.app.FragmentManager;
+ import android.app.TimePickerDialog;
+ import android.content.Context;
+ import android.content.DialogInterface;
+ import android.os.Bundle;
+-import androidx.appcompat.app.AlertDialog;
+ import android.text.format.DateFormat;
+ import android.widget.TimePicker;
++import androidx.appcompat.app.AlertDialog;
++import androidx.fragment.app.DialogFragment;
++import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentManager;
+ 
+ import com.android.deskclock.Utils;
+ 
+ import java.util.Calendar;
+ 
+ /**
+  * DialogFragment used to show TimePicker.
+  */
+ public class TimePickerDialogFragment extends DialogFragment {
+ 
+diff --git a/src/com/android/deskclock/provider/Alarm.java b/src/com/android/deskclock/provider/Alarm.java
+index fc8aebdb25225e02c183f468691860e667c57492..0d5a726f0b54b4bfb8ec73318051b7f9e62fddaf 100644
+--- a/src/com/android/deskclock/provider/Alarm.java
++++ b/src/com/android/deskclock/provider/Alarm.java
+@@ -13,27 +13,27 @@
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.provider;
+ 
+ import android.content.ContentResolver;
+ import android.content.ContentUris;
+ import android.content.ContentValues;
+ import android.content.Context;
+-import android.content.CursorLoader;
+ import android.content.Intent;
+ import android.database.Cursor;
+ import android.media.RingtoneManager;
+ import android.net.Uri;
+ import android.os.Parcel;
+ import android.os.Parcelable;
++import androidx.loader.content.CursorLoader;
+ 
+ import com.android.deskclock.R;
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.Weekdays;
+ 
+ import java.util.Calendar;
+ import java.util.LinkedList;
+ import java.util.List;
+ 
+ public final class Alarm implements Parcelable, ClockContract.AlarmsColumns {
+diff --git a/src/com/android/deskclock/timer/TimerFragment.java b/src/com/android/deskclock/timer/TimerFragment.java
+index 8b301050b793bed54dad86eadf548c43d9e64539..afb6ac817189505342b752354e07fbbc3b1d35c9 100644
+--- a/src/com/android/deskclock/timer/TimerFragment.java
++++ b/src/com/android/deskclock/timer/TimerFragment.java
+@@ -99,21 +99,21 @@ public final class TimerFragment extends DeskClockFragment {
+     /** The public no-arg constructor required by all fragments. */
+     public TimerFragment() {
+         super(TIMERS);
+     }
+ 
+     @Override
+     public View onCreateView(LayoutInflater inflater, ViewGroup container,
+             Bundle savedInstanceState) {
+         final View view = inflater.inflate(R.layout.timer_fragment, container, false);
+ 
+-        mAdapter = new TimerPagerAdapter(getFragmentManager());
++        mAdapter = new TimerPagerAdapter(getParentFragmentManager());
+         mViewPager = (ViewPager) view.findViewById(R.id.vertical_view_pager);
+         mViewPager.setAdapter(mAdapter);
+         mViewPager.addOnPageChangeListener(mTimerPageChangeListener);
+ 
+         mTimersView = view.findViewById(R.id.timer_view);
+         mCreateTimerView = (TimerSetupView) view.findViewById(R.id.timer_setup);
+         mCreateTimerView.setFabContainer(this);
+         mPageIndicators = new ImageView[] {
+                 (ImageView) view.findViewById(R.id.page_indicator0),
+                 (ImageView) view.findViewById(R.id.page_indicator1),
+diff --git a/src/com/android/deskclock/timer/TimerItemFragment.java b/src/com/android/deskclock/timer/TimerItemFragment.java
+index 7ce68765c3e021f906c1a738a8a84dd76d544c4f..33b904285a4bf551b5658cb4b0a5db4356eec369 100644
+--- a/src/com/android/deskclock/timer/TimerItemFragment.java
++++ b/src/com/android/deskclock/timer/TimerItemFragment.java
+@@ -9,26 +9,26 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.timer;
+ 
+-import android.app.Fragment;
+ import android.content.Context;
+ import android.os.Bundle;
+ import android.view.LayoutInflater;
+ import android.view.View;
+ import android.view.ViewGroup;
++import androidx.fragment.app.Fragment;
+ 
+ import com.android.deskclock.LabelDialogFragment;
+ import com.android.deskclock.R;
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.Timer;
+ import com.android.deskclock.data.TimerStringFormatter;
+ import com.android.deskclock.events.Events;
+ 
+ public class TimerItemFragment extends Fragment {
+ 
+diff --git a/src/com/android/deskclock/timer/TimerPagerAdapter.java b/src/com/android/deskclock/timer/TimerPagerAdapter.java
+index 224d71d164b82413e54d73ee2a65102411a8d160..8b258942c2e82fa4f28445b90cc0f89b86264783 100644
+--- a/src/com/android/deskclock/timer/TimerPagerAdapter.java
++++ b/src/com/android/deskclock/timer/TimerPagerAdapter.java
+@@ -10,28 +10,28 @@
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.timer;
+ 
+ import android.annotation.SuppressLint;
+-import android.app.Fragment;
+-import android.app.FragmentManager;
+-import android.app.FragmentTransaction;
+-import androidx.legacy.app.FragmentCompat;
+-import androidx.viewpager.widget.PagerAdapter;
+ import android.util.ArrayMap;
+ import android.view.View;
+ import android.view.ViewGroup;
++import androidx.fragment.app.Fragment;
++import androidx.fragment.app.FragmentManager;
++import androidx.fragment.app.FragmentTransaction;
++import androidx.legacy.app.FragmentCompat;
++import androidx.viewpager.widget.PagerAdapter;
+ 
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.Timer;
+ import com.android.deskclock.data.TimerListener;
+ 
+ import java.util.List;
+ import java.util.Map;
+ 
+ /**
+  * This adapter produces a {@link TimerItemFragment} for each timer.
+@@ -175,14 +175,14 @@ class TimerPagerAdapter extends PagerAdapter implements TimerListener {
+ 
+     Timer getTimer(int index) {
+         return getTimers().get(index);
+     }
+ 
+     private List<Timer> getTimers() {
+         return DataModel.getDataModel().getTimers();
+     }
+ 
+     private static void setItemVisible(Fragment item, boolean visible) {
+-        FragmentCompat.setMenuVisibility(item, visible);
+-        FragmentCompat.setUserVisibleHint(item, visible);
++        item.setMenuVisibility(visible);
++        item.setUserVisibleHint(visible);
+     }
+ }
+\ No newline at end of file
+
+commit ca0fa176e5497354d16622293e1b0945208d0c9c
+Author: Colin Marsch <colinmarsch@google.com>
+Date:   Mon 2020-08-17 15:55:06-0500
+
+    AOSP/DeskClock - Upgrade Handler inits to use undeprecated constructor
+    
+    Test: manual, tested the DeskClock UI. As well tests were ran as follows
+    
+    $ source build/envsetup.sh
+    $ lunch aosp_sargo-userdebug
+    $ make DeskClock
+    $ adb install out/target/product/sargo/product/app/DeskClock/DeskClock.apk
+    $ atest DeskClockTests
+    $ make DeskClockJava
+    $ adb install out/target/product/sargo/product/app/DeskClockJava/DeskClockJava.apk
+    $ atest DeskClockTests
+    
+    BUG: 157255731
+    Change-Id: I85888a5c511a277cfb17f8a3e431ec5b11ea6bd8
+---
+ src/com/android/deskclock/Screensaver.java                  | 3 ++-
+ src/com/android/deskclock/ScreensaverActivity.java          | 3 ++-
+ src/com/android/deskclock/alarms/AlarmActivity.java         | 9 +++++----
+ src/com/android/deskclock/data/AlarmModel.java              | 3 ++-
+ src/com/android/deskclock/data/RingtoneModel.java           | 3 ++-
+ src/com/android/deskclock/data/SilentSettingsModel.java     | 3 ++-
+ src/com/android/deskclock/uidata/PeriodicCallbackModel.java | 3 ++-
+ 7 files changed, 17 insertions(+), 10 deletions(-)
+
+diff --git a/src/com/android/deskclock/Screensaver.java b/src/com/android/deskclock/Screensaver.java
+index 427885e687216e96f41b683b9742e5102f219b01..68899d96e47b536e17f28269d0376aaaca0cc4c7 100644
+--- a/src/com/android/deskclock/Screensaver.java
++++ b/src/com/android/deskclock/Screensaver.java
+@@ -18,20 +18,21 @@ package com.android.deskclock;
+ 
+ import android.app.AlarmManager;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.res.Configuration;
+ import android.database.ContentObserver;
+ import android.net.Uri;
+ import android.os.Handler;
++import android.os.Looper;
+ import android.provider.Settings;
+ import android.service.dreams.DreamService;
+ import android.view.View;
+ import android.view.ViewTreeObserver.OnPreDrawListener;
+ import android.widget.TextClock;
+ 
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.uidata.UiDataModel;
+ 
+ public final class Screensaver extends DreamService {
+@@ -44,21 +45,21 @@ public final class Screensaver extends DreamService {
+     private String mDateFormat;
+     private String mDateFormatForAccessibility;
+ 
+     private View mContentView;
+     private View mMainClockView;
+     private TextClock mDigitalClock;
+     private AnalogClock mAnalogClock;
+ 
+     /* Register ContentObserver to see alarm changes for pre-L */
+     private final ContentObserver mSettingsContentObserver =
+-            Utils.isLOrLater() ? null : new ContentObserver(new Handler()) {
++            Utils.isLOrLater() ? null : new ContentObserver(new Handler(Looper.myLooper())) {
+                 @Override
+                 public void onChange(boolean selfChange) {
+                     Utils.refreshAlarm(Screensaver.this, mContentView);
+                 }
+             };
+ 
+     // Runs every midnight or when the time changes and refreshes the date.
+     private final Runnable mMidnightUpdater = new Runnable() {
+         @Override
+         public void run() {
+diff --git a/src/com/android/deskclock/ScreensaverActivity.java b/src/com/android/deskclock/ScreensaverActivity.java
+index 656cfc7180dc4488c76f8d91bace2664ae12562c..c7d54af3fe95d48707ae0de18315111c568b7f73 100644
+--- a/src/com/android/deskclock/ScreensaverActivity.java
++++ b/src/com/android/deskclock/ScreensaverActivity.java
+@@ -18,20 +18,21 @@ package com.android.deskclock;
+ 
+ import android.app.AlarmManager;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.database.ContentObserver;
+ import android.net.Uri;
+ import android.os.Bundle;
+ import android.os.Handler;
++import android.os.Looper;
+ import android.provider.Settings;
+ import android.view.View;
+ import android.view.ViewTreeObserver.OnPreDrawListener;
+ import android.view.Window;
+ import android.view.WindowManager;
+ import android.widget.TextClock;
+ 
+ import com.android.deskclock.events.Events;
+ import com.android.deskclock.uidata.UiDataModel;
+ 
+@@ -67,21 +68,21 @@ public class ScreensaverActivity extends BaseActivity {
+                     break;
+                 case AlarmManager.ACTION_NEXT_ALARM_CLOCK_CHANGED:
+                     Utils.refreshAlarm(ScreensaverActivity.this, mContentView);
+                     break;
+             }
+         }
+     };
+ 
+     /* Register ContentObserver to see alarm changes for pre-L */
+     private final ContentObserver mSettingsContentObserver = Utils.isPreL()
+-        ? new ContentObserver(new Handler()) {
++        ? new ContentObserver(new Handler(Looper.myLooper())) {
+             @Override
+             public void onChange(boolean selfChange) {
+                 Utils.refreshAlarm(ScreensaverActivity.this, mContentView);
+             }
+         }
+         : null;
+ 
+     // Runs every midnight or when the time changes and refreshes the date.
+     private final Runnable mMidnightUpdater = new Runnable() {
+         @Override
+diff --git a/src/com/android/deskclock/alarms/AlarmActivity.java b/src/com/android/deskclock/alarms/AlarmActivity.java
+index 88632c77a8b6e4039afd137f40b472bc5e8c342b..916fb9274a76b5b4ef42c8ae42b1b0779abc68d1 100644
+--- a/src/com/android/deskclock/alarms/AlarmActivity.java
++++ b/src/com/android/deskclock/alarms/AlarmActivity.java
+@@ -30,32 +30,33 @@ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.ServiceConnection;
+ import android.content.pm.ActivityInfo;
+ import android.graphics.Color;
+ import android.graphics.Rect;
+ import android.graphics.drawable.ColorDrawable;
+ import android.media.AudioManager;
+ import android.os.Bundle;
+ import android.os.Handler;
+ import android.os.IBinder;
+-import androidx.annotation.NonNull;
+-import androidx.core.graphics.ColorUtils;
+-import androidx.core.view.animation.PathInterpolatorCompat;
++import android.os.Looper;
+ import android.view.KeyEvent;
+ import android.view.MotionEvent;
+ import android.view.View;
+ import android.view.ViewGroup;
+ import android.view.WindowManager;
+ import android.view.accessibility.AccessibilityManager;
+ import android.widget.ImageView;
+ import android.widget.TextClock;
+ import android.widget.TextView;
++import androidx.annotation.NonNull;
++import androidx.core.graphics.ColorUtils;
++import androidx.core.view.animation.PathInterpolatorCompat;
+ 
+ import com.android.deskclock.AnimatorUtils;
+ import com.android.deskclock.BaseActivity;
+ import com.android.deskclock.LogUtils;
+ import com.android.deskclock.R;
+ import com.android.deskclock.ThemeUtils;
+ import com.android.deskclock.Utils;
+ import com.android.deskclock.data.DataModel;
+ import com.android.deskclock.data.DataModel.AlarmVolumeButtonBehavior;
+ import com.android.deskclock.events.Events;
+@@ -78,21 +79,21 @@ public class AlarmActivity extends BaseActivity
+ 
+     private static final int PULSE_DURATION_MILLIS = 1000;
+     private static final int ALARM_BOUNCE_DURATION_MILLIS = 500;
+     private static final int ALERT_REVEAL_DURATION_MILLIS = 500;
+     private static final int ALERT_FADE_DURATION_MILLIS = 500;
+     private static final int ALERT_DISMISS_DELAY_MILLIS = 2000;
+ 
+     private static final float BUTTON_SCALE_DEFAULT = 0.7f;
+     private static final int BUTTON_DRAWABLE_ALPHA_DEFAULT = 165;
+ 
+-    private final Handler mHandler = new Handler();
++    private final Handler mHandler = new Handler(Looper.myLooper());
+     private final BroadcastReceiver mReceiver = new BroadcastReceiver() {
+         @Override
+         public void onReceive(Context context, Intent intent) {
+             final String action = intent.getAction();
+             LOGGER.v("Received broadcast: %s", action);
+ 
+             if (!mAlarmHandled) {
+                 switch (action) {
+                     case AlarmService.ALARM_SNOOZE_ACTION:
+                         snooze();
+diff --git a/src/com/android/deskclock/data/AlarmModel.java b/src/com/android/deskclock/data/AlarmModel.java
+index da50fe55077d5f0b500db423e333d2bd0422508b..a320d7d78f3b048517701e04c542f4384454ea55 100644
+--- a/src/com/android/deskclock/data/AlarmModel.java
++++ b/src/com/android/deskclock/data/AlarmModel.java
+@@ -14,20 +14,21 @@
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.data;
+ 
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.database.ContentObserver;
+ import android.net.Uri;
+ import android.os.Handler;
++import android.os.Looper;
+ import android.provider.Settings;
+ 
+ import com.android.deskclock.data.DataModel.AlarmVolumeButtonBehavior;
+ import com.android.deskclock.provider.Alarm;
+ 
+ /**
+  * All alarm data will eventually be accessed via this model.
+  */
+ final class AlarmModel {
+ 
+@@ -78,20 +79,20 @@ final class AlarmModel {
+         return mSettingsModel.getSnoozeLength();
+     }
+ 
+     /**
+      * This receiver is notified when system settings change. Cached information built on
+      * those system settings must be cleared.
+      */
+     private final class SystemAlarmAlertChangeObserver extends ContentObserver {
+ 
+         private SystemAlarmAlertChangeObserver() {
+-            super(new Handler());
++            super(new Handler(Looper.myLooper()));
+         }
+ 
+         @Override
+         public void onChange(boolean selfChange) {
+             super.onChange(selfChange);
+             mDefaultAlarmRingtoneUri = null;
+         }
+     }
+ }
+\ No newline at end of file
+diff --git a/src/com/android/deskclock/data/RingtoneModel.java b/src/com/android/deskclock/data/RingtoneModel.java
+index 90b7f912c1460c5f2d4a659d7131e94a1ac0fb1e..f656eb8669cf93017d54f3a9e9221e5549ca356c 100644
+--- a/src/com/android/deskclock/data/RingtoneModel.java
++++ b/src/com/android/deskclock/data/RingtoneModel.java
+@@ -23,20 +23,21 @@ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.SharedPreferences;
+ import android.content.UriPermission;
+ import android.database.ContentObserver;
+ import android.database.Cursor;
+ import android.media.Ringtone;
+ import android.media.RingtoneManager;
+ import android.net.Uri;
+ import android.os.Handler;
++import android.os.Looper;
+ import android.provider.Settings;
+ import android.util.ArrayMap;
+ import android.util.ArraySet;
+ 
+ import com.android.deskclock.LogUtils;
+ import com.android.deskclock.R;
+ import com.android.deskclock.provider.Alarm;
+ 
+ import java.util.Collections;
+ import java.util.List;
+@@ -199,21 +200,21 @@ final class RingtoneModel {
+         return mCustomRingtones;
+     }
+ 
+     /**
+      * This receiver is notified when system settings change. Cached information built on
+      * those system settings must be cleared.
+      */
+     private final class SystemAlarmAlertChangeObserver extends ContentObserver {
+ 
+         private SystemAlarmAlertChangeObserver() {
+-            super(new Handler());
++            super(new Handler(Looper.myLooper()));
+         }
+ 
+         @Override
+         public void onChange(boolean selfChange) {
+             super.onChange(selfChange);
+ 
+             // Titles such as "Default ringtone (Oxygen)" are wrong after default ringtone changes.
+             mRingtoneTitles.clear();
+         }
+     }
+diff --git a/src/com/android/deskclock/data/SilentSettingsModel.java b/src/com/android/deskclock/data/SilentSettingsModel.java
+index b50702af288d7b2bbe6de83d83f34be3eaee574f..50054f134599fb5246f5906c1bd0060d79c4c230 100644
+--- a/src/com/android/deskclock/data/SilentSettingsModel.java
++++ b/src/com/android/deskclock/data/SilentSettingsModel.java
+@@ -23,20 +23,21 @@ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.database.ContentObserver;
+ import android.media.AudioManager;
+ import android.media.RingtoneManager;
+ import android.net.Uri;
+ import android.os.AsyncTask;
+ import android.os.Build;
+ import android.os.Handler;
++import android.os.Looper;
+ import androidx.core.app.NotificationManagerCompat;
+ 
+ import com.android.deskclock.Utils;
+ import com.android.deskclock.data.DataModel.SilentSetting;
+ 
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ import static android.app.NotificationManager.ACTION_INTERRUPTION_FILTER_CHANGED;
+ import static android.app.NotificationManager.INTERRUPTION_FILTER_NONE;
+@@ -218,21 +219,21 @@ final class SilentSettingsModel {
+                 return false;
+             }
+         }
+     }
+ 
+     /**
+      * Observe changes to specific URI for settings that can silence firing alarms.
+      */
+     private final class ContentChangeWatcher extends ContentObserver {
+         private ContentChangeWatcher() {
+-            super(new Handler());
++            super(new Handler(Looper.myLooper()));
+         }
+ 
+         @Override
+         public void onChange(boolean selfChange) {
+             updateSilentState();
+         }
+     }
+ 
+     /**
+      * Observe changes to the do-not-disturb setting.
+diff --git a/src/com/android/deskclock/uidata/PeriodicCallbackModel.java b/src/com/android/deskclock/uidata/PeriodicCallbackModel.java
+index 4b522d19961824d657dece4719424134f2ef225b..a8232e315c160b8d7a163a047ca2ebacd6327763 100644
+--- a/src/com/android/deskclock/uidata/PeriodicCallbackModel.java
++++ b/src/com/android/deskclock/uidata/PeriodicCallbackModel.java
+@@ -14,20 +14,21 @@
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.uidata;
+ 
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.os.Handler;
++import android.os.Looper;
+ import androidx.annotation.VisibleForTesting;
+ 
+ import com.android.deskclock.LogUtils;
+ 
+ import java.util.Calendar;
+ import java.util.List;
+ import java.util.concurrent.CopyOnWriteArrayList;
+ 
+ import static android.content.Intent.ACTION_DATE_CHANGED;
+ import static android.content.Intent.ACTION_TIMEZONE_CHANGED;
+@@ -165,21 +166,21 @@ final class PeriodicCallbackModel {
+                 return nextMidnight.getTimeInMillis() - now + offset;
+ 
+             default:
+                 throw new IllegalArgumentException("unexpected period: " + period);
+         }
+     }
+ 
+     private static Handler getHandler() {
+         enforceMainLooper();
+         if (sHandler == null) {
+-            sHandler = new Handler();
++            sHandler = new Handler(Looper.myLooper());
+         }
+         return sHandler;
+     }
+ 
+     /**
+      * Schedules the execution of the given delegate Runnable at the next callback time.
+      */
+     private static final class PeriodicRunnable implements Runnable {
+ 
+         private final Runnable mDelegate;
+
+commit ab8628fe2d6b62d9f3ccae2320d6b763d18a4030
+Author: Colin Marsch <colinmarsch@google.com>
+Date:   Mon 2020-08-17 17:32:57-0500
+
+    AOSP/DeskClock - Fix deprecated calls: ScreensaverSettings,SettingsActivity
+    
+    Test: manual, tested the DeskClock UI. As well tests were ran as follows
+    
+    $ source build/envsetup.sh
+    $ lunch aosp_sargo-userdebug
+    $ make DeskClock
+    $ adb install out/target/product/sargo/product/app/DeskClock/DeskClock.apk
+    $ atest DeskClockTests
+    $ make DeskClockJava
+    $ adb install out/target/product/sargo/product/app/DeskClockJava/DeskClockJava.apk
+    $ atest DeskClockTests
+    
+    BUG: 157255731
+    Change-Id: Iecbbe5b390e8121bd6131431b2fd2f2c56467428
+---
+ .../deskclock/settings/ScreensaverSettingsActivity.java    | 14 +++++++++-----
+ src/com/android/deskclock/settings/SettingsActivity.java   |  5 +++--
+ 2 files changed, 12 insertions(+), 7 deletions(-)
+
+diff --git a/src/com/android/deskclock/settings/ScreensaverSettingsActivity.java b/src/com/android/deskclock/settings/ScreensaverSettingsActivity.java
+index edc05546942accb34a2d918be5d12ba6556781ca..55587f6878b21913a87974d5e8fb556b94b5f3da 100644
+--- a/src/com/android/deskclock/settings/ScreensaverSettingsActivity.java
++++ b/src/com/android/deskclock/settings/ScreensaverSettingsActivity.java
+@@ -12,25 +12,25 @@
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.settings;
+ 
+ import android.annotation.TargetApi;
+ import android.os.Build;
+ import android.os.Bundle;
+-import android.preference.ListPreference;
+-import android.preference.Preference;
+-import android.preference.PreferenceFragment;
+-import androidx.appcompat.app.AppCompatActivity;
+ import android.view.MenuItem;
++import androidx.appcompat.app.AppCompatActivity;
++import androidx.preference.ListPreference;
++import androidx.preference.Preference;
++import androidx.preference.PreferenceFragmentCompat;
+ 
+ import com.android.deskclock.R;
+ import com.android.deskclock.Utils;
+ 
+ /**
+  * Settings for Clock screen saver
+  */
+ public final class ScreensaverSettingsActivity extends AppCompatActivity {
+ 
+     public static final String KEY_CLOCK_STYLE = "screensaver_clock_style";
+@@ -48,31 +48,35 @@ public final class ScreensaverSettingsActivity extends AppCompatActivity {
+             case android.R.id.home:
+                 finish();
+                 return true;
+             default:
+                 break;
+         }
+         return super.onOptionsItemSelected(item);
+     }
+ 
+ 
+-    public static class PrefsFragment extends PreferenceFragment
++    public static class PrefsFragment extends PreferenceFragmentCompat
+             implements Preference.OnPreferenceChangeListener {
+ 
+         @Override
+         @TargetApi(Build.VERSION_CODES.N)
+         public void onCreate(Bundle savedInstanceState) {
+             super.onCreate(savedInstanceState);
+ 
+             if (Utils.isNOrLater()) {
+                 getPreferenceManager().setStorageDeviceProtected();
+             }
++        }
++
++        @Override
++        public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
+             addPreferencesFromResource(R.xml.screensaver_settings);
+         }
+ 
+         @Override
+         public void onResume() {
+             super.onResume();
+             refresh();
+         }
+ 
+         @Override
+diff --git a/src/com/android/deskclock/settings/SettingsActivity.java b/src/com/android/deskclock/settings/SettingsActivity.java
+index dcb570758951324498cee06481bf5538513820c9..074771fff8832af4141738f1f91532594fb5f003 100644
+--- a/src/com/android/deskclock/settings/SettingsActivity.java
++++ b/src/com/android/deskclock/settings/SettingsActivity.java
+@@ -228,29 +228,30 @@ public final class SettingsActivity extends BaseActivity {
+             if (preference instanceof ListPreference) {
+                 f = ListPreferenceDialogFragmentCompat.newInstance(preference.getKey());
+             } else {
+                 throw new IllegalArgumentException("Unsupported DialogPreference type");
+             }
+             showDialog(f);
+         }
+ 
+         private void showDialog(PreferenceDialogFragmentCompat fragment) {
+             // Don't show dialog if one is already shown.
+-            if (getFragmentManager().findFragmentByTag(PREFERENCE_DIALOG_FRAGMENT_TAG) != null) {
++            if (getParentFragmentManager()
++                    .findFragmentByTag(PREFERENCE_DIALOG_FRAGMENT_TAG) != null) {
+                 return;
+             }
+             // Always set the target fragment, this is required by PreferenceDialogFragment
+             // internally.
+             fragment.setTargetFragment(this, 0);
+             // Don't use getChildFragmentManager(), it causes issues on older platforms when the
+             // target fragment is being restored after an orientation change.
+-            fragment.show(getFragmentManager(), PREFERENCE_DIALOG_FRAGMENT_TAG);
++            fragment.show(getParentFragmentManager(), PREFERENCE_DIALOG_FRAGMENT_TAG);
+         }
+ 
+         /**
+          * Reconstruct the timezone list.
+          */
+         private void loadTimeZoneList() {
+             final TimeZones timezones = DataModel.getDataModel().getTimeZones();
+             final ListPreference homeTimezonePref = (ListPreference) findPreference(KEY_HOME_TZ);
+             homeTimezonePref.setEntryValues(timezones.getTimeZoneIds());
+             homeTimezonePref.setEntries(timezones.getTimeZoneNames());
+
+commit 1bd91eab05e3a3929e16b19660c9ea51bcd28413
+Author: Colin Marsch <colinmarsch@google.com>
+Date:   Tue 2020-08-18 16:53:25-0500
+
+    AOSP/DeskClock - Clean up some TODOs and deprecated calls
+    
+    Test: manual, tested the DeskClock UI. As well tests were ran as follows
+    
+    $ source build/envsetup.sh
+    $ lunch aosp_sargo-userdebug
+    $ make DeskClock
+    $ adb install out/target/product/sargo/product/app/DeskClock/DeskClock.apk
+    $ atest DeskClockTests
+    $ make DeskClockJava
+    $ adb install out/target/product/sargo/product/app/DeskClockJava/DeskClockJava.apk
+    $ atest DeskClockTests
+    
+    BUG: 157255731
+    Change-Id: I4fafbc1021102dc7da7ad592a8840a9220d320cd
+---
+ src/com/android/deskclock/alarms/AlarmActivity.java | 17 ++++++++++++-----
+ src/com/android/deskclock/widget/TextTime.java      |  4 +++-
+ 2 files changed, 15 insertions(+), 6 deletions(-)
+
+diff --git a/src/com/android/deskclock/alarms/AlarmActivity.java b/src/com/android/deskclock/alarms/AlarmActivity.java
+index 916fb9274a76b5b4ef42c8ae42b1b0779abc68d1..9d200d40b3d1398926cb9b5664782ea3e1f60476 100644
+--- a/src/com/android/deskclock/alarms/AlarmActivity.java
++++ b/src/com/android/deskclock/alarms/AlarmActivity.java
+@@ -169,25 +169,32 @@ public class AlarmActivity extends BaseActivity
+             LOGGER.i("Skip displaying alarm for instance: %s", mAlarmInstance);
+             finish();
+             return;
+         }
+ 
+         LOGGER.i("Displaying alarm for instance: %s", mAlarmInstance);
+ 
+         // Get the volume/camera button behavior setting
+         mVolumeBehavior = DataModel.getDataModel().getAlarmVolumeButtonBehavior();
+ 
+-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
+-                | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
+-                | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
+-                | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
+-                | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
++        if (Utils.isOOrLater()) {
++            setShowWhenLocked(true);
++            setTurnScreenOn(true);
++            getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
++                    | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
++        } else {
++            getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED
++                    | WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD
++                    | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON
++                    | WindowManager.LayoutParams.FLAG_TURN_SCREEN_ON
++                    | WindowManager.LayoutParams.FLAG_ALLOW_LOCK_WHILE_SCREEN_ON);
++        }
+ 
+         // Hide navigation bar to minimize accidental tap on Home key
+         hideNavigationBar();
+ 
+         // Close dialogs and window shade, so this is fully visible
+         sendBroadcast(new Intent(Intent.ACTION_CLOSE_SYSTEM_DIALOGS));
+ 
+         // Honor rotation on tablets; fix the orientation on phones.
+         if (!getResources().getBoolean(R.bool.rotateAlarmAlert)) {
+             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_NOSENSOR);
+diff --git a/src/com/android/deskclock/widget/TextTime.java b/src/com/android/deskclock/widget/TextTime.java
+index 3e93124daa08d04f482a4a5c517ec7f8f376c213..e0cea474b597caadaed8bfbfccbef3314c4a2e07 100644
+--- a/src/com/android/deskclock/widget/TextTime.java
++++ b/src/com/android/deskclock/widget/TextTime.java
+@@ -14,20 +14,21 @@
+  * limitations under the License.
+  */
+ 
+ package com.android.deskclock.widget;
+ 
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.database.ContentObserver;
+ import android.net.Uri;
+ import android.os.Handler;
++import android.os.Looper;
+ import android.provider.Settings;
+ import androidx.annotation.VisibleForTesting;
+ import android.text.format.DateFormat;
+ import android.util.AttributeSet;
+ import android.widget.TextView;
+ 
+ import com.android.deskclock.Utils;
+ import com.android.deskclock.data.DataModel;
+ 
+ import java.util.Calendar;
+@@ -52,21 +53,22 @@ public class TextTime extends TextView {
+ 
+     private CharSequence mFormat12;
+     private CharSequence mFormat24;
+     private CharSequence mFormat;
+ 
+     private boolean mAttached;
+ 
+     private int mHour;
+     private int mMinute;
+ 
+-    private final ContentObserver mFormatChangeObserver = new ContentObserver(new Handler()) {
++    private final ContentObserver mFormatChangeObserver =
++            new ContentObserver(new Handler(Looper.myLooper())) {
+         @Override
+         public void onChange(boolean selfChange) {
+             chooseFormat();
+             updateTime();
+         }
+ 
+         @Override
+         public void onChange(boolean selfChange, Uri uri) {
+             chooseFormat();
+             updateTime();
+
+commit b16e4d09194a41b29c52db7fe7f35bcf93e31fb9
+Author: LuK1337 <priv.luk@gmail.com>
+Date:   Tue 2020-07-14 20:07:19+0200
+
+    DeskClock: Setup data model before calling super.onStart()
+    
+    * Otherwise onStart() in StopwatchFragment will be called
+      when app still believes it's running in the background and
+      thus will remove FLAG_KEEP_SCREEN_ON window flag.
+    
+    Fixes: https://gitlab.com/LineageOS/issues/android/-/issues/2258
+    Change-Id: I196051d0d03f479c7ee3d0f7735cf8e64b70d70d
+---
+ src/com/android/deskclock/DeskClock.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/deskclock/DeskClock.java b/src/com/android/deskclock/DeskClock.java
+index a6a36628fb5b228de40374f272283ab44945a724..8d02384ae1971609fdf1f704650c883edc6c282c 100644
+--- a/src/com/android/deskclock/DeskClock.java
++++ b/src/com/android/deskclock/DeskClock.java
+@@ -302,23 +302,23 @@ public class DeskClock extends BaseActivity
+             public void onTabReselected(TabLayout.Tab tab) {
+             }
+         });
+ 
+         // Honor changes to the selected tab from outside entities.
+         UiDataModel.getUiDataModel().addTabListener(mTabChangeWatcher);
+     }
+ 
+     @Override
+     protected void onStart() {
+-        super.onStart();
+         DataModel.getDataModel().addSilentSettingsListener(mSilentSettingChangeWatcher);
+         DataModel.getDataModel().setApplicationInForeground(true);
++        super.onStart();
+     }
+ 
+     @Override
+     protected void onResume() {
+         super.onResume();
+ 
+         final View dropShadow = findViewById(R.id.drop_shadow);
+         mDropShadowController = new DropShadowController(dropShadow, UiDataModel.getUiDataModel(),
+                 mSnackbarAnchor.findViewById(R.id.tab_hairline));
+ 
+
+commit 3ccd2f1ecdf88e56872b50604f31088f46607eed
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2020-11-05 13:10:17-0500
+
+    add battery optimization exemption
+---
+ Android.bp                                | 11 +++++++++++
+ whitelist_com.android.deskclock.xml (new) |  4 ++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/Android.bp b/Android.bp
+index ec6d1feb2c0f6375b866ebab1bd1476fae96e41f..98a4aa2e59a24b135884d7974386bda6242130ec 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -19,11 +19,22 @@ android_app {
+         "androidx.transition_transition",
+         "androidx.core_core",
+         "androidx.legacy_legacy-support-core-ui",
+         "androidx.media_media",
+         "androidx.legacy_legacy-support-v13",
+         "androidx.preference_preference",
+         "androidx.appcompat_appcompat",
+         "androidx.gridlayout_gridlayout",
+         "androidx.recyclerview_recyclerview",
+     ],
++    required: [
++        "whitelist_com.android.deskclock"
++    ],
++}
++
++prebuilt_etc {
++    name: "whitelist_com.android.deskclock",
++    product_specific: true,
++    sub_dir: "sysconfig",
++    src: "whitelist_com.android.deskclock.xml",
++    filename_from_src: true,
+ }
+diff --git a/whitelist_com.android.deskclock.xml b/whitelist_com.android.deskclock.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..634e624ffec75e0600caa67b03c45aaaa3b5d47d
+--- /dev/null
++++ b/whitelist_com.android.deskclock.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<config>
++    <allow-in-power-save package="com.android.deskclock" />
++</config>
+
+commit 5dd38f2963672a264d9545cb8df52bb928a7b1d2 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2020-12-07 18:49:09-0500
+
+    add upstream manifest changes
+    
+    From c65d72a0c71db4c99392a79556e50f7b51344310.
+---
+ AndroidManifest.xml | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index d2219612668053ba13fe19e40eb28d02f0cb9844..10c4b5bce86f665db935c759f984e8b330a2e22b 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -15,21 +15,21 @@
+   limitations under the License.
+   -->
+ 
+ <manifest
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.deskclock">
+ 
+     <original-package android:name="com.android.alarmclock" />
+     <original-package android:name="com.android.deskclock" />
+ 
+-    <uses-sdk android:minSdkVersion="19" android:targetSdkVersion="25" />
++    <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="29" />
+ 
+     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+     <uses-permission android:name="android.permission.WAKE_LOCK" />
+     <uses-permission android:name="android.permission.VIBRATE" />
+     <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
+ 
+     <!-- WRITE_SETTINGS is required to record the upcoming alarm prior to L -->
+@@ -99,22 +99,24 @@
+             android:taskAffinity=""
+             android:theme="@android:style/Theme.NoDisplay" />
+ 
+         <!-- ============================================================== -->
+         <!-- AlarmClock API components.                                     -->
+         <!-- ============================================================== -->
+ 
+         <activity
+             android:name=".HandleApiCalls"
+             android:permission="com.android.alarm.permission.SET_ALARM"
++            android:directBootAware="true"
+             android:excludeFromRecents="true"
+             android:launchMode="singleInstance"
++            android:showWhenLocked="true"
+             android:taskAffinity=""
+             android:theme="@android:style/Theme.NoDisplay">
+             <intent-filter>
+                 <action android:name="android.intent.action.DISMISS_ALARM" />
+                 <action android:name="android.intent.action.DISMISS_TIMER" />
+                 <action android:name="android.intent.action.SHOW_ALARMS" />
+                 <action android:name="android.intent.action.SHOW_TIMERS" />
+                 <action android:name="android.intent.action.SNOOZE_ALARM" />
+ 
+                 <category android:name="android.intent.category.DEFAULT" />
