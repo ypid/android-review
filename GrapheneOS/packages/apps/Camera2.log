@@ -1,43 +1,4 @@
-commit 52dd10a46ed7395ddbded55c4983b5f383af97ae
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Tue 2017-02-21 02:18:13-0500
-
-    disable location tagging by default
----
- src/com/android/camera/settings/Keys.java | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/src/com/android/camera/settings/Keys.java b/src/com/android/camera/settings/Keys.java
-index 0339ea6c7a7a6cefb942be1b117e1fe98889d528..985ce814f3e454e3c18bf2ed2f8635258a75bf80 100644
---- a/src/com/android/camera/settings/Keys.java
-+++ b/src/com/android/camera/settings/Keys.java
-@@ -173,20 +173,24 @@ public class Keys {
- 
-         settingsManager.setDefaults(KEY_SHOULD_SHOW_REFOCUS_VIEWER_CLING, true);
- 
-         settingsManager.setDefaults(KEY_HDR_PLUS_FLASH_MODE,
-             context.getString(R.string.pref_camera_hdr_plus_flashmode_default),
-             context.getResources().getStringArray(
-                 R.array.pref_camera_hdr_plus_flashmode_entryvalues));
- 
-         settingsManager.setDefaults(KEY_SHOULD_SHOW_SETTINGS_BUTTON_CLING, true);
- 
-+        settingsManager.setDefaults(KEY_RECORD_LOCATION, false);
-+        if (!settingsManager.isSet(SettingsManager.SCOPE_GLOBAL, KEY_RECORD_LOCATION)) {
-+            settingsManager.setToDefault(SettingsManager.SCOPE_GLOBAL, KEY_RECORD_LOCATION);
-+        }
-     }
- 
-     /** Helper functions for some defined keys. */
- 
-     /**
-      * Returns whether the camera has been set to back facing in settings.
-      */
-     public static boolean isCameraBackFacing(SettingsManager settingsManager,
-                                              String moduleScope) {
-         return settingsManager.isDefault(moduleScope, KEY_CAMERA_ID);
-
-commit 5cb4243cabad5e6d2705c24cd48d6876f4a00c86
+commit a35109dc67231cf3d33cf771fa66d1eeffbb1152
 Author: Ethan Chen <intervigil@gmail.com>
 Date:   Tue 2015-11-17 14:08:43-0800
 
@@ -81,15 +42,162 @@ index c87eab8e85b78b0e3d50eec2b51bc74cb04dc230..7a2caf9fb72af52abae8b3186b2d1976
      public void run() {
          ImageToProcess img = mImage;
 
-commit 465040530151ff736a406b1f82e17124e561b206
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Thu 2017-08-10 20:23:39-0400
+commit 8257b95ced3706ddd2a6c52da3356747db503b23
+Author: Felix <google@ix5.org>
+Date:   Sat 2020-04-04 00:57:00+0200
 
-    remove no-op help and feedback button
+    Dismiss keyguard when opening settings
+    
+    Previously, the app would throw the user back to the
+    lockscreen, which would require user to swipe up to dismiss
+    it and unlock (e.g. enter PIN), then open the settings
+    activity.
+    Fix this confusion by directly trying to dismiss keyguard.
+    
+    Pass through requestDismissKeyguard() from KeyguardManager
+    so that other activities may also use it.
+    
+    Test: Set lock via PIN, launch camera via secure intent
+          (e.g. via right KeyguardAffordance), tap settings
+          button, observe PIN request, enter PIN, land in
+          settings activity.
+    Test: When unlocking, dismiss PIN entry, observe
+          "Keyguard dismiss canceled" in logcat.
+    
+    Signed-off-by: Felix <google@ix5.org>
+    Change-Id: I9e1e2a8551f7b2230c59d04efd3ef9820f74e1c8
+---
+ src/com/android/camera/CameraActivity.java     | 28 +++++++++++++++++++++++++-
+ src/com/android/camera/util/QuickActivity.java | 10 +++++++++
+ 2 files changed, 37 insertions(+), 1 deletion(-)
+
+diff --git a/src/com/android/camera/CameraActivity.java b/src/com/android/camera/CameraActivity.java
+index 18d87bf24c8f1e66bdf96281e67232c57a8dc0b8..6b81641e960c1455ac7b1add077fb1abdd368dc7 100644
+--- a/src/com/android/camera/CameraActivity.java
++++ b/src/com/android/camera/CameraActivity.java
+@@ -15,20 +15,21 @@
+  */
+ 
+ 
+ package com.android.camera;
+ 
+ import android.Manifest;
+ import android.animation.Animator;
+ import android.app.ActionBar;
+ import android.app.Activity;
+ import android.app.Dialog;
++import android.app.KeyguardManager.KeyguardDismissCallback;
+ import android.content.ActivityNotFoundException;
+ import android.content.BroadcastReceiver;
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.pm.ActivityInfo;
+ import android.content.pm.PackageInfo;
+ import android.content.pm.PackageManager;
+ import android.content.res.Configuration;
+@@ -2506,21 +2507,46 @@ public class CameraActivity extends QuickActivity
+     }
+ 
+     /**
+      * Shows the settings dialog.
+      */
+     @Override
+     public void onSettingsSelected() {
+         UsageStatistics.instance().controlUsed(
+                 eventprotos.ControlEvent.ControlType.OVERALL_SETTINGS);
+         Intent intent = new Intent(this, CameraSettingsActivity.class);
+-        startActivity(intent);
++        if (!isKeyguardLocked()) {
++            startActivity(intent);
++        } else {
++            /* Need to explicitly request keyguard dismissal for PIN/pattern
++             * entry to show up directly. */
++            requestDismissKeyguard(
++                /* requesting Activity: */ CameraActivity.this,
++                new KeyguardDismissCallback() {
++                    @Override
++                    public void onDismissSucceeded() {
++                        /* Need to use launchActivityByIntent() so that going
++                         * back from settings after unlock leads to main
++                         * activity instead of dismissing camera entirely. */
++                        launchActivityByIntent(intent);
++                    }
++                    @Override
++                    public void onDismissError() {
++                        Log.e(TAG, "Keyguard dismissal failed.");
++                    }
++                    @Override
++                    public void onDismissCancelled() {
++                        Log.d(TAG, "Keyguard dismissal canceled.");
++                    }
++                }
++            );
++        }
+     }
+ 
+     @Override
+     public void freezeScreenUntilPreviewReady() {
+         mCameraAppUI.freezeScreenUntilPreviewReady();
+     }
+ 
+     @Override
+     public int getModuleId(int modeIndex) {
+         ModuleManagerImpl.ModuleAgent agent = mModuleManager.getModuleAgent(modeIndex);
+diff --git a/src/com/android/camera/util/QuickActivity.java b/src/com/android/camera/util/QuickActivity.java
+index 18ea2536853b8188c5203605739b535f3651b7fe..5122255e1f137c79d964a374120f8d1a3b161351 100644
+--- a/src/com/android/camera/util/QuickActivity.java
++++ b/src/com/android/camera/util/QuickActivity.java
+@@ -217,20 +217,30 @@ public abstract class QuickActivity extends Activity {
+     protected boolean isKeyguardSecure() {
+         if (mKeyguardManager == null) {
+             mKeyguardManager = AndroidServices.instance().provideKeyguardManager();
+         }
+         if (mKeyguardManager != null) {
+             return mKeyguardManager.isKeyguardSecure();
+         }
+         return false;
+     }
+ 
++    protected void requestDismissKeyguard(Activity activity,
++            @Nullable KeyguardManager.KeyguardDismissCallback callback) {
++        if (mKeyguardManager == null) {
++            mKeyguardManager = AndroidServices.instance().provideKeyguardManager();
++        }
++        if (mKeyguardManager != null) {
++            mKeyguardManager.requestDismissKeyguard(activity, callback);
++        }
++    }
++
+     /**
+      * Subclasses should override this in place of {@link Activity#onNewIntent}.
+      */
+     protected void onNewIntentTasks(Intent newIntent) {
+     }
+ 
+     /**
+      * Subclasses should override this in place of {@link Activity#onCreate}.
+      */
+     protected void onCreateTasks(Bundle savedInstanceState) {
+
+commit 7798a3bceede3049b05b6183a9230da4425fff75
+Author: Emilian Peev <epeev@google.com>
+Date:   Fri 2020-10-09 12:52:18-0700
+
+    Remove Help & Feedback option with absent implementation
+    
+    The "Help & Feedback" menu option in the camera
+    settings menu was never implemented and can
+    be confusing to users.
+    
+    Bug: 169469748
+    Test: Manual using camera application
+    Change-Id: I999314bef677c2966338ca22369810fc1cd948a3
 ---
  res/xml/camera_preferences.xml                              |  5 -----
- src/com/android/camera/settings/CameraSettingsActivity.java | 11 -----------
- 2 files changed, 16 deletions(-)
+ src/com/android/camera/settings/CameraSettingsActivity.java | 10 ----------
+ 2 files changed, 15 deletions(-)
 
 diff --git a/res/xml/camera_preferences.xml b/res/xml/camera_preferences.xml
 index 7713967427ca8c93b541986041d3ce7293c923d1..9c2a1a274ae274b93d4a2080418e3a49677408ef 100644
@@ -113,32 +221,10 @@ index 7713967427ca8c93b541986041d3ce7293c923d1..9c2a1a274ae274b93d4a2080418e3a49
 -
  </PreferenceScreen>
 diff --git a/src/com/android/camera/settings/CameraSettingsActivity.java b/src/com/android/camera/settings/CameraSettingsActivity.java
-index c2e060a1e2e96419fe285ea0042655e07ed3f986..479a127c2414319e20e97f734b967c570e6c6830 100644
+index c2e060a1e2e96419fe285ea0042655e07ed3f986..85d13f67b2cc62147e6c5fa54eade1902bbbaf81 100644
 --- a/src/com/android/camera/settings/CameraSettingsActivity.java
 +++ b/src/com/android/camera/settings/CameraSettingsActivity.java
-@@ -40,21 +40,20 @@ import com.android.camera.debug.Log;
- import com.android.camera.device.CameraId;
- import com.android.camera.one.OneCamera.Facing;
- import com.android.camera.one.OneCameraAccessException;
- import com.android.camera.one.OneCameraCharacteristics;
- import com.android.camera.one.OneCameraException;
- import com.android.camera.one.OneCameraManager;
- import com.android.camera.one.OneCameraModule;
- import com.android.camera.settings.PictureSizeLoader.PictureSizes;
- import com.android.camera.settings.SettingsUtil.SelectedVideoQualities;
- import com.android.camera.util.CameraSettingsActivityHelper;
--import com.android.camera.util.GoogleHelpHelper;
- import com.android.camera.util.Size;
- import com.android.camera2.R;
- import com.android.ex.camera2.portability.CameraAgentFactory;
- import com.android.ex.camera2.portability.CameraDeviceInfo;
- 
- import java.text.DecimalFormat;
- import java.util.ArrayList;
- import java.util.List;
- 
- /**
-@@ -135,21 +134,20 @@ public class CameraSettingsActivity extends FragmentActivity {
+@@ -135,21 +135,20 @@ public class CameraSettingsActivity extends FragmentActivity {
              return true;
          }
          return true;
@@ -160,7 +246,7 @@ index c2e060a1e2e96419fe285ea0042655e07ed3f986..479a127c2414319e20e97f734b967c57
  
          // Selected resolutions for the different cameras and sizes.
          private PictureSizes mPictureSizes;
-@@ -213,29 +211,20 @@ public class CameraSettingsActivity extends FragmentActivity {
+@@ -213,29 +212,20 @@ public class CameraSettingsActivity extends FragmentActivity {
              fillEntriesAndSummaries(resolutionScreen);
              setPreferenceScreenIntent(resolutionScreen);
  
@@ -191,7 +277,46 @@ index c2e060a1e2e96419fe285ea0042655e07ed3f986..479a127c2414319e20e97f734b967c57
              Intent intent = new Intent(getActivity(), CameraSettingsActivity.class);
              intent.putExtra(PREF_SCREEN_EXTRA, preferenceScreen.getKey());
 
-commit 92df5a8789fab6df9ded73880db1f53d87bbf75c
+commit d395742116af98236f32aaf53bec75b836b5a297
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2017-02-21 02:18:13-0500
+
+    disable location tagging by default
+---
+ src/com/android/camera/settings/Keys.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/src/com/android/camera/settings/Keys.java b/src/com/android/camera/settings/Keys.java
+index 0339ea6c7a7a6cefb942be1b117e1fe98889d528..985ce814f3e454e3c18bf2ed2f8635258a75bf80 100644
+--- a/src/com/android/camera/settings/Keys.java
++++ b/src/com/android/camera/settings/Keys.java
+@@ -173,20 +173,24 @@ public class Keys {
+ 
+         settingsManager.setDefaults(KEY_SHOULD_SHOW_REFOCUS_VIEWER_CLING, true);
+ 
+         settingsManager.setDefaults(KEY_HDR_PLUS_FLASH_MODE,
+             context.getString(R.string.pref_camera_hdr_plus_flashmode_default),
+             context.getResources().getStringArray(
+                 R.array.pref_camera_hdr_plus_flashmode_entryvalues));
+ 
+         settingsManager.setDefaults(KEY_SHOULD_SHOW_SETTINGS_BUTTON_CLING, true);
+ 
++        settingsManager.setDefaults(KEY_RECORD_LOCATION, false);
++        if (!settingsManager.isSet(SettingsManager.SCOPE_GLOBAL, KEY_RECORD_LOCATION)) {
++            settingsManager.setToDefault(SettingsManager.SCOPE_GLOBAL, KEY_RECORD_LOCATION);
++        }
+     }
+ 
+     /** Helper functions for some defined keys. */
+ 
+     /**
+      * Returns whether the camera has been set to back facing in settings.
+      */
+     public static boolean isCameraBackFacing(SettingsManager settingsManager,
+                                              String moduleScope) {
+         return settingsManager.isDefault(moduleScope, KEY_CAMERA_ID);
+
+commit 6271033929d19501ee81fcf948997935cb0683dd
 Author: Wang Han <416810799@qq.com>
 Date:   Wed 2018-09-12 12:25:31+0800
 
@@ -235,10 +360,10 @@ index 1f13e3e806fb00e32dcbc5fe452804a45dc90889..45e69e8ef4f129193478517abb323d57
      <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
      <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 diff --git a/src/com/android/camera/CameraActivity.java b/src/com/android/camera/CameraActivity.java
-index 18d87bf24c8f1e66bdf96281e67232c57a8dc0b8..5558f2c429858d49d2f38821330bb6535b305d4b 100644
+index 6b81641e960c1455ac7b1add077fb1abdd368dc7..99cb90b7a760c332b5826f810542b5b406bb1b1e 100644
 --- a/src/com/android/camera/CameraActivity.java
 +++ b/src/com/android/camera/CameraActivity.java
-@@ -1932,21 +1932,21 @@ public class CameraActivity extends QuickActivity
+@@ -1933,21 +1933,21 @@ public class CameraActivity extends QuickActivity
  
          if (checkSelfPermission(Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED &&
                  checkSelfPermission(Manifest.permission.RECORD_AUDIO) == PackageManager.PERMISSION_GRANTED &&
@@ -344,10 +469,10 @@ index 58e1fcbbaed1cb3391ccbff2480d0309534781a5..35330fa85a6f49539d349b79d2a3f550
       * people open the app for the first time. If the preference has been set,
       * this will return false.
 diff --git a/src/com/android/camera/settings/CameraSettingsActivity.java b/src/com/android/camera/settings/CameraSettingsActivity.java
-index 479a127c2414319e20e97f734b967c570e6c6830..3dd2458ccb8b5c9bc90071a76cb18f0978dbfe7f 100644
+index 85d13f67b2cc62147e6c5fa54eade1902bbbaf81..789b19fde201bfbf51125e68ad902f2a4d26d976 100644
 --- a/src/com/android/camera/settings/CameraSettingsActivity.java
 +++ b/src/com/android/camera/settings/CameraSettingsActivity.java
-@@ -343,23 +343,23 @@ public class CameraSettingsActivity extends FragmentActivity {
+@@ -344,23 +344,23 @@ public class CameraSettingsActivity extends FragmentActivity {
              getPreferenceScreen().getSharedPreferences()
                      .unregisterOnSharedPreferenceChangeListener(this);
          }
@@ -374,7 +499,7 @@ index 479a127c2414319e20e97f734b967c570e6c6830..3dd2458ccb8b5c9bc90071a76cb18f09
           */
          private void setEntries(Preference preference) {
 
-commit 0507eb066805b76924238156dfbe0aee910f066d
+commit d95a8e49f37992655e5c9e318d78656c6a7ac0a5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-10-24 05:49:53-0400
 
@@ -410,7 +535,7 @@ index 45e69e8ef4f129193478517abb323d57f96e2bee..dd93825afd528328e419ff8c7c5876db
      <uses-permission android:name="android.permission.VIBRATE" />
      <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-commit 2a7c5bce3242ff7eb972e2f2ff5a7cf80230d09b (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit cecdcf6910714e5f8c51e7893b3660ce37e8413f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-12-14 11:20:06-0500
 
@@ -448,3 +573,39 @@ index dd93825afd528328e419ff8c7c5876db73f24e44..e1b04f931b8852d232b7a897802e7866
      <uses-permission android:name="android.permission.USE_CREDENTIALS" />
      <uses-permission android:name="android.permission.VIBRATE" />
      <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+commit 08795bde64b9ff227f8f8f955d6cf01ab455e317 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2021-01-13 08:33:40-0500
+
+    remove unused import
+---
+ src/com/android/camera/settings/CameraSettingsActivity.java | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/com/android/camera/settings/CameraSettingsActivity.java b/src/com/android/camera/settings/CameraSettingsActivity.java
+index 789b19fde201bfbf51125e68ad902f2a4d26d976..3dd2458ccb8b5c9bc90071a76cb18f0978dbfe7f 100644
+--- a/src/com/android/camera/settings/CameraSettingsActivity.java
++++ b/src/com/android/camera/settings/CameraSettingsActivity.java
+@@ -40,21 +40,20 @@ import com.android.camera.debug.Log;
+ import com.android.camera.device.CameraId;
+ import com.android.camera.one.OneCamera.Facing;
+ import com.android.camera.one.OneCameraAccessException;
+ import com.android.camera.one.OneCameraCharacteristics;
+ import com.android.camera.one.OneCameraException;
+ import com.android.camera.one.OneCameraManager;
+ import com.android.camera.one.OneCameraModule;
+ import com.android.camera.settings.PictureSizeLoader.PictureSizes;
+ import com.android.camera.settings.SettingsUtil.SelectedVideoQualities;
+ import com.android.camera.util.CameraSettingsActivityHelper;
+-import com.android.camera.util.GoogleHelpHelper;
+ import com.android.camera.util.Size;
+ import com.android.camera2.R;
+ import com.android.ex.camera2.portability.CameraAgentFactory;
+ import com.android.ex.camera2.portability.CameraDeviceInfo;
+ 
+ import java.text.DecimalFormat;
+ import java.util.ArrayList;
+ import java.util.List;
+ 
+ /**

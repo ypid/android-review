@@ -566,7 +566,7 @@ index 81d1994bc5774eff21b43945692ed50aef43131f..2c55aed22ecf2f9e9498c3b676b3518b
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
 
-commit 60d742d18701c34898e7ab0710154ae65980aaf9 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 60d742d18701c34898e7ab0710154ae65980aaf9 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
 Author: inthewaves <inthewaves@pm.me>
 Date:   Wed 2020-09-16 17:30:37-0700
 

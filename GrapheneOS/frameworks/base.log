@@ -1,4 +1,4 @@
-commit c4f13959c304cd512bba93abbfaea3088a679c51
+commit ad0894c2afda654812cdcae494f8bcfc92e4537c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -35,7 +35,7 @@ index 550601af0faa17e2a34d5a8b9d33c68cb2827aee..b10096f3aed5df48181107b1d9230616
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit de0d4ecea1ad2bc009cac8e4118d21c709222cc8
+commit fa7109bda0fb2d2f5d680b894a7b045ee9fdf79c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit a92978d4cb0d196b1d170e4cb084e79ea5da26f0
+commit e1991afc85ce78d870506c8f54583b53b21126ec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -113,7 +113,7 @@ Date:   Fri 2018-03-09 20:23:12-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index b10096f3aed5df48181107b1d92306167c2d9767..8aa6e1b00c0b6890e2704640c559bca997e10d91 100644
+index b10096f3aed5df48181107b1d92306167c2d9767..32a39f4a8b10f4d228580d526964f7a19b134af3 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -3397,21 +3397,21 @@
@@ -151,7 +151,7 @@ index b10096f3aed5df48181107b1d92306167c2d9767..8aa6e1b00c0b6890e2704640c559bca9
  
      <!-- Specifies the path that is used by AdaptiveIconDrawable class to crop launcher icons. -->
 -    <string name="config_icon_mask" translatable="false">"M50,0L92,0C96.42,0 100,4.58 100 8L100,92C100, 96.42 96.42 100 92 100L8 100C4.58, 100 0 96.42 0 92L0 8 C 0 4.42 4.42 0 8 0L50 0Z"</string>
-+    <string name="config_icon_mask" translatable="false">"M50 0A50 50,0,1,1,50 100A50 50,0,1,1,50 0"</string>
++    <string name="config_icon_mask" translatable="false">"M50 0C77.6 0 100 22.4 100 50C100 77.6 77.6 100 50 100C22.4 100 0 77.6 0 50C0 22.4 22.4 0 50 0Z"</string>
  
      <!-- The component name, flattened to a string, for the default accessibility service to be
           enabled by the accessibility shortcut. This service must be trusted, as it can be activated
@@ -163,7 +163,7 @@ index b10096f3aed5df48181107b1d92306167c2d9767..8aa6e1b00c0b6890e2704640c559bca9
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit bb2afd71a47d2100eb967ed19acbb16d67c141e6
+commit 0d6bded99aa4c174f81497e48772341785763d26
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -173,7 +173,7 @@ Date:   Wed 2018-11-28 01:08:00-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 8aa6e1b00c0b6890e2704640c559bca997e10d91..4e0ec5757429de668ef7fb182d7b966df0fbf00f 100644
+index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563d8280a39 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -3225,21 +3225,21 @@
@@ -200,7 +200,7 @@ index 8aa6e1b00c0b6890e2704640c559bca997e10d91..4e0ec5757429de668ef7fb182d7b966d
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 2aa53f9c86950d6589d8fe5c2d9fb7c7851a02ab
+commit fbb7c76596c960f199026c64af7307a3992b21e8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -210,7 +210,7 @@ Date:   Wed 2018-11-28 01:14:54-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 4e0ec5757429de668ef7fb182d7b966df0fbf00f..fea9ae05008b9b59603a62ed923a5422201a266a 100644
+index fbe04fd20afe04baf81220978a30b563d8280a39..c6334e6105079dca46752ce3b2c24135f78a98f8 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2319,21 +2319,21 @@
@@ -237,7 +237,7 @@ index 4e0ec5757429de668ef7fb182d7b966df0fbf00f..fea9ae05008b9b59603a62ed923a5422
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 90893c4134c390ea9aacc1e01f5c55b99517d9f2
+commit 7239a0327bfe5cee9cd6d14870254c9162aeac1b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -247,7 +247,7 @@ Date:   Wed 2018-11-28 01:16:09-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index fea9ae05008b9b59603a62ed923a5422201a266a..87484043be7db82539d1bddddf11a985daa184ae 100644
+index c6334e6105079dca46752ce3b2c24135f78a98f8..d46890a4d50842b5b65a8a08d68f2c6a99f29a7a 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2285,21 +2285,21 @@
@@ -274,7 +274,7 @@ index fea9ae05008b9b59603a62ed923a5422201a266a..87484043be7db82539d1bddddf11a985
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 85eab88202b7e95be897f5f47042ba27b768951c
+commit a9893224ce739f805a554a0991dc905fa39dba2e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -311,7 +311,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 33c09be5ed7c269ac02eae34d416ca9f2283197c
+commit 3f262733c84a964e8f075a717fd6ff2d3ecc0690
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -348,7 +348,7 @@ index 322cac81d58b3b5739b5ac616ef05983b082735a..ac5a12a6458703f6f716894ea920633a
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit 561de63a86d8251ade0f1a3375676fad4c8b3278
+commit e2708b99e678aaf926bb66c69f2be7df63898af2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -385,7 +385,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 50390e362eabdf43b74cb35e95b1d84608964914
+commit 79d26df403ed13497f3909d594ae573e30695808
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -398,7 +398,7 @@ Date:   Mon 2018-04-02 12:59:51-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 87484043be7db82539d1bddddf11a985daa184ae..b13d2e184eeaf85d3ef8c0ebc6c0836d51fd00a2 100644
+index d46890a4d50842b5b65a8a08d68f2c6a99f29a7a..bb6fa143f13b73ae75c0b9453846f98583c3fdb0 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -1825,21 +1825,21 @@
@@ -425,7 +425,7 @@ index 87484043be7db82539d1bddddf11a985daa184ae..b13d2e184eeaf85d3ef8c0ebc6c0836d
  
      <!-- The default character set for GsmAlphabet -->
 
-commit 1b2743312f7549d8a4bf47db2b3fabcb88bcd2ad
+commit 9c9e374774bf598a0570e35ff2215487b00440f1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -465,7 +465,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit b34f502752102cd22d6aec327ccea6b26df1b9fd
+commit be550cba5b4a04a5870ad2cd7f08be041c56d1fb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -508,7 +508,7 @@ index 03161d0513429e5d38237d094c1e779fdc692c64..2f365c08a9c6cf74d6b9a6356fe20b72
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 2274c2ec0ee9e92c6c1aec2ff58dc70909f5a70b
+commit 8e1c817db57341c91d60b15ba1852df0db38e103
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -551,7 +551,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit 00fb0689b1f1b4f401d0dc6d05a3fefacc393faf
+commit 5ca8d66fd722d0187a7d419e81961d9349e562d7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -588,7 +588,7 @@ index 5e5df6bfd98807b2b3f334abe5197dff2dca21b6..af62ff68184da211487fec6f81210b5a
      </string>
  
 
-commit fc4f961e11e1d17fdf1685b3becdfed8af307bf7
+commit 5d999857dd39a71ce285694c09792cec9e990168
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -625,7 +625,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit 0a0b8ab945d85360658c3e04aa190e1ebddcdb02
+commit f32983af7f65feee8bffac2c4c035afb386e0cf8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -682,27 +682,26 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit a32c8dc45da36f561234b173a4af5ea157d387c1
+commit 86fb097d41b026e77cbddf5342f927ad1901a6fb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
     constify JNINativeMethod tables
 ---
- cmds/hid/jni/com_android_commands_hid_Device.cpp   |   2 +-
- core/jni/android_app_ActivityThread.cpp            |   2 +-
- .../android_media_MediaMetricsJNI.cpp (mode -l)    | 244 ++++++++++++++++++++-
- core/jni/android_os_HidlMemory.cpp                 |   2 +-
- core/jni/android_os_HwBinder.cpp                   |   2 +-
- core/jni/android_os_HwBlob.cpp                     |   2 +-
- core/jni/android_os_HwParcel.cpp                   |   2 +-
- core/jni/android_os_HwRemoteBinder.cpp             |   2 +-
- .../jni/android_graphics_DisplayListCanvas.cpp     |   2 +-
- media/jni/android_media_ImageWriter.cpp            |   4 +-
- media/jni/android_media_MediaSync.cpp              |   2 +-
- media/jni/soundpool/android_media_SoundPool.cpp    |   2 +-
- .../core/jni/com_android_server_UsbMidiDevice.cpp  |   2 +-
- .../jni/com_android_server_tv_TvUinputBridge.cpp   |   2 +-
- 14 files changed, 257 insertions(+), 15 deletions(-)
+ cmds/hid/jni/com_android_commands_hid_Device.cpp           | 2 +-
+ core/jni/android_app_ActivityThread.cpp                    | 2 +-
+ core/jni/android_os_HidlMemory.cpp                         | 2 +-
+ core/jni/android_os_HwBinder.cpp                           | 2 +-
+ core/jni/android_os_HwBlob.cpp                             | 2 +-
+ core/jni/android_os_HwParcel.cpp                           | 2 +-
+ core/jni/android_os_HwRemoteBinder.cpp                     | 2 +-
+ libs/hwui/jni/android_graphics_DisplayListCanvas.cpp       | 2 +-
+ media/jni/android_media_ImageWriter.cpp                    | 4 ++--
+ media/jni/android_media_MediaSync.cpp                      | 2 +-
+ media/jni/soundpool/android_media_SoundPool.cpp            | 2 +-
+ services/core/jni/com_android_server_UsbMidiDevice.cpp     | 2 +-
+ services/core/jni/com_android_server_tv_TvUinputBridge.cpp | 2 +-
+ 13 files changed, 14 insertions(+), 14 deletions(-)
 
 diff --git a/cmds/hid/jni/com_android_commands_hid_Device.cpp b/cmds/hid/jni/com_android_commands_hid_Device.cpp
 index 1e200c52a2075fdc8343f8e220efd1ca98f63c43..011e1ed9d80e798887e89db640fc14b7f3dd9ddb 100644
@@ -758,263 +757,6 @@ index 5aa684d51a013434cbb1535f7c77bef7d963e50c..564328d641d32ad10bbf1ff7039b5338
  };
  
  int register_android_app_ActivityThread(JNIEnv* env) {
-diff --git a/core/jni/android_media_MediaMetricsJNI.cpp b/core/jni/android_media_MediaMetricsJNI.cpp
-deleted file mode 120000
-index 3204317cab68a4a4f1199178b13a0c96717cad60..0000000000000000000000000000000000000000
---- a/core/jni/android_media_MediaMetricsJNI.cpp
-+++ /dev/null
-@@ -1 +0,0 @@
--../../media/jni/android_media_MediaMetricsJNI.cpp
-\ No newline at end of file
-diff --git a/core/jni/android_media_MediaMetricsJNI.cpp b/core/jni/android_media_MediaMetricsJNI.cpp
-new file mode 100644
-index 0000000000000000000000000000000000000000..c064de299b192e365119e64b58321297b90bd2f0
---- /dev/null
-+++ b/core/jni/android_media_MediaMetricsJNI.cpp
-@@ -0,0 +1,243 @@
-+/*
-+ * Copyright 2017, The Android Open Source Project
-+ *
-+ * Licensed under the Apache License, Version 2.0 (the "License");
-+ * you may not use this file except in compliance with the License.
-+ * You may obtain a copy of the License at
-+ *
-+ *     http://www.apache.org/licenses/LICENSE-2.0
-+ *
-+ * Unless required by applicable law or agreed to in writing, software
-+ * distributed under the License is distributed on an "AS IS" BASIS,
-+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-+ * See the License for the specific language governing permissions and
-+ * limitations under the License.
-+ */
-+
-+#define LOG_TAG "MediaMetricsJNI"
-+
-+#include <binder/Parcel.h>
-+#include <jni.h>
-+#include <media/IMediaMetricsService.h>
-+#include <media/MediaMetricsItem.h>
-+#include <nativehelper/JNIHelp.h>
-+#include <variant>
-+
-+#include "android_media_MediaMetricsJNI.h"
-+#include "android_os_Parcel.h"
-+#include "android_runtime/AndroidRuntime.h"
-+
-+// This source file is compiled and linked into:
-+// core/jni/ (libandroid_runtime.so)
-+
-+namespace android {
-+
-+namespace {
-+struct BundleHelper {
-+    BundleHelper(JNIEnv* _env, jobject _bundle)
-+        : env(_env)
-+        , clazzBundle(env->FindClass("android/os/PersistableBundle"))
-+        , putIntID(env->GetMethodID(clazzBundle, "putInt", "(Ljava/lang/String;I)V"))
-+        , putLongID(env->GetMethodID(clazzBundle, "putLong", "(Ljava/lang/String;J)V"))
-+        , putDoubleID(env->GetMethodID(clazzBundle, "putDouble", "(Ljava/lang/String;D)V"))
-+        , putStringID(env->GetMethodID(clazzBundle,
-+                      "putString", "(Ljava/lang/String;Ljava/lang/String;)V"))
-+        , constructID(env->GetMethodID(clazzBundle, "<init>", "()V"))
-+        , bundle(_bundle == nullptr ? env->NewObject(clazzBundle, constructID) : _bundle)
-+        { }
-+
-+    JNIEnv* const env;
-+    const jclass clazzBundle;
-+    const jmethodID putIntID;
-+    const jmethodID putLongID;
-+    const jmethodID putDoubleID;
-+    const jmethodID putStringID;
-+    const jmethodID constructID;
-+    jobject const bundle;
-+
-+    // We use templated put to access mediametrics::Item based on data type not type enum.
-+    // See std::variant and std::visit.
-+    template<typename T>
-+    void put(jstring keyName, const T& value) = delete;
-+
-+    template<>
-+    void put(jstring keyName, const int32_t& value) {
-+        env->CallVoidMethod(bundle, putIntID, keyName, (jint)value);
-+    }
-+
-+    template<>
-+    void put(jstring keyName, const int64_t& value) {
-+        env->CallVoidMethod(bundle, putLongID, keyName, (jlong)value);
-+    }
-+
-+    template<>
-+    void put(jstring keyName, const double& value) {
-+        env->CallVoidMethod(bundle, putDoubleID, keyName, (jdouble)value);
-+    }
-+
-+    template<>
-+    void put(jstring keyName, const std::string& value) {
-+        env->CallVoidMethod(bundle, putStringID, keyName, env->NewStringUTF(value.c_str()));
-+    }
-+
-+    template<>
-+    void put(jstring keyName, const std::pair<int64_t, int64_t>& value) {
-+        ; // rate is currently ignored
-+    }
-+
-+    template<>
-+    void put(jstring keyName, const std::monostate& value) {
-+        ; // none is currently ignored
-+    }
-+
-+    // string char * helpers
-+
-+    template<>
-+    void put(jstring keyName, const char * const& value) {
-+        env->CallVoidMethod(bundle, putStringID, keyName, env->NewStringUTF(value));
-+    }
-+
-+    template<>
-+    void put(jstring keyName, char * const& value) {
-+        env->CallVoidMethod(bundle, putStringID, keyName, env->NewStringUTF(value));
-+    }
-+
-+    // We allow both jstring and non-jstring variants.
-+    template<typename T>
-+    void put(const char *keyName, const T& value) {
-+        put(env->NewStringUTF(keyName), value);
-+    }
-+};
-+} // namespace
-+
-+// place the attributes into a java PersistableBundle object
-+jobject MediaMetricsJNI::writeMetricsToBundle(
-+        JNIEnv* env, mediametrics::Item *item, jobject bundle)
-+{
-+    BundleHelper bh(env, bundle);
-+
-+    if (bh.bundle == nullptr) {
-+        ALOGE("%s: unable to create Bundle", __func__);
-+        return nullptr;
-+    }
-+
-+    bh.put(mediametrics::BUNDLE_KEY, item->getKey().c_str());
-+    if (item->getPid() != -1) {
-+        bh.put(mediametrics::BUNDLE_PID, (int32_t)item->getPid());
-+    }
-+    if (item->getTimestamp() > 0) {
-+        bh.put(mediametrics::BUNDLE_TIMESTAMP, (int64_t)item->getTimestamp());
-+    }
-+    if (item->getUid() != -1) {
-+        bh.put(mediametrics::BUNDLE_UID, (int32_t)item->getUid());
-+    }
-+    for (const auto &prop : *item) {
-+        const char *name = prop.getName();
-+        if (name == nullptr) continue;
-+        prop.visit([&] (auto &value) { bh.put(name, value); });
-+    }
-+    return bh.bundle;
-+}
-+
-+// Implementation of MediaMetrics.native_submit_bytebuffer(),
-+// Delivers the byte buffer to the mediametrics service.
-+static jint android_media_MediaMetrics_submit_bytebuffer(
-+        JNIEnv* env, jobject thiz, jobject byteBuffer, jint length)
-+{
-+    const jbyte* buffer =
-+            reinterpret_cast<const jbyte*>(env->GetDirectBufferAddress(byteBuffer));
-+    if (buffer == nullptr) {
-+        ALOGE("Error retrieving source of audio data to play, can't play");
-+        return (jint)BAD_VALUE;
-+    }
-+
-+    sp<IMediaMetricsService> service = mediametrics::BaseItem::getService();
-+    if (service == nullptr) {
-+        ALOGW("Cannot retrieve mediametrics service");
-+        return (jint)NO_INIT;
-+    }
-+    return (jint)service->submitBuffer((char *)buffer, length);
-+}
-+
-+// Helper function to convert a native PersistableBundle to a Java
-+// PersistableBundle.
-+jobject MediaMetricsJNI::nativeToJavaPersistableBundle(JNIEnv *env,
-+                                                       os::PersistableBundle* nativeBundle) {
-+    if (env == NULL || nativeBundle == NULL) {
-+        ALOGE("Unexpected NULL parmeter");
-+        return NULL;
-+    }
-+
-+    // Create a Java parcel with the native parcel data.
-+    // Then create a new PersistableBundle with that parcel as a parameter.
-+    jobject jParcel = android::createJavaParcelObject(env);
-+    if (jParcel == NULL) {
-+      ALOGE("Failed to create a Java Parcel.");
-+      return NULL;
-+    }
-+
-+    android::Parcel* nativeParcel = android::parcelForJavaObject(env, jParcel);
-+    if (nativeParcel == NULL) {
-+      ALOGE("Failed to get the native Parcel.");
-+      return NULL;
-+    }
-+
-+    android::status_t result = nativeBundle->writeToParcel(nativeParcel);
-+    nativeParcel->setDataPosition(0);
-+    if (result != android::OK) {
-+      ALOGE("Failed to write nativeBundle to Parcel: %d.", result);
-+      return NULL;
-+    }
-+
-+#define STATIC_INIT_JNI(T, obj, method, globalref, ...) \
-+    static T obj{};\
-+    if (obj == NULL) { \
-+        obj = method(__VA_ARGS__); \
-+        if (obj == NULL) { \
-+            ALOGE("%s can't find " #obj, __func__); \
-+            return NULL; \
-+        } else { \
-+            obj = globalref; \
-+        }\
-+    } \
-+
-+    STATIC_INIT_JNI(jclass, clazzBundle, env->FindClass,
-+            static_cast<jclass>(env->NewGlobalRef(clazzBundle)),
-+            "android/os/PersistableBundle");
-+    STATIC_INIT_JNI(jfieldID, bundleCreatorId, env->GetStaticFieldID,
-+            bundleCreatorId,
-+            clazzBundle, "CREATOR", "Landroid/os/Parcelable$Creator;");
-+    STATIC_INIT_JNI(jobject, bundleCreator, env->GetStaticObjectField,
-+            env->NewGlobalRef(bundleCreator),
-+            clazzBundle, bundleCreatorId);
-+    STATIC_INIT_JNI(jclass, clazzCreator, env->FindClass,
-+            static_cast<jclass>(env->NewGlobalRef(clazzCreator)),
-+            "android/os/Parcelable$Creator");
-+    STATIC_INIT_JNI(jmethodID, createFromParcelId, env->GetMethodID,
-+            createFromParcelId,
-+            clazzCreator, "createFromParcel", "(Landroid/os/Parcel;)Ljava/lang/Object;");
-+
-+    jobject newBundle = env->CallObjectMethod(bundleCreator, createFromParcelId, jParcel);
-+    if (newBundle == NULL) {
-+        ALOGE("Failed to create a new PersistableBundle "
-+              "from the createFromParcel call.");
-+    }
-+
-+    return newBundle;
-+}
-+
-+// ----------------------------------------------------------------------------
-+
-+static constexpr JNINativeMethod gMethods[] = {
-+    {"native_submit_bytebuffer", "(Ljava/nio/ByteBuffer;I)I",
-+            (void *)android_media_MediaMetrics_submit_bytebuffer},
-+};
-+
-+// Registers the native methods, called from core/jni/AndroidRuntime.cpp
-+int register_android_media_MediaMetrics(JNIEnv *env)
-+{
-+    return AndroidRuntime::registerNativeMethods(
-+            env, "android/media/MediaMetrics", gMethods, std::size(gMethods));
-+}
-+
-+};  // namespace android
 diff --git a/core/jni/android_os_HidlMemory.cpp b/core/jni/android_os_HidlMemory.cpp
 index 69e48184c0ad3a4fe144383d799d2d406ab3ea11..612fc95776a568bb65ba6b2170a05d8086ad2733 100644
 --- a/core/jni/android_os_HidlMemory.cpp
@@ -1325,7 +1067,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit f0a6012ab7dbaea1c56283dbdbc587ff792acdb2
+commit 8e0daeba8c9df23790538b4ef7c8912b5301e459
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1338,7 +1080,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit 8c41e3199cd4af69fb87802c31159dd20527cd87
+commit 7851eed064e78ed12a91bcf8242b0a029d62ecee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1348,7 +1090,7 @@ Date:   Thu 2019-05-16 11:47:02-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index b13d2e184eeaf85d3ef8c0ebc6c0836d51fd00a2..a2672dc8d46e18e75e0f90fa06b94993ba60d184 100644
+index bb6fa143f13b73ae75c0b9453846f98583c3fdb0..a046430247a3c2fb6103a06e7be55c61e7d5a314 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2285,21 +2285,21 @@
@@ -1375,7 +1117,7 @@ index b13d2e184eeaf85d3ef8c0ebc6c0836d51fd00a2..a2672dc8d46e18e75e0f90fa06b94993
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit dd9c032a7d0fb4d00336d825b04039def490b327
+commit 7c3eb9634e78892343eeff18455bd64ee510605c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1436,7 +1178,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit 9f507affa5ccaf7de951fa5ccb4c068e5fd0495b
+commit b93e3476094b914486513fd058cc80bb5f96b9b5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1650,7 +1392,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit 5182220f07eea04294828d2dbcdf0c4278041e68
+commit 03dbafbeda7b851af2fc15df1995e5b8e53ce9d7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1691,7 +1433,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit a1758d0120ce08851a0f914966d21543ee63ef99
+commit 9790a2ac8bfafda5c57208682d868ac91b2311ef
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1781,7 +1523,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit 49c4fc5eaee7d47fd5174e838d697c71402597bc
+commit 6505ef607a67a6dba65a917b5b3b508881ac08c1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1870,7 +1612,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit bfaab2a71f9b8330af0f3dc5db47b7f09d50ec35
+commit 07b0d08a8b73840b49ef1ebcdf62fb6f07b52f17
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1913,7 +1655,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit 7a7e1231ab04a46993c91293ac0091531f05aff7
+commit 0db067e6afe1f777852a0c1200fe81abd1c4e572
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1956,7 +1698,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit 3fbe93f8e39431ea6518d223055c96cf79407db2
+commit e261ea4e7ad2d3f4fc6095adfd26e65821032eec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1999,7 +1741,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit f05f5a52b0e5718ba2f2a12c0fdbb8ddeda5720b
+commit 748453e451298237252053a9be9c148bbf4add8f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -2042,7 +1784,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit c53f8d723e45befbd079f8982241d19df1110fd9
+commit d2be3ea4ba34ba9735630b77a900faaf6be072ad
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -2132,7 +1874,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit f31e737bbab787fee35c3d01a7d339535166bd8e
+commit 9dfbfb82031cfad13df558821a116653c8a4df02
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -2175,7 +1917,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit 2ed3e9726011c41e92d3e763a54ed77381708bf3
+commit 27c6efb15e4d1f6e838663df5804e37ab9e60aca
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -2218,7 +1960,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit 50c5e74946485f10fee826f0fb723568e8c01b6d
+commit b7743d873bb3a4fb653081bfe7c345f9fa4d62b3
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2348,7 +2090,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit 571aedbdf46d51642a658625d93ff029af2dd13e
+commit d1ec7f6c0a334f804899c7c318c514cb6fad09df
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2474,7 +2216,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit 76c2e2c08e5dd01714739d956033a26fcac595ea
+commit d61276a4816f96a4a7b62059d482b96dca3c15c6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2580,7 +2322,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit 9660362b4530a512b9afe5319fb6c96f61facc2a
+commit b8232fb629231f7686c0adc8bfbf77fe97499794
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2725,7 +2467,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit 8b27db15254cf585a00bec2a654297308482756b
+commit 97f36534280fc4d869b37c1e1d51646d33b4cb06
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2828,7 +2570,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit e646dc7c2c6b1069296c0c1514b18ced09fdb89d
+commit 131a3bc2edb61428d412c9428f7f3abe7881fa8d
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2944,7 +2686,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit 99e42352fae34d29c7d718698747357fe4d444b8
+commit d0804101df089dca0985d2cbd61aaf715285bc55
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -3067,7 +2809,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit ba7a040dcc7442f50a1b27bed3201ec65ac364c7
+commit dc8fffb16880183eb4603cc8412610e3d3ccaf83
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -3215,7 +2957,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit 9f0e17f24ac2b8461574c3d224dc9e08e920faec
+commit 260395cff3dcdc43e916d72a3a93c790c5f8d01b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3330,7 +3072,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit c86ca4a9834c14d1d0b1ad06bb31cdde16796089
+commit 290d7010e6400455c23cd3293d75ad167e3fbe55
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3422,7 +3164,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit db4186e6201f1eff6cd68682aaaf90de2aea2e02
+commit db63d0dcd503e14d43644a644b9fd5db8550e4f9
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3488,7 +3230,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit 75418eba2435a250104a354fbeb1df423d5b9b7f
+commit 2e18d8bcac2d01cdf74a8e96eae93342bce1d373
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3501,7 +3243,7 @@ Date:   Wed 2017-09-06 21:40:48-0400
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
-index 091c77ecaac3e02b35bdbe5b4fe4442a6a19a011..b584e524c6bd942b03a8fceba9d083c857fe6efa 100644
+index 7acb1bf47e784242ea84825eaf96b5d7b5311b18..266f5d778a69366e06f4f067d5f0189b389b7aba 100644
 --- a/services/core/java/com/android/server/am/ActivityManagerService.java
 +++ b/services/core/java/com/android/server/am/ActivityManagerService.java
 @@ -5217,26 +5217,21 @@ public class ActivityManagerService extends IActivityManager.Stub
@@ -3533,7 +3275,7 @@ index 091c77ecaac3e02b35bdbe5b4fe4442a6a19a011..b584e524c6bd942b03a8fceba9d083c8
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit f1c7965d8f825d5367f05a2ba485ebac0bfedc83
+commit 0a90eb60254661d3aae2988bbf2b23373e53c640
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3617,7 +3359,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit cef69a83b0fd17a02cdb23abc2848609aa41fb47
+commit 86ecc638e199b6882c78f9c739cbe6f8de7b840f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3830,7 +3572,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit ccee48bd9b01e8f8341e26c5c8a7c90c6a5e934f
+commit eba240d1a1963594e803ee141f14ef8d80b04ba3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3947,7 +3689,7 @@ index de96aaa1d940222e14acb4afed0b9c25f595fa34..b29c266049474da2534eaca954f1cdfc
                  return false;
              }
 
-commit fb27260967e8758827d5d9d8a001a00e0c651fd8
+commit 60dfd2151531b3a96ecae3229ededc9801c4cd5a
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -4043,7 +3785,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 104754cb8d3f1b4de34b0bda5f00982bc89ebc31
+commit 82f32919eb9d6cf35461063e600c01a2a53de867
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -4218,7 +3960,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit 341ce65bc3ef835673b9b1eb67e9831bed1b042d
+commit 6c949e123f9e8469fe69f75e468d2b0d0f945a7e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4409,7 +4151,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit 106af68d506602518868fdc5255ed6d58100a67d
+commit 97d0fc84ecbaf9d18fab412f90ee3d6a340ecaeb
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4430,7 +4172,7 @@ Date:   Wed 2020-04-22 18:28:33+0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index a2672dc8d46e18e75e0f90fa06b94993ba60d184..33b8d88a30ced2645fe0a81b27ea12369495e5c0 100644
+index a046430247a3c2fb6103a06e7be55c61e7d5a314..2dd180ce22d6de7cf284d0fff4e0a6936257635c 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2413,21 +2413,21 @@
@@ -4457,7 +4199,7 @@ index a2672dc8d46e18e75e0f90fa06b94993ba60d184..33b8d88a30ced2645fe0a81b27ea1236
  
           If this flag is false, we advise applications not to use protected
 
-commit ffce9d1a4847d937b2637dac18187c301837349e
+commit b41b38a81087a7583645fd378c2d9d8ecc2c2438
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -4941,7 +4683,7 @@ index 0892c94d5becde6706b11d9ece23a91a264d7ff5..c1173b6cf9725de63aee2ccbbb3c82fb
      }
  }
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 33b8d88a30ced2645fe0a81b27ea12369495e5c0..96b8807756453f55a71b1eaa249f80e3a6f4aad6 100644
+index 2dd180ce22d6de7cf284d0fff4e0a6936257635c..67beef2764a20897b6e36c40f5b3b999f129abf3 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2029,22 +2029,27 @@
@@ -5000,7 +4742,7 @@ index 06f357e79a6215fb88ac9fc12d61fe4939620873..e6d79bda4325779c756240ef7318d2aa
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 2a904105f16a2969334adbde4365d87459f17ba2
+commit 88a96015e24a59d05f4bb18387f0e82d1b6150d8
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -5014,7 +4756,7 @@ Date:   Tue 2020-09-29 10:58:40+1000
  5 files changed, 32 insertions(+), 11 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 96b8807756453f55a71b1eaa249f80e3a6f4aad6..011f523d58d8aa1c876596de58317a01140773e2 100644
+index 67beef2764a20897b6e36c40f5b3b999f129abf3..4178362c9cdaa8dc0d601109bb0a0c162edf93c2 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2040,20 +2040,22 @@
@@ -5276,7 +5018,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit f149a57b8306c005826a5a9774737d2692354f73
+commit fdd0ccf98cd3749a667ec95e55c9e9cbe4ceaa06
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5320,7 +5062,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 5c160ef45bf8951b93a94ea837dc2e5e1483e601
+commit e8baed3034ede3fe9556f29eec6349ebd895ef77
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5515,7 +5257,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit 58b720988dfbf546a963e2f226cbf7d964a4d6e1
+commit b99f7f3d6f98ed462680cd891408907198fb6e37
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5582,7 +5324,7 @@ index 52094992c8f8ddb6499d541ab89318e52e664e60..5e69efcff538ebc53e66414cb8ecfaef
       * </ul>
       *
 
-commit e31b1f96785d3847e491f255add907599e9b7720
+commit 4550f15b6a88570b91cc2f76461c0aaa21655682
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5721,7 +5463,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit bcc4e59b47de98e50071fb2a5c4d7da5d2049219
+commit 9ba8987c89dd64ab2aa079493ad415d05bb1756e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -5991,7 +5733,7 @@ index 5e69efcff538ebc53e66414cb8ecfaefbb99280c..47b2e716d69b2afdbcd78a9a2cb80ed6
       * </ul>
       *
 
-commit fcd3ed329e62f6d671509f341a8cc40dfcc8a678
+commit 628562f9735ad5eb501039c6e19aa4c5404c3ad9
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -6170,7 +5912,7 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit 343134627587effe6f88bc1eaecd29c565fd9a96
+commit 447d4f2d4b56432a99bfaff39ffa578bee372555
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6295,7 +6037,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit 6e091c44ddfcb4947e775c515eafcf9e504935ea
+commit 7424a832f9de523d40832eace603dd8b3dd643ce
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6367,7 +6109,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 02aceddca93d65364de7cfdcaf8ec7c5ecff3759
+commit 5bbe7ebd21c302ada15aec40e4ed709d2c3b7aed
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6410,7 +6152,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit fed1fa556d2b804882043157d25ec3acc83a343c
+commit 931749105e081cdf5b25f77d8fa5f8e81a073f5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6446,7 +6188,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit cfe0c08e6c3e40a6561a5bba2e0ce5de9f384260
+commit 67a3231e3bca184677dfb75b8179159dce3a1223
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:29-0400
 
@@ -6588,7 +6330,7 @@ index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..00000000000000000000000000000000
 -VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
 ------END PRIVATE KEY-----
 
-commit b0a20110b477f6f1c3a15dc027f241908b4889c1
+commit a5a1d2165d087ce43a6e1fae6e766d0f190eefbf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6653,7 +6395,7 @@ index c6b93d6ca4f48e6c60954ec6853cb4f199575568..05b504e897184d29aa28afbacf9cccb1
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit 797aef156603c99e0d6c0a5a3d87217ccc96ff07
+commit bb15481dc13e38f9f9fc7dccd4abeaff3beb9914
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 14:59:51-0700
 
@@ -6719,7 +6461,7 @@ index bb11efeebf08c5bb6579f4ed2f7fd7e41b44f46d..2d6bb803a69eb446ad6176385b34c532
          }
  
 
-commit 6f4e97b5b6ce4e7e84d716ac52e72a27bfead94f
+commit 992d04575b56c8e14e573cd2331d63729df4d57e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 17:12:13-0700
 
@@ -6772,7 +6514,7 @@ index 2d6bb803a69eb446ad6176385b34c532f140d96d..b67504f2d2784402dbec5e969d7f47da
  
          // App Icon
 
-commit 7fcd8ef34f4a9f00aed27ed44c3e832f36e3df5c
+commit e0fd83946e9cfc45c73be8f0da13d45a7f28dbcc
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6782,7 +6524,7 @@ Date:   Tue 2020-10-06 16:02:25-0700
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/xml/config_webview_packages.xml b/core/res/res/xml/config_webview_packages.xml
-index f062b59a008c900260a691e55b6328a5ca6692c2..24c437873e1ffc084677e896acdb5b1fbd2f9d30 100644
+index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61e84a46c6 100644
 --- a/core/res/res/xml/config_webview_packages.xml
 +++ b/core/res/res/xml/config_webview_packages.xml
 @@ -9,13 +9,13 @@
@@ -6797,11 +6539,11 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..24c437873e1ffc084677e896acdb5b1f
  <webviewproviders>
      <!-- The default WebView implementation -->
 -    <webviewprovider description="Android WebView" packageName="com.android.webview" availableByDefault="true">
-+    <webviewprovider description="Vanadium" packageName="org.grapheneos.vanadium.webview" availableByDefault="true">
++    <webviewprovider description="Vanadium" packageName="app.vanadium.webview" availableByDefault="true">
      </webviewprovider>
  </webviewproviders>
 
-commit 69656cae53278bfadb4d02158f9fc8e7c6cb40e7
+commit c6de6ca05a1ed8dc364e51292f74d095a907c8a6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-11-02 15:21:13-0500
 
@@ -6890,7 +6632,7 @@ index ff25439a5f9f586c05188035a287459f3e84b25c..1144a149dd1ef8c276aecaeda47bb397
                  mScreenRecordHelper.launchRecordPrompt();
              } else {
 
-commit 6d35ac68cdb96bce551839382041dae5498c9810
+commit 190872f679796d92cccb8fb07245a9b0ac593576
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -7200,14 +6942,15 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit aea7beb4f4e6f63a0216db42ebb3efdbe3355433
+commit e37bca803f32b458dcc3e5e088493eb6c6e359fc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
     default to GrapheneOS connectivity check server
 ---
  services/core/java/com/android/server/ConnectivityService.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests/net/java/com/android/server/ConnectivityServiceTest.java | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/services/core/java/com/android/server/ConnectivityService.java b/services/core/java/com/android/server/ConnectivityService.java
 index 03c31a6971a86e634dac9c119ac62317cf5c75f0..0a2c637ef99db77fc8f3a35526d589c3b36ce09c 100644
@@ -7236,8 +6979,35 @@ index 03c31a6971a86e634dac9c119ac62317cf5c75f0..0a2c637ef99db77fc8f3a35526d589c3
              "android.telephony.apn-restore";
  
      // How long to wait before putting up a "This network doesn't have an Internet connection,
+diff --git a/tests/net/java/com/android/server/ConnectivityServiceTest.java b/tests/net/java/com/android/server/ConnectivityServiceTest.java
+index 385005f90c3be1d4184dc48b95f181263113c655..323d1e0e8f4f47d2637f69dbd564805174463590 100644
+--- a/tests/net/java/com/android/server/ConnectivityServiceTest.java
++++ b/tests/net/java/com/android/server/ConnectivityServiceTest.java
+@@ -4458,21 +4458,21 @@ public class ConnectivityServiceTest {
+         try (DatagramSocket ignored = new DatagramSocket(port)) {
+             return false;
+         } catch (IOException alreadyInUse) {
+             return true;
+         }
+     }
+ 
+     @Test
+     public void testGetCaptivePortalServerUrl() throws Exception {
+         String url = mCm.getCaptivePortalServerUrl();
+-        assertEquals("http://connectivitycheck.gstatic.com/generate_204", url);
++        assertEquals("http://connectivitycheck.grapheneos.network/generate_204", url);
+     }
+ 
+     private static class TestNetworkPinner extends NetworkPinner {
+         public static boolean awaitPin(int timeoutMs) throws InterruptedException {
+             synchronized(sLock) {
+                 if (sNetwork == null) {
+                     sLock.wait(timeoutMs);
+                 }
+                 return sNetwork != null;
+             }
 
-commit a64f27aca51261260ee66a8b8476722bad3192a1
+commit 10846d8c094914d35686096c9489e622726e2044
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7274,73 +7044,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit 828eae98a6563cdc962dced01c7305f82a554334
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Fri 2020-12-25 22:18:00-0500
-
-    use vanadium.app domain
----
- core/res/res/xml/config_webview_packages.xml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/core/res/res/xml/config_webview_packages.xml b/core/res/res/xml/config_webview_packages.xml
-index 24c437873e1ffc084677e896acdb5b1fbd2f9d30..1db99d8bc404e5b496541ca44e962d61e84a46c6 100644
---- a/core/res/res/xml/config_webview_packages.xml
-+++ b/core/res/res/xml/config_webview_packages.xml
-@@ -9,13 +9,13 @@
- 
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
- -->
- 
- <webviewproviders>
-     <!-- The default WebView implementation -->
--    <webviewprovider description="Vanadium" packageName="org.grapheneos.vanadium.webview" availableByDefault="true">
-+    <webviewprovider description="Vanadium" packageName="app.vanadium.webview" availableByDefault="true">
-     </webviewprovider>
- </webviewproviders>
-
-commit 2e197f7839d909cee06c373ecf7ee31de3a082dd
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2020-12-28 20:46:27-0500
-
-    update captive portal URL test for changed URL
----
- tests/net/java/com/android/server/ConnectivityServiceTest.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/tests/net/java/com/android/server/ConnectivityServiceTest.java b/tests/net/java/com/android/server/ConnectivityServiceTest.java
-index 385005f90c3be1d4184dc48b95f181263113c655..323d1e0e8f4f47d2637f69dbd564805174463590 100644
---- a/tests/net/java/com/android/server/ConnectivityServiceTest.java
-+++ b/tests/net/java/com/android/server/ConnectivityServiceTest.java
-@@ -4458,21 +4458,21 @@ public class ConnectivityServiceTest {
-         try (DatagramSocket ignored = new DatagramSocket(port)) {
-             return false;
-         } catch (IOException alreadyInUse) {
-             return true;
-         }
-     }
- 
-     @Test
-     public void testGetCaptivePortalServerUrl() throws Exception {
-         String url = mCm.getCaptivePortalServerUrl();
--        assertEquals("http://connectivitycheck.gstatic.com/generate_204", url);
-+        assertEquals("http://connectivitycheck.grapheneos.network/generate_204", url);
-     }
- 
-     private static class TestNetworkPinner extends NetworkPinner {
-         public static boolean awaitPin(int timeoutMs) throws InterruptedException {
-             synchronized(sLock) {
-                 if (sNetwork == null) {
-                     sLock.wait(timeoutMs);
-                 }
-                 return sNetwork != null;
-             }
-
-commit 232eacbe653f085d05304e22511ae5a2377ab79a
+commit 0094274f1f0829e3738b92d455671a4120686080
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7350,7 +7054,7 @@ Date:   Sun 2021-01-03 08:50:34-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/colors_device_defaults.xml b/core/res/res/values/colors_device_defaults.xml
-index 7a8f411992ce59462a63b3c5951f57a268658083..b61f1b227cb50459f0fb609561abbe603d5803d8 100644
+index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c24603d52b 100644
 --- a/core/res/res/values/colors_device_defaults.xml
 +++ b/core/res/res/values/colors_device_defaults.xml
 @@ -26,22 +26,22 @@
@@ -7366,7 +7070,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..b61f1b227cb50459f0fb609561abbe60
  
 -    <color name="accent_device_default_light">@color/accent_material_light</color>
 -    <color name="accent_device_default_dark">@color/accent_material_dark</color>
-+    <color name="accent_device_default_dark">#ff8ab4f8</color> <!-- blue A100 -->
++    <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
 +    <color name="accent_device_default_light">#ff1e88e5</color> <!-- blue 600 -->
      <color name="accent_device_default">@color/accent_device_default_light</color>
  
@@ -7379,7 +7083,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..b61f1b227cb50459f0fb609561abbe60
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit 3de1a76c95599f7f56a23e282d336cf6f4bf982f
+commit 154b1ec2d8ab1bf4fce225f18b154548c8eb5b31 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7399,40 +7103,3 @@ Binary files a/core/res/res/drawable-sw600dp-nodpi/default_wallpaper.png and b/c
 diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
-
-commit 3134e7efdbc33ee7f63e5126a26a51da76e1a8c8 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sun 2021-01-03 10:49:47-0500
-
-    update round icon mask
----
- core/res/res/values/config.xml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 011f523d58d8aa1c876596de58317a01140773e2..4178362c9cdaa8dc0d601109bb0a0c162edf93c2 100644
---- a/core/res/res/values/config.xml
-+++ b/core/res/res/values/config.xml
-@@ -3501,21 +3501,21 @@
-          1.0 corresponds to 1x animator scale, 0 means that there will be no transition
-          animations. Note that this is only a default and will be overridden by a
-          user-set value if toggled by settings so the "Transition animation scale" setting
-          should also be hidden if intended to be permanent. -->
-     <item name="config_appTransitionAnimationDurationScaleDefault" format="float" type="dimen">1.0</item>
- 
-     <!-- Flag indicates that whether non-system apps can be installed on internal storage. -->
-     <bool name="config_allow3rdPartyAppOnInternal">true</bool>
- 
-     <!-- Specifies the path that is used by AdaptiveIconDrawable class to crop launcher icons. -->
--    <string name="config_icon_mask" translatable="false">"M50 0A50 50,0,1,1,50 100A50 50,0,1,1,50 0"</string>
-+    <string name="config_icon_mask" translatable="false">"M50 0C77.6 0 100 22.4 100 50C100 77.6 77.6 100 50 100C22.4 100 0 77.6 0 50C0 22.4 22.4 0 50 0Z"</string>
- 
-     <!-- The component name, flattened to a string, for the default accessibility service to be
-          enabled by the accessibility shortcut. This service must be trusted, as it can be activated
-          without explicit consent of the user. If no accessibility service with the specified name
-          exists on the device, the accessibility shortcut will be disabled by default. -->
-     <string name="config_defaultAccessibilityService" translatable="false"></string>
- 
-     <!-- Flag indicates that whether escrow token API is enabled for TrustAgent -->
-     <!-- Warning: This API can be dangerous when not implemented properly. In particular,
-          escrow token must NOT be retrievable from device storage. In other words, either

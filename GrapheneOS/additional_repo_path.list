@@ -1,17 +1,15 @@
-branding
-device/amlogic/yukawa
-device/amlogic/yukawa-kernel
-external/Auditor
-external/PdfViewer
-external/hardened_malloc
-external/seedvault
-external/vanadium
-kernel/google/coral
-kernel/google/crosshatch
-kernel/google/sunfish
-packages/apps/ExactCalculator
-packages/apps/F-DroidPrivilegedExtension
-packages/apps/SetupWizard
-packages/apps/Updater
-prebuilts/android-emulator
-script
+branding c6f1f6fc1a3ccf9040aab5c8f684f102151d3c5d
+external/Auditor ac1568a23f5ece5a845602bd79fcfaca316d2529
+external/PdfViewer ac165d8f5674a5536579a14d8f0ac1480077f452
+external/hardened_malloc 2bc63f50c202389dbf839a95da30d5c9adc40fa4
+external/seedvault 4906a00786012ac638cd89de8549c2bb3b9579e6
+external/vanadium 6150fba73b7dee2971e6b0a4d0b7cadf2de21289
+kernel/google/coral 8c7660d55a0c261e9ca9446b06b1a505bbddb634
+kernel/google/crosshatch d83586c517bb4de483e49e14f66fc6fc47304003
+kernel/google/redbull 3e8f88abe9f9712d6fecb667d7e3308a6a60b6b7
+kernel/google/sunfish ba4a4f9089457c8c6891db031a792ed4a2dd4c7c
+packages/apps/ExactCalculator e66133c9eb6ff82703d929bc1db31c44958afdf2
+packages/apps/F-DroidPrivilegedExtension b1af615fde5d9da668e7843c272a3a28eaf863f5
+packages/apps/SetupWizard c3deee1cefb17a93c6ed5fa13a196a00b5f5c440
+packages/apps/Updater f4fea23153407b7448e9440c31dc0398befc00c8
+script 533f4f6e129ac7a9091f29b854b3e3bfb876ae8a

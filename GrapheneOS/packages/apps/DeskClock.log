@@ -3029,7 +3029,7 @@ index 0000000000000000000000000000000000000000..634e624ffec75e0600caa67b03c45aaa
 +    <allow-in-power-save package="com.android.deskclock" />
 +</config>
 
-commit 5dd38f2963672a264d9545cb8df52bb928a7b1d2 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 5dd38f2963672a264d9545cb8df52bb928a7b1d2 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-12-07 18:49:09-0500
 

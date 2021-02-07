@@ -1,4 +1,4 @@
-commit f31f3a519c512a4afd50580bef239d55207d9faf
+commit 8202a567b7da995db8f4a742c0d44ed01cb4d5fc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:10:23-0400
 
@@ -1386,7 +1386,7 @@ index daf5d8efffff19ac0c02a1296841b485d394a016..78b26fdfa57b49a992509b27559077fd
    jniRegisterNativeMethods(env, "java/util/jar/JarFile", gJarFileMethods, NELEM(gJarFileMethods));
  }
 
-commit dae3fb391ce4dcc151cec3967d31b5a0d58b92d8
+commit 604147ccf3d9f1997d2d64eb2ff2756af4ea6973
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:46:38-0400
 
@@ -1476,7 +1476,7 @@ index 15a0a48d8c5a54e063f92071f9266313ca27019b..ac810f45fafeaf1e1de504d754c0ea21
  }
  
 
-commit f65fe1480c5ac5d85d0a216126a7ad39f7733c44 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 1062d8cbead737ac160ee59662efd4a72fc90552 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:47:11-0400
 

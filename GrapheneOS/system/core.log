@@ -1,4 +1,4 @@
-commit a2b3e04d73ea63ed2a3c681a3946bddf7cb9cda7
+commit 78fb1b1cbcec28fd129223faede0ce58463c1689
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2018-12-13 09:26:25-0500
 
@@ -35,7 +35,7 @@ index a9af0b094da4e7bbdde03fbe98ca200566e1289e..b1f554316023a574876293cf280deff1
      write /sys/fs/f2fs/${dev.mnt.blk.data}/cp_interval 200
      write /sys/fs/f2fs/${dev.mnt.blk.data}/gc_urgent_sleep_time 50
 
-commit b4c444166c2206b6af43d811fc2e3c3445c1e088
+commit 57c4d774b922aee4ec00702187e19938bfd94e20
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:46:34-0500
 
@@ -84,7 +84,7 @@ index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bf
      CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
      CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
 
-commit c5c31e0ee999ff8fcecc47933eb0be4cd5c61f87
+commit ec1db8173df9789ea7a73fdf96ea282f9e76be71
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:41:57-0500
 
@@ -120,7 +120,7 @@ index 6cbe642c081b13c12d7d951b0620d2dcf52e4b89..82fc8ca6413cb55f1ea7ef53968cc649
  }
  
 
-commit f1ca8ebce016690896eaf441699f7ad09cdb109e
+commit c8452474a54b9cd2bb9096d76053ecb279997038
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-06-15 17:51:42-0400
 
@@ -167,7 +167,7 @@ index b1f554316023a574876293cf280deff18b1621fc..84fa56e5b2da2bd883d9a6216b4cc0bc
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
 
-commit a0b9e74e8f4857a042a517f9c2cf9c05134d2360
+commit d2242296f849d200194c137c5df931a0a1d1ea00
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:49:29-0400
 
@@ -205,7 +205,7 @@ index 84fa56e5b2da2bd883d9a6216b4cc0bc34b81273..724ea32b6c5af3711d90dcfc803ea2ca
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 5e0cefbf81dddbf8622280e9b48bab25da853b3f (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 79f43c8d4d66d0519b7723f9017bbd2ac0799397 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:54:28-0400
 

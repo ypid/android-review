@@ -1,4 +1,4 @@
-commit c2c204688d0fb92d3f6cd93c86ae65befb55381d
+commit e80755a76430d4364291bfe9dbf027817480dc9d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -35,7 +35,7 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..12e731f8cba9ab75a699de93c9beceb7
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit ab59336a7d387cc38fa10c7fe9f2b37709fcb93c
+commit db6f7e06f54ab385d89451dd202067773b19b51c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 11:49:44-0400
 
@@ -69,7 +69,7 @@ index d30ceaa280b2cd3b64c8414641c9c2a744d9767d..c291afdd4c785d37ab8bdf6bd1cd4af8
  </PreferenceScreen>
  
 
-commit 72aa821d04c56a7b55f7210037c01fa36f33d74f
+commit 6b8864d9ef688b88a1abf0f9af627ed16a3eb19e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -109,7 +109,7 @@ index 2e529968613cbc62239ba162cbc36db23be7d47a..ef017c64e60532ad9471b0fbb1ee482d
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 4e4d2f8f4b4213f0305ac801af5f60a01bb12483
+commit 263cd4415fa68fa4bd1230d9c1199dc9d3f9d1b0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -212,7 +212,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit e6a1231d7258c94d07eb709e843edecbe5c37afd
+commit a0d0d72109ee0f2a79a0525e6a0a2fa8ba13564d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -254,7 +254,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 11973fdc2cf87ea13327619730f3e23fadeea9a7
+commit 0e225c674456613296c39b21cc9834d15fbd776e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-20 11:10:32-0400
 
@@ -314,7 +314,7 @@ index ef017c64e60532ad9471b0fbb1ee482dac69794a..3235e1fad12ff3b6bf9a4cf589413755
      <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
      <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
 
-commit 7791eeb503e4260c52ea24a26c5f31f9211bd691
+commit 63c63ae745a9cafe26acfc32d2b412587256b7ec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -351,7 +351,7 @@ index 12e731f8cba9ab75a699de93c9beceb72c5de836..3be65bb65caeff9f5bea3358683c598f
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit e557366ef56d9f4af347b532cabcfd34d5b6d748
+commit 844f90cf3deb8766653c6dd92a9468ca17c68d76
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -389,7 +389,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 56434e4301c12e3e960286e528007077f2e1af8c
+commit 446083f004d2fd1826ec1a671428429d63fdbb72
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -862,7 +862,7 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit 438a13cdfb2c45d3664221628db9f31faf534d32
+commit 9070c465ce05ce548687e22f395a3842cdea2856
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -1100,7 +1100,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 2e902728115ff494825697e49dfb6fc0c6962ec1
+commit 3e2dd02bf65d9192366340483287401312de570f
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-03-05 14:24:42+1100
 
@@ -1150,7 +1150,7 @@ index 144cf2f15c46e67e6b0ae2300bd2cfe4ec7c05f1..f4a7ddf8f8ca6e71e09ce6c024a17277
      }
  }
 
-commit 6cd66aca1d74d00049ee3240de4df279889f83f7
+commit c6574b2534dd28f58f95001f61c926ae94f95cb5
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1428,7 +1428,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit b2a7584edd673304d7a2c7fd05cee471a7734670
+commit 80f17629fead6169aba03515eccfd625a6b2c654
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1725,7 +1725,7 @@ index a0d4b16d57af76bb33a46f1d4204771f432f2656..1bc6b351d79c01a28625f4a6ae7c2145
      }
  }
 
-commit 0b4ecba1c443bb0fbcdca24758ea1ab631ec45bc
+commit 2c557861cb08eb6813e24164475b3595840c6d4e
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -1921,7 +1921,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit b64f00f03513b981360c9fc9724cbdb5b3d4d5a7
+commit 8799f40747c2a1e447ff5aeaace05d16c368d9a9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -4480,7 +4480,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit 09a99496171e9c9a758d368e829a46624f73dcd8
+commit 3b3eb8eab328bbe28970d95fb25d458abcc590e9
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -4612,7 +4612,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit 00cd482b306eb8504e9192c7018e92ed15aab336
+commit 3bb6ad831e3a1557e75a6f397cec12d9199520be
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -4667,7 +4667,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit d523db6dc4313c9b4d501aab99268391ba7d398c
+commit cdbaf898c80756a713afa25767113c6b5d1d3dcc
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-10-01 00:29:44-0700
 
@@ -4978,7 +4978,7 @@ index f1ebaeebba9f9cc5641aed411054501d0e07feb0..29111b89ec26c62eb9de18408439d07b
              } else {
                  mEntries.add(mContext.getString(R.string.network_lte));
 
-commit 24f8ba0918e88ad425a01e74eb61ba5215f6a643 (HEAD, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 60f5d133ce0dcaccf31257cd1503082fbf8cb3ec (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 

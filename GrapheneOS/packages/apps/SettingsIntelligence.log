@@ -1,0 +1,43 @@
+commit 3289219eb1bad03c81a462d57e916eb8bfc7133e (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+Author: Marco Janotta <marcojntt@gmail.com>
+Date:   Wed 2021-01-13 10:51:15+0100
+
+    Fix search panel background
+    
+    Instead of having a fixed value, the current primary color is applied as
+    the background of the search panel in Settings. This way there is no
+    unwanted border in the Dark theme, while it has no effect on the Light
+    theme.
+    
+    Change-Id: I7610ff7262e3ae32510b26560cedba267698f6ae
+---
+ res/layout/search_panel.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/res/layout/search_panel.xml b/res/layout/search_panel.xml
+index 5f621cd493c6db11d5fecef7c6dae7f8d651fa5a..581a01a5f99d2f9949f4b0d06486bc89afd1838f 100644
+--- a/res/layout/search_panel.xml
++++ b/res/layout/search_panel.xml
+@@ -18,21 +18,21 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/search_panel"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+ 
+     <FrameLayout
+         android:id="@+id/search_bar_container"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:background="@color/search_panel_background"
++        android:background="?android:attr/colorPrimary"
+         android:elevation="4dp">
+         <androidx.cardview.widget.CardView
+             android:id="@+id/search_bar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="@dimen/search_bar_margin"
+             app:cardCornerRadius="2dp"
+             app:cardBackgroundColor="?android:attr/colorBackground"
+             app:cardElevation="2dp">
+             <Toolbar
