@@ -57,6 +57,14 @@ The file `additional_repo_path.list` lists additional repository paths that are
 not present in AOSP. It is not sure yet if references to them should also be
 included here using git submodules. We will see how my workflow evolves.
 
+You can than review the changes across rebases using something like this:
+
+```Shell
+git diff RQ1A.210105.002.2021.01.05.03..RQ1A.210205.004.2021.02.02.09 -I '^(commit|index) '
+```
+
+Note that this requires git 2.30.0 which was released 2021-01.
+
 For details, see:
 
 * https://github.com/hashbang/aosp-build
