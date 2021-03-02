@@ -1,4 +1,4 @@
-commit ea3f56337bfbe2345ff233c41e85ca82bb3f6f83 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 85a4fec3a810e3aadad1b5bd77debe3701eceda4 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-04-18 00:05:55-0400
 
@@ -21,12 +21,12 @@ Date:   Thu 2019-04-18 00:05:55-0400
  q/android-4.19/android-base.config          | 4 ----
  q/android-4.9/android-base.config           | 3 ---
  r/android-4.14/android-base-conditional.xml | 8 --------
- r/android-4.14/android-base.config          | 4 ----
+ r/android-4.14/android-base.config          | 5 -----
  r/android-4.19/android-base-conditional.xml | 8 --------
- r/android-4.19/android-base.config          | 4 ----
+ r/android-4.19/android-base.config          | 5 -----
  r/android-5.4/android-base-conditional.xml  | 8 --------
- r/android-5.4/android-base.config           | 4 ----
- 18 files changed, 74 deletions(-)
+ r/android-5.4/android-base.config           | 5 -----
+ 18 files changed, 77 deletions(-)
 
 diff --git a/o-mr1/android-3.18/android-base.config b/o-mr1/android-3.18/android-base.config
 index 7eb1e7109510f2310f775a8f94d83d8b28505056..e9e3645c73836f22a568d908ef520d8665867f7c 100644
@@ -463,7 +463,7 @@ index b38fde886356ac0b296e4480c2918fb2dac814b8..14b9baf533c6e185de28756a6889fec6
  		</config>
  	</conditions>
 diff --git a/r/android-4.14/android-base.config b/r/android-4.14/android-base.config
-index 542251be2d440b70ba658dd4d994f694ef00ae43..7bba6719bbde526d9d47dfa1b2e1bedf5c833c5a 100644
+index 542251be2d440b70ba658dd4d994f694ef00ae43..efc98d2c6c0c46fb4c17eb91c5f308c15850da7d 100644
 --- a/r/android-4.14/android-base.config
 +++ b/r/android-4.14/android-base.config
 @@ -18,21 +18,20 @@ CONFIG_ANDROID=y
@@ -512,6 +512,28 @@ index 542251be2d440b70ba658dd4d994f694ef00ae43..7bba6719bbde526d9d47dfa1b2e1bedf
  CONFIG_NETFILTER_XT_MATCH_CONNLIMIT=y
  CONFIG_NETFILTER_XT_MATCH_CONNMARK=y
  CONFIG_NETFILTER_XT_MATCH_CONNTRACK=y
+@@ -215,21 +211,20 @@ CONFIG_SECCOMP_FILTER=y
+ CONFIG_SECURITY=y
+ CONFIG_SECURITY_NETWORK=y
+ CONFIG_SECURITY_SELINUX=y
+ CONFIG_SHMEM=y
+ CONFIG_SIGNALFD=y
+ CONFIG_SND=y
+ CONFIG_SOUND=y
+ CONFIG_STAGING=y
+ CONFIG_STATIC_USERMODEHELPER=y
+ CONFIG_STRICT_KERNEL_RWX=y
+-CONFIG_STRICT_MODULE_RWX=y
+ CONFIG_SUSPEND=y
+ CONFIG_SYNC_FILE=y
+ CONFIG_SYSFS=y
+ CONFIG_TASKSTATS=y
+ CONFIG_TASK_IO_ACCOUNTING=y
+ CONFIG_TASK_XACCT=y
+ CONFIG_TIMERFD=y
+ CONFIG_TTY=y
+ CONFIG_TUN=y
+ CONFIG_UHID=y
 diff --git a/r/android-4.19/android-base-conditional.xml b/r/android-4.19/android-base-conditional.xml
 index 5d5a4770777faa4fe777cf5dc1211fa4ed17975f..dc1f7bd19737c09ccf2a9451ab1f1bea342f7bee 100644
 --- a/r/android-4.19/android-base-conditional.xml
@@ -567,7 +589,7 @@ index 5d5a4770777faa4fe777cf5dc1211fa4ed17975f..dc1f7bd19737c09ccf2a9451ab1f1bea
  		</config>
  	</conditions>
 diff --git a/r/android-4.19/android-base.config b/r/android-4.19/android-base.config
-index f942b8e12e36a16381306b0ba5a70fb299ca6627..8f7b48daed99412d126e76b5c7e9309097f06ab3 100644
+index f942b8e12e36a16381306b0ba5a70fb299ca6627..8c62422d0e33d90b934eb15d7fdda6eba1e2d632 100644
 --- a/r/android-4.19/android-base.config
 +++ b/r/android-4.19/android-base.config
 @@ -20,21 +20,20 @@ CONFIG_ANDROID=y
@@ -616,6 +638,28 @@ index f942b8e12e36a16381306b0ba5a70fb299ca6627..8f7b48daed99412d126e76b5c7e93090
  CONFIG_NETFILTER_XT_MATCH_CONNLIMIT=y
  CONFIG_NETFILTER_XT_MATCH_CONNMARK=y
  CONFIG_NETFILTER_XT_MATCH_CONNTRACK=y
+@@ -216,21 +212,20 @@ CONFIG_SECURITY_NETWORK=y
+ CONFIG_SECURITY_SELINUX=y
+ CONFIG_SHMEM=y
+ CONFIG_SIGNALFD=y
+ CONFIG_SND=y
+ CONFIG_SOUND=y
+ CONFIG_STACKPROTECTOR=y
+ CONFIG_STACKPROTECTOR_STRONG=y
+ CONFIG_STAGING=y
+ CONFIG_STATIC_USERMODEHELPER=y
+ CONFIG_STRICT_KERNEL_RWX=y
+-CONFIG_STRICT_MODULE_RWX=y
+ CONFIG_SUSPEND=y
+ CONFIG_SYNC_FILE=y
+ CONFIG_SYSFS=y
+ CONFIG_TASKSTATS=y
+ CONFIG_TASK_IO_ACCOUNTING=y
+ CONFIG_TASK_XACCT=y
+ CONFIG_TIMERFD=y
+ CONFIG_TTY=y
+ CONFIG_TUN=y
+ CONFIG_UHID=y
 diff --git a/r/android-5.4/android-base-conditional.xml b/r/android-5.4/android-base-conditional.xml
 index a5e187fc23d493e47dc8e57538d0b7e617f8c956..6a5a53ad1642490f59c4602d77fda72bd0b6c21b 100644
 --- a/r/android-5.4/android-base-conditional.xml
@@ -671,7 +715,7 @@ index a5e187fc23d493e47dc8e57538d0b7e617f8c956..6a5a53ad1642490f59c4602d77fda72b
  		</config>
  	</conditions>
 diff --git a/r/android-5.4/android-base.config b/r/android-5.4/android-base.config
-index 08cfbb9693afefe8582b7e29fd9f8501e23ff3cc..12ec3ff25cb4e7834ae6b86c74766c8474c94ec3 100644
+index 08cfbb9693afefe8582b7e29fd9f8501e23ff3cc..3b3726eb8fe4051303c5afd37e9df2761cf34a9f 100644
 --- a/r/android-5.4/android-base.config
 +++ b/r/android-5.4/android-base.config
 @@ -20,21 +20,20 @@ CONFIG_ANDROID=y
@@ -720,3 +764,25 @@ index 08cfbb9693afefe8582b7e29fd9f8501e23ff3cc..12ec3ff25cb4e7834ae6b86c74766c84
  CONFIG_NETFILTER_XT_MATCH_CONNLIMIT=y
  CONFIG_NETFILTER_XT_MATCH_CONNMARK=y
  CONFIG_NETFILTER_XT_MATCH_CONNTRACK=y
+@@ -215,21 +211,20 @@ CONFIG_SECURITY_NETWORK=y
+ CONFIG_SECURITY_SELINUX=y
+ CONFIG_SHMEM=y
+ CONFIG_SIGNALFD=y
+ CONFIG_SND=y
+ CONFIG_SOUND=y
+ CONFIG_STACKPROTECTOR=y
+ CONFIG_STACKPROTECTOR_STRONG=y
+ CONFIG_STAGING=y
+ CONFIG_STATIC_USERMODEHELPER=y
+ CONFIG_STRICT_KERNEL_RWX=y
+-CONFIG_STRICT_MODULE_RWX=y
+ CONFIG_SUSPEND=y
+ CONFIG_SYNC_FILE=y
+ CONFIG_SYSFS=y
+ CONFIG_TASKSTATS=y
+ CONFIG_TASK_IO_ACCOUNTING=y
+ CONFIG_TASK_XACCT=y
+ CONFIG_TIMERFD=y
+ CONFIG_TTY=y
+ CONFIG_TUN=y
+ CONFIG_UHID=y

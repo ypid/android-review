@@ -1,4 +1,4 @@
-commit 1d06e2907ac5ff82e05987ac370686f653c475a0
+commit 0051295d811a1f4ce376940e2d3fac1bdc9dacc6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-11-23 04:27:20-0500
 
@@ -34,7 +34,7 @@ index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8
    else
      # Disable debugging in plain user builds.
 
-commit a47bda27e2fdd9f1f0d71cf0177b9f3483fae3ae
+commit 02dab560aa6467230b8c570869be773139663412
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:24:59-0400
 
@@ -73,7 +73,7 @@ index 4d507b5fb05a17bf1208a6cbcb9385cee9ec7384..dad89f4e1f0d9a4f4cb6a24b6bbf8e9c
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 8d7e3bc820db0202e9fc117229e909a92ce02d94
+commit 18355d3cf5d869b2b651576f9c2bfcfc3b0dff15
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:59:56-0400
 
@@ -101,7 +101,7 @@ index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c808
 +    messaging \
 +    Stk
 
-commit 6f25ae819615297372568a7159b4a08c844c50fd
+commit 2b4551677f782cbef4b777d21489597cde86fdc3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:28:11-0400
 
@@ -150,7 +150,7 @@ index ccf53f52295bfaceb718df5c5e51da87f535e2b4..7fb3644291a1e95ce256c4d85dd164db
      ifneq (true,$(WITH_DEXPREOPT))
        ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
 
-commit c82035758677d3df902d761b4986b467392504d3
+commit 77e37f148ee33fd587f6a857b58f6ba4d9c29d31
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2016-08-28 14:14:10-0400
 
@@ -160,7 +160,7 @@ Date:   Sun 2016-08-28 14:14:10-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
-index ad361dc09e98da5ddb72a45b4e1b50d1d240441e..e1b5b92867a4542f034e853a72111f24b9396fe3 100644
+index 693b686fbb4b0fb700f12d9ddd422362b52ccf90..6aae4507edf29df107597125f6d044caf62af909 100644
 --- a/target/product/runtime_libart.mk
 +++ b/target/product/runtime_libart.mk
 @@ -38,22 +38,22 @@ PRODUCT_PACKAGES += \
@@ -189,7 +189,7 @@ index ad361dc09e98da5ddb72a45b4e1b50d1d240441e..e1b5b92867a4542f034e853a72111f24
  ifeq (eng,$(TARGET_BUILD_VARIANT))
      PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
-commit e7de2f4d8467b64069903fb185b7e894180ebcdc
+commit 68bf108f3861ea04b2d3dd93ecaaf0a03970cbd6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-09-07 23:27:07-0400
 
@@ -201,7 +201,7 @@ Date:   Wed 2016-09-07 23:27:07-0400
  1 file changed, 3 insertions(+), 6 deletions(-)
 
 diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
-index e1b5b92867a4542f034e853a72111f24b9396fe3..a7fafa485b312eb29cac0003e1237b697b79353e 100644
+index 6aae4507edf29df107597125f6d044caf62af909..309672b785f1b34a839214b65bdcfa7e474eb06c 100644
 --- a/target/product/runtime_libart.mk
 +++ b/target/product/runtime_libart.mk
 @@ -58,27 +58,24 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -236,7 +236,7 @@ index e1b5b92867a4542f034e853a72111f24b9396fe3..a7fafa485b312eb29cac0003e1237b69
  PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
      dalvik.vm.dex2oat-resolve-startup-strings=true
 
-commit eb558e5a0afc3c126448fcc73b4114db2aa87040
+commit dbf177a04883e8ae75d6d9ddf00fa8d11ed00897
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-09-29 01:02:28-0400
 
@@ -248,7 +248,7 @@ Date:   Thu 2016-09-29 01:02:28-0400
  1 file changed, 2 insertions(+), 12 deletions(-)
 
 diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
-index a7fafa485b312eb29cac0003e1237b697b79353e..5523a2dd29b0b2ad23457824a1643ddba37dcfe1 100644
+index 309672b785f1b34a839214b65bdcfa7e474eb06c..724a455db99ef7a9aac4b92696bd95e7f5361870 100644
 --- a/target/product/runtime_libart.mk
 +++ b/target/product/runtime_libart.mk
 @@ -46,33 +46,23 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -288,7 +288,7 @@ index a7fafa485b312eb29cac0003e1237b697b79353e..5523a2dd29b0b2ad23457824a1643ddb
      dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
  
 
-commit f98c340e848b7e58bec69c83afbedd229a373c3c
+commit 3f3f342bc2bec07776ba352e04727a1d0163f8d4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:42:53-0400
 
@@ -324,7 +324,7 @@ index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e27
      OneTimeInitializer \
      preinstalled-packages-platform-handheld-product.xml \
 
-commit 2120435e87df4a324a6a8b1030ed06fded4501d1
+commit 469967080ad297ff0027342756c21450865c07a9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:43:04-0400
 
@@ -357,7 +357,7 @@ index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit cd5b551e27caee60a094e451c17fce4caa01be96
+commit 82d35e5c95791656fbda98b76e1abb5efcf3fa5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-06-17 07:13:49-0400
 
@@ -393,7 +393,7 @@ index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78
    else
      # Disable debugging in plain user builds.
 
-commit 9e71cfdd6ad9cf16c5412c0832b79ba7f2d7a204
+commit c6d1e19ae8c829d781c96f8e2c080f8119fa967c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-09-13 22:05:56-0400
 
@@ -424,7 +424,7 @@ index efb21e7c6a532c8dd7ce63950d187a4bf37a4ba4..41d7fe5dbf3b4a471bd96bc568593ad0
 +  endif
 +endif
 
-commit de4313e2c96bafd1e82c6365f81d1df759f47d7d
+commit a07edb1f11d04f66450a114b2d5df2aec0ebfcd4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:18:49-0400
 
@@ -460,7 +460,7 @@ index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00
      frameworks-base-overlays
  
 
-commit c5228ee15e155be8c3f19af2a6dca9792e2b806a
+commit d98d13e128b308bf23ed52d4f4401debb79c81b9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-09-09 00:28:44-0400
 
@@ -545,7 +545,7 @@ index f8ba5936f8043c6965692408d2b3299b3f38ea99..f60e9c4c124c6fcbc4d07864a80fcb45
  
  #
 
-commit 79af92c9eb75692cdf73e061e94733cb7478c2c3
+commit e1a0535dd4a13731d983476ff01d540f30aba6eb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-09-09 01:16:05-0400
 
@@ -610,7 +610,7 @@ index ca171dff5c6151eb818271161c8051f7894b0160..17a3ac75e81b95c594e7dea087765a00
  PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
  
 
-commit 9922f9cf386a51fd9ae9e1b78a945c43b258d0c2
+commit aadada1b04ce8e18adaf24ea7162410861fdbf20
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-09-21 08:44:23-0400
 
@@ -648,7 +648,7 @@ index a787707a04451c9aab2aa20adeb2cc5ef0116997..1f22163c32669377d5147755d17f69a9
      PresencePolling \
      RcsService \
 
-commit f1c4408bc0dd4b27c725f6c4d31df4ac0360ab4d
+commit dfd754a96b81a4dcb609c166db10139bbe8a6bb3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:21:18-0500
 
@@ -692,7 +692,7 @@ index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff40
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 65d2cfca91f0ba4a8aa26ab2e52fbe625c07fc8a
+commit 35a62f1332d5974fe3551fdb694b76c6362b1d72
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:23:07-0500
 
@@ -719,7 +719,7 @@ index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49
 -    webview \
 +    TrichromeWebView \
 
-commit 34b47945455cd8659e4ec62d8dbb17cf0300e5ef
+commit acf502b3565b4e64e0e0526ed789394ea1453475
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 00:55:25-0400
 
@@ -756,7 +756,7 @@ index dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662..77b77fef89594c0ed5c04b20d8f3f322
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 9c3c2359e888d34fbabec91cfae73030fee0548f
+commit f6754ccf598850eae7e17783ed12db48eab3c409
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-03-11 18:08:31+1100
 
@@ -792,7 +792,7 @@ index 77c103d7eeccca74b9192359053af34ff922c3f0..28608fabe21f317a27e93081d74b5bb2
      VpnDialogs \
      vr \
 
-commit e5a76dd804290dd176d4bb7907424dab80d11199
+commit 12e2a4f0100a0255702b7094e49ad4be09a7b0c8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-03-16 18:01:18-0400
 
@@ -839,7 +839,7 @@ index bf015e502468da3231b417df160651e9783a9059..e26bceff2299824b50602319eda446bd
  BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  
 
-commit 12d451d719a048176bb6e645e741877f063dfa65
+commit 28a5950d05774f996885952f90865f74e938aa31
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-03-17 16:52:01-0400
 
@@ -876,7 +876,7 @@ index 3c99424ac4f827f28334b48edd687e7e7121e6bd..10dfda5a4179fb516ad8c50b32b9e5f8
      MANIFEST_PACKAGE_NAME \
      PACKAGE_NAME \
 
-commit ea97263b49c149fbcda5c61d1a2931c385e671df
+commit 8671b14eb59968d51fd0bb85abbbc888c3d10579
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-05-12 21:02:49-0400
 
@@ -914,7 +914,7 @@ index e95a7ea62332bd8d6f141da182ae2f78a55979cf..2ccc28d25e54acb4f6a69045284ee5b5
    FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
  endif
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index e610490f444e2d3c483cf3b388a6e820fdc11211..f3655d5b5a34209f8839b164eff64936c4ff57a6 100644
+index 9c7ac2c8f5ebe70628cabe8fb41bc17a679a52d7..78e52a1fa352fac0ec75c266c7be6279205a0f55 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -268,21 +268,21 @@ ifndef BUILD_ID
@@ -941,7 +941,7 @@ index e610490f444e2d3c483cf3b388a6e820fdc11211..f3655d5b5a34209f8839b164eff64936
  ifndef BUILD_NUMBER
    # BUILD_NUMBER should be set to the source control value that
 
-commit 108144c526369d1bf330e55876a8a844278c773a
+commit dac7f836e8cbe1158efeb1d9b54ac99982488883
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-05-16 19:44:32-0400
 
@@ -965,7 +965,7 @@ Date:   Sat 2020-05-16 19:44:32-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index f3655d5b5a34209f8839b164eff64936c4ff57a6..7860d42e44d9539e747a66cb74e672b3ba0c5847 100644
+index 78e52a1fa352fac0ec75c266c7be6279205a0f55..2633306865f4cd3972f93d8d3246a369f2bc9101 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
@@ -984,7 +984,7 @@ index f3655d5b5a34209f8839b164eff64936c4ff57a6..7860d42e44d9539e747a66cb74e672b3
  endif
  .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
 
-commit 29b52f4a8bc47bb38ee6d843ef061c5acb83eb93
+commit 49e789e43b2d35b006ba8cc69e96453aa3613fe6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 18:05:27-0400
 
@@ -994,7 +994,7 @@ Date:   Wed 2020-09-16 18:05:27-0400
  1 file changed, 7 insertions(+)
 
 diff --git a/core/Makefile b/core/Makefile
-index 45ad60f41630e50bb3d2ea4d9937bbfc870ec8f7..a6fbc83abfd5d1fdb610f99b76149746884e44e3 100644
+index 3e748eb2dc801e880b04d30660f7d316cc768a72..875f59206c468408202858c96c987cbf366d9b36 100644
 --- a/core/Makefile
 +++ b/core/Makefile
 @@ -4193,20 +4193,27 @@ endif
@@ -1026,7 +1026,7 @@ index 45ad60f41630e50bb3d2ea4d9937bbfc870ec8f7..a6fbc83abfd5d1fdb610f99b76149746
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit a7b7b507dcea160af8835b066d9f186021d37e99 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit e4057edf16109e25394003e85277377f5a76cd3d (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-09-17 10:53:00-0400
 

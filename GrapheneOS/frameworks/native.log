@@ -1,4 +1,4 @@
-commit ef4ad7503374e3051b2512cffae627c88dec7a41
+commit 4bc55b25f9843cbd28ee51066530647e241f0ccd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 16:28:57-0400
 
@@ -36,7 +36,7 @@ index 9d817ae0bd994c8efe162f55cff2111ed9d0cd02..91df16e64a7831100750834b68765926
          mFifoMaxEventCount = 0;
      }
 
-commit b64c0d0cd873da9d7fc42254543457c85b83931e (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 6bb072f998103c958ca2015b530ebc075a0afdd1 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-01-02 20:17:35-0500
 

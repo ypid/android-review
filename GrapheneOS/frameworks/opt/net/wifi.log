@@ -1,4 +1,4 @@
-commit 86b18691381b63f4b1ddb15d9e354969448f04c9
+commit 7a3b50123d7b8d6cb079f5d9a2723a2e7f828b26
 Author: Renlord <me@renlord.com>
 Date:   Sat 2019-12-21 00:33:56+1100
 
@@ -195,7 +195,7 @@ index 3a24f358041b022cc5b5561228883578182d1aaf..7fbc2bca67c1cb7ce9d7465308510c76
                      + " isFilsConnection=" + isFilsConnection);
          }
 diff --git a/service/java/com/android/server/wifi/WifiConfigManager.java b/service/java/com/android/server/wifi/WifiConfigManager.java
-index 83cabf756cc466a2635ca37ee6e7704957c26040..644ece0264c95ff7e0299313cb86d88695ad1923 100644
+index 8fc91cb0983ded666390b2fb66da1efe757d325d..25304cca4783da1117971363225534e592be7597 100644
 --- a/service/java/com/android/server/wifi/WifiConfigManager.java
 +++ b/service/java/com/android/server/wifi/WifiConfigManager.java
 @@ -418,23 +418,28 @@ public class WifiConfigManager {
@@ -253,7 +253,7 @@ index 83cabf756cc466a2635ca37ee6e7704957c26040..644ece0264c95ff7e0299313cb86d886
  
      /**
       * Returns the randomized MAC address that should be used for this WifiConfiguration.
-@@ -1598,21 +1605,21 @@ public class WifiConfigManager {
+@@ -1572,21 +1579,21 @@ public class WifiConfigManager {
  
      /**
       * Check whether a network belong to a known list of networks that may not support randomized
@@ -354,7 +354,7 @@ index 75d53fc95fe4f104299d9d5e3102c3d38bb427f6..4ef2e5f8e6a6cbcb4cfccda669e80511
       *
       * @param numSavedProfiles The number of saved Passpoint profiles
 
-commit 57d97a1e5823b6d6b3dca356c1be983416287114 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 0afa0079a5d26c987d43f5746597f710b36707ff (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:37-0400
 

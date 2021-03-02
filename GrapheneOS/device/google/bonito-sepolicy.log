@@ -1,4 +1,4 @@
-commit f4bb878691d10f1e15408a0b203ac5c60bbff112 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 7aac38d24dfb206d34dca17a30f004b047a34c31 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-04-06 08:41:19-0400
 
@@ -11,10 +11,10 @@ Date:   Mon 2020-04-06 08:41:19-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/vendor/qcom/common/hal_drm_widevine.te b/vendor/qcom/common/hal_drm_widevine.te
-index a5c125e202cd4946f0e7dd1c376065f6c3c8bca4..3f7eb14f2a643d284ef139b52a3f5329d0dbc339 100644
+index b4a3c180d64c218d555cc237597b346ebda91ec2..1baf1258c5b8c9a0847e4b65e82536587d7ad0a8 100644
 --- a/vendor/qcom/common/hal_drm_widevine.te
 +++ b/vendor/qcom/common/hal_drm_widevine.te
-@@ -1,18 +1,18 @@
+@@ -1,19 +1,19 @@
  type hal_drm_widevine, domain;
  type hal_drm_widevine_exec, exec_type, vendor_file_type, file_type;
  
@@ -33,4 +33,5 @@ index a5c125e202cd4946f0e7dd1c376065f6c3c8bca4..3f7eb14f2a643d284ef139b52a3f5329
  allow hal_drm_widevine mediadrm_vendor_data_file:dir create_dir_perms;
  allow hal_drm_widevine mediadrm_vendor_data_file:file create_file_perms;
  allow hal_drm_widevine hal_display_config_hwservice:hwservice_manager find;
+ allow hal_drm_widevine qce_device:chr_file rw_file_perms;
  binder_call(hal_drm_widevine, hal_graphics_composer_default)

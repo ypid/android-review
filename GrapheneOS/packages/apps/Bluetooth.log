@@ -1,4 +1,4 @@
-commit f10bf664e8b69fb3ac9fc0c3434cadf5e246b41a
+commit a4abf7655e7ac7e33b1a0fb5ef5f2f9b34d411c7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 01:00:19-0400
 
@@ -455,7 +455,7 @@ index 90e3fc1e6fa90fcbf728a00d8ccc6ccbd45791ca..d829541a30e0604a6b5151b7285c5c49
       (void*)sdpCreateMapMnsRecordNative},
      {"sdpCreatePbapPceRecordNative", "(Ljava/lang/String;I)I",
 
-commit b89b4889bbea711c1d271b78405248c1d4cbd7e1 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 10d8c7e96f6acaec8a938ac6f94a8ca6f616099e (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Yinchu Chen <chenyc5@motorola.com>
 Date:   Fri 2020-04-03 17:19:11+0800
 

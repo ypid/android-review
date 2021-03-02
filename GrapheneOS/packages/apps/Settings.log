@@ -1,4 +1,4 @@
-commit e80755a76430d4364291bfe9dbf027817480dc9d
+commit 926d59e4a2acb1587a35f9bb4137cb6691b43ce1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -35,41 +35,44 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..12e731f8cba9ab75a699de93c9beceb7
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit db6f7e06f54ab385d89451dd202067773b19b51c
+commit a9a19df237ee9e88e76a814df73898d2ae9b9c2e
 Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-09-09 11:49:44-0400
+Date:   Tue 2021-02-16 02:22:41-0500
 
-    remove irrelevant wallpaper attributions
+    disable showing wallpaper attribution
 ---
- res/xml/about_legal.xml | 7 -------
- 1 file changed, 7 deletions(-)
+ res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/res/xml/about_legal.xml b/res/xml/about_legal.xml
-index d30ceaa280b2cd3b64c8414641c9c2a744d9767d..c291afdd4c785d37ab8bdf6bd1cd4af8c190dcd2 100644
---- a/res/xml/about_legal.xml
-+++ b/res/xml/about_legal.xml
-@@ -47,19 +47,12 @@
-         android:title="@string/module_license_title"
-         android:fragment="com.android.settings.deviceinfo.legal.ModuleLicensesDashboard"
-         settings:controller="com.android.settings.deviceinfo.legal.ModuleLicensesListPreferenceController" />
+diff --git a/res/values/config.xml b/res/values/config.xml
+index 12e731f8cba9ab75a699de93c9beceb72c5de836..4fea4e3fe15cf8f9f2c898e03341350a22f623cd 100755
+--- a/res/values/config.xml
++++ b/res/values/config.xml
+@@ -378,21 +378,21 @@
+     <!-- Whether manage_trust_agents should be shown or not. -->
+     <bool name="config_show_manage_trust_agents">true</bool>
  
-     <!-- System WebView License information -->
-     <Preference
-         android:key="webview_license"
-         android:title="@string/webview_license_title"
-         settings:controller="com.android.settings.deviceinfo.legal.WebViewLicensePreferenceController" />
+     <!-- Whether show_password should be shown or not. -->
+     <bool name="config_show_show_password">true</bool>
  
--    <Preference
--        android:key="wallpaper_attributions"
--        android:title="@string/wallpaper_attributions"
--        android:summary="@string/wallpaper_attributions_values"
--        android:selectable="false"
--        settings:controller="com.android.settings.deviceinfo.legal.WallpaperAttributionsPreferenceController" />
--
- </PreferenceScreen>
+     <!-- Whether trust_agent_click_intent should be shown or not. -->
+     <bool name="config_show_trust_agent_click_intent">true</bool>
+ 
+     <!-- Whether wallpaper attribution should be shown or not. -->
+-    <bool name="config_show_wallpaper_attribution">true</bool>
++    <bool name="config_show_wallpaper_attribution">false</bool>
+ 
+     <!-- Whether assist_and_voice_input should be shown or not. -->
+     <bool name="config_show_assist_and_voice_input">true</bool>
+ 
+     <!-- Whether reset_dashboard should be shown or not. -->
+     <bool name="config_show_reset_dashboard">true</bool>
+ 
+     <!-- Whether system_update_settings should be shown or not. -->
+     <bool name="config_show_system_update_settings">true</bool>
  
 
-commit 6b8864d9ef688b88a1abf0f9af627ed16a3eb19e
+commit bf208edbc1e0b7a503a2de4596fde0c6b0dbfc04
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -79,7 +82,7 @@ Date:   Thu 2016-11-17 07:48:17-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 2e529968613cbc62239ba162cbc36db23be7d47a..ef017c64e60532ad9471b0fbb1ee482dac69794a 100644
+index 8bc30d8c0d6ec830b78ad82f916d181487f45814..051dd1a5500b9cfaa6e135aa1913f9f8c9c74a31 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3712,23 +3712,23 @@
@@ -109,7 +112,7 @@ index 2e529968613cbc62239ba162cbc36db23be7d47a..ef017c64e60532ad9471b0fbb1ee482d
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 263cd4415fa68fa4bd1230d9c1199dc9d3f9d1b0
+commit 6ab21440585e5d485161b2d486fba559f8a94458
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -212,7 +215,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit a0d0d72109ee0f2a79a0525e6a0a2fa8ba13564d
+commit 2cc907d0c15e93c31d421be7f3ee4463131d94ec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -254,7 +257,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 0e225c674456613296c39b21cc9834d15fbd776e
+commit 0b2b93b6aa6fe2647b34bfbc4a8bdc977c93af21
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-20 11:10:32-0400
 
@@ -264,7 +267,7 @@ Date:   Fri 2019-09-20 11:10:32-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index ef017c64e60532ad9471b0fbb1ee482dac69794a..3235e1fad12ff3b6bf9a4cf5894137559a016e6f 100644
+index 051dd1a5500b9cfaa6e135aa1913f9f8c9c74a31..df2a18e5ec2bf893fb79bd22fa157f244cf81bbe 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3062,21 +3062,21 @@
@@ -314,7 +317,7 @@ index ef017c64e60532ad9471b0fbb1ee482dac69794a..3235e1fad12ff3b6bf9a4cf589413755
      <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
      <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
 
-commit 63c63ae745a9cafe26acfc32d2b412587256b7ec
+commit b31f845c2e0a1082b8ea911a11dd25fb9c78bb79
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -324,7 +327,7 @@ Date:   Tue 2019-10-08 08:11:55-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index 12e731f8cba9ab75a699de93c9beceb72c5de836..3be65bb65caeff9f5bea3358683c598fc3f295eb 100755
+index 4fea4e3fe15cf8f9f2c898e03341350a22f623cd..a9dac5256af7b26c60c5560eca50a442ec561ea0 100755
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
 @@ -177,21 +177,21 @@
@@ -351,7 +354,7 @@ index 12e731f8cba9ab75a699de93c9beceb72c5de836..3be65bb65caeff9f5bea3358683c598f
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 844f90cf3deb8766653c6dd92a9468ca17c68d76
+commit 0c79f442596dc470370245c0cdee219a414a2643
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -389,7 +392,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 446083f004d2fd1826ec1a671428429d63fdbb72
+commit 41d19ac8816f80cf6e256be1c175ebda488c4502
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -534,10 +537,10 @@ index 1ad3cc31036ee8829539f7f7a98c5387c765f442..79833773619d80b90b56afe73b2e2a84
          <item>LTE/TDSCDMA/GSM/WCDMA</item>
          <item>TDSCDMA/CDMA/EVDO/GSM/WCDMA </item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 3235e1fad12ff3b6bf9a4cf5894137559a016e6f..235fd1925d3efa69091a262fe462a3f09349283c 100644
+index df2a18e5ec2bf893fb79bd22fa157f244cf81bbe..4f015c0ba4f1ed1da3a856f7500e501d8d2376b6 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -11526,20 +11526,22 @@
+@@ -11539,20 +11539,22 @@
      <!-- CDMA / EvDo [CHAR LIMIT=NONE] -->
      <string name="preferred_network_mode_cdma_evdo_summary">Preferred network mode: CDMA / EvDo</string>
      <!-- CDMA only [CHAR LIMIT=NONE] -->
@@ -560,7 +563,7 @@ index 3235e1fad12ff3b6bf9a4cf5894137559a016e6f..235fd1925d3efa69091a262fe462a3f0
      <string name="preferred_network_mode_global_summary">Preferred network mode: Global</string>
      <!-- LTE / WCDMA [CHAR LIMIT=NONE] -->
      <string name="preferred_network_mode_lte_wcdma_summary">Preferred network mode: LTE / WCDMA</string>
-@@ -11593,22 +11595,26 @@
+@@ -11606,22 +11608,26 @@
      <!-- Text for Network mode recommended [CHAR LIMIT=NONE] -->
      <string name="network_recommended">\u0020(recommended)</string>
      <!-- Text for Network 5g [CHAR LIMIT=NONE] -->
@@ -862,14 +865,11 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit 9070c465ce05ce548687e22f395a3842cdea2856
+commit e43d9849e8bb100fa2022cf4393268b9cd7143b9
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
     implement pin scrambling user-facing option
-    
-    Ported from 10:
-    https://github.com/GrapheneOS/platform_packages_apps_Settings/commit/78e42815f1d6e4794393efbc0fad3899293cd647
 ---
  res/values/arrays.xml                              | 10 +++
  res/values/strings.xml                             |  3 +
@@ -914,13 +914,10 @@ index 79833773619d80b90b56afe73b2e2a840d05755e..25135364abf460be8381f3c052501929
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 235fd1925d3efa69091a262fe462a3f09349283c..e8bc67801fb976906598367308591dca8a8779cf 100644
+index 4f015c0ba4f1ed1da3a856f7500e501d8d2376b6..4c440ff52c8f9e108dee79eacdf997ca8f8a980b 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12179,11 +12179,14 @@
-     <string name="media_controls_hide_player">Hide player</string>
-     <!-- Subtext for media settings when the player will be shown [CHAR LIMIT=50] -->
-     <string name="media_controls_show_player">Show player</string>
+@@ -12195,11 +12195,14 @@
      <!-- Subtext for media settings when no players can be shown [CHAR LIMIT=50] -->
      <string name="media_controls_no_players">No players available</string>
      <!-- Keywords for the media controls setting [CHAR LIMIT=NONE]-->
@@ -928,6 +925,9 @@ index 235fd1925d3efa69091a262fe462a3f09349283c..e8bc67801fb976906598367308591dca
  
      <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
      <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
+ 
+     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
+     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
 +
 +    <string name="scramble_pin_title">PIN scrambling</string>
 +    <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1100,7 +1100,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 3e2dd02bf65d9192366340483287401312de570f
+commit 5df2bc74207a1fe10be4eba1dabdf4054f036601
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-03-05 14:24:42+1100
 
@@ -1150,7 +1150,7 @@ index 144cf2f15c46e67e6b0ae2300bd2cfe4ec7c05f1..f4a7ddf8f8ca6e71e09ce6c024a17277
      }
  }
 
-commit c6574b2534dd28f58f95001f61c926ae94f95cb5
+commit be778ee7cce0045b67aa4fcc2b94364a46c0e53c
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1210,17 +1210,17 @@ index 25135364abf460be8381f3c0525019297add8fc7..bfbce8974d982d8e2aed6d9906b3547e
      </string-array>
  
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index e8bc67801fb976906598367308591dca8a8779cf..3ba2a174352b9c960b19a83940c37ff0f96e139d 100644
+index 4c440ff52c8f9e108dee79eacdf997ca8f8a980b..8646283a2da5ed9c78bd632c49acf20cfd9e3e4e 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12182,11 +12182,13 @@
-     <!-- Subtext for media settings when no players can be shown [CHAR LIMIT=50] -->
-     <string name="media_controls_no_players">No players available</string>
-     <!-- Keywords for the media controls setting [CHAR LIMIT=NONE]-->
+@@ -12198,11 +12198,13 @@
      <string name="keywords_media_controls">media</string>
  
      <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
      <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
+ 
+     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
+     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1428,7 +1428,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 80f17629fead6169aba03515eccfd625a6b2c654
+commit 43a5282bce7d1cf5184bf73ef888b8b25a1b0c2e
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1636,10 +1636,10 @@ index 7ef950f0a02dfac07a59c3d268abb7909e21e1a3..7b63679be376b1efaff860c749a6c348
      }
  
 diff --git a/src/com/android/settings/wifi/details2/WifiPrivacyPreferenceController2.java b/src/com/android/settings/wifi/details2/WifiPrivacyPreferenceController2.java
-index a0d4b16d57af76bb33a46f1d4204771f432f2656..1bc6b351d79c01a28625f4a6ae7c21453e966d4d 100644
+index d6e1b6054d3bbad4ff7f07018d6986a49a2d7d38..ab51c59e1a6f0b6a03458b289e8737a662c1c100 100644
 --- a/src/com/android/settings/wifi/details2/WifiPrivacyPreferenceController2.java
 +++ b/src/com/android/settings/wifi/details2/WifiPrivacyPreferenceController2.java
-@@ -92,43 +92,60 @@ public class WifiPrivacyPreferenceController2 extends BasePreferenceController i
+@@ -93,43 +93,60 @@ public class WifiPrivacyPreferenceController2 extends BasePreferenceController i
          }
          updateSummary((DropDownPreference) preference, privacy);
          return true;
@@ -1706,7 +1706,7 @@ index a0d4b16d57af76bb33a46f1d4204771f432f2656..1bc6b351d79c01a28625f4a6ae7c2145
  
      @Override
      public void onSubmit(WifiDialog2 dialog) {
-@@ -144,15 +161,17 @@ public class WifiPrivacyPreferenceController2 extends BasePreferenceController i
+@@ -145,15 +162,17 @@ public class WifiPrivacyPreferenceController2 extends BasePreferenceController i
              }
          }
      }
@@ -1725,7 +1725,7 @@ index a0d4b16d57af76bb33a46f1d4204771f432f2656..1bc6b351d79c01a28625f4a6ae7c2145
      }
  }
 
-commit 2c557861cb08eb6813e24164475b3595840c6d4e
+commit 833a7890e3941a59d87a6eeba71e5d9c7819d6ca
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -1743,15 +1743,15 @@ Date:   Tue 2020-09-15 22:40:56-0700
  4 files changed, 106 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 3ba2a174352b9c960b19a83940c37ff0f96e139d..1f9a73dbb154b903bafb327bc7ef7d204e01b4ee 100644
+index 8646283a2da5ed9c78bd632c49acf20cfd9e3e4e..f65b43615ef00ddf79e4e1a408f432eee81437d2 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12184,11 +12184,13 @@
-     <!-- Keywords for the media controls setting [CHAR LIMIT=NONE]-->
-     <string name="keywords_media_controls">media</string>
- 
+@@ -12200,11 +12200,13 @@
      <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
      <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
+ 
+     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
+     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1921,7 +1921,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 8799f40747c2a1e447ff5aeaace05d16c368d9a9
+commit f5991609d31cc67b74f545c7f0b5a4d4335efc13
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -2160,7 +2160,7 @@ index 1a73dd637e58441be47ecc10c629ecc9857de87b..370387554f475f4957a1ccc186086dff
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Deaktiv"</item>
 diff --git a/res/values-b+sr+Latn/arrays.xml b/res/values-b+sr+Latn/arrays.xml
-index 65beb054b1bdeb91778888883b9e754630da14f0..17aa400cead7cabc3101f266727d4b8308a340fa 100644
+index c58829c465e344f0dcbaee92c216b02457fcf4ec..d072a0cbea682be345649131ce9b7fd04fe37637 100644
 --- a/res/values-b+sr+Latn/arrays.xml
 +++ b/res/values-b+sr+Latn/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2276,7 +2276,7 @@ index 8b5aaa17c69d1b896e77fd1edf8accc1668e8165..5ec3f390df8646bb1aad08b047f17bd5
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"বন্ধ"</item>
 diff --git a/res/values-bs/arrays.xml b/res/values-bs/arrays.xml
-index 154723bf374239c0e16b5bc55025eb787e7b05ab..ede8e78d7cfa459bb524972cfd311a152b10ced3 100644
+index 5c4611686daf9dc20fa4395cbcdc63a54840623d..bc5fe49f56501fa4a067ba0f06397828ce1e9fb9 100644
 --- a/res/values-bs/arrays.xml
 +++ b/res/values-bs/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2305,7 +2305,7 @@ index 154723bf374239c0e16b5bc55025eb787e7b05ab..ede8e78d7cfa459bb524972cfd311a15
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Isključeno"</item>
 diff --git a/res/values-ca/arrays.xml b/res/values-ca/arrays.xml
-index 5e1bce9465820c245945a0806b96803aeee05c5a..0abd0b76ca64a25545aac19a3b4b5e4cb1c81cce 100644
+index 30fa788c9bde45cfefc1bae180f65c8803e844fd..aaf9df2524126752465f5e2c226c48f3447afe0f 100644
 --- a/res/values-ca/arrays.xml
 +++ b/res/values-ca/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2334,7 +2334,7 @@ index 5e1bce9465820c245945a0806b96803aeee05c5a..0abd0b76ca64a25545aac19a3b4b5e4c
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Desactivat"</item>
 diff --git a/res/values-cs/arrays.xml b/res/values-cs/arrays.xml
-index a28e701229cad3a260cd4723586637a160cf8ecb..a8f2faeef599813834e1df6d393a6c83a956c580 100644
+index 179cd3bf9b6791278bf0ad01ceaedbae283cbe9e..c241bd3fb9af52addd0718d9a312887f090e8818 100644
 --- a/res/values-cs/arrays.xml
 +++ b/res/values-cs/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2711,7 +2711,7 @@ index 7bbff21415dd5d89f960dfbc60f33ce8621a3ab0..c63515f350af81ad020fefbcced5fa15
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Desaktibatuta"</item>
 diff --git a/res/values-fa/arrays.xml b/res/values-fa/arrays.xml
-index bc7c51d65b136ffbb54271d05e40442fc47b8fe2..3c497c0ad86be26dd036f831398e19a253f3affc 100644
+index 9f010de3eeccec625faf55fdfbc502ed8c5666e0..67d2a51ba6abf8d36ccb827d08cf14b2b28377f6 100644
 --- a/res/values-fa/arrays.xml
 +++ b/res/values-fa/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2856,7 +2856,7 @@ index 7aa91b820596384832e660d2513e06588fc04483..9c6e76bdc170969bf691ba53432ef9bb
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Desactivado"</item>
 diff --git a/res/values-gu/arrays.xml b/res/values-gu/arrays.xml
-index f019fd546ed9bd4b0edf22c4a62f169e72c9b82f..33fe787bb76491d0c1d1d058a9c6f1ec40e86e6f 100644
+index 4c86afb43d0972dc052b1edb4328343bdfa64cfb..63c66d6dd7b07f04e074e13b72cb6090d74779cf 100644
 --- a/res/values-gu/arrays.xml
 +++ b/res/values-gu/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3175,7 +3175,7 @@ index 077403f35f3c39663cd4d324076cf485a78855c9..0decbcd3b39b834c39cee8ab358ea244
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"გამორთვა"</item>
 diff --git a/res/values-kk/arrays.xml b/res/values-kk/arrays.xml
-index 4c744df47c0f096d9259d61839dcc81da7d96516..4365e3ff6a0babb3ef7fa571dafec458f07a5705 100644
+index a69562f1b992db756b5dec02e83fbabd165d9485..69144b7ae09c5e8e362a7d9e3ec4ebb8702be392 100644
 --- a/res/values-kk/arrays.xml
 +++ b/res/values-kk/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3465,7 +3465,7 @@ index 2edb09ed8e6aecb85ccedc2e12ff21d72f7135fa..0623933ea0d90afbf9a9724b3e683874
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"ഓഫ്"</item>
 diff --git a/res/values-mn/arrays.xml b/res/values-mn/arrays.xml
-index 33349a5ad67aac8b9ea84c0e7429a61e43523f33..01e63229d7c928562f63b8de808c5cffee828ab1 100644
+index 0c9940e6af136f3fb418d69881d9d97835e7cbb5..b0f8077c35b44a0d78e119e21a80b40ba3c14da9 100644
 --- a/res/values-mn/arrays.xml
 +++ b/res/values-mn/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3610,7 +3610,7 @@ index 951578c2c0736b1f5dbc6d7fccc31cb6cdcae130..8ce027dae417c3a72802c57b3adce289
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Av"</item>
 diff --git a/res/values-ne/arrays.xml b/res/values-ne/arrays.xml
-index 51516453b4b572480c2c011a6e49192efdb38069..5bcbb1179351fcf9357b94a3fab94b8bfc5d7ecf 100644
+index e891c0fbb4a1ffbaf95c8568b82a4b06574338bf..8348ba1a8a13e4a0d378835a61b6b1e2a5d212e7 100644
 --- a/res/values-ne/arrays.xml
 +++ b/res/values-ne/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4016,7 +4016,7 @@ index 305b0721a5c7a8633b1b14244da659e65276789a..fb593d99db9fb00da14e670b2b1a4f94
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Joaktiv"</item>
 diff --git a/res/values-sr/arrays.xml b/res/values-sr/arrays.xml
-index 97ed70752310206502a4eeb03f43d5ebed028ba4..e11164768ffc338c8ff51880e68df2e9a73e45ae 100644
+index 5a3c3407d9e313fcdaba788f27d24eb1068f7384..5f40eba5e9140235d3a1f93fc2d1f16b9134a4f7 100644
 --- a/res/values-sr/arrays.xml
 +++ b/res/values-sr/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4132,7 +4132,7 @@ index 737d835e6f1c925aedf1e4a487133cab50d4e816..a9da4b013b5b5ae4994c887c11cd1b9d
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"ஆஃப்"</item>
 diff --git a/res/values-te/arrays.xml b/res/values-te/arrays.xml
-index 68d5427461290f60356468644b007e056e85eec6..2eb48c948ab559f3943d802b634d8be97af10e1d 100644
+index a9a21fc6890f832a0e6234e1b269da507c92abb2..340cf6ae4863128c794ee076d6c50ef6ff6f5b46 100644
 --- a/res/values-te/arrays.xml
 +++ b/res/values-te/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4161,7 +4161,7 @@ index 68d5427461290f60356468644b007e056e85eec6..2eb48c948ab559f3943d802b634d8be9
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"ఆఫ్"</item>
 diff --git a/res/values-th/arrays.xml b/res/values-th/arrays.xml
-index e7549a66cd84ec4c242b0594293a0ec4624a56c1..15c5129c26c475c95391b85866e5a5cce838202a 100644
+index d035f21ffeccdbc90bb1fc5378de304b35648496..9167a9c78a52423c646a57ee9b7581d71da7e2d1 100644
 --- a/res/values-th/arrays.xml
 +++ b/res/values-th/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4172,7 +4172,7 @@ index e7549a66cd84ec4c242b0594293a0ec4624a56c1..15c5129c26c475c95391b85866e5a5cc
    </string-array>
    <string-array name="wifi_metered_entries">
      <item msgid="3237321077949659241">"ตรวจหาโดยอัตโนมัติ"</item>
-     <item msgid="3779092145391320375">"ถือว่ามีการวัดปริมาณอินเทอร์เน็ต"</item>
+     <item msgid="3779092145391320375">"ถือว่ามีการจำกัดปริมาณอินเทอร์เน็ต"</item>
      <item msgid="2047166446768045816">"ถือว่าไม่มีการวัดปริมาณอินเทอร์เน็ต"</item>
    </string-array>
 -  <string-array name="wifi_privacy_entries">
@@ -4248,7 +4248,7 @@ index e193a59ed7f269ed5c165f013ddaea0a2086dd85..062c1c652b7c65530101dfb75088c261
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Kapalı"</item>
 diff --git a/res/values-uk/arrays.xml b/res/values-uk/arrays.xml
-index ae6d1cf96887cdf4433c7719039203e666b57a4d..0a0aebaadd521cdc0724ac47334e4f8b8f3a9714 100644
+index 04f31d6940299f9c6c89422bd19968d75fd7b884..6be0cbc325fe49322a23ac04fac319a3076243f0 100644
 --- a/res/values-uk/arrays.xml
 +++ b/res/values-uk/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4306,7 +4306,7 @@ index cee2d5199941796f2799117d6e3cd335429e2eb8..6e5eaea6adcceb0428971f0c57d8bab0
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"آف"</item>
 diff --git a/res/values-uz/arrays.xml b/res/values-uz/arrays.xml
-index 7b0af9436dfc551ecb35f6f810dbf166a5d67641..bb7c361f3d3b951813d833d7edde31783a0d2549 100644
+index 98322c6fde473703ceb5bf97fc232800c3091006..57cb98256270df537c82f85460098a0b2f03d6f7 100644
 --- a/res/values-uz/arrays.xml
 +++ b/res/values-uz/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4321,8 +4321,8 @@ index 7b0af9436dfc551ecb35f6f810dbf166a5d67641..bb7c361f3d3b951813d833d7edde3178
      <item msgid="2047166446768045816">"Bu – bepul tarmoq"</item>
    </string-array>
 -  <string-array name="wifi_privacy_entries">
--    <item msgid="3485945604919292489">"Ixtiyoriy MAC manzil (standart)"</item>
--    <item msgid="741680937828608749">"Ixtiyoriy MAC manzil"</item>
+-    <item msgid="3485945604919292489">"Tasodifiy MAC manzil (standart)"</item>
+-    <item msgid="741680937828608749">"Qurilmaning MAC manzili"</item>
 -  </string-array>
    <string-array name="wifi_hidden_entries">
      <item msgid="342232116597649254">"Yo‘q"</item>
@@ -4480,7 +4480,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit 3b3eb8eab328bbe28970d95fb25d458abcc590e9
+commit 1d404e483359e2d159c6ba0592b5099c72890e17
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -4612,7 +4612,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit 3bb6ad831e3a1557e75a6f397cec12d9199520be
+commit 75fb871c4842d2f365e5b385a01cbfc462888137
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -4667,7 +4667,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit cdbaf898c80756a713afa25767113c6b5d1d3dcc
+commit 003d05f6e4f0e94eecd82afc423bb0f2a87095a2
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-10-01 00:29:44-0700
 
@@ -4978,7 +4978,7 @@ index f1ebaeebba9f9cc5641aed411054501d0e07feb0..29111b89ec26c62eb9de18408439d07b
              } else {
                  mEntries.add(mContext.getString(R.string.network_lte));
 
-commit 60f5d133ce0dcaccf31257cd1503082fbf8cb3ec (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 785344060a4c645a781d77b82bda52e5a692e476 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 
@@ -5037,17 +5037,17 @@ index 7b5a71561decd667e22aa723192e6917aa2dd075..34825937a0ed61f76d13a2050d015be7
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 1f9a73dbb154b903bafb327bc7ef7d204e01b4ee..07b882f5856ca6e7de00f7248da4a91fbbf63d21 100644
+index f65b43615ef00ddf79e4e1a408f432eee81437d2..f03a847ecb0180d04bac26db386538a8e6ba2075 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12182,15 +12182,17 @@
-     <!-- Subtext for media settings when no players can be shown [CHAR LIMIT=50] -->
-     <string name="media_controls_no_players">No players available</string>
-     <!-- Keywords for the media controls setting [CHAR LIMIT=NONE]-->
+@@ -12198,15 +12198,17 @@
      <string name="keywords_media_controls">media</string>
  
      <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
      <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
+ 
+     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
+     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>

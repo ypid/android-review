@@ -1,4 +1,4 @@
-commit 6df0814bd10843a4305ec652fc4a11338f900274
+commit e3fe2c23bfa9613e94cb8c21b3570fcc89632e39
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2015-02-05 21:53:16-0500
 
@@ -140,7 +140,7 @@ index 878f71cec695b2fd26b1e30d4fadc907b94115e7..79a2604259c2f4bbd49d77994f61d6c6
  
  /* Use appropriate shell depending on process's executable. */
 
-commit a9d4f262bdf4f94fba0c608e218a30f0e4c167e8
+commit 8700625e088c2254edf2eb8dfcf9a464b80f2f0d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-12-05 01:51:56-0500
 
@@ -342,7 +342,7 @@ index 4afcc4a8d5f3ceb1df0e0126de0a976c6cbb8f53..cca9e52021fe88bd5ba19e707999fc56
    return atomic_load_explicit(&__libc_globals->current_dispatch_table, memory_order_acquire);
  }
 
-commit 6f52d20a2b204263f9410b5a0d52ff29f9939a91
+commit 4679e50b3823cfe0b43a3a8cc314bfa54bfe307f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-02-08 01:18:54-0500
 
@@ -427,7 +427,7 @@ index 566c33a7a6d3fc6d0b9331ee450946bbc5d5bb28..ef93055139b1a1bbf75ae12b7ee877df
 +  return reinterpret_cast<void*>(-1);
  }
 
-commit bba9df84feb3508f69437a16ff1d433a008e5426
+commit 554cadf72964cffb238346ac751b55cee20ef7b6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-06-27 19:27:12-0400
 
@@ -470,7 +470,7 @@ index 1f055f59e2b9c5c1e488e9dc5192f81bede8a848..d58725baf17bd3c55da50bd081200ba3
      get_cached_pid(&old_value);
      set_cached_pid(0);
 
-commit cce142df39e6705ee420f9bdd81822c356801f30
+commit d5f785f0a343fa87a20ca51802dab7f3e8abfaea
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-03-04 04:26:04-0500
 
@@ -542,7 +542,7 @@ index 9c93e713b71f58c899152c468b2017de86972e2a..9b4085267509366cd1448f98ee77ab4e
    return 0;
  }
 
-commit cc09b082db0d100b28d4c27848636aa7913fff79
+commit 3392fd1aca7375a36808471acc5021dbb5f675d5
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2020-09-17 04:01:15+0000
 
@@ -582,7 +582,7 @@ index 9b4085267509366cd1448f98ee77ab4e07b18c72..c9438ad2b3eedb26db12bef0ada2f551
    return 0;
  }
 
-commit 7554859e616ead994587f80456fae379b07db117
+commit 2825ab698bfcbf1efbe2ca93eb96b1e3481e80fe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2016-09-19 07:57:43-0400
 
@@ -624,7 +624,7 @@ index 3260231cf0a32361a08df81e883cfb16550e5334..00c2a4a45257acc99b1acb2bdd74c407
  #define CPU_ISSET(cpu, set)    CPU_ISSET_S(cpu, sizeof(cpu_set_t), set)
  #define CPU_COUNT(set)         CPU_COUNT_S(sizeof(cpu_set_t), set)
 
-commit ac944e404219129647dd16ddc3956d1ddea44bbf
+commit c242155b013aa96ec0b5c3114604ea8f917cc9a0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-11-19 09:56:14-0500
 
@@ -688,7 +688,7 @@ index 9aad0b3156096da250e490279f642ae28e9afa28..6bf0ecfd16378207c58b971f6b28f213
    return mmap64(addr, size, prot, flags, fd, static_cast<off64_t>(offset));
  }
 
-commit cf7795cdee9e111a0e14e99ca85d6c82b94bcdae
+commit 0ce668a9efe9e899fe61c815f7da5f56ef9a0b26
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-07-16 23:55:16-0400
 
@@ -758,7 +758,7 @@ index fd97712982204cd680b9190bbfa28a53331cfc69..acd9b76814f046df3a12ec78ffe0105d
    if (trace_marker_fd == -1) {
      return;
 
-commit a22d31a6bf4267407c8651b759e78c37c769ea2b
+commit dd9295f6c889d2c85eaf82941f32c861ea3d0973
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-07-17 21:32:05-0400
 
@@ -798,7 +798,7 @@ index d58725baf17bd3c55da50bd081200ba3ba70b952..a108f5cc0d328a03330d93167574905f
  __LIBC_HIDDEN__ extern void __bionic_atfork_run_child();
  __LIBC_HIDDEN__ extern void __bionic_atfork_run_parent();
 
-commit 6c6196a8b9dabdad6ab02f4ddb07e516d70e7ea3
+commit c28cb1b4cc4246fe20ca1438a0a25a546881ce25
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-01 05:11:44-0400
 
@@ -887,7 +887,7 @@ index 56a8488888c4b37892d6dee18da02306f0d9a167..7c8256cd67895e69e849b431cd978845
  // static TLS memory.
  __BIONIC_WEAK_FOR_NATIVE_BRIDGE
 
-commit f24322a661c0babab40d787ca9b669ae3c2654aa
+commit 7d5f372f115942ea32e9468298a71ca766549e81
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-03-12 17:49:13-0400
 
@@ -959,7 +959,7 @@ index 7c8256cd67895e69e849b431cd9788451d414afc..554477674a2d201b98b751c01f96c1bd
  }
  
 
-commit 858ae11fdce79b5301f040c2521d1bb10261b18e
+commit 3ad9675b7d4ceccca326c48598d909d48090c885
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2015-12-02 23:37:28-0500
 
@@ -1094,7 +1094,7 @@ index 0dcabdfb2de0584d98321237aab2f19a3e982da9..6306052ee3b95cb11c53aa93a1f968d5
    pthread_mutex_lock(&g_atfork_list_mutex);
    g_atfork_list.remove_if([&](const atfork_t* entry) {
 
-commit b2619f88039845856c6c4772732914eaf5e8cd32
+commit 3feb2f76be9dd7f3df0c8f0c199ac71eb7bde843
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2015-12-03 12:58:31-0500
 
@@ -1217,7 +1217,7 @@ index 6306052ee3b95cb11c53aa93a1f968d5f2afc4d3..d59f3ae54bc39930a304b6790da87459
    pthread_mutex_unlock(&g_atfork_list_mutex);
  }
 
-commit 89c5ef0de14a5f3f32b8b9f5caeff0092f7bda68
+commit 273174d3b15ec3b445aefa5b396dab94aedafc14
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-01-27 18:02:15-0500
 
@@ -1373,7 +1373,7 @@ index 6e7eb76e405e9f8a1bee8cab34f63051635707f8..1b75ca0ee68464659e438990a43f4db5
    // cannot be modified after that. If the pointer changes in the future,
    // the old pointer must always stay valid.
 
-commit 1086016d8a1866df36b8a679fd2c608cb123bdf6
+commit 53154980a5c07123cb05aa8386b2d2247667fbe7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-01-29 20:20:09-0500
 
@@ -1414,7 +1414,7 @@ index 3c4b169eedf031331e6d0af4cead84dc13cb7d3f..a27201706e5367d9b9969977770f6a0b
    } else if (flag == PTHREAD_INHERIT_SCHED) {
      attr->flags |= PTHREAD_ATTR_FLAG_INHERIT;
 
-commit f38cf9145fe8af68a844f74758bb1e91f421d053
+commit fb7ecd04fa969a5349be9e234d88d26c27a8e2a3
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-09-12 14:51:51+1000
 
@@ -1511,7 +1511,7 @@ index d4a8bef2699ece1a6957d6cda8b7f53bd3ffd8af..eac53cac855444791a7858a1080498fb
    if (attr->stack_base == nullptr) {
      // The caller didn't provide a stack, so allocate one.
 
-commit 4415fb9d1bd867e50e35583cb546a34eb8db0411
+commit 565cd93c91ce5b878896baa4aba22f3e99e73064
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-10-10 22:52:49-0400
 
@@ -1613,7 +1613,7 @@ index eac53cac855444791a7858a1080498fb37908419..336e69b597b523459dc75016f9c19184
    auto tcb = reinterpret_cast<bionic_tcb*>(mapping.static_tls + layout.offset_bionic_tcb());
    auto tls = reinterpret_cast<bionic_tls*>(mapping.static_tls + layout.offset_bionic_tls());
 
-commit e24f30ee7c08751b5e4fce92771321a36b6d8086 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 94a5be58b370fe339e8d3fade58c67becf84829e (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-10-20 08:17:11+1100
 

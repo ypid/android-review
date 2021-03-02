@@ -574,7 +574,7 @@ index dd93825afd528328e419ff8c7c5876db73f24e44..e1b04f931b8852d232b7a897802e7866
      <uses-permission android:name="android.permission.VIBRATE" />
      <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-commit 08795bde64b9ff227f8f8f955d6cf01ab455e317 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 08795bde64b9ff227f8f8f955d6cf01ab455e317 (tag: RQ1A.210205.004.2021.02.02.09)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-01-13 08:33:40-0500
 
@@ -609,3 +609,43 @@ index 789b19fde201bfbf51125e68ad902f2a4d26d976..3dd2458ccb8b5c9bc90071a76cb18f09
  import java.util.List;
  
  /**
+
+commit f17b84a366edc23fb40b77e4ad2850fa8d7acfee (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-02-21 07:57:38-0500
+
+    set flash mode to off by default
+    
+    Camera flash causes a substantial delay and substantially lower image
+    quality so it generally isn't desirable.
+---
+ res/values/strings.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 923a068c4628a9431b26a73b845a8212c3bbbb16..87a6cc74d2cd4e0f19b18e1b1c375bbbc676d099 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -264,21 +264,21 @@
+ 
+     <!-- HDR support mode setting. -->
+     <string name="pref_camera_hdr_supportmode_none" translatable="false">no_hdr</string>
+     <string name="pref_camera_hdr_supportmode_hdr" translatable="false">hdr</string>
+     <string name="pref_camera_hdr_supportmode_hdr_plus" translatable="false">hdr_plus</string>
+ 
+     <!-- Default focus mode setting -->
+     <string name="pref_camera_focusmode_default" translatable="false">continuous-picture</string>
+ 
+     <!-- Default flash mode setting. -->
+-    <string name="pref_camera_flashmode_default" translatable="false">auto</string>
++    <string name="pref_camera_flashmode_default" translatable="false">off</string>
+ 
+     <!-- Default videocamera flash mode setting. -->
+     <string name="pref_camera_video_flashmode_default" translatable="false">off</string>
+ 
+     <!-- Default HDR+ flash mode setting. -->
+     <string name="pref_camera_hdr_plus_flashmode_default" translatable="false">off</string>
+ 
+     <!-- Value for flash off setting -->
+     <string name="pref_camera_flashmode_no_flash" translatable="false">no_flash</string>
+ 

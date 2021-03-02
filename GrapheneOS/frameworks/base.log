@@ -1,4 +1,4 @@
-commit ad0894c2afda654812cdcae494f8bcfc92e4537c
+commit 4d39042babaed5e4a23c27207be072410a155d6c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -35,7 +35,7 @@ index 550601af0faa17e2a34d5a8b9d33c68cb2827aee..b10096f3aed5df48181107b1d9230616
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit fa7109bda0fb2d2f5d680b894a7b045ee9fdf79c
+commit 44949e5a2e8dcef0f79fa1bd1c66cb8774488b95
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit e1991afc85ce78d870506c8f54583b53b21126ec
+commit b16686f1848a40ff2db1ca22dd28a3537263dab5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -163,7 +163,7 @@ index b10096f3aed5df48181107b1d92306167c2d9767..32a39f4a8b10f4d228580d526964f7a1
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit 0d6bded99aa4c174f81497e48772341785763d26
+commit 64ed0e74c2f101f58231204cef0a977a202ec5d8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -200,7 +200,7 @@ index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit fbb7c76596c960f199026c64af7307a3992b21e8
+commit 941d565fecb97dc084407a6d8acdc9abae818044
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -237,7 +237,7 @@ index fbe04fd20afe04baf81220978a30b563d8280a39..c6334e6105079dca46752ce3b2c24135
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 7239a0327bfe5cee9cd6d14870254c9162aeac1b
+commit 6aee3eedfb56c553590757e8d1956812287797b8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -274,7 +274,7 @@ index c6334e6105079dca46752ce3b2c24135f78a98f8..d46890a4d50842b5b65a8a08d68f2c6a
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit a9893224ce739f805a554a0991dc905fa39dba2e
+commit 2d52b6e99112da055dd3b15d447349a470016f3b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -311,7 +311,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 3f262733c84a964e8f075a717fd6ff2d3ecc0690
+commit 0a5c44868931f1134d612605341572272a3f1afa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -321,7 +321,7 @@ Date:   Thu 2017-06-29 10:16:52-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/java/android/app/admin/DevicePolicyManager.java b/core/java/android/app/admin/DevicePolicyManager.java
-index 322cac81d58b3b5739b5ac616ef05983b082735a..ac5a12a6458703f6f716894ea920633a05f93175 100644
+index e2e8049c2980ffdf95099d0e0d7de2f5297636b8..9f6ac309e44d2913733fd65a35b9a99b910313d1 100644
 --- a/core/java/android/app/admin/DevicePolicyManager.java
 +++ b/core/java/android/app/admin/DevicePolicyManager.java
 @@ -2385,21 +2385,21 @@ public class DevicePolicyManager {
@@ -348,7 +348,7 @@ index 322cac81d58b3b5739b5ac616ef05983b082735a..ac5a12a6458703f6f716894ea920633a
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit e2708b99e678aaf926bb66c69f2be7df63898af2
+commit b0d36778a178c264dd9f5801df10b4ed2635e7b2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -385,7 +385,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 79d26df403ed13497f3909d594ae573e30695808
+commit 153b266bcfda2c3601f78ff7e5e5fae6234d2dfb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -425,7 +425,7 @@ index d46890a4d50842b5b65a8a08d68f2c6a99f29a7a..bb6fa143f13b73ae75c0b9453846f985
  
      <!-- The default character set for GsmAlphabet -->
 
-commit 9c9e374774bf598a0570e35ff2215487b00440f1
+commit 29df154d331bd6b8382ebb1c9ad8c9a9909f867d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -465,7 +465,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit be550cba5b4a04a5870ad2cd7f08be041c56d1fb
+commit 194b30625f9d3c52a526a6e9c92a5b1b9a82c4be
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -478,10 +478,10 @@ Date:   Mon 2018-04-02 10:37:46-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/packages/SettingsLib/res/values/strings.xml b/packages/SettingsLib/res/values/strings.xml
-index 03161d0513429e5d38237d094c1e779fdc692c64..2f365c08a9c6cf74d6b9a6356fe20b72c0d62444 100644
+index a5501368945f56fc6636b01feb676fdbdc9fd88c..63a784b354dd1e7e238d2b1b370b3d274c01c0fe 100644
 --- a/packages/SettingsLib/res/values/strings.xml
 +++ b/packages/SettingsLib/res/values/strings.xml
-@@ -1141,23 +1141,23 @@
+@@ -1143,23 +1143,23 @@
  
      <!-- Label for length of time since the battery graph started [CHAR LIMIT=20] -->
      <string name="charge_length_format"><xliff:g name="time" example="3 hours">%1$s</xliff:g> ago</string>
@@ -508,7 +508,7 @@ index 03161d0513429e5d38237d094c1e779fdc692c64..2f365c08a9c6cf74d6b9a6356fe20b72
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 8e1c817db57341c91d60b15ba1852df0db38e103
+commit 696dd6739fe81cc5d0438b63ff581dd8a2259d6b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -551,7 +551,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit 5ca8d66fd722d0187a7d419e81961d9349e562d7
+commit b6542a6e0d14cd52b03f44de44efe1852b569f55
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -588,7 +588,7 @@ index 5e5df6bfd98807b2b3f334abe5197dff2dca21b6..af62ff68184da211487fec6f81210b5a
      </string>
  
 
-commit 5d999857dd39a71ce285694c09792cec9e990168
+commit f9d8c00e5585f531d33458c19f597ce63f813af0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -625,7 +625,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit f32983af7f65feee8bffac2c4c035afb386e0cf8
+commit a1e53ad817b2e62e282d106a946994790ab9d45d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -682,7 +682,7 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit 86fb097d41b026e77cbddf5342f927ad1901a6fb
+commit e537418529b36923710d01c0220248d90d4cbf31
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
@@ -986,10 +986,10 @@ index f75200868a0dba20dee0bdefb2a0c653f60cd07f..994997f7c13217834b2dd3700cd37508
      { "createInputSurface", "()Landroid/view/Surface;",
        (void *)android_media_MediaSync_createInputSurface },
 diff --git a/media/jni/soundpool/android_media_SoundPool.cpp b/media/jni/soundpool/android_media_SoundPool.cpp
-index 8f6df3db718b02783ad662c2be73ce39a9b1eb5c..dcaad6cd33450cf76136214d3b0d7ab90db6a84e 100644
+index de96737d40343afab54c870d4f31c4933107d47e..160f7128d896e6bbf4a91949934c35b0e7449af5 100644
 --- a/media/jni/soundpool/android_media_SoundPool.cpp
 +++ b/media/jni/soundpool/android_media_SoundPool.cpp
-@@ -237,21 +237,21 @@ android_media_SoundPool_release(JNIEnv *env, jobject thiz)
+@@ -239,21 +239,21 @@ android_media_SoundPool_release(JNIEnv *env, jobject thiz)
  
          // clear native context
          env->SetLongField(thiz, fields.mNativeContext, 0);
@@ -1067,7 +1067,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit 8e0daeba8c9df23790538b4ef7c8912b5301e459
+commit 494567f05a8c00e044bb7688def2a6be5adeb822
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1080,7 +1080,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit 7851eed064e78ed12a91bcf8242b0a029d62ecee
+commit fca880cf15f523025b1580a2a8220aeaea3b3d79
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1117,7 +1117,7 @@ index bb6fa143f13b73ae75c0b9453846f98583c3fdb0..a046430247a3c2fb6103a06e7be55c61
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 7c3eb9634e78892343eeff18455bd64ee510605c
+commit 697bce9167c2e7db46db17ca20d893bc96900bd4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1178,7 +1178,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit b93e3476094b914486513fd058cc80bb5f96b9b5
+commit ba3168b7781672588ec41a4917e39a3816070418
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1392,7 +1392,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit 03dbafbeda7b851af2fc15df1995e5b8e53ce9d7
+commit 3266180e0062d7cd904d318d1ec27e0f706aa6a2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1433,7 +1433,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit 9790a2ac8bfafda5c57208682d868ac91b2311ef
+commit e9e5e449cf70388e3c74d269b8d94a4363a9c4a5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1523,7 +1523,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit 6505ef607a67a6dba65a917b5b3b508881ac08c1
+commit 941cd7ff92abea61959d5017bb3752c127c4a616
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1612,7 +1612,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit 07b0d08a8b73840b49ef1ebcdf62fb6f07b52f17
+commit ee15cc11ac884325341d14151d7ef957b17acc5c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1655,7 +1655,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit 0db067e6afe1f777852a0c1200fe81abd1c4e572
+commit 55db9b1fccb3ff34cdd21f0c66d83c643649d95e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1698,7 +1698,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit e261ea4e7ad2d3f4fc6095adfd26e65821032eec
+commit a87ef09eafa7cd71de3659eceefc5cc051e9fb95
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1741,7 +1741,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit 748453e451298237252053a9be9c148bbf4add8f
+commit d6bf116ae30e1ded6ff6d85c2ce8d2abd452c97b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -1784,7 +1784,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit d2be3ea4ba34ba9735630b77a900faaf6be072ad
+commit d7b2b4f88b52e8c43e15d75f502e5ea212238c0c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -1874,7 +1874,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit 9dfbfb82031cfad13df558821a116653c8a4df02
+commit f0db54e6f2b7ca506f41756d0a12ca58a4a4eaca
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -1917,7 +1917,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit 27c6efb15e4d1f6e838663df5804e37ab9e60aca
+commit fe9cac3fd656423de912dca840d0b64cbaa0f5ce
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -1960,7 +1960,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit b7743d873bb3a4fb653081bfe7c345f9fa4d62b3
+commit 28acc2bc01fce174f1ddc13c91c5f083fdc9f526
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2090,7 +2090,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit d1ec7f6c0a334f804899c7c318c514cb6fad09df
+commit 509ed84004e104efbc70a725ff08bc321be7cabb
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2216,7 +2216,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit d61276a4816f96a4a7b62059d482b96dca3c15c6
+commit 0d805e92da097ceaaccb94a772145bfc7fe99ac0
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2322,7 +2322,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit b8232fb629231f7686c0adc8bfbf77fe97499794
+commit ea0396e896927b390efd578f57cdc33ab48b345f
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2467,7 +2467,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit 97f36534280fc4d869b37c1e1d51646d33b4cb06
+commit 5938d6b103acafaa942dbbdf87e0b32834d8521b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2570,7 +2570,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit 131a3bc2edb61428d412c9428f7f3abe7881fa8d
+commit b9d9fcf806bb2cefd81d7714ddb7634fd96ab785
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2686,7 +2686,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit d0804101df089dca0985d2cbd61aaf715285bc55
+commit b0e099e85f76d96a079b769039a0962b9e64b981
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -2809,7 +2809,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit dc8fffb16880183eb4603cc8412610e3d3ccaf83
+commit e9e92e5098a6ece287cf6f8c3c124edb154edb14
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -2957,7 +2957,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit 260395cff3dcdc43e916d72a3a93c790c5f8d01b
+commit 29f4cb4bbd63f030fcb4e75e05b2ab8e47e81721
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3072,7 +3072,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit 290d7010e6400455c23cd3293d75ad167e3fbe55
+commit 865130b970e77b835aec06bc96efefd542afbec9
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3164,7 +3164,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit db63d0dcd503e14d43644a644b9fd5db8550e4f9
+commit 6b237c6de8025da2612bc4158f76a415d391f9c1
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3230,7 +3230,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit 2e18d8bcac2d01cdf74a8e96eae93342bce1d373
+commit a8fe7ac671f68c6cf4cd28388cddeaa908ad8ad5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3243,7 +3243,7 @@ Date:   Wed 2017-09-06 21:40:48-0400
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
-index 7acb1bf47e784242ea84825eaf96b5d7b5311b18..266f5d778a69366e06f4f067d5f0189b389b7aba 100644
+index 3f4878e380291b65027b82358c4ef7e311624323..260bfb615be643390ef818cd9136498afb2c90a7 100644
 --- a/services/core/java/com/android/server/am/ActivityManagerService.java
 +++ b/services/core/java/com/android/server/am/ActivityManagerService.java
 @@ -5217,26 +5217,21 @@ public class ActivityManagerService extends IActivityManager.Stub
@@ -3275,7 +3275,7 @@ index 7acb1bf47e784242ea84825eaf96b5d7b5311b18..266f5d778a69366e06f4f067d5f0189b
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit 0a90eb60254661d3aae2988bbf2b23373e53c640
+commit 705a38ae754c2895c68480fa9d2ec00a5728e661
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3359,7 +3359,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit 86ecc638e199b6882c78f9c739cbe6f8de7b840f
+commit 6c95c0749342788a520ba5b0ab32a691a83d7518
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3375,7 +3375,7 @@ Date:   Sun 2017-01-15 18:18:09-0500
  3 files changed, 55 insertions(+), 7 deletions(-)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index b07dabd4bb391a1e9b468a989ac2c0aa5b543b95..e56a9e1faf83dd50239128212faea83ab8d6d5ae 100755
+index df14720093530ef7967ca91270cdfc37f2ce6bbc..c8c235eeb9c963e5db67ffaf9ad2035eaea5f0b6 100755
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
 @@ -3882,20 +3882,27 @@ public final class Settings {
@@ -3572,7 +3572,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit eba240d1a1963594e803ee141f14ef8d80b04ba3
+commit 869fa59bfe27aaeb7e5e7c9f2dc1d5ae4a0046bf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3635,7 +3635,7 @@ index b47c59acb82dbeabd42069b6ff3926398942bd90..9d9d30abd0be70b473f1a5e9fc446acc
              boolean canDismissLs = mKeyguardStateController.canDismissLockScreen();
              boolean secure = mKeyguardStateController.isMethodSecure();
 diff --git a/services/core/java/com/android/server/GestureLauncherService.java b/services/core/java/com/android/server/GestureLauncherService.java
-index de96aaa1d940222e14acb4afed0b9c25f595fa34..b29c266049474da2534eaca954f1cdfc0fb65270 100644
+index 9d71489c8abe45d9b6a3b077e29b4d2f03da6aea..5b6c59f031bbbf14a72e4aeff5740a63bc817157 100644
 --- a/services/core/java/com/android/server/GestureLauncherService.java
 +++ b/services/core/java/com/android/server/GestureLauncherService.java
 @@ -10,20 +10,21 @@
@@ -3660,7 +3660,7 @@ index de96aaa1d940222e14acb4afed0b9c25f595fa34..b29c266049474da2534eaca954f1cdfc
  import android.hardware.Sensor;
  import android.hardware.SensorEvent;
  import android.hardware.SensorEventListener;
-@@ -400,20 +401,27 @@ public class GestureLauncherService extends SystemService {
+@@ -429,20 +430,27 @@ public class GestureLauncherService extends SystemService {
          return intercept && launched;
      }
  
@@ -3689,7 +3689,7 @@ index de96aaa1d940222e14acb4afed0b9c25f595fa34..b29c266049474da2534eaca954f1cdfc
                  return false;
              }
 
-commit 60dfd2151531b3a96ecae3229ededc9801c4cd5a
+commit d339869c80443aa83e0ea74294b70fada23cb333
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -3785,7 +3785,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 82f32919eb9d6cf35461063e600c01a2a53de867
+commit 84e373b258ccc796e02d0f15d164deccc85264c3
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -3797,7 +3797,7 @@ Date:   Tue 2020-03-03 22:55:39+1100
  3 files changed, 14 insertions(+), 11 deletions(-)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index e56a9e1faf83dd50239128212faea83ab8d6d5ae..91f9fde54bbd946ba2c33eac34c6cb7de1be318c 100755
+index c8c235eeb9c963e5db67ffaf9ad2035eaea5f0b6..ca2a8222c56d7bf9ca21807760613e7f207cc902 100755
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
 @@ -3882,27 +3882,20 @@ public final class Settings {
@@ -3828,7 +3828,7 @@ index e56a9e1faf83dd50239128212faea83ab8d6d5ae..91f9fde54bbd946ba2c33eac34c6cb7d
          public static final String NEXT_ALARM_FORMATTED = "next_alarm_formatted";
  
          /**
-@@ -8919,20 +8912,27 @@ public final class Settings {
+@@ -8925,20 +8918,27 @@ public final class Settings {
           * @hide
           */
          public static final String TAP_GESTURE = "tap_gesture";
@@ -3960,7 +3960,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit 6c949e123f9e8469fe69f75e468d2b0d0f945a7e
+commit defe18fd190491f3dcb22db5a272118f365a0c82
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4004,7 +4004,7 @@ index c748cc80cb23bf494c9f29c0a69068cae3ee7294..6a7354ffd67da0dd4fbeaa065c1e35c5
        <item quantity="other">For %1$d min (until <xliff:g id="FORMATTEDTIME_1">%2$s</xliff:g>)</item>
        <item quantity="one">For 1 min (until <xliff:g id="FORMATTEDTIME_0">%2$s</xliff:g>)</item>
 diff --git a/core/res/res/values-en-rCA/strings.xml b/core/res/res/values-en-rCA/strings.xml
-index f303f3ffbccee23d5848b6ef27fa3fc64170f0e2..d5f24d99a2e5c1b6cd6767923002da79f728f999 100644
+index d6faf46ee74a71ee69a7ac6a31c1d0dd611cc994..fce5b0683744046adbcf6f938ae760e58dc67d15 100644
 --- a/core/res/res/values-en-rCA/strings.xml
 +++ b/core/res/res/values-en-rCA/strings.xml
 @@ -1785,22 +1785,22 @@
@@ -4151,7 +4151,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit 97d0fc84ecbaf9d18fab412f90ee3d6a340ecaeb
+commit e32bdeb4905bc38983fff7c3853fac2d1a908429
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4199,7 +4199,7 @@ index a046430247a3c2fb6103a06e7be55c61e7d5a314..2dd180ce22d6de7cf284d0fff4e0a693
  
           If this flag is false, we advise applications not to use protected
 
-commit b41b38a81087a7583645fd378c2d9d8ecc2c2438
+commit 97e1364dfc94593515b19a5cec4e7a70d001e69b
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -4517,10 +4517,10 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
          }
          if ((stratum == NTP_STRATUM_DEATH) || (stratum > NTP_STRATUM_MAX)) {
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index 91f9fde54bbd946ba2c33eac34c6cb7de1be318c..57ec2b49bb2986a1882345d71555e90533b77c6a 100755
+index ca2a8222c56d7bf9ca21807760613e7f207cc902..e831c408eb31f66391a06a57b9b58aeb2d47a1db 100755
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -9934,20 +9934,25 @@ public final class Settings {
+@@ -9940,20 +9940,25 @@ public final class Settings {
  
         /**
          * The length of time in milli-seconds that automatic small adjustments to
@@ -4742,7 +4742,7 @@ index 06f357e79a6215fb88ac9fc12d61fe4939620873..e6d79bda4325779c756240ef7318d2aa
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 88a96015e24a59d05f4bb18387f0e82d1b6150d8
+commit 4042d9c57f70eee781774771f86b8ab633bcd0ed
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -5018,7 +5018,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit fdd0ccf98cd3749a667ec95e55c9e9cbe4ceaa06
+commit 84d535ecb1d6016f23da4e713fee77033f3da53f
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5062,7 +5062,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit e8baed3034ede3fe9556f29eec6349ebd895ef77
+commit 1d5d67f2cb200c710a45d6443b1702639654a6d2
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5257,7 +5257,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit b99f7f3d6f98ed462680cd891408907198fb6e37
+commit 4465c0069cecfc4b64fe417d792082917131a0ba
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5270,10 +5270,10 @@ Date:   Sun 2019-03-17 11:59:15-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index bb134f11319bb273c717bcd74668c5ca310e9fe1..f2bf3b98bc3f9de51d74f31e9f60c77ae5a6b070 100644
+index 09923796e0357e94009525203712ca2f15e0c69b..9d5a86c60c21bad728b429d2c6bca78ca9f894d0 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1577,21 +1577,21 @@
+@@ -1578,21 +1578,21 @@
      <!-- Permissions for accessing networks -->
      <!-- ======================================= -->
      <eat-comment />
@@ -5324,7 +5324,7 @@ index 52094992c8f8ddb6499d541ab89318e52e664e60..5e69efcff538ebc53e66414cb8ecfaef
       * </ul>
       *
 
-commit 4550f15b6a88570b91cc2f76461c0aaa21655682
+commit 267aca23fb38b85d00ec99a60b6b6254458607c0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5370,10 +5370,10 @@ index 952ccdad992c74836a95e402ca88c77a64d87aad..728c0e95ca6d43fde4afa0ac00d4cf6b
    }
  
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index f2bf3b98bc3f9de51d74f31e9f60c77ae5a6b070..89ade86125a5eee1e2b06c2d808e9b2266bef64f 100644
+index 9d5a86c60c21bad728b429d2c6bca78ca9f894d0..dd65f578e1d4ec1eb3a71edb48518a0bb0b7645f 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1571,24 +1571,32 @@
+@@ -1572,24 +1572,32 @@
           @hide
      -->
      <permission android:name="android.permission.ACCESS_MOCK_LOCATION"
@@ -5463,7 +5463,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit 9ba8987c89dd64ab2aa079493ad415d05bb1756e
+commit 6c982e75b6911fb32b929a5a9d1b21f0660bd1ab
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -5563,10 +5563,10 @@ index 70e4e6cbf622eb6bb145c2183ed5ced8b10da55d..736f50f458ef8375ff300b3dfd6c8d8e
       */
      @Deprecated
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 89ade86125a5eee1e2b06c2d808e9b2266bef64f..0cb7f3de9ca1b3688c742fda72eabee3e6839dc7 100644
+index dd65f578e1d4ec1eb3a71edb48518a0bb0b7645f..d00392e2cf2acdc3a10bf3f8dd18be4bc4825f38 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1361,20 +1361,32 @@
+@@ -1362,20 +1362,32 @@
  
      <!-- Allows an app to use device supported biometric modalities.
           <p>Protection level: normal
@@ -5733,7 +5733,7 @@ index 5e69efcff538ebc53e66414cb8ecfaefbb99280c..47b2e716d69b2afdbcd78a9a2cb80ed6
       * </ul>
       *
 
-commit 628562f9735ad5eb501039c6e19aa4c5404c3ad9
+commit 547023bf2502d544be3ca5cfc597a281b5db9b18
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -5912,7 +5912,7 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit 447d4f2d4b56432a99bfaff39ffa578bee372555
+commit 9aeba97cb7efe965df69a7955217eedd8edd5855
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6037,7 +6037,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit 7424a832f9de523d40832eace603dd8b3dd643ce
+commit 9dfc3daf92fc9f9290354190df93be4ff2417485
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6109,7 +6109,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 5bbe7ebd21c302ada15aec40e4ed709d2c3b7aed
+commit 0284c2655adcb4b02e902ed60019a54065c0991f
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6152,7 +6152,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit 931749105e081cdf5b25f77d8fa5f8e81a073f5a
+commit d1b35074538813c8cbf9a84c8ab9c152909ab3fb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6188,7 +6188,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit 67a3231e3bca184677dfb75b8179159dce3a1223
+commit 902ef0b3e4a9b18ff2e0a30e4f523c449fa20406
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:29-0400
 
@@ -6330,7 +6330,7 @@ index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..00000000000000000000000000000000
 -VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
 ------END PRIVATE KEY-----
 
-commit a5a1d2165d087ce43a6e1fae6e766d0f190eefbf
+commit 8280f1dcead79e71dd819f58a42467fbae95245e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6340,10 +6340,10 @@ Date:   Sun 2020-10-04 19:02:09-0400
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-index c6b93d6ca4f48e6c60954ec6853cb4f199575568..05b504e897184d29aa28afbacf9cccb18e306eca 100644
+index b8a20ed4fe5b73a41a4fd845f3599956a67a5af9..4f803c3503b98e8b5da728bacffce46bf0abd056 100644
 --- a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
 +++ b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-@@ -1153,21 +1153,21 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
+@@ -1159,21 +1159,21 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
          boolean encryptionRequested = false;
          boolean testOnlyAdmin = false;
          boolean disableCamera = false;
@@ -6366,7 +6366,7 @@ index c6b93d6ca4f48e6c60954ec6853cb4f199575568..05b504e897184d29aa28afbacf9cccb1
          final boolean isParent;
  
          static class TrustAgentInfo {
-@@ -15050,25 +15050,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
+@@ -15087,25 +15087,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
                  return;
              }
              deviceOwner.isLogoutEnabled = enabled;
@@ -6395,7 +6395,7 @@ index c6b93d6ca4f48e6c60954ec6853cb4f199575568..05b504e897184d29aa28afbacf9cccb1
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit bb15481dc13e38f9f9fc7dccd4abeaff3beb9914
+commit fecfe7c3ae3993562d66fc50f17f9e1431daab8c
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 14:59:51-0700
 
@@ -6432,7 +6432,7 @@ Date:   Sun 2020-10-04 14:59:51-0700
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-index bb11efeebf08c5bb6579f4ed2f7fd7e41b44f46d..2d6bb803a69eb446ad6176385b34c532f140d96d 100644
+index 2be509a1381639f71edd6ed3f6010962e5b7016c..55c52e75b3ac9e39c82811bf4649f593a9b7ea6e 100644
 --- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
 +++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
 @@ -434,21 +434,23 @@ class MediaDataManager(
@@ -6461,7 +6461,7 @@ index bb11efeebf08c5bb6579f4ed2f7fd7e41b44f46d..2d6bb803a69eb446ad6176385b34c532
          }
  
 
-commit 992d04575b56c8e14e573cd2331d63729df4d57e
+commit 2acf9770202de509624c4e737d7e20c7cafb721c
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 17:12:13-0700
 
@@ -6471,7 +6471,7 @@ Date:   Sun 2020-10-04 17:12:13-0700
  1 file changed, 10 insertions(+), 8 deletions(-)
 
 diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-index 2d6bb803a69eb446ad6176385b34c532f140d96d..b67504f2d2784402dbec5e969d7f47dacc4ab617 100644
+index 55c52e75b3ac9e39c82811bf4649f593a9b7ea6e..122b13ff65153d092a3352261144e6a798ecf659 100644
 --- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
 +++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
 @@ -416,28 +416,30 @@ class MediaDataManager(
@@ -6514,7 +6514,7 @@ index 2d6bb803a69eb446ad6176385b34c532f140d96d..b67504f2d2784402dbec5e969d7f47da
  
          // App Icon
 
-commit e0fd83946e9cfc45c73be8f0da13d45a7f28dbcc
+commit ad9f2d356ed2524864735c0c8a4bbc1fe033168b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6543,7 +6543,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit c6de6ca05a1ed8dc364e51292f74d095a907c8a6
+commit d92f4059fd899ecddebc48c5805935587755228b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-11-02 15:21:13-0500
 
@@ -6632,7 +6632,7 @@ index ff25439a5f9f586c05188035a287459f3e84b25c..1144a149dd1ef8c276aecaeda47bb397
                  mScreenRecordHelper.launchRecordPrompt();
              } else {
 
-commit 190872f679796d92cccb8fb07245a9b0ac593576
+commit 35ed6812a38710c31efc3b542ec9855ee64c2fa2
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -6942,7 +6942,7 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit e37bca803f32b458dcc3e5e088493eb6c6e359fc
+commit 37bd1a135f128d121f4523681a6c4a74315eebf1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
@@ -6953,7 +6953,7 @@ Date:   Wed 2020-11-25 03:55:15-0500
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/services/core/java/com/android/server/ConnectivityService.java b/services/core/java/com/android/server/ConnectivityService.java
-index 03c31a6971a86e634dac9c119ac62317cf5c75f0..0a2c637ef99db77fc8f3a35526d589c3b36ce09c 100644
+index cf14c6377d21089dc5c55e6417691294a49e30fc..e07f32ca06ae941934a63a9760b0470cb3c65b6f 100644
 --- a/services/core/java/com/android/server/ConnectivityService.java
 +++ b/services/core/java/com/android/server/ConnectivityService.java
 @@ -270,21 +270,21 @@ public class ConnectivityService extends IConnectivityManager.Stub
@@ -7007,7 +7007,7 @@ index 385005f90c3be1d4184dc48b95f181263113c655..323d1e0e8f4f47d2637f69dbd5648051
                  return sNetwork != null;
              }
 
-commit 10846d8c094914d35686096c9489e622726e2044
+commit 5a60f6150f6eef20816b2cbd0b5bf75cc3fcd04a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7044,7 +7044,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit 0094274f1f0829e3738b92d455671a4120686080
+commit bb1faf64caa3b936f4ce873fa1214ca317460130
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7083,7 +7083,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c2
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit 154b1ec2d8ab1bf4fce225f18b154548c8eb5b31 (HEAD, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 09a200d4266d825f38b5a03d83c931619056082e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7103,3 +7103,491 @@ Binary files a/core/res/res/drawable-sw600dp-nodpi/default_wallpaper.png and b/c
 diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
+
+commit 6eec1335d50326f9ab4d305c0da92adbc899d209
+Author: Renlord <git[at]renlord.com>
+Date:   Wed 2021-01-27 15:38:07+1100
+
+    bugfix: authenticated timestamp cert validation
+    
+    implemented a custom eternalcertificate class that ignores certification
+    time checks.
+---
+ core/java/android/net/SntpClient.java | 211 +++++++++++++++++++++++++++++-----
+ 1 file changed, 180 insertions(+), 31 deletions(-)
+
+diff --git a/core/java/android/net/SntpClient.java b/core/java/android/net/SntpClient.java
+index ab0064379f7efb36804831600c5a60ba372ad5c3..de244b70d6282a515aeaef6c88a034ebd3834481 100644
+--- a/core/java/android/net/SntpClient.java
++++ b/core/java/android/net/SntpClient.java
+@@ -30,42 +30,52 @@ import java.net.InetAddress;
+ import java.util.Arrays;
+ 
+ import javax.net.ssl.TrustManagerFactory;
+ import javax.net.ssl.TrustManager;
+ import javax.net.ssl.X509TrustManager;
+ import javax.net.ssl.SSLContext;
+ import javax.net.ssl.HttpsURLConnection;
+ 
+ import java.security.cert.X509Certificate;
+ 
++import java.util.Date;
++import java.util.Set;
++import java.math.BigInteger;
+ import java.security.KeyStore;
++import java.security.Principal;
++import java.security.NoSuchAlgorithmException;
++import java.security.PublicKey;
++import java.security.SignatureException;
++import java.security.NoSuchProviderException;
++import java.security.InvalidKeyException;
++import java.security.cert.CertificateEncodingException;
+ import java.security.cert.CertificateException;
+ import java.security.cert.CertificateExpiredException;
+ import java.security.cert.CertificateNotYetValidException;
+ 
+ import static android.os.Build.TIME;
+ 
+ /**
+  * {@hide}
+  *
+  * Simple SNTP client class for retrieving network time.
+  *
+  * Sample usage:
+  * <pre>SntpClient client = new SntpClient();
+  * if (client.requestTime("time.foo.com")) {
+  *     long now = client.getNtpTime() + SystemClock.elapsedRealtime() - client.getNtpTimeReference();
+  * }
+  * </pre>
+  */
+ public class SntpClient {
+     private static final String TAG = "SntpClient";
+-    private static final boolean DBG = true;
++    private static final boolean DBG = false;
+ 
+     private static final int REFERENCE_TIME_OFFSET = 16;
+     private static final int ORIGINATE_TIME_OFFSET = 24;
+     private static final int RECEIVE_TIME_OFFSET = 32;
+     private static final int TRANSMIT_TIME_OFFSET = 40;
+     private static final int NTP_PACKET_SIZE = 48;
+ 
+     private static final int NTP_PORT = 123;
+     private static final int NTP_MODE_CLIENT = 3;
+     private static final int NTP_MODE_SERVER = 4;
+@@ -206,77 +216,210 @@ public class SntpClient {
+             TrafficStats.setThreadStatsTag(oldTag);
+         }
+ 
+         return true;
+     }
+ 
+     private boolean requestHttpTime(URL url, int timeout, Network network) {
+         final int oldTag = TrafficStats.getAndSetThreadStatsTag(
+                 TrafficStatsConstants.TAG_SYSTEM_NTP);
+         final Network networkForResolv = network.getPrivateDnsBypassingCopy();
++        if (DBG) Log.d(TAG, "requestHttpTime() getting time using https");
+         try {
+             TrustManagerFactory tmf = TrustManagerFactory
+                 .getInstance(TrustManagerFactory.getDefaultAlgorithm());
+             tmf.init((KeyStore) null);
+ 
+             X509TrustManager x509Tm = null;
+             for (TrustManager tm : tmf.getTrustManagers()) {
+                 if (tm instanceof X509TrustManager) {
+                     x509Tm = (X509TrustManager) tm;
+                     break;
+                 }
+             }
+ 
+             final X509TrustManager finalTm = x509Tm;
+             X509TrustManager customTm = new X509TrustManager() {
++
++                // custom eternal certificate class that ignores expired SSL certificates
++                // adapted from https://gist.github.com/divergentdave/9a68d820e3610513bd4fcdc4ae5f91a1
++                class TimeLeewayCertificate extends X509Certificate {
++                    private final X509Certificate originalCertificate;
++
++                    public TimeLeewayCertificate(X509Certificate originalCertificate) {
++                        this.originalCertificate = originalCertificate;
++                    }
++
++                    @Override
++                    public void checkValidity() throws CertificateExpiredException, CertificateNotYetValidException {
++                        // Ignore notBefore/notAfter
++                        checkValidity(new Date());
++                    }
++
++                    @Override
++                    public void checkValidity(Date date) throws CertificateExpiredException, CertificateNotYetValidException {
++                        // expiration must be set after OS build date
++                        if (getNotAfter().compareTo(new Date(TIME)) < 0) {
++                            throw new CertificateExpiredException("Certificate expired at "
++                                    + getNotAfter().toString() + " (compared to " + date.toString() + ")");
++                        }
++                    }
++
++                    @Override
++                    public int getVersion() {
++                        return originalCertificate.getVersion();
++                    }
++
++                    @Override
++                    public BigInteger getSerialNumber() {
++                        return originalCertificate.getSerialNumber();
++                    }
++
++                    @Override
++                    public Principal getIssuerDN() {
++                        return originalCertificate.getIssuerDN();
++                    }
++
++                    @Override
++                    public Principal getSubjectDN() {
++                        return originalCertificate.getSubjectDN();
++                    }
++
++                    @Override
++                    public Date getNotBefore() {
++                        return originalCertificate.getNotBefore();
++                    }
++
++                    @Override
++                    public Date getNotAfter() {
++                        return originalCertificate.getNotAfter();
++                    }
++
++                    @Override
++                    public byte[] getTBSCertificate() throws CertificateEncodingException {
++                        return originalCertificate.getTBSCertificate();
++                    }
++
++                    @Override
++                    public byte[] getSignature() {
++                        return originalCertificate.getSignature();
++                    }
++
++                    @Override
++                    public String getSigAlgName() {
++                        return originalCertificate.getSigAlgName();
++                    }
++
++                    @Override
++                    public String getSigAlgOID() {
++                        return originalCertificate.getSigAlgOID();
++                    }
++
++                    @Override
++                    public byte[] getSigAlgParams() {
++                        return originalCertificate.getSigAlgParams();
++                    }
++
++                    @Override
++                    public boolean[] getIssuerUniqueID() {
++                        return originalCertificate.getIssuerUniqueID();
++                    }
++
++                    @Override
++                    public boolean[] getSubjectUniqueID() {
++                        return originalCertificate.getSubjectUniqueID();
++                    }
++
++                    @Override
++                    public boolean[] getKeyUsage() {
++                        return originalCertificate.getKeyUsage();
++                    }
++
++                    @Override
++                    public int getBasicConstraints() {
++                        return originalCertificate.getBasicConstraints();
++                    }
++
++                    @Override
++                    public byte[] getEncoded() throws CertificateEncodingException {
++                        return originalCertificate.getEncoded();
++                    }
++
++                    @Override
++                    public void verify(PublicKey key) throws CertificateException,
++                           NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException, SignatureException
++                    {
++                        originalCertificate.verify(key);
++                    }
++
++                    @Override
++                    public void verify(PublicKey key, String sigProvider) throws CertificateException,
++                           NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException, SignatureException
++                    {
++                        originalCertificate.verify(key, sigProvider);
++                    }
++
++                    @Override
++                    public String toString() {
++                        return originalCertificate.toString();
++                    }
++
++                    @Override
++                    public PublicKey getPublicKey() {
++                        return originalCertificate.getPublicKey();
++                    }
++
++                    @Override
++                    public Set<String> getCriticalExtensionOIDs() {
++                        return originalCertificate.getCriticalExtensionOIDs();
++                    }
++
++                    @Override
++                    public byte[] getExtensionValue(String oid) {
++                        return originalCertificate.getExtensionValue(oid);
++                    }
++
++                    @Override
++                    public Set<String> getNonCriticalExtensionOIDs() {
++                        return originalCertificate.getNonCriticalExtensionOIDs();
++                    }
++
++                    @Override
++                    public boolean hasUnsupportedCriticalExtension() {
++                        return originalCertificate.hasUnsupportedCriticalExtension();
++                    }
++                }
++
+                 @Override
+                 public X509Certificate[] getAcceptedIssuers() {
+                     return finalTm.getAcceptedIssuers();
+                 }
+ 
+                 @Override
+-                public void checkServerTrusted(X509Certificate[] chain,
+-                        String authType) throws CertificateException {
+-                    try {
+-                        finalTm.checkServerTrusted(chain, authType);
+-                    } catch (CertificateException e) {
+-                        // deliberately catch certificate time checks to prevent
+-                        // propogating to SSLHandshake Error only when getting
+-                        // authenticated timestamps.
+-                        final Throwable validationFailCause = e.getCause();
+-                        if (validationFailCause instanceof CertificateNotYetValidException ||
+-                                validationFailCause instanceof CertificateExpiredException) {
+-                            return;
++                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
++                        // replace the top-level certificate with a certificate validation routine that
++                        // ignores expired certificates due to clock drift.
++                        X509Certificate[] timeLeewayChain = new X509Certificate[chain.length];
++                        for (int i = 0; i < chain.length; i++) {
++                            timeLeewayChain[i] = new TimeLeewayCertificate(chain[i]);
+                         }
+-                        throw e;
+-                    }
++                        finalTm.checkServerTrusted(timeLeewayChain, authType);
+                 }
+ 
+                 @Override
+-                public void checkClientTrusted(X509Certificate[] chain,
+-                        String authType) throws CertificateException {
+-                    try {
+-                        finalTm.checkClientTrusted(chain, authType);
+-                    } catch (CertificateException e) {
+-                        // deliberately catch certificate time checks to prevent
+-                        // propogating to SSLHandshake Error only when getting
+-                        // authenticated timestamps.
+-                        final Throwable validationFailCause = e.getCause();
+-                        if (validationFailCause instanceof CertificateNotYetValidException ||
+-                                validationFailCause instanceof CertificateExpiredException) {
+-                            return;
+-                        }
+-                        throw e;
+-                    }
++                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
++                    // never gets used, so default to stock.
++                    finalTm.checkClientTrusted(chain, authType);
+                 }
+             };
+ 
++            if (DBG) Log.d(TAG, "requestHttpTime() setting up URL connection");
+             URLConnection urlConnection = networkForResolv.openConnection(url);
+             SSLContext sslContext = SSLContext.getInstance("SSL");
+             sslContext.init(null, new TrustManager[] { customTm }, null);
+ 
+             if (urlConnection instanceof HttpsURLConnection) {
+                 HttpsURLConnection httpsUrlConnection = (HttpsURLConnection) urlConnection;
+                 try {
+                     // change the SSLSocketFactory to use custom trust manager
+                     httpsUrlConnection.setSSLSocketFactory(sslContext.getSocketFactory());
+                     httpsUrlConnection.setConnectTimeout(timeout);
+@@ -300,31 +443,37 @@ public class SntpClient {
+                     if (receiveTime < TIME) {
+                         Log.w(TAG, "https method received timestamp before BUILD unix time, rejecting");
+                         return false;
+                     }
+                     EventLogTags.writeNtpSuccess(url.toString(), roundTripTime, clockOffset);
+                     // save our results - use the times on this side of the network latency
+                     // (response rather than request time)
+                     mNtpTime = responseTime + clockOffset;
+                     mNtpTimeReference = responseTicks;
+                     mRoundTripTime = roundTripTime;
++                } catch (Exception e) {
++                    Log.e(TAG, "request https time failed: " + e.toString());
++                    if (DBG) e.printStackTrace();
+                 } finally {
+                     httpsUrlConnection.disconnect();
+                 }
+             } else {
+                 EventLogTags.writeNtpFailure(url.toString(), "did not receive HttpsURLConnection from Android Network");
+                 if (DBG) Log.d(TAG, "request time failed: did not receive HttpsURLConnection from Android Network");
+                 return false;
+             }
+         } catch (Exception e) {
+             EventLogTags.writeNtpFailure(url.toString(), e.toString());
+-            if (DBG) Log.d(TAG, "request time failed: " + e);
++            Log.e(TAG, "request time failed: " + e.toString());
++            if (DBG) {
++                e.printStackTrace();
++            }
+             return false;
+         } finally {
+             TrafficStats.setThreadStatsTag(oldTag);
+         }
+         return true;
+     }
+ 
+     @Deprecated
+     @UnsupportedAppUsage
+     public boolean requestTime(String host, int timeout) {
+
+commit 0cf816fa149b54083199c6f99c0737347ecd4b09
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-02-07 11:55:51-0500
+
+    add missing return to avoid using zeroed time
+---
+ core/java/android/net/SntpClient.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/core/java/android/net/SntpClient.java b/core/java/android/net/SntpClient.java
+index de244b70d6282a515aeaef6c88a034ebd3834481..4260e123ade5d1248391ea4922fc868ac916865c 100644
+--- a/core/java/android/net/SntpClient.java
++++ b/core/java/android/net/SntpClient.java
+@@ -446,20 +446,21 @@ public class SntpClient {
+                     }
+                     EventLogTags.writeNtpSuccess(url.toString(), roundTripTime, clockOffset);
+                     // save our results - use the times on this side of the network latency
+                     // (response rather than request time)
+                     mNtpTime = responseTime + clockOffset;
+                     mNtpTimeReference = responseTicks;
+                     mRoundTripTime = roundTripTime;
+                 } catch (Exception e) {
+                     Log.e(TAG, "request https time failed: " + e.toString());
+                     if (DBG) e.printStackTrace();
++                    return false;
+                 } finally {
+                     httpsUrlConnection.disconnect();
+                 }
+             } else {
+                 EventLogTags.writeNtpFailure(url.toString(), "did not receive HttpsURLConnection from Android Network");
+                 if (DBG) Log.d(TAG, "request time failed: did not receive HttpsURLConnection from Android Network");
+                 return false;
+             }
+         } catch (Exception e) {
+             EventLogTags.writeNtpFailure(url.toString(), e.toString());
+
+commit 02ce7d24072a370545dc553fe976e8166adef0ce
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-02-21 08:39:04-0500
+
+    drop Seedvault backup provider migration code
+---
+ .../providers/settings/SettingsProvider.java       | 27 ----------------------
+ 1 file changed, 27 deletions(-)
+
+diff --git a/packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java b/packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java
+index e6ac9976cd7578ec426f9536fcabb0ee7594c211..b95d34f2966ba4665a0c196179e0948fa299755f 100644
+--- a/packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java
++++ b/packages/SettingsProvider/src/com/android/providers/settings/SettingsProvider.java
+@@ -4875,47 +4875,20 @@ public class SettingsProvider extends ContentProvider {
+                     if (currentSetting.isNull()) {
+                         globalSettings.insertSettingLocked(
+                                 Global.HDMI_CONTROL_AUTO_DEVICE_OFF_ENABLED,
+                                 getContext().getResources().getBoolean(
+                                         R.bool.def_hdmiControlAutoDeviceOff) ? "1" : "0",
+                                 null, true, SettingsState.SYSTEM_PACKAGE_NAME);
+                     }
+                     currentVersion = 191;
+                 }
+ 
+-                if (currentVersion == 183) {
+-                    // Version 184: Update default Backup app to Seedvault
+-                    final SettingsState secureSettings = getSecureSettingsLocked(userId);
+-                    Setting currentBackupTransportSetting = secureSettings.getSettingLocked(
+-                            Secure.BACKUP_TRANSPORT);
+-                    if (currentBackupTransportSetting.isDefaultFromSystem()) {
+-                        secureSettings.insertSettingLocked(
+-                                Settings.Secure.BACKUP_TRANSPORT,
+-                                getContext().getResources().getString(
+-                                        R.string.def_backup_transport),
+-                                null, true,
+-                                SettingsState.SYSTEM_PACKAGE_NAME);
+-                    }
+-
+-                    Setting currentBackupEnabledSetting = secureSettings.getSettingLocked(
+-                            Secure.BACKUP_ENABLED);
+-                    if (currentBackupEnabledSetting.isDefaultFromSystem()) {
+-                        secureSettings.insertSettingLocked(
+-                                Settings.Secure.BACKUP_ENABLED,
+-                                getContext().getResources().getBoolean(
+-                                        R.bool.def_backup_enabled)? "1" : "0",
+-                                null, true,
+-                                SettingsState.SYSTEM_PACKAGE_NAME);
+-                    }
+-                    currentVersion = 184;
+-                }
+-
+                 // vXXX: Add new settings above this point.
+ 
+                 if (currentVersion != newVersion) {
+                     Slog.wtf("SettingsProvider", "warning: upgrading settings database to version "
+                             + newVersion + " left it at "
+                             + currentVersion +
+                             " instead; this is probably a bug. Did you update SETTINGS_VERSION?",
+                             new Throwable());
+                     if (DEBUG) {
+                         throw new RuntimeException("db upgrade error");
+
+commit 5bde2021f229a673da41200232312efa4a009101 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+Author: Marco Janotta <marcojntt@gmail.com>
+Date:   Fri 2021-01-08 18:19:11+0100
+
+    use black settings background in dark theme
+    
+    Use black for settings background when using the Dark theme. This has no
+    effect on the Light theme.
+---
+ core/res/res/values/colors_device_defaults.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/colors_device_defaults.xml b/core/res/res/values/colors_device_defaults.xml
+index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0a23765ab 100644
+--- a/core/res/res/values/colors_device_defaults.xml
++++ b/core/res/res/values/colors_device_defaults.xml
+@@ -16,21 +16,21 @@
+ 
+ <!-- Colors specific to DeviceDefault themes. These are mostly pass-throughs to enable
+      overlaying new theme colors. -->
+ <resources>
+     <color name="primary_device_default_dark">@color/primary_material_dark</color>
+     <color name="primary_device_default_light">@color/primary_material_light</color>
+     <color name="primary_device_default_settings">@color/primary_material_settings</color>
+     <color name="primary_device_default_settings_light">@color/primary_material_settings_light</color>
+     <color name="primary_dark_device_default_dark">@color/primary_dark_material_dark</color>
+     <color name="primary_dark_device_default_light">@color/primary_dark_material_light</color>
+-    <color name="primary_dark_device_default_settings">@color/primary_dark_material_settings</color>
++    <color name="primary_dark_device_default_settings">#ff000000</color> <!-- Black -->
+     <color name="primary_dark_device_default_settings_light">@color/primary_dark_material_settings_light</color>
+ 
+     <color name="navigation_bar_divider_device_default_settings">#1f000000</color>
+ 
+     <color name="secondary_device_default_settings">@color/secondary_material_settings</color>
+     <color name="secondary_device_default_settings_light">@color/secondary_material_settings_light</color>
+     <color name="tertiary_device_default_settings">@color/tertiary_material_settings</color>
+     <color name="quaternary_device_default_settings">@color/quaternary_material_settings</color>
+ 
+     <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
