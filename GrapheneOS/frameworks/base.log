@@ -1,4 +1,4 @@
-commit 4d39042babaed5e4a23c27207be072410a155d6c
+commit f71ab85a7273d6c21438a656189471ec86e3cfa2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -35,7 +35,7 @@ index 550601af0faa17e2a34d5a8b9d33c68cb2827aee..b10096f3aed5df48181107b1d9230616
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit 44949e5a2e8dcef0f79fa1bd1c66cb8774488b95
+commit 8f292b931e867b3583c79afca627a99e94592e45
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit b16686f1848a40ff2db1ca22dd28a3537263dab5
+commit 50a336afe48f2c0a707f8cec321564b904019748
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -163,7 +163,7 @@ index b10096f3aed5df48181107b1d92306167c2d9767..32a39f4a8b10f4d228580d526964f7a1
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit 64ed0e74c2f101f58231204cef0a977a202ec5d8
+commit b734ad8fdecd7920cf4f823cf1f528bb67da19fd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -200,7 +200,7 @@ index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 941d565fecb97dc084407a6d8acdc9abae818044
+commit 04b7c82878ba67b3a39a94c7c6cb95f9ccc2cc4c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -237,7 +237,7 @@ index fbe04fd20afe04baf81220978a30b563d8280a39..c6334e6105079dca46752ce3b2c24135
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 6aee3eedfb56c553590757e8d1956812287797b8
+commit a566389253d90b8384f370dfc298d584612e25df
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -274,7 +274,7 @@ index c6334e6105079dca46752ce3b2c24135f78a98f8..d46890a4d50842b5b65a8a08d68f2c6a
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 2d52b6e99112da055dd3b15d447349a470016f3b
+commit 7d88efe6d08b7590f2ba2a5df24522c2ac213fd8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -311,7 +311,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 0a5c44868931f1134d612605341572272a3f1afa
+commit 0af42efce52c27f1f06049ae33c9af45fd6fc052
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -348,7 +348,7 @@ index e2e8049c2980ffdf95099d0e0d7de2f5297636b8..9f6ac309e44d2913733fd65a35b9a99b
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit b0d36778a178c264dd9f5801df10b4ed2635e7b2
+commit 91513d1b24404a10ef7112ff17f38dded83dd347
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -385,7 +385,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 153b266bcfda2c3601f78ff7e5e5fae6234d2dfb
+commit 2979605f465a003e0e396044a5c1fd651656fadb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -425,7 +425,7 @@ index d46890a4d50842b5b65a8a08d68f2c6a99f29a7a..bb6fa143f13b73ae75c0b9453846f985
  
      <!-- The default character set for GsmAlphabet -->
 
-commit 29df154d331bd6b8382ebb1c9ad8c9a9909f867d
+commit c48a541145fb7cbcf1d049ac6eea9aa8dabe97a2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -465,7 +465,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit 194b30625f9d3c52a526a6e9c92a5b1b9a82c4be
+commit 8eb8e7a0b04bb43660d86210f7059dbe13b41ccc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -508,7 +508,7 @@ index a5501368945f56fc6636b01feb676fdbdc9fd88c..63a784b354dd1e7e238d2b1b370b3d27
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 696dd6739fe81cc5d0438b63ff581dd8a2259d6b
+commit f5ee63922cf85c9c9e5fe25948cbb6ebe4d8ab65
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -551,7 +551,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit b6542a6e0d14cd52b03f44de44efe1852b569f55
+commit 7d7fe90e887efe7dd52c6b82a74de2c730b5db5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -588,7 +588,7 @@ index 5e5df6bfd98807b2b3f334abe5197dff2dca21b6..af62ff68184da211487fec6f81210b5a
      </string>
  
 
-commit f9d8c00e5585f531d33458c19f597ce63f813af0
+commit eb9005458cdde49841304291cc14baafd5f18c67
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -625,7 +625,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit a1e53ad817b2e62e282d106a946994790ab9d45d
+commit 9ef6c9ae32bd77b859a889104842c09a73e710a6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -682,7 +682,7 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit e537418529b36923710d01c0220248d90d4cbf31
+commit 2c55ff9976b1fd5bde23919a917d07bf034bef1b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
@@ -1067,7 +1067,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit 494567f05a8c00e044bb7688def2a6be5adeb822
+commit 0122c8fcf20a9c0903e8c444099c567e634c9ad6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1080,7 +1080,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit fca880cf15f523025b1580a2a8220aeaea3b3d79
+commit fd9d398307b47988ab2e8302b4f9e2b5e4b81372
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1117,7 +1117,7 @@ index bb6fa143f13b73ae75c0b9453846f98583c3fdb0..a046430247a3c2fb6103a06e7be55c61
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 697bce9167c2e7db46db17ca20d893bc96900bd4
+commit db3e70061b962a3e674ac6334f83d8f861ad7de0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1178,7 +1178,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit ba3168b7781672588ec41a4917e39a3816070418
+commit 01acda88c40c9f4a5acecdab715eb9ee57404d3a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1392,7 +1392,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit 3266180e0062d7cd904d318d1ec27e0f706aa6a2
+commit 4855f36ee865bc5000a674a3c4ad995b71de8328
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1433,7 +1433,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit e9e5e449cf70388e3c74d269b8d94a4363a9c4a5
+commit cc31cd382895446256d03f7d5470e06b5cd61cfc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1523,7 +1523,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit 941cd7ff92abea61959d5017bb3752c127c4a616
+commit 55217d1346da623cecaea0c5ececd6e1de44532b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1612,7 +1612,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit ee15cc11ac884325341d14151d7ef957b17acc5c
+commit 72e8eecf5dc00d8d32c33f6916a4537a797e4d9a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1655,7 +1655,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit 55db9b1fccb3ff34cdd21f0c66d83c643649d95e
+commit db3b1897878d9cc3f1ef875d04d724ee8a0a299d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1698,7 +1698,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit a87ef09eafa7cd71de3659eceefc5cc051e9fb95
+commit 6fee9f6cab04d3125d0c1c5bb48aaf05cb9ed198
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1741,7 +1741,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit d6bf116ae30e1ded6ff6d85c2ce8d2abd452c97b
+commit 2bf767fe085412a89809f914733ddd05ada2350f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -1784,7 +1784,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit d7b2b4f88b52e8c43e15d75f502e5ea212238c0c
+commit f93b091548de8b5ac408e6d19419dae713d7b707
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -1874,7 +1874,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit f0db54e6f2b7ca506f41756d0a12ca58a4a4eaca
+commit 014bc77222ddbcd57858b7c3e77cea5cc231a509
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -1917,7 +1917,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit fe9cac3fd656423de912dca840d0b64cbaa0f5ce
+commit b4ad1804f7346fb4317b8ff76175939b36833228
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -1960,7 +1960,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit 28acc2bc01fce174f1ddc13c91c5f083fdc9f526
+commit e06372a1e7703b055f3b10478d5341aced3dc122
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2090,7 +2090,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit 509ed84004e104efbc70a725ff08bc321be7cabb
+commit 7890854d684be7dc42f25562d2f96d63de68a1c1
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2216,7 +2216,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit 0d805e92da097ceaaccb94a772145bfc7fe99ac0
+commit e48da49bad439bfcf4b82fc74f12d9eec5f2fc89
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2322,7 +2322,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit ea0396e896927b390efd578f57cdc33ab48b345f
+commit fed56423fc63932ba05608fa99f247eaac11196d
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2467,7 +2467,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit 5938d6b103acafaa942dbbdf87e0b32834d8521b
+commit 3891b361d6c0ac6c67440be512d7f305c77bc843
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2570,7 +2570,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit b9d9fcf806bb2cefd81d7714ddb7634fd96ab785
+commit 6bfb4fa0d98bbe02be461169b882fb96a3065ee1
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2686,7 +2686,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit b0e099e85f76d96a079b769039a0962b9e64b981
+commit 3b2ef035cedb89ca784cf343ce1dda49c0a86a18
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -2809,7 +2809,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit e9e92e5098a6ece287cf6f8c3c124edb154edb14
+commit 60f1a37ffc0cf5f94884d2fe94744d471ec62652
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -2957,7 +2957,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit 29f4cb4bbd63f030fcb4e75e05b2ab8e47e81721
+commit 816bab4ef75da1f3f4add96df794e152628ee428
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3072,7 +3072,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit 865130b970e77b835aec06bc96efefd542afbec9
+commit e84adaf8226f17bfc7c2a01427719980b4e1febf
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3164,7 +3164,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit 6b237c6de8025da2612bc4158f76a415d391f9c1
+commit d40187b3a9382e32ac95209ab241b0f55af79e3e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3230,7 +3230,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit a8fe7ac671f68c6cf4cd28388cddeaa908ad8ad5
+commit 1beb605ad72123216a835a20321f0916aafc363d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3275,7 +3275,7 @@ index 3f4878e380291b65027b82358c4ef7e311624323..260bfb615be643390ef818cd9136498a
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit 705a38ae754c2895c68480fa9d2ec00a5728e661
+commit 27e1aca741b78bddf7295238a15bf373e1fb9d60
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3359,7 +3359,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit 6c95c0749342788a520ba5b0ab32a691a83d7518
+commit e47c1b2686e3e4de9f6a557a8c737a9df8292414
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3572,7 +3572,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit 869fa59bfe27aaeb7e5e7c9f2dc1d5ae4a0046bf
+commit 571349f7fc69423fb3f38845f7d4428734c56e36
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3689,7 +3689,7 @@ index 9d71489c8abe45d9b6a3b077e29b4d2f03da6aea..5b6c59f031bbbf14a72e4aeff5740a63
                  return false;
              }
 
-commit d339869c80443aa83e0ea74294b70fada23cb333
+commit 68f9a5d7b7d45999fe3f5d96439b6c6a7873fa88
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -3785,7 +3785,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 84e373b258ccc796e02d0f15d164deccc85264c3
+commit 6aa8487882b86466b7cb74d5be90e4c6640abe6c
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -3960,7 +3960,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit defe18fd190491f3dcb22db5a272118f365a0c82
+commit 316b6a956256e7af5b9bb2526a72cc29f7e42b65
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4151,7 +4151,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit e32bdeb4905bc38983fff7c3853fac2d1a908429
+commit 23593839dec958e89c35aa4501d353ee15c1ca16
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4199,7 +4199,7 @@ index a046430247a3c2fb6103a06e7be55c61e7d5a314..2dd180ce22d6de7cf284d0fff4e0a693
  
           If this flag is false, we advise applications not to use protected
 
-commit 97e1364dfc94593515b19a5cec4e7a70d001e69b
+commit a99e093ccf812f1c4e49b995af155ecad9435a4f
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -4207,20 +4207,23 @@ Date:   Thu 2019-11-14 23:13:15+1100
     
     added custom trust manager to bypass certificate time validation
     
+    implemented a custom eternalcertificate class that ignores certification
+    time checks.
+    
     Signed-off-by: Renlord <me@renlord.com>
 ---
- core/java/android/net/SntpClient.java      | 160 ++++++++++++++++++++++++++++-
+ core/java/android/net/SntpClient.java      | 312 ++++++++++++++++++++++++++++-
  core/java/android/provider/Settings.java   |   5 +
- core/java/android/util/NtpTrustedTime.java |  49 +++++++--
+ core/java/android/util/NtpTrustedTime.java |  49 ++++-
  core/res/res/values/config.xml             |   5 +
  core/res/res/values/symbols.xml            |   2 +
- 5 files changed, 209 insertions(+), 12 deletions(-)
+ 5 files changed, 360 insertions(+), 13 deletions(-)
 
 diff --git a/core/java/android/net/SntpClient.java b/core/java/android/net/SntpClient.java
-index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba372ad5c3 100644
+index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..4260e123ade5d1248391ea4922fc868ac916865c 100644
 --- a/core/java/android/net/SntpClient.java
 +++ b/core/java/android/net/SntpClient.java
-@@ -15,25 +15,42 @@
+@@ -15,40 +15,67 @@
   */
  
  package android.net;
@@ -4246,7 +4249,17 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
 +
 +import java.security.cert.X509Certificate;
 +
++import java.util.Date;
++import java.util.Set;
++import java.math.BigInteger;
 +import java.security.KeyStore;
++import java.security.Principal;
++import java.security.NoSuchAlgorithmException;
++import java.security.PublicKey;
++import java.security.SignatureException;
++import java.security.NoSuchProviderException;
++import java.security.InvalidKeyException;
++import java.security.cert.CertificateEncodingException;
 +import java.security.cert.CertificateException;
 +import java.security.cert.CertificateExpiredException;
 +import java.security.cert.CertificateNotYetValidException;
@@ -4263,7 +4276,23 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
   * if (client.requestTime("time.foo.com")) {
   *     long now = client.getNtpTime() + SystemClock.elapsedRealtime() - client.getNtpTimeReference();
   * }
-@@ -65,20 +82,23 @@ public class SntpClient {
+  * </pre>
+  */
+ public class SntpClient {
+     private static final String TAG = "SntpClient";
+-    private static final boolean DBG = true;
++    private static final boolean DBG = false;
+ 
+     private static final int REFERENCE_TIME_OFFSET = 16;
+     private static final int ORIGINATE_TIME_OFFSET = 24;
+     private static final int RECEIVE_TIME_OFFSET = 32;
+     private static final int TRANSMIT_TIME_OFFSET = 40;
+     private static final int NTP_PACKET_SIZE = 48;
+ 
+     private static final int NTP_PORT = 123;
+     private static final int NTP_MODE_CLIENT = 3;
+     private static final int NTP_MODE_SERVER = 4;
+@@ -65,20 +92,23 @@ public class SntpClient {
  
      // system time computed from NTP server response
      private long mNtpTime;
@@ -4287,7 +4316,7 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
      public SntpClient() {
      }
  
-@@ -87,27 +107,37 @@ public class SntpClient {
+@@ -87,27 +117,37 @@ public class SntpClient {
       *
       * @param host host name of the server.
       * @param timeout network timeout in milliseconds.
@@ -4327,7 +4356,7 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
              socket = new DatagramSocket();
              network.bindSocket(socket);
              socket.setSoTimeout(timeout);
-@@ -149,21 +179,21 @@ public class SntpClient {
+@@ -149,21 +189,21 @@ public class SntpClient {
              // responseTime = transmitTime + transit - skew
              // clockOffset = ((receiveTime - originateTime) + (transmitTime - responseTime))/2
              //             = ((originateTime + transit + skew - originateTime) +
@@ -4350,7 +4379,7 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
              mRoundTripTime = roundTripTime;
          } catch (Exception e) {
              EventLogTags.writeNtpFailure(address.toString(), e.toString());
-@@ -172,20 +202,136 @@ public class SntpClient {
+@@ -172,20 +212,276 @@ public class SntpClient {
          } finally {
              if (socket != null) {
                  socket.close();
@@ -4365,6 +4394,7 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
 +        final int oldTag = TrafficStats.getAndSetThreadStatsTag(
 +                TrafficStatsConstants.TAG_SYSTEM_NTP);
 +        final Network networkForResolv = network.getPrivateDnsBypassingCopy();
++        if (DBG) Log.d(TAG, "requestHttpTime() getting time using https");
 +        try {
 +            TrustManagerFactory tmf = TrustManagerFactory
 +                .getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -4380,48 +4410,180 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
 +
 +            final X509TrustManager finalTm = x509Tm;
 +            X509TrustManager customTm = new X509TrustManager() {
++
++                // custom eternal certificate class that ignores expired SSL certificates
++                // adapted from https://gist.github.com/divergentdave/9a68d820e3610513bd4fcdc4ae5f91a1
++                class TimeLeewayCertificate extends X509Certificate {
++                    private final X509Certificate originalCertificate;
++
++                    public TimeLeewayCertificate(X509Certificate originalCertificate) {
++                        this.originalCertificate = originalCertificate;
++                    }
++
++                    @Override
++                    public void checkValidity() throws CertificateExpiredException, CertificateNotYetValidException {
++                        // Ignore notBefore/notAfter
++                        checkValidity(new Date());
++                    }
++
++                    @Override
++                    public void checkValidity(Date date) throws CertificateExpiredException, CertificateNotYetValidException {
++                        // expiration must be set after OS build date
++                        if (getNotAfter().compareTo(new Date(TIME)) < 0) {
++                            throw new CertificateExpiredException("Certificate expired at "
++                                    + getNotAfter().toString() + " (compared to " + date.toString() + ")");
++                        }
++                    }
++
++                    @Override
++                    public int getVersion() {
++                        return originalCertificate.getVersion();
++                    }
++
++                    @Override
++                    public BigInteger getSerialNumber() {
++                        return originalCertificate.getSerialNumber();
++                    }
++
++                    @Override
++                    public Principal getIssuerDN() {
++                        return originalCertificate.getIssuerDN();
++                    }
++
++                    @Override
++                    public Principal getSubjectDN() {
++                        return originalCertificate.getSubjectDN();
++                    }
++
++                    @Override
++                    public Date getNotBefore() {
++                        return originalCertificate.getNotBefore();
++                    }
++
++                    @Override
++                    public Date getNotAfter() {
++                        return originalCertificate.getNotAfter();
++                    }
++
++                    @Override
++                    public byte[] getTBSCertificate() throws CertificateEncodingException {
++                        return originalCertificate.getTBSCertificate();
++                    }
++
++                    @Override
++                    public byte[] getSignature() {
++                        return originalCertificate.getSignature();
++                    }
++
++                    @Override
++                    public String getSigAlgName() {
++                        return originalCertificate.getSigAlgName();
++                    }
++
++                    @Override
++                    public String getSigAlgOID() {
++                        return originalCertificate.getSigAlgOID();
++                    }
++
++                    @Override
++                    public byte[] getSigAlgParams() {
++                        return originalCertificate.getSigAlgParams();
++                    }
++
++                    @Override
++                    public boolean[] getIssuerUniqueID() {
++                        return originalCertificate.getIssuerUniqueID();
++                    }
++
++                    @Override
++                    public boolean[] getSubjectUniqueID() {
++                        return originalCertificate.getSubjectUniqueID();
++                    }
++
++                    @Override
++                    public boolean[] getKeyUsage() {
++                        return originalCertificate.getKeyUsage();
++                    }
++
++                    @Override
++                    public int getBasicConstraints() {
++                        return originalCertificate.getBasicConstraints();
++                    }
++
++                    @Override
++                    public byte[] getEncoded() throws CertificateEncodingException {
++                        return originalCertificate.getEncoded();
++                    }
++
++                    @Override
++                    public void verify(PublicKey key) throws CertificateException,
++                           NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException, SignatureException
++                    {
++                        originalCertificate.verify(key);
++                    }
++
++                    @Override
++                    public void verify(PublicKey key, String sigProvider) throws CertificateException,
++                           NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException, SignatureException
++                    {
++                        originalCertificate.verify(key, sigProvider);
++                    }
++
++                    @Override
++                    public String toString() {
++                        return originalCertificate.toString();
++                    }
++
++                    @Override
++                    public PublicKey getPublicKey() {
++                        return originalCertificate.getPublicKey();
++                    }
++
++                    @Override
++                    public Set<String> getCriticalExtensionOIDs() {
++                        return originalCertificate.getCriticalExtensionOIDs();
++                    }
++
++                    @Override
++                    public byte[] getExtensionValue(String oid) {
++                        return originalCertificate.getExtensionValue(oid);
++                    }
++
++                    @Override
++                    public Set<String> getNonCriticalExtensionOIDs() {
++                        return originalCertificate.getNonCriticalExtensionOIDs();
++                    }
++
++                    @Override
++                    public boolean hasUnsupportedCriticalExtension() {
++                        return originalCertificate.hasUnsupportedCriticalExtension();
++                    }
++                }
++
 +                @Override
 +                public X509Certificate[] getAcceptedIssuers() {
 +                    return finalTm.getAcceptedIssuers();
 +                }
 +
 +                @Override
-+                public void checkServerTrusted(X509Certificate[] chain,
-+                        String authType) throws CertificateException {
-+                    try {
-+                        finalTm.checkServerTrusted(chain, authType);
-+                    } catch (CertificateException e) {
-+                        // deliberately catch certificate time checks to prevent
-+                        // propogating to SSLHandshake Error only when getting
-+                        // authenticated timestamps.
-+                        final Throwable validationFailCause = e.getCause();
-+                        if (validationFailCause instanceof CertificateNotYetValidException ||
-+                                validationFailCause instanceof CertificateExpiredException) {
-+                            return;
++                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
++                        // replace the top-level certificate with a certificate validation routine that
++                        // ignores expired certificates due to clock drift.
++                        X509Certificate[] timeLeewayChain = new X509Certificate[chain.length];
++                        for (int i = 0; i < chain.length; i++) {
++                            timeLeewayChain[i] = new TimeLeewayCertificate(chain[i]);
 +                        }
-+                        throw e;
-+                    }
++                        finalTm.checkServerTrusted(timeLeewayChain, authType);
 +                }
 +
 +                @Override
-+                public void checkClientTrusted(X509Certificate[] chain,
-+                        String authType) throws CertificateException {
-+                    try {
-+                        finalTm.checkClientTrusted(chain, authType);
-+                    } catch (CertificateException e) {
-+                        // deliberately catch certificate time checks to prevent
-+                        // propogating to SSLHandshake Error only when getting
-+                        // authenticated timestamps.
-+                        final Throwable validationFailCause = e.getCause();
-+                        if (validationFailCause instanceof CertificateNotYetValidException ||
-+                                validationFailCause instanceof CertificateExpiredException) {
-+                            return;
-+                        }
-+                        throw e;
-+                    }
++                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
++                    // never gets used, so default to stock.
++                    finalTm.checkClientTrusted(chain, authType);
 +                }
 +            };
 +
++            if (DBG) Log.d(TAG, "requestHttpTime() setting up URL connection");
 +            URLConnection urlConnection = networkForResolv.openConnection(url);
 +            SSLContext sslContext = SSLContext.getInstance("SSL");
 +            sslContext.init(null, new TrustManager[] { customTm }, null);
@@ -4459,6 +4621,10 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
 +                    mNtpTime = responseTime + clockOffset;
 +                    mNtpTimeReference = responseTicks;
 +                    mRoundTripTime = roundTripTime;
++                } catch (Exception e) {
++                    Log.e(TAG, "request https time failed: " + e.toString());
++                    if (DBG) e.printStackTrace();
++                    return false;
 +                } finally {
 +                    httpsUrlConnection.disconnect();
 +                }
@@ -4469,7 +4635,10 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
 +            }
 +        } catch (Exception e) {
 +            EventLogTags.writeNtpFailure(url.toString(), e.toString());
-+            if (DBG) Log.d(TAG, "request time failed: " + e);
++            Log.e(TAG, "request time failed: " + e.toString());
++            if (DBG) {
++                e.printStackTrace();
++            }
 +            return false;
 +        } finally {
 +            TrafficStats.setThreadStatsTag(oldTag);
@@ -4487,7 +4656,7 @@ index 8c6faf6d99703c598ddb2d376aa13eefbf8fae84..ab0064379f7efb36804831600c5a60ba
      /**
       * Returns the time computed from the NTP transaction.
       *
-@@ -210,20 +356,28 @@ public class SntpClient {
+@@ -210,20 +506,28 @@ public class SntpClient {
      /**
       * Returns the round trip time of the NTP transaction
       *
@@ -4742,7 +4911,7 @@ index 06f357e79a6215fb88ac9fc12d61fe4939620873..e6d79bda4325779c756240ef7318d2aa
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 4042d9c57f70eee781774771f86b8ab633bcd0ed
+commit 9ac661b9bfecf786fa4f079f944e29861619ef88
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -5018,7 +5187,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit 84d535ecb1d6016f23da4e713fee77033f3da53f
+commit 65c5391dc0742b303afc113c2e346a26848ddd31
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5062,7 +5231,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 1d5d67f2cb200c710a45d6443b1702639654a6d2
+commit 1fa0c8551526028625f6159042d0d36ca476df5e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5257,7 +5426,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit 4465c0069cecfc4b64fe417d792082917131a0ba
+commit 11fdb43632cc3abb9eeb77afa1412db1e0cdab72
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5324,7 +5493,7 @@ index 52094992c8f8ddb6499d541ab89318e52e664e60..5e69efcff538ebc53e66414cb8ecfaef
       * </ul>
       *
 
-commit 267aca23fb38b85d00ec99a60b6b6254458607c0
+commit b54733624cb54d314a2b6bf88a836a15b60c215f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5463,7 +5632,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit 6c982e75b6911fb32b929a5a9d1b21f0660bd1ab
+commit 34591c642903d77f15a92f77c139d8b52d32d266
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -5733,7 +5902,7 @@ index 5e69efcff538ebc53e66414cb8ecfaefbb99280c..47b2e716d69b2afdbcd78a9a2cb80ed6
       * </ul>
       *
 
-commit 547023bf2502d544be3ca5cfc597a281b5db9b18
+commit 4dabf56b331d58f0dd6f823276cc2283afd35d96
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -5912,7 +6081,7 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit 9aeba97cb7efe965df69a7955217eedd8edd5855
+commit 6b5f2b712a8e0ebe7207f7145c8a0038be520f96
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6037,7 +6206,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit 9dfc3daf92fc9f9290354190df93be4ff2417485
+commit 89732e20463f0b5996d948b58cf4e43a9aabcf72
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6109,7 +6278,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 0284c2655adcb4b02e902ed60019a54065c0991f
+commit 8960ec125b21772f46041cb12da19e84069111b4
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6152,7 +6321,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit d1b35074538813c8cbf9a84c8ab9c152909ab3fb
+commit e808fbb75b72a4cf4f4a6be48e98907dcf2fb573
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6188,7 +6357,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit 902ef0b3e4a9b18ff2e0a30e4f523c449fa20406
+commit 7bb13e3c938d4708426c927ff3fd23818bdac573
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:29-0400
 
@@ -6330,7 +6499,7 @@ index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..00000000000000000000000000000000
 -VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
 ------END PRIVATE KEY-----
 
-commit 8280f1dcead79e71dd819f58a42467fbae95245e
+commit e1b670c74c2a13833462e66094541781cc669038
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6395,7 +6564,7 @@ index b8a20ed4fe5b73a41a4fd845f3599956a67a5af9..4f803c3503b98e8b5da728bacffce46b
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit fecfe7c3ae3993562d66fc50f17f9e1431daab8c
+commit c30b726e891a900ae06c1cf0d0aa7ea3b22f4daa
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 14:59:51-0700
 
@@ -6461,7 +6630,7 @@ index 2be509a1381639f71edd6ed3f6010962e5b7016c..55c52e75b3ac9e39c82811bf4649f593
          }
  
 
-commit 2acf9770202de509624c4e737d7e20c7cafb721c
+commit 94bb5952b31738a92c6c4bc00e49ffa793694e1c
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 17:12:13-0700
 
@@ -6514,7 +6683,7 @@ index 55c52e75b3ac9e39c82811bf4649f593a9b7ea6e..122b13ff65153d092a3352261144e6a7
  
          // App Icon
 
-commit ad9f2d356ed2524864735c0c8a4bbc1fe033168b
+commit 1a8505c6062041b586c0343fb15f8d1b0a6d25e0
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6543,7 +6712,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit d92f4059fd899ecddebc48c5805935587755228b
+commit 9ad29bd3212b022b16a6626456f639ae2f76a99b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-11-02 15:21:13-0500
 
@@ -6632,7 +6801,7 @@ index ff25439a5f9f586c05188035a287459f3e84b25c..1144a149dd1ef8c276aecaeda47bb397
                  mScreenRecordHelper.launchRecordPrompt();
              } else {
 
-commit 35ed6812a38710c31efc3b542ec9855ee64c2fa2
+commit 41d74b21ef80c6132eaae82d97826d3b32736ff6
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -6942,7 +7111,7 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit 37bd1a135f128d121f4523681a6c4a74315eebf1
+commit b7f7a4a3303d25335b854ded98c2dbb4cad7ad88
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
@@ -6953,7 +7122,7 @@ Date:   Wed 2020-11-25 03:55:15-0500
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/services/core/java/com/android/server/ConnectivityService.java b/services/core/java/com/android/server/ConnectivityService.java
-index cf14c6377d21089dc5c55e6417691294a49e30fc..e07f32ca06ae941934a63a9760b0470cb3c65b6f 100644
+index a1cbd00e360f1f0a864d454e1b7d59aafb79b7ec..4ca1a118fc6811109e2680e1e62a472900161866 100644
 --- a/services/core/java/com/android/server/ConnectivityService.java
 +++ b/services/core/java/com/android/server/ConnectivityService.java
 @@ -270,21 +270,21 @@ public class ConnectivityService extends IConnectivityManager.Stub
@@ -6980,10 +7149,10 @@ index cf14c6377d21089dc5c55e6417691294a49e30fc..e07f32ca06ae941934a63a9760b0470c
  
      // How long to wait before putting up a "This network doesn't have an Internet connection,
 diff --git a/tests/net/java/com/android/server/ConnectivityServiceTest.java b/tests/net/java/com/android/server/ConnectivityServiceTest.java
-index 385005f90c3be1d4184dc48b95f181263113c655..323d1e0e8f4f47d2637f69dbd564805174463590 100644
+index a5554c740e7f7f42d61e9f2f670937549d08656e..7f78193974c709046d40b0a09f006c2e35d82630 100644
 --- a/tests/net/java/com/android/server/ConnectivityServiceTest.java
 +++ b/tests/net/java/com/android/server/ConnectivityServiceTest.java
-@@ -4458,21 +4458,21 @@ public class ConnectivityServiceTest {
+@@ -4513,21 +4513,21 @@ public class ConnectivityServiceTest {
          try (DatagramSocket ignored = new DatagramSocket(port)) {
              return false;
          } catch (IOException alreadyInUse) {
@@ -7007,7 +7176,7 @@ index 385005f90c3be1d4184dc48b95f181263113c655..323d1e0e8f4f47d2637f69dbd5648051
                  return sNetwork != null;
              }
 
-commit 5a60f6150f6eef20816b2cbd0b5bf75cc3fcd04a
+commit 48743a0f60067094c41588bf8334233cff8752a9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7044,7 +7213,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit bb1faf64caa3b936f4ce873fa1214ca317460130
+commit 89ccd99f76d88d46550d5651e45f1090cf9d2cb1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7083,7 +7252,47 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c2
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit 09a200d4266d825f38b5a03d83c931619056082e
+commit ec65b81c95bc77299701cf7cea19fe5c8f296fe3
+Author: Marco Janotta <marcojntt@gmail.com>
+Date:   Fri 2021-01-08 18:19:11+0100
+
+    use black settings background in dark theme
+    
+    Use black for settings background when using the Dark theme. This has no
+    effect on the Light theme.
+---
+ core/res/res/values/colors_device_defaults.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/colors_device_defaults.xml b/core/res/res/values/colors_device_defaults.xml
+index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0a23765ab 100644
+--- a/core/res/res/values/colors_device_defaults.xml
++++ b/core/res/res/values/colors_device_defaults.xml
+@@ -16,21 +16,21 @@
+ 
+ <!-- Colors specific to DeviceDefault themes. These are mostly pass-throughs to enable
+      overlaying new theme colors. -->
+ <resources>
+     <color name="primary_device_default_dark">@color/primary_material_dark</color>
+     <color name="primary_device_default_light">@color/primary_material_light</color>
+     <color name="primary_device_default_settings">@color/primary_material_settings</color>
+     <color name="primary_device_default_settings_light">@color/primary_material_settings_light</color>
+     <color name="primary_dark_device_default_dark">@color/primary_dark_material_dark</color>
+     <color name="primary_dark_device_default_light">@color/primary_dark_material_light</color>
+-    <color name="primary_dark_device_default_settings">@color/primary_dark_material_settings</color>
++    <color name="primary_dark_device_default_settings">#ff000000</color> <!-- Black -->
+     <color name="primary_dark_device_default_settings_light">@color/primary_dark_material_settings_light</color>
+ 
+     <color name="navigation_bar_divider_device_default_settings">#1f000000</color>
+ 
+     <color name="secondary_device_default_settings">@color/secondary_material_settings</color>
+     <color name="secondary_device_default_settings_light">@color/secondary_material_settings_light</color>
+     <color name="tertiary_device_default_settings">@color/tertiary_material_settings</color>
+     <color name="quaternary_device_default_settings">@color/quaternary_material_settings</color>
+ 
+     <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
+
+commit c0b38ee2e39f5ef07e33024dffa1e8eacc939b23
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7104,393 +7313,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit 6eec1335d50326f9ab4d305c0da92adbc899d209
-Author: Renlord <git[at]renlord.com>
-Date:   Wed 2021-01-27 15:38:07+1100
-
-    bugfix: authenticated timestamp cert validation
-    
-    implemented a custom eternalcertificate class that ignores certification
-    time checks.
----
- core/java/android/net/SntpClient.java | 211 +++++++++++++++++++++++++++++-----
- 1 file changed, 180 insertions(+), 31 deletions(-)
-
-diff --git a/core/java/android/net/SntpClient.java b/core/java/android/net/SntpClient.java
-index ab0064379f7efb36804831600c5a60ba372ad5c3..de244b70d6282a515aeaef6c88a034ebd3834481 100644
---- a/core/java/android/net/SntpClient.java
-+++ b/core/java/android/net/SntpClient.java
-@@ -30,42 +30,52 @@ import java.net.InetAddress;
- import java.util.Arrays;
- 
- import javax.net.ssl.TrustManagerFactory;
- import javax.net.ssl.TrustManager;
- import javax.net.ssl.X509TrustManager;
- import javax.net.ssl.SSLContext;
- import javax.net.ssl.HttpsURLConnection;
- 
- import java.security.cert.X509Certificate;
- 
-+import java.util.Date;
-+import java.util.Set;
-+import java.math.BigInteger;
- import java.security.KeyStore;
-+import java.security.Principal;
-+import java.security.NoSuchAlgorithmException;
-+import java.security.PublicKey;
-+import java.security.SignatureException;
-+import java.security.NoSuchProviderException;
-+import java.security.InvalidKeyException;
-+import java.security.cert.CertificateEncodingException;
- import java.security.cert.CertificateException;
- import java.security.cert.CertificateExpiredException;
- import java.security.cert.CertificateNotYetValidException;
- 
- import static android.os.Build.TIME;
- 
- /**
-  * {@hide}
-  *
-  * Simple SNTP client class for retrieving network time.
-  *
-  * Sample usage:
-  * <pre>SntpClient client = new SntpClient();
-  * if (client.requestTime("time.foo.com")) {
-  *     long now = client.getNtpTime() + SystemClock.elapsedRealtime() - client.getNtpTimeReference();
-  * }
-  * </pre>
-  */
- public class SntpClient {
-     private static final String TAG = "SntpClient";
--    private static final boolean DBG = true;
-+    private static final boolean DBG = false;
- 
-     private static final int REFERENCE_TIME_OFFSET = 16;
-     private static final int ORIGINATE_TIME_OFFSET = 24;
-     private static final int RECEIVE_TIME_OFFSET = 32;
-     private static final int TRANSMIT_TIME_OFFSET = 40;
-     private static final int NTP_PACKET_SIZE = 48;
- 
-     private static final int NTP_PORT = 123;
-     private static final int NTP_MODE_CLIENT = 3;
-     private static final int NTP_MODE_SERVER = 4;
-@@ -206,77 +216,210 @@ public class SntpClient {
-             TrafficStats.setThreadStatsTag(oldTag);
-         }
- 
-         return true;
-     }
- 
-     private boolean requestHttpTime(URL url, int timeout, Network network) {
-         final int oldTag = TrafficStats.getAndSetThreadStatsTag(
-                 TrafficStatsConstants.TAG_SYSTEM_NTP);
-         final Network networkForResolv = network.getPrivateDnsBypassingCopy();
-+        if (DBG) Log.d(TAG, "requestHttpTime() getting time using https");
-         try {
-             TrustManagerFactory tmf = TrustManagerFactory
-                 .getInstance(TrustManagerFactory.getDefaultAlgorithm());
-             tmf.init((KeyStore) null);
- 
-             X509TrustManager x509Tm = null;
-             for (TrustManager tm : tmf.getTrustManagers()) {
-                 if (tm instanceof X509TrustManager) {
-                     x509Tm = (X509TrustManager) tm;
-                     break;
-                 }
-             }
- 
-             final X509TrustManager finalTm = x509Tm;
-             X509TrustManager customTm = new X509TrustManager() {
-+
-+                // custom eternal certificate class that ignores expired SSL certificates
-+                // adapted from https://gist.github.com/divergentdave/9a68d820e3610513bd4fcdc4ae5f91a1
-+                class TimeLeewayCertificate extends X509Certificate {
-+                    private final X509Certificate originalCertificate;
-+
-+                    public TimeLeewayCertificate(X509Certificate originalCertificate) {
-+                        this.originalCertificate = originalCertificate;
-+                    }
-+
-+                    @Override
-+                    public void checkValidity() throws CertificateExpiredException, CertificateNotYetValidException {
-+                        // Ignore notBefore/notAfter
-+                        checkValidity(new Date());
-+                    }
-+
-+                    @Override
-+                    public void checkValidity(Date date) throws CertificateExpiredException, CertificateNotYetValidException {
-+                        // expiration must be set after OS build date
-+                        if (getNotAfter().compareTo(new Date(TIME)) < 0) {
-+                            throw new CertificateExpiredException("Certificate expired at "
-+                                    + getNotAfter().toString() + " (compared to " + date.toString() + ")");
-+                        }
-+                    }
-+
-+                    @Override
-+                    public int getVersion() {
-+                        return originalCertificate.getVersion();
-+                    }
-+
-+                    @Override
-+                    public BigInteger getSerialNumber() {
-+                        return originalCertificate.getSerialNumber();
-+                    }
-+
-+                    @Override
-+                    public Principal getIssuerDN() {
-+                        return originalCertificate.getIssuerDN();
-+                    }
-+
-+                    @Override
-+                    public Principal getSubjectDN() {
-+                        return originalCertificate.getSubjectDN();
-+                    }
-+
-+                    @Override
-+                    public Date getNotBefore() {
-+                        return originalCertificate.getNotBefore();
-+                    }
-+
-+                    @Override
-+                    public Date getNotAfter() {
-+                        return originalCertificate.getNotAfter();
-+                    }
-+
-+                    @Override
-+                    public byte[] getTBSCertificate() throws CertificateEncodingException {
-+                        return originalCertificate.getTBSCertificate();
-+                    }
-+
-+                    @Override
-+                    public byte[] getSignature() {
-+                        return originalCertificate.getSignature();
-+                    }
-+
-+                    @Override
-+                    public String getSigAlgName() {
-+                        return originalCertificate.getSigAlgName();
-+                    }
-+
-+                    @Override
-+                    public String getSigAlgOID() {
-+                        return originalCertificate.getSigAlgOID();
-+                    }
-+
-+                    @Override
-+                    public byte[] getSigAlgParams() {
-+                        return originalCertificate.getSigAlgParams();
-+                    }
-+
-+                    @Override
-+                    public boolean[] getIssuerUniqueID() {
-+                        return originalCertificate.getIssuerUniqueID();
-+                    }
-+
-+                    @Override
-+                    public boolean[] getSubjectUniqueID() {
-+                        return originalCertificate.getSubjectUniqueID();
-+                    }
-+
-+                    @Override
-+                    public boolean[] getKeyUsage() {
-+                        return originalCertificate.getKeyUsage();
-+                    }
-+
-+                    @Override
-+                    public int getBasicConstraints() {
-+                        return originalCertificate.getBasicConstraints();
-+                    }
-+
-+                    @Override
-+                    public byte[] getEncoded() throws CertificateEncodingException {
-+                        return originalCertificate.getEncoded();
-+                    }
-+
-+                    @Override
-+                    public void verify(PublicKey key) throws CertificateException,
-+                           NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException, SignatureException
-+                    {
-+                        originalCertificate.verify(key);
-+                    }
-+
-+                    @Override
-+                    public void verify(PublicKey key, String sigProvider) throws CertificateException,
-+                           NoSuchAlgorithmException, InvalidKeyException, NoSuchProviderException, SignatureException
-+                    {
-+                        originalCertificate.verify(key, sigProvider);
-+                    }
-+
-+                    @Override
-+                    public String toString() {
-+                        return originalCertificate.toString();
-+                    }
-+
-+                    @Override
-+                    public PublicKey getPublicKey() {
-+                        return originalCertificate.getPublicKey();
-+                    }
-+
-+                    @Override
-+                    public Set<String> getCriticalExtensionOIDs() {
-+                        return originalCertificate.getCriticalExtensionOIDs();
-+                    }
-+
-+                    @Override
-+                    public byte[] getExtensionValue(String oid) {
-+                        return originalCertificate.getExtensionValue(oid);
-+                    }
-+
-+                    @Override
-+                    public Set<String> getNonCriticalExtensionOIDs() {
-+                        return originalCertificate.getNonCriticalExtensionOIDs();
-+                    }
-+
-+                    @Override
-+                    public boolean hasUnsupportedCriticalExtension() {
-+                        return originalCertificate.hasUnsupportedCriticalExtension();
-+                    }
-+                }
-+
-                 @Override
-                 public X509Certificate[] getAcceptedIssuers() {
-                     return finalTm.getAcceptedIssuers();
-                 }
- 
-                 @Override
--                public void checkServerTrusted(X509Certificate[] chain,
--                        String authType) throws CertificateException {
--                    try {
--                        finalTm.checkServerTrusted(chain, authType);
--                    } catch (CertificateException e) {
--                        // deliberately catch certificate time checks to prevent
--                        // propogating to SSLHandshake Error only when getting
--                        // authenticated timestamps.
--                        final Throwable validationFailCause = e.getCause();
--                        if (validationFailCause instanceof CertificateNotYetValidException ||
--                                validationFailCause instanceof CertificateExpiredException) {
--                            return;
-+                public void checkServerTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-+                        // replace the top-level certificate with a certificate validation routine that
-+                        // ignores expired certificates due to clock drift.
-+                        X509Certificate[] timeLeewayChain = new X509Certificate[chain.length];
-+                        for (int i = 0; i < chain.length; i++) {
-+                            timeLeewayChain[i] = new TimeLeewayCertificate(chain[i]);
-                         }
--                        throw e;
--                    }
-+                        finalTm.checkServerTrusted(timeLeewayChain, authType);
-                 }
- 
-                 @Override
--                public void checkClientTrusted(X509Certificate[] chain,
--                        String authType) throws CertificateException {
--                    try {
--                        finalTm.checkClientTrusted(chain, authType);
--                    } catch (CertificateException e) {
--                        // deliberately catch certificate time checks to prevent
--                        // propogating to SSLHandshake Error only when getting
--                        // authenticated timestamps.
--                        final Throwable validationFailCause = e.getCause();
--                        if (validationFailCause instanceof CertificateNotYetValidException ||
--                                validationFailCause instanceof CertificateExpiredException) {
--                            return;
--                        }
--                        throw e;
--                    }
-+                public void checkClientTrusted(X509Certificate[] chain, String authType) throws CertificateException {
-+                    // never gets used, so default to stock.
-+                    finalTm.checkClientTrusted(chain, authType);
-                 }
-             };
- 
-+            if (DBG) Log.d(TAG, "requestHttpTime() setting up URL connection");
-             URLConnection urlConnection = networkForResolv.openConnection(url);
-             SSLContext sslContext = SSLContext.getInstance("SSL");
-             sslContext.init(null, new TrustManager[] { customTm }, null);
- 
-             if (urlConnection instanceof HttpsURLConnection) {
-                 HttpsURLConnection httpsUrlConnection = (HttpsURLConnection) urlConnection;
-                 try {
-                     // change the SSLSocketFactory to use custom trust manager
-                     httpsUrlConnection.setSSLSocketFactory(sslContext.getSocketFactory());
-                     httpsUrlConnection.setConnectTimeout(timeout);
-@@ -300,31 +443,37 @@ public class SntpClient {
-                     if (receiveTime < TIME) {
-                         Log.w(TAG, "https method received timestamp before BUILD unix time, rejecting");
-                         return false;
-                     }
-                     EventLogTags.writeNtpSuccess(url.toString(), roundTripTime, clockOffset);
-                     // save our results - use the times on this side of the network latency
-                     // (response rather than request time)
-                     mNtpTime = responseTime + clockOffset;
-                     mNtpTimeReference = responseTicks;
-                     mRoundTripTime = roundTripTime;
-+                } catch (Exception e) {
-+                    Log.e(TAG, "request https time failed: " + e.toString());
-+                    if (DBG) e.printStackTrace();
-                 } finally {
-                     httpsUrlConnection.disconnect();
-                 }
-             } else {
-                 EventLogTags.writeNtpFailure(url.toString(), "did not receive HttpsURLConnection from Android Network");
-                 if (DBG) Log.d(TAG, "request time failed: did not receive HttpsURLConnection from Android Network");
-                 return false;
-             }
-         } catch (Exception e) {
-             EventLogTags.writeNtpFailure(url.toString(), e.toString());
--            if (DBG) Log.d(TAG, "request time failed: " + e);
-+            Log.e(TAG, "request time failed: " + e.toString());
-+            if (DBG) {
-+                e.printStackTrace();
-+            }
-             return false;
-         } finally {
-             TrafficStats.setThreadStatsTag(oldTag);
-         }
-         return true;
-     }
- 
-     @Deprecated
-     @UnsupportedAppUsage
-     public boolean requestTime(String host, int timeout) {
-
-commit 0cf816fa149b54083199c6f99c0737347ecd4b09
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sun 2021-02-07 11:55:51-0500
-
-    add missing return to avoid using zeroed time
----
- core/java/android/net/SntpClient.java | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/core/java/android/net/SntpClient.java b/core/java/android/net/SntpClient.java
-index de244b70d6282a515aeaef6c88a034ebd3834481..4260e123ade5d1248391ea4922fc868ac916865c 100644
---- a/core/java/android/net/SntpClient.java
-+++ b/core/java/android/net/SntpClient.java
-@@ -446,20 +446,21 @@ public class SntpClient {
-                     }
-                     EventLogTags.writeNtpSuccess(url.toString(), roundTripTime, clockOffset);
-                     // save our results - use the times on this side of the network latency
-                     // (response rather than request time)
-                     mNtpTime = responseTime + clockOffset;
-                     mNtpTimeReference = responseTicks;
-                     mRoundTripTime = roundTripTime;
-                 } catch (Exception e) {
-                     Log.e(TAG, "request https time failed: " + e.toString());
-                     if (DBG) e.printStackTrace();
-+                    return false;
-                 } finally {
-                     httpsUrlConnection.disconnect();
-                 }
-             } else {
-                 EventLogTags.writeNtpFailure(url.toString(), "did not receive HttpsURLConnection from Android Network");
-                 if (DBG) Log.d(TAG, "request time failed: did not receive HttpsURLConnection from Android Network");
-                 return false;
-             }
-         } catch (Exception e) {
-             EventLogTags.writeNtpFailure(url.toString(), e.toString());
-
-commit 02ce7d24072a370545dc553fe976e8166adef0ce
+commit 94850941b029d979494047e3941b41685c472596
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-02-21 08:39:04-0500
 
@@ -7552,42 +7375,615 @@ index e6ac9976cd7578ec426f9536fcabb0ee7594c211..b95d34f2966ba4665a0c196179e0948f
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 5bde2021f229a673da41200232312efa4a009101 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
-Author: Marco Janotta <marcojntt@gmail.com>
-Date:   Fri 2021-01-08 18:19:11+0100
+commit 9d4ed64b2301beb4517372e703ad6fa1c3a649d6
+Author: Oliver Scott <olivercscott@gmail.com>
+Date:   Fri 2020-10-02 13:40:28-0400
 
-    use black settings background in dark theme
+    Bluetooth timeout feature
     
-    Use black for settings background when using the Dark theme. This has no
-    effect on the Light theme.
+    Change-Id: I4f4646139cd42b7ad20b486ed77dd00499aa3c6e
 ---
- core/res/res/values/colors_device_defaults.xml | 2 +-
+ core/java/android/provider/Settings.java           |  6 ++
+ .../bluetooth/BluetoothEventManager.java           | 27 +++++++++
+ .../bluetooth/BluetoothTimeoutReceiver.java (new)  | 65 ++++++++++++++++++++++
+ 3 files changed, 98 insertions(+)
+
+diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
+index e831c408eb31f66391a06a57b9b58aeb2d47a1db..8ea7d8dec2db53dff29a56cf213dfd9a0b5e420b 100755
+--- a/core/java/android/provider/Settings.java
++++ b/core/java/android/provider/Settings.java
+@@ -14427,20 +14427,26 @@ public final class Settings {
+          * Values are:
+          * 0: off - All 5G NSA tracking indications are off when the screen is off.
+          * 1: extended - All 5G NSA tracking indications are on when the screen is off as long as
+          *    the device is camped on 5G NSA (5G icon is showing in status bar).
+          *    If the device is not camped on 5G NSA, tracking indications are off.
+          * 2: always on - All 5G NSA tracking indications are on whether the screen is on or off.
+          * @hide
+          */
+         public static final String NR_NSA_TRACKING_SCREEN_OFF_MODE =
+                 "nr_nsa_tracking_screen_off_mode";
++
++        /**
++         * The amount of time in milliseconds before bluetooth is turned off
++         * @hide
++         */
++        public static final String BLUETOOTH_OFF_TIMEOUT = "bluetooth_off_timeout";
+     }
+ 
+     /**
+      * Configuration system settings, containing settings which are applied identically for all
+      * defined users. Only Android can read these and only a specific configuration service can
+      * write these.
+      *
+      * @hide
+      */
+     public static final class Config extends NameValueTable {
+diff --git a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
+index 4b4861a018985e3d7e54a2c97d5c9154bfa3cf16..b97650ddf580160a22e702a90a692420374fdd71 100644
+--- a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
++++ b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
+@@ -19,21 +19,23 @@ package com.android.settingslib.bluetooth;
+ import android.bluetooth.BluetoothA2dp;
+ import android.bluetooth.BluetoothAdapter;
+ import android.bluetooth.BluetoothDevice;
+ import android.bluetooth.BluetoothHeadset;
+ import android.bluetooth.BluetoothHearingAid;
+ import android.bluetooth.BluetoothProfile;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
++import android.database.ContentObserver;
+ import android.os.UserHandle;
++import android.provider.Settings;
+ import android.telephony.TelephonyManager;
+ import android.util.Log;
+ 
+ import androidx.annotation.Nullable;
+ import androidx.annotation.VisibleForTesting;
+ 
+ import com.android.settingslib.R;
+ 
+ import java.util.Collection;
+ import java.util.HashMap;
+@@ -119,20 +121,33 @@ public class BluetoothEventManager {
+         addHandler(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED,
+                 new AudioModeChangedHandler());
+         addHandler(TelephonyManager.ACTION_PHONE_STATE_CHANGED,
+                 new AudioModeChangedHandler());
+ 
+         // ACL connection changed broadcasts
+         addHandler(BluetoothDevice.ACTION_ACL_CONNECTED, new AclStateChangedHandler());
+         addHandler(BluetoothDevice.ACTION_ACL_DISCONNECTED, new AclStateChangedHandler());
+ 
+         registerAdapterIntentReceiver();
++
++        mContext.getContentResolver().registerContentObserver(
++                Settings.Global.getUriFor(Settings.Global.BLUETOOTH_OFF_TIMEOUT),
++                false,
++                new ContentObserver(handler) {
++            @Override
++            public void onChange(boolean selfChange) {
++                super.onChange(selfChange);
++                BluetoothTimeoutReceiver.setTimeoutAlarm(mContext,
++                        Settings.Global.getLong(context.getContentResolver(),
++                                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
++            }
++        });
+     }
+ 
+     /** Register to start receiving callbacks for Bluetooth events. */
+     public void registerCallback(BluetoothCallback callback) {
+         mCallbacks.add(callback);
+     }
+ 
+     /** Unregister to stop receiving callbacks for Bluetooth events. */
+     public void unregisterCallback(BluetoothCallback callback) {
+         mCallbacks.remove(callback);
+@@ -263,35 +278,42 @@ public class BluetoothEventManager {
+             int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+                     BluetoothAdapter.ERROR);
+             // update local profiles and get paired devices
+             mLocalAdapter.setBluetoothStateInt(state);
+             // send callback to update UI and possibly start scanning
+             for (BluetoothCallback callback : mCallbacks) {
+                 callback.onBluetoothStateChanged(state);
+             }
+             // Inform CachedDeviceManager that the adapter state has changed
+             mDeviceManager.onBluetoothStateChanged(state);
++            if (state == BluetoothAdapter.STATE_ON)
++                BluetoothTimeoutReceiver.setTimeoutAlarm(context,
++                        Settings.Global.getLong(context.getContentResolver(),
++                                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
+         }
+     }
+ 
+     private class ScanningStateChangedHandler implements Handler {
+         private final boolean mStarted;
+ 
+         ScanningStateChangedHandler(boolean started) {
+             mStarted = started;
+         }
+ 
+         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+             for (BluetoothCallback callback : mCallbacks) {
+                 callback.onScanningStateChanged(mStarted);
+             }
+             mDeviceManager.onScanningStateChanged(mStarted);
++            BluetoothTimeoutReceiver.setTimeoutAlarm(context,
++                    mStarted ? 0 : Settings.Global.getLong(context.getContentResolver(),
++                            Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
+         }
+     }
+ 
+     private class DeviceFoundHandler implements Handler {
+         public void onReceive(Context context, Intent intent,
+                 BluetoothDevice device) {
+             short rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);
+             String name = intent.getStringExtra(BluetoothDevice.EXTRA_NAME);
+             // TODO Pick up UUID. They should be available for 2.1 devices.
+             // Skip for now, there's a bluez problem and we are not getting uuids even for 2.1.
+@@ -316,20 +338,25 @@ public class BluetoothEventManager {
+         }
+     }
+ 
+     private class ConnectionStateChangedHandler implements Handler {
+         @Override
+         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+             CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
+             int state = intent.getIntExtra(BluetoothAdapter.EXTRA_CONNECTION_STATE,
+                     BluetoothAdapter.ERROR);
+             dispatchConnectionStateChanged(cachedDevice, state);
++            if (state == BluetoothAdapter.STATE_DISCONNECTED) {
++                BluetoothTimeoutReceiver.setTimeoutAlarm(context,
++                        Settings.Global.getLong(context.getContentResolver(),
++                                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
++            }
+         }
+     }
+ 
+     private class NameChangedHandler implements Handler {
+         public void onReceive(Context context, Intent intent,
+                 BluetoothDevice device) {
+             mDeviceManager.onDeviceNameUpdated(device);
+         }
+     }
+ 
+diff --git a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..b209556eb9caa30d3456fac88dbd54508b862e8b
+--- /dev/null
++++ b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
+@@ -0,0 +1,65 @@
++/*
++ * Copyright (C) 2020 The Calyx Institute
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.settingslib.bluetooth;
++
++import android.app.AlarmManager;
++import android.app.PendingIntent;
++import android.bluetooth.BluetoothAdapter;
++import android.content.BroadcastReceiver;
++import android.content.ComponentName;
++import android.content.Context;
++import android.content.Intent;
++import android.util.Log;
++
++import java.util.Date;
++
++public class BluetoothTimeoutReceiver extends BroadcastReceiver {
++    private static final String TAG = "BluetoothTimeoutReceiver";
++
++    private static final String INTENT_TIMEOUT = "android.bluetooth.intent.TIMEOUT";
++
++    public static void setTimeoutAlarm(Context context, long alarmTime) {
++        Intent intent = new Intent(INTENT_TIMEOUT);
++        intent.setClassName("com.android.settings", "com.android.settingslib.bluetooth.BluetoothTimeoutReceiver");
++        PendingIntent pending = PendingIntent.getBroadcast(
++                context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
++        AlarmManager alarmManager =
++                (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
++
++        if (alarmTime != 0) {
++            alarmTime = System.currentTimeMillis() + alarmTime;
++            Log.d(TAG, "setTimeoutAlarm(): alarmTime = " + new Date(alarmTime));
++            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarmTime, pending);
++        } else
++            alarmManager.cancel(pending);
++    }
++
++    @Override
++    public void onReceive(Context context, Intent intent) {
++        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
++        if (intent.getAction() == null && !intent.getAction().equals(INTENT_TIMEOUT)) {
++            return;
++        }
++        if (bluetoothAdapter != null) {
++            if (bluetoothAdapter.getState() == BluetoothAdapter.STATE_ON &&
++                    bluetoothAdapter.getConnectionState() == BluetoothAdapter.STATE_DISCONNECTED)
++                bluetoothAdapter.disable();
++        } else {
++            Log.e(TAG, "bluetoothAdapter is NULL!!");
++        }
++    }
++}
+
+commit cbd17fa297128a28869c8ea6d86f92f9b7b0dc83
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Mon 2021-03-15 20:26:47+0000
+
+    Make android.bluetooth.intent.TIMEOUT a protected broadcast
+---
+ core/res/AndroidManifest.xml | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
+index d00392e2cf2acdc3a10bf3f8dd18be4bc4825f38..1ecbbcf3e161d79733c7e2b49c597397286b23c9 100644
+--- a/core/res/AndroidManifest.xml
++++ b/core/res/AndroidManifest.xml
+@@ -650,20 +650,23 @@
+     <protected-broadcast android:name="android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED_INTERNAL" />
+ 
+     <protected-broadcast android:name="android.intent.action.DEVICE_CUSTOMIZATION_READY" />
+ 
+     <!-- Added in R -->
+     <protected-broadcast android:name="android.app.action.RESET_PROTECTION_POLICY_CHANGED" />
+ 
+     <!-- For tether entitlement recheck-->
+     <protected-broadcast
+         android:name="com.android.server.connectivity.tethering.PROVISIONING_RECHECK_ALARM" />
++
++    <!-- For Bluetooth automatic turn off functionality-->
++    <protected-broadcast android:name="android.bluetooth.intent.TIMEOUT" />
+     <!-- ====================================================================== -->
+     <!--                          RUNTIME PERMISSIONS                           -->
+     <!-- ====================================================================== -->
+     <eat-comment />
+ 
+     <!-- Grouping for platform runtime permissions is not accessible to apps
+          @hide
+          @SystemApi
+          @TestApi
+     -->
+
+commit 311ecf667198b6e0df2beb32c3629e5266b5b3fb
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Mon 2021-03-15 20:39:24+0000
+
+    AOSP coding standards cleanup
+---
+ .../com/android/settingslib/bluetooth/BluetoothEventManager.java    | 3 ++-
+ .../com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java | 6 ++++--
+ 2 files changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
+index b97650ddf580160a22e702a90a692420374fdd71..248d5590a93655775adedd77f3c558ef41e17170 100644
+--- a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
++++ b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
+@@ -278,24 +278,25 @@ public class BluetoothEventManager {
+             int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+                     BluetoothAdapter.ERROR);
+             // update local profiles and get paired devices
+             mLocalAdapter.setBluetoothStateInt(state);
+             // send callback to update UI and possibly start scanning
+             for (BluetoothCallback callback : mCallbacks) {
+                 callback.onBluetoothStateChanged(state);
+             }
+             // Inform CachedDeviceManager that the adapter state has changed
+             mDeviceManager.onBluetoothStateChanged(state);
+-            if (state == BluetoothAdapter.STATE_ON)
++            if (state == BluetoothAdapter.STATE_ON) {
+                 BluetoothTimeoutReceiver.setTimeoutAlarm(context,
+                         Settings.Global.getLong(context.getContentResolver(),
+                                 Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
++            }
+         }
+     }
+ 
+     private class ScanningStateChangedHandler implements Handler {
+         private final boolean mStarted;
+ 
+         ScanningStateChangedHandler(boolean started) {
+             mStarted = started;
+         }
+ 
+diff --git a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
+index b209556eb9caa30d3456fac88dbd54508b862e8b..fae669bf41962a3053cabcae9b77208a75ede6bf 100644
+--- a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
++++ b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
+@@ -37,29 +37,31 @@ public class BluetoothTimeoutReceiver extends BroadcastReceiver {
+         intent.setClassName("com.android.settings", "com.android.settingslib.bluetooth.BluetoothTimeoutReceiver");
+         PendingIntent pending = PendingIntent.getBroadcast(
+                 context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+         AlarmManager alarmManager =
+                 (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+ 
+         if (alarmTime != 0) {
+             alarmTime = System.currentTimeMillis() + alarmTime;
+             Log.d(TAG, "setTimeoutAlarm(): alarmTime = " + new Date(alarmTime));
+             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarmTime, pending);
+-        } else
++        } else {
+             alarmManager.cancel(pending);
++        }
+     }
+ 
+     @Override
+     public void onReceive(Context context, Intent intent) {
+         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+         if (intent.getAction() == null && !intent.getAction().equals(INTENT_TIMEOUT)) {
+             return;
+         }
+         if (bluetoothAdapter != null) {
+             if (bluetoothAdapter.getState() == BluetoothAdapter.STATE_ON &&
+-                    bluetoothAdapter.getConnectionState() == BluetoothAdapter.STATE_DISCONNECTED)
++                    bluetoothAdapter.getConnectionState() == BluetoothAdapter.STATE_DISCONNECTED) {
+                 bluetoothAdapter.disable();
++            }
+         } else {
+             Log.e(TAG, "bluetoothAdapter is NULL!!");
+         }
+     }
+ }
+
+commit d5ecea1263eb206574186a28b8585dbd49594e29
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-03-15 23:57:54-0400
+
+    set GrapheneOS launcher as notification listener
+---
+ core/res/res/values/config.xml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/core/res/res/values/colors_device_defaults.xml b/core/res/res/values/colors_device_defaults.xml
-index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0a23765ab 100644
---- a/core/res/res/values/colors_device_defaults.xml
-+++ b/core/res/res/values/colors_device_defaults.xml
-@@ -16,21 +16,21 @@
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index 4178362c9cdaa8dc0d601109bb0a0c162edf93c2..ce4c73589f0699f418e0c8b97555594456593169 100644
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -3524,21 +3524,21 @@
+          and followed the pertinent sections of the escrow tokens section of the CDD <link>-->
+     <!-- TODO(b/35230407) complete the link field -->
+     <bool name="config_allowEscrowTokenForTrustAgent">false</bool>
  
- <!-- Colors specific to DeviceDefault themes. These are mostly pass-throughs to enable
-      overlaying new theme colors. -->
- <resources>
-     <color name="primary_device_default_dark">@color/primary_material_dark</color>
-     <color name="primary_device_default_light">@color/primary_material_light</color>
-     <color name="primary_device_default_settings">@color/primary_material_settings</color>
-     <color name="primary_device_default_settings_light">@color/primary_material_settings_light</color>
-     <color name="primary_dark_device_default_dark">@color/primary_dark_material_dark</color>
-     <color name="primary_dark_device_default_light">@color/primary_dark_material_light</color>
--    <color name="primary_dark_device_default_settings">@color/primary_dark_material_settings</color>
-+    <color name="primary_dark_device_default_settings">#ff000000</color> <!-- Black -->
-     <color name="primary_dark_device_default_settings_light">@color/primary_dark_material_settings_light</color>
+     <!-- A flattened ComponentName which corresponds to the only trust agent that should be enabled
+          by default. If the default value is used, or set to an empty string, the restriction will
+          not be applied. -->
+     <string name="config_defaultTrustAgent" translatable="false"></string>
  
-     <color name="navigation_bar_divider_device_default_settings">#1f000000</color>
+     <!-- Colon separated list of package names that should be granted Notification Listener access -->
+-    <string name="config_defaultListenerAccessPackages" translatable="false"></string>
++    <string name="config_defaultListenerAccessPackages" translatable="false">com.android.launcher3</string>
  
-     <color name="secondary_device_default_settings">@color/secondary_material_settings</color>
-     <color name="secondary_device_default_settings_light">@color/secondary_material_settings_light</color>
-     <color name="tertiary_device_default_settings">@color/tertiary_material_settings</color>
-     <color name="quaternary_device_default_settings">@color/quaternary_material_settings</color>
+     <!-- Maximum size, specified in pixels, to restrain the display space width to. Height and
+          density will be scaled accordingly to maintain aspect ratio. A value of 0 indicates no
+          constraint will be enforced. -->
+     <integer name="config_maxUiWidth">0</integer>
  
-     <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
+     <!-- Whether the device supports quick settings and its associated APIs -->
+     <bool name="config_quickSettingsSupported">true</bool>
+ 
+     <!-- The component name, flattened to a string, for the default autofill service
+
+commit 666d538f52572e1852cc72d77a71926dc1c5112d
+Author: Dave Daynard <nardholio@gmail.com>
+Date:   Sun 2013-12-15 15:35:04-0500
+
+    Remove DUN requirement for tethering
+    
+    Change-Id: I296f303a23351e4ab29898895abfcd313c747db9
+---
+ .../com/android/networkstack/tethering/TetheringConfiguration.java | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/packages/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java b/packages/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+index 409bd1f1c14733550a83391ce1fa3d82b55d9739..94265db5c69df8ce4f22d13e65d5920f740fc1f4 100644
+--- a/packages/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
++++ b/packages/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+@@ -9,34 +9,32 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.networkstack.tethering;
+ 
+-import static android.content.Context.TELEPHONY_SERVICE;
+ import static android.net.ConnectivityManager.TYPE_ETHERNET;
+ import static android.net.ConnectivityManager.TYPE_MOBILE;
+ import static android.net.ConnectivityManager.TYPE_MOBILE_DUN;
+ import static android.net.ConnectivityManager.TYPE_MOBILE_HIPRI;
+ import static android.provider.DeviceConfig.NAMESPACE_CONNECTIVITY;
+ 
+ import android.content.Context;
+ import android.content.res.Resources;
+ import android.net.TetheringConfigurationParcel;
+ import android.net.util.SharedLog;
+ import android.provider.DeviceConfig;
+ import android.telephony.SubscriptionManager;
+-import android.telephony.TelephonyManager;
+ import android.text.TextUtils;
+ 
+ import com.android.internal.annotations.VisibleForTesting;
+ 
+ import java.io.PrintWriter;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+ import java.util.Collection;
+ import java.util.StringJoiner;
+ 
+@@ -273,24 +271,21 @@ public class TetheringConfiguration {
+ 
+     private static String makeString(String[] strings) {
+         if (strings == null) return "null";
+         final StringJoiner sj = new StringJoiner(",", "[", "]");
+         for (String s : strings) sj.add(s);
+         return sj.toString();
+     }
+ 
+     /** Check whether dun is required. */
+     public static boolean checkDunRequired(Context ctx) {
+-        final TelephonyManager tm = (TelephonyManager) ctx.getSystemService(TELEPHONY_SERVICE);
+-        // TelephonyManager would uses the active data subscription, which should be the one used
+-        // by tethering.
+-        return (tm != null) ? tm.isTetheringApnRequired() : false;
++        return false;
+     }
+ 
+     public int getOffloadPollInterval() {
+         return mOffloadPollInterval;
+     }
+ 
+     public boolean isBpfOffloadEnabled() {
+         return mEnableBpfOffload;
+     }
+ 
+
+commit e9b7f0a63772d1ce91aa604e154e86ea5ecd824a
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-03-16 02:54:57-0400
+
+    enable app compaction by default
+---
+ services/core/java/com/android/server/am/CachedAppOptimizer.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/services/core/java/com/android/server/am/CachedAppOptimizer.java b/services/core/java/com/android/server/am/CachedAppOptimizer.java
+index 36d4a38c1624f8b06518c280d692538adcd1b8bc..bd20b44da38e9c5b2bde1eb670253107cec7045c 100644
+--- a/services/core/java/com/android/server/am/CachedAppOptimizer.java
++++ b/services/core/java/com/android/server/am/CachedAppOptimizer.java
+@@ -83,21 +83,21 @@ public final class CachedAppOptimizer {
+     private static final int COMPACT_ACTION_FILE_FLAG = 1;
+     private static final int COMPACT_ACTION_ANON_FLAG = 2;
+     private static final int COMPACT_ACTION_FULL_FLAG = 3;
+     private static final int COMPACT_ACTION_NONE_FLAG = 4;
+     private static final String COMPACT_ACTION_NONE = "";
+     private static final String COMPACT_ACTION_FILE = "file";
+     private static final String COMPACT_ACTION_ANON = "anon";
+     private static final String COMPACT_ACTION_FULL = "all";
+ 
+     // Defaults for phenotype flags.
+-    @VisibleForTesting static final Boolean DEFAULT_USE_COMPACTION = false;
++    @VisibleForTesting static final Boolean DEFAULT_USE_COMPACTION = true;
+     @VisibleForTesting static final Boolean DEFAULT_USE_FREEZER = false;
+     @VisibleForTesting static final int DEFAULT_COMPACT_ACTION_1 = COMPACT_ACTION_FILE_FLAG;
+     @VisibleForTesting static final int DEFAULT_COMPACT_ACTION_2 = COMPACT_ACTION_FULL_FLAG;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_1 = 5_000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_2 = 10_000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_3 = 500;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_4 = 10_000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_5 = 10 * 60 * 1000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
+     // The sampling rate to push app compaction events into statsd for upload.
+
+commit a6f308ec631287afb69566f3aa8c0e949da9e577
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-03-16 02:56:10-0400
+
+    enable app freezer by default
+---
+ services/core/java/com/android/server/am/CachedAppOptimizer.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/services/core/java/com/android/server/am/CachedAppOptimizer.java b/services/core/java/com/android/server/am/CachedAppOptimizer.java
+index bd20b44da38e9c5b2bde1eb670253107cec7045c..c2f1fd1fe7f9d929a81f84feaa6eb147ba71ccd2 100644
+--- a/services/core/java/com/android/server/am/CachedAppOptimizer.java
++++ b/services/core/java/com/android/server/am/CachedAppOptimizer.java
+@@ -84,21 +84,21 @@ public final class CachedAppOptimizer {
+     private static final int COMPACT_ACTION_ANON_FLAG = 2;
+     private static final int COMPACT_ACTION_FULL_FLAG = 3;
+     private static final int COMPACT_ACTION_NONE_FLAG = 4;
+     private static final String COMPACT_ACTION_NONE = "";
+     private static final String COMPACT_ACTION_FILE = "file";
+     private static final String COMPACT_ACTION_ANON = "anon";
+     private static final String COMPACT_ACTION_FULL = "all";
+ 
+     // Defaults for phenotype flags.
+     @VisibleForTesting static final Boolean DEFAULT_USE_COMPACTION = true;
+-    @VisibleForTesting static final Boolean DEFAULT_USE_FREEZER = false;
++    @VisibleForTesting static final Boolean DEFAULT_USE_FREEZER = true;
+     @VisibleForTesting static final int DEFAULT_COMPACT_ACTION_1 = COMPACT_ACTION_FILE_FLAG;
+     @VisibleForTesting static final int DEFAULT_COMPACT_ACTION_2 = COMPACT_ACTION_FULL_FLAG;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_1 = 5_000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_2 = 10_000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_3 = 500;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_4 = 10_000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_5 = 10 * 60 * 1000;
+     @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
+     // The sampling rate to push app compaction events into statsd for upload.
+     @VisibleForTesting static final float DEFAULT_STATSD_SAMPLE_RATE = 0.1f;
+
+commit 55c724ac36420ee48f8ec5191fb2d37160cb32b5 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-03-16 03:26:07-0400
+
+    enable microphone/camera indicators by default
+---
+ .../src/com/android/systemui/privacy/PrivacyItemController.kt         | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt b/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
+index 59118bf3534e28bb8cba45b29e6bc11e2b6d95c7..61fe3e098946e9555b03bd0de3a17c5c2511b640 100644
+--- a/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
++++ b/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
+@@ -79,21 +79,21 @@ class PrivacyItemController @Inject constructor(
+         @Synchronized get() = field.toList() // Returns a shallow copy of the list
+         @Synchronized set
+ 
+     fun isAllIndicatorsEnabled(): Boolean {
+         return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+                 ALL_INDICATORS, false)
+     }
+ 
+     private fun isMicCameraEnabled(): Boolean {
+         return deviceConfigProxy.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+-                MIC_CAMERA, false)
++                MIC_CAMERA, true)
+     }
+ 
+     private var currentUserIds = emptyList<Int>()
+     private var listening = false
+     private val callbacks = mutableListOf<WeakReference<Callback>>()
+     private val internalUiExecutor = MyExecutor(WeakReference(this), uiExecutor)
+ 
+     private val notifyChanges = Runnable {
+         val list = privacyList
+         callbacks.forEach { it.get()?.onPrivacyItemsChanged(list) }
+@@ -116,21 +116,21 @@ class PrivacyItemController @Inject constructor(
+                         (properties.keyset.contains(ALL_INDICATORS) ||
+                                 properties.keyset.contains(MIC_CAMERA))) {
+ 
+                     // Running on the ui executor so can iterate on callbacks
+                     if (properties.keyset.contains(ALL_INDICATORS)) {
+                         allIndicatorsAvailable = properties.getBoolean(ALL_INDICATORS, false)
+                         callbacks.forEach { it.get()?.onFlagAllChanged(allIndicatorsAvailable) }
+                     }
+ 
+                     if (properties.keyset.contains(MIC_CAMERA)) {
+-                        micCameraAvailable = properties.getBoolean(MIC_CAMERA, false)
++                        micCameraAvailable = properties.getBoolean(MIC_CAMERA, true)
+                         callbacks.forEach { it.get()?.onFlagMicCameraChanged(micCameraAvailable) }
+                     }
+                     internalUiExecutor.updateListeningState()
+                 }
+             }
+         }
+ 
+     private val cb = object : AppOpsController.Callback {
+         override fun onActiveStateChanged(
+             code: Int,

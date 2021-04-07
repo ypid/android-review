@@ -1,4 +1,4 @@
-commit 926d59e4a2acb1587a35f9bb4137cb6691b43ce1
+commit bab0ee94c8c156b833740cb8441f9aefa0101ad9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -35,7 +35,7 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..12e731f8cba9ab75a699de93c9beceb7
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit a9a19df237ee9e88e76a814df73898d2ae9b9c2e
+commit 8942eb49195d0cce868288f5c7c2b73d5d783c31
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-02-16 02:22:41-0500
 
@@ -72,7 +72,7 @@ index 12e731f8cba9ab75a699de93c9beceb72c5de836..4fea4e3fe15cf8f9f2c898e03341350a
      <bool name="config_show_system_update_settings">true</bool>
  
 
-commit bf208edbc1e0b7a503a2de4596fde0c6b0dbfc04
+commit 74924143523ac2bc99bb9d4830f9cbb521d42e29
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -82,7 +82,7 @@ Date:   Thu 2016-11-17 07:48:17-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 8bc30d8c0d6ec830b78ad82f916d181487f45814..051dd1a5500b9cfaa6e135aa1913f9f8c9c74a31 100644
+index 226398ea5eb406ee62b0973351af015cf99c2a17..94c5de4b8807a48bc6f8797fbebe50e1f036d255 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3712,23 +3712,23 @@
@@ -112,7 +112,7 @@ index 8bc30d8c0d6ec830b78ad82f916d181487f45814..051dd1a5500b9cfaa6e135aa1913f9f8
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 6ab21440585e5d485161b2d486fba559f8a94458
+commit 9907379d46e2ad86ce09558d1834a1814d2c7c89
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -215,7 +215,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit 2cc907d0c15e93c31d421be7f3ee4463131d94ec
+commit 53f0497f18fa3a8314720e67d5abd1e2751f027c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -257,7 +257,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 0b2b93b6aa6fe2647b34bfbc4a8bdc977c93af21
+commit 727f4c865afedf5af3cf8b423dcc998abfab9c11
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-20 11:10:32-0400
 
@@ -267,7 +267,7 @@ Date:   Fri 2019-09-20 11:10:32-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 051dd1a5500b9cfaa6e135aa1913f9f8c9c74a31..df2a18e5ec2bf893fb79bd22fa157f244cf81bbe 100644
+index 94c5de4b8807a48bc6f8797fbebe50e1f036d255..5b37f9429519e1cfc4641adb26ad4c042a22f561 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3062,21 +3062,21 @@
@@ -317,7 +317,7 @@ index 051dd1a5500b9cfaa6e135aa1913f9f8c9c74a31..df2a18e5ec2bf893fb79bd22fa157f24
      <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
      <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
 
-commit b31f845c2e0a1082b8ea911a11dd25fb9c78bb79
+commit e1e8720a40b83129a0150a8877b2808a346821ab
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -354,7 +354,7 @@ index 4fea4e3fe15cf8f9f2c898e03341350a22f623cd..a9dac5256af7b26c60c5560eca50a442
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 0c79f442596dc470370245c0cdee219a414a2643
+commit fd1f2d7399f8b4a9f4032625a03c9a29b06b362b
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -392,7 +392,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 41d19ac8816f80cf6e256be1c175ebda488c4502
+commit efb870ae957b063f0d898923e0e762d3d50a5f7c
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -537,7 +537,7 @@ index 1ad3cc31036ee8829539f7f7a98c5387c765f442..79833773619d80b90b56afe73b2e2a84
          <item>LTE/TDSCDMA/GSM/WCDMA</item>
          <item>TDSCDMA/CDMA/EVDO/GSM/WCDMA </item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index df2a18e5ec2bf893fb79bd22fa157f244cf81bbe..4f015c0ba4f1ed1da3a856f7500e501d8d2376b6 100644
+index 5b37f9429519e1cfc4641adb26ad4c042a22f561..3cca81b416a5866290adbb171369cb6807be1d5d 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -11539,20 +11539,22 @@
@@ -865,7 +865,7 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit e43d9849e8bb100fa2022cf4393268b9cd7143b9
+commit db38f74b5792c1eca73d72e745e0f581ef3f704f
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -914,20 +914,20 @@ index 79833773619d80b90b56afe73b2e2a840d05755e..25135364abf460be8381f3c052501929
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 4f015c0ba4f1ed1da3a856f7500e501d8d2376b6..4c440ff52c8f9e108dee79eacdf997ca8f8a980b 100644
+index 3cca81b416a5866290adbb171369cb6807be1d5d..354e1e653d9c1cc813c70270ee2744300b57e3b3 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12195,11 +12195,14 @@
-     <!-- Subtext for media settings when no players can be shown [CHAR LIMIT=50] -->
-     <string name="media_controls_no_players">No players available</string>
-     <!-- Keywords for the media controls setting [CHAR LIMIT=NONE]-->
-     <string name="keywords_media_controls">media</string>
- 
-     <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
-     <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
- 
-     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
-     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
+@@ -12208,11 +12208,14 @@
+     <!-- Bluetooth message permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_message_access_dialog_title">Allow access to messages?</string>
+     <!-- Bluetooth message permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_message_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your messages.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Bluetooth phonebook permission alert for notification content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
+     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
+     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
 +
 +    <string name="scramble_pin_title">PIN scrambling</string>
 +    <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1100,7 +1100,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 5df2bc74207a1fe10be4eba1dabdf4054f036601
+commit 373ca619d221dc7cd0dba8c0e6a76c46f6cf0071
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-03-05 14:24:42+1100
 
@@ -1150,7 +1150,7 @@ index 144cf2f15c46e67e6b0ae2300bd2cfe4ec7c05f1..f4a7ddf8f8ca6e71e09ce6c024a17277
      }
  }
 
-commit be778ee7cce0045b67aa4fcc2b94364a46c0e53c
+commit 21716e7219ee63824be3552fc870f7591b5e3381
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1210,17 +1210,17 @@ index 25135364abf460be8381f3c0525019297add8fc7..bfbce8974d982d8e2aed6d9906b3547e
      </string-array>
  
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 4c440ff52c8f9e108dee79eacdf997ca8f8a980b..8646283a2da5ed9c78bd632c49acf20cfd9e3e4e 100644
+index 354e1e653d9c1cc813c70270ee2744300b57e3b3..2518275d8623decd186cd7dea5e854288652d042 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12198,11 +12198,13 @@
-     <string name="keywords_media_controls">media</string>
- 
-     <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
-     <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
- 
-     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
-     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
+@@ -12211,11 +12211,13 @@
+     <string name="bluetooth_message_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your messages.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Bluetooth phonebook permission alert for notification content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
+     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
+     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1428,7 +1428,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 43a5282bce7d1cf5184bf73ef888b8b25a1b0c2e
+commit 45622c77fcd4a0f01d6b704f5e81f18788a5713b
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1725,7 +1725,7 @@ index d6e1b6054d3bbad4ff7f07018d6986a49a2d7d38..ab51c59e1a6f0b6a03458b289e8737a6
      }
  }
 
-commit 833a7890e3941a59d87a6eeba71e5d9c7819d6ca
+commit b17357acd4f5a8739edc2801df3fbb955bd5bf19
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -1743,15 +1743,15 @@ Date:   Tue 2020-09-15 22:40:56-0700
  4 files changed, 106 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 8646283a2da5ed9c78bd632c49acf20cfd9e3e4e..f65b43615ef00ddf79e4e1a408f432eee81437d2 100644
+index 2518275d8623decd186cd7dea5e854288652d042..0895647b7712ff14231a1650032fe5ba9a71f239 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12200,11 +12200,13 @@
-     <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
-     <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
- 
-     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
-     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
+@@ -12213,11 +12213,13 @@
+     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
+     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
+     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1921,7 +1921,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit f5991609d31cc67b74f545c7f0b5a4d4335efc13
+commit 6b498cb7f61d156a903f96dc53cdf2a3598475d9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -4480,7 +4480,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit 1d404e483359e2d159c6ba0592b5099c72890e17
+commit 2fe2844a585fc79c51db2d6ad865e63be2d3446a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -4612,7 +4612,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit 75fb871c4842d2f365e5b385a01cbfc462888137
+commit 7947a2536ad4fda531be21feee442e264557f525
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -4667,7 +4667,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit 003d05f6e4f0e94eecd82afc423bb0f2a87095a2
+commit ea5a33a5575220f8be97aab45a786672de7145f8
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-10-01 00:29:44-0700
 
@@ -4978,7 +4978,7 @@ index f1ebaeebba9f9cc5641aed411054501d0e07feb0..29111b89ec26c62eb9de18408439d07b
              } else {
                  mEntries.add(mContext.getString(R.string.network_lte));
 
-commit 785344060a4c645a781d77b82bda52e5a692e476 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 78931f274e1c03090d6a14ab8d62797d59d3d40e
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 
@@ -5037,17 +5037,17 @@ index 7b5a71561decd667e22aa723192e6917aa2dd075..34825937a0ed61f76d13a2050d015be7
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index f65b43615ef00ddf79e4e1a408f432eee81437d2..f03a847ecb0180d04bac26db386538a8e6ba2075 100644
+index 0895647b7712ff14231a1650032fe5ba9a71f239..76eada722ae6c01848c5bce26d0ecaae75a613b8 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12198,15 +12198,17 @@
-     <string name="keywords_media_controls">media</string>
- 
-     <!-- Summary for see all preference when bluetooth is disable [CHAR LIMIT=none]-->
-     <string name="connected_device_see_all_summary">Bluetooth will turn on</string>
- 
-     <!-- Summary for preference when Bedtime mode is on [CHAR LIMIT=NONE] -->
-     <string name="aware_summary_when_bedtime_on">Unavailable because bedtime mode is on</string>
+@@ -12211,15 +12211,17 @@
+     <string name="bluetooth_message_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your messages.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Bluetooth phonebook permission alert for notification content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
+     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
+     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -5310,3 +5310,377 @@ index db704ae850de73f0a2ed547a4be8f6b3048be630..c77b07821e1dabf303060cacc3b4dff5
  
      @Override
      public Dialog onCreateDialog(int dialogId) {
+
+commit 66053d80ecb88d6991f55379725f90b1d0d5b373
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2021-03-10 00:45:12-0500
+
+    add built-in accessibility services
+---
+ res/values/config.xml | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/res/values/config.xml b/res/values/config.xml
+index a9dac5256af7b26c60c5560eca50a442ec561ea0..04bfcdd8fdba67ac82a3dd9af33834884a89b71e 100755
+--- a/res/values/config.xml
++++ b/res/values/config.xml
+@@ -71,20 +71,21 @@
+ 
+     <!-- Whether to enable "show operator name in the status bar" setting -->
+     <bool name="config_showOperatorNameInStatusBar">false</bool>
+ 
+     <!-- List containing the component names of pre-installed screen reader services. -->
+     <string-array name="config_preinstalled_screen_reader_services" translatable="false">
+         <!--
+         <item>com.example.package.first/com.example.class.FirstService</item>
+         <item>com.example.package.second/com.example.class.SecondService</item>
+         -->
++        <item>com.google.android.accessibility.talkback/com.google.android.marvin.talkback.TalkBackService</item>
+     </string-array>
+ 
+     <!-- List containing the component names of pre-installed audio and captioning services. -->
+     <string-array name="config_preinstalled_audio_and_caption_services" translatable="false">
+         <!--
+         <item>com.example.package.first/com.example.class.FirstService</item>
+         <item>com.example.package.second/com.example.class.SecondService</item>
+         -->
+     </string-array>
+ 
+@@ -95,20 +96,21 @@
+         <item>com.example.package.second/com.example.class.SecondService</item>
+         -->
+     </string-array>
+ 
+     <!-- List containing the component names of pre-installed interaction control services. -->
+     <string-array name="config_preinstalled_interaction_control_services" translatable="false">
+         <!--
+         <item>com.example.package.first/com.example.class.FirstService</item>
+         <item>com.example.package.second/com.example.class.SecondService</item>
+         -->
++        <item>com.google.android.accessibility.talkback/com.android.switchaccess.SwitchAccessService</item>
+     </string-array>
+ 
+     <!-- List containing the order of services in screen reader category by componentname.
+          All componentnames in a category need to be specified to guarantee correct behavior.-->
+     <string-array name="config_order_screen_reader_services" translatable="false">
+         <!--
+         <item>com.example.package.first/com.example.class.FirstService</item>
+         <item>com.example.package.second/com.example.class.SecondService</item>
+         -->
+     </string-array>
+
+commit 114f0c1868b0f0d7d915c31fce3242aac2904d63 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+Author: Oliver Scott <olivercscott@gmail.com>
+Date:   Fri 2020-10-02 12:37:30-0400
+
+    Bluetooth timeout feature
+    
+    Issue: calyxos#124
+    Change-Id: I4f4646139cd42b7ad20b486ed77dd00499aa3c6e
+---
+ AndroidManifest.xml                                |   6 ++
+ res/values/arrays.xml                              |  44 ++++++++
+ res/values/strings.xml                             |  19 ++++
+ res/xml/connected_devices.xml                      |   8 ++
+ ...BluetoothTimeoutPreferenceController.java (new) | 115 +++++++++++++++++++++
+ 5 files changed, 192 insertions(+)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 0b4b75f4409b1e0dd084d87d417728e41ed140e7..e2a501a7a09583f924dc402d5fe8ceaf0bb5cd90 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -2662,20 +2662,26 @@
+         <!-- Confirmation dialog for enabling notification access from CompanionDeviceManager -->
+         <activity android:name=".notification.NotificationAccessConfirmationActivity"
+                   android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
+ 
+         <receiver android:name="com.android.settingslib.bluetooth.BluetoothDiscoverableTimeoutReceiver">
+             <intent-filter>
+                 <action android:name="android.bluetooth.intent.DISCOVERABLE_TIMEOUT" />
+             </intent-filter>
+         </receiver>
+ 
++        <receiver android:name="com.android.settingslib.bluetooth.BluetoothTimeoutReceiver">
++            <intent-filter>
++                <action android:name="android.bluetooth.intent.TIMEOUT" />
++            </intent-filter>
++        </receiver>
++
+         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
+         <receiver android:name=".users.ProfileUpdateReceiver">
+             <intent-filter>
+                 <action android:name="android.provider.Contacts.PROFILE_CHANGED" />
+             </intent-filter>
+         </receiver>
+ 
+         <receiver android:name=".sim.SimSelectNotification">
+             <intent-filter>
+                 <action android:name="android.telephony.action.PRIMARY_SUBSCRIPTION_LIST_CHANGED"/>
+diff --git a/res/values/arrays.xml b/res/values/arrays.xml
+index 34825937a0ed61f76d13a2050d015be719b6359a..5eb5d0ddee249cf56be91c406f6948a90f35510e 100644
+--- a/res/values/arrays.xml
++++ b/res/values/arrays.xml
+@@ -32,20 +32,64 @@
+         <!-- The next level of the time zoner picker should show time zones from Asia. -->
+         <item>Asia</item>
+         <!-- The next level of the time zoner picker should show time zones from Australia. -->
+         <item>Australia</item>
+         <!-- The next level of the time zoner picker should show time zones from Pacific. -->
+         <item>Pacific</item>
+         <!-- The next level of the time zoner picker should show time zones from ALL regions. -->
+         <item>All</item>
+     </string-array>
+ 
++    <!-- Bluetooth settings.  The delay in inactivity before bluetooth is turned off. These are shown in a list dialog. -->
++    <string-array name="bluetooth_timeout_entries">
++        <item>@string/bluetooth_timeout_summary_never</item>
++        <item>@string/bluetooth_timeout_summary_15secs</item>
++        <item>@string/bluetooth_timeout_summary_30secs</item>
++        <item>@string/bluetooth_timeout_summary_1min</item>
++        <item>@string/bluetooth_timeout_summary_2mins</item>
++        <item>@string/bluetooth_timeout_summary_5mins</item>
++        <item>@string/bluetooth_timeout_summary_10mins</item>
++        <item>@string/bluetooth_timeout_summary_30mins</item>
++        <item>@string/bluetooth_timeout_summary_1hour</item>
++        <item>@string/bluetooth_timeout_summary_2hours</item>
++        <item>@string/bluetooth_timeout_summary_4hours</item>
++        <item>@string/bluetooth_timeout_summary_8hours</item>
++    </string-array>
++
++    <!-- Do not translate. -->
++    <string-array name="bluetooth_timeout_values" translatable="false">
++        <!-- Do not translate. -->
++        <item>0</item>
++        <!-- Do not translate. -->
++        <item>15000</item>
++        <!-- Do not translate. -->
++        <item>30000</item>
++        <!-- Do not translate. -->
++        <item>60000</item>
++        <!-- Do not translate. -->
++        <item>120000</item>
++        <!-- Do not translate. -->
++        <item>300000</item>
++        <!-- Do not translate. -->
++        <item>600000</item>
++        <!-- Do not translate. -->
++        <item>1800000</item>
++        <!-- Do not translate. -->
++        <item>3600000</item>
++        <!-- Do not translate. -->
++        <item>7200000</item>
++        <!-- Do not translate. -->
++        <item>14400000</item>
++        <!-- Do not translate. -->
++        <item>28800000</item>
++    </string-array>
++
+     <!-- Display settings.  The delay in inactivity before the screen is turned off. These are shown in a list dialog. -->
+     <string-array name="screen_timeout_entries">
+         <item>15 seconds</item>
+         <item>30 seconds</item>
+         <item>1 minute</item>
+         <item>2 minutes</item>
+         <item>5 minutes</item>
+         <item>10 minutes</item>
+         <item>30 minutes</item>
+     </string-array>
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 76eada722ae6c01848c5bce26d0ecaae75a613b8..38af17fad8c1570fa7027f5f80c94450803e74cd 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -20,20 +20,39 @@
+     <string name="no">"No"</string>
+     <!-- Strings for Dialog create button -->
+     <string name="create">Create</string>
+     <!-- Strings for Dialog allow button -->
+     <string name="allow">Allow</string>
+     <!-- Strings for Dialog deny button -->
+     <string name="deny">Deny</string>
+     <!-- Used in confirmation dialogs as the action that the user will tap to turn on the feature. [CHAR LIMIT=40]-->
+     <string name="confirmation_turn_on">Turn on</string>
+ 
++    <!-- Connected devices screen, setting option name to change bluetooth timeout -->
++    <string name="bluetooth_timeout">Bluetooth timeout</string>
++
++    <!-- Connected devices screen, setting option summary to change bluetooth timeout -->
++    <string name="bluetooth_timeout_summary">Bluetooth will turn off after <xliff:g id="timeout_description">%1$s</xliff:g> if no devices connected</string>
++    <string name="bluetooth_timeout_summary2">Do not automatically turn off Bluetooth</string>
++    <string name="bluetooth_timeout_summary_never">Never</string>
++    <string name="bluetooth_timeout_summary_15secs">15 seconds</string>
++    <string name="bluetooth_timeout_summary_30secs">30 seconds</string>
++    <string name="bluetooth_timeout_summary_1min">1 minute</string>
++    <string name="bluetooth_timeout_summary_2mins">2 minutes</string>
++    <string name="bluetooth_timeout_summary_5mins">5 minutes</string>
++    <string name="bluetooth_timeout_summary_10mins">10 minutes</string>
++    <string name="bluetooth_timeout_summary_30mins">30 minutes</string>
++    <string name="bluetooth_timeout_summary_1hour">1 hour</string>
++    <string name="bluetooth_timeout_summary_2hours">2 hours</string>
++    <string name="bluetooth_timeout_summary_4hours">4 hours</string>
++    <string name="bluetooth_timeout_summary_8hours">8 hours</string>
++
+     <!-- Device Info screen. Used for a status item's value when the proper value is not known -->
+     <string name="device_info_default">Unknown</string>
+     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
+     <plurals name="show_dev_countdown">
+         <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from being a developer.</item>
+         <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from being a developer.</item>
+     </plurals>
+     <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
+     <string name="show_dev_on">You are now a developer!</string>
+     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
+diff --git a/res/xml/connected_devices.xml b/res/xml/connected_devices.xml
+index e7e3c2ccfbe3f7a622ed18a23b8ca9aba403cd7c..3acb331a58b1469c69f587fd43177c127a38989b 100644
+--- a/res/xml/connected_devices.xml
++++ b/res/xml/connected_devices.xml
+@@ -41,20 +41,28 @@
+         android:title="@string/bluetooth_pairing_pref_title"
+         android:icon="@drawable/ic_add_24dp"
+         android:summary="@string/connected_device_add_device_summary"
+         android:fragment="com.android.settings.bluetooth.BluetoothPairingDetail"
+         settings:allowDividerAbove="true"
+         settings:keywords="@string/keywords_add_bt_device"
+         settings:userRestriction="no_config_bluetooth"
+         settings:useAdminDisabledSummary="true"
+         settings:controller="com.android.settings.connecteddevice.AddDevicePreferenceController"/>
+ 
++    <androidx.preference.ListPreference
++        android:key="bluetooth_timeout"
++        android:title="@string/bluetooth_timeout"
++        android:summary="@string/summary_placeholder"
++        android:entries="@array/bluetooth_timeout_entries"
++        android:entryValues="@array/bluetooth_timeout_values"
++        settings:controller="com.android.settings.bluetooth.BluetoothTimeoutPreferenceController"/>
++
+     <PreferenceCategory
+         android:key="previously_connected_devices"
+         android:title="@string/connected_device_previously_connected_title"
+         settings:controller="com.android.settings.connecteddevice.PreviouslyConnectedDevicePreferenceController">
+ 
+         <Preference
+             android:key="previously_connected_devices_see_all"
+             android:title="@string/previous_connected_see_all"
+             android:icon="@drawable/ic_chevron_right_24dp"
+             android:order="10"
+diff --git a/src/com/android/settings/bluetooth/BluetoothTimeoutPreferenceController.java b/src/com/android/settings/bluetooth/BluetoothTimeoutPreferenceController.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..2755d5ec18ac3ab1f67ed6c28ca4e7063c8cafa8
+--- /dev/null
++++ b/src/com/android/settings/bluetooth/BluetoothTimeoutPreferenceController.java
+@@ -0,0 +1,115 @@
++/*
++ * Copyright (C) 2020 The Calyx Institute
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.settings.bluetooth;
++
++import android.bluetooth.BluetoothAdapter;
++import android.content.Context;
++import android.provider.Settings;
++import android.util.Log;
++
++import androidx.preference.ListPreference;
++import androidx.preference.Preference;
++
++import com.android.settings.R;
++import com.android.settings.core.BasePreferenceController;
++import com.android.settings.core.PreferenceControllerMixin;
++
++public class BluetoothTimeoutPreferenceController extends BasePreferenceController implements
++        PreferenceControllerMixin, Preference.OnPreferenceChangeListener {
++    private static final String TAG = "BluetoothTimeoutPrefCtrl";
++
++    public static final int FALLBACK_BLUETOOTH_TIMEOUT_VALUE = 0;
++
++    private final String mBluetoothTimeoutKey;
++
++    protected BluetoothAdapter mBluetoothAdapter;
++
++    public BluetoothTimeoutPreferenceController(Context context, String key) {
++        super(context, key);
++        mBluetoothTimeoutKey = key;
++
++        mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
++        if (mBluetoothAdapter == null) {
++            Log.e(TAG, "Bluetooth is not supported on this device");
++            return;
++        }
++    }
++
++    @Override
++    public int getAvailabilityStatus() {
++        return mBluetoothAdapter != null ? AVAILABLE : UNSUPPORTED_ON_DEVICE;
++    }
++
++    @Override
++    public String getPreferenceKey() {
++        return mBluetoothTimeoutKey;
++    }
++
++    @Override
++    public void updateState(Preference preference) {
++        final ListPreference timeoutListPreference = (ListPreference) preference;
++        final long currentTimeout = Settings.Global.getLong(mContext.getContentResolver(),
++                Settings.Global.BLUETOOTH_OFF_TIMEOUT, FALLBACK_BLUETOOTH_TIMEOUT_VALUE);
++        timeoutListPreference.setValue(String.valueOf(currentTimeout));
++        updateTimeoutPreferenceDescription(timeoutListPreference,
++                Long.parseLong(timeoutListPreference.getValue()));
++    }
++
++    @Override
++    public boolean onPreferenceChange(Preference preference, Object newValue) {
++        try {
++            int value = Integer.parseInt((String) newValue);
++            Settings.Global.putInt(mContext.getContentResolver(), Settings.Global.BLUETOOTH_OFF_TIMEOUT, value);
++            updateTimeoutPreferenceDescription((ListPreference) preference, value);
++        } catch (NumberFormatException e) {
++            Log.e(TAG, "could not persist bluetooth timeout setting", e);
++        }
++        return true;
++    }
++
++    public static CharSequence getTimeoutDescription(
++            long currentTimeout, CharSequence[] entries, CharSequence[] values) {
++        if (currentTimeout < 0 || entries == null || values == null
++                || values.length != entries.length) {
++            return null;
++        }
++
++        for (int i = 0; i < values.length; i++) {
++            long timeout = Long.parseLong(values[i].toString());
++            if (currentTimeout == timeout) {
++                return entries[i];
++            }
++        }
++        return null;
++    }
++
++    private void updateTimeoutPreferenceDescription(ListPreference preference,
++                                                    long currentTimeout) {
++        final CharSequence[] entries = preference.getEntries();
++        final CharSequence[] values = preference.getEntryValues();
++        final CharSequence timeoutDescription = getTimeoutDescription(
++                currentTimeout, entries, values);
++        String summary = "";
++        if (timeoutDescription != null) {
++            if (currentTimeout != 0)
++                summary = mContext.getString(R.string.bluetooth_timeout_summary, timeoutDescription);
++            else
++                summary = mContext.getString(R.string.bluetooth_timeout_summary2);
++        }
++        preference.setSummary(summary);
++    }
++}
+\ No newline at end of file

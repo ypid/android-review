@@ -1,0 +1,35 @@
+commit e1764084fe43b87b051cb9a873fe8a2594d2754c (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2021-03-04 14:22:18-0500
+
+    disable launcher icon
+---
+ AndroidManifest.xml | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 1e78c72e6bbca0ca1d7f2a7b2109b116506176e5..d89535b922075851325380d6e206fab0c6b25bd1 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -54,21 +54,20 @@
+ 
+         <activity
+             android:name="AllInOneActivity"
+             android:theme="@style/CalendarTheme.WithActionBar"
+             android:launchMode="singleTask"
+             android:windowSoftInputMode="adjustPan"
+             android:exported="true">
+             <intent-filter>
+                 <action android:name="android.intent.action.MAIN" />
+                 <category android:name="android.intent.category.DEFAULT" />
+-                <category android:name="android.intent.category.LAUNCHER" />
+                 <category android:name="android.intent.category.APP_CALENDAR" />
+             </intent-filter>
+             <intent-filter>
+                 <action android:name="android.intent.action.VIEW" />
+                 <category android:name="android.intent.category.DEFAULT" />
+                 <data android:mimeType="time/epoch" />
+                 <data android:host="com.android.calendar" />
+                 <data android:scheme="content"/>
+             </intent-filter>
+         </activity>

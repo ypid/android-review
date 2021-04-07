@@ -36,7 +36,7 @@ index 9d817ae0bd994c8efe162f55cff2111ed9d0cd02..91df16e64a7831100750834b68765926
          mFifoMaxEventCount = 0;
      }
 
-commit 6bb072f998103c958ca2015b530ebc075a0afdd1 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 6bb072f998103c958ca2015b530ebc075a0afdd1 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-01-02 20:17:35-0500
 

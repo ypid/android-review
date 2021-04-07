@@ -6153,7 +6153,7 @@ index d9fd5a12e0ffa74ee1e3e5c67b17203c2e43d05c..3bea704155ea3e615e3bde0e45238b9f
  allow untrusted_app_all app_data_file:{ lnk_file sock_file fifo_file } create_file_perms;
  
 
-commit f19c82f361a817c7665fd2259dcca46efe609655
+commit f45dec695fb0c12f245da120a9b056d11f7e0b5f
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-02-26 10:23:23+1100
 
@@ -6161,25 +6161,27 @@ Date:   Wed 2020-02-26 10:23:23+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/30.0/private/ephemeral_app.te    | 3 ++-
+ prebuilts/api/30.0/private/ephemeral_app.te    | 3 +++
  prebuilts/api/30.0/private/isolated_app.te     | 3 +++
  prebuilts/api/30.0/private/untrusted_app.te    | 3 +++
+ prebuilts/api/30.0/private/untrusted_app_25.te | 3 +++
+ prebuilts/api/30.0/private/untrusted_app_27.te | 3 +++
  prebuilts/api/30.0/private/untrusted_app_29.te | 3 +++
  prebuilts/api/30.0/public/app.te               | 3 ---
- private/ephemeral_app.te                       | 3 ++-
+ private/ephemeral_app.te                       | 3 +++
  private/isolated_app.te                        | 3 +++
  private/untrusted_app.te                       | 3 +++
+ private/untrusted_app_25.te                    | 3 +++
+ private/untrusted_app_27.te                    | 3 +++
  private/untrusted_app_29.te                    | 3 +++
  public/app.te                                  | 3 ---
- 10 files changed, 22 insertions(+), 8 deletions(-)
+ 14 files changed, 36 insertions(+), 6 deletions(-)
 
 diff --git a/prebuilts/api/30.0/private/ephemeral_app.te b/prebuilts/api/30.0/private/ephemeral_app.te
-index 065dec36098100b0567009879830d262e609aac2..9f1bcbfca7adb38c8dbf80b6a70c2668651f6387 100644
+index 065dec36098100b0567009879830d262e609aac2..21e56bc4010a716b53a47dc5ae3e00f3d89838d2 100644
 --- a/prebuilts/api/30.0/private/ephemeral_app.te
 +++ b/prebuilts/api/30.0/private/ephemeral_app.te
-@@ -58,21 +58,22 @@ perfetto_producer(ephemeral_app)
- 
- # Allow profiling if the app opts in by being marked profileable/debuggable.
+@@ -60,20 +60,23 @@ perfetto_producer(ephemeral_app)
  can_profile_heap(ephemeral_app)
  can_profile_perf(ephemeral_app)
  
@@ -6188,10 +6190,11 @@ index 065dec36098100b0567009879830d262e609aac2..9f1bcbfca7adb38c8dbf80b6a70c2668
  allow ephemeral_app system_server:udp_socket {
          connect getattr read recvfrom sendto write getopt setopt };
  
--allow ephemeral_app ashmem_device:chr_file rw_file_perms;
-+allow ephemeral_app ashmem_device:chr_file { rw_file_perms execute };
-+auditallow ephemeral_app ashmem_device:chr_file execute;
+ allow ephemeral_app ashmem_device:chr_file rw_file_perms;
  
++allow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
++auditallow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
  ###
  ### neverallow rules
  ###
@@ -6201,6 +6204,7 @@ index 065dec36098100b0567009879830d262e609aac2..9f1bcbfca7adb38c8dbf80b6a70c2668
  # Receive or send uevent messages.
  neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
  
+ # Receive or send generic netlink messages
 diff --git a/prebuilts/api/30.0/private/isolated_app.te b/prebuilts/api/30.0/private/isolated_app.te
 index 73dad2b03d07a5363ea40a84982b94960d9ea1ff..4eb0313f18aa0d57dcc36130b9339e270fb822e8 100644
 --- a/prebuilts/api/30.0/private/isolated_app.te
@@ -6247,6 +6251,42 @@ index 112015c5a080496be6e9c6d09bec9c13e7fef09e..6e75a408746604cf6f6e1f8a811f5241
 +
 +allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
 +auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+diff --git a/prebuilts/api/30.0/private/untrusted_app_25.te b/prebuilts/api/30.0/private/untrusted_app_25.te
+index 0cd6bc41747102096326fe0414a928ae77aeb5fa..1def0284cdfcddc743b312b1c8ee0faccb7b2fec 100644
+--- a/prebuilts/api/30.0/private/untrusted_app_25.te
++++ b/prebuilts/api/30.0/private/untrusted_app_25.te
+@@ -54,10 +54,13 @@ userdebug_or_eng(`auditallow untrusted_app_25 dex2oat_exec:file rx_file_perms;')
+ # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
+ # ASharedMemory instead.
+ allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_25 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
++
++allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+diff --git a/prebuilts/api/30.0/private/untrusted_app_27.te b/prebuilts/api/30.0/private/untrusted_app_27.te
+index 924119b1c8d5e5b0bb398e76e51c1962b072afdf..c5a9fe386763950f1ec61b23f9f308f925874785 100644
+--- a/prebuilts/api/30.0/private/untrusted_app_27.te
++++ b/prebuilts/api/30.0/private/untrusted_app_27.te
+@@ -42,10 +42,13 @@ userdebug_or_eng(`auditallow untrusted_app_27 dex2oat_exec:file rx_file_perms;')
+ # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
+ # ASharedMemory instead.
+ allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_27 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
++
++allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
 diff --git a/prebuilts/api/30.0/private/untrusted_app_29.te b/prebuilts/api/30.0/private/untrusted_app_29.te
 index dbb7a87d60e01cfd26fbaaa1eb7f801db56e739a..6b8be99fa6984dc1b84c621cee5bd4b36abb1d22 100644
 --- a/prebuilts/api/30.0/private/untrusted_app_29.te
@@ -6294,12 +6334,10 @@ index 559368149db0130e6518a980373ebb8df4f1a982..bb2d7cfd96f69e2ec852d7e733625c4e
  allow appdomain zygote:process sigchld;
  
 diff --git a/private/ephemeral_app.te b/private/ephemeral_app.te
-index 065dec36098100b0567009879830d262e609aac2..9f1bcbfca7adb38c8dbf80b6a70c2668651f6387 100644
+index 065dec36098100b0567009879830d262e609aac2..21e56bc4010a716b53a47dc5ae3e00f3d89838d2 100644
 --- a/private/ephemeral_app.te
 +++ b/private/ephemeral_app.te
-@@ -58,21 +58,22 @@ perfetto_producer(ephemeral_app)
- 
- # Allow profiling if the app opts in by being marked profileable/debuggable.
+@@ -60,20 +60,23 @@ perfetto_producer(ephemeral_app)
  can_profile_heap(ephemeral_app)
  can_profile_perf(ephemeral_app)
  
@@ -6308,10 +6346,11 @@ index 065dec36098100b0567009879830d262e609aac2..9f1bcbfca7adb38c8dbf80b6a70c2668
  allow ephemeral_app system_server:udp_socket {
          connect getattr read recvfrom sendto write getopt setopt };
  
--allow ephemeral_app ashmem_device:chr_file rw_file_perms;
-+allow ephemeral_app ashmem_device:chr_file { rw_file_perms execute };
-+auditallow ephemeral_app ashmem_device:chr_file execute;
+ allow ephemeral_app ashmem_device:chr_file rw_file_perms;
  
++allow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
++auditallow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
  ###
  ### neverallow rules
  ###
@@ -6321,6 +6360,7 @@ index 065dec36098100b0567009879830d262e609aac2..9f1bcbfca7adb38c8dbf80b6a70c2668
  # Receive or send uevent messages.
  neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
  
+ # Receive or send generic netlink messages
 diff --git a/private/isolated_app.te b/private/isolated_app.te
 index 73dad2b03d07a5363ea40a84982b94960d9ea1ff..4eb0313f18aa0d57dcc36130b9339e270fb822e8 100644
 --- a/private/isolated_app.te
@@ -6367,6 +6407,42 @@ index 112015c5a080496be6e9c6d09bec9c13e7fef09e..6e75a408746604cf6f6e1f8a811f5241
 +
 +allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
 +auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+diff --git a/private/untrusted_app_25.te b/private/untrusted_app_25.te
+index 0cd6bc41747102096326fe0414a928ae77aeb5fa..1def0284cdfcddc743b312b1c8ee0faccb7b2fec 100644
+--- a/private/untrusted_app_25.te
++++ b/private/untrusted_app_25.te
+@@ -54,10 +54,13 @@ userdebug_or_eng(`auditallow untrusted_app_25 dex2oat_exec:file rx_file_perms;')
+ # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
+ # ASharedMemory instead.
+ allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_25 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
++
++allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+diff --git a/private/untrusted_app_27.te b/private/untrusted_app_27.te
+index 924119b1c8d5e5b0bb398e76e51c1962b072afdf..c5a9fe386763950f1ec61b23f9f308f925874785 100644
+--- a/private/untrusted_app_27.te
++++ b/private/untrusted_app_27.te
+@@ -42,10 +42,13 @@ userdebug_or_eng(`auditallow untrusted_app_27 dex2oat_exec:file rx_file_perms;')
+ # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
+ # ASharedMemory instead.
+ allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_27 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
++
++allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
 diff --git a/private/untrusted_app_29.te b/private/untrusted_app_29.te
 index dbb7a87d60e01cfd26fbaaa1eb7f801db56e739a..6b8be99fa6984dc1b84c621cee5bd4b36abb1d22 100644
 --- a/private/untrusted_app_29.te
@@ -6414,128 +6490,35 @@ index 559368149db0130e6518a980373ebb8df4f1a982..bb2d7cfd96f69e2ec852d7e733625c4e
  allow appdomain zygote:process sigchld;
  
 
-commit 4fb7e1a22c0861f3680113b247297ab03864b0d4
-Author: Renlord <me@renlord.com>
-Date:   Wed 2020-02-26 22:53:08+1100
+commit d78de60f554baad7ace9705bf3bbd140ae8b19af
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-03-15 12:14:36-0400
 
-    remove base system app tmpfs execute
-    
-    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+    auditallow app tmpfs execute
 ---
- prebuilts/api/30.0/private/untrusted_base_app.te   |  2 +-
- .../api/30.0/private/untrusted_base_app_25.te      |  2 +-
- .../api/30.0/private/untrusted_base_app_27.te      |  2 +-
- .../api/30.0/private/untrusted_base_app_29.te      |  2 +-
- prebuilts/api/30.0/public/te_macros                | 22 ++++++++++++++++++++++
- private/untrusted_base_app.te                      |  2 +-
- private/untrusted_base_app_25.te                   |  2 +-
- private/untrusted_base_app_27.te                   |  2 +-
- private/untrusted_base_app_29.te                   |  2 +-
- public/te_macros                                   | 22 ++++++++++++++++++++++
- 10 files changed, 52 insertions(+), 8 deletions(-)
+ prebuilts/api/30.0/public/te_macros | 1 +
+ public/te_macros                    | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/30.0/private/untrusted_base_app.te b/prebuilts/api/30.0/private/untrusted_base_app.te
-index 8ee2819f16bd19bb7f418f3281ffbec7d7b71551..4e1b4f2c326ca5aa5c773d2ffaef2661a38be032 100644
---- a/prebuilts/api/30.0/private/untrusted_base_app.te
-+++ b/prebuilts/api/30.0/private/untrusted_base_app.te
-@@ -3,14 +3,14 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### targetSdkVersion >= 30.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app coredomain;
- 
--app_domain(untrusted_base_app)
-+hardened_app_domain(untrusted_base_app)
- untrusted_app_domain(untrusted_base_app)
- net_domain(untrusted_base_app)
- bluetooth_domain(untrusted_base_app)
-diff --git a/prebuilts/api/30.0/private/untrusted_base_app_25.te b/prebuilts/api/30.0/private/untrusted_base_app_25.te
-index d805e85fec42b66ead714379c44a48901eccea07..69e1c69830968a5d710f12d5efc0d541ea424868 100644
---- a/prebuilts/api/30.0/private/untrusted_base_app_25.te
-+++ b/prebuilts/api/30.0/private/untrusted_base_app_25.te
-@@ -3,21 +3,21 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### targetSdkVersion <= 25.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app_25 coredomain;
- 
--app_domain(untrusted_base_app_25)
-+hardened_app_domain(untrusted_base_app_25)
- untrusted_app_domain(untrusted_base_app_25)
- net_domain(untrusted_base_app_25)
- bluetooth_domain(untrusted_base_app_25)
- 
- # b/35917228 - /proc/misc access
- # This will go away in a future Android release
- allow untrusted_base_app_25 proc_misc:file r_file_perms;
- 
- # Access to /proc/tty/drivers, to allow apps to determine if they
- # are running in an emulated environment.
-diff --git a/prebuilts/api/30.0/private/untrusted_base_app_27.te b/prebuilts/api/30.0/private/untrusted_base_app_27.te
-index 59e79435d8666f17e8fc25949edaf4211357565c..aaccfb31c1d779516f8d21a6162a8d57fffa00f3 100644
---- a/prebuilts/api/30.0/private/untrusted_base_app_27.te
-+++ b/prebuilts/api/30.0/private/untrusted_base_app_27.te
-@@ -3,21 +3,21 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### 25 < targetSdkVersion <= 28.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app_27 coredomain;
- 
--app_domain(untrusted_base_app_27)
-+hardened_app_domain(untrusted_base_app_27)
- untrusted_app_domain(untrusted_base_app_27)
- net_domain(untrusted_base_app_27)
- bluetooth_domain(untrusted_base_app_27)
- 
- # The ability to invoke dex2oat. Historically required by ART, now only
- # allowed for targetApi<=28 for compat reasons.
- allow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;
- userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
- 
- # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
-diff --git a/prebuilts/api/30.0/private/untrusted_base_app_29.te b/prebuilts/api/30.0/private/untrusted_base_app_29.te
-index a027578017ca22d8789d2b96e1766047e1e6810c..a1a10ca8d8943316ca6487f0a386afd669a4c09e 100644
---- a/prebuilts/api/30.0/private/untrusted_base_app_29.te
-+++ b/prebuilts/api/30.0/private/untrusted_base_app_29.te
-@@ -3,17 +3,17 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### targetSdkVersion = 29.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app_29 coredomain;
- 
--app_domain(untrusted_base_app_29)
-+hardened_app_domain(untrusted_base_app_29)
- untrusted_app_domain(untrusted_base_app_29)
- net_domain(untrusted_base_app_29)
- bluetooth_domain(untrusted_base_app_29)
- 
- # allow binding to netlink route sockets and sending RTM_GETLINK messages.
- allow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
 diff --git a/prebuilts/api/30.0/public/te_macros b/prebuilts/api/30.0/public/te_macros
-index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..fecbeb659939a02531ddfdac0434cd7159e3859d 100644
+index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..c5e92f0491b08fe265668accd9ace6e7b9c2afed 100644
 --- a/prebuilts/api/30.0/public/te_macros
 +++ b/prebuilts/api/30.0/public/te_macros
-@@ -177,20 +177,42 @@ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_pe
+@@ -164,20 +164,21 @@ domain_auto_trans(init, $1_exec, $1)
+ ')
+ 
+ #####################################
+ # app_domain(domain)
+ # Allow a base set of permissions required for all apps.
+ define(`app_domain', `
+ typeattribute $1 appdomain;
+ # Label tmpfs objects for all apps.
+ type_transition $1 tmpfs:file appdomain_tmpfs;
+ allow $1 appdomain_tmpfs:file { execute getattr map read write };
++auditallow $1 appdomain_tmpfs:file execute;
+ neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
+ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
+ # The Android security model guarantees the confidentiality and integrity
  # of application data and execution state. Ptrace bypasses those
  # confidentiality guarantees. Disallow ptrace access from system components to
  # apps. crash_dump is excluded, as it needs ptrace access to produce stack
@@ -6543,143 +6526,25 @@ index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..fecbeb659939a02531ddfdac0434cd71
  # simpleperf is excluded, as it operates only on debuggable or profileable
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
- neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf } $1:process ptrace;
- ')
- 
-+#####################################
-+# hardened_app_domain(domain)
-+# Allow the same base set of permissions as per app_domain
-+# but removes tmpfs:file execute
-+define(`hardened_app_domain', `
-+typeattribute $1 appdomain;
-+# Label tmpfs objects for all apps.
-+type_transition $1 tmpfs:file appdomain_tmpfs;
-+allow $1 appdomain_tmpfs:file { getattr map read write };
-+neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
-+neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
-+# The Android security model guarantees the confidentiality and integrity
-+# of application data and execution state. Ptrace bypasses those
-+# confidentiality guarantees. Disallow ptrace access from system components to
-+# apps. crash_dump is excluded, as it needs ptrace access to produce stack
-+# traces. runas_app is excluded, as it operates only on debuggable apps.
-+# simpleperf is excluded, as it operates only on debuggable or profileable
-+# apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
-+# live lock conditions.
-+neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf } $1:process ptrace;
-+')
-+
- #####################################
- # untrusted_app_domain(domain)
- # Allow a base set of permissions required for all untrusted apps.
- define(`untrusted_app_domain', `
- typeattribute $1 untrusted_app_all;
- ')
- 
- #####################################
- # net_domain(domain)
- # Allow a base set of permissions required for network access.
-diff --git a/private/untrusted_base_app.te b/private/untrusted_base_app.te
-index 8ee2819f16bd19bb7f418f3281ffbec7d7b71551..4e1b4f2c326ca5aa5c773d2ffaef2661a38be032 100644
---- a/private/untrusted_base_app.te
-+++ b/private/untrusted_base_app.te
-@@ -3,14 +3,14 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### targetSdkVersion >= 30.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app coredomain;
- 
--app_domain(untrusted_base_app)
-+hardened_app_domain(untrusted_base_app)
- untrusted_app_domain(untrusted_base_app)
- net_domain(untrusted_base_app)
- bluetooth_domain(untrusted_base_app)
-diff --git a/private/untrusted_base_app_25.te b/private/untrusted_base_app_25.te
-index d805e85fec42b66ead714379c44a48901eccea07..69e1c69830968a5d710f12d5efc0d541ea424868 100644
---- a/private/untrusted_base_app_25.te
-+++ b/private/untrusted_base_app_25.te
-@@ -3,21 +3,21 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### targetSdkVersion <= 25.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app_25 coredomain;
- 
--app_domain(untrusted_base_app_25)
-+hardened_app_domain(untrusted_base_app_25)
- untrusted_app_domain(untrusted_base_app_25)
- net_domain(untrusted_base_app_25)
- bluetooth_domain(untrusted_base_app_25)
- 
- # b/35917228 - /proc/misc access
- # This will go away in a future Android release
- allow untrusted_base_app_25 proc_misc:file r_file_perms;
- 
- # Access to /proc/tty/drivers, to allow apps to determine if they
- # are running in an emulated environment.
-diff --git a/private/untrusted_base_app_27.te b/private/untrusted_base_app_27.te
-index 59e79435d8666f17e8fc25949edaf4211357565c..aaccfb31c1d779516f8d21a6162a8d57fffa00f3 100644
---- a/private/untrusted_base_app_27.te
-+++ b/private/untrusted_base_app_27.te
-@@ -3,21 +3,21 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### 25 < targetSdkVersion <= 28.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app_27 coredomain;
- 
--app_domain(untrusted_base_app_27)
-+hardened_app_domain(untrusted_base_app_27)
- untrusted_app_domain(untrusted_base_app_27)
- net_domain(untrusted_base_app_27)
- bluetooth_domain(untrusted_base_app_27)
- 
- # The ability to invoke dex2oat. Historically required by ART, now only
- # allowed for targetApi<=28 for compat reasons.
- allow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;
- userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
- 
- # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
-diff --git a/private/untrusted_base_app_29.te b/private/untrusted_base_app_29.te
-index a027578017ca22d8789d2b96e1766047e1e6810c..a1a10ca8d8943316ca6487f0a386afd669a4c09e 100644
---- a/private/untrusted_base_app_29.te
-+++ b/private/untrusted_base_app_29.te
-@@ -3,17 +3,17 @@
- ###
- ### This file defines the rules for untrusted apps running with
- ### targetSdkVersion = 29.
- ###
- ### See public/untrusted_app.te for more information about which apps are
- ### placed in this selinux domain.
- ###
- 
- typeattribute untrusted_base_app_29 coredomain;
- 
--app_domain(untrusted_base_app_29)
-+hardened_app_domain(untrusted_base_app_29)
- untrusted_app_domain(untrusted_base_app_29)
- net_domain(untrusted_base_app_29)
- bluetooth_domain(untrusted_base_app_29)
- 
- # allow binding to netlink route sockets and sending RTM_GETLINK messages.
- allow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
 diff --git a/public/te_macros b/public/te_macros
-index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..fecbeb659939a02531ddfdac0434cd7159e3859d 100644
+index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..c5e92f0491b08fe265668accd9ace6e7b9c2afed 100644
 --- a/public/te_macros
 +++ b/public/te_macros
-@@ -177,20 +177,42 @@ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_pe
+@@ -164,20 +164,21 @@ domain_auto_trans(init, $1_exec, $1)
+ ')
+ 
+ #####################################
+ # app_domain(domain)
+ # Allow a base set of permissions required for all apps.
+ define(`app_domain', `
+ typeattribute $1 appdomain;
+ # Label tmpfs objects for all apps.
+ type_transition $1 tmpfs:file appdomain_tmpfs;
+ allow $1 appdomain_tmpfs:file { execute getattr map read write };
++auditallow $1 appdomain_tmpfs:file execute;
+ neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
+ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
+ # The Android security model guarantees the confidentiality and integrity
  # of application data and execution state. Ptrace bypasses those
  # confidentiality guarantees. Disallow ptrace access from system components to
  # apps. crash_dump is excluded, as it needs ptrace access to produce stack
@@ -6687,43 +6552,343 @@ index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..fecbeb659939a02531ddfdac0434cd71
  # simpleperf is excluded, as it operates only on debuggable or profileable
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
- neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf } $1:process ptrace;
- ')
- 
-+#####################################
-+# hardened_app_domain(domain)
-+# Allow the same base set of permissions as per app_domain
-+# but removes tmpfs:file execute
-+define(`hardened_app_domain', `
-+typeattribute $1 appdomain;
-+# Label tmpfs objects for all apps.
-+type_transition $1 tmpfs:file appdomain_tmpfs;
-+allow $1 appdomain_tmpfs:file { getattr map read write };
-+neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
-+neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
-+# The Android security model guarantees the confidentiality and integrity
-+# of application data and execution state. Ptrace bypasses those
-+# confidentiality guarantees. Disallow ptrace access from system components to
-+# apps. crash_dump is excluded, as it needs ptrace access to produce stack
-+# traces. runas_app is excluded, as it operates only on debuggable apps.
-+# simpleperf is excluded, as it operates only on debuggable or profileable
-+# apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
-+# live lock conditions.
-+neverallow { domain -$1 -crash_dump userdebug_or_eng(`-llkd') -runas_app -simpleperf } $1:process ptrace;
-+')
-+
- #####################################
- # untrusted_app_domain(domain)
- # Allow a base set of permissions required for all untrusted apps.
- define(`untrusted_app_domain', `
- typeattribute $1 untrusted_app_all;
- ')
- 
- #####################################
- # net_domain(domain)
- # Allow a base set of permissions required for network access.
 
-commit d98ba76433c3a79dd48d2e14a6bd84d55d9513d9
+commit 442317cc0f6387ce6afc1ac43b4e4480c8de0288
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-03-15 12:34:49-0400
+
+    remove base system app tmpfs execute
+---
+ prebuilts/api/30.0/private/ephemeral_app.te    | 3 +++
+ prebuilts/api/30.0/private/isolated_app.te     | 3 +++
+ prebuilts/api/30.0/private/untrusted_app.te    | 3 +++
+ prebuilts/api/30.0/private/untrusted_app_25.te | 3 +++
+ prebuilts/api/30.0/private/untrusted_app_27.te | 3 +++
+ prebuilts/api/30.0/private/untrusted_app_29.te | 3 +++
+ prebuilts/api/30.0/public/te_macros            | 3 +--
+ private/ephemeral_app.te                       | 3 +++
+ private/isolated_app.te                        | 3 +++
+ private/untrusted_app.te                       | 3 +++
+ private/untrusted_app_25.te                    | 3 +++
+ private/untrusted_app_27.te                    | 3 +++
+ private/untrusted_app_29.te                    | 3 +++
+ public/te_macros                               | 3 +--
+ 14 files changed, 38 insertions(+), 4 deletions(-)
+
+diff --git a/prebuilts/api/30.0/private/ephemeral_app.te b/prebuilts/api/30.0/private/ephemeral_app.te
+index 21e56bc4010a716b53a47dc5ae3e00f3d89838d2..9c8853812ec0facc5302cc3d641a43968d189307 100644
+--- a/prebuilts/api/30.0/private/ephemeral_app.te
++++ b/prebuilts/api/30.0/private/ephemeral_app.te
+@@ -63,20 +63,23 @@ can_profile_perf(ephemeral_app)
+ # allow ephemeral apps to use UDP sockets provided by the system server but not
+ # modify them other than to connect
+ allow ephemeral_app system_server:udp_socket {
+         connect getattr read recvfrom sendto write getopt setopt };
+ 
+ allow ephemeral_app ashmem_device:chr_file rw_file_perms;
+ 
+ allow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
++allow ephemeral_app appdomain_tmpfs:file execute;
++auditallow ephemeral_app appdomain_tmpfs:file execute;
++
+ ###
+ ### neverallow rules
+ ###
+ 
+ neverallow ephemeral_app { app_data_file privapp_data_file }:file execute_no_trans;
+ 
+ # Receive or send uevent messages.
+ neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
+ 
+ # Receive or send generic netlink messages
+diff --git a/prebuilts/api/30.0/private/isolated_app.te b/prebuilts/api/30.0/private/isolated_app.te
+index 4eb0313f18aa0d57dcc36130b9339e270fb822e8..ff8518a539a78b7c3a64d7f1795293a418d6f863 100644
+--- a/prebuilts/api/30.0/private/isolated_app.te
++++ b/prebuilts/api/30.0/private/isolated_app.te
+@@ -66,20 +66,23 @@ dontaudit isolated_app shell_data_file:dir search;
+ perfetto_producer(isolated_app)
+ 
+ # Allow profiling if the main app has been marked as profileable or
+ # debuggable.
+ can_profile_heap(isolated_app)
+ can_profile_perf(isolated_app)
+ 
+ allow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
++allow isolated_app appdomain_tmpfs:file execute;
++auditallow isolated_app appdomain_tmpfs:file execute;
++
+ #####
+ ##### Neverallow
+ #####
+ 
+ # Isolated apps should not directly open app data files themselves.
+ neverallow isolated_app { app_data_file privapp_data_file }:file open;
+ 
+ # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
+ # TODO: are there situations where isolated_apps write to this file?
+ # TODO: should we tighten these restrictions further?
+diff --git a/prebuilts/api/30.0/private/untrusted_app.te b/prebuilts/api/30.0/private/untrusted_app.te
+index 6e75a408746604cf6f6e1f8a811f524130b57de5..6789215f7587eed1f4e53322555a06aef3454a49 100644
+--- a/prebuilts/api/30.0/private/untrusted_app.te
++++ b/prebuilts/api/30.0/private/untrusted_app.te
+@@ -20,10 +20,13 @@ auditallow untrusted_app self:process execmem;
+ 
+ # Some apps ship with shared libraries and binaries that they write out
+ # to their sandbox directory and then execute.
+ # This is allowed for non-base system apps targetAPI <=29.
+ allow untrusted_app privapp_data_file:file { r_file_perms execute };
+ allow untrusted_app app_data_file:file     { r_file_perms execute };
+ auditallow untrusted_app app_data_file:file execute;
+ 
+ allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app appdomain_tmpfs:file execute;
++auditallow untrusted_app appdomain_tmpfs:file execute;
+diff --git a/prebuilts/api/30.0/private/untrusted_app_25.te b/prebuilts/api/30.0/private/untrusted_app_25.te
+index 1def0284cdfcddc743b312b1c8ee0faccb7b2fec..7572a26dccb1df702e1994f9c240279e0540ada8 100644
+--- a/prebuilts/api/30.0/private/untrusted_app_25.te
++++ b/prebuilts/api/30.0/private/untrusted_app_25.te
+@@ -57,10 +57,13 @@ allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_25 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app_25 appdomain_tmpfs:file execute;
++auditallow untrusted_app_25 appdomain_tmpfs:file execute;
+diff --git a/prebuilts/api/30.0/private/untrusted_app_27.te b/prebuilts/api/30.0/private/untrusted_app_27.te
+index c5a9fe386763950f1ec61b23f9f308f925874785..6466a415dc96e31b3a532d088686242b3c729a00 100644
+--- a/prebuilts/api/30.0/private/untrusted_app_27.te
++++ b/prebuilts/api/30.0/private/untrusted_app_27.te
+@@ -45,10 +45,13 @@ allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_27 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app_27 appdomain_tmpfs:file execute;
++auditallow untrusted_app_27 appdomain_tmpfs:file execute;
+diff --git a/prebuilts/api/30.0/private/untrusted_app_29.te b/prebuilts/api/30.0/private/untrusted_app_29.te
+index 6b8be99fa6984dc1b84c621cee5bd4b36abb1d22..844f92d11eec9eb8c4027195dfadfe740961cbb4 100644
+--- a/prebuilts/api/30.0/private/untrusted_app_29.te
++++ b/prebuilts/api/30.0/private/untrusted_app_29.te
+@@ -23,10 +23,13 @@ auditallow untrusted_app_29 self:process execmem;
+ # This is allowed for non-base system apps targetAPI <=27.
+ allow untrusted_app_29 privapp_data_file:file { r_file_perms execute };
+ allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
+ auditallow untrusted_app_29 app_data_file:file execute;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app_29 appdomain_tmpfs:file execute;
++auditallow untrusted_app_29 appdomain_tmpfs:file execute;
+diff --git a/prebuilts/api/30.0/public/te_macros b/prebuilts/api/30.0/public/te_macros
+index c5e92f0491b08fe265668accd9ace6e7b9c2afed..773ef6d758ef14a687f919ff707e173e1a1f9151 100644
+--- a/prebuilts/api/30.0/public/te_macros
++++ b/prebuilts/api/30.0/public/te_macros
+@@ -163,22 +163,21 @@ define(`init_daemon_domain', `
+ domain_auto_trans(init, $1_exec, $1)
+ ')
+ 
+ #####################################
+ # app_domain(domain)
+ # Allow a base set of permissions required for all apps.
+ define(`app_domain', `
+ typeattribute $1 appdomain;
+ # Label tmpfs objects for all apps.
+ type_transition $1 tmpfs:file appdomain_tmpfs;
+-allow $1 appdomain_tmpfs:file { execute getattr map read write };
+-auditallow $1 appdomain_tmpfs:file execute;
++allow $1 appdomain_tmpfs:file { getattr map read write };
+ neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
+ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
+ # The Android security model guarantees the confidentiality and integrity
+ # of application data and execution state. Ptrace bypasses those
+ # confidentiality guarantees. Disallow ptrace access from system components to
+ # apps. crash_dump is excluded, as it needs ptrace access to produce stack
+ # traces. runas_app is excluded, as it operates only on debuggable apps.
+ # simpleperf is excluded, as it operates only on debuggable or profileable
+ # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
+ # live lock conditions.
+diff --git a/private/ephemeral_app.te b/private/ephemeral_app.te
+index 21e56bc4010a716b53a47dc5ae3e00f3d89838d2..9c8853812ec0facc5302cc3d641a43968d189307 100644
+--- a/private/ephemeral_app.te
++++ b/private/ephemeral_app.te
+@@ -63,20 +63,23 @@ can_profile_perf(ephemeral_app)
+ # allow ephemeral apps to use UDP sockets provided by the system server but not
+ # modify them other than to connect
+ allow ephemeral_app system_server:udp_socket {
+         connect getattr read recvfrom sendto write getopt setopt };
+ 
+ allow ephemeral_app ashmem_device:chr_file rw_file_perms;
+ 
+ allow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
++allow ephemeral_app appdomain_tmpfs:file execute;
++auditallow ephemeral_app appdomain_tmpfs:file execute;
++
+ ###
+ ### neverallow rules
+ ###
+ 
+ neverallow ephemeral_app { app_data_file privapp_data_file }:file execute_no_trans;
+ 
+ # Receive or send uevent messages.
+ neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
+ 
+ # Receive or send generic netlink messages
+diff --git a/private/isolated_app.te b/private/isolated_app.te
+index 4eb0313f18aa0d57dcc36130b9339e270fb822e8..ff8518a539a78b7c3a64d7f1795293a418d6f863 100644
+--- a/private/isolated_app.te
++++ b/private/isolated_app.te
+@@ -66,20 +66,23 @@ dontaudit isolated_app shell_data_file:dir search;
+ perfetto_producer(isolated_app)
+ 
+ # Allow profiling if the main app has been marked as profileable or
+ # debuggable.
+ can_profile_heap(isolated_app)
+ can_profile_perf(isolated_app)
+ 
+ allow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
++allow isolated_app appdomain_tmpfs:file execute;
++auditallow isolated_app appdomain_tmpfs:file execute;
++
+ #####
+ ##### Neverallow
+ #####
+ 
+ # Isolated apps should not directly open app data files themselves.
+ neverallow isolated_app { app_data_file privapp_data_file }:file open;
+ 
+ # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
+ # TODO: are there situations where isolated_apps write to this file?
+ # TODO: should we tighten these restrictions further?
+diff --git a/private/untrusted_app.te b/private/untrusted_app.te
+index 6e75a408746604cf6f6e1f8a811f524130b57de5..6789215f7587eed1f4e53322555a06aef3454a49 100644
+--- a/private/untrusted_app.te
++++ b/private/untrusted_app.te
+@@ -20,10 +20,13 @@ auditallow untrusted_app self:process execmem;
+ 
+ # Some apps ship with shared libraries and binaries that they write out
+ # to their sandbox directory and then execute.
+ # This is allowed for non-base system apps targetAPI <=29.
+ allow untrusted_app privapp_data_file:file { r_file_perms execute };
+ allow untrusted_app app_data_file:file     { r_file_perms execute };
+ auditallow untrusted_app app_data_file:file execute;
+ 
+ allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app appdomain_tmpfs:file execute;
++auditallow untrusted_app appdomain_tmpfs:file execute;
+diff --git a/private/untrusted_app_25.te b/private/untrusted_app_25.te
+index 1def0284cdfcddc743b312b1c8ee0faccb7b2fec..7572a26dccb1df702e1994f9c240279e0540ada8 100644
+--- a/private/untrusted_app_25.te
++++ b/private/untrusted_app_25.te
+@@ -57,10 +57,13 @@ allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_25 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app_25 appdomain_tmpfs:file execute;
++auditallow untrusted_app_25 appdomain_tmpfs:file execute;
+diff --git a/private/untrusted_app_27.te b/private/untrusted_app_27.te
+index c5a9fe386763950f1ec61b23f9f308f925874785..6466a415dc96e31b3a532d088686242b3c729a00 100644
+--- a/private/untrusted_app_27.te
++++ b/private/untrusted_app_27.te
+@@ -45,10 +45,13 @@ allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_app_27 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app_27 appdomain_tmpfs:file execute;
++auditallow untrusted_app_27 appdomain_tmpfs:file execute;
+diff --git a/private/untrusted_app_29.te b/private/untrusted_app_29.te
+index 6b8be99fa6984dc1b84c621cee5bd4b36abb1d22..844f92d11eec9eb8c4027195dfadfe740961cbb4 100644
+--- a/private/untrusted_app_29.te
++++ b/private/untrusted_app_29.te
+@@ -23,10 +23,13 @@ auditallow untrusted_app_29 self:process execmem;
+ # This is allowed for non-base system apps targetAPI <=27.
+ allow untrusted_app_29 privapp_data_file:file { r_file_perms execute };
+ allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
+ auditallow untrusted_app_29 app_data_file:file execute;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
++
++allow untrusted_app_29 appdomain_tmpfs:file execute;
++auditallow untrusted_app_29 appdomain_tmpfs:file execute;
+diff --git a/public/te_macros b/public/te_macros
+index c5e92f0491b08fe265668accd9ace6e7b9c2afed..773ef6d758ef14a687f919ff707e173e1a1f9151 100644
+--- a/public/te_macros
++++ b/public/te_macros
+@@ -163,22 +163,21 @@ define(`init_daemon_domain', `
+ domain_auto_trans(init, $1_exec, $1)
+ ')
+ 
+ #####################################
+ # app_domain(domain)
+ # Allow a base set of permissions required for all apps.
+ define(`app_domain', `
+ typeattribute $1 appdomain;
+ # Label tmpfs objects for all apps.
+ type_transition $1 tmpfs:file appdomain_tmpfs;
+-allow $1 appdomain_tmpfs:file { execute getattr map read write };
+-auditallow $1 appdomain_tmpfs:file execute;
++allow $1 appdomain_tmpfs:file { getattr map read write };
+ neverallow { $1 -runas_app -shell -simpleperf } { domain -$1 }:file no_rw_file_perms;
+ neverallow { appdomain -runas_app -shell -simpleperf -$1 } $1:file no_rw_file_perms;
+ # The Android security model guarantees the confidentiality and integrity
+ # of application data and execution state. Ptrace bypasses those
+ # confidentiality guarantees. Disallow ptrace access from system components to
+ # apps. crash_dump is excluded, as it needs ptrace access to produce stack
+ # traces. runas_app is excluded, as it operates only on debuggable apps.
+ # simpleperf is excluded, as it operates only on debuggable or profileable
+ # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
+ # live lock conditions.
+
+commit 8424427f3b018d6aee5d62f8d7d952f489e0b196
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-02-29 11:03:35-0500
 
@@ -6795,7 +6960,7 @@ index bb2d7cfd96f69e2ec852d7e733625c4e1f7bbcdf..7cb5bac64194b9d01fe0c5ec8eed23ac
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit 83bcdfc284965d090bbac5bbff8fe68463e297f7
+commit a98f22efdc36be863667dc3e3b17a4fdbf875fe1
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-02-27 20:37:55+1100
 
@@ -6820,19 +6985,19 @@ Date:   Thu 2020-02-27 20:37:55+1100
  14 files changed, 38 insertions(+), 4 deletions(-)
 
 diff --git a/prebuilts/api/30.0/private/ephemeral_app.te b/prebuilts/api/30.0/private/ephemeral_app.te
-index 9f1bcbfca7adb38c8dbf80b6a70c2668651f6387..fabbe1d750082eaf7851a4f6490bd8746de75af6 100644
+index 9c8853812ec0facc5302cc3d641a43968d189307..11daf590b9ed7cf553bc08892f14d8af655f0af3 100644
 --- a/prebuilts/api/30.0/private/ephemeral_app.te
 +++ b/prebuilts/api/30.0/private/ephemeral_app.te
-@@ -61,20 +61,23 @@ can_profile_heap(ephemeral_app)
- can_profile_perf(ephemeral_app)
- 
- # allow ephemeral apps to use UDP sockets provided by the system server but not
- # modify them other than to connect
- allow ephemeral_app system_server:udp_socket {
+@@ -66,20 +66,23 @@ allow ephemeral_app system_server:udp_socket {
          connect getattr read recvfrom sendto write getopt setopt };
  
- allow ephemeral_app ashmem_device:chr_file { rw_file_perms execute };
- auditallow ephemeral_app ashmem_device:chr_file execute;
+ allow ephemeral_app ashmem_device:chr_file rw_file_perms;
+ 
+ allow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow ephemeral_app appdomain_tmpfs:file execute;
+ auditallow ephemeral_app appdomain_tmpfs:file execute;
  
 +allow ephemeral_app apk_data_file:file { execute execute_no_trans };
 +auditallow ephemeral_app apk_data_file:file { execute execute_no_trans };
@@ -6848,19 +7013,19 @@ index 9f1bcbfca7adb38c8dbf80b6a70c2668651f6387..fabbe1d750082eaf7851a4f6490bd874
  
  # Receive or send generic netlink messages
 diff --git a/prebuilts/api/30.0/private/isolated_app.te b/prebuilts/api/30.0/private/isolated_app.te
-index 4eb0313f18aa0d57dcc36130b9339e270fb822e8..bf38e44b2aa595c4d3b132cbc03f5420875c1d23 100644
+index ff8518a539a78b7c3a64d7f1795293a418d6f863..54e3e66cb941715dfb399a48af34d2e18678bb34 100644
 --- a/prebuilts/api/30.0/private/isolated_app.te
 +++ b/prebuilts/api/30.0/private/isolated_app.te
-@@ -66,20 +66,23 @@ dontaudit isolated_app shell_data_file:dir search;
- perfetto_producer(isolated_app)
- 
- # Allow profiling if the main app has been marked as profileable or
+@@ -69,20 +69,23 @@ perfetto_producer(isolated_app)
  # debuggable.
  can_profile_heap(isolated_app)
  can_profile_perf(isolated_app)
  
  allow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
  auditallow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow isolated_app appdomain_tmpfs:file execute;
+ auditallow isolated_app appdomain_tmpfs:file execute;
  
 +allow isolated_app apk_data_file:file { execute execute_no_trans };
 +auditallow isolated_app apk_data_file:file { execute execute_no_trans };
@@ -6876,13 +7041,10 @@ index 4eb0313f18aa0d57dcc36130b9339e270fb822e8..bf38e44b2aa595c4d3b132cbc03f5420
  # TODO: are there situations where isolated_apps write to this file?
  # TODO: should we tighten these restrictions further?
 diff --git a/prebuilts/api/30.0/private/untrusted_app.te b/prebuilts/api/30.0/private/untrusted_app.te
-index 6e75a408746604cf6f6e1f8a811f524130b57de5..bf95acd0624f5217c47e7dfe8acf4db463c28f2c 100644
+index 6789215f7587eed1f4e53322555a06aef3454a49..4662b8fc743c2f1936c4146f3bca152ca6dbe757 100644
 --- a/prebuilts/api/30.0/private/untrusted_app.te
 +++ b/prebuilts/api/30.0/private/untrusted_app.te
-@@ -20,10 +20,13 @@ auditallow untrusted_app self:process execmem;
- 
- # Some apps ship with shared libraries and binaries that they write out
- # to their sandbox directory and then execute.
+@@ -23,10 +23,13 @@ auditallow untrusted_app self:process execmem;
  # This is allowed for non-base system apps targetAPI <=29.
  allow untrusted_app privapp_data_file:file { r_file_perms execute };
  allow untrusted_app app_data_file:file     { r_file_perms execute };
@@ -6890,53 +7052,53 @@ index 6e75a408746604cf6f6e1f8a811f524130b57de5..bf95acd0624f5217c47e7dfe8acf4db4
  
  allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
  auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app appdomain_tmpfs:file execute;
+ auditallow untrusted_app appdomain_tmpfs:file execute;
 +
 +allow untrusted_app apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app apk_data_file:file { execute execute_no_trans };
 diff --git a/prebuilts/api/30.0/private/untrusted_app_25.te b/prebuilts/api/30.0/private/untrusted_app_25.te
-index 0cd6bc41747102096326fe0414a928ae77aeb5fa..3234e005673e21cae262ea42b461619543cb7823 100644
+index 7572a26dccb1df702e1994f9c240279e0540ada8..a10a56b85c2fa5337181ad14587a25ee85897502 100644
 --- a/prebuilts/api/30.0/private/untrusted_app_25.te
 +++ b/prebuilts/api/30.0/private/untrusted_app_25.te
-@@ -54,10 +54,13 @@ userdebug_or_eng(`auditallow untrusted_app_25 dex2oat_exec:file rx_file_perms;')
- # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
- # ASharedMemory instead.
- allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
- auditallow untrusted_app_25 ashmem_device:chr_file open;
- 
- # Read /mnt/sdcard symlink.
+@@ -60,10 +60,13 @@ auditallow untrusted_app_25 ashmem_device:chr_file open;
  allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
  allow untrusted_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app_25 appdomain_tmpfs:file execute;
+ auditallow untrusted_app_25 appdomain_tmpfs:file execute;
 +
 +allow untrusted_app_25 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_25 apk_data_file:file { execute execute_no_trans };
 diff --git a/prebuilts/api/30.0/private/untrusted_app_27.te b/prebuilts/api/30.0/private/untrusted_app_27.te
-index 924119b1c8d5e5b0bb398e76e51c1962b072afdf..f0e53a76bdb55c84cb82da4cc9ee9257bf8a17da 100644
+index 6466a415dc96e31b3a532d088686242b3c729a00..dcb5d10bfa1c3687a6e5a8df0f73c29a6038cd30 100644
 --- a/prebuilts/api/30.0/private/untrusted_app_27.te
 +++ b/prebuilts/api/30.0/private/untrusted_app_27.te
-@@ -42,10 +42,13 @@ userdebug_or_eng(`auditallow untrusted_app_27 dex2oat_exec:file rx_file_perms;')
- # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
- # ASharedMemory instead.
- allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
- auditallow untrusted_app_27 ashmem_device:chr_file open;
- 
- # Read /mnt/sdcard symlink.
+@@ -48,10 +48,13 @@ auditallow untrusted_app_27 ashmem_device:chr_file open;
  allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
  allow untrusted_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app_27 appdomain_tmpfs:file execute;
+ auditallow untrusted_app_27 appdomain_tmpfs:file execute;
 +
 +allow untrusted_app_27 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_27 apk_data_file:file { execute execute_no_trans };
 diff --git a/prebuilts/api/30.0/private/untrusted_app_29.te b/prebuilts/api/30.0/private/untrusted_app_29.te
-index 6b8be99fa6984dc1b84c621cee5bd4b36abb1d22..561bc1d797ef9e2ebae99fa2c9e3276064be4933 100644
+index 844f92d11eec9eb8c4027195dfadfe740961cbb4..e06ced4859c110d724c5f7f8e28be5f5507ca771 100644
 --- a/prebuilts/api/30.0/private/untrusted_app_29.te
 +++ b/prebuilts/api/30.0/private/untrusted_app_29.te
-@@ -23,10 +23,13 @@ auditallow untrusted_app_29 self:process execmem;
- # This is allowed for non-base system apps targetAPI <=27.
- allow untrusted_app_29 privapp_data_file:file { r_file_perms execute };
- allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
+@@ -26,10 +26,13 @@ allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
  auditallow untrusted_app_29 app_data_file:file execute;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
@@ -6944,6 +7106,9 @@ index 6b8be99fa6984dc1b84c621cee5bd4b36abb1d22..561bc1d797ef9e2ebae99fa2c9e32760
  
  allow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
  auditallow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app_29 appdomain_tmpfs:file execute;
+ auditallow untrusted_app_29 appdomain_tmpfs:file execute;
 +
 +allow untrusted_app_29 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_29 apk_data_file:file { execute execute_no_trans };
@@ -6976,19 +7141,19 @@ index 7cb5bac64194b9d01fe0c5ec8eed23ac2f2689f1..98f42478104289cbdaba7967b1edbea6
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 diff --git a/private/ephemeral_app.te b/private/ephemeral_app.te
-index 9f1bcbfca7adb38c8dbf80b6a70c2668651f6387..fabbe1d750082eaf7851a4f6490bd8746de75af6 100644
+index 9c8853812ec0facc5302cc3d641a43968d189307..11daf590b9ed7cf553bc08892f14d8af655f0af3 100644
 --- a/private/ephemeral_app.te
 +++ b/private/ephemeral_app.te
-@@ -61,20 +61,23 @@ can_profile_heap(ephemeral_app)
- can_profile_perf(ephemeral_app)
- 
- # allow ephemeral apps to use UDP sockets provided by the system server but not
- # modify them other than to connect
- allow ephemeral_app system_server:udp_socket {
+@@ -66,20 +66,23 @@ allow ephemeral_app system_server:udp_socket {
          connect getattr read recvfrom sendto write getopt setopt };
  
- allow ephemeral_app ashmem_device:chr_file { rw_file_perms execute };
- auditallow ephemeral_app ashmem_device:chr_file execute;
+ allow ephemeral_app ashmem_device:chr_file rw_file_perms;
+ 
+ allow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow ephemeral_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow ephemeral_app appdomain_tmpfs:file execute;
+ auditallow ephemeral_app appdomain_tmpfs:file execute;
  
 +allow ephemeral_app apk_data_file:file { execute execute_no_trans };
 +auditallow ephemeral_app apk_data_file:file { execute execute_no_trans };
@@ -7004,19 +7169,19 @@ index 9f1bcbfca7adb38c8dbf80b6a70c2668651f6387..fabbe1d750082eaf7851a4f6490bd874
  
  # Receive or send generic netlink messages
 diff --git a/private/isolated_app.te b/private/isolated_app.te
-index 4eb0313f18aa0d57dcc36130b9339e270fb822e8..bf38e44b2aa595c4d3b132cbc03f5420875c1d23 100644
+index ff8518a539a78b7c3a64d7f1795293a418d6f863..54e3e66cb941715dfb399a48af34d2e18678bb34 100644
 --- a/private/isolated_app.te
 +++ b/private/isolated_app.te
-@@ -66,20 +66,23 @@ dontaudit isolated_app shell_data_file:dir search;
- perfetto_producer(isolated_app)
- 
- # Allow profiling if the main app has been marked as profileable or
+@@ -69,20 +69,23 @@ perfetto_producer(isolated_app)
  # debuggable.
  can_profile_heap(isolated_app)
  can_profile_perf(isolated_app)
  
  allow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
  auditallow isolated_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow isolated_app appdomain_tmpfs:file execute;
+ auditallow isolated_app appdomain_tmpfs:file execute;
  
 +allow isolated_app apk_data_file:file { execute execute_no_trans };
 +auditallow isolated_app apk_data_file:file { execute execute_no_trans };
@@ -7032,13 +7197,10 @@ index 4eb0313f18aa0d57dcc36130b9339e270fb822e8..bf38e44b2aa595c4d3b132cbc03f5420
  # TODO: are there situations where isolated_apps write to this file?
  # TODO: should we tighten these restrictions further?
 diff --git a/private/untrusted_app.te b/private/untrusted_app.te
-index 6e75a408746604cf6f6e1f8a811f524130b57de5..bf95acd0624f5217c47e7dfe8acf4db463c28f2c 100644
+index 6789215f7587eed1f4e53322555a06aef3454a49..4662b8fc743c2f1936c4146f3bca152ca6dbe757 100644
 --- a/private/untrusted_app.te
 +++ b/private/untrusted_app.te
-@@ -20,10 +20,13 @@ auditallow untrusted_app self:process execmem;
- 
- # Some apps ship with shared libraries and binaries that they write out
- # to their sandbox directory and then execute.
+@@ -23,10 +23,13 @@ auditallow untrusted_app self:process execmem;
  # This is allowed for non-base system apps targetAPI <=29.
  allow untrusted_app privapp_data_file:file { r_file_perms execute };
  allow untrusted_app app_data_file:file     { r_file_perms execute };
@@ -7046,53 +7208,53 @@ index 6e75a408746604cf6f6e1f8a811f524130b57de5..bf95acd0624f5217c47e7dfe8acf4db4
  
  allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
  auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app appdomain_tmpfs:file execute;
+ auditallow untrusted_app appdomain_tmpfs:file execute;
 +
 +allow untrusted_app apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app apk_data_file:file { execute execute_no_trans };
 diff --git a/private/untrusted_app_25.te b/private/untrusted_app_25.te
-index 0cd6bc41747102096326fe0414a928ae77aeb5fa..3234e005673e21cae262ea42b461619543cb7823 100644
+index 7572a26dccb1df702e1994f9c240279e0540ada8..a10a56b85c2fa5337181ad14587a25ee85897502 100644
 --- a/private/untrusted_app_25.te
 +++ b/private/untrusted_app_25.te
-@@ -54,10 +54,13 @@ userdebug_or_eng(`auditallow untrusted_app_25 dex2oat_exec:file rx_file_perms;')
- # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
- # ASharedMemory instead.
- allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
- auditallow untrusted_app_25 ashmem_device:chr_file open;
- 
- # Read /mnt/sdcard symlink.
+@@ -60,10 +60,13 @@ auditallow untrusted_app_25 ashmem_device:chr_file open;
  allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
  allow untrusted_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app_25 appdomain_tmpfs:file execute;
+ auditallow untrusted_app_25 appdomain_tmpfs:file execute;
 +
 +allow untrusted_app_25 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_25 apk_data_file:file { execute execute_no_trans };
 diff --git a/private/untrusted_app_27.te b/private/untrusted_app_27.te
-index 924119b1c8d5e5b0bb398e76e51c1962b072afdf..f0e53a76bdb55c84cb82da4cc9ee9257bf8a17da 100644
+index 6466a415dc96e31b3a532d088686242b3c729a00..dcb5d10bfa1c3687a6e5a8df0f73c29a6038cd30 100644
 --- a/private/untrusted_app_27.te
 +++ b/private/untrusted_app_27.te
-@@ -42,10 +42,13 @@ userdebug_or_eng(`auditallow untrusted_app_27 dex2oat_exec:file rx_file_perms;')
- # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
- # ASharedMemory instead.
- allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
- auditallow untrusted_app_27 ashmem_device:chr_file open;
- 
- # Read /mnt/sdcard symlink.
+@@ -48,10 +48,13 @@ auditallow untrusted_app_27 ashmem_device:chr_file open;
  allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
  allow untrusted_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
+ 
+ allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app_27 appdomain_tmpfs:file execute;
+ auditallow untrusted_app_27 appdomain_tmpfs:file execute;
 +
 +allow untrusted_app_27 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_27 apk_data_file:file { execute execute_no_trans };
 diff --git a/private/untrusted_app_29.te b/private/untrusted_app_29.te
-index 6b8be99fa6984dc1b84c621cee5bd4b36abb1d22..561bc1d797ef9e2ebae99fa2c9e3276064be4933 100644
+index 844f92d11eec9eb8c4027195dfadfe740961cbb4..e06ced4859c110d724c5f7f8e28be5f5507ca771 100644
 --- a/private/untrusted_app_29.te
 +++ b/private/untrusted_app_29.te
-@@ -23,10 +23,13 @@ auditallow untrusted_app_29 self:process execmem;
- # This is allowed for non-base system apps targetAPI <=27.
- allow untrusted_app_29 privapp_data_file:file { r_file_perms execute };
- allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
+@@ -26,10 +26,13 @@ allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
  auditallow untrusted_app_29 app_data_file:file execute;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
@@ -7100,6 +7262,9 @@ index 6b8be99fa6984dc1b84c621cee5bd4b36abb1d22..561bc1d797ef9e2ebae99fa2c9e32760
  
  allow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
  auditallow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
+ 
+ allow untrusted_app_29 appdomain_tmpfs:file execute;
+ auditallow untrusted_app_29 appdomain_tmpfs:file execute;
 +
 +allow untrusted_app_29 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_29 apk_data_file:file { execute execute_no_trans };
@@ -7132,7 +7297,7 @@ index 7cb5bac64194b9d01fe0c5ec8eed23ac2f2689f1..98f42478104289cbdaba7967b1edbea6
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit fca08692244e9346c26a4ef3c7153fd791665872
+commit 4143431a28376d41d3cc19c42df41949f1d784d7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 06:41:22-0500
 
@@ -7315,7 +7480,7 @@ index 5f08f8d6b1d8d30ea8c7403ccc32b84c3765f770..cb54b14425e7a584994e24556fbad574
  
  # Allow apps access to /vendor/overlay
 
-commit 2a983aad76f460d0bae5462b8238c123dd6a0792
+commit d26d16c3403e737f62bd7b38ef7fdaf4043d4afa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 18:29:13-0500
 
@@ -7456,7 +7621,7 @@ index 464c5854b8f3755b4b450a6a60cc8d2899657a8a..572c0127681f366afe0a9e05956dfd76
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit bcc9de9e4df2f56d14b3ca91d9befa62687b32da (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 00dda396c8b9c4e4864baa47b14b093fc5a705c6 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 

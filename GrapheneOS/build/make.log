@@ -1,4 +1,50 @@
-commit 0051295d811a1f4ce376940e2d3fac1bdc9dacc6
+commit 30e4056f81570f08c610a7e4c623787464f10303
+Author: Chirayu Desai <chirayudesai1@gmail.com>
+Date:   Fri 2020-03-27 03:49:31+0530
+
+    releasetools: Use du -b
+    
+    * When $OUT is on a compressed disk,
+      `du -k -s` might not return the correct sizes.
+    * Adding `-b` gets us close to the actual size.
+    
+    toybox commit: https://github.com/landley/toybox/pull/177
+    
+    Test: m, builds and boots.
+    Devices: crosshatch blueline bonito sargo (anything with dynamic partitions)
+---
+ tools/releasetools/build_image.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tools/releasetools/build_image.py b/tools/releasetools/build_image.py
+index 8cf074147e6f90a4601974b8dc36437a70cc762a..7567346493282ad35cf2e372c45ddbde0e3df181 100755
+--- a/tools/releasetools/build_image.py
++++ b/tools/releasetools/build_image.py
+@@ -50,21 +50,21 @@ class BuildImageError(Exception):
+ 
+ def GetDiskUsage(path):
+   """Returns the number of bytes that "path" occupies on host.
+ 
+   Args:
+     path: The directory or file to calculate size on.
+ 
+   Returns:
+     The number of bytes based on a 1K block_size.
+   """
+-  cmd = ["du", "-k", "-s", path]
++  cmd = ["du", "-b", "-k", "-s", path]
+   output = common.RunAndCheckOutput(cmd, verbose=False)
+   return int(output.split()[0]) * 1024
+ 
+ 
+ def GetInodeUsage(path):
+   """Returns the number of inodes that "path" occupies on host.
+ 
+   Args:
+     path: The directory or file to calculate inode number on.
+ 
+
+commit b43a79ac67610f391803a50b11fd01bfc6082830
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-11-23 04:27:20-0500
 
@@ -34,7 +80,7 @@ index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8
    else
      # Disable debugging in plain user builds.
 
-commit 02dab560aa6467230b8c570869be773139663412
+commit 310df5486679f29c5a1601b8c017cf71a2e7d813
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:24:59-0400
 
@@ -73,7 +119,7 @@ index 4d507b5fb05a17bf1208a6cbcb9385cee9ec7384..dad89f4e1f0d9a4f4cb6a24b6bbf8e9c
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 18355d3cf5d869b2b651576f9c2bfcfc3b0dff15
+commit 522a47977f37ef0622beb1f1281e1daf525a8041
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:59:56-0400
 
@@ -101,7 +147,7 @@ index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c808
 +    messaging \
 +    Stk
 
-commit 2b4551677f782cbef4b777d21489597cde86fdc3
+commit 50eedea2fd23348b03744266406ac71c177a6042
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:28:11-0400
 
@@ -150,7 +196,7 @@ index ccf53f52295bfaceb718df5c5e51da87f535e2b4..7fb3644291a1e95ce256c4d85dd164db
      ifneq (true,$(WITH_DEXPREOPT))
        ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
 
-commit 77e37f148ee33fd587f6a857b58f6ba4d9c29d31
+commit 44a1a995d08e0c4ea18accb7f9506aa0091c68fa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2016-08-28 14:14:10-0400
 
@@ -189,7 +235,7 @@ index 693b686fbb4b0fb700f12d9ddd422362b52ccf90..6aae4507edf29df107597125f6d044ca
  ifeq (eng,$(TARGET_BUILD_VARIANT))
      PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
-commit 68bf108f3861ea04b2d3dd93ecaaf0a03970cbd6
+commit fff525fbeadaa900f86c8625b68b813ece547c7a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-09-07 23:27:07-0400
 
@@ -236,7 +282,7 @@ index 6aae4507edf29df107597125f6d044caf62af909..309672b785f1b34a839214b65bdcfa7e
  PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
      dalvik.vm.dex2oat-resolve-startup-strings=true
 
-commit dbf177a04883e8ae75d6d9ddf00fa8d11ed00897
+commit 994f6e8a08dd4a70edd430bd6b9b397d231878cc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-09-29 01:02:28-0400
 
@@ -288,7 +334,7 @@ index 309672b785f1b34a839214b65bdcfa7e474eb06c..724a455db99ef7a9aac4b92696bd95e7
      dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
  
 
-commit 3f3f342bc2bec07776ba352e04727a1d0163f8d4
+commit 3dac37a877caecbfb815cdbe002d27aa4a3b66f8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:42:53-0400
 
@@ -324,7 +370,7 @@ index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e27
      OneTimeInitializer \
      preinstalled-packages-platform-handheld-product.xml \
 
-commit 469967080ad297ff0027342756c21450865c07a9
+commit 3d4534c1c368d252913353766bacc04f5c9ee90a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:43:04-0400
 
@@ -357,7 +403,7 @@ index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 82d35e5c95791656fbda98b76e1abb5efcf3fa5a
+commit 05b134777cc9cce9425351d6708be57537752986
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-06-17 07:13:49-0400
 
@@ -393,7 +439,7 @@ index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78
    else
      # Disable debugging in plain user builds.
 
-commit c6d1e19ae8c829d781c96f8e2c080f8119fa967c
+commit 31c6a74a6d5f82de76c486bcab02e03e725cdbe3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-09-13 22:05:56-0400
 
@@ -424,7 +470,7 @@ index efb21e7c6a532c8dd7ce63950d187a4bf37a4ba4..41d7fe5dbf3b4a471bd96bc568593ad0
 +  endif
 +endif
 
-commit a07edb1f11d04f66450a114b2d5df2aec0ebfcd4
+commit 63d5d9ca246b6b4c7b8f2abaac8348b3669bb395
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:18:49-0400
 
@@ -460,7 +506,7 @@ index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00
      frameworks-base-overlays
  
 
-commit d98d13e128b308bf23ed52d4f4401debb79c81b9
+commit 6546c8003cefb16968952e08cc7bb8bcf0a4a1f3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-09-09 00:28:44-0400
 
@@ -545,7 +591,7 @@ index f8ba5936f8043c6965692408d2b3299b3f38ea99..f60e9c4c124c6fcbc4d07864a80fcb45
  
  #
 
-commit e1a0535dd4a13731d983476ff01d540f30aba6eb
+commit c3c8491c3af1516e26b2b42e17bb4337ddf40ab6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-09-09 01:16:05-0400
 
@@ -610,7 +656,7 @@ index ca171dff5c6151eb818271161c8051f7894b0160..17a3ac75e81b95c594e7dea087765a00
  PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
  
 
-commit aadada1b04ce8e18adaf24ea7162410861fdbf20
+commit b9a42c3670b83414097d8f4276c8eceaeaaeda68
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-09-21 08:44:23-0400
 
@@ -648,7 +694,7 @@ index a787707a04451c9aab2aa20adeb2cc5ef0116997..1f22163c32669377d5147755d17f69a9
      PresencePolling \
      RcsService \
 
-commit dfd754a96b81a4dcb609c166db10139bbe8a6bb3
+commit cf1e63f984fd9642db48819ff4cbb396d5c78e0c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:21:18-0500
 
@@ -692,7 +738,7 @@ index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff40
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 35a62f1332d5974fe3551fdb694b76c6362b1d72
+commit dee2ea6b94eae14c7da433407a247e3b9058e67f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:23:07-0500
 
@@ -719,7 +765,7 @@ index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49
 -    webview \
 +    TrichromeWebView \
 
-commit acf502b3565b4e64e0e0526ed789394ea1453475
+commit 54432ddeacfb68b223134bc47d7f0412b44cb881
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 00:55:25-0400
 
@@ -756,43 +802,36 @@ index dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662..77b77fef89594c0ed5c04b20d8f3f322
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit f6754ccf598850eae7e17783ed12db48eab3c409
+commit 977fe37bd0b829c438c707ecbdf699589b4a36e0
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-03-11 18:08:31+1100
 
     add SetupWizard
 ---
- target/product/handheld_system.mk | 1 +
+ target/product/handheld_system_ext.mk | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/target/product/handheld_system.mk b/target/product/handheld_system.mk
-index 77c103d7eeccca74b9192359053af34ff922c3f0..28608fabe21f317a27e93081d74b5bb2278b264a 100644
---- a/target/product/handheld_system.mk
-+++ b/target/product/handheld_system.mk
-@@ -55,20 +55,21 @@ PRODUCT_PACKAGES += \
-     ManagedProvisioning \
-     MmsService \
-     MtpService \
-     MusicFX \
-     NfcNci \
-     PacProcessor \
-     PrintRecommendationService \
-     PrintSpooler \
-     ProxyHandler \
-     screenrecord \
+diff --git a/target/product/handheld_system_ext.mk b/target/product/handheld_system_ext.mk
+index d935fbfddfce5d511c3d0e5f20bd73630a553efd..0e2a48fcf5cc9ae9335da7597489b84498b4fbc7 100644
+--- a/target/product/handheld_system_ext.mk
++++ b/target/product/handheld_system_ext.mk
+@@ -18,13 +18,14 @@
+ # a generic phone or tablet device. Only add something here if
+ # it definitely doesn't belong on other types of devices (if it
+ # does, use base_system_ext.mk).
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_system_ext.mk)
+ 
+ # /system_ext packages
+ PRODUCT_PACKAGES += \
+     Launcher3QuickStep \
+     Provision \
+     Settings \
 +    SetupWizard \
-     SecureElement \
-     SharedStorageBackup \
-     SimAppDialog \
-     Telecom \
-     TelephonyProvider \
-     TeleService \
-     Traceur \
-     UserDictionaryProvider \
-     VpnDialogs \
-     vr \
+     StorageManager \
+     SystemUI \
+     WallpaperCropper \
 
-commit 12e2a4f0100a0255702b7094e49ad4be09a7b0c8
+commit c2f31caafdf92ade5171eb9ffdb43fbd3b11f632
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-03-16 18:01:18-0400
 
@@ -839,7 +878,7 @@ index bf015e502468da3231b417df160651e9783a9059..e26bceff2299824b50602319eda446bd
  BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  
 
-commit 28a5950d05774f996885952f90865f74e938aa31
+commit 3e79036635bb15e31ab8a18558c2ebc81dbffd64
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-03-17 16:52:01-0400
 
@@ -876,7 +915,7 @@ index 3c99424ac4f827f28334b48edd687e7e7121e6bd..10dfda5a4179fb516ad8c50b32b9e5f8
      MANIFEST_PACKAGE_NAME \
      PACKAGE_NAME \
 
-commit 8671b14eb59968d51fd0bb85abbbc888c3d10579
+commit 612f9064dbb81422ec45be32f658e6a11f6ea0d0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-05-12 21:02:49-0400
 
@@ -914,7 +953,7 @@ index e95a7ea62332bd8d6f141da182ae2f78a55979cf..2ccc28d25e54acb4f6a69045284ee5b5
    FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
  endif
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index 9c7ac2c8f5ebe70628cabe8fb41bc17a679a52d7..78e52a1fa352fac0ec75c266c7be6279205a0f55 100644
+index e83b8b02be8cb120e5e94358011845c19ef496cd..a1fa9a60b76f8fb18042633bcee96497d6b69bf6 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -268,21 +268,21 @@ ifndef BUILD_ID
@@ -941,7 +980,7 @@ index 9c7ac2c8f5ebe70628cabe8fb41bc17a679a52d7..78e52a1fa352fac0ec75c266c7be6279
  ifndef BUILD_NUMBER
    # BUILD_NUMBER should be set to the source control value that
 
-commit dac7f836e8cbe1158efeb1d9b54ac99982488883
+commit dd37005c712961ea771f9d086bfb9f5a0728e7f3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-05-16 19:44:32-0400
 
@@ -965,7 +1004,7 @@ Date:   Sat 2020-05-16 19:44:32-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index 78e52a1fa352fac0ec75c266c7be6279205a0f55..2633306865f4cd3972f93d8d3246a369f2bc9101 100644
+index a1fa9a60b76f8fb18042633bcee96497d6b69bf6..adf622c42c7bc1061c4bf91318043afb70e8a96f 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
@@ -984,7 +1023,7 @@ index 78e52a1fa352fac0ec75c266c7be6279205a0f55..2633306865f4cd3972f93d8d3246a369
  endif
  .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
 
-commit 49e789e43b2d35b006ba8cc69e96453aa3613fe6
+commit 80f7fcfd0792b0fbdb46f54d2f8c63e0ad407032
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 18:05:27-0400
 
@@ -1026,7 +1065,7 @@ index 3e748eb2dc801e880b04d30660f7d316cc768a72..875f59206c468408202858c96c987cbf
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit e4057edf16109e25394003e85277377f5a76cd3d (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit d3c3e0bc7736512aaed2766c5298b7acb5884b57
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-09-17 10:53:00-0400
 
@@ -1067,3 +1106,115 @@ index 1f22163c32669377d5147755d17f69a98d3d5e04..db2af7d1d2c958cef76a0969ea46a7cf
  PRODUCT_SYSTEM_BRAND := Android
  PRODUCT_SYSTEM_MANUFACTURER := Android
  PRODUCT_SYSTEM_MODEL := mainline
+
+commit 02dab3ff03f8061f5980f8b417cf955a8feaae6f
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-03-09 23:48:11-0500
+
+    add talkback
+---
+ target/product/handheld_system.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/target/product/handheld_system.mk b/target/product/handheld_system.mk
+index 77c103d7eeccca74b9192359053af34ff922c3f0..cb69007c73a9d6c71c6f319739a5fcf2fcea0b23 100644
+--- a/target/product/handheld_system.mk
++++ b/target/product/handheld_system.mk
+@@ -58,20 +58,21 @@ PRODUCT_PACKAGES += \
+     MusicFX \
+     NfcNci \
+     PacProcessor \
+     PrintRecommendationService \
+     PrintSpooler \
+     ProxyHandler \
+     screenrecord \
+     SecureElement \
+     SharedStorageBackup \
+     SimAppDialog \
++    talkback \
+     Telecom \
+     TelephonyProvider \
+     TeleService \
+     Traceur \
+     UserDictionaryProvider \
+     VpnDialogs \
+     vr \
+ 
+ 
+ PRODUCT_SYSTEM_SERVER_APPS += \
+
+commit 140a2e05e9bb058dc3af0604d645f1da74f63fa4
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-03-16 02:05:40-0400
+
+    ignore tethering provisioning requirement
+---
+ core/main.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/core/main.mk b/core/main.mk
+index 2ccc28d25e54acb4f6a69045284ee5b5aadef5d5..69ce4359397069d695b5dbff5a8bf52c83873908 100644
+--- a/core/main.mk
++++ b/core/main.mk
+@@ -260,20 +260,21 @@ endif
+ 
+ user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
+ enable_target_debugging := true
+ tags_to_install :=
+ ifneq (,$(user_variant))
+   # Target is secure in user builds.
+   ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=1
+   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
+   ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
+   ADDITIONAL_DEFAULT_PROPERTIES += persist.security.deny_new_usb=dynamic
++  ADDITIONAL_DEFAULT_PROPERTIES += net.tethering.noprovisioning=true
+ 
+   ifeq ($(user_variant),user)
+     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+   endif
+ 
+   ifeq ($(user_variant),userdebug)
+     # Pick up some extra useful tools
+     tags_to_install += debug
+   else
+     # Disable debugging in plain user builds.
+
+commit 9180e45f3fbbe8ed49946f03471a8944fe418883 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2017-09-09 17:39:11-0400
+
+    disable OpenGL preloading
+    
+    Change-Id: If9c28ca68d901e06fb7a0b688c8bc4bebb920c5d
+---
+ core/main.mk | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/core/main.mk b/core/main.mk
+index 69ce4359397069d695b5dbff5a8bf52c83873908..adbb0febe6a0c515ccf18ecea826e24368f76739 100644
+--- a/core/main.mk
++++ b/core/main.mk
+@@ -243,20 +243,23 @@ else
+ ADDITIONAL_PRODUCT_PROPERTIES += ro.product.vndk.version=$(PRODUCT_PRODUCT_VNDK_VERSION)
+ endif
+ endif
+ 
+ # -----------------------------------------------------------------
+ ###
+ ### In this section we set up the things that are different
+ ### between the build variants
+ ###
+ 
++# Disable OpenGL preloading
++ADDITIONAL_BUILD_PROPERTIES += ro.zygote.disable_gl_preload=1
++
+ is_sdk_build :=
+ 
+ ifneq ($(filter sdk win_sdk sdk_addon,$(MAKECMDGOALS)),)
+ is_sdk_build := true
+ endif
+ 
+ ## user/userdebug ##
+ 
+ user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
+ enable_target_debugging := true

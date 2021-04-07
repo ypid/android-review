@@ -1,4 +1,4 @@
-commit d6297057eff0b931c8a8d28d4fda66b9da74e58b
+commit da28c30ba6b8da205e142837e02e31c7b15af404
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 16:42:55-0400
 
@@ -43,7 +43,7 @@ index e7c148e2db38986ffa1accdc3b87e499845fbbb3..e38b7be6c14d2d18370c72e93f2ac484
 -PRODUCT_MODEL := AOSP on sargo
 +PRODUCT_MODEL := Pixel 3a
 
-commit 57ff8f790a1fce960e7722b3ed15f786e68fc4f2
+commit 4af81454330b535d21d596035a16613261acf7a8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:48:08-0400
 
@@ -53,7 +53,7 @@ Date:   Thu 2019-06-20 12:48:08-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 028915ca51ca6141529946914c01d48e5a3538f3..c14844344c2cae6dee67ca8354623aeb1ff4d8dd 100644
+index 789b51a260c27a25164069c2aab5eec61fa2179d..ac903c5d6ece70dacd2888b1d225a5e8f9e5e7a8 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -130,39 +130,35 @@ PRODUCT_COPY_FILES += \
@@ -97,7 +97,7 @@ index 028915ca51ca6141529946914c01d48e5a3538f3..c14844344c2cae6dee67ca8354623aeb
      POSTINSTALL_OPTIONAL_system=true
  
 
-commit c29d75f1f89000c658d86d63b36dfeea948afd3f
+commit cff22bb4545af7ee5d19555368298f3d6191298b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:50:53-0400
 
@@ -216,7 +216,7 @@ index 885c3e28c3960e1ff2cf72dd645e5ad8e0cfe00e..c6992bc817f15bff1772c143a7f81c75
 -insmod /vendor/lib/modules/machine_dlkm.ko
 -
 
-commit e794ce501959c8db405f181ea0bb93d216f05bd5
+commit aabcf7e48ab11fd3d24fb98108a6bba171c30950
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:18:08-0400
 
@@ -253,7 +253,7 @@ index 399479790f3c3727b18d7ddae445a37ef261e151..4f2efcc6978e0e9b7937b7fda04d373c
  /dev/msm_wma              0660   system     audio
  /dev/msm_wmapro           0660   system     audio
 
-commit 1360a3661a2d1cdd02a802af49ae135386ff5154
+commit b554be7da1e2a9e50f5e4235489e60750d1ece9d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:19:03-0400
 
@@ -264,7 +264,7 @@ Date:   Thu 2019-06-13 15:19:03-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index c14844344c2cae6dee67ca8354623aeb1ff4d8dd..df3727a34db9e94cdf7548fadf65e8232bbd3405 100644
+index ac903c5d6ece70dacd2888b1d225a5e8f9e5e7a8..dce68da53835bee42e51b1e590d61bdeaa1596f0 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -817,21 +817,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -320,7 +320,7 @@ index 741dcc1b34bf464ac01b9bb4acd682033fb23d01..20aa680f9e515dbb593e338336592db8
  
      <!-- Enable system navigation keys. -->
 
-commit 4d4462690571962394b832ae6777afbf464e37f4
+commit 094ae54ec8b431fc1dd0fb1a58cc91d86348df87
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-06-14 22:08:05-0400
 
@@ -357,7 +357,7 @@ index 20aa680f9e515dbb593e338336592db852a4b5ce..efb3bedc26bfda23f44e7defc567bc72
  
      <!-- List of regexpressions describing the interface (if any) that represent tetherable
 
-commit 739c161a83ff2483b5bad8dc32c12ede054741aa
+commit 67ff76beb4a00cf365460893ed3278f4c70c7ec4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-18 10:48:18-0400
 
@@ -367,7 +367,7 @@ Date:   Wed 2019-09-18 10:48:18-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index df3727a34db9e94cdf7548fadf65e8232bbd3405..dfb54a0661071299d8fa6132a8a832ea1ef2ec9a 100644
+index dce68da53835bee42e51b1e590d61bdeaa1596f0..f88cd5372ff4a67756dc5b52ff01a0c10edd2fdd 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -61,23 +61,20 @@ PRODUCT_PACKAGES += \
@@ -395,7 +395,7 @@ index df3727a34db9e94cdf7548fadf65e8232bbd3405..dfb54a0661071299d8fa6132a8a832ea
  endif
  
 
-commit 27d14edbdbf73ea8a56b245dc38cc8d157ff425b
+commit 17d5dfc07ab68708491fc9abc408fb4daee2284c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 02:29:31-0400
 
@@ -433,7 +433,7 @@ index f16c2abda2d821c98a383ddcc653047cdf76b7e0..f4f4d023c85e382ae942ba13a6765396
  
  # Set c2 codec in default
 
-commit 57fc01858dbea6267c40923e30990cb19649ed81
+commit 5089551ac8178cf8bbd2038dd28e2ef647116c5e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 11:03:06-0700
 
@@ -468,7 +468,7 @@ index efb3bedc26bfda23f44e7defc567bc721fa33011..3012dffd341916f72c1971d35d44b6fc
 +    </string-array>
  </resources>
 
-commit 38554ffd2426914215d853a3176bcb7a05eca3e8
+commit 97650084f729c211e5cb9075a45d19c20949d6ee
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-09-23 22:29:17+0000
 
@@ -44978,7 +44978,7 @@ index 0000000000000000000000000000000000000000..9cea13bc43de0f7263963a12e0005b53
 +
 +</apns>
 
-commit b60d93d79aea759bf515827a307eb360b28751ef
+commit 9ff3820e0e41e5a609ea0b51380c4e7dfb801311
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-01-18 18:39:14+0530
 
@@ -61736,7 +61736,7 @@ index 0000000000000000000000000000000000000000..41bfbfc6beaa07224860b50f1df45803
 +    <carrier_config mcc="901" mnc="58" />
 +</carrier_config_list>
 
-commit a25bd9e758add95948114e797079a069f9edd09d
+commit 273f2965691b52d31e55ea06efd0420541a7d248
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-11-14 03:11:59-0500
 
@@ -61805,7 +61805,7 @@ index a0b8f98e793a0a8bf4910ae6d472b0d947ed7557..e1a5ff075e269d2fa8547a79288247d9
  # PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
  
 
-commit ab7c4a8e2032ec1edafd15588621dbe15200dd86
+commit d4880778f17f73446ef40067f7c8964b5df03cac
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 11:41:36-0500
 
@@ -61853,7 +61853,7 @@ index f73cbb1dc9dfe127f71d9d8a3e0b8a1a7d8d3884..c7ce14365bfe57bd61e78dae1106a1f1
  on property:ota.warm_reset=0
      write /sys/module/msm_poweroff/parameters/warm_reset 0
 
-commit 8b3082c5ab55ef7ac6b7ff5ba8ca78a2c349b390
+commit 6142722e0699588c7824cddf79bc135f506fadbe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:06:38-0500
 
@@ -67281,7 +67281,7 @@ index 9cea13bc43de0f7263963a12e0005b532cd27efd..8973643b5a76bb448502159b49db79f3
        mmsproxy="200.68.32.239"
        mmsport="8080"
 
-commit 3b232d6e8bb226db8ec11bd5146695b4b90ff684 (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit fefe52edc9bf745c614434501e98f26101f3ddce (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Tue 2021-03-02 17:00:12+0530
 

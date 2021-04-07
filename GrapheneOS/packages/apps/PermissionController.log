@@ -566,7 +566,7 @@ index 81d1994bc5774eff21b43945692ed50aef43131f..2c55aed22ecf2f9e9498c3b676b3518b
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
 
-commit 05a53e22f5081fbcd5c22a448c2bc6f11df57d5b (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 05a53e22f5081fbcd5c22a448c2bc6f11df57d5b (tag: RQ2A.210305.006.2021.03.02.10)
 Author: inthewaves <inthewaves@pm.me>
 Date:   Wed 2020-09-16 17:30:37-0700
 
@@ -720,3 +720,40 @@ index 2c55aed22ecf2f9e9498c3b676b3518bf32f7414..90acf922337a49c66700e6f1cc8159f0
       * @return
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
+
+commit 49ef3737d33132c01a72a0d9f5bb45a3d1165215 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-03-16 03:27:53-0400
+
+    enable camera/microphone indicators by default
+---
+ src/com/android/permissioncontroller/permission/debug/Utils.kt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/permissioncontroller/permission/debug/Utils.kt b/src/com/android/permissioncontroller/permission/debug/Utils.kt
+index fd75d3b791ce0ddbbc5058ee586cf536e9d39286..0c01b90ea8c2daa3fafe931166d6b49db9193555 100644
+--- a/src/com/android/permissioncontroller/permission/debug/Utils.kt
++++ b/src/com/android/permissioncontroller/permission/debug/Utils.kt
+@@ -49,21 +49,21 @@ fun shouldShowPermissionsDashboard(): Boolean {
+     return isPermissionsHub2FlagEnabled()
+ }
+ 
+ /**
+  * Whether the Camera and Mic Icons are enabled by flag.
+  *
+  * @return whether the Camera and Mic Icons are enabled.
+  */
+ fun isCameraMicIconsFlagEnabled(): Boolean {
+     return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+-        PROPERTY_CAMERA_MIC_ICONS_ENABLED, false)
++        PROPERTY_CAMERA_MIC_ICONS_ENABLED, true)
+ }
+ 
+ /**
+  * Whether to show Camera and Mic Icons. They should be shown if the permission hub, or the icons
+  * specifically, are enabled.
+  *
+  * @return whether to show the icons.
+  */
+ fun shouldShowCameraMicIndicators(): Boolean {
+     return isCameraMicIconsFlagEnabled() || isPermissionsHub2FlagEnabled()

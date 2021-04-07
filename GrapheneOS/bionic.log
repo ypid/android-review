@@ -1613,7 +1613,7 @@ index eac53cac855444791a7858a1080498fb37908419..336e69b597b523459dc75016f9c19184
    auto tcb = reinterpret_cast<bionic_tcb*>(mapping.static_tls + layout.offset_bionic_tcb());
    auto tls = reinterpret_cast<bionic_tls*>(mapping.static_tls + layout.offset_bionic_tls());
 
-commit 94a5be58b370fe339e8d3fade58c67becf84829e (HEAD, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 94a5be58b370fe339e8d3fade58c67becf84829e (HEAD, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-10-20 08:17:11+1100
 
