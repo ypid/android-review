@@ -1,4 +1,4 @@
-commit da28c30ba6b8da205e142837e02e31c7b15af404
+commit 969be53a55c6e3d9f9d9c396cadb1670c936cb11
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 16:42:55-0400
 
@@ -43,7 +43,7 @@ index e7c148e2db38986ffa1accdc3b87e499845fbbb3..e38b7be6c14d2d18370c72e93f2ac484
 -PRODUCT_MODEL := AOSP on sargo
 +PRODUCT_MODEL := Pixel 3a
 
-commit 4af81454330b535d21d596035a16613261acf7a8
+commit afc21cdfa0070c49a41cf27e769dc79309b23d4d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:48:08-0400
 
@@ -53,7 +53,7 @@ Date:   Thu 2019-06-20 12:48:08-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 789b51a260c27a25164069c2aab5eec61fa2179d..ac903c5d6ece70dacd2888b1d225a5e8f9e5e7a8 100644
+index e7a4ec4aa788deb0feb60b7bc389d192a82764da..3ceed3d53933e19b029708ab1b6267bb8720bd7a 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -130,39 +130,35 @@ PRODUCT_COPY_FILES += \
@@ -97,7 +97,7 @@ index 789b51a260c27a25164069c2aab5eec61fa2179d..ac903c5d6ece70dacd2888b1d225a5e8
      POSTINSTALL_OPTIONAL_system=true
  
 
-commit cff22bb4545af7ee5d19555368298f3d6191298b
+commit d30194d2a701ec623d4fa05eb818f9c30bd3da44
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:50:53-0400
 
@@ -216,7 +216,7 @@ index 885c3e28c3960e1ff2cf72dd645e5ad8e0cfe00e..c6992bc817f15bff1772c143a7f81c75
 -insmod /vendor/lib/modules/machine_dlkm.ko
 -
 
-commit aabcf7e48ab11fd3d24fb98108a6bba171c30950
+commit 6309a0b113e1f07e96667b002dd1cd4580164e83
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:18:08-0400
 
@@ -253,7 +253,7 @@ index 399479790f3c3727b18d7ddae445a37ef261e151..4f2efcc6978e0e9b7937b7fda04d373c
  /dev/msm_wma              0660   system     audio
  /dev/msm_wmapro           0660   system     audio
 
-commit b554be7da1e2a9e50f5e4235489e60750d1ece9d
+commit 4d7afcfbd1d23f49794409da9fd515393fa6fc4e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:19:03-0400
 
@@ -264,7 +264,7 @@ Date:   Thu 2019-06-13 15:19:03-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index ac903c5d6ece70dacd2888b1d225a5e8f9e5e7a8..dce68da53835bee42e51b1e590d61bdeaa1596f0 100644
+index 3ceed3d53933e19b029708ab1b6267bb8720bd7a..d574ff699a8492c27549a316b2a4b6d75ab08f30 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -817,21 +817,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -320,7 +320,7 @@ index 741dcc1b34bf464ac01b9bb4acd682033fb23d01..20aa680f9e515dbb593e338336592db8
  
      <!-- Enable system navigation keys. -->
 
-commit 094ae54ec8b431fc1dd0fb1a58cc91d86348df87
+commit 5f5d55b16c6942e50243f8b158b92144bee19ecc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-06-14 22:08:05-0400
 
@@ -357,7 +357,7 @@ index 20aa680f9e515dbb593e338336592db852a4b5ce..efb3bedc26bfda23f44e7defc567bc72
  
      <!-- List of regexpressions describing the interface (if any) that represent tetherable
 
-commit 67ff76beb4a00cf365460893ed3278f4c70c7ec4
+commit bc7db1ecbfb16474adfb07fe76493c52102351c0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-18 10:48:18-0400
 
@@ -367,7 +367,7 @@ Date:   Wed 2019-09-18 10:48:18-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index dce68da53835bee42e51b1e590d61bdeaa1596f0..f88cd5372ff4a67756dc5b52ff01a0c10edd2fdd 100644
+index d574ff699a8492c27549a316b2a4b6d75ab08f30..9263f56c90ac03f116b702308b03e7b3bef410fd 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -61,23 +61,20 @@ PRODUCT_PACKAGES += \
@@ -395,7 +395,7 @@ index dce68da53835bee42e51b1e590d61bdeaa1596f0..f88cd5372ff4a67756dc5b52ff01a0c1
  endif
  
 
-commit 17d5dfc07ab68708491fc9abc408fb4daee2284c
+commit 198feebc30c6d5bcffc8b2ab23a7c23a86bb1942
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 02:29:31-0400
 
@@ -433,7 +433,7 @@ index f16c2abda2d821c98a383ddcc653047cdf76b7e0..f4f4d023c85e382ae942ba13a6765396
  
  # Set c2 codec in default
 
-commit 5089551ac8178cf8bbd2038dd28e2ef647116c5e
+commit 73c48643a1876978120c3d09c400580f8608fddd
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 11:03:06-0700
 
@@ -468,7 +468,7 @@ index efb3bedc26bfda23f44e7defc567bc721fa33011..3012dffd341916f72c1971d35d44b6fc
 +    </string-array>
  </resources>
 
-commit 97650084f729c211e5cb9075a45d19c20949d6ee
+commit 50d6943975837656bf274801081c6bd24ec4fad6
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-09-23 22:29:17+0000
 
@@ -44978,7 +44978,7 @@ index 0000000000000000000000000000000000000000..9cea13bc43de0f7263963a12e0005b53
 +
 +</apns>
 
-commit 9ff3820e0e41e5a609ea0b51380c4e7dfb801311
+commit 39316de8b724f3e3ecf4146f26d5ceab1f11e6e2
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-01-18 18:39:14+0530
 
@@ -61736,7 +61736,7 @@ index 0000000000000000000000000000000000000000..41bfbfc6beaa07224860b50f1df45803
 +    <carrier_config mcc="901" mnc="58" />
 +</carrier_config_list>
 
-commit 273f2965691b52d31e55ea06efd0420541a7d248
+commit d0d2d79001202309baa062f5ed69e56df34599ca
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-11-14 03:11:59-0500
 
@@ -61805,7 +61805,7 @@ index a0b8f98e793a0a8bf4910ae6d472b0d947ed7557..e1a5ff075e269d2fa8547a79288247d9
  # PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
  
 
-commit d4880778f17f73446ef40067f7c8964b5df03cac
+commit db1510233614f4f0ef08e3b067601359ae8e68c1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 11:41:36-0500
 
@@ -61853,7 +61853,7 @@ index f73cbb1dc9dfe127f71d9d8a3e0b8a1a7d8d3884..c7ce14365bfe57bd61e78dae1106a1f1
  on property:ota.warm_reset=0
      write /sys/module/msm_poweroff/parameters/warm_reset 0
 
-commit 6142722e0699588c7824cddf79bc135f506fadbe
+commit bbe8fa8735d09cdb9dc8ca9da1900fa4dd30fd23
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:06:38-0500
 
@@ -67281,7 +67281,7 @@ index 9cea13bc43de0f7263963a12e0005b532cd27efd..8973643b5a76bb448502159b49db79f3
        mmsproxy="200.68.32.239"
        mmsport="8080"
 
-commit fefe52edc9bf745c614434501e98f26101f3ddce (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit bf7cb6d5f627ad60ff5b6112a17c48a176f5e9ed
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Tue 2021-03-02 17:00:12+0530
 
@@ -78782,3 +78782,617 @@ index 41bfbfc6beaa07224860b50f1df458037745ea22..49e11e653ab013e4ced4e69774a533a0
      <carrier_config mcc="722" mnc="36">
          <string-array name="non_roaming_operator_string_array" num="1">
              <item value="72234" />
+
+commit fa4fde4ad4af508c23eb4091ad950a85db1d0425
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-04-11 05:33:47-0400
+
+    update APNs
+---
+ apns-full-conf.xml | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/apns-full-conf.xml b/apns-full-conf.xml
+index 8973643b5a76bb448502159b49db79f39439d17a..379bf3f03d73ad38114aeb7b7bbbfa1d12e94953 100644
+--- a/apns-full-conf.xml
++++ b/apns-full-conf.xml
+@@ -23200,100 +23200,106 @@
+       carrier_id="2256"
+       mcc="311"
+       mnc="740"
+       apn="akcell.mobi"
+       type="default"
+       protocol="IP"
+       roaming_protocol="IP"
+   />
+ 
+   <apn carrier="Cellcom"
++      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCINTERNET"
+       mmsc="http://mms.cellcom.com/cellcom/mms.php"
+       authtype="3"
+       type="default,mms,supl,dun,fota,cbs"
+       protocol="IPV4V6"
+       bearer_bitmask="4|5|6|7|8|12"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+       user_editable="false"
+   />
+ 
+   <apn carrier="Cellcom IMS"
++      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="IMS"
+       authtype="0"
+       type="ia,ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       profile_id="2"
+       modem_cognitive="true"
+       max_conns="20"
+       max_conns_time="300"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Cellcom FOTA"
++      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCADMIN"
+       authtype="0"
+       type="fota"
+       protocol="IPV4V6"
+       roaming_protocol="IP"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       profile_id="3"
+       modem_cognitive="true"
+       max_conns="20"
+       max_conns_time="300"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Cellcom"
++      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCINTERNET"
+       mmsc="http://mms.cellcom.com/cellcom/mms.php"
+       type="default,mms,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       profile_id="0"
+       modem_cognitive="true"
+       max_conns="20"
+       max_conns_time="300"
+       mvno_type="gid"
+       mvno_match_data="C1"
+   />
+ 
+   <apn carrier="Cellcom Hotspot"
++      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCHOTSPOT"
+       type="dun"
+       protocol="IPV4V6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Cellcom Emergency"
++      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="SOS"
+       type="emergency"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+@@ -26590,21 +26596,21 @@
+       mcc="401"
+       mnc="02"
+       apn="mms"
+       mmsc="http://mms.kcell.kz/post"
+       mmsproxy="195.47.255.7"
+       mmsport="8080"
+       type="mms"
+   />
+ 
+   <apn carrier="ALTEL INTERNET"
+-      carrier_id="2164"
++      carrier_id="1986"
+       mcc="401"
+       mnc="07"
+       apn="internet"
+       type="default,supl"
+   />
+ 
+   <apn carrier="Tele2 Internet"
+       carrier_id="1986"
+       mcc="401"
+       mnc="77"
+
+commit 25a978a27e7995b5cd8b0688dfa01660e7eb939d
+Author: razorloves <razorloves@gmail.com>
+Date:   Tue 2020-05-12 23:50:50-0500
+
+    b4s4: Set slotId# of non-removable esim
+    
+    This is needed for esim to function properly.
+    Without it the EID value could not be read.
+    
+    Change-Id: I414a7c98362523c5880cfa90b6ce9c0ce92e9c32
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+---
+ .../base/core/res/res/values/arrays.xml (new)      | 37 ++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+
+diff --git a/overlay/frameworks/base/core/res/res/values/arrays.xml b/overlay/frameworks/base/core/res/res/values/arrays.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..29691515b16f20c5b6ba81489c14fc7ba2250a3d
+--- /dev/null
++++ b/overlay/frameworks/base/core/res/res/values/arrays.xml
+@@ -0,0 +1,37 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++/*
++** Copyright 2020, The LineageOS Project
++**
++** Licensed under the Apache License, Version 2.0 (the "License");
++** you may not use this file except in compliance with the License.
++** You may obtain a copy of the License at
++**
++**     http://www.apache.org/licenses/LICENSE-2.0
++**
++** Unless required by applicable law or agreed to in writing, software
++** distributed under the License is distributed on an "AS IS" BASIS,
++** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++** See the License for the specific language governing permissions and
++** limitations under the License.
++*/
++-->
++<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
++    <!-- Device-specific array of SIM slot indexes which are are embedded eUICCs.
++         e.g. If a device has two physical slots with indexes 0, 1, and slot 1 is an
++         eUICC, then the value of this array should be:
++             <integer-array name="non_removable_euicc_slots">
++                 <item>1</item>
++             </integer-array>
++         If a device has three physical slots and slot 1 and 2 are eUICCs, then the value of
++         this array should be:
++             <integer-array name="non_removable_euicc_slots">
++                <item>1</item>
++                <item>2</item>
++             </integer-array>
++         This is used to differentiate between removable eUICCs and built in eUICCs, and should
++         be set by OEMs for devices which use eUICCs. -->
++    <integer-array name="non_removable_euicc_slots">
++        <item>1</item>
++    </integer-array>
++</resources>
+
+commit 3b1e74dc0be5d11b2ab5797ee37d7d4df618b069 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Mon 2021-05-03 20:59:22+0000
+
+    Update APN's for RQ2A.210505.002 on bonito
+---
+ apns-full-conf.xml                                 | 29 +++++++---------------
+ .../packages/apps/CarrierConfig/res/xml/vendor.xml |  2 +-
+ 2 files changed, 10 insertions(+), 21 deletions(-)
+
+diff --git a/apns-full-conf.xml b/apns-full-conf.xml
+index 379bf3f03d73ad38114aeb7b7bbbfa1d12e94953..e468440ec1510bfe9d516173737861461c33a88f 100644
+--- a/apns-full-conf.xml
++++ b/apns-full-conf.xml
+@@ -3468,48 +3468,52 @@
+       mcc="222"
+       mnc="01"
+       apn="xcap.tim.it"
+       type="xcap"
+       protocol="IPV4V6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Kena Mobile web"
++      carrier_id="2511"
+       mcc="222"
+       mnc="07"
+       apn="web.kenamobile.it"
+       authtype="0"
+       type="default,supl,dun"
+   />
+ 
+   <apn carrier="Kena Mobile MMS"
++      carrier_id="2511"
+       mcc="222"
+       mnc="07"
+       apn="mms.kenamobile.it"
+       mmsc="http://mms.kenamobile.it/"
+       mmsproxy="10.248.1.12"
+       mmsport="80"
+       authtype="0"
+       type="mms"
+   />
+ 
+   <apn carrier="IMS"
++      carrier_id="2511"
+       mcc="222"
+       mnc="07"
+       apn="ims"
+       type="ims"
+       protocol="IPV4V6"
+       user_visible="false"
+   />
+ 
+   <apn carrier="XCAP"
++      carrier_id="2511"
+       mcc="222"
+       mnc="07"
+       apn="xcap.kenamobile.it"
+       type="xcap"
+       protocol="IPV4V6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       user_visible="false"
+   />
+ 
+   <apn carrier="ErgMobile WAP"
+@@ -6375,32 +6379,30 @@
+       mcc="238"
+       mnc="77"
+       apn="telenor"
+       mmsc="http://mms.telenor.dk"
+       mmsproxy="212.88.64.8"
+       mmsport="8080"
+       type="mms"
+   />
+ 
+   <apn carrier="Internet"
+-      carrier_id="2287"
+       mcc="240"
+       mnc="01"
+       apn="halebop.telia.se"
+       authtype="0"
+       type="default,supl"
+       mvno_type="imsi"
+       mvno_match_data="240017"
+   />
+ 
+   <apn carrier="MMS"
+-      carrier_id="2287"
+       mcc="240"
+       mnc="01"
+       apn="mms.telia.se"
+       mmsc="http://mmss"
+       mmsproxy="193.209.134.132"
+       mmsport="80"
+       authtype="0"
+       type="mms"
+       mvno_type="imsi"
+       mvno_match_data="240017"
+@@ -6545,32 +6547,30 @@
+       mmsc="http://mms.tre.se"
+       mmsproxy="mmsproxy.tre.se"
+       mmsport="8799"
+       authtype="0"
+       type="default,mms,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IP"
+   />
+ 
+   <apn carrier="Internet"
+-      carrier_id="2287"
+       mcc="240"
+       mnc="05"
+       apn="halebop.telia.se"
+       authtype="0"
+       type="default,supl"
+       mvno_type="spn"
+       mvno_match_data="HALEBOP"
+   />
+ 
+   <apn carrier="MMS"
+-      carrier_id="2287"
+       mcc="240"
+       mnc="05"
+       apn="mms.telia.se"
+       mmsc="http://mmss"
+       mmsproxy="193.209.134.132"
+       mmsport="80"
+       authtype="0"
+       type="mms"
+       mvno_type="spn"
+       mvno_match_data="HALEBOP"
+@@ -17446,137 +17446,132 @@
+ 
+   <apn carrier="Inland IMS"
+       carrier_id="2011"
+       mcc="310"
+       mnc="580"
+       apn="ims.inland.com"
+       type="ims"
+   />
+ 
+   <apn carrier="MetroPCS Tethering"
+-      carrier_id="1949"
+       mcc="310"
+       mnc="590"
+       apn="pcweb.metropcs.com"
+       type="dun"
+       protocol="IPV4V6"
+       mvno_type="gid"
+       mvno_match_data="6D38"
+       user_visible="false"
+   />
+ 
+   <apn carrier="MetroPCS"
+-      carrier_id="1949"
+       mcc="310"
+       mnc="590"
+       apn=""
+       type="ia"
+       protocol="IPV6"
+       roaming_protocol="IP"
+       mtu="1440"
+       mvno_type="gid"
+       mvno_match_data="6D38"
+   />
+ 
+   <apn carrier="MetroPCS"
+-      carrier_id="1949"
+       mcc="310"
+       mnc="590"
+       apn="fast.metropcs.com"
+       mmsc="http://metropcs.mmsmvno.com/mms/wapenc"
+       type="default,mms,supl,hipri"
+       protocol="IPV6"
+       roaming_protocol="IP"
+       mtu="1440"
+       mvno_type="gid"
+       mvno_match_data="6D38"
+   />
+ 
+   <apn carrier="MetroPCS IMS"
+-      carrier_id="1949"
+       mcc="310"
+       mnc="590"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       bearer_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|17|20"
+       mtu="1440"
+       mvno_type="gid"
+       mvno_match_data="6D38"
+       user_visible="false"
+   />
+ 
+   <apn carrier="MetroPCS IMS"
+-      carrier_id="1949"
+       mcc="310"
+       mnc="590"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="18"
+       mtu="1440"
+       mvno_type="gid"
+       mvno_match_data="6D38"
+       user_visible="false"
+   />
+ 
+   <apn carrier="T-Mobile Tethering"
+-      carrier_id="1"
++      carrier_id="1839"
+       mcc="310"
+       mnc="590"
+       apn="pcweb.tmobile.com"
+       type="dun"
+       protocol="IPV6"
+       user_visible="false"
+   />
+ 
+   <apn carrier="T-Mobile US"
+-      carrier_id="1"
++      carrier_id="1839"
+       mcc="310"
+       mnc="590"
+       apn="fast.t-mobile.com"
+       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
+       type="default,supl,ia,mms,xcap"
+       protocol="IPV6"
+       bearer_bitmask="1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|17|20"
+       mtu="1440"
+       user_editable="false"
+   />
+ 
+   <apn carrier="T-Mobile US IMS"
+-      carrier_id="1"
++      carrier_id="1839"
+       mcc="310"
+       mnc="590"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       bearer_bitmask="14|20"
+       mtu="1440"
+       user_visible="false"
+   />
+ 
+   <apn carrier="T-Mobile US IMS"
+-      carrier_id="1"
++      carrier_id="1839"
+       mcc="310"
+       mnc="590"
+       apn="ims"
+       type="ims"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="18"
+       mtu="1440"
+       user_visible="false"
+   />
+ 
+   <apn carrier="T-Mobile MMS"
+-      carrier_id="1"
++      carrier_id="1839"
+       mcc="310"
+       mnc="590"
+       apn="TMUS"
+       mmsc="http://mms.msg.eng.t-mobile.com/mms/wapenc"
+       type="mms,xcap"
+       protocol="IPV6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="18"
+       user_editable="false"
+   />
+@@ -23200,106 +23195,100 @@
+       carrier_id="2256"
+       mcc="311"
+       mnc="740"
+       apn="akcell.mobi"
+       type="default"
+       protocol="IP"
+       roaming_protocol="IP"
+   />
+ 
+   <apn carrier="Cellcom"
+-      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCINTERNET"
+       mmsc="http://mms.cellcom.com/cellcom/mms.php"
+       authtype="3"
+       type="default,mms,supl,dun,fota,cbs"
+       protocol="IPV4V6"
+       bearer_bitmask="4|5|6|7|8|12"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+       user_editable="false"
+   />
+ 
+   <apn carrier="Cellcom IMS"
+-      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="IMS"
+       authtype="0"
+       type="ia,ims"
+       protocol="IPV4V6"
+       roaming_protocol="IPV6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       profile_id="2"
+       modem_cognitive="true"
+       max_conns="20"
+       max_conns_time="300"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Cellcom FOTA"
+-      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCADMIN"
+       authtype="0"
+       type="fota"
+       protocol="IPV4V6"
+       roaming_protocol="IP"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       profile_id="3"
+       modem_cognitive="true"
+       max_conns="20"
+       max_conns_time="300"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Cellcom"
+-      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCINTERNET"
+       mmsc="http://mms.cellcom.com/cellcom/mms.php"
+       type="default,mms,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       profile_id="0"
+       modem_cognitive="true"
+       max_conns="20"
+       max_conns_time="300"
+       mvno_type="gid"
+       mvno_match_data="C1"
+   />
+ 
+   <apn carrier="Cellcom Hotspot"
+-      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="CCHOTSPOT"
+       type="dun"
+       protocol="IPV4V6"
+       bearer_bitmask="1|2|3|9|10|11|13|14|15|20"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+ 
+   <apn carrier="Cellcom Emergency"
+-      carrier_id="10024"
+       mcc="311"
+       mnc="840"
+       apn="SOS"
+       type="emergency"
+       protocol="IPV4V6"
+       roaming_protocol="IPV4V6"
+       mvno_type="gid"
+       mvno_match_data="C1"
+       user_visible="false"
+   />
+diff --git a/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml b/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml
+index 49e11e653ab013e4ced4e69774a533a0fea3412b..ac3344a40358043e94cff4371783a2043ac8fb08 100644
+--- a/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml
++++ b/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml
+@@ -61,21 +61,21 @@
+         <int name="maxSubjectLength" value="80" />
+         <string-array name="non_roaming_operator_string_array" num="2">
+             <item value="310" />
+             <item value="311" />
+         </string-array>
+         <int name="recipientLimit" value="20" />
+         <string name="sim_country_iso_override_string">us</string>
+         <int name="smsToMmsTextThreshold" value="-1" />
+         <boolean name="support_swap_after_merge_bool" value="false" />
+     </carrier_config>
+-    <carrier_config mcc="204" mnc="04" spn="C Spire&#13;">
++    <carrier_config mcc="204" mnc="04" spn="C Spire&#10;">
+         <int name="cdma_3waycall_flash_delay_int" value="300" />
+         <boolean name="config_telephony_use_own_number_for_voicemail_bool" value="true" />
+         <string name="emailGatewayNumber">6245</string>
+         <boolean name="enableMMSDeliveryReports" value="false" />
+         <boolean name="enableMMSReadReports" value="false" />
+         <boolean name="enableMultipartSMS" value="false" />
+         <boolean name="enableSMSDeliveryReports" value="false" />
+         <int name="maxImageHeight" value="1944" />
+         <int name="maxImageWidth" value="2592" />
+         <int name="maxMessageSize" value="1048576" />

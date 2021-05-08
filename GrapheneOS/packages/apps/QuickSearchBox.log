@@ -41,7 +41,7 @@ index de561cb7b71120434d039033c53da5e25dd84ca3..af5afd43451a34768166062c9d72ecda
              </intent-filter>
              <meta-data android:name="com.android.launcher.toolbar_icon" android:resource="@drawable/ic_google_logo_normal" />
 
-commit 97656345492b840bb43a1cd965408c1c85167f34 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 97656345492b840bb43a1cd965408c1c85167f34 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-12-22 08:20:57-0500
 

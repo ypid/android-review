@@ -205,7 +205,7 @@ index 84fa56e5b2da2bd883d9a6216b4cc0bc34b81273..724ea32b6c5af3711d90dcfc803ea2ca
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 8b740476b10adc67f8f49376193417b1ff5cc141 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit 8b740476b10adc67f8f49376193417b1ff5cc141 (tag: RQ2A.210405.005.2021.04.05.20)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:54:28-0400
 
@@ -242,3 +242,44 @@ index 724ea32b6c5af3711d90dcfc803ea2caacd4c83e..bdcde4528f3b6a34821c38e3a2366074
      write /proc/sys/kernel/sched_child_runs_first 0
  
      write /proc/sys/kernel/randomize_va_space 2
+
+commit 3f7629f095d5814acfe146cc692f8d65d7d95ff3 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Mon 2021-04-05 03:02:51+0100
+
+    add a property for controlling ptrace_scope
+---
+ rootdir/init.rc | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index bdcde4528f3b6a34821c38e3a23660743717da11..d49cab9fac6fd0271e5ef1e0dab486ebb4c1914e 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -1007,20 +1007,26 @@ on property:persist.security.deny_new_usb=disabled
+ 
+ on property:persist.security.deny_new_usb=enabled
+     write /proc/sys/kernel/deny_new_usb 1
+ 
+ on property:persist.security.deny_new_usb=dynamic
+     write /proc/sys/kernel/deny_new_usb 1
+ 
+ on property:security.deny_new_usb=*
+     write /proc/sys/kernel/deny_new_usb ${security.deny_new_usb}
+ 
++on property:persist.native_debug=true
++    write /proc/sys/kernel/yama/ptrace_scope 0
++
++on property:persist.native_debug=false
++    write /proc/sys/kernel/yama/ptrace_scope 2
++
+ # perf_event_open syscall security:
+ # Newer kernels have the ability to control the use of the syscall via SELinux
+ # hooks. init tests for this, and sets sys_init.perf_lsm_hooks to 1 if the
+ # kernel has the hooks. In this case, the system-wide perf_event_paranoid
+ # sysctl is set to -1 (unrestricted use), and the SELinux policy is used for
+ # controlling access. On older kernels, the paranoid value is the only means of
+ # controlling access. It is normally 3 (allow only root), but the shell user
+ # can lower it to 1 (allowing thread-scoped pofiling) via security.perf_harden.
+ on property:sys.init.perf_lsm_hooks=1
+     write /proc/sys/kernel/perf_event_paranoid -1

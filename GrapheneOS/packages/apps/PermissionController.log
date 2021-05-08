@@ -721,7 +721,7 @@ index 2c55aed22ecf2f9e9498c3b676b3518bf32f7414..90acf922337a49c66700e6f1cc8159f0
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
 
-commit 49ef3737d33132c01a72a0d9f5bb45a3d1165215 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit 49ef3737d33132c01a72a0d9f5bb45a3d1165215 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 03:27:53-0400
 

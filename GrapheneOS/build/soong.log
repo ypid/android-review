@@ -113,7 +113,7 @@ index c1c236b9d6f0bbbc95f7bed1f8c1889bd56ff73d..c2b21aaab1d7c478aad19383fe8140a3
      local TOPFILE=build/soong/root.bp
      if [ -n "${TOP-}" -a -f "${TOP-}/${TOPFILE}" ] ; then
 
-commit 5c98733ec964f2b99be2401b40f78a75a8b6a11c (HEAD, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 5c98733ec964f2b99be2401b40f78a75a8b6a11c (HEAD, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sun 2020-09-13 09:35:41+0000
 

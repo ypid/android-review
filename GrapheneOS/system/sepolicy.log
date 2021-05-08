@@ -7621,7 +7621,7 @@ index 464c5854b8f3755b4b450a6a60cc8d2899657a8a..572c0127681f366afe0a9e05956dfd76
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit 00dda396c8b9c4e4864baa47b14b093fc5a705c6 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit 00dda396c8b9c4e4864baa47b14b093fc5a705c6 (tag: RQ2A.210405.005.2021.04.05.20)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 
@@ -7964,3 +7964,241 @@ index cb54b14425e7a584994e24556fbad57405f5515c..84a68694e2f9f555b20bc3ca5b131803
    -dalvikcache_data_file # map PROT_EXEC
  }:file no_x_file_perms;
  
+
+commit b2c6f6c81c918506258aa7a55594b352f1f8f2b3
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Mon 2021-04-05 02:26:20+0100
+
+    allow init to control kernel.yama.ptrace_scope
+---
+ prebuilts/api/30.0/private/domain.te      | 1 +
+ prebuilts/api/30.0/private/genfs_contexts | 1 +
+ prebuilts/api/30.0/public/init.te         | 3 +++
+ private/domain.te                         | 1 +
+ private/genfs_contexts                    | 1 +
+ public/init.te                            | 3 +++
+ 6 files changed, 10 insertions(+)
+
+diff --git a/prebuilts/api/30.0/private/domain.te b/prebuilts/api/30.0/private/domain.te
+index bbad79ac32eb025e6b7951e429eac98b901c6b79..8b5a317a7187066238959ee03f6605d276c99ab2 100644
+--- a/prebuilts/api/30.0/private/domain.te
++++ b/prebuilts/api/30.0/private/domain.te
+@@ -118,20 +118,21 @@ userdebug_or_eng(`
+ allow domain linkerconfig_file:dir search;
+ allow domain linkerconfig_file:file r_file_perms;
+ 
+ # Allow all processes to check for the existence of the boringssl_self_test_marker files.
+ allow domain boringssl_self_test_marker:dir search;
+ 
+ # Limit ability to ptrace or read sensitive /proc/pid files of processes
+ # with other UIDs to these whitelisted domains.
+ neverallow {
+   domain
++  -init
+   -vold
+   userdebug_or_eng(`-llkd')
+   -dumpstate
+   userdebug_or_eng(`-incidentd')
+   -storaged
+   -system_server
+ } self:global_capability_class_set sys_ptrace;
+ 
+ # Limit ability to generate hardware unique device ID attestations to priv_apps
+ neverallow { domain -priv_app -gmscore_app } *:keystore_key gen_unique_id;
+diff --git a/prebuilts/api/30.0/private/genfs_contexts b/prebuilts/api/30.0/private/genfs_contexts
+index 5200452fe300820f9d8d921cb5cae9a24f63b76b..3a8ce4ef6bb68bea496e3d6ea1f92c4df2563d0a 100644
+--- a/prebuilts/api/30.0/private/genfs_contexts
++++ b/prebuilts/api/30.0/private/genfs_contexts
+@@ -64,20 +64,21 @@ genfscon proc /sys/kernel/random u:object_r:proc_random:s0
+ genfscon proc /sys/kernel/randomize_va_space u:object_r:proc_security:s0
+ genfscon proc /sys/kernel/sched_child_runs_first u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_latency_ns u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_rt_period_us u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_rt_runtime_us u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_schedstats u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_tunable_scaling u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_wakeup_granularity_ns u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sysrq u:object_r:proc_sysrq:s0
+ genfscon proc /sys/kernel/usermodehelper u:object_r:usermodehelper:s0
++genfscon proc /sys/kernel/yama/ptrace_scope u:object_r:proc_security:s0
+ genfscon proc /sys/net u:object_r:proc_net:s0
+ genfscon proc /sys/vm/dirty_background_ratio u:object_r:proc_dirty:s0
+ genfscon proc /sys/vm/dirty_expire_centisecs u:object_r:proc_dirty:s0
+ genfscon proc /sys/vm/extra_free_kbytes u:object_r:proc_extra_free_kbytes:s0
+ genfscon proc /sys/vm/max_map_count u:object_r:proc_max_map_count:s0
+ genfscon proc /sys/vm/mmap_min_addr u:object_r:proc_security:s0
+ genfscon proc /sys/vm/mmap_rnd_bits u:object_r:proc_security:s0
+ genfscon proc /sys/vm/mmap_rnd_compat_bits u:object_r:proc_security:s0
+ genfscon proc /sys/vm/page-cluster u:object_r:proc_page_cluster:s0
+ genfscon proc /sys/vm/drop_caches u:object_r:proc_drop_caches:s0
+diff --git a/prebuilts/api/30.0/public/init.te b/prebuilts/api/30.0/public/init.te
+index 97f93ec7a5e5250e486c39b9cda562e3cbd866d5..72938eb4a9733faf7cd5770ae369dd5cd0ef20f8 100644
+--- a/prebuilts/api/30.0/public/init.te
++++ b/prebuilts/api/30.0/public/init.te
+@@ -137,20 +137,23 @@ allow init metadata_file:dir mounton;
+ allow init tmpfs:dir relabelfrom;
+ 
+ # Create directories under /dev/cpuctl after chowning it to system.
+ allow init self:global_capability_class_set { dac_override dac_read_search };
+ 
+ # Set system clock.
+ allow init self:global_capability_class_set sys_time;
+ 
+ allow init self:global_capability_class_set { sys_rawio mknod };
+ 
++# Set /proc/sys/kernel/yama/ptrace_scope
++allow init self:capability { sys_ptrace };
++
+ # Mounting filesystems from block devices.
+ allow init dev_type:blk_file r_file_perms;
+ allowxperm init dev_type:blk_file ioctl BLKROSET;
+ 
+ # Mounting filesystems.
+ # Only allow relabelto for types used in context= mount options,
+ # which should all be assigned the contextmount_type attribute.
+ # This can be done in device-specific policy via type or typeattribute
+ # declarations.
+ allow init fs_type:filesystem ~relabelto;
+diff --git a/private/domain.te b/private/domain.te
+index bbad79ac32eb025e6b7951e429eac98b901c6b79..8b5a317a7187066238959ee03f6605d276c99ab2 100644
+--- a/private/domain.te
++++ b/private/domain.te
+@@ -118,20 +118,21 @@ userdebug_or_eng(`
+ allow domain linkerconfig_file:dir search;
+ allow domain linkerconfig_file:file r_file_perms;
+ 
+ # Allow all processes to check for the existence of the boringssl_self_test_marker files.
+ allow domain boringssl_self_test_marker:dir search;
+ 
+ # Limit ability to ptrace or read sensitive /proc/pid files of processes
+ # with other UIDs to these whitelisted domains.
+ neverallow {
+   domain
++  -init
+   -vold
+   userdebug_or_eng(`-llkd')
+   -dumpstate
+   userdebug_or_eng(`-incidentd')
+   -storaged
+   -system_server
+ } self:global_capability_class_set sys_ptrace;
+ 
+ # Limit ability to generate hardware unique device ID attestations to priv_apps
+ neverallow { domain -priv_app -gmscore_app } *:keystore_key gen_unique_id;
+diff --git a/private/genfs_contexts b/private/genfs_contexts
+index 5200452fe300820f9d8d921cb5cae9a24f63b76b..3a8ce4ef6bb68bea496e3d6ea1f92c4df2563d0a 100644
+--- a/private/genfs_contexts
++++ b/private/genfs_contexts
+@@ -64,20 +64,21 @@ genfscon proc /sys/kernel/random u:object_r:proc_random:s0
+ genfscon proc /sys/kernel/randomize_va_space u:object_r:proc_security:s0
+ genfscon proc /sys/kernel/sched_child_runs_first u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_latency_ns u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_rt_period_us u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_rt_runtime_us u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_schedstats u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_tunable_scaling u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sched_wakeup_granularity_ns u:object_r:proc_sched:s0
+ genfscon proc /sys/kernel/sysrq u:object_r:proc_sysrq:s0
+ genfscon proc /sys/kernel/usermodehelper u:object_r:usermodehelper:s0
++genfscon proc /sys/kernel/yama/ptrace_scope u:object_r:proc_security:s0
+ genfscon proc /sys/net u:object_r:proc_net:s0
+ genfscon proc /sys/vm/dirty_background_ratio u:object_r:proc_dirty:s0
+ genfscon proc /sys/vm/dirty_expire_centisecs u:object_r:proc_dirty:s0
+ genfscon proc /sys/vm/extra_free_kbytes u:object_r:proc_extra_free_kbytes:s0
+ genfscon proc /sys/vm/max_map_count u:object_r:proc_max_map_count:s0
+ genfscon proc /sys/vm/mmap_min_addr u:object_r:proc_security:s0
+ genfscon proc /sys/vm/mmap_rnd_bits u:object_r:proc_security:s0
+ genfscon proc /sys/vm/mmap_rnd_compat_bits u:object_r:proc_security:s0
+ genfscon proc /sys/vm/page-cluster u:object_r:proc_page_cluster:s0
+ genfscon proc /sys/vm/drop_caches u:object_r:proc_drop_caches:s0
+diff --git a/public/init.te b/public/init.te
+index 97f93ec7a5e5250e486c39b9cda562e3cbd866d5..72938eb4a9733faf7cd5770ae369dd5cd0ef20f8 100644
+--- a/public/init.te
++++ b/public/init.te
+@@ -137,20 +137,23 @@ allow init metadata_file:dir mounton;
+ allow init tmpfs:dir relabelfrom;
+ 
+ # Create directories under /dev/cpuctl after chowning it to system.
+ allow init self:global_capability_class_set { dac_override dac_read_search };
+ 
+ # Set system clock.
+ allow init self:global_capability_class_set sys_time;
+ 
+ allow init self:global_capability_class_set { sys_rawio mknod };
+ 
++# Set /proc/sys/kernel/yama/ptrace_scope
++allow init self:capability { sys_ptrace };
++
+ # Mounting filesystems from block devices.
+ allow init dev_type:blk_file r_file_perms;
+ allowxperm init dev_type:blk_file ioctl BLKROSET;
+ 
+ # Mounting filesystems.
+ # Only allow relabelto for types used in context= mount options,
+ # which should all be assigned the contextmount_type attribute.
+ # This can be done in device-specific policy via type or typeattribute
+ # declarations.
+ allow init fs_type:filesystem ~relabelto;
+
+commit a2cfb3f213c716c245f17fb600b33c051dd78fd5 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Mon 2021-04-05 02:27:06+0100
+
+    allow system to use persist.native_debug
+---
+ prebuilts/api/30.0/private/property_contexts | 1 +
+ private/property_contexts                    | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/prebuilts/api/30.0/private/property_contexts b/prebuilts/api/30.0/private/property_contexts
+index 556b67536481e75f2118454daa24165aa5eb183b..3edea3196e522ce100c778325e7cd84705791fff 100644
+--- a/prebuilts/api/30.0/private/property_contexts
++++ b/prebuilts/api/30.0/private/property_contexts
+@@ -52,20 +52,21 @@ service.adb.tcp.port    u:object_r:shell_prop:s0
+ sys.update.             u:object_r:shell_prop:s0
+ service.adb.tls.port    u:object_r:adbd_prop:s0
+ persist.adb.wifi.       u:object_r:adbd_prop:s0
+ persist.adb.tls_server.enable  u:object_r:system_adbd_prop:s0
+ 
+ persist.audio.          u:object_r:audio_prop:s0
+ persist.bluetooth.      u:object_r:bluetooth_prop:s0
+ persist.nfc_cfg.        u:object_r:nfc_prop:s0
+ persist.debug.          u:object_r:persist_debug_prop:s0
+ persist.keyguard.camera u:object_r:system_prop:s0
++persist.native_debug    u:object_r:system_prop:s0
+ persist.logd.           u:object_r:logd_prop:s0
+ ro.logd.                u:object_r:logd_prop:s0
+ persist.logd.security   u:object_r:device_logging_prop:s0
+ persist.logd.logpersistd        u:object_r:logpersistd_logging_prop:s0
+ logd.logpersistd        u:object_r:logpersistd_logging_prop:s0
+ persist.log.tag         u:object_r:log_tag_prop:s0
+ persist.mmc.            u:object_r:mmc_prop:s0
+ persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
+ persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
+ persist.sys.            u:object_r:system_prop:s0
+diff --git a/private/property_contexts b/private/property_contexts
+index 556b67536481e75f2118454daa24165aa5eb183b..3edea3196e522ce100c778325e7cd84705791fff 100644
+--- a/private/property_contexts
++++ b/private/property_contexts
+@@ -52,20 +52,21 @@ service.adb.tcp.port    u:object_r:shell_prop:s0
+ sys.update.             u:object_r:shell_prop:s0
+ service.adb.tls.port    u:object_r:adbd_prop:s0
+ persist.adb.wifi.       u:object_r:adbd_prop:s0
+ persist.adb.tls_server.enable  u:object_r:system_adbd_prop:s0
+ 
+ persist.audio.          u:object_r:audio_prop:s0
+ persist.bluetooth.      u:object_r:bluetooth_prop:s0
+ persist.nfc_cfg.        u:object_r:nfc_prop:s0
+ persist.debug.          u:object_r:persist_debug_prop:s0
+ persist.keyguard.camera u:object_r:system_prop:s0
++persist.native_debug    u:object_r:system_prop:s0
+ persist.logd.           u:object_r:logd_prop:s0
+ ro.logd.                u:object_r:logd_prop:s0
+ persist.logd.security   u:object_r:device_logging_prop:s0
+ persist.logd.logpersistd        u:object_r:logpersistd_logging_prop:s0
+ logd.logpersistd        u:object_r:logpersistd_logging_prop:s0
+ persist.log.tag         u:object_r:log_tag_prop:s0
+ persist.mmc.            u:object_r:mmc_prop:s0
+ persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
+ persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
+ persist.sys.            u:object_r:system_prop:s0

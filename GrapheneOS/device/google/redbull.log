@@ -1,4 +1,4 @@
-commit 208e431def9479ab77c77f842c538046ebb34aa6
+commit 8307cf284bcdf19b24f816496c30a14325d52b65
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:12-0400
 
@@ -8,7 +8,7 @@ Date:   Wed 2020-10-14 19:16:12-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index b3e963d77d7feeed12d159d8807b945490e4851e..7932120b2d434ad3338dbfe69be95b8c2dfa6865 100644
+index 1fdb13008bd524be092c6875b80c14b133843a4d..11287222afc70e4c645708b350e16812b6e480a7 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -126,40 +126,36 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -53,7 +53,7 @@ index b3e963d77d7feeed12d159d8807b945490e4851e..7932120b2d434ad3338dbfe69be95b8c
      sg_write_buffer \
      f2fs_io \
 
-commit 825b57324086da22e39d373b40411ef0b38e3afa
+commit d3e8fc6342a046545d75d98391cd7b5bfb5c1ef8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:59-0400
 
@@ -64,7 +64,7 @@ Date:   Wed 2020-10-14 19:16:59-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 7932120b2d434ad3338dbfe69be95b8c2dfa6865..bc3e6f24003c6e7262c36903a3eb33754451d23e 100644
+index 11287222afc70e4c645708b350e16812b6e480a7..029d3f17d24a3700f1c8173c535f5efd8961b6c4 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -745,21 +745,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -120,7 +120,7 @@ index 974f39d89cbea95d16505c03ae84f2de893c584e..9ef69ecc2128fa848957a3ef325696c0
      <bool name="config_pinnerCameraApp">true</bool>
  
 
-commit aa941caac7a3fb706343c26e0497729b7a24a7e6
+commit 63737f4f0f388eb0cdd786ef52d54db45432898e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:25-0400
 
@@ -157,7 +157,7 @@ index 9ef69ecc2128fa848957a3ef325696c0bcdd6222..93061db494049523cbc33b16fee7a2c5
          <item>"usb\\d"</item>
          <item>"rndis\\d"</item>
 
-commit b66382ad75eda3b6150bfbb288ee880f9045ce1b
+commit 5065f62b6ff3b2efd9e0171c868f87fb7a15a4bb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:50-0400
 
@@ -167,7 +167,7 @@ Date:   Wed 2020-10-14 19:17:50-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index bc3e6f24003c6e7262c36903a3eb33754451d23e..1e6ce1722eb17a42b1de340be72a61a0e8a4e6ef 100644
+index 029d3f17d24a3700f1c8173c535f5efd8961b6c4..7ce2754a7705006747d56ebe2db6ce51dcb1b94d 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -83,23 +83,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -195,7 +195,7 @@ index bc3e6f24003c6e7262c36903a3eb33754451d23e..1e6ce1722eb17a42b1de340be72a61a0
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
 
-commit 546e045faa02e03f133ab4945567d12b81e3c57f
+commit ffcc94ef3d8bc022b2724567bd3cdaff2cf82c42
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:32:37+0000
 
@@ -577,7 +577,7 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
  # Testing related defines
  BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b5r3-setup.sh
 
-commit c73f0bc680b2850b20f101fa9ef4c3e7c9f6feae
+commit 32f65d580f780cdb95005a85e5de533888eecec6
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2020-10-19 00:04:15+0000
 
@@ -616,7 +616,7 @@ index c04b53924c733a489c6e46f6be4a659b712a5eee..a947b2b7e582e8fad2749ae0f862d0f8
  /dev/msm_qcelp            0660   system     audio
  /dev/msm_evrc             0660   system     audio
 
-commit 4e9e2fd49cbd443702d5469684d52d8bc12aecd9
+commit 19776c9ddcd3574be7963c6dbd6439fc8819cf1f
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Wed 2020-07-22 18:40:15+0000
 
@@ -657,7 +657,7 @@ index 288990e5bb7ab82f090262503250e938e425c4fa..660829d37d1cf943890a4d87bf84ee09
      mkdir /data/vendor/sensors 0770
      chown system system /data/vendor/sensors
 
-commit 5c980c019e3803ec9e9e4d69b1ef7c6b52f86812
+commit 1d670ca464da3e2471107f226119163e86602c40
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sun 2020-10-18 22:58:30+0000
 
@@ -696,7 +696,7 @@ index 93061db494049523cbc33b16fee7a2c57a671a8e..58fb5fcc0ce34ae5fa61d2481a4beb5a
 +
  </resources>
 
-commit 336285c0c78220c058989db2db32c1232d1e74b0
+commit e9b9cdbd6d21d44dd330346a211ef1464b5bca9f
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sat 2020-11-14 02:09:38+0000
 
@@ -773,7 +773,7 @@ index cdf6bd90615387c43769a9fc83cad55a6c7daad8..b5395725ab8b5fe9a0cd8d5aeac0d48b
  /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
  /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
 
-commit 5c6f841976699b05c4bf56dd0717d32de5345e01
+commit 5a754510545b19310a1eab7fbb41c38df231346b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-02-11 22:30:29-0500
 
@@ -783,7 +783,7 @@ Date:   Thu 2021-02-11 22:30:29-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/device-common.mk b/device-common.mk
-index 1e6ce1722eb17a42b1de340be72a61a0e8a4e6ef..6edfca1cabd4504299cbf49df02bc5b9b40cba2c 100644
+index 7ce2754a7705006747d56ebe2db6ce51dcb1b94d..9ba60c459a83aa41ebe1c9856db106c97afe2fb1 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -842,20 +842,22 @@ endif
@@ -810,7 +810,7 @@ index 1e6ce1722eb17a42b1de340be72a61a0e8a4e6ef..6edfca1cabd4504299cbf49df02bc5b9
  PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
  # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
 
-commit f72254ff697d07bc9f3287ab16360a198ae80067 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit 16eec8c3657f210e602ef132b93d87f74a1fc8b6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:48:10-0500
 
@@ -850,3 +850,61 @@ index 6d588cc07e5defbc5db4cfb6388116de74386787..0a747336044e7755a130a797c67c8d7a
  BOARD_PREBUILT_DTBIMAGE_DIR := $(TARGET_KERNEL_DIR)
  
  # Testing related defines
+
+commit f933a96b3bc88e65532984702ea416b73fceabab (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: razorloves <razorloves@gmail.com>
+Date:   Tue 2020-05-12 23:50:50-0500
+
+    redbull: Set slotId# of non-removable esim
+    
+    This is needed for esim to function properly.
+    Without it the EID value could not be read.
+    
+    Change-Id: I414a7c98362523c5880cfa90b6ce9c0ce92e9c32
+---
+ .../base/core/res/res/values/arrays.xml (new)      | 37 ++++++++++++++++++++++
+ 1 file changed, 37 insertions(+)
+
+diff --git a/overlay/frameworks/base/core/res/res/values/arrays.xml b/overlay/frameworks/base/core/res/res/values/arrays.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..333bb3248d690c8fdeef553d5dbb801ca1da0a5a
+--- /dev/null
++++ b/overlay/frameworks/base/core/res/res/values/arrays.xml
+@@ -0,0 +1,37 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++/*
++** Copyright 2021, The LineageOS Project
++**
++** Licensed under the Apache License, Version 2.0 (the "License");
++** you may not use this file except in compliance with the License.
++** You may obtain a copy of the License at
++**
++**     http://www.apache.org/licenses/LICENSE-2.0
++**
++** Unless required by applicable law or agreed to in writing, software
++** distributed under the License is distributed on an "AS IS" BASIS,
++** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++** See the License for the specific language governing permissions and
++** limitations under the License.
++*/
++-->
++<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
++    <!-- Device-specific array of SIM slot indexes which are are embedded eUICCs.
++         e.g. If a device has two physical slots with indexes 0, 1, and slot 1 is an
++         eUICC, then the value of this array should be:
++             <integer-array name="non_removable_euicc_slots">
++                 <item>1</item>
++             </integer-array>
++         If a device has three physical slots and slot 1 and 2 are eUICCs, then the value of
++         this array should be:
++             <integer-array name="non_removable_euicc_slots">
++                <item>1</item>
++                <item>2</item>
++             </integer-array>
++         This is used to differentiate between removable eUICCs and built in eUICCs, and should
++         be set by OEMs for devices which use eUICCs. -->
++    <integer-array name="non_removable_euicc_slots">
++        <item>1</item>
++    </integer-array>
++</resources>

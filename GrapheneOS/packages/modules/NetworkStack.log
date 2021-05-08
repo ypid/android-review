@@ -99,7 +99,7 @@ index 2863edd734c10b5325750152756ea4ee7d0fda76..00000000000000000000000000000000
 -    </string-array>
 -</resources>
 
-commit e310b12c3fd972cdf29d351f938ab7960bdf1fc2 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit e310b12c3fd972cdf29d351f938ab7960bdf1fc2 (tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-12-28 20:57:14-0500
 
@@ -143,3 +143,42 @@ index 94de7c3979e56a40e8282a20c5729a276734673d..c73ca517032417e6548164c3af539811
      @Deprecated
      public static final String DHCP_INIT_REBOOT_ENABLED = "dhcp_init_reboot_enabled";
  
+
+commit 0c6b400093667f33208c42df59ff35df62cfbf39 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-05-03 16:55:15-0400
+
+    use grapheneos.online for captive portal fallbacks
+---
+ res/values/config.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/res/values/config.xml b/res/values/config.xml
+index e3f07b317772fb77b1c82f9bda49f2131ca18d69..c86935f3b57116aad1e143d8ca40cabcf42c6d81 100644
+--- a/res/values/config.xml
++++ b/res/values/config.xml
+@@ -24,22 +24,22 @@
+     <string name="default_captive_portal_https_url" translatable="false">https://connectivitycheck.grapheneos.network/generate_204</string>
+ 
+     <!-- List of fallback URLs to use for detecting captive portals. -->
+     <!-- default_captive_portal_fallback_urls is not configured as overlayable
+          so OEMs that wish to change captive_portal_fallback_urls configuration
+          must do so via configuring runtime resource overlay to
+          config_captive_portal_fallback_urls and *NOT* by changing or overlaying
+          this resource. It will break if the enforcement of overlayable starts.
+          -->
+     <string-array name="default_captive_portal_fallback_urls" translatable="false">
+-        <item>http://grapheneos.network/gen_204</item>
+-        <item>http://grapheneos.network/generate_204</item>
++        <item>http://grapheneos.online/gen_204</item>
++        <item>http://grapheneos.online/generate_204</item>
+     </string-array>
+     <!-- Configuration hooks for the above settings.
+          Empty by default but may be overridden by RROs. -->
+     <integer name="config_captive_portal_dns_probe_timeout"></integer>
+     <!--suppress CheckTagEmptyBody: overlayable resource to use as configuration hook -->
+     <string name="config_captive_portal_http_url" translatable="false"></string>
+     <!--suppress CheckTagEmptyBody: overlayable resource to use as configuration hook -->
+     <string name="config_captive_portal_https_url" translatable="false"></string>
+     <!-- Literal commas are not allowed in the url configuration because they
+          are used as a separator internally. -->

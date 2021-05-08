@@ -1,4 +1,33 @@
-commit 30e4056f81570f08c610a7e4c623787464f10303
+commit 638a6cef89c8106d09f5f2e926a80533271d3216
+Author: android-build-team Robot <android-build-team-robot@google.com>
+Date:   Fri 2021-04-02 19:05:28+0000
+
+    Version bump to RQ2A.210505.003 [core/build_id.mk]
+    
+    Change-Id: Ia5e5a43599a68b5bd39e1eb6bc7ce45b26ad4cc3
+---
+ core/build_id.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/build_id.mk b/core/build_id.mk
+index da413bd1d733e8b753774d2f553c0f9e8b7fc467..63aa55745fd41fa83b19b7a69a27fe878fc5757e 100644
+--- a/core/build_id.mk
++++ b/core/build_id.mk
+@@ -11,11 +11,11 @@
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ # BUILD_ID is usually used to specify the branch name
+ # (like "MAIN") or a branch name and a release candidate
+ # (like "CRB01").  It must be a single word, and is
+ # capitalized by convention.
+ 
+-BUILD_ID=RQ2A.210505.002
++BUILD_ID=RQ2A.210505.003
+
+commit 420e9af11dd00a641dc006d44553a4bac6fa8187
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2020-03-27 03:49:31+0530
 
@@ -44,7 +73,7 @@ index 8cf074147e6f90a4601974b8dc36437a70cc762a..7567346493282ad35cf2e372c45ddbde
      path: The directory or file to calculate inode number on.
  
 
-commit b43a79ac67610f391803a50b11fd01bfc6082830
+commit 09067077de9e61e12335c02c197c5d3116cc9976
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-11-23 04:27:20-0500
 
@@ -80,7 +109,7 @@ index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8
    else
      # Disable debugging in plain user builds.
 
-commit 310df5486679f29c5a1601b8c017cf71a2e7d813
+commit 594eb8b30299c5941aac7af9cf218d6a8a628f6b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:24:59-0400
 
@@ -119,7 +148,7 @@ index 4d507b5fb05a17bf1208a6cbcb9385cee9ec7384..dad89f4e1f0d9a4f4cb6a24b6bbf8e9c
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 522a47977f37ef0622beb1f1281e1daf525a8041
+commit 47a287946a38593df1c80464c01a6991a67939ec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:59:56-0400
 
@@ -147,7 +176,7 @@ index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c808
 +    messaging \
 +    Stk
 
-commit 50eedea2fd23348b03744266406ac71c177a6042
+commit 241b59b20eaffee65cf072dd561adb59aac4253a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:28:11-0400
 
@@ -196,7 +225,7 @@ index ccf53f52295bfaceb718df5c5e51da87f535e2b4..7fb3644291a1e95ce256c4d85dd164db
      ifneq (true,$(WITH_DEXPREOPT))
        ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
 
-commit 44a1a995d08e0c4ea18accb7f9506aa0091c68fa
+commit 2fac6d710cee98ffd258107ee478bc28174479bf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2016-08-28 14:14:10-0400
 
@@ -235,7 +264,7 @@ index 693b686fbb4b0fb700f12d9ddd422362b52ccf90..6aae4507edf29df107597125f6d044ca
  ifeq (eng,$(TARGET_BUILD_VARIANT))
      PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
-commit fff525fbeadaa900f86c8625b68b813ece547c7a
+commit 580e52892b65c839ada14e82f8a37968b9af3d30
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-09-07 23:27:07-0400
 
@@ -282,7 +311,7 @@ index 6aae4507edf29df107597125f6d044caf62af909..309672b785f1b34a839214b65bdcfa7e
  PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
      dalvik.vm.dex2oat-resolve-startup-strings=true
 
-commit 994f6e8a08dd4a70edd430bd6b9b397d231878cc
+commit 22c8d1c77a4c544521fd8768e5f99aa323d6c49f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-09-29 01:02:28-0400
 
@@ -334,7 +363,7 @@ index 309672b785f1b34a839214b65bdcfa7e474eb06c..724a455db99ef7a9aac4b92696bd95e7
      dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
  
 
-commit 3dac37a877caecbfb815cdbe002d27aa4a3b66f8
+commit 32354f560a5a9631ecf965fc6b9833adf97ba7c3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:42:53-0400
 
@@ -370,7 +399,7 @@ index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e27
      OneTimeInitializer \
      preinstalled-packages-platform-handheld-product.xml \
 
-commit 3d4534c1c368d252913353766bacc04f5c9ee90a
+commit 8b9893bf6d477a7ec6e05b2a59e49a8f68fdd487
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:43:04-0400
 
@@ -403,7 +432,7 @@ index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 05b134777cc9cce9425351d6708be57537752986
+commit a54d052c72a67bf859dc91ba8b25187cf9360924
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-06-17 07:13:49-0400
 
@@ -439,7 +468,7 @@ index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78
    else
      # Disable debugging in plain user builds.
 
-commit 31c6a74a6d5f82de76c486bcab02e03e725cdbe3
+commit 47035d76ecd6314cad7b1279ac673d4a17543856
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-09-13 22:05:56-0400
 
@@ -470,7 +499,7 @@ index efb21e7c6a532c8dd7ce63950d187a4bf37a4ba4..41d7fe5dbf3b4a471bd96bc568593ad0
 +  endif
 +endif
 
-commit 63d5d9ca246b6b4c7b8f2abaac8348b3669bb395
+commit 03c445245c02d6ae85505d2e407a9d68dc099de2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:18:49-0400
 
@@ -506,7 +535,7 @@ index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00
      frameworks-base-overlays
  
 
-commit 6546c8003cefb16968952e08cc7bb8bcf0a4a1f3
+commit 4ab9fce74d2374336cbe96327d703c12951d37cf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-09-09 00:28:44-0400
 
@@ -591,7 +620,7 @@ index f8ba5936f8043c6965692408d2b3299b3f38ea99..f60e9c4c124c6fcbc4d07864a80fcb45
  
  #
 
-commit c3c8491c3af1516e26b2b42e17bb4337ddf40ab6
+commit c7c9e30d738ea09358e3628dc8bbc134534f6c47
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-09-09 01:16:05-0400
 
@@ -656,7 +685,7 @@ index ca171dff5c6151eb818271161c8051f7894b0160..17a3ac75e81b95c594e7dea087765a00
  PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
  
 
-commit b9a42c3670b83414097d8f4276c8eceaeaaeda68
+commit 86ebb1d5ee9e1cebb57f807cbec28bfecfd70e52
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-09-21 08:44:23-0400
 
@@ -694,7 +723,7 @@ index a787707a04451c9aab2aa20adeb2cc5ef0116997..1f22163c32669377d5147755d17f69a9
      PresencePolling \
      RcsService \
 
-commit cf1e63f984fd9642db48819ff4cbb396d5c78e0c
+commit 6fc3d4a528d2bffc0ecf249b87f827e322bc4041
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:21:18-0500
 
@@ -738,7 +767,7 @@ index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff40
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit dee2ea6b94eae14c7da433407a247e3b9058e67f
+commit b1d6502a4d0c04b838d674ec9ac618f15a41d335
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:23:07-0500
 
@@ -765,7 +794,7 @@ index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49
 -    webview \
 +    TrichromeWebView \
 
-commit 54432ddeacfb68b223134bc47d7f0412b44cb881
+commit 92da7da4cbadfd332b1f6948e3d3421eb358594b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 00:55:25-0400
 
@@ -802,7 +831,7 @@ index dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662..77b77fef89594c0ed5c04b20d8f3f322
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 977fe37bd0b829c438c707ecbdf699589b4a36e0
+commit 116085c02d4fcff221c0dfbfad83a4ad8022797a
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-03-11 18:08:31+1100
 
@@ -831,7 +860,7 @@ index d935fbfddfce5d511c3d0e5f20bd73630a553efd..0e2a48fcf5cc9ae9335da7597489b844
      SystemUI \
      WallpaperCropper \
 
-commit c2f31caafdf92ade5171eb9ffdb43fbd3b11f632
+commit d28bbd97f4a350cf6aae8770988ec2c347d9bdec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-03-16 18:01:18-0400
 
@@ -878,7 +907,7 @@ index bf015e502468da3231b417df160651e9783a9059..e26bceff2299824b50602319eda446bd
  BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  
 
-commit 3e79036635bb15e31ab8a18558c2ebc81dbffd64
+commit b6bd5059cd7bd90099ddd969032b83b74e7492a8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-03-17 16:52:01-0400
 
@@ -915,7 +944,7 @@ index 3c99424ac4f827f28334b48edd687e7e7121e6bd..10dfda5a4179fb516ad8c50b32b9e5f8
      MANIFEST_PACKAGE_NAME \
      PACKAGE_NAME \
 
-commit 612f9064dbb81422ec45be32f658e6a11f6ea0d0
+commit bebabf24766454c3bd3f5e724f348bafa9351e9b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-05-12 21:02:49-0400
 
@@ -953,7 +982,7 @@ index e95a7ea62332bd8d6f141da182ae2f78a55979cf..2ccc28d25e54acb4f6a69045284ee5b5
    FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
  endif
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index e83b8b02be8cb120e5e94358011845c19ef496cd..a1fa9a60b76f8fb18042633bcee96497d6b69bf6 100644
+index b32474d0213c6771570547d347fb6c7f85174215..3099f100a1121e81ae1c43fb1d64e3fa3f18cf01 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -268,21 +268,21 @@ ifndef BUILD_ID
@@ -980,7 +1009,7 @@ index e83b8b02be8cb120e5e94358011845c19ef496cd..a1fa9a60b76f8fb18042633bcee96497
  ifndef BUILD_NUMBER
    # BUILD_NUMBER should be set to the source control value that
 
-commit dd37005c712961ea771f9d086bfb9f5a0728e7f3
+commit 48ce90f87e5aa40352abb4043a8289cd925c27e7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-05-16 19:44:32-0400
 
@@ -1004,7 +1033,7 @@ Date:   Sat 2020-05-16 19:44:32-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index a1fa9a60b76f8fb18042633bcee96497d6b69bf6..adf622c42c7bc1061c4bf91318043afb70e8a96f 100644
+index 3099f100a1121e81ae1c43fb1d64e3fa3f18cf01..0d1212e90476220544a8992d4ed6413bee8e1393 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
@@ -1023,7 +1052,7 @@ index a1fa9a60b76f8fb18042633bcee96497d6b69bf6..adf622c42c7bc1061c4bf91318043afb
  endif
  .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
 
-commit 80f7fcfd0792b0fbdb46f54d2f8c63e0ad407032
+commit f5c9a279669dfd69589084ee4f20bb4a04a5690a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 18:05:27-0400
 
@@ -1065,7 +1094,7 @@ index 3e748eb2dc801e880b04d30660f7d316cc768a72..875f59206c468408202858c96c987cbf
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit d3c3e0bc7736512aaed2766c5298b7acb5884b57
+commit de4cab3064b66fba7071cafd86c38b48c091df93
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-09-17 10:53:00-0400
 
@@ -1107,7 +1136,7 @@ index 1f22163c32669377d5147755d17f69a98d3d5e04..db2af7d1d2c958cef76a0969ea46a7cf
  PRODUCT_SYSTEM_MANUFACTURER := Android
  PRODUCT_SYSTEM_MODEL := mainline
 
-commit 02dab3ff03f8061f5980f8b417cf955a8feaae6f
+commit 9c86ad9e82bd56962b9bfb9dc10dbe578ba9849a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-09 23:48:11-0500
 
@@ -1143,7 +1172,7 @@ index 77c103d7eeccca74b9192359053af34ff922c3f0..cb69007c73a9d6c71c6f319739a5fcf2
  
  PRODUCT_SYSTEM_SERVER_APPS += \
 
-commit 140a2e05e9bb058dc3af0604d645f1da74f63fa4
+commit 2159df5ea39c1d02c445b4626f8e17becf6fbe40
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:05:40-0400
 
@@ -1179,7 +1208,7 @@ index 2ccc28d25e54acb4f6a69045284ee5b5aadef5d5..69ce4359397069d695b5dbff5a8bf52c
    else
      # Disable debugging in plain user builds.
 
-commit 9180e45f3fbbe8ed49946f03471a8944fe418883 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit 1273ca16f2e7227bfa0c339a79a851d6efc8f742
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-09-09 17:39:11-0400
 
@@ -1218,3 +1247,121 @@ index 69ce4359397069d695b5dbff5a8bf52c83873908..adbb0febe6a0c515ccf18ecea826e243
  
  user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
  enable_target_debugging := true
+
+commit 1c31d97122251ce61d74ef9a9c76fcc73975af6d
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2020-11-02 23:43:06-0800
+
+    build: Don't build legacy WallpaperPicker
+    
+    We're using WallpaperPicker2 in ThemePicker now.
+    
+    Change-Id: I9d1d93ec93b06851346c31e0e994debcef14a087
+---
+ target/product/aosp_product.mk | 1 -
+ target/product/mainline.mk     | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
+index e3819e6115db2e4f63156b3fb701df7bc59da6a2..e03ea9ac6e164a118424bf8161ff376207e58039 100644
+--- a/target/product/aosp_product.mk
++++ b/target/product/aosp_product.mk
+@@ -25,21 +25,20 @@ $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.config.ringtone=Ring_Synth_04.ogg \
+     ro.config.notification_sound=pixiedust.ogg \
+     ro.com.android.dataroaming=true \
+ 
+ # More AOSP packages
+ PRODUCT_PACKAGES += \
+     messaging \
+     PhotoTable \
+     preinstalled-packages-platform-aosp-product.xml \
+-    WallpaperPicker \
+ 
+ # Telephony:
+ #   Provide a APN configuration to GSI product
+ PRODUCT_COPY_FILES += \
+     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+ 
+ # NFC:
+ #   Provide a libnfc-nci.conf to GSI product
+ PRODUCT_COPY_FILES += \
+     device/generic/common/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
+diff --git a/target/product/mainline.mk b/target/product/mainline.mk
+index 22436e66b3a97f5c0d5d14990b1cd3e90ce0bb48..9d4b872f22050773a3dc50702cc32306593cb020 100644
+--- a/target/product/mainline.mk
++++ b/target/product/mainline.mk
+@@ -27,13 +27,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
+ 
+ $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
+ 
+ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.config.ringtone=Ring_Synth_04.ogg \
+     ro.com.android.dataroaming=true \
+ 
+ PRODUCT_PACKAGES += \
+     PhotoTable \
+-    WallpaperPicker \
+ 
+ PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+
+commit 33289658a410c1d629c5c90ad7ad340973cdb60f
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Fri 2021-04-30 18:42:13+0000
+
+    Build in themes
+---
+ target/product/handheld_product.mk | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index f504f61874b48910ccbf294e7bfaff402030b08b..a1796547a83e5b1435ceb2cb7ffb22bcb4ccd791 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -34,10 +34,13 @@ PRODUCT_PACKAGES += \
+     OneTimeInitializer \
+     PdfViewer \
+     preinstalled-packages-platform-handheld-product.xml \
+     QuickSearchBox \
+     SettingsIntelligence \
+     TrichromeChrome \
+     frameworks-base-overlays
+ 
+ PRODUCT_PACKAGES_DEBUG += \
+     frameworks-base-overlays-debug
++
++# Build in theming functionality
++$(call inherit-product-if-exists, themes/main.mk)
+
+commit cffd3ea8220a556509d07ab418e5765ce15b05c3 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-05-03 19:08:33-0400
+
+    set device specific build ids
+---
+ core/build_id.mk | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/core/build_id.mk b/core/build_id.mk
+index 63aa55745fd41fa83b19b7a69a27fe878fc5757e..126bda2163d71e381c1d42477b478d71e2ac1818 100644
+--- a/core/build_id.mk
++++ b/core/build_id.mk
+@@ -11,11 +11,15 @@
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ # BUILD_ID is usually used to specify the branch name
+ # (like "MAIN") or a branch name and a release candidate
+ # (like "CRB01").  It must be a single word, and is
+ # capitalized by convention.
+ 
+-BUILD_ID=RQ2A.210505.003
++ifneq (,$(filter aosp_crosshatch aosp_blueline aosp_bonito aosp_sargo aosp_coral aosp_flame aosp_sunfish,$(TARGET_PRODUCT)))
++    BUILD_ID=RQ2A.210505.002
++else
++    BUILD_ID=RQ2A.210505.003
++endif

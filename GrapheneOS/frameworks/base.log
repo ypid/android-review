@@ -1,4 +1,4 @@
-commit f71ab85a7273d6c21438a656189471ec86e3cfa2
+commit 13bc800656c675307a80cbf831df9338f9b5fdc6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -35,7 +35,7 @@ index 550601af0faa17e2a34d5a8b9d33c68cb2827aee..b10096f3aed5df48181107b1d9230616
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit 8f292b931e867b3583c79afca627a99e94592e45
+commit f3b3fcd93589869c8eda6f39ddd540a778c7c709
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit 50a336afe48f2c0a707f8cec321564b904019748
+commit 5799749aedb4c275c62ecb6318d6930b9a6a6e77
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -163,7 +163,7 @@ index b10096f3aed5df48181107b1d92306167c2d9767..32a39f4a8b10f4d228580d526964f7a1
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit b734ad8fdecd7920cf4f823cf1f528bb67da19fd
+commit e9e0e05de665745970fa4b1995000200dc15545c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -200,7 +200,7 @@ index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 04b7c82878ba67b3a39a94c7c6cb95f9ccc2cc4c
+commit 1178c9e99e500e70f70baae8860b1d8b1ee859b1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -237,7 +237,7 @@ index fbe04fd20afe04baf81220978a30b563d8280a39..c6334e6105079dca46752ce3b2c24135
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit a566389253d90b8384f370dfc298d584612e25df
+commit 6133da98c2d703d289a550a909e0758c6b782c3a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -274,7 +274,7 @@ index c6334e6105079dca46752ce3b2c24135f78a98f8..d46890a4d50842b5b65a8a08d68f2c6a
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 7d88efe6d08b7590f2ba2a5df24522c2ac213fd8
+commit b87df9310d7f45c6f854c08881c68fb0095bceea
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -311,7 +311,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 0af42efce52c27f1f06049ae33c9af45fd6fc052
+commit 15bb51fa6bd95af76e5d2ad868e03bc5ce1f468b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -348,7 +348,7 @@ index e2e8049c2980ffdf95099d0e0d7de2f5297636b8..9f6ac309e44d2913733fd65a35b9a99b
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit 91513d1b24404a10ef7112ff17f38dded83dd347
+commit 36224a96f50accc21e7701870dd97191624bfad8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -385,7 +385,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 2979605f465a003e0e396044a5c1fd651656fadb
+commit 30049fcf63c2968cfc3710ec0a6c496dde77f5df
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -425,7 +425,7 @@ index d46890a4d50842b5b65a8a08d68f2c6a99f29a7a..bb6fa143f13b73ae75c0b9453846f985
  
      <!-- The default character set for GsmAlphabet -->
 
-commit c48a541145fb7cbcf1d049ac6eea9aa8dabe97a2
+commit c952da0cdabd224a0093db5e282d86a1e9bf6d09
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -465,7 +465,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit 8eb8e7a0b04bb43660d86210f7059dbe13b41ccc
+commit 11ba69783c6639b5d81708c55e5a630b18ebe86b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -508,7 +508,7 @@ index a5501368945f56fc6636b01feb676fdbdc9fd88c..63a784b354dd1e7e238d2b1b370b3d27
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit f5ee63922cf85c9c9e5fe25948cbb6ebe4d8ab65
+commit 5302d2141a9bd4f81079bcbf7fef487e23413bcb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -551,7 +551,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit 7d7fe90e887efe7dd52c6b82a74de2c730b5db5a
+commit e12b2243a1ba8ed99723d8178598c91ade772f54
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -588,7 +588,7 @@ index 5e5df6bfd98807b2b3f334abe5197dff2dca21b6..af62ff68184da211487fec6f81210b5a
      </string>
  
 
-commit eb9005458cdde49841304291cc14baafd5f18c67
+commit 1d60d958f5d04ba9635e584e0e231fd282d1afd9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -625,7 +625,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit 9ef6c9ae32bd77b859a889104842c09a73e710a6
+commit 77469b23b7cf03512a70cb090d827f4671316ef9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -682,7 +682,7 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit 2c55ff9976b1fd5bde23919a917d07bf034bef1b
+commit 2b649ac90d475299325c2f0d768673c550536572
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
@@ -1067,7 +1067,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit 0122c8fcf20a9c0903e8c444099c567e634c9ad6
+commit 02b7a2de50b6832123c3cbcc8f6739159d0ff496
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1080,7 +1080,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit fd9d398307b47988ab2e8302b4f9e2b5e4b81372
+commit 3b66dd5b204a3bc60f1f6b6b0b11c07ac7e864dd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1117,7 +1117,7 @@ index bb6fa143f13b73ae75c0b9453846f98583c3fdb0..a046430247a3c2fb6103a06e7be55c61
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit db3e70061b962a3e674ac6334f83d8f861ad7de0
+commit 5b809a4da00384f32444538536b0a7955581bb00
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1178,7 +1178,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit 01acda88c40c9f4a5acecdab715eb9ee57404d3a
+commit ecc3eda22f8562963a428607795f86e4524cffae
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1392,7 +1392,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit 4855f36ee865bc5000a674a3c4ad995b71de8328
+commit 3d9a1d24509c3f157d9874b437f4e9a307d9458b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1433,7 +1433,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit cc31cd382895446256d03f7d5470e06b5cd61cfc
+commit 7f2ec18d436fca9514d306e0ba981010577aea81
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1523,7 +1523,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit 55217d1346da623cecaea0c5ececd6e1de44532b
+commit b0df584360196859d8bc5667d64bdd50de8a7c50
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1612,7 +1612,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit 72e8eecf5dc00d8d32c33f6916a4537a797e4d9a
+commit 163d6e7c53f302ff4896bf0d242f480b16302c0b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1655,7 +1655,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit db3b1897878d9cc3f1ef875d04d724ee8a0a299d
+commit ab79d357c5590e269681a6ac8916fd02b80f9628
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1698,7 +1698,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit 6fee9f6cab04d3125d0c1c5bb48aaf05cb9ed198
+commit ca1b0b310498537ab556fa9dd4ea8dce9292b17c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1741,7 +1741,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit 2bf767fe085412a89809f914733ddd05ada2350f
+commit 0b9b68885f47b87c24ddab3774d20f71d0580caa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -1784,7 +1784,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit f93b091548de8b5ac408e6d19419dae713d7b707
+commit dea015f5613a826a27b976e8b7f78427b41e011b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -1874,7 +1874,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit 014bc77222ddbcd57858b7c3e77cea5cc231a509
+commit ef825fb1f9b984d7fcd6748f5298bfae0bdd942d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -1917,7 +1917,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit b4ad1804f7346fb4317b8ff76175939b36833228
+commit 54c5b7e107057417616c9a75347e015a8ec85abc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -1960,7 +1960,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit e06372a1e7703b055f3b10478d5341aced3dc122
+commit 5f347e1cab351321decb7c53faf3d748fe2db2f8
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2090,7 +2090,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit 7890854d684be7dc42f25562d2f96d63de68a1c1
+commit 9ec1334d9e2a954fc5c3dc672f3944df34abd278
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2216,7 +2216,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit e48da49bad439bfcf4b82fc74f12d9eec5f2fc89
+commit 42b2d035df448ac4586aa66118f75a13bc5acbf6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2322,7 +2322,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit fed56423fc63932ba05608fa99f247eaac11196d
+commit ea5d71dccc15dcfdf304daa19147cd192201ccf6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2467,7 +2467,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit 3891b361d6c0ac6c67440be512d7f305c77bc843
+commit 944f96f0e2bd680106a42e0f2765573365e3be3a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2570,7 +2570,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit 6bfb4fa0d98bbe02be461169b882fb96a3065ee1
+commit 591bc8f449fe169c3f0b62f25e8643ac3d6b411f
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2686,7 +2686,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit 3b2ef035cedb89ca784cf343ce1dda49c0a86a18
+commit 66a158c21efc32fe64276e1028b14df6178b35c2
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -2809,7 +2809,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit 60f1a37ffc0cf5f94884d2fe94744d471ec62652
+commit 43ef987e4f631151c94502e232f51f499e304376
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -2957,7 +2957,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit 816bab4ef75da1f3f4add96df794e152628ee428
+commit de4beef54b4dda625bb79786936970eb19105cc6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3072,7 +3072,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit e84adaf8226f17bfc7c2a01427719980b4e1febf
+commit 6c33d3f249a47e333c606db544f4fc15b8376988
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3164,7 +3164,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit d40187b3a9382e32ac95209ab241b0f55af79e3e
+commit e9795e8a363bd15188e74cb586f29b4273dfc5be
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3230,7 +3230,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit 1beb605ad72123216a835a20321f0916aafc363d
+commit 15e92bff2f44e29629bd8a9d5de4e34b9595fd5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3275,7 +3275,7 @@ index 3f4878e380291b65027b82358c4ef7e311624323..260bfb615be643390ef818cd9136498a
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit 27e1aca741b78bddf7295238a15bf373e1fb9d60
+commit 4e613a04d2bf40ff1bdeb4eef2997e10c3f873ba
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3359,7 +3359,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit e47c1b2686e3e4de9f6a557a8c737a9df8292414
+commit b20a52a7edbd9d6bdb9baa8a891f10020f5851e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3572,7 +3572,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit 571349f7fc69423fb3f38845f7d4428734c56e36
+commit 4cfcbe59a87bb9adfa4214ff5f34e063dd5d4300
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3689,7 +3689,7 @@ index 9d71489c8abe45d9b6a3b077e29b4d2f03da6aea..5b6c59f031bbbf14a72e4aeff5740a63
                  return false;
              }
 
-commit 68f9a5d7b7d45999fe3f5d96439b6c6a7873fa88
+commit 40471d93f4e64fd00e77e5cda9b7ea36e1e1b823
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -3785,7 +3785,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 6aa8487882b86466b7cb74d5be90e4c6640abe6c
+commit 6d394a52805e9ba218908f3ba59dc50d1148127a
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -3960,7 +3960,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit 316b6a956256e7af5b9bb2526a72cc29f7e42b65
+commit f6af158a1d3f54290a9f91c6842371cf34ac41fe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4151,7 +4151,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit 23593839dec958e89c35aa4501d353ee15c1ca16
+commit 3d2f95ce1c64a0436a445f192c5ce82ae12da7c1
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4199,7 +4199,7 @@ index a046430247a3c2fb6103a06e7be55c61e7d5a314..2dd180ce22d6de7cf284d0fff4e0a693
  
           If this flag is false, we advise applications not to use protected
 
-commit a99e093ccf812f1c4e49b995af155ecad9435a4f
+commit c55fb40ead0edc107be266d2b091116da701fce4
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -4884,7 +4884,7 @@ index 2dd180ce22d6de7cf284d0fff4e0a6936257635c..67beef2764a20897b6e36c40f5b3b999
      <integer name="config_ntpTimeout">5000</integer>
  
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index 06f357e79a6215fb88ac9fc12d61fe4939620873..e6d79bda4325779c756240ef7318d2aa19a27d3e 100644
+index ee4c6941d6c5467be7d0eaef524f3d7c871102ea..510a015ec5a06f4bc1e82903860a343548c44f3d 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -679,20 +679,22 @@
@@ -4911,7 +4911,7 @@ index 06f357e79a6215fb88ac9fc12d61fe4939620873..e6d79bda4325779c756240ef7318d2aa
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 9ac661b9bfecf786fa4f079f944e29861619ef88
+commit 96d59f010ec1c07431991878a6158164bb86f21b
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -4952,7 +4952,7 @@ index 67beef2764a20897b6e36c40f5b3b999f129abf3..4178362c9cdaa8dc0d601109bb0a0c16
  
      <!-- Set and Unsets WiMAX -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index e6d79bda4325779c756240ef7318d2aa19a27d3e..95b60048a4da06d65ba4f728018fd4bca74cb705 100644
+index 510a015ec5a06f4bc1e82903860a343548c44f3d..41c63b9d1bd36c37cfe0d85bc93f020d2cfeda27 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -436,20 +436,21 @@
@@ -5187,7 +5187,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit 65c5391dc0742b303afc113c2e346a26848ddd31
+commit c5c622a01406dab19a939b06c09a132390ca7afa
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5231,7 +5231,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 1fa0c8551526028625f6159042d0d36ca476df5e
+commit 9396394ba9a209dfda8ab01e99401b05f9f524e7
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5251,10 +5251,10 @@ Date:   Sat 2020-09-12 12:28:34-0700
  1 file changed, 19 insertions(+), 5 deletions(-)
 
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e52e664e60 100644
+index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d549112045a 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -1448,21 +1448,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1454,21 +1454,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              throw new IllegalArgumentException("Unknown package: " + packageName);
          }
  
@@ -5277,7 +5277,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
          final int flags = permissionsState.getPermissionFlags(permName, userId);
          if ((flags & PackageManager.FLAG_PERMISSION_SYSTEM_FIXED) != 0) {
              Log.e(TAG, "Cannot grant system fixed permission "
-@@ -1500,21 +1500,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1506,21 +1506,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                  }
              }
              return;
@@ -5301,7 +5301,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                  return;
              }
  
-@@ -1610,21 +1611,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1616,21 +1617,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              throw new IllegalArgumentException("Unknown permission: " + permName);
          }
  
@@ -5324,7 +5324,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
          if ((flags & PackageManager.FLAG_PERMISSION_SYSTEM_FIXED) != 0
                  && UserHandle.getCallingAppId() != Process.SYSTEM_UID) {
              throw new SecurityException("Non-System UID cannot revoke system fixed permission "
-@@ -1834,21 +1835,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1840,21 +1841,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                  continue;
              }
  
@@ -5348,7 +5348,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                  revokeRuntimePermissionInternal(permName, packageName, false, Process.SYSTEM_UID,
                          userId, null, delayingPermCallback);
              }
-@@ -2543,20 +2545,24 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2592,20 +2594,24 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                          }
                      }
                  }
@@ -5373,7 +5373,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
       *
       * <p>This restores the permission state for all users.
       *
-@@ -2889,20 +2895,28 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2938,20 +2944,28 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                                      // Hard restricted permissions cannot be held.
                                      } else if (!permissionPolicyInitialized
                                              || (!hardRestricted || restrictionExempt)) {
@@ -5402,7 +5402,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                                                          | FLAG_PERMISSION_REVOKED_COMPAT;
                                                  wasChanged = true;
                                              }
-@@ -3844,21 +3858,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -3893,21 +3907,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              final BasePermission bp;
              synchronized (mLock) {
                  bp = mSettings.getPermissionLocked(permission);
@@ -5426,7 +5426,7 @@ index 3ffca028b1c00b4a49492cd19c0743444c1a2086..52094992c8f8ddb6499d541ab89318e5
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit 11fdb43632cc3abb9eeb77afa1412db1e0cdab72
+commit 86bb94b8def3b6f97a984f346950df7ab74f8a96
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5466,10 +5466,10 @@ index 09923796e0357e94009525203712ca2f15e0c69b..9d5a86c60c21bad728b429d2c6bca78c
  
      <!-- Allows applications to access information about Wi-Fi networks.
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 52094992c8f8ddb6499d541ab89318e52e664e60..5e69efcff538ebc53e66414cb8ecfaefbb99280c 100644
+index 54538ed88f4cbf50a498d9b0a4761d549112045a..80432966fc8cfb7f8307ac5d1860250b37910db9 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -2546,21 +2546,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2595,21 +2595,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                      }
                  }
              }
@@ -5493,7 +5493,7 @@ index 52094992c8f8ddb6499d541ab89318e52e664e60..5e69efcff538ebc53e66414cb8ecfaef
       * </ul>
       *
 
-commit b54733624cb54d314a2b6bf88a836a15b60c215f
+commit 7b27f018d7ce11f1c7840e1e57d948766646c6f7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5632,7 +5632,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit 34591c642903d77f15a92f77c139d8b52d32d266
+commit 4717a544f817e0a0cf730223a68fef8d06734356
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -5875,10 +5875,10 @@ index 189544f98594ce96cd91a42c685a6b61cd6c9c77..9badc8c4d9c03496d12cc77ed4972e39
    }
  
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 5e69efcff538ebc53e66414cb8ecfaefbb99280c..47b2e716d69b2afdbcd78a9a2cb80ed66af7c4b9 100644
+index 80432966fc8cfb7f8307ac5d1860250b37910db9..422ad79d56bf2826496fc446ac7faee3cfbb3f56 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -2546,21 +2546,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2595,21 +2595,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                      }
                  }
              }
@@ -5902,7 +5902,7 @@ index 5e69efcff538ebc53e66414cb8ecfaefbb99280c..47b2e716d69b2afdbcd78a9a2cb80ed6
       * </ul>
       *
 
-commit 4dabf56b331d58f0dd6f823276cc2283afd35d96
+commit 978aee532493c479223d2878f384be51bf28e9bf
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -6081,7 +6081,7 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit 6b5f2b712a8e0ebe7207f7145c8a0038be520f96
+commit 6d09930651f8a6a626932e38c98fb08166a887e8
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6206,7 +6206,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit 89732e20463f0b5996d948b58cf4e43a9aabcf72
+commit ba4b60d973848c8ad77a2099be67907d720bb45d
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6278,7 +6278,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 8960ec125b21772f46041cb12da19e84069111b4
+commit d0c12fc7305429b11518239e50c1b7984c3af66b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6321,7 +6321,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit e808fbb75b72a4cf4f4a6be48e98907dcf2fb573
+commit cfc244982ac2efde990792eff16aa642c056247f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6357,7 +6357,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit 7bb13e3c938d4708426c927ff3fd23818bdac573
+commit 1e44454a97eebf734f0bdca562cd0c9f5f2ddcd0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:29-0400
 
@@ -6499,7 +6499,7 @@ index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..00000000000000000000000000000000
 -VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
 ------END PRIVATE KEY-----
 
-commit e1b670c74c2a13833462e66094541781cc669038
+commit ada6877dbe0ba309a265511871608c384a3f814a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6564,7 +6564,7 @@ index b8a20ed4fe5b73a41a4fd845f3599956a67a5af9..4f803c3503b98e8b5da728bacffce46b
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit c30b726e891a900ae06c1cf0d0aa7ea3b22f4daa
+commit 5f033a29667915002d9b4871f43088244deb880b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 14:59:51-0700
 
@@ -6630,7 +6630,7 @@ index 2be509a1381639f71edd6ed3f6010962e5b7016c..55c52e75b3ac9e39c82811bf4649f593
          }
  
 
-commit 94bb5952b31738a92c6c4bc00e49ffa793694e1c
+commit f6a59d9616da8b37e5ae4205fa47f0ab05e871c7
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-10-04 17:12:13-0700
 
@@ -6683,7 +6683,7 @@ index 55c52e75b3ac9e39c82811bf4649f593a9b7ea6e..122b13ff65153d092a3352261144e6a7
  
          // App Icon
 
-commit 1a8505c6062041b586c0343fb15f8d1b0a6d25e0
+commit 0d8253dae19dae84e46fc66aff031b6e0325ec38
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6712,7 +6712,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit 9ad29bd3212b022b16a6626456f639ae2f76a99b
+commit 43f25837bd0cecf72e80897b9ab046aa7c490333
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-11-02 15:21:13-0500
 
@@ -6801,7 +6801,7 @@ index ff25439a5f9f586c05188035a287459f3e84b25c..1144a149dd1ef8c276aecaeda47bb397
                  mScreenRecordHelper.launchRecordPrompt();
              } else {
 
-commit 41d74b21ef80c6132eaae82d97826d3b32736ff6
+commit 9964676364fbe349151e73fca48a7324614c05c4
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -7111,7 +7111,7 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit b7f7a4a3303d25335b854ded98c2dbb4cad7ad88
+commit 897abb19a2b23784403100f6559182a994c74305
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
@@ -7176,7 +7176,7 @@ index a5554c740e7f7f42d61e9f2f670937549d08656e..7f78193974c709046d40b0a09f006c2e
                  return sNetwork != null;
              }
 
-commit 48743a0f60067094c41588bf8334233cff8752a9
+commit ab2822c96c4df676a2329a1bbd8083b4b8c92579
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7213,7 +7213,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit 89ccd99f76d88d46550d5651e45f1090cf9d2cb1
+commit f2fb5b6ac7bcd906fa2fde65226a55ac3355fa74
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7252,7 +7252,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c2
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit ec65b81c95bc77299701cf7cea19fe5c8f296fe3
+commit a5027267ec6a76dd164ed3972bce60b85f88964a
 Author: Marco Janotta <marcojntt@gmail.com>
 Date:   Fri 2021-01-08 18:19:11+0100
 
@@ -7292,7 +7292,7 @@ index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0
  
      <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
 
-commit c0b38ee2e39f5ef07e33024dffa1e8eacc939b23
+commit 9db225a19b77ecc8f65ebb198afdf3156c995319
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7313,7 +7313,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit 94850941b029d979494047e3941b41685c472596
+commit c6d45701d91822dc92ffa3c21176a1dca1417e25
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-02-21 08:39:04-0500
 
@@ -7375,7 +7375,7 @@ index e6ac9976cd7578ec426f9536fcabb0ee7594c211..b95d34f2966ba4665a0c196179e0948f
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 9d4ed64b2301beb4517372e703ad6fa1c3a649d6
+commit 123c1a4601bdab8fda0c86cbc4efa4ed2d82372b
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 13:40:28-0400
 
@@ -7622,7 +7622,7 @@ index 0000000000000000000000000000000000000000..b209556eb9caa30d3456fac88dbd5450
 +    }
 +}
 
-commit cbd17fa297128a28869c8ea6d86f92f9b7b0dc83
+commit ddbdf4fd36c80f3a4dae2ffbc9455b65be8cad01
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-03-15 20:26:47+0000
 
@@ -7660,7 +7660,7 @@ index d00392e2cf2acdc3a10bf3f8dd18be4bc4825f38..1ecbbcf3e161d79733c7e2b49c597397
           @TestApi
      -->
 
-commit 311ecf667198b6e0df2beb32c3629e5266b5b3fb
+commit f4ff4d77b2bcd9b216d76da37565d75c3b52899a
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-03-15 20:39:24+0000
 
@@ -7740,7 +7740,7 @@ index b209556eb9caa30d3456fac88dbd54508b862e8b..fae669bf41962a3053cabcae9b77208a
      }
  }
 
-commit d5ecea1263eb206574186a28b8585dbd49594e29
+commit a1412a7a733e4808d3e8b6c9a2b24a199e87cc25
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 23:57:54-0400
 
@@ -7777,7 +7777,7 @@ index 4178362c9cdaa8dc0d601109bb0a0c162edf93c2..ce4c73589f0699f418e0c8b975555944
  
      <!-- The component name, flattened to a string, for the default autofill service
 
-commit 666d538f52572e1852cc72d77a71926dc1c5112d
+commit ee158b18e52565eb499d85b0df5e1ac96e62e2e9
 Author: Dave Daynard <nardholio@gmail.com>
 Date:   Sun 2013-12-15 15:35:04-0500
 
@@ -7854,7 +7854,7 @@ index 409bd1f1c14733550a83391ce1fa3d82b55d9739..94265db5c69df8ce4f22d13e65d5920f
      }
  
 
-commit e9b7f0a63772d1ce91aa604e154e86ea5ecd824a
+commit 9bda389dc285952669340c62172727b2d913208e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:54:57-0400
 
@@ -7891,7 +7891,7 @@ index 36d4a38c1624f8b06518c280d692538adcd1b8bc..bd20b44da38e9c5b2bde1eb670253107
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
      // The sampling rate to push app compaction events into statsd for upload.
 
-commit a6f308ec631287afb69566f3aa8c0e949da9e577
+commit 82a7c8ea22d633e6c313ca2ea41dd68f15f0d3df
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:56:10-0400
 
@@ -7928,7 +7928,7 @@ index bd20b44da38e9c5b2bde1eb670253107cec7045c..c2f1fd1fe7f9d929a81f84feaa6eb147
      // The sampling rate to push app compaction events into statsd for upload.
      @VisibleForTesting static final float DEFAULT_STATSD_SAMPLE_RATE = 0.1f;
 
-commit 55c724ac36420ee48f8ec5191fb2d37160cb32b5 (HEAD, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit d23d9a1393bb6d05b06231be9c994156a2f32690
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 03:26:07-0400
 
@@ -7987,3 +7987,548 @@ index 59118bf3534e28bb8cba45b29e6bc11e2b6d95c7..61fe3e098946e9555b03bd0de3a17c5c
      private val cb = object : AppOpsController.Callback {
          override fun onActiveStateChanged(
              code: Int,
+
+commit 2c149bb93cfd06fcdc99eb7a60e78d8b7e01ef2c
+Author: pratyush <codelab@pratyush.dev>
+Date:   Sun 2021-04-25 07:04:03+0530
+
+    fix INTERNET enforcement for secondary users
+    
+    This code was not specifying the profile for the app so it wasn't
+    working properly with INTERNET as a runtime permission.
+---
+ .../server/connectivity/PermissionMonitor.java       | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/services/core/java/com/android/server/connectivity/PermissionMonitor.java b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
+index 41c013b4b197f8ee2fdbbc3aa052f53b12427dd4..09cd274cbb052f67e2afa5bf5f219d49d9cb60bc 100644
+--- a/services/core/java/com/android/server/connectivity/PermissionMonitor.java
++++ b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
+@@ -123,38 +123,39 @@ public class PermissionMonitor {
+         }
+     }
+ 
+     private int getPermissionForUid(int uid) {
+         int permission = 0;
+         // Check all the packages for this UID. The UID has the permission if any of the
+         // packages in it has the permission.
+         String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (packages != null && packages.length > 0) {
+             for (String name : packages) {
+-                final PackageInfo app = getPackageInfo(name);
++                int userId = UserHandle.getUserId(uid);
++                final PackageInfo app = getPackageInfo(name, userId);
+                 if (app != null && app.requestedPermissions != null) {
+                     permission |= getNetdPermissionMask(app.requestedPermissions,
+                           app.requestedPermissionsFlags);
+                 }
+             }
+         } else {
+             // The last package of this uid is removed from device. Clean the package up.
+             permission = INetd.PERMISSION_UNINSTALLED;
+         }
+         return permission;
+     }
+ 
+     // implements OnRuntimePermissionStateChangedListener
+     private void enforceINTERNETAsRuntimePermission(@NonNull String packageName,
+             @UserIdInt int userId) {
+         // userId is _not_ uid
+-        int uid = mPackageManagerInternal.getPackageUid(packageName, 0, userId);
++        int uid = mPackageManagerInternal.getPackageUidInternal( packageName, GET_PERMISSIONS, userId);
+         sendPackagePermissionsForUid(uid, getPermissionForUid(uid));
+     }
+ 
+     public PermissionMonitor(Context context, INetd netd) {
+         mPackageManager = context.getPackageManager();
+         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+         mNetd = netd;
+ 
+         mPackageManagerInternal = LocalServices.getService(
+                 PackageManagerInternal.class);
+@@ -357,26 +358,27 @@ public class PermissionMonitor {
+             return;
+         }
+         mUsers.remove(user);
+ 
+         Set<Integer> users = new HashSet<>();
+         users.add(user);
+         update(users, mApps, false);
+     }
+ 
+     @VisibleForTesting
+-    protected Boolean highestPermissionForUid(Boolean currentPermission, String name) {
++    protected Boolean highestPermissionForUid(Boolean currentPermission, String name, int uid) {
+         if (currentPermission == SYSTEM) {
+             return currentPermission;
+         }
+         try {
+-            final PackageInfo app = mPackageManager.getPackageInfo(name, GET_PERMISSIONS);
++            final PackageInfo app = mPackageManager.getPackageInfoAsUser(name, GET_PERMISSIONS,
++                    UserHandle.getUserId(uid));
+             final boolean isNetwork = hasNetworkPermission(app);
+             final boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
+             if (isNetwork || hasRestrictedPermission) {
+                 currentPermission = hasRestrictedPermission;
+             }
+         } catch (NameNotFoundException e) {
+             // App not found.
+             loge("NameNotFoundException " + name);
+         }
+         return currentPermission;
+@@ -386,21 +388,21 @@ public class PermissionMonitor {
+      * Called when a package is added. See {link #ACTION_PACKAGE_ADDED}.
+      *
+      * @param packageName The name of the new package.
+      * @param uid The uid of the new package.
+      *
+      * @hide
+      */
+     public synchronized void onPackageAdded(String packageName, int uid) {
+         // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
+         // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
+-        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName);
++        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName, uid);
+         if (permission != mApps.get(uid)) {
+             mApps.put(uid, permission);
+ 
+             Map<Integer, Boolean> apps = new HashMap<>();
+             apps.put(uid, permission);
+             update(mUsers, apps, true);
+         }
+ 
+         // If the newly-installed package falls within some VPN's uid range, update Netd with it.
+         // This needs to happen after the mApps update above, since removeBypassingUids() depends
+@@ -438,21 +440,21 @@ public class PermissionMonitor {
+         // If the package has been removed from all users on the device, clear it form mAllApps.
+         if (mPackageManager.getNameForUid(uid) == null) {
+             mAllApps.remove(UserHandle.getAppId(uid));
+         }
+ 
+         Map<Integer, Boolean> apps = new HashMap<>();
+         Boolean permission = null;
+         String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (packages != null && packages.length > 0) {
+             for (String name : packages) {
+-                permission = highestPermissionForUid(permission, name);
++                permission = highestPermissionForUid(permission, name, uid);
+                 if (permission == SYSTEM) {
+                     // An app with this UID still has the SYSTEM permission.
+                     // Therefore, this UID must already have the SYSTEM permission.
+                     // Nothing to do.
+                     return;
+                 }
+             }
+         }
+         if (permission == mApps.get(uid)) {
+             // The permissions of this UID have not changed. Nothing to do.
+@@ -478,25 +480,23 @@ public class PermissionMonitor {
+                 permissions |= INetd.PERMISSION_INTERNET;
+             }
+             if (requestedPermissions[i].equals(UPDATE_DEVICE_STATS)
+                     && ((requestedPermissionsFlags[i] & REQUESTED_PERMISSION_GRANTED) != 0)) {
+                 permissions |= INetd.PERMISSION_UPDATE_DEVICE_STATS;
+             }
+         }
+         return permissions;
+     }
+ 
+-    private PackageInfo getPackageInfo(String packageName) {
++    private PackageInfo getPackageInfo(String packageName, int userId) {
+         try {
+-            PackageInfo app = mPackageManager.getPackageInfo(packageName, GET_PERMISSIONS
+-                    | MATCH_ANY_USER);
+-            return app;
++            return mPackageManager.getPackageInfoAsUser(packageName, GET_PERMISSIONS, userId);
+         } catch (NameNotFoundException e) {
+             return null;
+         }
+     }
+ 
+     /**
+      * Called when a new set of UID ranges are added to an active VPN network
+      *
+      * @param iface The active VPN network's interface name
+      * @param rangesToAdd The new UID ranges to be added to the network
+
+commit fa6a32f4eb6b4b97fbcabd9321bb9bc47671df11
+Author: Pratyush <39559233+empratyush@users.noreply.github.com>
+Date:   Sun 2021-05-02 00:36:30+0000
+
+    enable backup service for non-owner users
+---
+ .../server/backup/BackupManagerService.java        | 48 ++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+diff --git a/services/backup/java/com/android/server/backup/BackupManagerService.java b/services/backup/java/com/android/server/backup/BackupManagerService.java
+index b13bef2de151221ea5cad26ba7efef6df38de172..e3f212a0b3ff048b1332a731507998cdc20e8abf 100644
+--- a/services/backup/java/com/android/server/backup/BackupManagerService.java
++++ b/services/backup/java/com/android/server/backup/BackupManagerService.java
+@@ -32,32 +32,35 @@ import android.app.backup.IRestoreSession;
+ import android.app.backup.ISelectBackupTransportCallback;
+ import android.app.job.JobParameters;
+ import android.app.job.JobScheduler;
+ import android.app.job.JobService;
+ import android.content.BroadcastReceiver;
+ import android.content.ComponentName;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.pm.PackageManager;
++import android.content.pm.UserInfo;
+ import android.os.Binder;
+ import android.os.FileUtils;
+ import android.os.Handler;
+ import android.os.HandlerThread;
+ import android.os.IBinder;
+ import android.os.ParcelFileDescriptor;
+ import android.os.Process;
+ import android.os.RemoteException;
+ import android.os.SystemProperties;
+ import android.os.Trace;
+ import android.os.UserHandle;
+ import android.os.UserManager;
++import android.provider.Settings;
++import android.util.Log;
+ import android.util.Slog;
+ import android.util.SparseArray;
+ 
+ import com.android.internal.annotations.GuardedBy;
+ import com.android.internal.annotations.VisibleForTesting;
+ import com.android.internal.util.DumpUtils;
+ import com.android.server.SystemConfig;
+ import com.android.server.SystemService;
+ import com.android.server.backup.utils.RandomAccessFileUtils;
+ 
+@@ -145,41 +148,86 @@ public class BackupManagerService extends IBackupManager.Stub {
+         public void onReceive(Context context, Intent intent) {
+             if (Intent.ACTION_USER_REMOVED.equals(intent.getAction())) {
+                 int userId = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, UserHandle.USER_NULL);
+                 if (userId > 0) { // for only non system users
+                     mHandler.post(() -> onRemovedNonSystemUser(userId));
+                 }
+             }
+         }
+     };
+ 
++    
++    private final BroadcastReceiver mUserAddedReceiver = new BroadcastReceiver() {
++        @Override
++        public void onReceive(Context context, Intent intent) {
++            if (Intent.ACTION_USER_ADDED.equals(intent.getAction())) {
++                int userId = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, UserHandle.USER_NULL);
++                Log.d(TAG, "new user added User ID : " + userId);
++                if (userId > 0) {
++                mHandler.post(() -> setBackupServiceActive(userId, true));
++                }
++            }
++        }
++    };
++    
+     public BackupManagerService(Context context) {
+         this(context, new SparseArray<>());
+     }
+ 
+     @VisibleForTesting
+     BackupManagerService(Context context, SparseArray<UserBackupManagerService> userServices) {
+         mContext = context;
+         mGlobalDisable = isBackupDisabled();
+         HandlerThread handlerThread =
+                 new HandlerThread(BACKUP_THREAD, Process.THREAD_PRIORITY_BACKGROUND);
+         handlerThread.start();
+         mHandler = new Handler(handlerThread.getLooper());
+         mUserManager = UserManager.get(context);
+         mUserServices = userServices;
+         Set<ComponentName> transportWhitelist =
+                 SystemConfig.getInstance().getBackupTransportWhitelist();
+         mTransportWhitelist = (transportWhitelist == null) ? emptySet() : transportWhitelist;
+         mContext.registerReceiver(
+                 mUserRemovedReceiver, new IntentFilter(Intent.ACTION_USER_REMOVED));
++        
++        
++        mContext.registerReceiver(
++                mUserAddedReceiver, new IntentFilter(Intent.ACTION_USER_ADDED));
++        
++        if (shouldMigrateExistingUser(context)) {
++            List<UserInfo> managerUsers = mUserManager.getUsers();
++                for (UserInfo userInfo : managerUsers) {
++                    setBackupServiceActive(
++                        userInfo.getUserHandle().getIdentifier(),
++                        true
++                    );
++            }
++
++            markExistingUserMigrated(context);
++        }
++        
+     }
+ 
++    private static final String PROFILE_MIGRATION_COMPLETED = "graphene_existing_users_migration";
++    
++    private boolean markExistingUserMigrated(Context context) {
++        return Settings.Global.putInt(context.getContentResolver(), PROFILE_MIGRATION_COMPLETED, 1);
++    }
++    
++    private boolean shouldMigrateExistingUser(Context context) {
++        return Settings.Global.getInt(
++                context.getContentResolver(),
++                PROFILE_MIGRATION_COMPLETED,
++                0
++            ) != 1;
++    }
++    
+     // TODO: Remove this when we implement DI by injecting in the construtor.
+     @VisibleForTesting
+     Handler getBackupHandler() {
+         return mHandler;
+     }
+ 
+     protected boolean isBackupDisabled() {
+         return SystemProperties.getBoolean(BACKUP_DISABLE_PROPERTY, false);
+     }
+ 
+
+commit a81aef336b1f20ccc9059b381a076d9eaf51ff5e
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2020-11-02 22:31:26-0800
+
+    overlays: Fix icon pack target packages for AOSP
+    
+    The new Pixel icon packs have their target launcher package set to Pixel
+    Launcher, which is not present in AOSP. This causes the icon packs to
+    not appear in ThemePicker.
+    
+    The older Circular icon pack's ThemePicker overlay also has the wrong
+    target package, so fix that as well while we're at it.
+    
+    Change-Id: I7699f07325b943938c30ee559f1477166698b5fa
+---
+ .../overlays/IconPackCircularThemePickerOverlay/AndroidManifest.xml     | 2 +-
+ packages/overlays/IconPackFilledThemePickerOverlay/AndroidManifest.xml  | 2 +-
+ packages/overlays/IconPackKaiLauncherOverlay/AndroidManifest.xml        | 2 +-
+ packages/overlays/IconPackKaiThemePickerOverlay/AndroidManifest.xml     | 2 +-
+ packages/overlays/IconPackSamLauncherOverlay/AndroidManifest.xml        | 2 +-
+ packages/overlays/IconPackSamThemePickerOverlay/AndroidManifest.xml     | 2 +-
+ packages/overlays/IconPackVictorLauncherOverlay/AndroidManifest.xml     | 2 +-
+ packages/overlays/IconPackVictorThemePickerOverlay/AndroidManifest.xml  | 2 +-
+ 8 files changed, 8 insertions(+), 8 deletions(-)
+
+diff --git a/packages/overlays/IconPackCircularThemePickerOverlay/AndroidManifest.xml b/packages/overlays/IconPackCircularThemePickerOverlay/AndroidManifest.xml
+index f7c5b550b193ce2abbd10ab0b142b70a0e307bd3..eae7de8f52845f5ee061e22d536a24e4f9370791 100644
+--- a/packages/overlays/IconPackCircularThemePickerOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackCircularThemePickerOverlay/AndroidManifest.xml
+@@ -12,13 +12,13 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.circular.themepicker"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
++    <overlay android:targetPackage="com.android.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
+     <application android:label="Circular" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackFilledThemePickerOverlay/AndroidManifest.xml b/packages/overlays/IconPackFilledThemePickerOverlay/AndroidManifest.xml
+index 503a063ac86955bd1617ad5fe04c74f2fc89b88a..35023ab9653e8390827ff3b18fb29aa057dc26db 100644
+--- a/packages/overlays/IconPackFilledThemePickerOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackFilledThemePickerOverlay/AndroidManifest.xml
+@@ -12,13 +12,13 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.filled.themepicker"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
++    <overlay android:targetPackage="com.android.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
+     <application android:label="Filled" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackKaiLauncherOverlay/AndroidManifest.xml b/packages/overlays/IconPackKaiLauncherOverlay/AndroidManifest.xml
+index 184a046cd29c683343bf24ade80d0d321236719e..5513bb9b6a3ca30aeebf4663cb2a355308cc18dd 100644
+--- a/packages/overlays/IconPackKaiLauncherOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackKaiLauncherOverlay/AndroidManifest.xml
+@@ -10,13 +10,13 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.kai.launcher"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.nexuslauncher" android:category="android.theme.customization.icon_pack.launcher" android:priority="1"/>
++    <overlay android:targetPackage="com.android.launcher3" android:category="android.theme.customization.icon_pack.launcher" android:priority="1"/>
+     <application android:label="Kai" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackKaiThemePickerOverlay/AndroidManifest.xml b/packages/overlays/IconPackKaiThemePickerOverlay/AndroidManifest.xml
+index 83b89858e8caac7bf974362f3d0f5687a263c8f8..d33f4bb991bbcc0011d3114240201c1324d91403 100644
+--- a/packages/overlays/IconPackKaiThemePickerOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackKaiThemePickerOverlay/AndroidManifest.xml
+@@ -10,13 +10,13 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.kai.themepicker"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
++    <overlay android:targetPackage="com.android.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
+     <application android:label="Kai" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackSamLauncherOverlay/AndroidManifest.xml b/packages/overlays/IconPackSamLauncherOverlay/AndroidManifest.xml
+index 2efa010da50404fd20dc5da1a74a21e404b9cb52..5f34ec6a91fbeb578139cee4d0167cbd5f24f017 100644
+--- a/packages/overlays/IconPackSamLauncherOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackSamLauncherOverlay/AndroidManifest.xml
+@@ -10,13 +10,13 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.sam.launcher"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.nexuslauncher" android:category="android.theme.customization.icon_pack.launcher" android:priority="1"/>
++    <overlay android:targetPackage="com.android.launcher3" android:category="android.theme.customization.icon_pack.launcher" android:priority="1"/>
+     <application android:label="Sam" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackSamThemePickerOverlay/AndroidManifest.xml b/packages/overlays/IconPackSamThemePickerOverlay/AndroidManifest.xml
+index 67446b2014c5a5e404db36f9a99e6e98c720f376..bdec2eea93aecfa74034ad3bc883ce613dfbe5f8 100644
+--- a/packages/overlays/IconPackSamThemePickerOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackSamThemePickerOverlay/AndroidManifest.xml
+@@ -10,13 +10,13 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.sam.themepicker"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
++    <overlay android:targetPackage="com.android.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
+     <application android:label="Sam" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackVictorLauncherOverlay/AndroidManifest.xml b/packages/overlays/IconPackVictorLauncherOverlay/AndroidManifest.xml
+index a7122eb87707c8215fbd6adca60daf0ff45afd9d..fc58ea068ac5a3b723fc1c5f50a58b9e36b01239 100644
+--- a/packages/overlays/IconPackVictorLauncherOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackVictorLauncherOverlay/AndroidManifest.xml
+@@ -10,13 +10,13 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.victor.launcher"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.nexuslauncher" android:category="android.theme.customization.icon_pack.launcher" android:priority="1"/>
++    <overlay android:targetPackage="com.android.launcher3" android:category="android.theme.customization.icon_pack.launcher" android:priority="1"/>
+     <application android:label="Victor" android:hasCode="false"/>
+ </manifest>
+diff --git a/packages/overlays/IconPackVictorThemePickerOverlay/AndroidManifest.xml b/packages/overlays/IconPackVictorThemePickerOverlay/AndroidManifest.xml
+index 9635febfd545470ac5f0a3b77feb967729fb2bbf..ee6a93d8e10feb8bd425dbea9cb5d8e9e13494cb 100644
+--- a/packages/overlays/IconPackVictorThemePickerOverlay/AndroidManifest.xml
++++ b/packages/overlays/IconPackVictorThemePickerOverlay/AndroidManifest.xml
+@@ -10,13 +10,13 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License.
+   -->
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.theme.icon_pack.victor.themepicker"
+     android:versionCode="1"
+     android:versionName="1.0">
+-    <overlay android:targetPackage="com.google.android.apps.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
++    <overlay android:targetPackage="com.android.wallpaper" android:category="android.theme.customization.icon_pack.themepicker" android:priority="1"/>
+     <application android:label="Victor" android:hasCode="false"/>
+ </manifest>
+
+commit 028f0890ac9503ee9a8f515463870f60f6ed4b9a (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
+Date:   Mon 2019-11-25 14:59:16+0000
+
+    SystemUI: FingerprintDialogView: Use accent color instead of teal
+    
+    Change-Id: I97ab75e68693c071ec50e78a9159202f83cf284b
+---
+ packages/SystemUI/res/values-night/colors.xml | 2 +-
+ packages/SystemUI/res/values/colors.xml       | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/packages/SystemUI/res/values-night/colors.xml b/packages/SystemUI/res/values-night/colors.xml
+index cb9e178de24367da4beff1a6c38af44a41fa3509..b956956aa1ab49baa41cd1ee0556efb3412483cd 100644
+--- a/packages/SystemUI/res/values-night/colors.xml
++++ b/packages/SystemUI/res/values-night/colors.xml
+@@ -79,21 +79,21 @@
+     <color name="global_screenshot_button_icon">@color/GM2_blue_300</color>
+     <color name="global_screenshot_dismiss_background">@color/GM2_grey_800</color>
+     <color name="global_screenshot_dismiss_foreground">#FFFFFF</color>
+     <color name="global_screenshot_background_protection_start">#80000000</color> <!-- 50% black -->
+ 
+     <!-- Media -->
+     <color name="media_divider">#85ffffff</color>
+ 
+     <!-- Biometric dialog colors -->
+     <color name="biometric_dialog_gray">#ff888888</color>
+-    <color name="biometric_dialog_accent">#ff80cbc4</color> <!-- light teal -->
++    <color name="biometric_dialog_accent">@*android:color/accent_device_default_dark</color>
+     <color name="biometric_dialog_error">#fff28b82</color> <!-- red 300 -->
+ 
+     <color name="GM2_green_500">#FF41Af6A</color>
+     <color name="GM2_blue_500">#5195EA</color>
+     <color name="GM2_red_500">#E25142</color>
+     <color name="GM2_yellow_500">#F5C518</color>
+ 
+     <!-- Icon color for user avatars in keyguard user switcher -->
+     <color name="kg_user_switcher_avatar_icon_color">@android:color/background_light</color>
+     <!-- Icon color for selected user avatars in keyguard user switcher -->
+diff --git a/packages/SystemUI/res/values/colors.xml b/packages/SystemUI/res/values/colors.xml
+index 994a18110260b3811efc38f6e5ba1c03dedc42d6..461fe2f9d4d2c1521ce677e1c5aaa3cecbb525a8 100644
+--- a/packages/SystemUI/res/values/colors.xml
++++ b/packages/SystemUI/res/values/colors.xml
+@@ -176,21 +176,21 @@
+     <color name="zen_introduction">#ffffffff</color>
+ 
+     <color name="smart_reply_button_text">@color/GM2_grey_700</color>
+     <color name="smart_reply_button_text_dark_bg">@*android:color/notification_primary_text_color_dark</color>
+     <color name="smart_reply_button_background">#ffffffff</color>
+     <color name="smart_reply_button_stroke">#ffdadce0</color>
+ 
+     <!-- Biometric dialog colors -->
+     <color name="biometric_dialog_dim_color">#80000000</color>              <!-- 50% black -->
+     <color name="biometric_dialog_gray">#ff757575</color>
+-    <color name="biometric_dialog_accent">#ff008577</color>                 <!-- dark teal -->
++    <color name="biometric_dialog_accent">@*android:color/accent_device_default_light</color>
+     <color name="biometric_dialog_error">#ffd93025</color>                  <!-- red 600 -->
+ 
+     <!-- Logout button -->
+     <color name="logout_button_bg_color">#ccffffff</color>
+ 
+     <!-- Color for the Assistant invocation lights -->
+     <color name="default_invocation_lights_color">#ffffffff</color>         <!-- white -->
+ 
+     <!-- Global screenshot actions -->
+     <color name="global_screenshot_button_background">#F5F5F5</color>
