@@ -1,4 +1,4 @@
-commit e6096e7fa9d2ece57b528c5bdff3646e0e6b3b75
+commit 7eeeb8288c853ed5a81e5acae1164428c8c4c7e6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -35,7 +35,7 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..12e731f8cba9ab75a699de93c9beceb7
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit 7361ea7f508bf371a2c7c1db51580e0e2d7e388f
+commit 6d0a3dabebea3efcc111fe424dd7c3a0bf05b6b2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-02-16 02:22:41-0500
 
@@ -72,7 +72,7 @@ index 12e731f8cba9ab75a699de93c9beceb72c5de836..4fea4e3fe15cf8f9f2c898e03341350a
      <bool name="config_show_system_update_settings">true</bool>
  
 
-commit faffbfaabee1f5da356818baf1f222fbf53c4548
+commit d6568a1ec742000b5e1bd2c365b61031781f4d11
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -112,7 +112,7 @@ index 226398ea5eb406ee62b0973351af015cf99c2a17..94c5de4b8807a48bc6f8797fbebe50e1
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 8425f028bf9abef0503d06753e786ccc65cf5444
+commit 5437cbe95b8b78e959f9b793e2e47f6dd951df99
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -215,7 +215,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit edb5d002e056aef639dd35df1d1014c5e19cd437
+commit b0a8b11fa5840fa42a44f13283dbd865c8064d4d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -257,7 +257,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 3746661a9141e64540913db0febb1a8d9688f2c5
+commit 51cb8ecd39f349004d2bc08adae6d5c407193aef
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-20 11:10:32-0400
 
@@ -317,7 +317,7 @@ index 94c5de4b8807a48bc6f8797fbebe50e1f036d255..5b37f9429519e1cfc4641adb26ad4c04
      <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
      <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
 
-commit 2d09664b060c5f1ba5779a1328f65950262faed6
+commit 1dcb0ba54a1efd2f323984eb3486429104d3f114
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -354,7 +354,7 @@ index 4fea4e3fe15cf8f9f2c898e03341350a22f623cd..a9dac5256af7b26c60c5560eca50a442
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 150a20369cf54c1eba37a3d4b916fefa9a898be0
+commit 9811663b3fb4d3906178b0ec3d337d6b2e336578
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -392,7 +392,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit fa9365dd99164e2588dd12cec4fe86a7fcc5913f
+commit 3f5e3ddf08f8e575fc0043e161b4bc43b453275a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -865,7 +865,7 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit c4162949fc46b661183e0b3e89015cff635ff717
+commit c125a99f5c17209f42dd3d22e3c399f9a7dc3b68
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -1100,7 +1100,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 49a56ea78995e8259fb6703307d845bd47fe36c3
+commit 6e449a74c517415ef7d449367586079ce6ba9adb
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-03-05 14:24:42+1100
 
@@ -1150,7 +1150,7 @@ index 144cf2f15c46e67e6b0ae2300bd2cfe4ec7c05f1..f4a7ddf8f8ca6e71e09ce6c024a17277
      }
  }
 
-commit 56f740d35c4f8f692ca8cf73b6cfdd29e57f7d9d
+commit 929090bee0e1dd62e7865313351a554a0a5261b7
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1428,7 +1428,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 70487e81316bb2b0bb60b0d638f3eccd0fbfeb12
+commit 47d1dd9f42b266fd0a332c531bd76751c6b3edfd
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1725,7 +1725,7 @@ index d6e1b6054d3bbad4ff7f07018d6986a49a2d7d38..ab51c59e1a6f0b6a03458b289e8737a6
      }
  }
 
-commit 945ab528869a7291060253e11b2b57f76d4647cb
+commit 75d8e74f7208c9ce42cc57f31d6521bab37df2f1
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -1921,7 +1921,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit a790f8d768839cbb0fd64587ccba93f0cd18f4d4
+commit ca6a82c63508e79b16c693eeb84e5b5c9db6c747
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -2276,7 +2276,7 @@ index 8b5aaa17c69d1b896e77fd1edf8accc1668e8165..5ec3f390df8646bb1aad08b047f17bd5
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"বন্ধ"</item>
 diff --git a/res/values-bs/arrays.xml b/res/values-bs/arrays.xml
-index 5c4611686daf9dc20fa4395cbcdc63a54840623d..bc5fe49f56501fa4a067ba0f06397828ce1e9fb9 100644
+index 7887d4ace3d8483a66be74e84eca37f7921965ff..89d6319717e4ac076fbd91836fc32c1b96afd998 100644
 --- a/res/values-bs/arrays.xml
 +++ b/res/values-bs/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2392,7 +2392,7 @@ index 2aa7c34f160e41d02c095396d9322af2560d7abf..ba99b7518f7fc4b69186603cb4b12e90
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Fra"</item>
 diff --git a/res/values-de/arrays.xml b/res/values-de/arrays.xml
-index 4c32e978b68ff3218d8fdd98b39948eac51cec42..ec6ce599917372204016a3c26f46e10af6c80520 100644
+index e1b59f2c4f3b442423d9054568d706fcb7264618..ad443fdba34830e8881d4764d77fd3e13a4158a2 100644
 --- a/res/values-de/arrays.xml
 +++ b/res/values-de/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2404,7 +2404,7 @@ index 4c32e978b68ff3218d8fdd98b39948eac51cec42..ec6ce599917372204016a3c26f46e10a
    <string-array name="wifi_metered_entries">
      <item msgid="3237321077949659241">"Automatisch erkennen"</item>
      <item msgid="3779092145391320375">"Wie \"kostenpflichtig\" behandeln"</item>
-     <item msgid="2047166446768045816">"Wie \"kostenlos\" behandeln"</item>
+     <item msgid="2047166446768045816">"Wie \"ohne Datenlimit\" behandeln"</item>
    </string-array>
 -  <string-array name="wifi_privacy_entries">
 -    <item msgid="3485945604919292489">"Zufällige MAC-Adresse verwenden (Standard)"</item>
@@ -2595,7 +2595,7 @@ index d900cd1feb952ecc83dfea8f4ce83d4c450afa05..cd7ded213ad453e2701f8dc545256389
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"‎‏‎‎‎‎‎‏‎‏‏‏‎‎‎‎‎‎‏‎‎‏‎‎‎‏‎‏‏‏‏‎‏‏‏‏‏‏‎‏‏‎‏‎‎‏‏‏‎‏‎‎‏‎‏‎‏‏‏‎‎‏‏‎‏‏‎‎‏‎‏‎‏‏‏‎‏‎‎‏‏‎‎‎‎‎‏‏‏‏‎‎‎‎‎Off‎‏‎‎‏‎"</item>
 diff --git a/res/values-es-rUS/arrays.xml b/res/values-es-rUS/arrays.xml
-index e1c0b858ee2e968a02294e11938ce4b4145dbb8b..73a126c46068e29646f1f9bcb9db74b066427d12 100644
+index b88ae64cdb194992b565d36e01e5751b60fdd599..30bcf9597779a40b9d97a5e37413362d45b3e2ac 100644
 --- a/res/values-es-rUS/arrays.xml
 +++ b/res/values-es-rUS/arrays.xml
 @@ -486,24 +486,20 @@
@@ -2682,7 +2682,7 @@ index 036cf5fa1c0666dc65c00d4582f738cf6cba9b1f..c9924740f8f9b2517a7afb7d92402d84
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Väljas"</item>
 diff --git a/res/values-eu/arrays.xml b/res/values-eu/arrays.xml
-index 7bbff21415dd5d89f960dfbc60f33ce8621a3ab0..c63515f350af81ad020fefbcced5fa151322bf35 100644
+index ff3a8a92bd26bf1389340cc1027e07e1aad8fc69..18b3302c91a0a49602478fa3126d7feca47b7973 100644
 --- a/res/values-eu/arrays.xml
 +++ b/res/values-eu/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3088,7 +3088,7 @@ index 5a9f87f85c31a24d76e973466c7dec4acc4e5067..afd37aa5df01e15f0a603cdd706b65b2
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Non attivo"</item>
 diff --git a/res/values-iw/arrays.xml b/res/values-iw/arrays.xml
-index f71da6d6d2460853491715b82a5c845a1574583e..b579caf5833aaccd2bf739180309f66a18cb8a91 100644
+index 1015c32ac69ee9d163b8e85234407840e4021daa..a7a208034d9f1633da7a8e88ba4b10965ff71c48 100644
 --- a/res/values-iw/arrays.xml
 +++ b/res/values-iw/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3494,7 +3494,7 @@ index 0c9940e6af136f3fb418d69881d9d97835e7cbb5..b0f8077c35b44a0d78e119e21a80b40b
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Идэвхгүй"</item>
 diff --git a/res/values-mr/arrays.xml b/res/values-mr/arrays.xml
-index 290c61f00a5fb61868a1d6560b0f31a1f00204a2..5008fd3a8537b91884adea461856b6dd4ec7b7c4 100644
+index 4a25f9e007705e9eb63c6a76452ddad36732b866..b06821c178ff1e8193ed3176c18e772e3fa74fc5 100644
 --- a/res/values-mr/arrays.xml
 +++ b/res/values-mr/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3639,7 +3639,7 @@ index e891c0fbb4a1ffbaf95c8568b82a4b06574338bf..8348ba1a8a13e4a0d378835a61b6b1e2
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"निष्क्रिय छ"</item>
 diff --git a/res/values-nl/arrays.xml b/res/values-nl/arrays.xml
-index ab296780b8e3175babaea48d4aabaafe96e67358..30240f50df0139ae08d8165e710ffdf0c40443e6 100644
+index 20ac6f3dba68bac937889ad560d24ef41c8e15e2..3654b8bbe8d91601b00d55e6403b06ea9d011329 100644
 --- a/res/values-nl/arrays.xml
 +++ b/res/values-nl/arrays.xml
 @@ -486,24 +486,20 @@
@@ -3697,7 +3697,7 @@ index 7bf91931c09c69c2c3bf63c65cabbaa95ae11afc..f68bb2470ce9f3665962b06f23e37faa
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"ବନ୍ଦ"</item>
 diff --git a/res/values-pa/arrays.xml b/res/values-pa/arrays.xml
-index 8ae37b28464ccb07ecb50f624db5b89e767ed319..008dcd1aa9c23b9f461432248cf1d77466bc3d27 100644
+index dc7a4c34d8e9f564e44e1f252f33b7e3e7b69344..dcb21ecffc3c346ed24071404f554e0a761efcb9 100644
 --- a/res/values-pa/arrays.xml
 +++ b/res/values-pa/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4306,7 +4306,7 @@ index cee2d5199941796f2799117d6e3cd335429e2eb8..6e5eaea6adcceb0428971f0c57d8bab0
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"آف"</item>
 diff --git a/res/values-uz/arrays.xml b/res/values-uz/arrays.xml
-index 98322c6fde473703ceb5bf97fc232800c3091006..57cb98256270df537c82f85460098a0b2f03d6f7 100644
+index e05793840b08e27ec3d21c2506d4fe63e2766280..5cd865a6a08c1accd8d2422545a7bf10c7c845dd 100644
 --- a/res/values-uz/arrays.xml
 +++ b/res/values-uz/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4335,7 +4335,7 @@ index 98322c6fde473703ceb5bf97fc232800c3091006..57cb98256270df537c82f85460098a0b
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Yoqilmagan"</item>
 diff --git a/res/values-vi/arrays.xml b/res/values-vi/arrays.xml
-index ced3b5a777fc35a7fb73b9aca04b203a697d8fe0..f3e4bdd4dc40ddf659f44de94021ab824ca17d3b 100644
+index 0895ab8ef758b3d70cafec4de3a65a59e9fec1a6..eaf3d4b773fa027f01b014e6b34e2b7086af121d 100644
 --- a/res/values-vi/arrays.xml
 +++ b/res/values-vi/arrays.xml
 @@ -486,24 +486,20 @@
@@ -4480,7 +4480,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit 1efe31d1a834b3907f815a0710255f714187a6a1
+commit d51eb16145b8b17f9bd95f7fa37ffb15e04600ec
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -4612,7 +4612,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit f30950e0081e0e189b522994bbcb08f9f99eee2a
+commit ccb3cfdf8dfea762f014e68dc21f88199b6dcfa7
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -4667,7 +4667,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit 92067206e518eedb4ddaba68143fd320469580fe
+commit 46e1fdcf359cc7f37ca8eae0f246b0aa096a2039
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-10-01 00:29:44-0700
 
@@ -4978,7 +4978,7 @@ index f1ebaeebba9f9cc5641aed411054501d0e07feb0..29111b89ec26c62eb9de18408439d07b
              } else {
                  mEntries.add(mContext.getString(R.string.network_lte));
 
-commit 52c69e66eb9c9e66da4c770861af86fa4b659d1c
+commit eed983695aef6bc180984a1ea078872a2214f790
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 
@@ -5311,7 +5311,7 @@ index db704ae850de73f0a2ed547a4be8f6b3048be630..c77b07821e1dabf303060cacc3b4dff5
      @Override
      public Dialog onCreateDialog(int dialogId) {
 
-commit db60f8975bb6e2210871eb689ee4ffd4ddc3d8fd
+commit 8094b646d2baa207fdceb0d9d06dc9d0aff0e662
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-03-10 00:45:12-0500
 
@@ -5369,7 +5369,7 @@ index a9dac5256af7b26c60c5560eca50a442ec561ea0..04bfcdd8fdba67ac82a3dd9af3383488
          -->
      </string-array>
 
-commit 54db58ec220c3d70fa33827914d5dcde143ac7d1
+commit a89ce8b5a3ecf02ad56739f1ef4c0cead4efc58a
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 12:37:30-0400
 
@@ -5685,7 +5685,7 @@ index 0000000000000000000000000000000000000000..2755d5ec18ac3ab1f67ed6c28ca4e706
 +}
 \ No newline at end of file
 
-commit 6ccb7eb10f4553182c8ce6e9bc31a2b1c2af6a0a
+commit 9a6e4fee7e1763998cacb9891b5df0e7699ed624
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:15:32+0100
 
@@ -5889,7 +5889,7 @@ index fe551d16251349f71d3473f9344a95a6217e1200..0bb5b98ee4abd88ec8cf154e769f65ba
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit f137c433ff5bfe55d18b1fba9d907bbc6b9af99f
+commit 2cd4624ea2a9db2770ad3b1a416043378826febc
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:13:36+0100
 
@@ -6000,7 +6000,7 @@ index 0000000000000000000000000000000000000000..32b1cb64de05bb3414088028c0d48d1e
 +    }
 +}
 
-commit 32966556b765443e0e0f8639da9cfadd863050e7
+commit c39f39b8f0ffa4e10bcf4073fdef1c79f8049e29
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:11:39+0100
 
@@ -6040,7 +6040,7 @@ index afbda02c7731059fa7bab41fb97dee730176c0c3..fc1004603e86cadb3328887ce8e1bb04
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit f4b66eb499d812e24bdd32d0ccdf2ad0a04b6296
+commit 957f0f3cc7b0afb187158cb2f55c029293040ad5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-04-25 21:42:56-0400
 
@@ -6160,7 +6160,7 @@ index c98736b231f7c81b7a2ee3a4d6f4a3a4937a762b..145722aef032d9534b8ba51ca9541bdc
              android:persistent="false"
              android:summary="@string/daltonizer_mode_protanomaly_summary"
 
-commit 0314ba71e0c96c3ab9d1f476ae00449a60b78365
+commit 1d095c8c3f048db8bc6ee08998b003ca640ae453
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-04-17 15:15:51+0100
 
@@ -6205,7 +6205,7 @@ index 04bfcdd8fdba67ac82a3dd9af33834884a89b71e..8b8ac04b6b421bf9460a919971c018ec
      <string name="gesture_double_twist_sensor_name" translatable="false"></string>
      <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
 
-commit 343c5bbd6a8d62b30694ce458d3140c5ba77486e (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit 9af67adde2c1abecce608fa24a80ecadb046051c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-05-03 17:10:59-0400
 
@@ -6244,3 +6244,697 @@ index 5fca6dc2143f25c58add3fd997c729c98ac54eea..86044bfb53255e0845d6f06d2728a6ca
              "http://www.google.com/gen_204";
      private static final String STANDARD_OTHER_FALLBACK_URLS =
              "http://play.googleapis.com/generate_204";
+
+commit 97312c68a6e3c4a49c00e7a24544edc519592b8d
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-05-15 23:13:13-0400
+
+    Revert "use Mainline branding for APEX components"
+    
+    This reverts commit 3746661a9141e64540913db0febb1a8d9688f2c5.
+---
+ res/values/strings.xml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 7cc5f19d1fa2a0b7530c584f73daa3c71b1a1fee..a549fe6aaa756e65cdbfebf8bfefd52fcbb43e96 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -3083,21 +3083,21 @@
+     <string name="fcc_equipment_id">Equipment ID</string>
+     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
+     <string name="baseband_version">Baseband version</string>
+     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
+     <string name="bootloader_version">Bootloader version</string>
+     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
+     <string name="kernel_version">Kernel version</string>
+     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
+     <string name="build_number">Build number</string>
+     <!-- About phone screen, tapping this button will take user to a seperate UI to check Google Play system update [CHAR LIMIT=60] -->
+-    <string name="module_version">Mainline system update</string>
++    <string name="module_version">Google Play system update</string>
+ 
+     <!-- About phone screen, show when a value of some status item is unavailable. -->
+     <string name="device_info_not_available">Not available</string>
+     <!-- About phone screen, phone status screen title -->
+     <string name="device_status_activity_title">Status</string>
+     <!-- About phone screen, title of the item to go into the Phone status screen -->
+     <string name="device_status">Status</string>
+     <!-- About tablet screen, summary of the item that takes you to tablet status screen -->
+     <string name="device_status_summary" product="tablet">Status of the battery, network, and other information</string>
+     <!-- About phone screen, summary of the item to go into the phone status screen -->
+@@ -4051,21 +4051,21 @@
+     <!-- About phone settings screen, setting option name to show the safety and regulatory manual [CHAR LIMIT=40] -->
+     <string name="safety_and_regulatory_info">Safety &amp; regulatory manual</string>
+     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+     <!-- About phone settings screen, setting option name to see copyright-related info -->
+     <string name="copyright_title">Copyright</string>
+     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+     <!-- About phone settings screen, setting option name to see licensing info -->
+     <string name="license_title">License</string>
+     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+     <!-- About phone settings screen, setting option name to see licensing info for Google Play system updates [CHAR LIMIT=50] -->
+-    <string name="module_license_title">Mainline system update licenses</string>
++    <string name="module_license_title">Google Play system update licenses</string>
+     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+     <!-- About phone settings screen, setting option name to see terms and conditions -->
+     <string name="terms_title">Terms and conditions</string>
+     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
+     <!-- About phone settings screen, setting option name to see licensing info for WebView component. [CHAR LIMIT=35] -->
+     <string name="webview_license_title">System WebView License</string>
+     <!-- About phone settings screen, setting option name to see wallpapers attributions -->
+     <string name="wallpaper_attributions">Wallpapers</string>
+     <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
+     <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
+
+commit d165b10849712da0ef1772adfd388bce7136b29f
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Sun 2021-05-16 00:51:15+0100
+
+    Remove misleading "Google Play system update" info field
+---
+ res/xml/firmware_version.xml | 8 --------
+ 1 file changed, 8 deletions(-)
+
+diff --git a/res/xml/firmware_version.xml b/res/xml/firmware_version.xml
+index 05558648763016aa94e64527db7bcd3d5991d9af..cf9779a69882c4e9fda82a10dc1295a808fa0595 100644
+--- a/res/xml/firmware_version.xml
++++ b/res/xml/firmware_version.xml
+@@ -30,28 +30,20 @@
+         settings:searchable="false"
+         settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionDetailPreferenceController"/>
+ 
+     <!-- Security patch -->
+     <Preference
+         android:key="security_key"
+         android:title="@string/security_patch"
+         settings:enableCopying="true"
+         settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
+ 
+-    <!-- Mainline module version -->
+-    <Preference
+-        android:key="module_version"
+-        android:title="@string/module_version"
+-        android:summary="@string/summary_placeholder"
+-        settings:enableCopying="true"
+-        settings:controller="com.android.settings.deviceinfo.firmwareversion.MainlineModuleVersionPreferenceController"/>
+-
+     <!-- Baseband -->
+     <Preference
+         android:key="base_band"
+         android:title="@string/baseband_version"
+         android:summary="@string/summary_placeholder"
+         android:selectable="false"
+         settings:enableCopying="true"
+         settings:controller="com.android.settings.deviceinfo.firmwareversion.BasebandVersionPreferenceController"/>
+ 
+     <!-- Bootloader -->
+
+commit 5cb09892ef1854447128dcabb1a53c7b80dff355
+Author: inthewaves <inthewaves@pm.me>
+Date:   Mon 2020-04-27 13:10:34-0700
+
+    add a toggle for disabling fingerprint unlock
+    
+    Currently, searching inside of settings will not pick up on the new
+    preference.
+    
+    This doesn't use a controller class to handle the preference; it instead
+    follows the TODO left in the code, and using the the fact that the
+    FingerprintSettingsFragment implements OnPreferenceChangeListener.
+---
+ res/values/strings.xml                             |  3 +++
+ res/xml/security_settings_fingerprint.xml          | 15 ++++++++++-
+ .../fingerprint/FingerprintSettings.java           | 31 ++++++++++++++++++++--
+ 3 files changed, 46 insertions(+), 3 deletions(-)
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index a549fe6aaa756e65cdbfebf8bfefd52fcbb43e96..04636a759c56b33cb81910ab851b81ff42a6776a 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -12244,11 +12244,14 @@
+     <string name="scramble_pin_title">PIN scrambling</string>
+     <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
+     <string name="connectivity_check_title">Internet connectivity check</string>
+     <string name="connectivity_check_summary">HTTP endpoints to use for performing internet connectivity checks.</string>
+     <string name="deny_new_usb_title">USB accessories</string>
+     <string name="deny_new_usb_summary">Control support for USB peripherals such as input (mice, keyboards, joysticks) and storage devices.</string>
+     <string name="keyguard_camera_title">Screen lock camera access</string>
+     <string name="keyguard_camera_summary">Allow camera access when the device is locked</string>
+     <string name="native_debug_title">Enable native code debugging</string>
+     <string name="native_debug_summary">Generate useful logs / bug reports from crashes and permit debugging native code.</string>
++    <string name="security_settings_fingerprint_settings_screen_lock_category">Screen lock</string>
++    <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_title">Allow fingerprint unlocking</string>
++    <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_summary">Allow fingerprints to unlock the screen lock. If this is disabled, fingerprints can still be used in apps.</string>
+ </resources>
+diff --git a/res/xml/security_settings_fingerprint.xml b/res/xml/security_settings_fingerprint.xml
+index 804ef881630f5587943e6e58501147376df780e7..e271e87bc17aefdd5a9836f44ee9d661fe616613 100644
+--- a/res/xml/security_settings_fingerprint.xml
++++ b/res/xml/security_settings_fingerprint.xml
+@@ -9,12 +9,25 @@
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+ <PreferenceScreen
+     xmlns:android="http://schemas.android.com/apk/res/android"
+-    android:title="@string/security_settings_fingerprint_preference_title"/>
++    android:title="@string/security_settings_fingerprint_preference_title">
++
++    <PreferenceCategory
++        android:title="@string/security_settings_fingerprint_settings_screen_lock_category"
++        android:order="10"
++        android:key="security_settings_fingerprint_unlock_category">
++
++        <SwitchPreference
++            android:key="security_settings_fingerprint_keyguard"
++            android:title="@string/security_settings_fingerprint_settings_use_fingerprint_unlock_phone_title"
++            android:summary="@string/security_settings_fingerprint_settings_use_fingerprint_unlock_phone_summary" />
++    </PreferenceCategory>
++
++</PreferenceScreen>
+ 
+diff --git a/src/com/android/settings/biometrics/fingerprint/FingerprintSettings.java b/src/com/android/settings/biometrics/fingerprint/FingerprintSettings.java
+index 8b16aeea65528d19e694b09222023667c7e314f1..9ff20d91427439f129716b7c9981988505624fa8 100644
+--- a/src/com/android/settings/biometrics/fingerprint/FingerprintSettings.java
++++ b/src/com/android/settings/biometrics/fingerprint/FingerprintSettings.java
+@@ -26,33 +26,35 @@ import android.app.settings.SettingsEnums;
+ import android.content.Context;
+ import android.content.DialogInterface;
+ import android.content.Intent;
+ import android.graphics.drawable.Drawable;
+ import android.hardware.fingerprint.Fingerprint;
+ import android.hardware.fingerprint.FingerprintManager;
+ import android.os.Bundle;
+ import android.os.Handler;
+ import android.os.UserHandle;
+ import android.os.UserManager;
++import android.provider.Settings;
+ import android.text.TextUtils;
+ import android.util.Log;
+ import android.view.View;
+ import android.widget.ImeAwareEditText;
+ import android.widget.Toast;
+ 
+ import androidx.annotation.VisibleForTesting;
+ import androidx.appcompat.app.AlertDialog;
+ import androidx.preference.Preference;
+ import androidx.preference.Preference.OnPreferenceChangeListener;
+ import androidx.preference.PreferenceGroup;
+ import androidx.preference.PreferenceScreen;
+ import androidx.preference.PreferenceViewHolder;
++import androidx.preference.SwitchPreference;
+ 
+ import com.android.settings.R;
+ import com.android.settings.SettingsPreferenceFragment;
+ import com.android.settings.SubSettings;
+ import com.android.settings.Utils;
+ import com.android.settings.biometrics.BiometricEnrollBase;
+ import com.android.settings.core.instrumentation.InstrumentedDialogFragment;
+ import com.android.settings.password.ChooseLockGeneric;
+ import com.android.settings.password.ChooseLockSettingsHelper;
+ import com.android.settings.utils.AnnotationSpan;
+@@ -102,22 +104,24 @@ public class FingerprintSettings extends SubSettings {
+         setTitle(msg);
+     }
+ 
+     public static class FingerprintSettingsFragment extends SettingsPreferenceFragment
+             implements OnPreferenceChangeListener, FingerprintPreference.OnDeleteClickListener {
+         private static final int RESET_HIGHLIGHT_DELAY_MS = 500;
+ 
+         private static final String TAG = "FingerprintSettings";
+         private static final String KEY_FINGERPRINT_ITEM_PREFIX = "key_fingerprint_item";
+         private static final String KEY_FINGERPRINT_ADD = "key_fingerprint_add";
++        private static final String KEY_FINGERPRINT_SCREEN_LOCK_OPTIONS_CATEGORY =
++                "security_settings_fingerprint_unlock_category";
+         private static final String KEY_FINGERPRINT_ENABLE_KEYGUARD_TOGGLE =
+-                "fingerprint_enable_keyguard_toggle";
++                "security_settings_fingerprint_keyguard";
+         private static final String KEY_LAUNCHED_CONFIRM = "launched_confirm";
+ 
+         private static final int MSG_REFRESH_FINGERPRINT_TEMPLATES = 1000;
+         private static final int MSG_FINGER_AUTH_SUCCESS = 1001;
+         private static final int MSG_FINGER_AUTH_FAIL = 1002;
+         private static final int MSG_FINGER_AUTH_ERROR = 1003;
+         private static final int MSG_FINGER_AUTH_HELP = 1004;
+ 
+         private static final int CONFIRM_REQUEST = 101;
+         private static final int CHOOSE_LOCK_GENERIC_REQUEST = 102;
+@@ -363,49 +367,69 @@ public class FingerprintSettings extends SubSettings {
+          */
+         private PreferenceScreen createPreferenceHierarchy() {
+             PreferenceScreen root = getPreferenceScreen();
+             if (root != null) {
+                 root.removeAll();
+             }
+             addPreferencesFromResource(R.xml.security_settings_fingerprint);
+             root = getPreferenceScreen();
+             addFingerprintItemPreferences(root);
+             setPreferenceScreen(root);
++
++            // Need to add back the keyguard preferences, since addFingerprintItemPreferences
++            // calls root.removeAll() again.
++            addPreferencesFromResource(R.xml.security_settings_fingerprint);
++
++            // Don't show keyguard preferences for work profile settings.
++            if (UserManager.get(getContext()).isManagedProfile(mUserId)) {
++                removePreference(KEY_FINGERPRINT_SCREEN_LOCK_OPTIONS_CATEGORY);
++            } else {
++                SwitchPreference lockScreenFingerprintPreference =
++                        (SwitchPreference) findPreference(KEY_FINGERPRINT_ENABLE_KEYGUARD_TOGGLE);
++
++                lockScreenFingerprintPreference.setChecked(Settings.Secure.getInt(
++                        getContext().getContentResolver(),
++                        Settings.Secure.FINGERPRINT_UNLOCK_KEYGUARD_ENABLED, 1) == 1);
++                lockScreenFingerprintPreference.setOnPreferenceChangeListener(this);
++            }
++
+             return root;
+         }
+ 
+         private void addFingerprintItemPreferences(PreferenceGroup root) {
+             root.removeAll();
+             final List<Fingerprint> items = mFingerprintManager.getEnrolledFingerprints(mUserId);
+             final int fingerprintCount = items.size();
+             for (int i = 0; i < fingerprintCount; i++) {
+                 final Fingerprint item = items.get(i);
+                 FingerprintPreference pref = new FingerprintPreference(root.getContext(),
+                         this /* onDeleteClickListener */);
+                 pref.setKey(genKey(item.getBiometricId()));
+                 pref.setTitle(item.getName());
+                 pref.setFingerprint(item);
++                pref.setOrder(1);
+                 pref.setPersistent(false);
+                 pref.setIcon(R.drawable.ic_fingerprint_24dp);
+                 if (mRemovalSidecar.isRemovingFingerprint(item.getBiometricId())) {
+                     pref.setEnabled(false);
+                 }
+                 if (mFingerprintsRenaming.containsKey(item.getBiometricId())) {
+                     pref.setTitle(mFingerprintsRenaming.get(item.getBiometricId()));
+                 }
+                 root.addPreference(pref);
+                 pref.setOnPreferenceChangeListener(this);
+             }
+             Preference addPreference = new Preference(root.getContext());
+             addPreference.setKey(KEY_FINGERPRINT_ADD);
+             addPreference.setTitle(R.string.fingerprint_add_title);
+             addPreference.setIcon(R.drawable.ic_add_24dp);
++            addPreference.setOrder(2);
+             root.addPreference(addPreference);
+             addPreference.setOnPreferenceChangeListener(this);
+             updateAddPreference();
+             createFooterPreference(root);
+         }
+ 
+         private void updateAddPreference() {
+             if (getActivity() == null) return; // Activity went away
+ 
+             /* Disable preference if too many fingerprints added */
+@@ -541,21 +565,24 @@ public class FingerprintSettings extends SubSettings {
+             renameDialog.setArguments(args);
+             renameDialog.setTargetFragment(this, 0);
+             renameDialog.show(getFragmentManager(), RenameDialog.class.getName());
+         }
+ 
+         @Override
+         public boolean onPreferenceChange(Preference preference, Object value) {
+             boolean result = true;
+             final String key = preference.getKey();
+             if (KEY_FINGERPRINT_ENABLE_KEYGUARD_TOGGLE.equals(key)) {
+-                // TODO
++                boolean enableFingerprintUnlock = (boolean) value;
++                Settings.Secure.putInt(getContext().getContentResolver(),
++                        Settings.Secure.FINGERPRINT_UNLOCK_KEYGUARD_ENABLED,
++                        (enableFingerprintUnlock) ? 1 : 0);
+             } else {
+                 Log.v(TAG, "Unknown key:" + key);
+             }
+             return result;
+         }
+ 
+         @Override
+         public int getHelpResource() {
+             return R.string.help_url_fingerprint;
+         }
+
+commit 6ba041eefb0437c398cac65078471f8caa520299
+Author: maxwen <max.weninger@gmail.com>
+Date:   Thu 2021-04-08 18:43:53+0200
+
+    Settings: Fix hardcoded black text in storage summary
+    
+    Change-Id: Ic5dae7ca8417e07512be19fb1509643def0f1105
+---
+ src/com/android/settings/deviceinfo/StorageSummaryPreference.java | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/src/com/android/settings/deviceinfo/StorageSummaryPreference.java b/src/com/android/settings/deviceinfo/StorageSummaryPreference.java
+index 72b67de1ddde3ec2c97f062dc99f5225b0da9795..e2aadefc42dd8eabae68923ef729dc3316f4d183 100644
+--- a/src/com/android/settings/deviceinfo/StorageSummaryPreference.java
++++ b/src/com/android/settings/deviceinfo/StorageSummaryPreference.java
+@@ -20,20 +20,21 @@ import android.content.Context;
+ import android.graphics.Color;
+ import android.util.MathUtils;
+ import android.view.View;
+ import android.widget.ProgressBar;
+ import android.widget.TextView;
+ 
+ import androidx.preference.Preference;
+ import androidx.preference.PreferenceViewHolder;
+ 
+ import com.android.settings.R;
++import com.android.settingslib.Utils;
+ 
+ public class StorageSummaryPreference extends Preference {
+     private int mPercent = -1;
+ 
+     public StorageSummaryPreference(Context context) {
+         super(context);
+ 
+         setLayoutResource(R.layout.storage_summary);
+         setEnabled(false);
+     }
+@@ -48,15 +49,16 @@ public class StorageSummaryPreference extends Preference {
+         final ProgressBar progress = (ProgressBar) view.findViewById(android.R.id.progress);
+         if (mPercent != -1) {
+             progress.setVisibility(View.VISIBLE);
+             progress.setProgress(mPercent);
+             progress.setScaleY(7f);
+         } else {
+             progress.setVisibility(View.GONE);
+         }
+ 
+         final TextView summary = (TextView) view.findViewById(android.R.id.summary);
+-        summary.setTextColor(Color.parseColor("#8a000000"));
++        summary.setTextColor(Utils.getColorAttrDefaultColor(getContext(),
++                android.R.attr.textColorSecondary));
+ 
+         super.onBindViewHolder(view);
+     }
+ }
+
+commit 1a732110be1cca176fb3aca279946c34f51985a3 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+Author: pratyush <codelab@pratyush.dev>
+Date:   Mon 2021-06-07 22:15:59+0100
+
+    Auto-reboot UI
+---
+ res/values/arrays.xml                              |  26 +++++
+ res/values/strings.xml                             |   2 +
+ res/xml/security_dashboard_settings.xml            |  12 ++-
+ .../AutoRebootPreferenceController.java (new)      | 109 +++++++++++++++++++++
+ .../settings/security/SecuritySettings.java        |   1 +
+ 5 files changed, 148 insertions(+), 2 deletions(-)
+
+diff --git a/res/values/arrays.xml b/res/values/arrays.xml
+index e5a17bd71578856adbd80d1041cabcb062da19b4..c3c7b316535f61afd30513753a744c381f0a7839 100644
+--- a/res/values/arrays.xml
++++ b/res/values/arrays.xml
+@@ -161,20 +161,46 @@
+         <item>5 seconds</item>
+         <item>15 seconds</item>
+         <item>30 seconds</item>
+         <item>1 minute</item>
+         <item>2 minutes</item>
+         <item>5 minutes</item>
+         <item>10 minutes</item>
+         <item>30 minutes</item>
+     </string-array>
+ 
++    <!-- Auto reboot settings -->
++    <string-array name="auto_reboot_entries">
++        <item>Off</item>
++        <item>1 hour</item>
++        <item>2 hours</item>
++        <item>4 hours</item>
++        <item>8 hours</item>
++        <item>12 hours</item>
++        <item>24 hours</item>
++        <item>36 hours</item>
++        <item>48 hours</item>
++        <item>72 hours</item>
++    </string-array>
++    <string-array name="auto_reboot_values" translatable="false">
++        <item>0</item>  <!-- Disabled -->
++        <item>1</item>
++        <item>2</item>
++        <item>4</item>
++        <item>8</item>
++        <item>12</item>
++        <item>24</item>
++        <item>36</item>
++        <item>48</item>
++        <item>72</item>
++    </string-array>
++
+     <!-- Security Settings -->
+     <string-array name="deny_new_usb_entries">
+         <item>Deny new USB peripherals</item>
+         <item>Allow new USB peripherals when unlocked</item>
+         <item>Allow new USB peripherals</item>
+     </string-array>
+ 
+     <!-- Do not translate. -->
+     <string-array name="deny_new_usb_values" translatable="false">
+         <!-- Do not translate. -->
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 04636a759c56b33cb81910ab851b81ff42a6776a..925167e4e5c0410e1d041627bb2c4721ccce31f4 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -12239,19 +12239,21 @@
+     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
+     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+ 
+     <string name="scramble_pin_title">PIN scrambling</string>
+     <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
+     <string name="connectivity_check_title">Internet connectivity check</string>
+     <string name="connectivity_check_summary">HTTP endpoints to use for performing internet connectivity checks.</string>
+     <string name="deny_new_usb_title">USB accessories</string>
++    <string name="auto_reboot_title">Auto reboot</string>
++    <string name="auto_reboot_summary">Automatically reboot the device, if the phone hasn\'t been unlocked within the selected number of hours.</string>
+     <string name="deny_new_usb_summary">Control support for USB peripherals such as input (mice, keyboards, joysticks) and storage devices.</string>
+     <string name="keyguard_camera_title">Screen lock camera access</string>
+     <string name="keyguard_camera_summary">Allow camera access when the device is locked</string>
+     <string name="native_debug_title">Enable native code debugging</string>
+     <string name="native_debug_summary">Generate useful logs / bug reports from crashes and permit debugging native code.</string>
+     <string name="security_settings_fingerprint_settings_screen_lock_category">Screen lock</string>
+     <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_title">Allow fingerprint unlocking</string>
+     <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_summary">Allow fingerprints to unlock the screen lock. If this is disabled, fingerprints can still be used in apps.</string>
+ </resources>
+diff --git a/res/xml/security_dashboard_settings.xml b/res/xml/security_dashboard_settings.xml
+index 366173073e6a91f86fcf5111714ceb3a1dada69f..65c8f552821b20a47f3ac10f5bce9aa9ccfc38c9 100644
+--- a/res/xml/security_dashboard_settings.xml
++++ b/res/xml/security_dashboard_settings.xml
+@@ -13,21 +13,21 @@
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+ 
+ <PreferenceScreen
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:settings="http://schemas.android.com/apk/res-auto"
+     android:key="security_dashboard_page"
+     android:title="@string/security_settings_title"
+-    settings:initialExpandedChildrenCount="11">
++    settings:initialExpandedChildrenCount="12">
+ 
+     <!-- security_settings_status.xml -->
+     <PreferenceCategory
+         android:order="-10"
+         android:key="security_status"
+         android:title="@string/security_status_title" />
+ 
+     <PreferenceCategory
+         android:order="1"
+         android:key="dashboard_tile_placeholder" />
+@@ -49,20 +49,28 @@
+             android:title="@string/security_settings_fingerprint_preference_title"
+             android:summary="@string/summary_placeholder"
+             settings:keywords="@string/keywords_fingerprint_settings" />
+ 
+         <Preference
+             android:key="face_settings"
+             android:title="@string/security_settings_face_preference_title"
+             android:summary="@string/summary_placeholder"
+             settings:keywords="@string/keywords_face_settings" />
+ 
++        <ListPreference
++            android:key="auto_reboot"
++            android:title="@string/auto_reboot_title"
++            android:summary="@string/auto_reboot_summary"
++            android:persistent="false"
++            android:entries="@array/auto_reboot_entries"
++            android:entryValues="@array/auto_reboot_values" />
++      
+         <ListPreference
+             android:key="deny_new_usb"
+             android:title="@string/deny_new_usb_title"
+             android:summary="@string/deny_new_usb_summary"
+             android:persistent="false"
+             android:entries="@array/deny_new_usb_entries"
+             android:entryValues="@array/deny_new_usb_values" />
+ 
+         <SwitchPreference
+             android:key="native_debug"
+@@ -177,11 +185,11 @@
+         android:fragment="com.android.settings.security.ScreenPinningSettings"
+         settings:keywords="@string/keywords_app_pinning" />
+ 
+     <SwitchPreference
+         android:order="90"
+         android:key="confirm_sim_deletion"
+         android:title="@string/confirm_sim_deletion_title"
+         android:summary="@string/confirm_sim_deletion_description"
+         settings:controller="com.android.settings.security.ConfirmSimDeletionPreferenceController"/>
+ 
+-</PreferenceScreen>
+\ No newline at end of file
++</PreferenceScreen>
+diff --git a/src/com/android/settings/security/AutoRebootPreferenceController.java b/src/com/android/settings/security/AutoRebootPreferenceController.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..bda03124afbd569cbc3997692a2a0cdf47e15231
+--- /dev/null
++++ b/src/com/android/settings/security/AutoRebootPreferenceController.java
+@@ -0,0 +1,109 @@
++package com.android.settings.security;
++
++import android.content.Context;
++import android.os.UserManager;
++import android.provider.Settings;
++import android.util.Log;
++
++import androidx.preference.ListPreference;
++import androidx.preference.Preference;
++import androidx.preference.PreferenceCategory;
++import androidx.preference.PreferenceScreen;
++
++import com.android.settings.core.PreferenceControllerMixin;
++import com.android.settingslib.core.AbstractPreferenceController;
++import com.android.settingslib.core.lifecycle.events.OnResume;
++
++import java.util.concurrent.TimeUnit;
++
++public class AutoRebootPreferenceController extends AbstractPreferenceController
++        implements PreferenceControllerMixin, OnResume, Preference.OnPreferenceChangeListener {
++
++    private static final String KEY_AUTO_REBOOT = "auto_reboot";
++    private static final String PREF_KEY_SECURITY_CATEGORY = "security_category";
++    private static final String VALUE_STORE_KEY = "settings_reboot_after_timeout";
++    private static final boolean DEBUG = false;
++
++    private PreferenceCategory mSecurityCategory;
++    private boolean mIsAdmin;
++    private final UserManager mUm;
++
++    public AutoRebootPreferenceController(Context context) {
++        super(context);
++        mUm = UserManager.get(context);
++    }
++
++    @Override
++    public void displayPreference(PreferenceScreen screen) {
++        super.displayPreference(screen);
++        mSecurityCategory = screen.findPreference(PREF_KEY_SECURITY_CATEGORY);
++        updatePreferenceState();
++    }
++
++    @Override
++    public boolean isAvailable() {
++        mIsAdmin = mUm.isAdminUser();
++        return mIsAdmin;
++    }
++
++    @Override
++    public String getPreferenceKey() {
++        return KEY_AUTO_REBOOT;
++    }
++
++    // TODO: should we use onCreatePreferences() instead?
++    private void updatePreferenceState() {
++
++        if (mSecurityCategory == null) {
++            log("updatePreferenceState called with null mSecurityCategory");
++            return;
++        }
++
++        if (mIsAdmin) {
++            ListPreference autoRebootPsfs = (ListPreference) mSecurityCategory.findPreference(KEY_AUTO_REBOOT);
++            log("updatePreferenceState called from admin/owner user update psfs value with currentValue :  " + currentValueInHours());
++            if (autoRebootPsfs != null) {
++                autoRebootPsfs.setValue(currentValueInHours());
++            }
++        } else {
++            log("updatePreferenceState isn't called from admin/owner user removing ");
++            mSecurityCategory.removePreference(mSecurityCategory.findPreference(KEY_AUTO_REBOOT));
++        }
++    }
++
++    @Override
++    public void onResume() {
++        updatePreferenceState();
++    }
++
++    @Override
++    public boolean onPreferenceChange(Preference preference, Object value) {
++        final String key = preference.getKey();
++        log("onPreferenceChange key : " + key + " value : " + value + " isString? : " + (value instanceof  String) + " isAdminUser? : " + mUm.isAdminUser());
++        if (KEY_AUTO_REBOOT.equals(key) && value instanceof String && mIsAdmin) {
++            int timeout = Integer.parseInt((String) value);
++            Settings.Global.putInt(mContext.getContentResolver(), VALUE_STORE_KEY, hoursToMilli(timeout));
++        }
++        return true;
++    }
++
++    private String currentValueInHours() {
++        int value = Settings.Global.getInt(mContext.getContentResolver(), VALUE_STORE_KEY, 0);
++        return String.valueOf(milliToHours(value));
++    }
++
++    private int milliToHours(long milli){
++        return (int) TimeUnit.MILLISECONDS.toHours(milli);
++    }
++
++    private int hoursToMilli(long hour){
++        return (int) TimeUnit.HOURS.toMillis(hour);
++    }
++
++    private void log(String log) {
++        if (DEBUG && log != null) {
++            Log.d("AutoReboot", log);
++        }
++    }
++
++}
+diff --git a/src/com/android/settings/security/SecuritySettings.java b/src/com/android/settings/security/SecuritySettings.java
+index 0bb5b98ee4abd88ec8cf154e769f65bab5c47fa6..ad9b57cf22e7c554560ad9eabb4279d300ac8f1e 100644
+--- a/src/com/android/settings/security/SecuritySettings.java
++++ b/src/com/android/settings/security/SecuritySettings.java
+@@ -108,20 +108,21 @@ public class SecuritySettings extends DashboardFragment {
+         controllers.add(new SimLockPreferenceController(context));
+         controllers.add(new EncryptionStatusPreferenceController(context,
+                 PREF_KEY_ENCRYPTION_SECURITY_PAGE));
+         controllers.add(new TrustAgentListPreferenceController(context, host, lifecycle));
+ 
+         final List<AbstractPreferenceController> securityPreferenceControllers = new ArrayList<>();
+         securityPreferenceControllers.add(new FaceStatusPreferenceController(context));
+         securityPreferenceControllers.add(new FingerprintStatusPreferenceController(context));
+         securityPreferenceControllers.add(new ChangeScreenLockPreferenceController(context, host));
+         securityPreferenceControllers.add(new PinScramblePreferenceController(context));
++        securityPreferenceControllers.add(new AutoRebootPreferenceController(context));
+         securityPreferenceControllers.add(new DenyNewUsbPreferenceController(context));
+         securityPreferenceControllers.add(new KeyguardCameraPreferenceController(context));
+         securityPreferenceControllers.add(new NativeDebugPreferenceController(context));
+         controllers.add(new PreferenceCategoryController(context, SECURITY_CATEGORY)
+                 .setChildren(securityPreferenceControllers));
+         controllers.addAll(securityPreferenceControllers);
+ 
+         final List<AbstractPreferenceController> profileSecurityControllers = new ArrayList<>();
+         profileSecurityControllers.add(new ChangeProfileScreenLockPreferenceController(
+                 context, host));

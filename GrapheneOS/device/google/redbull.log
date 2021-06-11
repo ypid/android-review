@@ -1,4 +1,4 @@
-commit 8307cf284bcdf19b24f816496c30a14325d52b65
+commit c18dd423a6dbda06dc4052425dda8757eb42d581
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:12-0400
 
@@ -8,7 +8,7 @@ Date:   Wed 2020-10-14 19:16:12-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 1fdb13008bd524be092c6875b80c14b133843a4d..11287222afc70e4c645708b350e16812b6e480a7 100644
+index 400af3e52d591b4e37054191d074274639cbd058..6e556741cfc4953c911949f8af394546684b7516 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -126,40 +126,36 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -53,7 +53,7 @@ index 1fdb13008bd524be092c6875b80c14b133843a4d..11287222afc70e4c645708b350e16812
      sg_write_buffer \
      f2fs_io \
 
-commit d3e8fc6342a046545d75d98391cd7b5bfb5c1ef8
+commit ef292d0b0b2dc2e2f6989d3144af4092dc75be86
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:59-0400
 
@@ -64,10 +64,10 @@ Date:   Wed 2020-10-14 19:16:59-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 11287222afc70e4c645708b350e16812b6e480a7..029d3f17d24a3700f1c8173c535f5efd8961b6c4 100644
+index 6e556741cfc4953c911949f8af394546684b7516..eec711259dc1ded660b2644239dc2d9cb8fdeaab 100644
 --- a/device-common.mk
 +++ b/device-common.mk
-@@ -745,21 +745,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -747,21 +747,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
  
  # Enable tcpdump_logger on userdebug and eng
  ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -120,7 +120,7 @@ index 974f39d89cbea95d16505c03ae84f2de893c584e..9ef69ecc2128fa848957a3ef325696c0
      <bool name="config_pinnerCameraApp">true</bool>
  
 
-commit 63737f4f0f388eb0cdd786ef52d54db45432898e
+commit 997758689327141562f404c32fbc3572f4cedd10
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:25-0400
 
@@ -157,7 +157,7 @@ index 9ef69ecc2128fa848957a3ef325696c0bcdd6222..93061db494049523cbc33b16fee7a2c5
          <item>"usb\\d"</item>
          <item>"rndis\\d"</item>
 
-commit 5065f62b6ff3b2efd9e0171c868f87fb7a15a4bb
+commit 5a13308113da0eaa488ca85d0c24878b7bd1f0f9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:50-0400
 
@@ -167,7 +167,7 @@ Date:   Wed 2020-10-14 19:17:50-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 029d3f17d24a3700f1c8173c535f5efd8961b6c4..7ce2754a7705006747d56ebe2db6ce51dcb1b94d 100644
+index eec711259dc1ded660b2644239dc2d9cb8fdeaab..c8654afec28b85314e88c1de29420e25f3653c4b 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -83,23 +83,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -195,7 +195,7 @@ index 029d3f17d24a3700f1c8173c535f5efd8961b6c4..7ce2754a7705006747d56ebe2db6ce51
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
 
-commit ffcc94ef3d8bc022b2724567bd3cdaff2cf82c42
+commit 39bdf3cda46dc4a951a09009fe17fd314215fb62
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:32:37+0000
 
@@ -577,7 +577,7 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
  # Testing related defines
  BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b5r3-setup.sh
 
-commit 32f65d580f780cdb95005a85e5de533888eecec6
+commit 51f833ea35ea73c13b6255bdfc03d52ab7d01fe9
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2020-10-19 00:04:15+0000
 
@@ -616,7 +616,7 @@ index c04b53924c733a489c6e46f6be4a659b712a5eee..a947b2b7e582e8fad2749ae0f862d0f8
  /dev/msm_qcelp            0660   system     audio
  /dev/msm_evrc             0660   system     audio
 
-commit 19776c9ddcd3574be7963c6dbd6439fc8819cf1f
+commit 05179ed68551c49a59e618b02fa0ce3353483dbb
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Wed 2020-07-22 18:40:15+0000
 
@@ -657,46 +657,7 @@ index 288990e5bb7ab82f090262503250e938e425c4fa..660829d37d1cf943890a4d87bf84ee09
      mkdir /data/vendor/sensors 0770
      chown system system /data/vendor/sensors
 
-commit 1d670ca464da3e2471107f226119163e86602c40
-Author: anupritaisno1 <www.anuprita804@gmail.com>
-Date:   Sun 2020-10-18 22:58:30+0000
-
-    Add config overlay for biometric sensors
-    
-    This is needed to make biometric authentication prompts in third-party apps work on Android 11
-    
-    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
----
- overlay/frameworks/base/core/res/res/values/config.xml | 9 +++++++++
- 1 file changed, 9 insertions(+)
-
-diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index 93061db494049523cbc33b16fee7a2c57a671a8e..58fb5fcc0ce34ae5fa61d2481a4beb5a53e7468a 100755
---- a/overlay/frameworks/base/core/res/res/values/config.xml
-+++ b/overlay/frameworks/base/core/res/res/values/config.xml
-@@ -355,11 +355,20 @@
-     <!-- What source to use to estimate link upstream and downstream bandwidth capacities.
-       Default is carrier_config, but it should be set to modem if the modem is returning
-       predictive (instead of instantaneous) bandwidth estimates.
-       Values are carrier_config and modem. -->
-     <string name="config_bandwidthEstimateSource">modem</string>
- 
-     <!-- Delay that allows some content to arrive at the display before switching
-          from DOZE to ON, in millis. -->
-     <integer name="config_wakeUpDelayDoze">32</integer>
- 
-+    <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
-+         when registering authenticators with BiometricService. Format must be ID:Modality:Strength,
-+         where: IDs are unique per device, Modality as defined in BiometricAuthenticator.java,
-+         and Strength as defined in Authenticators.java -->
-+    <string-array name="config_biometric_sensors" translatable="false" >
-+        <!-- ID0:Fingerprint:Strong -->
-+        <item>0:2:15</item>
-+    </string-array>
-+
- </resources>
-
-commit e9b9cdbd6d21d44dd330346a211ef1464b5bca9f
+commit f95c893018ee4df5bb1ff0de6e5e754171909e93
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sat 2020-11-14 02:09:38+0000
 
@@ -773,7 +734,7 @@ index cdf6bd90615387c43769a9fc83cad55a6c7daad8..b5395725ab8b5fe9a0cd8d5aeac0d48b
  /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
  /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
 
-commit 5a754510545b19310a1eab7fbb41c38df231346b
+commit 29cc159b44ed4b8d6dacf87ccbe6f5ff8b022377
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-02-11 22:30:29-0500
 
@@ -783,10 +744,10 @@ Date:   Thu 2021-02-11 22:30:29-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/device-common.mk b/device-common.mk
-index 7ce2754a7705006747d56ebe2db6ce51dcb1b94d..9ba60c459a83aa41ebe1c9856db106c97afe2fb1 100644
+index c8654afec28b85314e88c1de29420e25f3653c4b..85753f02a3d70acfdf0b7916fa398e5e376449e1 100644
 --- a/device-common.mk
 +++ b/device-common.mk
-@@ -842,20 +842,22 @@ endif
+@@ -844,20 +844,22 @@ endif
  
  PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -810,7 +771,7 @@ index 7ce2754a7705006747d56ebe2db6ce51dcb1b94d..9ba60c459a83aa41ebe1c9856db106c9
  PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
  # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
 
-commit 16eec8c3657f210e602ef132b93d87f74a1fc8b6
+commit 2207b578b1fdabb8ca732e0869d2d904a6be6fa3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:48:10-0500
 
@@ -851,7 +812,7 @@ index 6d588cc07e5defbc5db4cfb6388116de74386787..0a747336044e7755a130a797c67c8d7a
  
  # Testing related defines
 
-commit f933a96b3bc88e65532984702ea416b73fceabab (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit a38f3d59397c9601ef4ad62a6e35e045a3e6bf19 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 

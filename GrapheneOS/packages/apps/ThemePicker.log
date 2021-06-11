@@ -1,4 +1,4 @@
-commit 1fc3c926e2c6f206de7b7411f647fb3d3546e924
+commit 4f944bd8988b796ca377835f86037e96335b9fc5
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 21:14:29+0100
 
@@ -70,7 +70,7 @@ index 0000000000000000000000000000000000000000..a61cd419139f6849d085fc5c75bc1ee1
 +    </privapp-permissions>
 +</permissions>
 
-commit 2a8d6aae9b61fbd527f869b3ea3974271f55f24e
+commit 4fcc112ffe21a9d753bbbbe49d37ce78554acbd7
 Author: LuK1337 <priv.luk@gmail.com>
 Date:   Tue 2020-09-15 03:27:19+0200
 
@@ -165,7 +165,7 @@ index 0000000000000000000000000000000000000000..41b23ce171fce5bc63a38aed0c4570ce
 +    </exception>
 +</exceptions>
 
-commit 8fed083baeecf3a2a1c86ea19394023c2b9954ef
+commit 0234607e43e9a8756095b11866ad177105811cb0
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:08+0100
 
@@ -205,7 +205,7 @@ index 1bcacab42ba463163e59f2063d174c187b8ef1bc..6ef8930130f26ba41ffd7843da8b484e
          android:supportsRtl="true"
          android:name="com.android.customization.picker.CustomizationPickerApplication"
 
-commit 2e09fc52980c1b9e11940a67a4ff951464829a00
+commit a824028c055a706ea14a328e5111e8a5ae533d13
 Author: Demon000 <demonsingur@gmail.com>
 Date:   Wed 2019-11-20 19:35:20+0100
 
@@ -272,7 +272,7 @@ index f93b89203abfbd73f9d1ba9f6f5cdc52bdc020ad..f32fd547ccd79a8064833cbf8d5db790
                              .getApplicationInfo(packageName, /* flag= */ 0);
                      name = mContext.getPackageManager().getApplicationLabel(appInfo);
 
-commit d4d9af4c1f35d20df46f026d5a1778d2180db180
+commit cd83b4027923e92dfa19d77cb37ae9a232b2ed49
 Author: El Dainosor <eldainosor@gmail.com>
 Date:   Mon 2019-12-09 07:13:33+0100
 
@@ -414,7 +414,7 @@ index 5922f5cb38976d6967eec3e9059909adf5193c79..327ff6591881a338b6748586670e7dfc
              }
          }
 
-commit c1201e6af23a7e308815f0fedb872db5531f5f2c
+commit 1b3d423d8183cb95ca9be5bc89b34ed8a0cf7315
 Author: Marc K <morckx@gmail.com>
 Date:   Fri 2020-04-24 13:37:14+0200
 
@@ -523,7 +523,7 @@ index c746aaf88b0a57966098ca41dc28c010dcb05860..6d5850353cac27f94292aa10fcf60297
      public void setAlpha(int alpha) {
          mPaint.setAlpha(alpha);
 
-commit 8634e65024007e97fe26226abb9ea3b7714abf60
+commit ce0c23f8b5466388fdf7eb15fe513633d03ffc6b
 Author: LuK1337 <priv.luk@gmail.com>
 Date:   Tue 2020-09-15 12:04:54+0200
 
@@ -591,7 +591,7 @@ index b4e19716e02c5b423f5466f7c62bdd6dcda1f569..09480128a3755805991949ca20fcff93
          <item name="itemTextColor">@color/bottom_nav_item_color</item>
          <item name="itemTextAppearanceActive">@style/BottomNavTextAppearanceActive</item>
 
-commit a9305bbf93b1d4d847588db9901fee66fb709c0c
+commit c31887fd0b4aa94e64b2cba552b3b883f3308d79
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2020-11-03 11:38:07-0800
 
@@ -687,7 +687,7 @@ index f7b669b1f4250afffaf44a59cc7746930ffefc44..1457d541747697e2d49dbe96a578db69
          if (!optionsByPrefix.containsKey(prefix)) {
              option = new IconOption();
 
-commit d554d3118ea6d264c2313b73465eb445fd03dda2
+commit 7f7695239538be4a3536198c4b07ff39fe2b9e54
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2020-11-03 22:33:25-0800
 
@@ -723,7 +723,7 @@ index 532e9044625a6ae0d7f0335fa2cd3546e74ba3b5..28dffd35c083c4da60147ecfea13da40
      </androidx.constraintlayout.widget.ConstraintLayout>
  </LinearLayout>
 
-commit 62ae19c730f533227eccafdd7cb45c91d98933d2
+commit 8506a68f544fae9300229ac0489afb7f1664fe7d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2020-11-04 01:27:52-0800
 
@@ -761,7 +761,7 @@ index a61cd419139f6849d085fc5c75bc1ee11c7dba59..abcec3dde9ea37697be6c4c6db2e8e9e
      </privapp-permissions>
  </permissions>
 
-commit 822b5a9286bf306895997230a1679f26784e7d29
+commit bd4464615ccd99de2cd924d3be49a8f432e9bede
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sat 2021-04-17 15:28:59+0100
 
@@ -802,7 +802,7 @@ index a070dbec1a8ae45b6f5dacadd5e4bed37ac69d2b..42bc4cff144ddc31f75f2843bd39a749
      </array>
  </resources>
 
-commit 7b9198042a8e5d98f6e2330b55ddaf06e39e0b6d (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit 9deebd59abcf50ff3683dbd45747cd6ec073143b (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-04-30 19:33:27+0000
 

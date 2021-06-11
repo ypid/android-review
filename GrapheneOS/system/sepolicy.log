@@ -1,4 +1,4 @@
-commit aa4892fcdaa904c8ca23cb25cd01aa28ac7296eb
+commit 127c4624bf2c22e0bd4f77198527acec802bcab3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-09-14 23:59:13-0400
 
@@ -61,7 +61,7 @@ index a8c61be8ffdaa9ae1adc5b3a7c29365fc2872430..25e450d4f091027ba4283638497bd0da
  user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit 2a2ebd47ad5dd9b80ab2a7de9c7d07803e82c132
+commit 2808aca669eb9a1a21b8a522142c679db3a3131b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-17 18:14:24-0500
 
@@ -72,10 +72,11 @@ Date:   Fri 2017-02-17 18:14:24-0500
  2 files changed, 2 insertions(+)
 
 diff --git a/prebuilts/api/30.0/private/property_contexts b/prebuilts/api/30.0/private/property_contexts
-index 7908bb1071a9ae9419ca339a44353d6331f4fb0e..fcad29e2afc0b868574870d1a85b98e5751a67a4 100644
+index a4fab1f228f342ae5baa6caf709723caa4e9e2f4..f6870d79b420f4f30cacdf5196295ecc5fd2cbf0 100644
 --- a/prebuilts/api/30.0/private/property_contexts
 +++ b/prebuilts/api/30.0/private/property_contexts
-@@ -42,20 +42,21 @@ llk.                    u:object_r:llkd_prop:s0
+@@ -41,20 +41,21 @@ init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
+ llk.                    u:object_r:llkd_prop:s0
  khungtask.              u:object_r:llkd_prop:s0
  ro.llk.                 u:object_r:llkd_prop:s0
  ro.khungtask.           u:object_r:llkd_prop:s0
@@ -85,7 +86,6 @@ index 7908bb1071a9ae9419ca339a44353d6331f4fb0e..fcad29e2afc0b868574870d1a85b98e5
  log.tag.WifiHAL         u:object_r:wifi_log_prop:s0
  security.perf_harden    u:object_r:shell_prop:s0
  service.adb.root        u:object_r:shell_prop:s0
- service.adb.tcp.port    u:object_r:shell_prop:s0
 +sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
  persist.adb.wifi.       u:object_r:adbd_prop:s0
@@ -98,10 +98,11 @@ index 7908bb1071a9ae9419ca339a44353d6331f4fb0e..fcad29e2afc0b868574870d1a85b98e5
  persist.logd.           u:object_r:logd_prop:s0
  ro.logd.                u:object_r:logd_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index 7908bb1071a9ae9419ca339a44353d6331f4fb0e..fcad29e2afc0b868574870d1a85b98e5751a67a4 100644
+index a4fab1f228f342ae5baa6caf709723caa4e9e2f4..f6870d79b420f4f30cacdf5196295ecc5fd2cbf0 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
-@@ -42,20 +42,21 @@ llk.                    u:object_r:llkd_prop:s0
+@@ -41,20 +41,21 @@ init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
+ llk.                    u:object_r:llkd_prop:s0
  khungtask.              u:object_r:llkd_prop:s0
  ro.llk.                 u:object_r:llkd_prop:s0
  ro.khungtask.           u:object_r:llkd_prop:s0
@@ -111,7 +112,6 @@ index 7908bb1071a9ae9419ca339a44353d6331f4fb0e..fcad29e2afc0b868574870d1a85b98e5
  log.tag.WifiHAL         u:object_r:wifi_log_prop:s0
  security.perf_harden    u:object_r:shell_prop:s0
  service.adb.root        u:object_r:shell_prop:s0
- service.adb.tcp.port    u:object_r:shell_prop:s0
 +sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
  persist.adb.wifi.       u:object_r:adbd_prop:s0
@@ -124,7 +124,7 @@ index 7908bb1071a9ae9419ca339a44353d6331f4fb0e..fcad29e2afc0b868574870d1a85b98e5
  persist.logd.           u:object_r:logd_prop:s0
  ro.logd.                u:object_r:logd_prop:s0
 
-commit f87aa7a7e6e763f7c05de5575062e9e881ca0fef
+commit 1476e1b2a037ba1399884f840db9309ed0ff8fd7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 00:08:40-0400
 
@@ -172,10 +172,10 @@ index 11571870070ada8e03dc771ed4366a4bfb550a80..32980b354b0f6b2adf0d25f3b9d21d32
    -user_profile_data_file   # Access to profile files
    userdebug_or_eng(`
 diff --git a/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
-index fdea691eac39a0b023c61403777e62b10e0878f0..730695e8e4d2323b601d6b13503b0bfcf0585ad8 100644
+index e4aaef5f48c9c18a689ba2053e3c526cc496df92..3ccfed3a0811e78f2c574afbdb710ae6e8be72ea 100644
 --- a/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
 +++ b/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
-@@ -106,20 +106,21 @@
+@@ -108,20 +108,21 @@
      system_group_file
      system_jvmti_agent_prop
      system_passwd_file
@@ -308,10 +308,10 @@ index 11571870070ada8e03dc771ed4366a4bfb550a80..32980b354b0f6b2adf0d25f3b9d21d32
    -user_profile_data_file   # Access to profile files
    userdebug_or_eng(`
 diff --git a/private/compat/29.0/29.0.ignore.cil b/private/compat/29.0/29.0.ignore.cil
-index fdea691eac39a0b023c61403777e62b10e0878f0..730695e8e4d2323b601d6b13503b0bfcf0585ad8 100644
+index e4aaef5f48c9c18a689ba2053e3c526cc496df92..3ccfed3a0811e78f2c574afbdb710ae6e8be72ea 100644
 --- a/private/compat/29.0/29.0.ignore.cil
 +++ b/private/compat/29.0/29.0.ignore.cil
-@@ -106,20 +106,21 @@
+@@ -108,20 +108,21 @@
      system_group_file
      system_jvmti_agent_prop
      system_passwd_file
@@ -417,7 +417,7 @@ index 0000000000000000000000000000000000000000..97a850ba19008bf220eb55c09bacf86f
 +
 +type updater_app, domain;
 
-commit a4b57d5fd47792c5d5039ce769794fdc1f72051d
+commit d09a85c0d7023368302079b0520f97d1d690f2fb
 Author: aeonsolution@protonmail.com <theaeonsolution@protonmail.com>
 Date:   Mon 2020-09-14 23:37:37-0500
 
@@ -482,7 +482,7 @@ index 3beec38e02742a98dd8f0e8e71ef3093ba8887a6..3d4aa764a6bc089dfb6eeb3f6df5a053
  allow platform_app stats_service:service_manager find;
  
 
-commit 86b6aa3b8665c405750c974f05f3dd894272bc59
+commit 8f5a8a493ce2e2403c0e8ed7735ef54e66c2c39d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-09-14 22:12:24-0700
 
@@ -798,10 +798,10 @@ index 5231498e18aa4735e3342650ca578812b90492a5..03f98bbf9a7f04d042e1b4bd8e9d4132
  (typeattributeset proc_hung_task_29_0 (proc_hung_task))
  (typeattributeset proc_interrupts_29_0 (proc_interrupts))
 diff --git a/prebuilts/api/30.0/private/genfs_contexts b/prebuilts/api/30.0/private/genfs_contexts
-index 89232bc01ece0b0309abe0bd325a8b56f8eb0aaf..fef5641be817e3788facbcdc520a067d6a009cbc 100644
+index d05e907c4dc62c69648e10630fc8b18627ec2cb3..c7adb845019ba16ae94f6de8d4bab50d94dd2767 100644
 --- a/prebuilts/api/30.0/private/genfs_contexts
 +++ b/prebuilts/api/30.0/private/genfs_contexts
-@@ -35,20 +35,21 @@ genfscon proc /swaps u:object_r:proc_swaps:s0
+@@ -36,20 +36,21 @@ genfscon proc /swaps u:object_r:proc_swaps:s0
  genfscon proc /sysrq-trigger u:object_r:proc_sysrq:s0
  genfscon proc /kpageflags u:object_r:proc_kpageflags:s0
  genfscon proc /sys/abi/swp u:object_r:proc_abi:s0
@@ -824,10 +824,10 @@ index 89232bc01ece0b0309abe0bd325a8b56f8eb0aaf..fef5641be817e3788facbcdc520a067d
  genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
  genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
 diff --git a/prebuilts/api/30.0/private/property_contexts b/prebuilts/api/30.0/private/property_contexts
-index fcad29e2afc0b868574870d1a85b98e5751a67a4..4bce9ecbd97d4f22574aaceccc483359a70ecd8c 100644
+index f6870d79b420f4f30cacdf5196295ecc5fd2cbf0..c65ceede41b4d2bc394c50c1e151f3d43a0b77af 100644
 --- a/prebuilts/api/30.0/private/property_contexts
 +++ b/prebuilts/api/30.0/private/property_contexts
-@@ -91,20 +91,22 @@ ro.bt.                  u:object_r:bluetooth_prop:s0
+@@ -90,20 +90,22 @@ ro.bt.                  u:object_r:bluetooth_prop:s0
  ro.boot.bootreason      u:object_r:bootloader_boot_reason_prop:s0
  persist.sys.boot.reason u:object_r:last_boot_reason_prop:s0
  sys.boot.reason         u:object_r:system_boot_reason_prop:s0
@@ -843,15 +843,15 @@ index fcad29e2afc0b868574870d1a85b98e5751a67a4..4bce9ecbd97d4f22574aaceccc483359
  # Fastbootd protocol control property
  fastbootd.protocol    u:object_r:fastbootd_protocol_prop:s0 exact enum usb tcp
  
+ # adbd protoctl configuration property
+ service.adb.tcp.port    u:object_r:adbd_config_prop:s0 exact int
+ 
  # Boolean property set by system server upon boot indicating
  # if device is fully owned by organization instead of being
  # a personal device.
  ro.organization_owned   u:object_r:device_logging_prop:s0
- 
- # selinux non-persistent properties
- selinux.restorecon_recursive   u:object_r:restorecon_prop:s0
 diff --git a/prebuilts/api/30.0/public/file.te b/prebuilts/api/30.0/public/file.te
-index 91257e237614f98025a821d9d70799f3a4f7ef9b..5750df1c437568a7e776d853501f02c04de18ecd 100644
+index 7ed8baab6b3459166492385de8bc4480f89f97ed..978ce5fcc1838052744e7c52663927a50833865d 100644
 --- a/prebuilts/api/30.0/public/file.te
 +++ b/prebuilts/api/30.0/public/file.te
 @@ -17,20 +17,21 @@ type proc_kpageflags, fs_type, proc_type;
@@ -1051,10 +1051,10 @@ index 5231498e18aa4735e3342650ca578812b90492a5..03f98bbf9a7f04d042e1b4bd8e9d4132
  (typeattributeset proc_hung_task_29_0 (proc_hung_task))
  (typeattributeset proc_interrupts_29_0 (proc_interrupts))
 diff --git a/private/genfs_contexts b/private/genfs_contexts
-index 89232bc01ece0b0309abe0bd325a8b56f8eb0aaf..fef5641be817e3788facbcdc520a067d6a009cbc 100644
+index d05e907c4dc62c69648e10630fc8b18627ec2cb3..c7adb845019ba16ae94f6de8d4bab50d94dd2767 100644
 --- a/private/genfs_contexts
 +++ b/private/genfs_contexts
-@@ -35,20 +35,21 @@ genfscon proc /swaps u:object_r:proc_swaps:s0
+@@ -36,20 +36,21 @@ genfscon proc /swaps u:object_r:proc_swaps:s0
  genfscon proc /sysrq-trigger u:object_r:proc_sysrq:s0
  genfscon proc /kpageflags u:object_r:proc_kpageflags:s0
  genfscon proc /sys/abi/swp u:object_r:proc_abi:s0
@@ -1077,10 +1077,10 @@ index 89232bc01ece0b0309abe0bd325a8b56f8eb0aaf..fef5641be817e3788facbcdc520a067d
  genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
  genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index fcad29e2afc0b868574870d1a85b98e5751a67a4..4bce9ecbd97d4f22574aaceccc483359a70ecd8c 100644
+index f6870d79b420f4f30cacdf5196295ecc5fd2cbf0..c65ceede41b4d2bc394c50c1e151f3d43a0b77af 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
-@@ -91,20 +91,22 @@ ro.bt.                  u:object_r:bluetooth_prop:s0
+@@ -90,20 +90,22 @@ ro.bt.                  u:object_r:bluetooth_prop:s0
  ro.boot.bootreason      u:object_r:bootloader_boot_reason_prop:s0
  persist.sys.boot.reason u:object_r:last_boot_reason_prop:s0
  sys.boot.reason         u:object_r:system_boot_reason_prop:s0
@@ -1096,15 +1096,15 @@ index fcad29e2afc0b868574870d1a85b98e5751a67a4..4bce9ecbd97d4f22574aaceccc483359
  # Fastbootd protocol control property
  fastbootd.protocol    u:object_r:fastbootd_protocol_prop:s0 exact enum usb tcp
  
+ # adbd protoctl configuration property
+ service.adb.tcp.port    u:object_r:adbd_config_prop:s0 exact int
+ 
  # Boolean property set by system server upon boot indicating
  # if device is fully owned by organization instead of being
  # a personal device.
  ro.organization_owned   u:object_r:device_logging_prop:s0
- 
- # selinux non-persistent properties
- selinux.restorecon_recursive   u:object_r:restorecon_prop:s0
 diff --git a/public/file.te b/public/file.te
-index 91257e237614f98025a821d9d70799f3a4f7ef9b..5750df1c437568a7e776d853501f02c04de18ecd 100644
+index 7ed8baab6b3459166492385de8bc4480f89f97ed..978ce5fcc1838052744e7c52663927a50833865d 100644
 --- a/public/file.te
 +++ b/public/file.te
 @@ -17,20 +17,21 @@ type proc_kpageflags, fs_type, proc_type;
@@ -1156,7 +1156,7 @@ index cc51a2b72d88ef50dda08c4bb72adba6d232308a..97f93ec7a5e5250e486c39b9cda562e3
    proc_panic
    proc_page_cluster
 
-commit 246e60786bb691eb9cf691a0f3d2cc2443c6b79b
+commit 2dba5139f82f302d8b770be8fcdfc2abe8157cc7
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-09-15 22:44:40-0700
 
@@ -1167,11 +1167,11 @@ Date:   Tue 2020-09-15 22:44:40-0700
  2 files changed, 2 insertions(+)
 
 diff --git a/prebuilts/api/30.0/private/property_contexts b/prebuilts/api/30.0/private/property_contexts
-index 4bce9ecbd97d4f22574aaceccc483359a70ecd8c..556b67536481e75f2118454daa24165aa5eb183b 100644
+index c65ceede41b4d2bc394c50c1e151f3d43a0b77af..4281bfd9d5affe26c9d575f70f8eb4b7998a55cb 100644
 --- a/prebuilts/api/30.0/private/property_contexts
 +++ b/prebuilts/api/30.0/private/property_contexts
-@@ -51,20 +51,21 @@ service.adb.root        u:object_r:shell_prop:s0
- service.adb.tcp.port    u:object_r:shell_prop:s0
+@@ -50,20 +50,21 @@ security.perf_harden    u:object_r:shell_prop:s0
+ service.adb.root        u:object_r:shell_prop:s0
  sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
  persist.adb.wifi.       u:object_r:adbd_prop:s0
@@ -1193,11 +1193,11 @@ index 4bce9ecbd97d4f22574aaceccc483359a70ecd8c..556b67536481e75f2118454daa24165a
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
  persist.sys.            u:object_r:system_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index 4bce9ecbd97d4f22574aaceccc483359a70ecd8c..556b67536481e75f2118454daa24165aa5eb183b 100644
+index c65ceede41b4d2bc394c50c1e151f3d43a0b77af..4281bfd9d5affe26c9d575f70f8eb4b7998a55cb 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
-@@ -51,20 +51,21 @@ service.adb.root        u:object_r:shell_prop:s0
- service.adb.tcp.port    u:object_r:shell_prop:s0
+@@ -50,20 +50,21 @@ security.perf_harden    u:object_r:shell_prop:s0
+ service.adb.root        u:object_r:shell_prop:s0
  sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
  persist.adb.wifi.       u:object_r:adbd_prop:s0
@@ -1219,7 +1219,7 @@ index 4bce9ecbd97d4f22574aaceccc483359a70ecd8c..556b67536481e75f2118454daa24165a
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
  persist.sys.            u:object_r:system_prop:s0
 
-commit cd316a5ae5e5c5eeb883567917bea7bb03d926d8
+commit 8876cf86e1c860d4f3835b162bbe86a820f0d227
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-07-18 21:21:40-0400
 
@@ -1234,10 +1234,10 @@ Date:   Thu 2019-07-18 21:21:40-0400
  2 files changed, 4 insertions(+)
 
 diff --git a/prebuilts/api/30.0/private/genfs_contexts b/prebuilts/api/30.0/private/genfs_contexts
-index fef5641be817e3788facbcdc520a067d6a009cbc..5200452fe300820f9d8d921cb5cae9a24f63b76b 100644
+index c7adb845019ba16ae94f6de8d4bab50d94dd2767..04b667dd2acc5567105c7ae8d5497ccdc7d31acd 100644
 --- a/prebuilts/api/30.0/private/genfs_contexts
 +++ b/prebuilts/api/30.0/private/genfs_contexts
-@@ -29,21 +29,23 @@ genfscon proc /pressure/cpu u:object_r:proc_pressure_cpu:s0
+@@ -30,21 +30,23 @@ genfscon proc /pressure/cpu u:object_r:proc_pressure_cpu:s0
  genfscon proc /pressure/io u:object_r:proc_pressure_io:s0
  genfscon proc /pressure/memory u:object_r:proc_pressure_mem:s0
  genfscon proc /slabinfo u:object_r:proc_slabinfo:s0
@@ -1262,10 +1262,10 @@ index fef5641be817e3788facbcdc520a067d6a009cbc..5200452fe300820f9d8d921cb5cae9a2
  genfscon proc /sys/kernel/hostname u:object_r:proc_hostname:s0
  genfscon proc /sys/kernel/hotplug u:object_r:usermodehelper:s0
 diff --git a/private/genfs_contexts b/private/genfs_contexts
-index fef5641be817e3788facbcdc520a067d6a009cbc..5200452fe300820f9d8d921cb5cae9a24f63b76b 100644
+index c7adb845019ba16ae94f6de8d4bab50d94dd2767..04b667dd2acc5567105c7ae8d5497ccdc7d31acd 100644
 --- a/private/genfs_contexts
 +++ b/private/genfs_contexts
-@@ -29,21 +29,23 @@ genfscon proc /pressure/cpu u:object_r:proc_pressure_cpu:s0
+@@ -30,21 +30,23 @@ genfscon proc /pressure/cpu u:object_r:proc_pressure_cpu:s0
  genfscon proc /pressure/io u:object_r:proc_pressure_io:s0
  genfscon proc /pressure/memory u:object_r:proc_pressure_mem:s0
  genfscon proc /slabinfo u:object_r:proc_slabinfo:s0
@@ -1290,7 +1290,7 @@ index fef5641be817e3788facbcdc520a067d6a009cbc..5200452fe300820f9d8d921cb5cae9a2
  genfscon proc /sys/kernel/hostname u:object_r:proc_hostname:s0
  genfscon proc /sys/kernel/hotplug u:object_r:usermodehelper:s0
 
-commit 33c4aebef32468007d83baaf1d7271f0943613ad
+commit 57fe7c8d1410702d0559b728786a277482eb521d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-13 22:56:27-0400
 
@@ -1405,7 +1405,7 @@ index ba54b70acad2b89a5cbe4e0610d585ce7154555f..00000000000000000000000000000000
 -# is wiped, but preloads_copy.sh still runs.
 -dontaudit preloads_copy postinstall_mnt_dir:dir search;
 
-commit 335f8308a624400a84f61523f114e0494b1e83fa
+commit 30d96cb1732bd901753511daea6004b0423226d0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:14:26-0400
 
@@ -1418,7 +1418,7 @@ Date:   Sun 2019-05-05 08:14:26-0400
  2 files changed, 22 deletions(-)
 
 diff --git a/prebuilts/api/30.0/private/priv_app.te b/prebuilts/api/30.0/private/priv_app.te
-index 44c81ee8020c252d242f35d64e47b5ead1f32452..4413852c8e10d01f68e58c9571a8445dad1b92ec 100644
+index c5f7013caebef38559f341d23973853dc70d87e0..e4189733444e7354c2ddfbcdfe16b09c5cca88b7 100644
 --- a/prebuilts/api/30.0/private/priv_app.te
 +++ b/prebuilts/api/30.0/private/priv_app.te
 @@ -7,31 +7,20 @@ app_domain(priv_app)
@@ -1443,18 +1443,18 @@ index 44c81ee8020c252d242f35d64e47b5ead1f32452..4413852c8e10d01f68e58c9571a8445d
 -# TODO: Tighten (b/112357170)
 -allow priv_app privapp_data_file:file execute;
 -
+ # Chrome Crashpad uses the the dynamic linker to load native executables
+ # from an APK (b/112050209, crbug.com/928422)
+ allow priv_app system_linker_exec:file execute_no_trans;
+ 
  allow priv_app privapp_data_file:lnk_file create_file_perms;
  
  # Priv apps can find services that expose both @SystemAPI and normal APIs.
  allow priv_app app_api_service:service_manager find;
  allow priv_app system_api_service:service_manager find;
  
- allow priv_app audioserver_service:service_manager find;
- allow priv_app cameraserver_service:service_manager find;
- allow priv_app drmserver_service:service_manager find;
- allow priv_app mediadrmserver_service:service_manager find;
 diff --git a/private/priv_app.te b/private/priv_app.te
-index 44c81ee8020c252d242f35d64e47b5ead1f32452..4413852c8e10d01f68e58c9571a8445dad1b92ec 100644
+index c5f7013caebef38559f341d23973853dc70d87e0..e4189733444e7354c2ddfbcdfe16b09c5cca88b7 100644
 --- a/private/priv_app.te
 +++ b/private/priv_app.te
 @@ -7,31 +7,20 @@ app_domain(priv_app)
@@ -1479,18 +1479,18 @@ index 44c81ee8020c252d242f35d64e47b5ead1f32452..4413852c8e10d01f68e58c9571a8445d
 -# TODO: Tighten (b/112357170)
 -allow priv_app privapp_data_file:file execute;
 -
+ # Chrome Crashpad uses the the dynamic linker to load native executables
+ # from an APK (b/112050209, crbug.com/928422)
+ allow priv_app system_linker_exec:file execute_no_trans;
+ 
  allow priv_app privapp_data_file:lnk_file create_file_perms;
  
  # Priv apps can find services that expose both @SystemAPI and normal APIs.
  allow priv_app app_api_service:service_manager find;
  allow priv_app system_api_service:service_manager find;
  
- allow priv_app audioserver_service:service_manager find;
- allow priv_app cameraserver_service:service_manager find;
- allow priv_app drmserver_service:service_manager find;
- allow priv_app mediadrmserver_service:service_manager find;
 
-commit 7264bc3d6913432925ea5973e8cb1284d31c77fa
+commit d8c7ec2c2479c2d5ef89cb03f6a6760641990279
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:17:31-0400
 
@@ -1551,7 +1551,7 @@ index 7ea23e1c3aa0a10f645074caefdd8455c26458d9..96c4e6c510bc8ef3098ccf31fe00dd83
  set_prop(healthd, exported2_system_prop)
  set_prop(healthd, exported3_system_prop)
 
-commit 47df6d33dc886bcebdaffb4b6718ce5c47be79b9
+commit 9976757fcbf760d21aa677b3948464f6d98972af
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:20:43-0400
 
@@ -1618,7 +1618,7 @@ index e5b9fd670024740fc3d5158d0a7e77c49f751f14..c809b0a8b2ed30752bf82c24adb06e45
  allow appdomain zygote_exec:file rx_file_perms;
  
 
-commit 6d4952960ad22ae05d9e83cf269a9d298a24ec38
+commit df94774b75acb47fb035dc24af963cc987a08d9a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:21:01-0400
 
@@ -1685,7 +1685,7 @@ index c809b0a8b2ed30752bf82c24adb06e4560333c2f..0925233f43753268e11e17aab13f6af5
  # Notify zygote of death;
  allow appdomain zygote:process sigchld;
 
-commit 6a6a1a66c276fc2e1e4f9caf1c50f03c962dcab3
+commit f500dc01d468c0ff6dab5c5e914bd45fc9c922f6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-10-22 23:39:34-0400
 
@@ -1864,7 +1864,7 @@ index fa9388cc4f394a7bf5d8a77dc078b1a84e321691..35fed80028bf8b359f36c405c7176d5c
 +user=_app seinfo=base fromRunAs=true domain=runas_app levelFrom=user
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit 1dc0915821940991c75efee65b12893fa7ae6598
+commit 43569f5231228fbd81d01535b0ab02d6854cccb8
 Author: Renlord <me@renlord.com>
 Date:   Sat 2020-02-22 02:04:41+1100
 
@@ -2118,10 +2118,10 @@ index d24d12d257354ca3cb412574970e8a09623b53d0..4bd643e614bd10128b67638341ed6cfd
      vendor_task_profiles_file
      vndk_prop
 diff --git a/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
-index 730695e8e4d2323b601d6b13503b0bfcf0585ad8..caf2830723979262eb285dc0bf994ab4113108ee 100644
+index 3ccfed3a0811e78f2c574afbdb710ae6e8be72ea..b9c561d86e179686044cf20c382bf490221976c2 100644
 --- a/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
 +++ b/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
-@@ -114,18 +114,22 @@
+@@ -116,18 +116,22 @@
      timezonedetector_service
      untrusted_app_29
      updater_app
@@ -2686,10 +2686,10 @@ index d24d12d257354ca3cb412574970e8a09623b53d0..4bd643e614bd10128b67638341ed6cfd
      vendor_task_profiles_file
      vndk_prop
 diff --git a/private/compat/29.0/29.0.ignore.cil b/private/compat/29.0/29.0.ignore.cil
-index 730695e8e4d2323b601d6b13503b0bfcf0585ad8..caf2830723979262eb285dc0bf994ab4113108ee 100644
+index 3ccfed3a0811e78f2c574afbdb710ae6e8be72ea..b9c561d86e179686044cf20c382bf490221976c2 100644
 --- a/private/compat/29.0/29.0.ignore.cil
 +++ b/private/compat/29.0/29.0.ignore.cil
-@@ -114,18 +114,22 @@
+@@ -116,18 +116,22 @@
      timezonedetector_service
      untrusted_app_29
      updater_app
@@ -3070,7 +3070,7 @@ index cf1e85670568e1e1a4852628a7db120237af55c0..9fd8476bf2c5ce867c413065e8c1b085
          'vendor_init',
          }
 
-commit 193e0b10a3a844903cb61ac00f0ca302df0e0fea
+commit d5ffc237d94223ab08e6b6fb257fc7f081361ffb
 Author: Renlord <me@renlord.com>
 Date:   Sun 2020-02-23 22:41:07+1100
 
@@ -3280,10 +3280,10 @@ index 4bd643e614bd10128b67638341ed6cfdc3b13a9e..981a296b258817b3eb19092faeb2ae5b
      nnapi_ext_deny_product_prop
      overlayfs_file
 diff --git a/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
-index caf2830723979262eb285dc0bf994ab4113108ee..d71344739fdf07fb0e75af37a480ec3f650ca221 100644
+index b9c561d86e179686044cf20c382bf490221976c2..22a5c3533b0d7b2e47240b431752a55a9a97cc45 100644
 --- a/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
 +++ b/prebuilts/api/30.0/private/compat/29.0/29.0.ignore.cil
-@@ -65,20 +65,21 @@
+@@ -66,20 +66,21 @@
      init_perf_lsm_hooks_prop
      init_svc_debug_prop
      iorap_inode2filename
@@ -4321,10 +4321,10 @@ index 4bd643e614bd10128b67638341ed6cfdc3b13a9e..981a296b258817b3eb19092faeb2ae5b
      nnapi_ext_deny_product_prop
      overlayfs_file
 diff --git a/private/compat/29.0/29.0.ignore.cil b/private/compat/29.0/29.0.ignore.cil
-index caf2830723979262eb285dc0bf994ab4113108ee..d71344739fdf07fb0e75af37a480ec3f650ca221 100644
+index b9c561d86e179686044cf20c382bf490221976c2..22a5c3533b0d7b2e47240b431752a55a9a97cc45 100644
 --- a/private/compat/29.0/29.0.ignore.cil
 +++ b/private/compat/29.0/29.0.ignore.cil
-@@ -65,20 +65,21 @@
+@@ -66,20 +66,21 @@
      init_perf_lsm_hooks_prop
      init_svc_debug_prop
      iorap_inode2filename
@@ -5197,7 +5197,7 @@ index 0000000000000000000000000000000000000000..86740d042480b7f0c165b0e6f41cd0f1
 +
 +type isolated_base_app, domain;
 
-commit 254fbece2c987a130223a13b988a3bd005724e87
+commit 8541cfbd7d072ec7b7d9ea3c204a39663eabff8d
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:12:12+1100
 
@@ -5328,7 +5328,7 @@ index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d
  userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
  
 
-commit b15c81a9f661acf9e9eb22d0ac066791a3698cd1
+commit 6c662e788b9624069d9daf4f2a44bb8880e657de
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:17:45+1100
 
@@ -5713,7 +5713,7 @@ index 290292fa190d090f9ec8a414e680f80efd203458..559368149db0130e6518a980373ebb8d
  allow appdomain zygote_exec:file rx_file_perms;
  
 
-commit 1a6f4c5152976efca60f39f78be37bec043ab9d8
+commit 2b0dc4d4b62b76de8c7a49eaf3f742b7748768af
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 20:12:32-0500
 
@@ -5850,7 +5850,7 @@ index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf421
  auditallow untrusted_base_app_27 ashmem_device:chr_file open;
  
 
-commit 10e825f7dd8c4691ece5efd68894e3112217a306
+commit 1e389258207c1ebf9a8b5a6ff7acd505f00d1d54
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:30:48+1100
 
@@ -6153,7 +6153,7 @@ index d9fd5a12e0ffa74ee1e3e5c67b17203c2e43d05c..3bea704155ea3e615e3bde0e45238b9f
  allow untrusted_app_all app_data_file:{ lnk_file sock_file fifo_file } create_file_perms;
  
 
-commit f45dec695fb0c12f245da120a9b056d11f7e0b5f
+commit 4e7a2e04674001ce7d9d235a1dad5b31259bcfca
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-02-26 10:23:23+1100
 
@@ -6490,7 +6490,7 @@ index 559368149db0130e6518a980373ebb8df4f1a982..bb2d7cfd96f69e2ec852d7e733625c4e
  allow appdomain zygote:process sigchld;
  
 
-commit d78de60f554baad7ace9705bf3bbd140ae8b19af
+commit 207a9d6ae4f63a21b9c10e4d2a67c6e0a2e8965e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:14:36-0400
 
@@ -6553,7 +6553,7 @@ index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..c5e92f0491b08fe265668accd9ace6e7
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit 442317cc0f6387ce6afc1ac43b4e4480c8de0288
+commit 44659354a1f9cd8444ad580fbaedb7e863efdeb0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:34:49-0400
 
@@ -6888,7 +6888,7 @@ index c5e92f0491b08fe265668accd9ace6e7b9c2afed..773ef6d758ef14a687f919ff707e173e
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit 8424427f3b018d6aee5d62f8d7d952f489e0b196
+commit 6cf547ddaf12a7581661fdf68379212da75338e8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-02-29 11:03:35-0500
 
@@ -6960,7 +6960,7 @@ index bb2d7cfd96f69e2ec852d7e733625c4e1f7bbcdf..7cb5bac64194b9d01fe0c5ec8eed23ac
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit a98f22efdc36be863667dc3e3b17a4fdbf875fe1
+commit bd06d01ec43e84466df26156e905cc221bae62a9
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-02-27 20:37:55+1100
 
@@ -7297,7 +7297,7 @@ index 7cb5bac64194b9d01fe0c5ec8eed23ac2f2689f1..98f42478104289cbdaba7967b1edbea6
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit 4143431a28376d41d3cc19c42df41949f1d784d7
+commit e0170ad664f824a33ac8048ceeeef511c337e4e1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 06:41:22-0500
 
@@ -7480,7 +7480,7 @@ index 5f08f8d6b1d8d30ea8c7403ccc32b84c3765f770..cb54b14425e7a584994e24556fbad574
  
  # Allow apps access to /vendor/overlay
 
-commit d26d16c3403e737f62bd7b38ef7fdaf4043d4afa
+commit 94e2e86dc2e17d10b597aed5eb81c5c7059c4a93
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 18:29:13-0500
 
@@ -7621,7 +7621,7 @@ index 464c5854b8f3755b4b450a6a60cc8d2899657a8a..572c0127681f366afe0a9e05956dfd76
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit 00dda396c8b9c4e4864baa47b14b093fc5a705c6 (tag: RQ2A.210405.005.2021.04.05.20)
+commit ed27ea73e1ba90a002dc6200806bf3085a14bd64
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 
@@ -7698,10 +7698,10 @@ index 31db163c0ad5e794a46a61110406d118687a60c0..eeb8bb256d818bae1e1a2d006d935ccb
  user=shared_relro seinfo=base domain=shared_relro
  user=shared_relro domain=shared_relro
 diff --git a/prebuilts/api/30.0/private/system_server.te b/prebuilts/api/30.0/private/system_server.te
-index 213b3c80f2e19e84f7e9163389b18b7a21d75c7a..73596b89243cffcf233b1c2fff03ad6421b5a40f 100644
+index 3c1d192d7d2dcc31504e1b3fa055e8fcb0bc27ee..1433923a7bf663393d27287b2a0c6d283b1b9e4e 100644
 --- a/prebuilts/api/30.0/private/system_server.te
 +++ b/prebuilts/api/30.0/private/system_server.te
-@@ -1069,25 +1069,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
+@@ -1070,25 +1070,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
  # rendering via SwiftShader, which requires JIT support. These builds are
  # never shipped to users.
  ifelse(target_requires_insecure_execmem_for_swiftshader, `true',
@@ -7858,10 +7858,10 @@ index 31db163c0ad5e794a46a61110406d118687a60c0..eeb8bb256d818bae1e1a2d006d935ccb
  user=shared_relro seinfo=base domain=shared_relro
  user=shared_relro domain=shared_relro
 diff --git a/private/system_server.te b/private/system_server.te
-index 213b3c80f2e19e84f7e9163389b18b7a21d75c7a..73596b89243cffcf233b1c2fff03ad6421b5a40f 100644
+index 3c1d192d7d2dcc31504e1b3fa055e8fcb0bc27ee..1433923a7bf663393d27287b2a0c6d283b1b9e4e 100644
 --- a/private/system_server.te
 +++ b/private/system_server.te
-@@ -1069,25 +1069,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
+@@ -1070,25 +1070,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
  # rendering via SwiftShader, which requires JIT support. These builds are
  # never shipped to users.
  ifelse(target_requires_insecure_execmem_for_swiftshader, `true',
@@ -7965,7 +7965,7 @@ index cb54b14425e7a584994e24556fbad57405f5515c..84a68694e2f9f555b20bc3ca5b131803
  }:file no_x_file_perms;
  
 
-commit b2c6f6c81c918506258aa7a55594b352f1f8f2b3
+commit 91a8b3259e3bc56adc6d7c4d69a944cdb9ce1d06
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 02:26:20+0100
 
@@ -8006,10 +8006,10 @@ index bbad79ac32eb025e6b7951e429eac98b901c6b79..8b5a317a7187066238959ee03f6605d2
  # Limit ability to generate hardware unique device ID attestations to priv_apps
  neverallow { domain -priv_app -gmscore_app } *:keystore_key gen_unique_id;
 diff --git a/prebuilts/api/30.0/private/genfs_contexts b/prebuilts/api/30.0/private/genfs_contexts
-index 5200452fe300820f9d8d921cb5cae9a24f63b76b..3a8ce4ef6bb68bea496e3d6ea1f92c4df2563d0a 100644
+index 04b667dd2acc5567105c7ae8d5497ccdc7d31acd..94493b0159837f84f879450094fa2a2bc8341b27 100644
 --- a/prebuilts/api/30.0/private/genfs_contexts
 +++ b/prebuilts/api/30.0/private/genfs_contexts
-@@ -64,20 +64,21 @@ genfscon proc /sys/kernel/random u:object_r:proc_random:s0
+@@ -65,20 +65,21 @@ genfscon proc /sys/kernel/random u:object_r:proc_random:s0
  genfscon proc /sys/kernel/randomize_va_space u:object_r:proc_security:s0
  genfscon proc /sys/kernel/sched_child_runs_first u:object_r:proc_sched:s0
  genfscon proc /sys/kernel/sched_latency_ns u:object_r:proc_sched:s0
@@ -8086,10 +8086,10 @@ index bbad79ac32eb025e6b7951e429eac98b901c6b79..8b5a317a7187066238959ee03f6605d2
  # Limit ability to generate hardware unique device ID attestations to priv_apps
  neverallow { domain -priv_app -gmscore_app } *:keystore_key gen_unique_id;
 diff --git a/private/genfs_contexts b/private/genfs_contexts
-index 5200452fe300820f9d8d921cb5cae9a24f63b76b..3a8ce4ef6bb68bea496e3d6ea1f92c4df2563d0a 100644
+index 04b667dd2acc5567105c7ae8d5497ccdc7d31acd..94493b0159837f84f879450094fa2a2bc8341b27 100644
 --- a/private/genfs_contexts
 +++ b/private/genfs_contexts
-@@ -64,20 +64,21 @@ genfscon proc /sys/kernel/random u:object_r:proc_random:s0
+@@ -65,20 +65,21 @@ genfscon proc /sys/kernel/random u:object_r:proc_random:s0
  genfscon proc /sys/kernel/randomize_va_space u:object_r:proc_security:s0
  genfscon proc /sys/kernel/sched_child_runs_first u:object_r:proc_sched:s0
  genfscon proc /sys/kernel/sched_latency_ns u:object_r:proc_sched:s0
@@ -8140,7 +8140,7 @@ index 97f93ec7a5e5250e486c39b9cda562e3cbd866d5..72938eb4a9733faf7cd5770ae369dd5c
  # declarations.
  allow init fs_type:filesystem ~relabelto;
 
-commit a2cfb3f213c716c245f17fb600b33c051dd78fd5 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit 6be3bf0b6ccac4dcb34b5ac378e41961033ced01 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 02:27:06+0100
 
@@ -8151,10 +8151,10 @@ Date:   Mon 2021-04-05 02:27:06+0100
  2 files changed, 2 insertions(+)
 
 diff --git a/prebuilts/api/30.0/private/property_contexts b/prebuilts/api/30.0/private/property_contexts
-index 556b67536481e75f2118454daa24165aa5eb183b..3edea3196e522ce100c778325e7cd84705791fff 100644
+index 4281bfd9d5affe26c9d575f70f8eb4b7998a55cb..d0c2bb4b7116a39abe353284d72c1d409a2ea3da 100644
 --- a/prebuilts/api/30.0/private/property_contexts
 +++ b/prebuilts/api/30.0/private/property_contexts
-@@ -52,20 +52,21 @@ service.adb.tcp.port    u:object_r:shell_prop:s0
+@@ -51,20 +51,21 @@ service.adb.root        u:object_r:shell_prop:s0
  sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
  persist.adb.wifi.       u:object_r:adbd_prop:s0
@@ -8177,10 +8177,10 @@ index 556b67536481e75f2118454daa24165aa5eb183b..3edea3196e522ce100c778325e7cd847
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
  persist.sys.            u:object_r:system_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index 556b67536481e75f2118454daa24165aa5eb183b..3edea3196e522ce100c778325e7cd84705791fff 100644
+index 4281bfd9d5affe26c9d575f70f8eb4b7998a55cb..d0c2bb4b7116a39abe353284d72c1d409a2ea3da 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
-@@ -52,20 +52,21 @@ service.adb.tcp.port    u:object_r:shell_prop:s0
+@@ -51,20 +51,21 @@ service.adb.root        u:object_r:shell_prop:s0
  sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
  persist.adb.wifi.       u:object_r:adbd_prop:s0

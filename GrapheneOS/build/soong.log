@@ -1,4 +1,4 @@
-commit 6afc8053ddef43377b25ba72b490fa7a0492c5ab
+commit 7c87660739544e1ab3bef757dae869894c01cb2e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-08-23 20:28:03-0400
 
@@ -76,7 +76,7 @@ index 463a02ac2590c4fa71abe5989a52dfe28089cd5e..7c92b41dc69a092bc5535125ce47c56f
  
  		if ctx.Host() {
 
-commit b5d19540713d9d12918ffb2c4ce9fef8a382c404
+commit c6cabe5d59b0336012476df65e020b0f735e2564
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-04-23 16:34:04-0400
 
@@ -113,7 +113,7 @@ index c1c236b9d6f0bbbc95f7bed1f8c1889bd56ff73d..c2b21aaab1d7c478aad19383fe8140a3
      local TOPFILE=build/soong/root.bp
      if [ -n "${TOP-}" -a -f "${TOP-}/${TOPFILE}" ] ; then
 
-commit 5c98733ec964f2b99be2401b40f78a75a8b6a11c (HEAD, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit 4e6320c247b78f456a83a0393360e7be1105eb5a (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sun 2020-09-13 09:35:41+0000
 

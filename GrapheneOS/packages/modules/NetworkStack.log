@@ -1,4 +1,4 @@
-commit be65622e731651d75be9604de8ba2bdbd971b124
+commit 72e552b60b518a38b119aad64a0ce7a69e4f8fe4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:54:51-0500
 
@@ -8,7 +8,7 @@ Date:   Wed 2020-11-25 03:54:51-0500
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index d6a11abe196fa157b908a1ccd67f7c8de856032b..e3f07b317772fb77b1c82f9bda49f2131ca18d69 100644
+index d6a11abe196fa157b908a1ccd67f7c8de856032b..c86935f3b57116aad1e143d8ca40cabcf42c6d81 100644
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
 @@ -6,40 +6,40 @@
@@ -44,8 +44,8 @@ index d6a11abe196fa157b908a1ccd67f7c8de856032b..e3f07b317772fb77b1c82f9bda49f213
      <string-array name="default_captive_portal_fallback_urls" translatable="false">
 -        <item>http://www.google.com/gen_204</item>
 -        <item>http://play.googleapis.com/generate_204</item>
-+        <item>http://grapheneos.network/gen_204</item>
-+        <item>http://grapheneos.network/generate_204</item>
++        <item>http://grapheneos.online/gen_204</item>
++        <item>http://grapheneos.online/generate_204</item>
      </string-array>
      <!-- Configuration hooks for the above settings.
           Empty by default but may be overridden by RROs. -->
@@ -57,7 +57,7 @@ index d6a11abe196fa157b908a1ccd67f7c8de856032b..e3f07b317772fb77b1c82f9bda49f213
      <!-- Literal commas are not allowed in the url configuration because they
           are used as a separator internally. -->
 
-commit 7f0b7eedf88c4f181b79715ed4c523b76e026a88
+commit 12cffdd63f93ed7ed38b2caad4ad833b88857b1e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 06:30:31-0500
 
@@ -99,7 +99,7 @@ index 2863edd734c10b5325750152756ea4ee7d0fda76..00000000000000000000000000000000
 -    </string-array>
 -</resources>
 
-commit e310b12c3fd972cdf29d351f938ab7960bdf1fc2 (tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10)
+commit 6c36d8ee2825e6c82d57cee567bc7f3e6b24f353
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-12-28 20:57:14-0500
 
@@ -144,41 +144,130 @@ index 94de7c3979e56a40e8282a20c5729a276734673d..c73ca517032417e6548164c3af539811
      public static final String DHCP_INIT_REBOOT_ENABLED = "dhcp_init_reboot_enabled";
  
 
-commit 0c6b400093667f33208c42df59ff35df62cfbf39 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2021-05-03 16:55:15-0400
+commit 0989b644186518258298a02539ea649c138178c9 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+Author: Pratyush <39559233+empratyush@users.noreply.github.com>
+Date:   Thu 2021-05-20 13:21:31+0530
 
-    use grapheneos.online for captive portal fallbacks
+    avoid reusing DHCP state for full MAC randomization
 ---
- res/values/config.xml | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ src/android/net/dhcp/DhcpClient.java | 30 +++++++++++++++++++++++++++++-
+ 1 file changed, 29 insertions(+), 1 deletion(-)
 
-diff --git a/res/values/config.xml b/res/values/config.xml
-index e3f07b317772fb77b1c82f9bda49f2131ca18d69..c86935f3b57116aad1e143d8ca40cabcf42c6d81 100644
---- a/res/values/config.xml
-+++ b/res/values/config.xml
-@@ -24,22 +24,22 @@
-     <string name="default_captive_portal_https_url" translatable="false">https://connectivitycheck.grapheneos.network/generate_204</string>
+diff --git a/src/android/net/dhcp/DhcpClient.java b/src/android/net/dhcp/DhcpClient.java
+index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb91970fe1 100644
+--- a/src/android/net/dhcp/DhcpClient.java
++++ b/src/android/net/dhcp/DhcpClient.java
+@@ -67,20 +67,23 @@ import android.net.ipmemorystore.NetworkAttributes;
+ import android.net.ipmemorystore.OnNetworkAttributesRetrievedListener;
+ import android.net.ipmemorystore.OnStatusListener;
+ import android.net.metrics.DhcpClientEvent;
+ import android.net.metrics.DhcpErrorEvent;
+ import android.net.metrics.IpConnectivityLog;
+ import android.net.util.HostnameTransliterator;
+ import android.net.util.InterfaceParams;
+ import android.net.util.NetworkStackUtils;
+ import android.net.util.PacketReader;
+ import android.net.util.SocketUtils;
++import android.net.wifi.WifiConfiguration;
++import android.net.wifi.WifiInfo;
++import android.net.wifi.WifiManager;
+ import android.os.Build;
+ import android.os.Handler;
+ import android.os.Message;
+ import android.os.PowerManager;
+ import android.os.SystemClock;
+ import android.provider.Settings;
+ import android.stats.connectivity.DhcpFeature;
+ import android.system.ErrnoException;
+ import android.system.Os;
+ import android.util.EventLog;
+@@ -104,20 +107,22 @@ import com.android.networkstack.apishim.common.ShimUtils;
+ import com.android.networkstack.arp.ArpPacket;
+ import com.android.networkstack.metrics.IpProvisioningMetrics;
  
-     <!-- List of fallback URLs to use for detecting captive portals. -->
-     <!-- default_captive_portal_fallback_urls is not configured as overlayable
-          so OEMs that wish to change captive_portal_fallback_urls configuration
-          must do so via configuring runtime resource overlay to
-          config_captive_portal_fallback_urls and *NOT* by changing or overlaying
-          this resource. It will break if the enforcement of overlayable starts.
-          -->
-     <string-array name="default_captive_portal_fallback_urls" translatable="false">
--        <item>http://grapheneos.network/gen_204</item>
--        <item>http://grapheneos.network/generate_204</item>
-+        <item>http://grapheneos.online/gen_204</item>
-+        <item>http://grapheneos.online/generate_204</item>
-     </string-array>
-     <!-- Configuration hooks for the above settings.
-          Empty by default but may be overridden by RROs. -->
-     <integer name="config_captive_portal_dns_probe_timeout"></integer>
-     <!--suppress CheckTagEmptyBody: overlayable resource to use as configuration hook -->
-     <string name="config_captive_portal_http_url" translatable="false"></string>
-     <!--suppress CheckTagEmptyBody: overlayable resource to use as configuration hook -->
-     <string name="config_captive_portal_https_url" translatable="false"></string>
-     <!-- Literal commas are not allowed in the url configuration because they
-          are used as a separator internally. -->
+ import java.io.FileDescriptor;
+ import java.io.IOException;
+ import java.net.Inet4Address;
+ import java.net.SocketAddress;
+ import java.net.SocketException;
+ import java.nio.ByteBuffer;
+ import java.util.Arrays;
++import java.util.ArrayList;
++import java.util.List;
+ import java.util.Random;
+ 
+ /**
+  * A DHCPv4 client.
+  *
+  * Written to behave similarly to the DhcpStateMachine + dhcpcd 5.5.6 combination used in Android
+  * 5.1 and below, as configured on Nexus 6. The interface is the same as DhcpStateMachine.
+  *
+  * TODO:
+  *
+@@ -1191,21 +1196,21 @@ public class DhcpClient extends StateMachine {
+ 
+                 case EVENT_CONFIGURATION_OBTAINED:
+                     final long currentTime = System.currentTimeMillis();
+                     NetworkAttributes attributes = (NetworkAttributes) message.obj;
+                     if (DBG) {
+                         Log.d(TAG, "l2key: "         + mConfiguration.l2Key
+                                 + " lease address: " + attributes.assignedV4Address
+                                 + " lease expiry: "  + attributes.assignedV4AddressExpiry
+                                 + " current time: "  + currentTime);
+                     }
+-                    if (currentTime >= attributes.assignedV4AddressExpiry) {
++                    if (currentTime >= attributes.assignedV4AddressExpiry || shouldAvoidStateReuse()) {
+                         // Lease has expired.
+                         transitionTo(mDhcpInitState);
+                         return HANDLED;
+                     }
+                     mLastAssignedIpv4Address = attributes.assignedV4Address;
+                     mLastAssignedIpv4AddressExpiry = attributes.assignedV4AddressExpiry;
+                     transitionTo(mDhcpInitRebootState);
+                     return HANDLED;
+ 
+                 default:
+@@ -1216,20 +1221,43 @@ public class DhcpClient extends StateMachine {
+ 
+         @Override
+         public void exit() {
+             super.exit();
+             removeMessages(EVENT_CONFIGURATION_INVALID);
+             removeMessages(EVENT_CONFIGURATION_TIMEOUT);
+             removeMessages(EVENT_CONFIGURATION_OBTAINED);
+         }
+     }
+ 
++    private static final int RANDOMIZATION_ALWAYS = 100;
++
++    private boolean shouldAvoidStateReuse() {
++        try {
++            WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
++            WifiInfo wifiInfo =  wifiManager.getConnectionInfo();
++            if (wifiInfo != null) {
++                int connectedNetworkId = wifiInfo.getNetworkId();
++                List<WifiConfiguration> configurationList = wifiManager.getConfiguredNetworks();
++                for (WifiConfiguration configuration : configurationList){
++                    if (configuration.networkId == connectedNetworkId){
++                        return configuration.macRandomizationSetting == RANDOMIZATION_ALWAYS;
++                    }
++                }
++            }
++        } catch (Exception e) {
++            loge(e.getLocalizedMessage(), e);
++        }
++
++        loge("ConfiguredNetworks should contain Connected network id config");
++        return true;
++    }
++
+     private void receiveOfferOrAckPacket(final DhcpPacket packet, final boolean acceptRapidCommit) {
+         if (!isValidPacket(packet)) return;
+ 
+         // 1. received the DHCPOFFER packet, process it by following RFC2131.
+         // 2. received the DHCPACK packet from DHCP Servers that support Rapid
+         //    Commit option, process it by following RFC4039.
+         if (packet instanceof DhcpOfferPacket) {
+             mOffer = packet.toDhcpResults();
+             if (mOffer != null) {
+                 Log.d(TAG, "Got pending lease: " + mOffer);

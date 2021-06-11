@@ -1,4 +1,4 @@
-commit b72ecb66db056646543b8f033778668febdae9ac
+commit 731a9ef2f1b4a28632b4a8bab159d1d2843b1521
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2018-12-13 09:26:25-0500
 
@@ -8,7 +8,7 @@ Date:   Thu 2018-12-13 09:26:25-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index a9af0b094da4e7bbdde03fbe98ca200566e1289e..b1f554316023a574876293cf280deff18b1621fc 100644
+index a9af0b094da4e7bbdde03fbe98ca200566e1289e..9dd5444578199e1be0c5ffcc3239de333f54208a 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
 @@ -847,20 +847,22 @@ on boot
@@ -22,7 +22,7 @@ index a9af0b094da4e7bbdde03fbe98ca200566e1289e..b1f554316023a574876293cf280deff1
      chown root system /sys/block/zram0/writeback
      chmod 0664 /sys/block/zram0/writeback
  
-+    write /proc/sys/vm/max_map_count 524240
++    write /proc/sys/vm/max_map_count 1048576
 +
      # Tweak background writeout
      write /proc/sys/vm/dirty_expire_centisecs 200
@@ -35,7 +35,7 @@ index a9af0b094da4e7bbdde03fbe98ca200566e1289e..b1f554316023a574876293cf280deff1
      write /sys/fs/f2fs/${dev.mnt.blk.data}/cp_interval 200
      write /sys/fs/f2fs/${dev.mnt.blk.data}/gc_urgent_sleep_time 50
 
-commit d71bec7d36124458915472f228c940ae84562a20
+commit 3116c299ffb301a67023ddb4369c030abaad8f32
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:46:34-0500
 
@@ -84,7 +84,7 @@ index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bf
      CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
      CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
 
-commit 5a07b2cc27406965e44aebc7c8c5201be12fb5c5
+commit 1c2a540a3af0204088a8dc7f7616a28b8e8c219a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:41:57-0500
 
@@ -120,7 +120,7 @@ index 6cbe642c081b13c12d7d951b0620d2dcf52e4b89..82fc8ca6413cb55f1ea7ef53968cc649
  }
  
 
-commit 89e9762ca4ebce7c90f4cd53e0946fb64334f8be
+commit af343f08a6dc856ad9f518866302d94a3b967cf8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-06-15 17:51:42-0400
 
@@ -130,7 +130,7 @@ Date:   Wed 2016-06-15 17:51:42-0400
  1 file changed, 12 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index b1f554316023a574876293cf280deff18b1621fc..84fa56e5b2da2bd883d9a6216b4cc0bc34b81273 100644
+index 9dd5444578199e1be0c5ffcc3239de333f54208a..7ef43016e86db545c9cb076fc311f981f4894df2 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
 @@ -989,20 +989,32 @@ on property:sys.boot_completed=1
@@ -167,7 +167,7 @@ index b1f554316023a574876293cf280deff18b1621fc..84fa56e5b2da2bd883d9a6216b4cc0bc
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
 
-commit b12743de1a75897fb9ec76b5a88b765409ecef95
+commit 3fe948b4b99f2139eff47a95a6943adcb58efeb7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:49:29-0400
 
@@ -177,7 +177,7 @@ Date:   Tue 2019-07-16 14:49:29-0400
  1 file changed, 3 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 84fa56e5b2da2bd883d9a6216b4cc0bc34b81273..724ea32b6c5af3711d90dcfc803ea2caacd4c83e 100644
+index 7ef43016e86db545c9cb076fc311f981f4894df2..4fefe9c89dae14a8a8a8e32dacca5d9ba0d46b5e 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
 @@ -221,20 +221,23 @@ on init
@@ -205,7 +205,7 @@ index 84fa56e5b2da2bd883d9a6216b4cc0bc34b81273..724ea32b6c5af3711d90dcfc803ea2ca
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 8b740476b10adc67f8f49376193417b1ff5cc141 (tag: RQ2A.210405.005.2021.04.05.20)
+commit 6f2d9deff97d5b54fa44c18e2f75d263c68e7935
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:54:28-0400
 
@@ -215,7 +215,7 @@ Date:   Tue 2019-07-16 14:54:28-0400
  1 file changed, 3 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 724ea32b6c5af3711d90dcfc803ea2caacd4c83e..bdcde4528f3b6a34821c38e3a23660743717da11 100644
+index 4fefe9c89dae14a8a8a8e32dacca5d9ba0d46b5e..d2f8d74529a30aa7fda1f9873c8871b2cc5af87b 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
 @@ -224,20 +224,23 @@ on init
@@ -243,7 +243,7 @@ index 724ea32b6c5af3711d90dcfc803ea2caacd4c83e..bdcde4528f3b6a34821c38e3a2366074
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 3f7629f095d5814acfe146cc692f8d65d7d95ff3 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit 358670be6efa18b3202c4a563419d3946e69bf1d (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 03:02:51+0100
 
@@ -253,7 +253,7 @@ Date:   Mon 2021-04-05 03:02:51+0100
  1 file changed, 6 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index bdcde4528f3b6a34821c38e3a23660743717da11..d49cab9fac6fd0271e5ef1e0dab486ebb4c1914e 100644
+index d2f8d74529a30aa7fda1f9873c8871b2cc5af87b..d60dfa7b653f491cc74d6b7507541f0fb444f55a 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
 @@ -1007,20 +1007,26 @@ on property:persist.security.deny_new_usb=disabled

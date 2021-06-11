@@ -1,4 +1,4 @@
-commit e1764084fe43b87b051cb9a873fe8a2594d2754c (HEAD, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, m/master)
+commit e1764084fe43b87b051cb9a873fe8a2594d2754c (tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-03-04 14:22:18-0500
 
@@ -33,3 +33,67 @@ index 1e78c72e6bbca0ca1d7f2a7b2109b116506176e5..d89535b922075851325380d6e206fab0
                  <data android:scheme="content"/>
              </intent-filter>
          </activity>
+
+commit 09bbdae8bae1fa56958db627f0e8f1d01b5f6eaa (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-05-18 09:04:53-0400
+
+    remove widget
+---
+ AndroidManifest.xml | 34 ----------------------------------
+ 1 file changed, 34 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index d89535b922075851325380d6e206fab0c6b25bd1..ceea83b0d1f45b5a3bcafffb1991b9677405f28f 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -171,49 +171,15 @@
+         </receiver>
+ 
+         <service android:name=".alerts.AlertService" />
+ 
+         <service android:name=".alerts.DismissAlarmsService" />
+ 
+         <service android:name=".alerts.SnoozeAlarmsService" />
+ 
+         <service android:name=".alerts.InitAlarmsService" />
+ 
+-        <!-- Declarations for the widget -->
+-        <receiver android:name=".widget.CalendarAppWidgetProvider" android:label="@string/gadget_title">
+-            <intent-filter>
+-                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+-                <action android:name="com.android.calendar.APPWIDGET_UPDATE" />
+-            </intent-filter>
+-            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
+-        </receiver>
+-
+-        <receiver android:name=".widget.CalendarAppWidgetService$CalendarFactory">
+-            <intent-filter>
+-                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+-                <action android:name="android.intent.action.DATE_CHANGED"/>
+-                <action android:name="android.intent.action.TIME_SET"/>
+-                <action android:name="android.intent.action.LOCALE_CHANGED"/>
+-            </intent-filter>
+-            <intent-filter>
+-                <action android:name="android.intent.action.PROVIDER_CHANGED"/>
+-                <data android:scheme="content"/>
+-                <data android:host="com.android.calendar"/>
+-            </intent-filter>
+-            <intent-filter>
+-                <action android:name="com.android.calendar.APPWIDGET_SCHEDULED_UPDATE"/>
+-                <data android:scheme="content"/>
+-                <data android:host="com.android.calendar"/>
+-                <data android:mimeType="vnd.android.data/update" />
+-            </intent-filter>
+-        </receiver>
+-
+-        <service android:name=".widget.CalendarAppWidgetService"
+-            android:permission="android.permission.BIND_REMOTEVIEWS"
+-            android:exported="false">
+-        </service>
+-
+         <service android:name=".AsyncQueryServiceHelper" />
+ 
+     </application>
+ </manifest>
+ 

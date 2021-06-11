@@ -1,4 +1,4 @@
-commit 56d033b6bc6f2f212d82f9b42c6dafbc85ccfcc9
+commit 5f068db884d90fae3b5a76e08a09a6ca2416082c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-12-06 22:05:39-0500
 
@@ -35,7 +35,7 @@ index 88a9abaf8d49b9bac3f5d19afa88165e1c199201..d4a65f05bbf92abdab5f3402147cdc03
       *    and set a default value for the flag. This will be the default value on Debug builds.
       */
 
-commit 3a4cbee4c082ff7a2ddebf46f8dcb2530ddb18e5 (tag: RQ2A.210405.005.2021.04.05.20)
+commit cafdec60e626a94bf70cbdcb729c0e25969c0371
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-11-14 07:32:46-0500
 
@@ -72,7 +72,7 @@ index 769d29838ae4e9f9944cbce48d97e9ad12d18097..263163622464d56f4cced80247b368c4
  
      <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
 
-commit 19720e8ac3d389ed288f7b3533ca56de2eceb021
+commit 693d0ca48468af5c7b1572a070136ce7570c368f
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:21:37+0100
 
@@ -111,7 +111,7 @@ index 75fcc907db54f3ef5e1ae413fa350d9321fea5a8..368bf0ef62a4cb316b65d46bdc15d604
      <item type="id" name="action_move" />
      <item type="id" name="action_move_to_workspace" />
 
-commit 27ec34ae234c71570f156e23aaca8254230eb1e8
+commit 53ea8a3af6627d238eaabbee8d35bf4f3cb7830d
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:59+0100
 
@@ -152,7 +152,7 @@ index 77f2428177acf03eaa0d7ef20b13ff50a5523cf6..54eeb86e78989659a9047c7da30827a7
              android:autoRemoveFromRecents="true">
              <intent-filter>
 
-commit 3885bee438932c6860633213dece44fe586ea045 (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit b0af69bdddc039da5a7ca80a13a98d42ff903c9b (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:36:04+0100
 

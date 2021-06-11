@@ -1,4 +1,4 @@
-commit 13bc800656c675307a80cbf831df9338f9b5fdc6
+commit c11ef8c759ccedb882baaac939ee8cb47be7089f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -8,7 +8,7 @@ Date:   Sat 2016-10-15 20:09:49-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 550601af0faa17e2a34d5a8b9d33c68cb2827aee..b10096f3aed5df48181107b1d92306167c2d9767 100644
+index 5f02eb6a6a37eda6a34cc94b33d263e6c8ba0fe4..d31844d5bdfad0e7b903444f0125b6a5bcbc58eb 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -238,21 +238,21 @@
@@ -35,7 +35,7 @@ index 550601af0faa17e2a34d5a8b9d33c68cb2827aee..b10096f3aed5df48181107b1d9230616
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit f3b3fcd93589869c8eda6f39ddd540a778c7c709
+commit b228c7414540b5424947eb71cfe90afc77250432
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit 5799749aedb4c275c62ecb6318d6930b9a6a6e77
+commit aa922723ab651b49224a0eba4c05da5754707ba9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -113,7 +113,7 @@ Date:   Fri 2018-03-09 20:23:12-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index b10096f3aed5df48181107b1d92306167c2d9767..32a39f4a8b10f4d228580d526964f7a19b134af3 100644
+index d31844d5bdfad0e7b903444f0125b6a5bcbc58eb..be242ee172a1e578c3425c21e03875014beef900 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -3397,21 +3397,21 @@
@@ -163,17 +163,17 @@ index b10096f3aed5df48181107b1d92306167c2d9767..32a39f4a8b10f4d228580d526964f7a1
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit e9e0e05de665745970fa4b1995000200dc15545c
+commit be7ce65a1fbd3f89aa5b6eb17d22a346319d06e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
-    enable swipe up gesture by default
+    enable gesture navigation by default
 ---
  core/res/res/values/config.xml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563d8280a39 100644
+index be242ee172a1e578c3425c21e03875014beef900..06573015c9d078b629b783c257d0e4e2662212c4 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -3225,21 +3225,21 @@
@@ -188,7 +188,7 @@ index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563
           1: 2 button mode (back, home buttons + swipe up for overview)
           2: gestures only for back, home and overview -->
 -    <integer name="config_navBarInteractionMode">0</integer>
-+    <integer name="config_navBarInteractionMode">1</integer>
++    <integer name="config_navBarInteractionMode">2</integer>
  
      <!-- Controls whether the nav bar can move from the bottom to the side in landscape.
           Only applies if the device display is not square. -->
@@ -200,7 +200,7 @@ index 32a39f4a8b10f4d228580d526964f7a19b134af3..fbe04fd20afe04baf81220978a30b563
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 1178c9e99e500e70f70baae8860b1d8b1ee859b1
+commit 5a3ae77faa591f1176f0f2ec84f284046b84eeb4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -210,7 +210,7 @@ Date:   Wed 2018-11-28 01:14:54-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index fbe04fd20afe04baf81220978a30b563d8280a39..c6334e6105079dca46752ce3b2c24135f78a98f8 100644
+index 06573015c9d078b629b783c257d0e4e2662212c4..5eae06de2a678b2c71f8407ad05438851aeb6ba6 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2319,21 +2319,21 @@
@@ -237,7 +237,7 @@ index fbe04fd20afe04baf81220978a30b563d8280a39..c6334e6105079dca46752ce3b2c24135
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 6133da98c2d703d289a550a909e0758c6b782c3a
+commit 7ffee59e5e3f153a149e116e4ed9f8325fdf677f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -247,7 +247,7 @@ Date:   Wed 2018-11-28 01:16:09-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index c6334e6105079dca46752ce3b2c24135f78a98f8..d46890a4d50842b5b65a8a08d68f2c6a99f29a7a 100644
+index 5eae06de2a678b2c71f8407ad05438851aeb6ba6..670edade16c7c519fb785c7a29ff9f85261f8a26 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2285,21 +2285,21 @@
@@ -274,7 +274,7 @@ index c6334e6105079dca46752ce3b2c24135f78a98f8..d46890a4d50842b5b65a8a08d68f2c6a
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit b87df9310d7f45c6f854c08881c68fb0095bceea
+commit 36644358dc6f4857da2a1f7b5ac5c53bd545d927
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -311,7 +311,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 15bb51fa6bd95af76e5d2ad868e03bc5ce1f468b
+commit 7d6dfde466ea41d55650208162ab85c6fa0c8e8e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -348,7 +348,7 @@ index e2e8049c2980ffdf95099d0e0d7de2f5297636b8..9f6ac309e44d2913733fd65a35b9a99b
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit 36224a96f50accc21e7701870dd97191624bfad8
+commit 558111c4f2557c57491c7cde9948d862031350cf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -385,7 +385,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 30049fcf63c2968cfc3710ec0a6c496dde77f5df
+commit 71cd579661ceed3d24918c4c93f3557d1a29928d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -398,7 +398,7 @@ Date:   Mon 2018-04-02 12:59:51-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index d46890a4d50842b5b65a8a08d68f2c6a99f29a7a..bb6fa143f13b73ae75c0b9453846f98583c3fdb0 100644
+index 670edade16c7c519fb785c7a29ff9f85261f8a26..35a7dba6ae851cd5936cc4ee474c88ea2414bb47 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -1825,21 +1825,21 @@
@@ -425,7 +425,7 @@ index d46890a4d50842b5b65a8a08d68f2c6a99f29a7a..bb6fa143f13b73ae75c0b9453846f985
  
      <!-- The default character set for GsmAlphabet -->
 
-commit c952da0cdabd224a0093db5e282d86a1e9bf6d09
+commit 34688ea2b5e7ac5ffcfee12f41805e971394de7c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -465,7 +465,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit 11ba69783c6639b5d81708c55e5a630b18ebe86b
+commit afd60526f3612203ce6ca6df0e6083e508595a86
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -508,7 +508,7 @@ index a5501368945f56fc6636b01feb676fdbdc9fd88c..63a784b354dd1e7e238d2b1b370b3d27
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 5302d2141a9bd4f81079bcbf7fef487e23413bcb
+commit 9ccc3dfd37c7d082d07df3962e5793c4e4d312e2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -551,7 +551,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit e12b2243a1ba8ed99723d8178598c91ade772f54
+commit 0c6589eeee52f1d43baa2565323e31809b449c2c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -561,7 +561,7 @@ Date:   Sun 2019-03-17 19:11:12-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/packages/SystemUI/res/values/config.xml b/packages/SystemUI/res/values/config.xml
-index 5e5df6bfd98807b2b3f334abe5197dff2dca21b6..af62ff68184da211487fec6f81210b5a9604dcba 100644
+index 9530a74d0ece2e499eec49cca97b6eed28d29734..43860044a02467f33ec902a5708df2469b438a68 100644
 --- a/packages/SystemUI/res/values/config.xml
 +++ b/packages/SystemUI/res/values/config.xml
 @@ -107,21 +107,21 @@
@@ -588,7 +588,7 @@ index 5e5df6bfd98807b2b3f334abe5197dff2dca21b6..af62ff68184da211487fec6f81210b5a
      </string>
  
 
-commit 1d60d958f5d04ba9635e584e0e231fd282d1afd9
+commit d4b80d55114c33d6af4b357dd66c11b8931f6d4b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -625,7 +625,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit 77469b23b7cf03512a70cb090d827f4671316ef9
+commit df4e96c5b916005f3f8f3b67e17b3e296b6165f9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -682,7 +682,7 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit 2b649ac90d475299325c2f0d768673c550536572
+commit d857415f361f35428d42ab27a5c7814be371266a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
@@ -1067,7 +1067,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit 02b7a2de50b6832123c3cbcc8f6739159d0ff496
+commit 0e0bb0f4a13026cffb75ddb52d91f83ab67e6e47
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1080,7 +1080,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit 3b66dd5b204a3bc60f1f6b6b0b11c07ac7e864dd
+commit f82d3035261e9daf8775f1a92a655d5552ce4f2d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1090,7 +1090,7 @@ Date:   Thu 2019-05-16 11:47:02-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index bb6fa143f13b73ae75c0b9453846f98583c3fdb0..a046430247a3c2fb6103a06e7be55c61e7d5a314 100644
+index 35a7dba6ae851cd5936cc4ee474c88ea2414bb47..a197c6a50e61cc0990a2aa2b1668ac96bf5069f5 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2285,21 +2285,21 @@
@@ -1117,7 +1117,7 @@ index bb6fa143f13b73ae75c0b9453846f98583c3fdb0..a046430247a3c2fb6103a06e7be55c61
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 5b809a4da00384f32444538536b0a7955581bb00
+commit d1f94bb13af0ab31686d04e24316286e5c0bf438
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1178,7 +1178,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit ecc3eda22f8562963a428607795f86e4524cffae
+commit 7b1fcd0852439f6aa1d21689a9bf0c5b7557fe70
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1392,7 +1392,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit 3d9a1d24509c3f157d9874b437f4e9a307d9458b
+commit dfc1bd16795fe8a1cf52e28163ba072678607ea0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1433,7 +1433,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit 7f2ec18d436fca9514d306e0ba981010577aea81
+commit 724cf969890103e53b88f43c25274934b6d35463
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1523,7 +1523,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit b0df584360196859d8bc5667d64bdd50de8a7c50
+commit 8073048b1a4b7c82a3083f475590e9e60334d7a4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1612,7 +1612,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit 163d6e7c53f302ff4896bf0d242f480b16302c0b
+commit c8f5931a4c4d947ad08f20138dd0028e4dd82424
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1655,7 +1655,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit ab79d357c5590e269681a6ac8916fd02b80f9628
+commit 59c5267f0703fa8561e75c81a867f36ce2354041
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1698,7 +1698,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit ca1b0b310498537ab556fa9dd4ea8dce9292b17c
+commit 1097684324a0dc464f644e6c79a2b95d4d6832de
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1741,7 +1741,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit 0b9b68885f47b87c24ddab3774d20f71d0580caa
+commit e22b3243d03a4ed670bb20716641400cd93efc5c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -1784,7 +1784,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit dea015f5613a826a27b976e8b7f78427b41e011b
+commit 3057d855245bc5d05218047034e6fe2ab95f3628
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -1874,7 +1874,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit ef825fb1f9b984d7fcd6748f5298bfae0bdd942d
+commit cb3223f5d8dd92ae625f5dc545c8b0738cbf9d21
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -1917,7 +1917,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit 54c5b7e107057417616c9a75347e015a8ec85abc
+commit 1cfc5543e3c64a7bfd32bc2a4cb7f2c55c7763b5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -1960,7 +1960,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit 5f347e1cab351321decb7c53faf3d748fe2db2f8
+commit 6fd693c4c4c263f49b31cc21706e7b4b6f197243
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2090,7 +2090,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit 9ec1334d9e2a954fc5c3dc672f3944df34abd278
+commit f3587f1a42809fa9b71ab23ea8c3fffaf0128d3a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2216,7 +2216,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit 42b2d035df448ac4586aa66118f75a13bc5acbf6
+commit f8fac59e78af8aef8f54ced1e08bfa7066454efe
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2322,7 +2322,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit ea5d71dccc15dcfdf304daa19147cd192201ccf6
+commit c7bd5ef1713b86330c9b6cd3f13917198af86b54
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2467,7 +2467,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit 944f96f0e2bd680106a42e0f2765573365e3be3a
+commit d3320047426f0e182f0860e7782510e5807d4da6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2570,7 +2570,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit 591bc8f449fe169c3f0b62f25e8643ac3d6b411f
+commit 784a499f05cef0f776fec9627c922ec259529e2b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2686,7 +2686,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit 66a158c21efc32fe64276e1028b14df6178b35c2
+commit c9aafd7b36d15bb2e48c6abac507df4e9fd79a1e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -2809,7 +2809,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit 43ef987e4f631151c94502e232f51f499e304376
+commit 623b86a2a28664be35e8c8a5f9be79cdbbc1e94f
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -2957,7 +2957,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit de4beef54b4dda625bb79786936970eb19105cc6
+commit 4714763227b60c83745f65beb49f7c8049439599
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3072,7 +3072,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit 6c33d3f249a47e333c606db544f4fc15b8376988
+commit cb88ab0b7142d46d575b5d8c6ee2e5afc41ffdee
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3164,7 +3164,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit e9795e8a363bd15188e74cb586f29b4273dfc5be
+commit b767d863dd3e95b2a0b42b582124f602d1ef4815
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3230,7 +3230,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit 15e92bff2f44e29629bd8a9d5de4e34b9595fd5a
+commit 0159b7cb38afdf4dd545ba9fd011c732240c3107
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3243,10 +3243,10 @@ Date:   Wed 2017-09-06 21:40:48-0400
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
-index 3f4878e380291b65027b82358c4ef7e311624323..260bfb615be643390ef818cd9136498afb2c90a7 100644
+index 0ae9cc279e6817d1ea0fa40c7780074f12bb5ba9..6c99f8d8525e8cb12de9eaf117019f15dbbc4623 100644
 --- a/services/core/java/com/android/server/am/ActivityManagerService.java
 +++ b/services/core/java/com/android/server/am/ActivityManagerService.java
-@@ -5217,26 +5217,21 @@ public class ActivityManagerService extends IActivityManager.Stub
+@@ -5228,26 +5228,21 @@ public class ActivityManagerService extends IActivityManager.Stub
              }
  
              if (profilerInfo != null && profilerInfo.profileFd != null) {
@@ -3275,7 +3275,7 @@ index 3f4878e380291b65027b82358c4ef7e311624323..260bfb615be643390ef818cd9136498a
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit 4e613a04d2bf40ff1bdeb4eef2997e10c3f873ba
+commit 8dbb6a796bf070a4b2bab1825365352567ff7aeb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3359,7 +3359,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit b20a52a7edbd9d6bdb9baa8a891f10020f5851e0
+commit 6503f0c1ab792480dddfd4b007f6a992127f6ad9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3572,7 +3572,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit 4cfcbe59a87bb9adfa4214ff5f34e063dd5d4300
+commit 03814b2deff939f0ef6f8080241d06c4289adcb3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3689,7 +3689,7 @@ index 9d71489c8abe45d9b6a3b077e29b4d2f03da6aea..5b6c59f031bbbf14a72e4aeff5740a63
                  return false;
              }
 
-commit 40471d93f4e64fd00e77e5cda9b7ea36e1e1b823
+commit b334e459a7964362593c6f83b4aca78d819f164a
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -3785,7 +3785,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 6d394a52805e9ba218908f3ba59dc50d1148127a
+commit a6b6a2a9dc5d43be7b8e8ab704509a29f7f06342
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -3960,7 +3960,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit f6af158a1d3f54290a9f91c6842371cf34ac41fe
+commit a11b6c6e56b9a85126a3d5f6aeb461464d6a7d4b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4151,7 +4151,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit 3d2f95ce1c64a0436a445f192c5ce82ae12da7c1
+commit 3c1546bff7235a42c69b573daed6fc839ce73f76
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4172,7 +4172,7 @@ Date:   Wed 2020-04-22 18:28:33+0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index a046430247a3c2fb6103a06e7be55c61e7d5a314..2dd180ce22d6de7cf284d0fff4e0a6936257635c 100644
+index a197c6a50e61cc0990a2aa2b1668ac96bf5069f5..5887064591378cd972570ef6f24cc9f2683288ce 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2413,21 +2413,21 @@
@@ -4199,7 +4199,7 @@ index a046430247a3c2fb6103a06e7be55c61e7d5a314..2dd180ce22d6de7cf284d0fff4e0a693
  
           If this flag is false, we advise applications not to use protected
 
-commit c55fb40ead0edc107be266d2b091116da701fce4
+commit c147805469b83b4f2318ea4b0a2a0cc9ef129a99
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -4852,7 +4852,7 @@ index 0892c94d5becde6706b11d9ece23a91a264d7ff5..c1173b6cf9725de63aee2ccbbb3c82fb
      }
  }
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 2dd180ce22d6de7cf284d0fff4e0a6936257635c..67beef2764a20897b6e36c40f5b3b999f129abf3 100644
+index 5887064591378cd972570ef6f24cc9f2683288ce..4a73febba2c1c1c7695c83469cc5ef2e16107390 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2029,22 +2029,27 @@
@@ -4884,7 +4884,7 @@ index 2dd180ce22d6de7cf284d0fff4e0a6936257635c..67beef2764a20897b6e36c40f5b3b999
      <integer name="config_ntpTimeout">5000</integer>
  
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index ee4c6941d6c5467be7d0eaef524f3d7c871102ea..510a015ec5a06f4bc1e82903860a343548c44f3d 100644
+index 3ef0a8dc9daa71b890387a8e5069ab8a42ac634d..a69ff4af391757fcb7116cf0374f16ace3d78f3f 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -679,20 +679,22 @@
@@ -4911,7 +4911,7 @@ index ee4c6941d6c5467be7d0eaef524f3d7c871102ea..510a015ec5a06f4bc1e82903860a3435
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 96d59f010ec1c07431991878a6158164bb86f21b
+commit 73966e467bad7120ff0a7a93e31b234ac49059dc
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -4925,7 +4925,7 @@ Date:   Tue 2020-09-29 10:58:40+1000
  5 files changed, 32 insertions(+), 11 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 67beef2764a20897b6e36c40f5b3b999f129abf3..4178362c9cdaa8dc0d601109bb0a0c162edf93c2 100644
+index 4a73febba2c1c1c7695c83469cc5ef2e16107390..348e9c8830e7f11132b2275bf255989313e10f75 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -2040,20 +2040,22 @@
@@ -4952,7 +4952,7 @@ index 67beef2764a20897b6e36c40f5b3b999f129abf3..4178362c9cdaa8dc0d601109bb0a0c16
  
      <!-- Set and Unsets WiMAX -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index 510a015ec5a06f4bc1e82903860a343548c44f3d..41c63b9d1bd36c37cfe0d85bc93f020d2cfeda27 100644
+index a69ff4af391757fcb7116cf0374f16ace3d78f3f..9167f66304296813230b7264ad4f597b48f7b8f5 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -436,20 +436,21 @@
@@ -5187,7 +5187,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit c5c622a01406dab19a939b06c09a132390ca7afa
+commit 680441e41633ac4c98c246b055eda1ca1157e112
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5231,7 +5231,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 9396394ba9a209dfda8ab01e99401b05f9f524e7
+commit 3381d2fdc2b348c4c73a08a19fbd5807f09572dc
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5426,7 +5426,7 @@ index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d54
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit 86bb94b8def3b6f97a984f346950df7ab74f8a96
+commit 3e09130cc18988950dce1491df1cb1dd2626d145
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5439,10 +5439,10 @@ Date:   Sun 2019-03-17 11:59:15-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 09923796e0357e94009525203712ca2f15e0c69b..9d5a86c60c21bad728b429d2c6bca78ca9f894d0 100644
+index 0499598239424e83633a92bc5663e179d981ee3a..bf06b0215d72aa703c96bd8bae0247e1a5ef873e 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1578,21 +1578,21 @@
+@@ -1586,21 +1586,21 @@
      <!-- Permissions for accessing networks -->
      <!-- ======================================= -->
      <eat-comment />
@@ -5493,7 +5493,7 @@ index 54538ed88f4cbf50a498d9b0a4761d549112045a..80432966fc8cfb7f8307ac5d1860250b
       * </ul>
       *
 
-commit 7b27f018d7ce11f1c7840e1e57d948766646c6f7
+commit 7ae50c26fd9e3300d4ec6c01f0fe5a907e03f130
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5539,10 +5539,10 @@ index 952ccdad992c74836a95e402ca88c77a64d87aad..728c0e95ca6d43fde4afa0ac00d4cf6b
    }
  
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 9d5a86c60c21bad728b429d2c6bca78ca9f894d0..dd65f578e1d4ec1eb3a71edb48518a0bb0b7645f 100644
+index bf06b0215d72aa703c96bd8bae0247e1a5ef873e..130fa1dbacd8ad1847842823ff42d76d738a0ac5 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1572,24 +1572,32 @@
+@@ -1580,24 +1580,32 @@
           @hide
      -->
      <permission android:name="android.permission.ACCESS_MOCK_LOCATION"
@@ -5632,7 +5632,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit 4717a544f817e0a0cf730223a68fef8d06734356
+commit a863b2a3b7e463a075f3c068f427f16341246c0e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -5732,10 +5732,10 @@ index 70e4e6cbf622eb6bb145c2183ed5ced8b10da55d..736f50f458ef8375ff300b3dfd6c8d8e
       */
      @Deprecated
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index dd65f578e1d4ec1eb3a71edb48518a0bb0b7645f..d00392e2cf2acdc3a10bf3f8dd18be4bc4825f38 100644
+index 130fa1dbacd8ad1847842823ff42d76d738a0ac5..1c67c563fa74ed37ee3519d4b350cea99c3792a6 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1362,20 +1362,32 @@
+@@ -1370,20 +1370,32 @@
  
      <!-- Allows an app to use device supported biometric modalities.
           <p>Protection level: normal
@@ -5902,7 +5902,7 @@ index 80432966fc8cfb7f8307ac5d1860250b37910db9..422ad79d56bf2826496fc446ac7faee3
       * </ul>
       *
 
-commit 978aee532493c479223d2878f384be51bf28e9bf
+commit 06281db8ca47eecd6a54275128856c008319cf2a
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -6081,7 +6081,7 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit 6d09930651f8a6a626932e38c98fb08166a887e8
+commit d1c5c46fc59b1fe30fdb25e62e80d10961925451
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6206,7 +6206,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit ba4b60d973848c8ad77a2099be67907d720bb45d
+commit f201e246fd8ab5eb11ca4e15a9234ee41e5fdcbf
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6278,7 +6278,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit d0c12fc7305429b11518239e50c1b7984c3af66b
+commit f9602ac3de93ea7a8c49d2e4c6e5448c7ecca3a6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6321,7 +6321,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit cfc244982ac2efde990792eff16aa642c056247f
+commit 87611b382658d775ea63e722f80e068624719ffc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6357,7 +6357,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit 1e44454a97eebf734f0bdca562cd0c9f5f2ddcd0
+commit 99a91e53e607f48baf1c4d0a1584db8d1a1c8534
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:29-0400
 
@@ -6499,7 +6499,7 @@ index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..00000000000000000000000000000000
 -VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
 ------END PRIVATE KEY-----
 
-commit ada6877dbe0ba309a265511871608c384a3f814a
+commit af5ebef1d1d0c10db5eed9958874c1f7483d1bbf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6509,7 +6509,7 @@ Date:   Sun 2020-10-04 19:02:09-0400
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-index b8a20ed4fe5b73a41a4fd845f3599956a67a5af9..4f803c3503b98e8b5da728bacffce46bf0abd056 100644
+index ae354a953eecc839c3fd00bc9a25039f1edd290c..47769ef9e7a88d0ff8a42f5c9411c24fcf0b2745 100644
 --- a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
 +++ b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
 @@ -1159,21 +1159,21 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
@@ -6535,7 +6535,7 @@ index b8a20ed4fe5b73a41a4fd845f3599956a67a5af9..4f803c3503b98e8b5da728bacffce46b
          final boolean isParent;
  
          static class TrustAgentInfo {
-@@ -15087,25 +15087,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
+@@ -15109,25 +15109,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
                  return;
              }
              deviceOwner.isLogoutEnabled = enabled;
@@ -6564,126 +6564,7 @@ index b8a20ed4fe5b73a41a4fd845f3599956a67a5af9..4f803c3503b98e8b5da728bacffce46b
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit 5f033a29667915002d9b4871f43088244deb880b
-Author: inthewaves <inthewaves@pm.me>
-Date:   Sun 2020-10-04 14:59:51-0700
-
-    fix SystemUI crash from null stored in non-nullable
-    
-    The fatal crash for SystemUI is caused a null being stored in a non-null
-    type, resulting in a fatal exception.
-    
-    This seems to have happened from mixing Java and Kotlin code without
-    marking loadDrawable in Java as Nullable. We could mark loadDrawable
-    with a ``@Nullable` annotation, but that requires an API change, so it
-    might break other things if they don't check for this case. Something
-    like that would probably best be done upstream.
-    
-    For some reason, the Context used in the call is for user 0. So, if user
-    0 doesn't have the package for an app providing media notifications, it
-    will return null, since it can't get the Drawable. (e.g., Try installing
-    NewPipe in a secondary user and make sure NewPipe is not installed in
-    the system user. Then, play a video without this commit applied.) Oddly
-    enough, this doesn't seem to break the icons for these media
-    notifications.
-    
-    We should just make the Drawable type for smallIconDrawable nullable to
-    prevent this fatal exception. The variable is only used in the
-    constructor for MediaData which can accept a nullable Drawable in its
-    constructor, and whatever uses that icon in MediaData it does
-    appropriate null checks
-    
-    There's some other icon-related exceptions stemming from PackageManager
-    .NameNotFoundException as detailed in the issue, but this at least
-    cleans up the crashing of SystemUI.
----
- packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-index 2be509a1381639f71edd6ed3f6010962e5b7016c..55c52e75b3ac9e39c82811bf4649f593a9b7ea6e 100644
---- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-+++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-@@ -434,21 +434,23 @@ class MediaDataManager(
-                 }
-             }
-         }
-         val bgColor = computeBackgroundColor(artworkBitmap)
- 
-         // App name
-         val builder = Notification.Builder.recoverBuilder(context, notif)
-         val app = builder.loadHeaderAppName()
- 
-         // App Icon
--        val smallIconDrawable: Drawable = sbn.notification.smallIcon.loadDrawable(context)
-+        // TODO: Look into why context is not for the right user. If current user is a secondary
-+        //  user, context.userId is still 0, not the id of the current user.
-+        val smallIconDrawable: Drawable? = sbn.notification.smallIcon.loadDrawable(context)
- 
-         // Song name
-         var song: CharSequence? = metadata?.getString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE)
-         if (song == null) {
-             song = metadata?.getString(MediaMetadata.METADATA_KEY_TITLE)
-         }
-         if (song == null) {
-             song = HybridGroupManager.resolveTitle(notif)
-         }
- 
-
-commit f6a59d9616da8b37e5ae4205fa47f0ab05e871c7
-Author: inthewaves <inthewaves@pm.me>
-Date:   Sun 2020-10-04 17:12:13-0700
-
-    add more guards against nulls from loadDrawable
----
- .../src/com/android/systemui/media/MediaDataManager.kt | 18 ++++++++++--------
- 1 file changed, 10 insertions(+), 8 deletions(-)
-
-diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-index 55c52e75b3ac9e39c82811bf4649f593a9b7ea6e..122b13ff65153d092a3352261144e6a798ecf659 100644
---- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-+++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-@@ -416,28 +416,30 @@ class MediaDataManager(
-         } else {
-             Icon.createWithBitmap(artworkBitmap)
-         }
-         if (artWorkIcon != null) {
-             // If we have art, get colors from that
-             if (artworkBitmap == null) {
-                 if (artWorkIcon.type == Icon.TYPE_BITMAP ||
-                         artWorkIcon.type == Icon.TYPE_ADAPTIVE_BITMAP) {
-                     artworkBitmap = artWorkIcon.bitmap
-                 } else {
--                    val drawable: Drawable = artWorkIcon.loadDrawable(context)
--                    artworkBitmap = Bitmap.createBitmap(
--                            drawable.intrinsicWidth,
--                            drawable.intrinsicHeight,
--                            Bitmap.Config.ARGB_8888)
--                    val canvas = Canvas(artworkBitmap)
--                    drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
--                    drawable.draw(canvas)
-+                    val drawable: Drawable? = artWorkIcon.loadDrawable(context)
-+                    if (drawable != null) {
-+                        artworkBitmap = Bitmap.createBitmap(
-+                                drawable.intrinsicWidth,
-+                                drawable.intrinsicHeight,
-+                                Bitmap.Config.ARGB_8888)
-+                        val canvas = Canvas(artworkBitmap)
-+                        drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
-+                        drawable.draw(canvas)
-+                    }
-                 }
-             }
-         }
-         val bgColor = computeBackgroundColor(artworkBitmap)
- 
-         // App name
-         val builder = Notification.Builder.recoverBuilder(context, notif)
-         val app = builder.loadHeaderAppName()
- 
-         // App Icon
-
-commit 0d8253dae19dae84e46fc66aff031b6e0325ec38
+commit 6c2d2c234a9ca81b3d9f22d1078f874207b6e8dd
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6712,96 +6593,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit 43f25837bd0cecf72e80897b9ab046aa7c490333
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2020-11-02 15:21:13-0500
-
-    enable screenshot action for 3 button nav too
----
- .../android/systemui/globalactions/GlobalActionsDialog.java    | 10 ++++------
- 1 file changed, 4 insertions(+), 6 deletions(-)
-
-diff --git a/packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java b/packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java
-index ff25439a5f9f586c05188035a287459f3e84b25c..1144a149dd1ef8c276aecaeda47bb397fd6ff6c3 100644
---- a/packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java
-+++ b/packages/SystemUI/src/com/android/systemui/globalactions/GlobalActionsDialog.java
-@@ -12,21 +12,21 @@
-  * permissions and limitations under the License.
-  */
- 
- package com.android.systemui.globalactions;
- 
- import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
- import static android.view.WindowManager.LayoutParams.FLAG_ALT_FOCUSABLE_IM;
- import static android.view.WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_ALWAYS;
- import static android.view.WindowManager.ScreenshotSource.SCREENSHOT_GLOBAL_ACTIONS;
- import static android.view.WindowManager.TAKE_SCREENSHOT_FULLSCREEN;
--import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_2BUTTON;
-+import static android.view.WindowManagerPolicyConstants.NAV_BAR_MODE_GESTURAL;
- 
- import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.SOME_AUTH_REQUIRED_AFTER_USER_REQUEST;
- import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_NOT_REQUIRED;
- import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_BOOT;
- import static com.android.internal.widget.LockPatternUtils.StrongAuthTracker.STRONG_AUTH_REQUIRED_AFTER_USER_LOCKDOWN;
- import static com.android.systemui.shared.system.QuickStepContract.SYSUI_STATE_GLOBAL_ACTIONS_SHOWING;
- 
- import android.animation.Animator;
- import android.animation.AnimatorListenerAdapter;
- import android.animation.AnimatorSet;
-@@ -955,22 +955,20 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
-         }
- 
-         @Override
-         public void onPress() {
-             mWindowManagerFuncs.reboot(false);
-         }
-     }
- 
-     @VisibleForTesting
-     class ScreenshotAction extends SinglePressAction implements LongPressAction {
--        final String KEY_SYSTEM_NAV_2BUTTONS = "system_nav_2buttons";
--
-         public ScreenshotAction() {
-             super(R.drawable.ic_screenshot, R.string.global_action_screenshot);
-         }
- 
-         @Override
-         public void onPress() {
-             // Add a little delay before executing, to give the
-             // dialog a chance to go away before it takes a
-             // screenshot.
-             // TODO: instead, omit global action dialog layer
-@@ -992,25 +990,25 @@ public class GlobalActionsDialog implements DialogInterface.OnDismissListener,
- 
-         @Override
-         public boolean showBeforeProvisioning() {
-             return false;
-         }
- 
-         @Override
-         public boolean shouldShow() {
-           // Include screenshot in power menu for legacy nav because it is not accessible
-           // through Recents in that mode
--            return is2ButtonNavigationEnabled();
-+            return isLegacyNavigationEnabled();
-         }
- 
--        boolean is2ButtonNavigationEnabled() {
--            return NAV_BAR_MODE_2BUTTON == mContext.getResources().getInteger(
-+        boolean isLegacyNavigationEnabled() {
-+            return NAV_BAR_MODE_GESTURAL != mContext.getResources().getInteger(
-                     com.android.internal.R.integer.config_navBarInteractionMode);
-         }
- 
- 
-         @Override
-         public boolean onLongPress() {
-             if (FeatureFlagUtils.isEnabled(mContext, FeatureFlagUtils.SCREENRECORD_LONG_PRESS)) {
-                 mUiEventLogger.log(GlobalActionsEvent.GA_SCREENSHOT_LONG_PRESS);
-                 mScreenRecordHelper.launchRecordPrompt();
-             } else {
-
-commit 9964676364fbe349151e73fca48a7324614c05c4
+commit 5975d8e91c2a6f1cb186051100739627fb0344f4
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -7111,7 +6903,7 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit 897abb19a2b23784403100f6559182a994c74305
+commit 18ecab10f3a4fb35e4b3c550d6dd6673100dd281
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
@@ -7176,7 +6968,7 @@ index a5554c740e7f7f42d61e9f2f670937549d08656e..7f78193974c709046d40b0a09f006c2e
                  return sNetwork != null;
              }
 
-commit ab2822c96c4df676a2329a1bbd8083b4b8c92579
+commit 8f2dfee43f7146c1cdf824d2c1a7fe5ac5354a94
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7213,7 +7005,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit f2fb5b6ac7bcd906fa2fde65226a55ac3355fa74
+commit fe690d2d1bd44458df48b58debf8df590ba486be
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7252,7 +7044,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c2
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit a5027267ec6a76dd164ed3972bce60b85f88964a
+commit 97b86bd8775f6456ac670661bdb9d967c6ddf28f
 Author: Marco Janotta <marcojntt@gmail.com>
 Date:   Fri 2021-01-08 18:19:11+0100
 
@@ -7292,7 +7084,7 @@ index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0
  
      <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
 
-commit 9db225a19b77ecc8f65ebb198afdf3156c995319
+commit a715fa80afd5ff01c1445cbbdca16b8843441d29
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7313,7 +7105,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit c6d45701d91822dc92ffa3c21176a1dca1417e25
+commit 83f2e3e1283508406177ba76a39db43084a47b8f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-02-21 08:39:04-0500
 
@@ -7375,7 +7167,7 @@ index e6ac9976cd7578ec426f9536fcabb0ee7594c211..b95d34f2966ba4665a0c196179e0948f
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 123c1a4601bdab8fda0c86cbc4efa4ed2d82372b
+commit 8e93bf0cbc29e17a2f0f996f6998105ea9ad9c2c
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 13:40:28-0400
 
@@ -7622,7 +7414,7 @@ index 0000000000000000000000000000000000000000..b209556eb9caa30d3456fac88dbd5450
 +    }
 +}
 
-commit ddbdf4fd36c80f3a4dae2ffbc9455b65be8cad01
+commit 2cf94ccb1507c14139160b86c3ea81e9d45d0b5f
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-03-15 20:26:47+0000
 
@@ -7632,10 +7424,10 @@ Date:   Mon 2021-03-15 20:26:47+0000
  1 file changed, 3 insertions(+)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index d00392e2cf2acdc3a10bf3f8dd18be4bc4825f38..1ecbbcf3e161d79733c7e2b49c597397286b23c9 100644
+index 1c67c563fa74ed37ee3519d4b350cea99c3792a6..513696af51b008d96670b8d7528b34b2f5d389a4 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -650,20 +650,23 @@
+@@ -658,20 +658,23 @@
      <protected-broadcast android:name="android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED_INTERNAL" />
  
      <protected-broadcast android:name="android.intent.action.DEVICE_CUSTOMIZATION_READY" />
@@ -7660,7 +7452,7 @@ index d00392e2cf2acdc3a10bf3f8dd18be4bc4825f38..1ecbbcf3e161d79733c7e2b49c597397
           @TestApi
      -->
 
-commit f4ff4d77b2bcd9b216d76da37565d75c3b52899a
+commit f8b126f7e7c0ffa96da2721d5795046b59cea497
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-03-15 20:39:24+0000
 
@@ -7740,7 +7532,7 @@ index b209556eb9caa30d3456fac88dbd54508b862e8b..fae669bf41962a3053cabcae9b77208a
      }
  }
 
-commit a1412a7a733e4808d3e8b6c9a2b24a199e87cc25
+commit efe484aeed5b639d059fc56a4d50f6e49688f2ba
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 23:57:54-0400
 
@@ -7750,7 +7542,7 @@ Date:   Mon 2021-03-15 23:57:54-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 4178362c9cdaa8dc0d601109bb0a0c162edf93c2..ce4c73589f0699f418e0c8b97555594456593169 100644
+index 348e9c8830e7f11132b2275bf255989313e10f75..668a170da6042febc8bf977158dfbe7b50425b02 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -3524,21 +3524,21 @@
@@ -7777,7 +7569,7 @@ index 4178362c9cdaa8dc0d601109bb0a0c162edf93c2..ce4c73589f0699f418e0c8b975555944
  
      <!-- The component name, flattened to a string, for the default autofill service
 
-commit ee158b18e52565eb499d85b0df5e1ac96e62e2e9
+commit 72a839936ada1a657b503683e6b2db1fe6b5bb5d
 Author: Dave Daynard <nardholio@gmail.com>
 Date:   Sun 2013-12-15 15:35:04-0500
 
@@ -7854,7 +7646,7 @@ index 409bd1f1c14733550a83391ce1fa3d82b55d9739..94265db5c69df8ce4f22d13e65d5920f
      }
  
 
-commit 9bda389dc285952669340c62172727b2d913208e
+commit 73c56a20d82f6616bc04c4411eb5a17a0b1673ee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:54:57-0400
 
@@ -7864,7 +7656,7 @@ Date:   Tue 2021-03-16 02:54:57-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/services/core/java/com/android/server/am/CachedAppOptimizer.java b/services/core/java/com/android/server/am/CachedAppOptimizer.java
-index 36d4a38c1624f8b06518c280d692538adcd1b8bc..bd20b44da38e9c5b2bde1eb670253107cec7045c 100644
+index 2f776fc55034f6fe26ff854c96b43e25f9b88433..66243a90c507c29cab8539bedea5286677aeb203 100644
 --- a/services/core/java/com/android/server/am/CachedAppOptimizer.java
 +++ b/services/core/java/com/android/server/am/CachedAppOptimizer.java
 @@ -83,21 +83,21 @@ public final class CachedAppOptimizer {
@@ -7891,7 +7683,7 @@ index 36d4a38c1624f8b06518c280d692538adcd1b8bc..bd20b44da38e9c5b2bde1eb670253107
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
      // The sampling rate to push app compaction events into statsd for upload.
 
-commit 82a7c8ea22d633e6c313ca2ea41dd68f15f0d3df
+commit 477035c9e8a73e0196152d9416cdae1cda917ede
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:56:10-0400
 
@@ -7901,7 +7693,7 @@ Date:   Tue 2021-03-16 02:56:10-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/services/core/java/com/android/server/am/CachedAppOptimizer.java b/services/core/java/com/android/server/am/CachedAppOptimizer.java
-index bd20b44da38e9c5b2bde1eb670253107cec7045c..c2f1fd1fe7f9d929a81f84feaa6eb147ba71ccd2 100644
+index 66243a90c507c29cab8539bedea5286677aeb203..abd238bcd670c36af51f2518c7bfcc715d155ba8 100644
 --- a/services/core/java/com/android/server/am/CachedAppOptimizer.java
 +++ b/services/core/java/com/android/server/am/CachedAppOptimizer.java
 @@ -84,21 +84,21 @@ public final class CachedAppOptimizer {
@@ -7928,7 +7720,7 @@ index bd20b44da38e9c5b2bde1eb670253107cec7045c..c2f1fd1fe7f9d929a81f84feaa6eb147
      // The sampling rate to push app compaction events into statsd for upload.
      @VisibleForTesting static final float DEFAULT_STATSD_SAMPLE_RATE = 0.1f;
 
-commit d23d9a1393bb6d05b06231be9c994156a2f32690
+commit e0668c6dc23803faad0c17285609d79a0a99e781
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 03:26:07-0400
 
@@ -7938,7 +7730,7 @@ Date:   Tue 2021-03-16 03:26:07-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt b/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
-index 59118bf3534e28bb8cba45b29e6bc11e2b6d95c7..61fe3e098946e9555b03bd0de3a17c5c2511b640 100644
+index cd01cb703877a246a3046d3609013be58a2b41a8..7c78573e899ad3990fcc9299ae2591bd465fcf72 100644
 --- a/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
 +++ b/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
 @@ -79,21 +79,21 @@ class PrivacyItemController @Inject constructor(
@@ -7988,7 +7780,7 @@ index 59118bf3534e28bb8cba45b29e6bc11e2b6d95c7..61fe3e098946e9555b03bd0de3a17c5c
          override fun onActiveStateChanged(
              code: Int,
 
-commit 2c149bb93cfd06fcdc99eb7a60e78d8b7e01ef2c
+commit 60a7330c62e0db37fe63affb0d482eee9cad1a07
 Author: pratyush <codelab@pratyush.dev>
 Date:   Sun 2021-04-25 07:04:03+0530
 
@@ -8151,7 +7943,7 @@ index 41c013b4b197f8ee2fdbbc3aa052f53b12427dd4..09cd274cbb052f67e2afa5bf5f219d49
       * @param iface The active VPN network's interface name
       * @param rangesToAdd The new UID ranges to be added to the network
 
-commit fa6a32f4eb6b4b97fbcabd9321bb9bc47671df11
+commit ffbfe15b0f7365be56db36f84a8a4dd69012307e
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Sun 2021-05-02 00:36:30+0000
 
@@ -8161,11 +7953,11 @@ Date:   Sun 2021-05-02 00:36:30+0000
  1 file changed, 48 insertions(+)
 
 diff --git a/services/backup/java/com/android/server/backup/BackupManagerService.java b/services/backup/java/com/android/server/backup/BackupManagerService.java
-index b13bef2de151221ea5cad26ba7efef6df38de172..e3f212a0b3ff048b1332a731507998cdc20e8abf 100644
+index 89a6eca8fdaad10952869a3c6ad2e46e1818ea42..176cf79bbd049ac46256a39901dc2340d9fda79c 100644
 --- a/services/backup/java/com/android/server/backup/BackupManagerService.java
 +++ b/services/backup/java/com/android/server/backup/BackupManagerService.java
-@@ -32,32 +32,35 @@ import android.app.backup.IRestoreSession;
- import android.app.backup.ISelectBackupTransportCallback;
+@@ -33,32 +33,35 @@ import android.app.backup.ISelectBackupTransportCallback;
+ import android.app.compat.CompatChanges;
  import android.app.job.JobParameters;
  import android.app.job.JobScheduler;
  import android.app.job.JobService;
@@ -8200,7 +7992,7 @@ index b13bef2de151221ea5cad26ba7efef6df38de172..e3f212a0b3ff048b1332a731507998cd
  import com.android.server.SystemService;
  import com.android.server.backup.utils.RandomAccessFileUtils;
  
-@@ -145,41 +148,86 @@ public class BackupManagerService extends IBackupManager.Stub {
+@@ -146,41 +149,86 @@ public class BackupManagerService extends IBackupManager.Stub {
          public void onReceive(Context context, Intent intent) {
              if (Intent.ACTION_USER_REMOVED.equals(intent.getAction())) {
                  int userId = intent.getIntExtra(Intent.EXTRA_USER_HANDLE, UserHandle.USER_NULL);
@@ -8288,7 +8080,7 @@ index b13bef2de151221ea5cad26ba7efef6df38de172..e3f212a0b3ff048b1332a731507998cd
      }
  
 
-commit a81aef336b1f20ccc9059b381a076d9eaf51ff5e
+commit 306d95448a0dbf98875426abfc24a30489d70270
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:31:26-0800
 
@@ -8466,7 +8258,7 @@ index 9635febfd545470ac5f0a3b77feb967729fb2bbf..ee6a93d8e10feb8bd425dbea9cb5d8e9
      <application android:label="Victor" android:hasCode="false"/>
  </manifest>
 
-commit 028f0890ac9503ee9a8f515463870f60f6ed4b9a (HEAD, tag: RQ2A.210505.002.2021.05.04.01, m/master)
+commit 6c79c175a13fe6a3cd79a65253b51ab0b723c515
 Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
 Date:   Mon 2019-11-25 14:59:16+0000
 
@@ -8532,3 +8324,723 @@ index 994a18110260b3811efc38f6e5ba1c03dedc42d6..461fe2f9d4d2c1521ce677e1c5aaa3ce
  
      <!-- Global screenshot actions -->
      <color name="global_screenshot_button_background">#F5F5F5</color>
+
+commit 5878d6de7820d7e0ab8551852c5eb3a86e122a9a
+Author: Isak Lilja <isak.lilja@sony.com>
+Date:   Thu 2020-11-12 11:56:01+0100
+
+    Use loadDrawableAsUser in MediaDataManager
+    
+    This fixes a SystemUI loopcrash when casting as a guest user.
+    
+    Bug: 173026465
+    Test: Manual - install media app that can cast on guest user only,
+          then cast from guest user.  SystemUI should not crash.
+    Test: atest com.android.systemui.media
+    Change-Id: I70f5de89a813c54a616eb701a02aa43272754580
+---
+ packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
+index 2d7aafc497d8bac0d6967edba0c0f3b20eca7eb5..2cc31f0eba4d82939dd3e531101892d0b7d14f6d 100644
+--- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
++++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
+@@ -435,21 +435,22 @@ class MediaDataManager(
+                 }
+             }
+         }
+         val bgColor = computeBackgroundColor(artworkBitmap)
+ 
+         // App name
+         val builder = Notification.Builder.recoverBuilder(context, notif)
+         val app = builder.loadHeaderAppName()
+ 
+         // App Icon
+-        val smallIconDrawable: Drawable = sbn.notification.smallIcon.loadDrawable(context)
++        val smallIconDrawable: Drawable = sbn.notification.smallIcon.loadDrawableAsUser(context,
++                sbn.user.identifier)
+ 
+         // Song name
+         var song: CharSequence? = metadata?.getString(MediaMetadata.METADATA_KEY_DISPLAY_TITLE)
+         if (song == null) {
+             song = metadata?.getString(MediaMetadata.METADATA_KEY_TITLE)
+         }
+         if (song == null) {
+             song = HybridGroupManager.resolveTitle(notif)
+         }
+ 
+
+commit 3f79cb6668eefe32ff656f6beb0ab94aaa2c92bf
+Author: inthewaves <inthewaves@pm.me>
+Date:   Thu 2021-05-06 20:42:26-0700
+
+    use more loadDrawableAsUser in MediaDataManager
+---
+ packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
+index 2cc31f0eba4d82939dd3e531101892d0b7d14f6d..f5fed3ab7de81b19cfd1b519ebfedf998468a2ce 100644
+--- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
++++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
+@@ -417,21 +417,22 @@ class MediaDataManager(
+         } else {
+             Icon.createWithBitmap(artworkBitmap)
+         }
+         if (artWorkIcon != null) {
+             // If we have art, get colors from that
+             if (artworkBitmap == null) {
+                 if (artWorkIcon.type == Icon.TYPE_BITMAP ||
+                         artWorkIcon.type == Icon.TYPE_ADAPTIVE_BITMAP) {
+                     artworkBitmap = artWorkIcon.bitmap
+                 } else {
+-                    val drawable: Drawable = artWorkIcon.loadDrawable(context)
++                    val drawable: Drawable = artWorkIcon.loadDrawableAsUser(context,
++                            sbn.user.identifier)
+                     artworkBitmap = Bitmap.createBitmap(
+                             drawable.intrinsicWidth,
+                             drawable.intrinsicHeight,
+                             Bitmap.Config.ARGB_8888)
+                     val canvas = Canvas(artworkBitmap)
+                     drawable.setBounds(0, 0, drawable.intrinsicWidth, drawable.intrinsicHeight)
+                     drawable.draw(canvas)
+                 }
+             }
+         }
+
+commit 5f3cd66349cf016d0e887d18c9e4505b27e574aa
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2021-05-14 22:52:17-0400
+
+    use /generate_204 for HTTPS time updates
+---
+ core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index 668a170da6042febc8bf977158dfbe7b50425b02..5805bd79772d2e7067a45087ef9c475903603532 100644
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -2035,21 +2035,21 @@
+          Defaults to true. If this is not appropriate for specific locales
+          it should be disabled in that locale's resources. -->
+     <bool name="config_actionMenuItemAllCaps">true</bool>
+ 
+     <!-- Network derived time preferred protocol
+          Supports "ntp" or "https" only now -->
+     <string translatable="false" name="config_ntpMode">https</string>
+     <!-- Remote server that can provide NTP responses. -->
+     <string translatable="false" name="config_ntpServer">time.android.com</string>
+     <!-- Remote server that can provide HTTPS time responses -->
+-    <string translatable="false" name="config_httpsTimeServer">https://time.grapheneos.org</string>
++    <string translatable="false" name="config_httpsTimeServer">https://time.grapheneos.org/generate_204</string>
+     <!-- Normal polling frequency in milliseconds -->
+     <integer name="config_ntpPollingInterval">86400000</integer>
+     <!-- Try-again polling interval in milliseconds, in case the network request failed -->
+     <integer name="config_ntpPollingIntervalShorter">60000</integer>
+     <!-- Toggle to update timestamp using NITZ -->
+     <bool name="config_nitzTimeUpdate">false</bool>
+     <!-- Number of times to try again with the shorter interval, before backing
+          off until the normal polling interval. A value < 0 indicates infinite. -->
+     <integer name="config_ntpRetry">3</integer>
+     <!-- Timeout to wait for NTP server response in milliseconds. -->
+
+commit cebcad4b486e068edb9874c0e0a5fd46e9814bb9
+Author: inthewaves <inthewaves@pm.me>
+Date:   Mon 2020-04-27 13:10:15-0700
+
+    add option to disable fingerprint unlock
+    
+    There is already an implementation for disabling face unlock for the
+    keyguard, so this commit follows that implementation.
+---
+ core/java/android/provider/Settings.java           |  6 ++++
+ .../android/keyguard/KeyguardUpdateMonitor.java    | 12 ++++++--
+ .../server/biometrics/BiometricService.java        | 32 +++++++++++++++++++++-
+ 3 files changed, 46 insertions(+), 4 deletions(-)
+
+diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
+index 8ea7d8dec2db53dff29a56cf213dfd9a0b5e420b..444ea4195355dc9dd8af641c0344ec32ed70c041 100755
+--- a/core/java/android/provider/Settings.java
++++ b/core/java/android/provider/Settings.java
+@@ -8317,20 +8317,26 @@ public final class Settings {
+          */
+         public static final String FLASHLIGHT_AVAILABLE = "flashlight_available";
+ 
+         /**
+          * Whether or not flashlight is enabled.
+          *
+          * @hide
+          */
+         public static final String FLASHLIGHT_ENABLED = "flashlight_enabled";
+ 
++        /**
++         * Whether or not fingerprint unlock is allowed on Keyguard.
++         * @hide
++         */
++        public static final String FINGERPRINT_UNLOCK_KEYGUARD_ENABLED = "fingerprint_unlock_keyguard_enabled";
++
+         /**
+          * Whether or not face unlock is allowed on Keyguard.
+          * @hide
+          */
+         public static final String FACE_UNLOCK_KEYGUARD_ENABLED = "face_unlock_keyguard_enabled";
+ 
+         /**
+          * Whether or not face unlock dismisses the keyguard.
+          * @hide
+          */
+diff --git a/packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java b/packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java
+index deaa4255c2f1e25916085410ada5bde5666ed618..296b36c76ea0ee0971547f1888a1141e599b6777 100644
+--- a/packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java
++++ b/packages/SystemUI/src/com/android/keyguard/KeyguardUpdateMonitor.java
+@@ -309,28 +309,32 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
+ 
+     private final Handler mHandler;
+ 
+     private final Observer<Integer> mRingerModeObserver = new Observer<Integer>() {
+         @Override
+         public void onChanged(Integer ringer) {
+             mHandler.obtainMessage(MSG_RINGER_MODE_CHANGED, ringer, 0).sendToTarget();
+         }
+     };
+ 
++    private SparseBooleanArray mFingerprintSettingEnabledForUser = new SparseBooleanArray();
+     private SparseBooleanArray mFaceSettingEnabledForUser = new SparseBooleanArray();
+     private BiometricManager mBiometricManager;
+     private IBiometricEnabledOnKeyguardCallback mBiometricEnabledCallback =
+             new IBiometricEnabledOnKeyguardCallback.Stub() {
+                 @Override
+                 public void onChanged(BiometricSourceType type, boolean enabled, int userId)
+                         throws RemoteException {
+-                    if (type == BiometricSourceType.FACE) {
++                    if (type == BiometricSourceType.FINGERPRINT) {
++                        mFingerprintSettingEnabledForUser.put(userId, enabled);
++                        updateFingerprintListeningState();
++                    } else if (type == BiometricSourceType.FACE) {
+                         mFaceSettingEnabledForUser.put(userId, enabled);
+                         updateFaceListeningState();
+                     }
+                 }
+             };
+ 
+     @VisibleForTesting
+     public PhoneStateListener mPhoneStateListener = new PhoneStateListener() {
+         @Override
+         public void onActiveDataSubscriptionIdChanged(int subId) {
+@@ -1938,21 +1942,22 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
+         final boolean allowedOnBouncer =
+                 !(mFingerprintLockedOut && mBouncer && mCredentialAttempted);
+ 
+         // Only listen if this KeyguardUpdateMonitor belongs to the primary user. There is an
+         // instance of KeyguardUpdateMonitor for each user but KeyguardUpdateMonitor is user-aware.
+         final boolean shouldListen = (mKeyguardIsVisible || !mDeviceInteractive ||
+                 (mBouncer && !mKeyguardGoingAway) || mGoingToSleep ||
+                 shouldListenForFingerprintAssistant() || (mKeyguardOccluded && mIsDreaming))
+                 && !mSwitchingUser && !isFingerprintDisabled(getCurrentUser())
+                 && (!mKeyguardGoingAway || !mDeviceInteractive) && mIsPrimaryUser
+-                && allowedOnBouncer;
++                && allowedOnBouncer
++                && mFingerprintSettingEnabledForUser.get(getCurrentUser());
+         return shouldListen;
+     }
+ 
+     /**
+      * If face auth is allows to scan on this exact moment.
+      */
+     public boolean shouldListenForFace() {
+         final boolean statusBarShadeLocked =
+                 mStatusBarStateController.getState() == StatusBarState.SHADE_LOCKED;
+         final boolean awakeKeyguard = mKeyguardIsVisible && mDeviceInteractive && !mGoingToSleep
+@@ -2097,21 +2102,22 @@ public class KeyguardUpdateMonitor implements TrustManager.TrustListener, Dumpab
+      *
+      * @param userId User that's trying to unlock.
+      * @return {@code true} if possible.
+      */
+     public boolean isUnlockingWithBiometricsPossible(int userId) {
+         return isUnlockWithFacePossible(userId) || isUnlockWithFingerprintPossible(userId);
+     }
+ 
+     private boolean isUnlockWithFingerprintPossible(int userId) {
+         return mFpm != null && mFpm.isHardwareDetected() && !isFingerprintDisabled(userId)
+-                && mFpm.hasEnrolledTemplates(userId);
++                && mFpm.hasEnrolledTemplates(userId)
++                && mFingerprintSettingEnabledForUser.get(userId);
+     }
+ 
+     private boolean isUnlockWithFacePossible(int userId) {
+         return isFaceAuthEnabledForUser(userId) && !isFaceDisabled(userId);
+     }
+ 
+     /**
+      * If face hardware is available, user has enrolled and enabled auth via setting.
+      */
+     public boolean isFaceAuthEnabledForUser(int userId) {
+diff --git a/services/core/java/com/android/server/biometrics/BiometricService.java b/services/core/java/com/android/server/biometrics/BiometricService.java
+index 1217a507a8dcf715f9bc3cf993ef704aa73d392c..a6d5fa5763d4c7e87c88f34eeba327407b537aa1 100644
+--- a/services/core/java/com/android/server/biometrics/BiometricService.java
++++ b/services/core/java/com/android/server/biometrics/BiometricService.java
+@@ -458,66 +458,83 @@ public class BiometricService extends SystemService {
+         }
+     }
+ 
+     @VisibleForTesting
+     public static class SettingObserver extends ContentObserver {
+ 
+         private static final boolean DEFAULT_KEYGUARD_ENABLED = true;
+         private static final boolean DEFAULT_APP_ENABLED = true;
+         private static final boolean DEFAULT_ALWAYS_REQUIRE_CONFIRMATION = false;
+ 
++        private final Uri FINGERPRINT_UNLOCK_KEYGUARD_ENABLED =
++                Settings.Secure.getUriFor(Settings.Secure.FINGERPRINT_UNLOCK_KEYGUARD_ENABLED);
+         private final Uri FACE_UNLOCK_KEYGUARD_ENABLED =
+                 Settings.Secure.getUriFor(Settings.Secure.FACE_UNLOCK_KEYGUARD_ENABLED);
+         private final Uri FACE_UNLOCK_APP_ENABLED =
+                 Settings.Secure.getUriFor(Settings.Secure.FACE_UNLOCK_APP_ENABLED);
+         private final Uri FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION =
+                 Settings.Secure.getUriFor(Settings.Secure.FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION);
+ 
+         private final ContentResolver mContentResolver;
+         private final List<BiometricService.EnabledOnKeyguardCallback> mCallbacks;
+ 
++        private final Map<Integer, Boolean> mFingerprintEnabledOnKeyguard = new HashMap<>();
+         private final Map<Integer, Boolean> mFaceEnabledOnKeyguard = new HashMap<>();
+         private final Map<Integer, Boolean> mFaceEnabledForApps = new HashMap<>();
+         private final Map<Integer, Boolean> mFaceAlwaysRequireConfirmation = new HashMap<>();
+ 
+         /**
+          * Creates a content observer.
+          *
+          * @param handler The handler to run {@link #onChange} on, or null if none.
+          */
+         public SettingObserver(Context context, Handler handler,
+                 List<BiometricService.EnabledOnKeyguardCallback> callbacks) {
+             super(handler);
+             mContentResolver = context.getContentResolver();
+             mCallbacks = callbacks;
+             updateContentObserver();
+         }
+ 
+         public void updateContentObserver() {
+             mContentResolver.unregisterContentObserver(this);
++            mContentResolver.registerContentObserver(FINGERPRINT_UNLOCK_KEYGUARD_ENABLED,
++                    false /* notifyForDescendents */,
++                    this /* observer */,
++                    UserHandle.USER_ALL);
+             mContentResolver.registerContentObserver(FACE_UNLOCK_KEYGUARD_ENABLED,
+                     false /* notifyForDescendents */,
+                     this /* observer */,
+                     UserHandle.USER_ALL);
+             mContentResolver.registerContentObserver(FACE_UNLOCK_APP_ENABLED,
+                     false /* notifyForDescendents */,
+                     this /* observer */,
+                     UserHandle.USER_ALL);
+             mContentResolver.registerContentObserver(FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION,
+                     false /* notifyForDescendents */,
+                     this /* observer */,
+                     UserHandle.USER_ALL);
+         }
+ 
+         @Override
+         public void onChange(boolean selfChange, Uri uri, int userId) {
+-            if (FACE_UNLOCK_KEYGUARD_ENABLED.equals(uri)) {
++            if (FINGERPRINT_UNLOCK_KEYGUARD_ENABLED.equals(uri)) {
++                mFingerprintEnabledOnKeyguard.put(userId, Settings.Secure.getIntForUser(
++                                mContentResolver,
++                                Settings.Secure.FINGERPRINT_UNLOCK_KEYGUARD_ENABLED,
++                                DEFAULT_KEYGUARD_ENABLED ? 1 : 0 /* default */,
++                                userId) != 0);
++
++                if (userId == ActivityManager.getCurrentUser() && !selfChange) {
++                    notifyEnabledOnKeyguardCallbacks(userId);
++                }
++            } else if (FACE_UNLOCK_KEYGUARD_ENABLED.equals(uri)) {
+                 mFaceEnabledOnKeyguard.put(userId, Settings.Secure.getIntForUser(
+                                 mContentResolver,
+                                 Settings.Secure.FACE_UNLOCK_KEYGUARD_ENABLED,
+                                 DEFAULT_KEYGUARD_ENABLED ? 1 : 0 /* default */,
+                                 userId) != 0);
+ 
+                 if (userId == ActivityManager.getCurrentUser() && !selfChange) {
+                     notifyEnabledOnKeyguardCallbacks(userId);
+                 }
+             } else if (FACE_UNLOCK_APP_ENABLED.equals(uri)) {
+@@ -528,20 +545,28 @@ public class BiometricService extends SystemService {
+                                 userId) != 0);
+             } else if (FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION.equals(uri)) {
+                 mFaceAlwaysRequireConfirmation.put(userId, Settings.Secure.getIntForUser(
+                                 mContentResolver,
+                                 Settings.Secure.FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION,
+                                 DEFAULT_ALWAYS_REQUIRE_CONFIRMATION ? 1 : 0 /* default */,
+                                 userId) != 0);
+             }
+         }
+ 
++        boolean getFingerprintEnabledOnKeyguard() {
++            final int user = ActivityManager.getCurrentUser();
++            if (!mFingerprintEnabledOnKeyguard.containsKey(user)) {
++                onChange(true /* selfChange */, FINGERPRINT_UNLOCK_KEYGUARD_ENABLED, user);
++            }
++            return mFingerprintEnabledOnKeyguard.get(user);
++        }
++
+         public boolean getFaceEnabledOnKeyguard() {
+             final int user = ActivityManager.getCurrentUser();
+             if (!mFaceEnabledOnKeyguard.containsKey(user)) {
+                 onChange(true /* selfChange */, FACE_UNLOCK_KEYGUARD_ENABLED, user);
+             }
+             return mFaceEnabledOnKeyguard.get(user);
+         }
+ 
+         public boolean getFaceEnabledForApps(int userId) {
+             if (!mFaceEnabledForApps.containsKey(userId)) {
+@@ -553,20 +578,23 @@ public class BiometricService extends SystemService {
+         public boolean getFaceAlwaysRequireConfirmation(int userId) {
+             if (!mFaceAlwaysRequireConfirmation.containsKey(userId)) {
+                 onChange(true /* selfChange */, FACE_UNLOCK_ALWAYS_REQUIRE_CONFIRMATION, userId);
+             }
+             return mFaceAlwaysRequireConfirmation.get(userId);
+         }
+ 
+         public void notifyEnabledOnKeyguardCallbacks(int userId) {
+             List<EnabledOnKeyguardCallback> callbacks = mCallbacks;
+             for (int i = 0; i < callbacks.size(); i++) {
++                callbacks.get(i).notify(BiometricSourceType.FINGERPRINT,
++                        mFingerprintEnabledOnKeyguard.getOrDefault(userId, DEFAULT_KEYGUARD_ENABLED),
++                        userId);
+                 callbacks.get(i).notify(BiometricSourceType.FACE,
+                         mFaceEnabledOnKeyguard.getOrDefault(userId, DEFAULT_KEYGUARD_ENABLED),
+                         userId);
+             }
+         }
+     }
+ 
+     final class EnabledOnKeyguardCallback implements IBinder.DeathRecipient {
+ 
+         private final IBiometricEnabledOnKeyguardCallback mCallback;
+@@ -838,20 +866,22 @@ public class BiometricService extends SystemService {
+             mBiometricStrengthController.updateStrengths();
+         }
+ 
+         @Override // Binder call
+         public void registerEnabledOnKeyguardCallback(
+                 IBiometricEnabledOnKeyguardCallback callback, int callingUserId) {
+             checkInternalPermission();
+ 
+             mEnabledOnKeyguardCallbacks.add(new EnabledOnKeyguardCallback(callback));
+             try {
++                callback.onChanged(BiometricSourceType.FINGERPRINT,
++                        mSettingObserver.getFingerprintEnabledOnKeyguard(), callingUserId);
+                 callback.onChanged(BiometricSourceType.FACE,
+                         mSettingObserver.getFaceEnabledOnKeyguard(), callingUserId);
+             } catch (RemoteException e) {
+                 Slog.w(TAG, "Remote exception", e);
+             }
+         }
+ 
+         @Override // Binder call
+         public void setActiveUser(int userId) {
+             checkInternalPermission();
+
+commit c985368006c7d9fc03688425712e948b3e9c4cbc (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+Author: anupritaisno1 <www.anuprita804@gmail.com>
+Date:   Mon 2021-06-07 22:04:53+0100
+
+    automatically reboot device after timeout if set
+---
+ core/java/android/provider/Settings.java           |  7 +++++
+ data/etc/com.android.systemui.xml                  |  1 +
+ packages/SystemUI/AndroidManifest.xml              |  3 ++
+ .../systemui/keyguard/KeyguardViewMediator.java    | 35 ++++++++++++++++++++++
+ 4 files changed, 46 insertions(+)
+
+diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
+index 444ea4195355dc9dd8af641c0344ec32ed70c041..2351790c5adf92236034c4288b307e098fd89129 100755
+--- a/core/java/android/provider/Settings.java
++++ b/core/java/android/provider/Settings.java
+@@ -14439,20 +14439,27 @@ public final class Settings {
+          * @hide
+          */
+         public static final String NR_NSA_TRACKING_SCREEN_OFF_MODE =
+                 "nr_nsa_tracking_screen_off_mode";
+ 
+         /**
+          * The amount of time in milliseconds before bluetooth is turned off
+          * @hide
+          */
+         public static final String BLUETOOTH_OFF_TIMEOUT = "bluetooth_off_timeout";
++
++        /**
++         * Whether to automatically reboot the device after a user defined timeout
++         *
++         * @hide
++         */
++         public static final String SETTINGS_REBOOT_AFTER_TIMEOUT = "settings_reboot_after_timeout";
+     }
+ 
+     /**
+      * Configuration system settings, containing settings which are applied identically for all
+      * defined users. Only Android can read these and only a specific configuration service can
+      * write these.
+      *
+      * @hide
+      */
+     public static final class Config extends NameValueTable {
+diff --git a/data/etc/com.android.systemui.xml b/data/etc/com.android.systemui.xml
+index 06f1dae30cd3404778b2814540baf3e1fc9f0830..7019b1829b5b72c317bcf2ce49676e1e9340dee5 100644
+--- a/data/etc/com.android.systemui.xml
++++ b/data/etc/com.android.systemui.xml
+@@ -41,20 +41,21 @@
+         <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+         <permission name="android.permission.OBSERVE_NETWORK_POLICY"/>
+         <permission name="android.permission.OBSERVE_GRANT_REVOKE_PERMISSIONS" />
+         <permission name="android.permission.OVERRIDE_WIFI_CONFIG"/>
+         <permission name="android.permission.PACKAGE_USAGE_STATS" />
+         <permission name="android.permission.READ_DREAM_STATE"/>
+         <permission name="android.permission.READ_FRAME_BUFFER"/>
+         <permission name="android.permission.READ_NETWORK_USAGE_HISTORY"/>
+         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
+         <permission name="android.permission.REAL_GET_TASKS"/>
++        <permission name="android.permission.REBOOT"/>
+         <permission name="android.permission.REQUEST_NETWORK_SCORES"/>
+         <permission name="android.permission.RECEIVE_MEDIA_RESOURCE_USAGE"/>
+         <permission name="android.permission.START_ACTIVITIES_FROM_BACKGROUND" />
+         <permission name="android.permission.START_ACTIVITY_AS_CALLER"/>
+         <permission name="android.permission.START_TASKS_FROM_RECENTS"/>
+         <permission name="android.permission.STATUS_BAR"/>
+         <permission name="android.permission.STOP_APP_SWITCHES"/>
+         <permission name="android.permission.SUBSTITUTE_NOTIFICATION_APP_NAME"/>
+         <permission name="android.permission.TETHER_PRIVILEGED"/>
+         <permission name="android.permission.UPDATE_APP_OPS_STATS"/>
+diff --git a/packages/SystemUI/AndroidManifest.xml b/packages/SystemUI/AndroidManifest.xml
+index ce1eea0a715ceb5565fa1f2aa2f5b5d77a72ed8d..6aef9272aa5af7cb112d204dd86e1682272fd542 100644
+--- a/packages/SystemUI/AndroidManifest.xml
++++ b/packages/SystemUI/AndroidManifest.xml
+@@ -263,20 +263,23 @@
+ 
+     <!-- Permission to register process observer -->
+     <uses-permission android:name="android.permission.SET_ACTIVITY_WATCHER"/>
+ 
+     <!-- Restore settings (used by QS) even if they have been modified -->
+     <uses-permission android:name="android.permission.MODIFY_SETTINGS_OVERRIDEABLE_BY_RESTORE" />
+ 
+     <!-- Permission to make accessibility service access Bubbles -->
+     <uses-permission android:name="android.permission.ADD_TRUSTED_DISPLAY" />
+ 
++    <!-- Permission to allow rebooting the device after a user configurable amount of time -->
++    <uses-permission android:name="android.permission.REBOOT" />
++
+ 
+     <protected-broadcast android:name="com.android.settingslib.action.REGISTER_SLICE_RECEIVER" />
+     <protected-broadcast android:name="com.android.settingslib.action.UNREGISTER_SLICE_RECEIVER" />
+     <protected-broadcast android:name="com.android.settings.flashlight.action.FLASHLIGHT_CHANGED" />
+ 
+     <application
+         android:name=".SystemUIApplication"
+         android:persistent="true"
+         android:allowClearUserData="false"
+         android:backupAgent=".backup.BackupHelper"
+diff --git a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
+index 75f4809d752f5c06dc4be84446486aa037f7dacf..7ed49ab2a5506849d4039ca81a62e3ab0e686c0b 100644
+--- a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
++++ b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
+@@ -150,20 +150,22 @@ import dagger.Lazy;
+  */
+ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+     private static final int KEYGUARD_DISPLAY_TIMEOUT_DELAY_DEFAULT = 30000;
+     private static final long KEYGUARD_DONE_PENDING_TIMEOUT_MS = 3000;
+ 
+     private static final boolean DEBUG = true;
+     private static final boolean DEBUG_SIM_STATES = KeyguardConstants.DEBUG_SIM_STATES;
+ 
+     private final static String TAG = "KeyguardViewMediator";
+ 
++    private static final String DELAYED_REBOOT_ACTION =
++        "com.android.internal.policy.impl.PhoneWindowManager.DELAYED_REBOOT";
+     private static final String DELAYED_KEYGUARD_ACTION =
+         "com.android.internal.policy.impl.PhoneWindowManager.DELAYED_KEYGUARD";
+     private static final String DELAYED_LOCK_PROFILE_ACTION =
+             "com.android.internal.policy.impl.PhoneWindowManager.DELAYED_LOCK";
+ 
+     private static final String SYSTEMUI_PERMISSION = "com.android.systemui.permission.SELF";
+ 
+     // used for handler messages
+     private static final int SHOW = 1;
+     private static final int HIDE = 2;
+@@ -269,20 +271,25 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+      * Helps remember whether the screen has turned on since the last time
+      * it turned off due to timeout. see {@link #onScreenTurnedOff(int)}
+      */
+     private int mDelayedShowingSequence;
+ 
+     /**
+      * Simiar to {@link #mDelayedProfileShowingSequence}, but it is for profile case.
+      */
+     private int mDelayedProfileShowingSequence;
+ 
++    /**
++     * Same as {@link #mDelayedProfileShowingSequence}, but used for our reboot implementation
++     */
++    private int mDelayedRebootSequence;
++
+     /**
+      * If the user has disabled the keyguard, then requests to exit, this is
+      * how we'll ultimately let them know whether it was successful.  We use this
+      * var being non-null as an indicator that there is an in progress request.
+      */
+     private IKeyguardExitCallback mExitSecureCallback;
+     private final DismissCallbackRegistry mDismissCallbackRegistry;
+ 
+     // the properties of the keyguard
+ 
+@@ -763,20 +770,21 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+         mShowKeyguardWakeLock = mPM.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "show keyguard");
+         mShowKeyguardWakeLock.setReferenceCounted(false);
+ 
+         IntentFilter filter = new IntentFilter();
+         filter.addAction(Intent.ACTION_SHUTDOWN);
+         mBroadcastDispatcher.registerReceiver(mBroadcastReceiver, filter);
+ 
+         final IntentFilter delayedActionFilter = new IntentFilter();
+         delayedActionFilter.addAction(DELAYED_KEYGUARD_ACTION);
+         delayedActionFilter.addAction(DELAYED_LOCK_PROFILE_ACTION);
++        delayedActionFilter.addAction(DELAYED_REBOOT_ACTION);
+         mContext.registerReceiver(mDelayedLockBroadcastReceiver, delayedActionFilter,
+                 SYSTEMUI_PERMISSION, null /* scheduler */);
+ 
+         InjectionInflationController injectionInflationController =
+                 new InjectionInflationController(SystemUIFactory.getInstance().getRootComponent());
+         mKeyguardDisplayManager = new KeyguardDisplayManager(mContext,
+                 injectionInflationController);
+ 
+         mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
+ 
+@@ -1034,37 +1042,53 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+                     lockIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
+                     PendingIntent lockSender = PendingIntent.getBroadcast(
+                             mContext, 0, lockIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+                     mAlarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                             userWhen, lockSender);
+                 }
+             }
+         }
+     }
+ 
++    private void doRebootForOwnerAfterTimeoutIfEnabled(int rebootAfterTimeout) {
++        long when = SystemClock.elapsedRealtime() + rebootAfterTimeout;
++        Intent rebootIntent = new Intent(DELAYED_REBOOT_ACTION);
++        rebootIntent.putExtra("seq", mDelayedRebootSequence);
++        rebootIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
++        PendingIntent sender = PendingIntent.getBroadcast(mContext,
++                0, rebootIntent, PendingIntent.FLAG_CANCEL_CURRENT);
++        mAlarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, when, sender);
++        if (DEBUG) Log.d(TAG, "setting alarm to reboot device, timeout = "
++                         + String.valueOf(rebootAfterTimeout));
++    }
++
+     private void doKeyguardForChildProfilesLocked() {
+         UserManager um = UserManager.get(mContext);
+         for (int profileId : um.getEnabledProfileIds(UserHandle.myUserId())) {
+             if (mLockPatternUtils.isSeparateProfileChallengeEnabled(profileId)) {
+                 lockProfile(profileId);
+             }
+         }
+     }
+ 
+     private void cancelDoKeyguardLaterLocked() {
+         mDelayedShowingSequence++;
+     }
+ 
+     private void cancelDoKeyguardForChildProfilesLocked() {
+         mDelayedProfileShowingSequence++;
+     }
+ 
++    private void cancelDoRebootForOwnerAfterTimeoutIfEnabled() {
++        mDelayedRebootSequence++;
++    }
++
+     /**
+      * Let's us know when the device is waking up.
+      */
+     public void onStartedWakingUp() {
+         Trace.beginSection("KeyguardViewMediator#onStartedWakingUp");
+ 
+         // TODO: Rename all screen off/on references to interactive/sleeping
+         synchronized (this) {
+             mDeviceInteractive = true;
+             cancelDoKeyguardLaterLocked();
+@@ -1402,20 +1426,24 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+                 if (DEBUG) Log.d(TAG, "Not showing lock screen since just decrypted");
+                 // Without this, settings is not enabled until the lock screen first appears
+                 setShowingLocked(false);
+                 hideLocked();
+                 return;
+             }
+         }
+ 
+         if (DEBUG) Log.d(TAG, "doKeyguard: showing the lock screen");
+         showLocked(options);
++        final int rebootAfterTimeout = Settings.Global.getInt(mContext.getContentResolver(), Settings.Global.SETTINGS_REBOOT_AFTER_TIMEOUT, 0);
++        if (rebootAfterTimeout >= 1) {
++            doRebootForOwnerAfterTimeoutIfEnabled(rebootAfterTimeout);
++        }
+     }
+ 
+     private void lockProfile(int userId) {
+         mTrustManager.setDeviceLockedForUser(userId, true);
+     }
+ 
+     private boolean shouldWaitForProvisioning() {
+         return !mUpdateMonitor.isDeviceProvisioned() && !isSecure();
+     }
+ 
+@@ -1562,20 +1590,26 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+             } else if (DELAYED_LOCK_PROFILE_ACTION.equals(intent.getAction())) {
+                 final int sequence = intent.getIntExtra("seq", 0);
+                 int userId = intent.getIntExtra(Intent.EXTRA_USER_ID, 0);
+                 if (userId != 0) {
+                     synchronized (KeyguardViewMediator.this) {
+                         if (mDelayedProfileShowingSequence == sequence) {
+                             lockProfile(userId);
+                         }
+                     }
+                 }
++            } else if (DELAYED_REBOOT_ACTION.equals(intent.getAction())) {
++                final int sequence = intent.getIntExtra("seq", 0);
++                if (sequence == mDelayedRebootSequence) {
++                    PowerManager pm = mContext.getSystemService(PowerManager.class);
++                    pm.reboot(null);
++                }
+             }
+         }
+     };
+ 
+     private final BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
+         @Override
+         public void onReceive(Context context, Intent intent) {
+             if (Intent.ACTION_SHUTDOWN.equals(intent.getAction())) {
+                 synchronized (KeyguardViewMediator.this){
+                     mShuttingDown = true;
+@@ -1999,20 +2033,21 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable {
+             }
+ 
+             setShowingLocked(false);
+             mWakeAndUnlocking = false;
+             mDismissCallbackRegistry.notifyDismissSucceeded();
+             mKeyguardViewControllerLazy.get().hide(startTime, fadeoutDuration);
+             resetKeyguardDonePendingLocked();
+             mHideAnimationRun = false;
+             adjustStatusBarLocked();
+             sendUserPresentBroadcast();
++            cancelDoRebootForOwnerAfterTimeoutIfEnabled();
+         }
+         Trace.endSection();
+     }
+ 
+     private void adjustStatusBarLocked() {
+         adjustStatusBarLocked(false /* forceHideHomeRecentsButtons */,
+                 false /* forceClearFlags */);
+     }
+ 
+     private void adjustStatusBarLocked(boolean forceHideHomeRecentsButtons,
