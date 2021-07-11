@@ -85456,7 +85456,7 @@ index 8c1f880c69822783f5cdf15424edb869a3fb13eb..04e3f1f91d3f5ef93e2696ef68687227
        mcc="730"
        mnc="01"
 
-commit e76f65132ea43b21f4d7a66d33cdd6fb5a32c32d (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit e76f65132ea43b21f4d7a66d33cdd6fb5a32c32d (tag: RQ3A.210605.005.2021.06.08.06)
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Tue 2021-06-08 07:37:01+0530
 
@@ -100135,3 +100135,51 @@ index db4d8838bcf0feeaf27254812f9cc6fafb0f7960..ba7947994596b9d6456eebe9b617e03e
      </carrier_config>
 -    <carrier_config mcc="901" mnc="58" />
  </carrier_config_list>
+
+commit ab20a273b465159eeaa3f21c69959903ceb12efc (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+Author: Philip Rinn <rinni@inventati.org>
+Date:   Sun 2021-06-20 14:32:51+0200
+
+    Add the set of PIXEL_*_EXPERIENCE features for redfin
+---
+ device-redfin.mk            |  4 ++++
+ google_experience.xml (new) | 12 ++++++++++++
+ 2 files changed, 16 insertions(+)
+
+diff --git a/device-redfin.mk b/device-redfin.mk
+index 83491cfc2dfd6ea11fb849f4cde970b43e244dcf..668e507ab2984ff6fc481f581fd0d7f72c1f555c 100644
+--- a/device-redfin.mk
++++ b/device-redfin.mk
+@@ -215,10 +215,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.com.google.ime.height_ratio=1.2 \
+     ro.com.google.ime.kb_pad_port_b=10
+ 
+ # Bluetooth Tx power caps for redfin
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/bluetooth_power_limits_redfin_ROW.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits.csv \
+     $(LOCAL_PATH)/bluetooth_power_limits_redfin_us.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_US.csv \
+     $(LOCAL_PATH)/bluetooth_power_limits_redfin_eu.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_EU.csv \
+     $(LOCAL_PATH)/bluetooth_power_limits_redfin_jp.csv:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_power_limits_JP.csv
++
++# Set of *_EXPERIENCE features for redfin
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/google_experience.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google_experience.xml
+diff --git a/google_experience.xml b/google_experience.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..5d0182c7f8816207afc386c031c52b126e46d4f2
+--- /dev/null
++++ b/google_experience.xml
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="utf-8"?>
++
++<config>
++    <feature name="com.google.android.feature.GOOGLE_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2017_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2018_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
++</config>

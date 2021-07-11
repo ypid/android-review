@@ -1,4 +1,4 @@
-commit 0ebe19261f160742db309258334d3c743e99518f
+commit 03c3415202548541f2c5f75ec8600c016813a92f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-27 17:26:39-0400
 
@@ -111,7 +111,7 @@ index 378948033ac42c95473a48016d3e2f765935a76d..721ab0460a31ba3c22b4a602c02c5140
          final Intent intent = new Intent();
          intent.setAction(Intent.ACTION_VIEW);
 
-commit dbee70a413350fe9790aff884894cd8d711b0bb2 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 5330489aeb18f38747d72ac57ab85d22da557e68 (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-08-22 02:51:36-0400
 

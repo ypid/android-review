@@ -1,4 +1,4 @@
-commit be49c2430f0087698526d957efe8b1c559a9568f
+commit 2812d588c5fccbec51c594492885a0e4f4bd3616
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-06-06 10:40:51-0400
 
@@ -35,7 +35,7 @@ index 837940cf9e7593a4734d829fd87f111c7409c8c4..75c01791db81caa953b54e76b620d3b2
      static final boolean ANTENNA_BLOCKED_MESSAGE_SHOWN_DEFAULT = false;
  
 
-commit 2637b3cc39fc1ad7d038af3602d2800fa2cc28ad
+commit 2f7e9902c0e1585cb3eb327eeed944ef17af1a5f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 20:58:37-0400
 
@@ -212,7 +212,7 @@ index 23f5db4132caf3c0af55e7fd1947a97ec95c49db..396c6d0cdb1924106b727dbc378f92a2
  **
  ** Function:        register_com_android_nfc_NativeP2pDevice
 
-commit 54958f379626ada14ab46c32e1072d0a0fc57284 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 597f19147683bc6cc7f2a01212cd3a05e77d1485 (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
 Author: Maoliang Tang <tangmaoliang@xiaomi.com>
 Date:   Fri 2020-07-31 20:55:38+0800
 

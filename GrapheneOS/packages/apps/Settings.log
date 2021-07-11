@@ -1,4 +1,4 @@
-commit 7eeeb8288c853ed5a81e5acae1164428c8c4c7e6
+commit 4785e069dd266d55e7039f13e61d41c912a1d564
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -35,7 +35,7 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..12e731f8cba9ab75a699de93c9beceb7
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit 6d0a3dabebea3efcc111fe424dd7c3a0bf05b6b2
+commit fcddc9865d3bbdad42be48db022fc72d3b383969
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-02-16 02:22:41-0500
 
@@ -72,7 +72,7 @@ index 12e731f8cba9ab75a699de93c9beceb72c5de836..4fea4e3fe15cf8f9f2c898e03341350a
      <bool name="config_show_system_update_settings">true</bool>
  
 
-commit d6568a1ec742000b5e1bd2c365b61031781f4d11
+commit 5f51ec3c5acc1639633d0236515c1eec4e17ea98
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -112,7 +112,7 @@ index 226398ea5eb406ee62b0973351af015cf99c2a17..94c5de4b8807a48bc6f8797fbebe50e1
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 5437cbe95b8b78e959f9b793e2e47f6dd951df99
+commit 1bcb9db7c914ec1d8ceb1e08cd6ba9f2c151fecb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -215,7 +215,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit b0a8b11fa5840fa42a44f13283dbd865c8064d4d
+commit d10a02df39dea08a6c8be3f617d0373163b64d01
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -257,7 +257,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 51cb8ecd39f349004d2bc08adae6d5c407193aef
+commit 80917eca2c0eaafe78cd634ac11b81ffcd6239e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-20 11:10:32-0400
 
@@ -317,7 +317,7 @@ index 94c5de4b8807a48bc6f8797fbebe50e1f036d255..5b37f9429519e1cfc4641adb26ad4c04
      <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
      <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
 
-commit 1dcb0ba54a1efd2f323984eb3486429104d3f114
+commit a06d38aee2fcdd4d20ba42cc8c9e062c9f91ef62
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -354,7 +354,7 @@ index 4fea4e3fe15cf8f9f2c898e03341350a22f623cd..a9dac5256af7b26c60c5560eca50a442
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 9811663b3fb4d3906178b0ec3d337d6b2e336578
+commit 5bf67c928acaed371cd6bcbd27807bff30eb6858
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -392,7 +392,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 3f5e3ddf08f8e575fc0043e161b4bc43b453275a
+commit 5a68a2f731cc4eb4c415b835b449acd1ab63b1a1
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -865,7 +865,7 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit c125a99f5c17209f42dd3d22e3c399f9a7dc3b68
+commit eff7bc18f6813593e952785ee73549bb38b9b9b9
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -1100,7 +1100,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 6e449a74c517415ef7d449367586079ce6ba9adb
+commit c7be9f66b48a710e0f07e2d6c81390009637511e
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-03-05 14:24:42+1100
 
@@ -1150,7 +1150,7 @@ index 144cf2f15c46e67e6b0ae2300bd2cfe4ec7c05f1..f4a7ddf8f8ca6e71e09ce6c024a17277
      }
  }
 
-commit 929090bee0e1dd62e7865313351a554a0a5261b7
+commit ca1dff877d7b9ede07ab2ae246ac33e26b4233f7
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1428,7 +1428,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 47d1dd9f42b266fd0a332c531bd76751c6b3edfd
+commit d6147c1e7dbeb0701b3ea11ecdafc99869cc5fb3
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1725,7 +1725,7 @@ index d6e1b6054d3bbad4ff7f07018d6986a49a2d7d38..ab51c59e1a6f0b6a03458b289e8737a6
      }
  }
 
-commit 75d8e74f7208c9ce42cc57f31d6521bab37df2f1
+commit da6ac5e19a7fcfaf9b288124d9d587d75f280520
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -1921,7 +1921,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit ca6a82c63508e79b16c693eeb84e5b5c9db6c747
+commit 771cf2c35dccbfefc8aa3b81eacf299530aa7d0e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -4480,7 +4480,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit d51eb16145b8b17f9bd95f7fa37ffb15e04600ec
+commit 99f695d3538c817eba07729a54134396cc8142d6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -4612,7 +4612,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit ccb3cfdf8dfea762f014e68dc21f88199b6dcfa7
+commit 095518220da8ff39284c73598db46129604f4211
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -4667,7 +4667,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit 46e1fdcf359cc7f37ca8eae0f246b0aa096a2039
+commit 4af24a69ac2292e0b4637beccaaddfb96a0859d4
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-10-01 00:29:44-0700
 
@@ -4978,7 +4978,7 @@ index f1ebaeebba9f9cc5641aed411054501d0e07feb0..29111b89ec26c62eb9de18408439d07b
              } else {
                  mEntries.add(mContext.getString(R.string.network_lte));
 
-commit eed983695aef6bc180984a1ea078872a2214f790
+commit 6a6ea3e22876ac833c82537baeb241ddbf41a694
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 
@@ -5311,7 +5311,7 @@ index db704ae850de73f0a2ed547a4be8f6b3048be630..c77b07821e1dabf303060cacc3b4dff5
      @Override
      public Dialog onCreateDialog(int dialogId) {
 
-commit 8094b646d2baa207fdceb0d9d06dc9d0aff0e662
+commit ce24a8a2ec041542ddcb9a25d8445adda82dd5ad
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-03-10 00:45:12-0500
 
@@ -5369,7 +5369,7 @@ index a9dac5256af7b26c60c5560eca50a442ec561ea0..04bfcdd8fdba67ac82a3dd9af3383488
          -->
      </string-array>
 
-commit a89ce8b5a3ecf02ad56739f1ef4c0cead4efc58a
+commit f656257e42b09c071ad91c2f5e251966dcd51ae7
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 12:37:30-0400
 
@@ -5685,7 +5685,7 @@ index 0000000000000000000000000000000000000000..2755d5ec18ac3ab1f67ed6c28ca4e706
 +}
 \ No newline at end of file
 
-commit 9a6e4fee7e1763998cacb9891b5df0e7699ed624
+commit 27ac0a4c1e98e8b30d956b21fec87c91a11cc380
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:15:32+0100
 
@@ -5889,7 +5889,7 @@ index fe551d16251349f71d3473f9344a95a6217e1200..0bb5b98ee4abd88ec8cf154e769f65ba
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 2cd4624ea2a9db2770ad3b1a416043378826febc
+commit cf4df756251747226e0ce44ae32ee4847d404464
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:13:36+0100
 
@@ -6000,7 +6000,7 @@ index 0000000000000000000000000000000000000000..32b1cb64de05bb3414088028c0d48d1e
 +    }
 +}
 
-commit c39f39b8f0ffa4e10bcf4073fdef1c79f8049e29
+commit 37eb30cd7b9b48b1cfc40fef4800556d2184c93e
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:11:39+0100
 
@@ -6040,7 +6040,7 @@ index afbda02c7731059fa7bab41fb97dee730176c0c3..fc1004603e86cadb3328887ce8e1bb04
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 957f0f3cc7b0afb187158cb2f55c029293040ad5
+commit 503547c7b20273910de8e2a2f29dc17053ad9fb5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-04-25 21:42:56-0400
 
@@ -6160,7 +6160,7 @@ index c98736b231f7c81b7a2ee3a4d6f4a3a4937a762b..145722aef032d9534b8ba51ca9541bdc
              android:persistent="false"
              android:summary="@string/daltonizer_mode_protanomaly_summary"
 
-commit 1d095c8c3f048db8bc6ee08998b003ca640ae453
+commit 089344b636a6cdbd2c93aa99b2ec13465dc391dd
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-04-17 15:15:51+0100
 
@@ -6205,7 +6205,7 @@ index 04bfcdd8fdba67ac82a3dd9af33834884a89b71e..8b8ac04b6b421bf9460a919971c018ec
      <string name="gesture_double_twist_sensor_name" translatable="false"></string>
      <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
 
-commit 9af67adde2c1abecce608fa24a80ecadb046051c
+commit cfba0af2064e5817488dbeb0ab2da02e013654b8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-05-03 17:10:59-0400
 
@@ -6245,7 +6245,7 @@ index 5fca6dc2143f25c58add3fd997c729c98ac54eea..86044bfb53255e0845d6f06d2728a6ca
      private static final String STANDARD_OTHER_FALLBACK_URLS =
              "http://play.googleapis.com/generate_204";
 
-commit 97312c68a6e3c4a49c00e7a24544edc519592b8d
+commit dd74674a9ff1ead6949b0356e874fc93148bef2c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-05-15 23:13:13-0400
 
@@ -6307,7 +6307,7 @@ index 7cc5f19d1fa2a0b7530c584f73daa3c71b1a1fee..a549fe6aaa756e65cdbfebf8bfefd52f
      <!-- About phone settings screen, setting option name to see wallpapers attributions values -->
      <string name="wallpaper_attributions_values">Satellite imagery providers:\n©2014 CNES / Astrium, DigitalGlobe, Bluesky</string>
 
-commit d165b10849712da0ef1772adfd388bce7136b29f
+commit ae10a87cba0a5d71de7ea7f081ea5bf25519bea4
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sun 2021-05-16 00:51:15+0100
 
@@ -6350,7 +6350,7 @@ index 05558648763016aa94e64527db7bcd3d5991d9af..cf9779a69882c4e9fda82a10dc1295a8
  
      <!-- Bootloader -->
 
-commit 5cb09892ef1854447128dcabb1a53c7b80dff355
+commit adb1a030fd3f6a71ee0701be18b91a972bab16ec
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2020-04-27 13:10:34-0700
 
@@ -6581,7 +6581,7 @@ index 8b16aeea65528d19e694b09222023667c7e314f1..9ff20d91427439f129716b7c99819885
              return R.string.help_url_fingerprint;
          }
 
-commit 6ba041eefb0437c398cac65078471f8caa520299
+commit 4016daa37e3affc28c34211d8bafa7da0fe7c437
 Author: maxwen <max.weninger@gmail.com>
 Date:   Thu 2021-04-08 18:43:53+0200
 
@@ -6637,7 +6637,7 @@ index 72b67de1ddde3ec2c97f062dc99f5225b0da9795..e2aadefc42dd8eabae68923ef729dc33
      }
  }
 
-commit 1a732110be1cca176fb3aca279946c34f51985a3 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit cb623e1c7b23b26a61745c64668c77d01c7e67f0
 Author: pratyush <codelab@pratyush.dev>
 Date:   Mon 2021-06-07 22:15:59+0100
 
@@ -6728,7 +6728,7 @@ index 04636a759c56b33cb81910ab851b81ff42a6776a..925167e4e5c0410e1d041627bb2c4721
      <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_summary">Allow fingerprints to unlock the screen lock. If this is disabled, fingerprints can still be used in apps.</string>
  </resources>
 diff --git a/res/xml/security_dashboard_settings.xml b/res/xml/security_dashboard_settings.xml
-index 366173073e6a91f86fcf5111714ceb3a1dada69f..65c8f552821b20a47f3ac10f5bce9aa9ccfc38c9 100644
+index 366173073e6a91f86fcf5111714ceb3a1dada69f..eb35060c947a4a1bb2dfef45a630a2b7c69bea5a 100644
 --- a/res/xml/security_dashboard_settings.xml
 +++ b/res/xml/security_dashboard_settings.xml
 @@ -13,21 +13,21 @@
@@ -6772,7 +6772,7 @@ index 366173073e6a91f86fcf5111714ceb3a1dada69f..65c8f552821b20a47f3ac10f5bce9aa9
 +            android:persistent="false"
 +            android:entries="@array/auto_reboot_entries"
 +            android:entryValues="@array/auto_reboot_values" />
-+      
++
          <ListPreference
              android:key="deny_new_usb"
              android:title="@string/deny_new_usb_title"
@@ -6938,3 +6938,413 @@ index 0bb5b98ee4abd88ec8cf154e769f65bab5c47fa6..ad9b57cf22e7c554560ad9eabb4279d3
          final List<AbstractPreferenceController> profileSecurityControllers = new ArrayList<>();
          profileSecurityControllers.add(new ChangeProfileScreenLockPreferenceController(
                  context, host));
+
+commit 898d40fcca7f6407f3c236636012b28e27429db5
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Fri 2021-07-02 19:02:41+0530
+
+    remove unnecessary changes
+    
+    actual bluetooth timeout feature has been changed and there is no need to keep this broadcast.
+---
+ AndroidManifest.xml | 6 ------
+ 1 file changed, 6 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index e2a501a7a09583f924dc402d5fe8ceaf0bb5cd90..0b4b75f4409b1e0dd084d87d417728e41ed140e7 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -2662,26 +2662,20 @@
+         <!-- Confirmation dialog for enabling notification access from CompanionDeviceManager -->
+         <activity android:name=".notification.NotificationAccessConfirmationActivity"
+                   android:theme="@android:style/Theme.DeviceDefault.Light.Dialog.Alert" />
+ 
+         <receiver android:name="com.android.settingslib.bluetooth.BluetoothDiscoverableTimeoutReceiver">
+             <intent-filter>
+                 <action android:name="android.bluetooth.intent.DISCOVERABLE_TIMEOUT" />
+             </intent-filter>
+         </receiver>
+ 
+-        <receiver android:name="com.android.settingslib.bluetooth.BluetoothTimeoutReceiver">
+-            <intent-filter>
+-                <action android:name="android.bluetooth.intent.TIMEOUT" />
+-            </intent-filter>
+-        </receiver>
+-
+         <!-- Watch for ContactsContract.Profile changes and update the user's photo.  -->
+         <receiver android:name=".users.ProfileUpdateReceiver">
+             <intent-filter>
+                 <action android:name="android.provider.Contacts.PROFILE_CHANGED" />
+             </intent-filter>
+         </receiver>
+ 
+         <receiver android:name=".sim.SimSelectNotification">
+             <intent-filter>
+                 <action android:name="android.telephony.action.PRIMARY_SUBSCRIPTION_LIST_CHANGED"/>
+
+commit 8787d14da7bc2f3c87c9d202f4e626e7afb1adcc (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Tue 2021-07-06 22:47:17+0530
+
+    added ui for wifi auto turn off
+---
+ res/values/arrays.xml                              | 24 +++++++
+ res/values/strings.xml                             |  7 +++
+ res/xml/wifi_settings2.xml                         |  7 +++
+ .../WiFiTimeoutPreferenceController.java (new)     | 73 ++++++++++++++++++++++
+ src/com/android/settings/wifi/WifiSettings2.java   | 15 +++++
+ 5 files changed, 126 insertions(+)
+
+diff --git a/res/values/arrays.xml b/res/values/arrays.xml
+index c3c7b316535f61afd30513753a744c381f0a7839..434a1652b9f2c5e9eceb6cd594ecb8dda23756af 100644
+--- a/res/values/arrays.xml
++++ b/res/values/arrays.xml
+@@ -161,20 +161,44 @@
+         <item>5 seconds</item>
+         <item>15 seconds</item>
+         <item>30 seconds</item>
+         <item>1 minute</item>
+         <item>2 minutes</item>
+         <item>5 minutes</item>
+         <item>10 minutes</item>
+         <item>30 minutes</item>
+     </string-array>
+ 
++    <!-- WiFi Auto turn off settings -->
++    <string-array name="wifi_timeout_entries" >
++        <item>Off</item>
++        <item>1 minute</item>
++        <item>5 minutes</item>
++        <item>10 minutes</item>
++        <item>30 minutes</item>
++        <item>1 hour</item>
++        <item>5 hours</item>
++        <item>10 hours</item>
++        <item>24 hours</item>
++    </string-array>
++    <string-array name="wifi_timeout_values" translatable="false">
++        <item>0</item>
++        <item>60000</item>
++        <item>300000</item>
++        <item>600000</item>
++        <item>1800000</item>
++        <item>3600000</item>
++        <item>18000000</item>
++        <item>36000000</item>
++        <item>87840000</item>
++    </string-array>
++
+     <!-- Auto reboot settings -->
+     <string-array name="auto_reboot_entries">
+         <item>Off</item>
+         <item>1 hour</item>
+         <item>2 hours</item>
+         <item>4 hours</item>
+         <item>8 hours</item>
+         <item>12 hours</item>
+         <item>24 hours</item>
+         <item>36 hours</item>
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 925167e4e5c0410e1d041627bb2c4721ccce31f4..b684c47781fac297f95df9ca5cdbcd9e7054c62c 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -1732,20 +1732,25 @@
+     <!-- Bluetooth settings.  Dock Setting Dialog - Checkbox selection 2: Use dock for media audio -->
+     <string name="bluetooth_dock_settings_a2dp">For music and media</string>
+     <!-- Bluetooth settings.  Dock Setting Dialog - Remember setting and don't ask user again -->
+     <string name="bluetooth_dock_settings_remember">Remember settings</string>
+ 
+     <!-- Bluetooth developer settings: Maximum number of connected audio devices -->
+     <string name="bluetooth_max_connected_audio_devices_string">Maximum connected Bluetooth audio devices</string>
+     <!-- Bluetooth developer settings: Maximum number of connected audio devices -->
+     <string name="bluetooth_max_connected_audio_devices_dialog_title">Select maximum number of connected Bluetooth audio devices</string>
+ 
++    <string name="wifi_auto_timeout_summary">WiFi will turn off after <xliff:g id="timeout_description">%1$s</xliff:g> if no network is connected</string>
++    <string name="wifi_auto_no_timeout_summary">Do not automatically turn off WiFi</string>
++
++    <string name="wifi_auto_off_title">WiFi timeout</string>
++
+     <!-- Wifi Display settings. The title of the screen. [CHAR LIMIT=40] -->
+     <string name="wifi_display_settings_title">Cast</string>
+     <!-- Wifi Display settings. The keywords of the setting. [CHAR LIMIT=NONE] -->
+     <string name="keywords_wifi_display_settings">mirror</string>
+     <!-- Wifi Display settings. The title of a menu item to enable wireless display [CHAR LIMIT=40] -->
+     <string name="wifi_display_enable_menu_item">Enable wireless display</string>
+     <!-- Wifi Display settings. Text that appears when scanning for devices is finished and no nearby device was found [CHAR LIMIT=40]-->
+     <string name="wifi_display_no_devices_found">No nearby devices were found.</string>
+     <!-- Wifi Display settings. The status summary for connecting devices. [CHAR LIMIT=40] -->
+     <string name="wifi_display_status_connecting">Connecting</string>
+@@ -12249,11 +12254,13 @@
+     <string name="auto_reboot_title">Auto reboot</string>
+     <string name="auto_reboot_summary">Automatically reboot the device, if the phone hasn\'t been unlocked within the selected number of hours.</string>
+     <string name="deny_new_usb_summary">Control support for USB peripherals such as input (mice, keyboards, joysticks) and storage devices.</string>
+     <string name="keyguard_camera_title">Screen lock camera access</string>
+     <string name="keyguard_camera_summary">Allow camera access when the device is locked</string>
+     <string name="native_debug_title">Enable native code debugging</string>
+     <string name="native_debug_summary">Generate useful logs / bug reports from crashes and permit debugging native code.</string>
+     <string name="security_settings_fingerprint_settings_screen_lock_category">Screen lock</string>
+     <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_title">Allow fingerprint unlocking</string>
+     <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_summary">Allow fingerprints to unlock the screen lock. If this is disabled, fingerprints can still be used in apps.</string>
++    <string name="wifi_timeout_title">WiFi timeout</string>
++    <string name="wifi_timeout_summary">Automatically reboot the device, if the phone hasn\'t been unlocked within the selected number of hours.</string>
+ </resources>
+diff --git a/res/xml/wifi_settings2.xml b/res/xml/wifi_settings2.xml
+index 2bf39dbe28e8f42e9b274b8f7ce3434200d0c4a7..3d0c6857fddb74bb238d09e6580af8824380489d 100644
+--- a/res/xml/wifi_settings2.xml
++++ b/res/xml/wifi_settings2.xml
+@@ -30,19 +30,26 @@
+     <PreferenceCategory
+         android:key="access_points"
+         android:layout="@layout/preference_category_no_label"/>
+ 
+     <Preference
+         android:key="configure_wifi_settings"
+         android:title="@string/wifi_configure_settings_preference_title"
+         settings:allowDividerAbove="true"
+         android:fragment="com.android.settings.wifi.ConfigureWifiSettings"/>
+ 
++    <androidx.preference.ListPreference
++        android:key="wifi_auto_timeout"
++        android:title="@string/wifi_auto_off_title"
++        android:summary="@string/summary_placeholder"
++        android:entries="@array/wifi_timeout_entries"
++        android:entryValues="@array/wifi_timeout_values"/>
++
+     <Preference
+         android:key="saved_networks"
+         android:title="@string/wifi_saved_access_points_label"
+         android:fragment="com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2"/>
+ 
+     <com.android.settings.datausage.DataUsagePreference
+         android:key="wifi_data_usage"
+         android:title="@string/wifi_data_usage"/>
+ </PreferenceScreen>
+diff --git a/src/com/android/settings/wifi/WiFiTimeoutPreferenceController.java b/src/com/android/settings/wifi/WiFiTimeoutPreferenceController.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..1d358ed4cb733fc9c718d87d925265f1b903258a
+--- /dev/null
++++ b/src/com/android/settings/wifi/WiFiTimeoutPreferenceController.java
+@@ -0,0 +1,73 @@
++package com.android.settings.wifi;
++
++import android.content.Context;
++import android.provider.Settings;
++import android.util.Log;
++
++import androidx.preference.ListPreference;
++import androidx.preference.Preference;
++import com.android.settings.R;
++
++public class WiFiTimeoutPreferenceController {
++    private static final String TAG = "WiFiTimeoutPrefCtrl";
++
++    public static final int FALLBACK_WIFI_TIMEOUT_VALUE = 0;
++    private final Context mContext;
++
++    public WiFiTimeoutPreferenceController(Context context) {
++        mContext = context;
++    }
++
++    public void updateState(Preference preference) {
++        final ListPreference timeoutListPreference = (ListPreference) preference;
++        final long currentTimeout = Settings.Global.getLong(mContext.getContentResolver(),
++                Settings.Global.WIFI_OFF_TIMEOUT, FALLBACK_WIFI_TIMEOUT_VALUE);
++        timeoutListPreference.setValue(String.valueOf(currentTimeout));
++        updateTimeoutPreferenceDescription(timeoutListPreference,
++                Long.parseLong(timeoutListPreference.getValue()));
++    }
++
++    public boolean preferenceChange(Preference preference, Object newValue) {
++        try {
++            long value = Long.parseLong((String) newValue);
++            Settings.Global.putLong(mContext.getContentResolver(), Settings.Global.WIFI_OFF_TIMEOUT, value);
++            updateTimeoutPreferenceDescription((ListPreference) preference, value);
++        } catch (NumberFormatException e) {
++            Log.e(TAG, "could not persist bluetooth timeout setting", e);
++        }
++        return true;
++    }
++
++    public static CharSequence getTimeoutDescription(
++            long currentTimeout, CharSequence[] entries, CharSequence[] values) {
++        if (currentTimeout < 0 || entries == null || values == null
++                || values.length != entries.length) {
++            return null;
++        }
++
++        for (int i = 0; i < values.length; i++) {
++            long timeout = Long.parseLong(values[i].toString());
++            if (currentTimeout == timeout) {
++                return entries[i];
++            }
++        }
++        return null;
++    }
++
++    private void updateTimeoutPreferenceDescription(ListPreference preference,
++                                                    long currentTimeout) {
++        final CharSequence[] entries = preference.getEntries();
++        final CharSequence[] values = preference.getEntryValues();
++        final CharSequence timeoutDescription = getTimeoutDescription(
++                currentTimeout, entries, values);
++        String summary = "";
++        if (timeoutDescription != null) {
++            if (currentTimeout != 0)
++                summary = mContext.getString(R.string.wifi_auto_timeout_summary, timeoutDescription);
++            else
++                summary = mContext.getString(R.string.wifi_auto_no_timeout_summary);
++        }
++        preference.setSummary(summary);
++        Log.d(TAG, "updateTimeoutPreferenceDescription  Summry " + summary +  "   summry :"  + preference.getSummary());
++    }
++}
+\ No newline at end of file
+diff --git a/src/com/android/settings/wifi/WifiSettings2.java b/src/com/android/settings/wifi/WifiSettings2.java
+index 79f48fb95b1e67f8366fd31e4449dfd6cf62a971..0fd4e720f441efbfd58082c2bf44f0c577b61ac7 100644
+--- a/src/com/android/settings/wifi/WifiSettings2.java
++++ b/src/com/android/settings/wifi/WifiSettings2.java
+@@ -45,20 +45,21 @@ import android.text.TextUtils;
+ import android.util.FeatureFlagUtils;
+ import android.util.Log;
+ import android.view.ContextMenu;
+ import android.view.ContextMenu.ContextMenuInfo;
+ import android.view.Menu;
+ import android.view.MenuItem;
+ import android.view.View;
+ import android.widget.Toast;
+ 
+ import androidx.annotation.VisibleForTesting;
++import androidx.preference.ListPreference;
+ import androidx.preference.Preference;
+ import androidx.preference.PreferenceCategory;
+ import androidx.preference.PreferenceScreen;
+ import androidx.recyclerview.widget.RecyclerView;
+ 
+ import com.android.settings.LinkifyUtils;
+ import com.android.settings.R;
+ import com.android.settings.RestrictedSettingsFragment;
+ import com.android.settings.SettingsActivity;
+ import com.android.settings.core.FeatureFlags;
+@@ -114,20 +115,21 @@ public class WifiSettings2 extends RestrictedSettingsFragment
+     static final int CONFIG_NETWORK_REQUEST = 3;
+     static final int MANAGE_SUBSCRIPTION = 4;
+ 
+     private static final String PREF_KEY_EMPTY_WIFI_LIST = "wifi_empty_list";
+     // TODO(b/70983952): Rename these to use WifiEntry instead of AccessPoint.
+     private static final String PREF_KEY_CONNECTED_ACCESS_POINTS = "connected_access_point";
+     private static final String PREF_KEY_ACCESS_POINTS = "access_points";
+     private static final String PREF_KEY_CONFIGURE_WIFI_SETTINGS = "configure_wifi_settings";
+     private static final String PREF_KEY_SAVED_NETWORKS = "saved_networks";
+     private static final String PREF_KEY_STATUS_MESSAGE = "wifi_status_message";
++    private static final String PREF_KEY_WIFI_AUTO_TIMEOUT = "wifi_auto_timeout";
+     @VisibleForTesting
+     static final String PREF_KEY_DATA_USAGE = "wifi_data_usage";
+ 
+     private static final int REQUEST_CODE_WIFI_DPP_ENROLLEE_QR_CODE_SCANNER = 0;
+ 
+     public static final int WIFI_DIALOG_ID = 1;
+ 
+     // Instance state keys
+     private static final String SAVE_DIALOG_MODE = "dialog_mode";
+     private static final String SAVE_DIALOG_WIFIENTRY_KEY = "wifi_ap_key";
+@@ -183,29 +185,31 @@ public class WifiSettings2 extends RestrictedSettingsFragment
+ 
+     @VisibleForTesting
+     WifiPickerTracker mWifiPickerTracker;
+ 
+     private WifiDialog2 mDialog;
+ 
+     private View mProgressHeader;
+ 
+     private PreferenceCategory mConnectedWifiEntryPreferenceCategory;
+     private PreferenceCategory mWifiEntryPreferenceCategory;
++    private ListPreference timeoutPreference;
+     @VisibleForTesting
+     AddWifiNetworkPreference mAddWifiNetworkPreference;
+     @VisibleForTesting
+     Preference mConfigureWifiSettingsPreference;
+     @VisibleForTesting
+     Preference mSavedNetworksPreference;
+     @VisibleForTesting
+     DataUsagePreference mDataUsagePreference;
+     private LinkablePreference mStatusMessagePreference;
++    private WiFiTimeoutPreferenceController mTimeoutPreferenceController;
+ 
+     /**
+      * Tracks whether the user initiated a connection via clicking in order to autoscroll to the
+      * network once connected.
+      */
+     private boolean mClickedConnect;
+ 
+     public WifiSettings2() {
+         super(DISALLOW_CONFIG_WIFI);
+     }
+@@ -228,36 +232,46 @@ public class WifiSettings2 extends RestrictedSettingsFragment
+     public void onCreate(Bundle icicle) {
+         super.onCreate(icicle);
+ 
+         // TODO(b/37429702): Add animations and preference comparator back after initial screen is
+         // loaded (ODR).
+         setAnimationAllowed(false);
+ 
+         addPreferences();
+ 
+         mIsRestricted = isUiRestricted();
++        mTimeoutPreferenceController = new WiFiTimeoutPreferenceController(getContext());
+     }
+ 
+     private void addPreferences() {
+         addPreferencesFromResource(R.xml.wifi_settings2);
+ 
+         mConnectedWifiEntryPreferenceCategory = findPreference(PREF_KEY_CONNECTED_ACCESS_POINTS);
+         mWifiEntryPreferenceCategory = findPreference(PREF_KEY_ACCESS_POINTS);
+         mConfigureWifiSettingsPreference = findPreference(PREF_KEY_CONFIGURE_WIFI_SETTINGS);
+         mSavedNetworksPreference = findPreference(PREF_KEY_SAVED_NETWORKS);
+         mAddWifiNetworkPreference = new AddWifiNetworkPreference(getPrefContext());
+         mStatusMessagePreference = findPreference(PREF_KEY_STATUS_MESSAGE);
+         mDataUsagePreference = findPreference(PREF_KEY_DATA_USAGE);
+         mDataUsagePreference.setVisible(DataUsageUtils.hasWifiRadio(getContext()));
+         mDataUsagePreference.setTemplate(NetworkTemplate.buildTemplateWifiWildcard(),
+                 0 /*subId*/,
+                 null /*service*/);
++
++        timeoutPreference  =
++                (ListPreference) findPreference(PREF_KEY_WIFI_AUTO_TIMEOUT);
++        timeoutPreference.setVisible(true);
++        timeoutPreference.setOnPreferenceChangeListener(
++                (preference, o) -> {
++                    mTimeoutPreferenceController.preferenceChange(preference, o);
++                    return false;
++                });
+     }
+ 
+     @Override
+     public void onActivityCreated(Bundle savedInstanceState) {
+         super.onActivityCreated(savedInstanceState);
+ 
+         final Context context = getContext();
+         mWorkerThread = new HandlerThread(TAG +
+                 "{" + Integer.toHexString(System.identityHashCode(this)) + "}",
+                 Process.THREAD_PRIORITY_BACKGROUND);
+@@ -384,20 +398,21 @@ public class WifiSettings2 extends RestrictedSettingsFragment
+         mIsRestricted = isUiRestricted();
+         if (!alreadyImmutablyRestricted && mIsRestricted) {
+             restrictUi();
+         }
+ 
+         if (mWifiEnabler != null) {
+             mWifiEnabler.resume(activity);
+         }
+ 
+         changeNextButtonState(mWifiPickerTracker.getConnectedWifiEntry() != null);
++        mTimeoutPreferenceController.updateState(timeoutPreference);
+     }
+ 
+     @Override
+     public void onPause() {
+         super.onPause();
+         if (mWifiEnabler != null) {
+             mWifiEnabler.pause();
+         }
+     }
+ 

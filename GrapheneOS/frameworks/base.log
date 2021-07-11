@@ -1,4 +1,4 @@
-commit c11ef8c759ccedb882baaac939ee8cb47be7089f
+commit f9b9b9c379aa9da0d9c52119f1f69a2a64e5bc47
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -35,7 +35,7 @@ index 5f02eb6a6a37eda6a34cc94b33d263e6c8ba0fe4..d31844d5bdfad0e7b903444f0125b6a5
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit b228c7414540b5424947eb71cfe90afc77250432
+commit 0b2804695007396509e1b451ba57fa8ac08129b3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit aa922723ab651b49224a0eba4c05da5754707ba9
+commit 766d06a349d22a2f5b6e685c58d7bdda6dcc4a58
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -163,7 +163,7 @@ index d31844d5bdfad0e7b903444f0125b6a5bcbc58eb..be242ee172a1e578c3425c21e0387501
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit be7ce65a1fbd3f89aa5b6eb17d22a346319d06e0
+commit 81f75e32881967f026a9af43cae25125fba49fcb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -200,7 +200,7 @@ index be242ee172a1e578c3425c21e03875014beef900..06573015c9d078b629b783c257d0e4e2
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 5a3ae77faa591f1176f0f2ec84f284046b84eeb4
+commit 63662a6bd62915016d6b62343dc11199ed6a3b55
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -237,7 +237,7 @@ index 06573015c9d078b629b783c257d0e4e2662212c4..5eae06de2a678b2c71f8407ad0543885
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 7ffee59e5e3f153a149e116e4ed9f8325fdf677f
+commit 9fe0ed595ba35420a8c932d185c3c0d1a6035312
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -274,7 +274,7 @@ index 5eae06de2a678b2c71f8407ad05438851aeb6ba6..670edade16c7c519fb785c7a29ff9f85
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 36644358dc6f4857da2a1f7b5ac5c53bd545d927
+commit 8a093e8694ec6e87d846acaaad2d6ae488b382de
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -311,7 +311,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 7d6dfde466ea41d55650208162ab85c6fa0c8e8e
+commit 9fb53f71ef99205769dfac8f07097e4a83357488
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -348,7 +348,7 @@ index e2e8049c2980ffdf95099d0e0d7de2f5297636b8..9f6ac309e44d2913733fd65a35b9a99b
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit 558111c4f2557c57491c7cde9948d862031350cf
+commit 4c137c5799f8058c5594bb64eeecfc8681e835c6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -385,7 +385,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 71cd579661ceed3d24918c4c93f3557d1a29928d
+commit d5970aff3efb1edbd4c1abfe889333b13b52b764
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -425,7 +425,7 @@ index 670edade16c7c519fb785c7a29ff9f85261f8a26..35a7dba6ae851cd5936cc4ee474c88ea
  
      <!-- The default character set for GsmAlphabet -->
 
-commit 34688ea2b5e7ac5ffcfee12f41805e971394de7c
+commit c659d87d223ea6326de58969517b3586103f0ded
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -465,7 +465,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit afd60526f3612203ce6ca6df0e6083e508595a86
+commit 3e663a57ac13339978e1ef4770b09b583bab62b6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -508,7 +508,7 @@ index a5501368945f56fc6636b01feb676fdbdc9fd88c..63a784b354dd1e7e238d2b1b370b3d27
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 9ccc3dfd37c7d082d07df3962e5793c4e4d312e2
+commit 8eb4c697049a96839191588b130b72907aef53ac
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -551,7 +551,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit 0c6589eeee52f1d43baa2565323e31809b449c2c
+commit 7d2e486290378c5ee6da890b4f391e7861989c6b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -588,7 +588,7 @@ index 9530a74d0ece2e499eec49cca97b6eed28d29734..43860044a02467f33ec902a5708df246
      </string>
  
 
-commit d4b80d55114c33d6af4b357dd66c11b8931f6d4b
+commit 84896b4d3139acda8f822d87efe294ab2288ab05
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -625,7 +625,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit df4e96c5b916005f3f8f3b67e17b3e296b6165f9
+commit 60229e26b545d7317533735f2534ba8eeea3d39e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -682,7 +682,7 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit d857415f361f35428d42ab27a5c7814be371266a
+commit a5fe8e30c7986aa5834951a9355a758b23ef6d4d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
@@ -1067,7 +1067,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit 0e0bb0f4a13026cffb75ddb52d91f83ab67e6e47
+commit 2fe40b53f5e69e7274eb206f49f4568659895ba9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1080,7 +1080,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit f82d3035261e9daf8775f1a92a655d5552ce4f2d
+commit 846f3ffaba1f4f1039c3fdaabe4b45771e25e5f9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1117,7 +1117,7 @@ index 35a7dba6ae851cd5936cc4ee474c88ea2414bb47..a197c6a50e61cc0990a2aa2b1668ac96
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit d1f94bb13af0ab31686d04e24316286e5c0bf438
+commit 762bb48d7c1294d2a60d7080ca75dee20b708689
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1178,7 +1178,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit 7b1fcd0852439f6aa1d21689a9bf0c5b7557fe70
+commit 4aaa15c31ea3feaec5719d3f530c0bafe4a31262
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1392,7 +1392,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit dfc1bd16795fe8a1cf52e28163ba072678607ea0
+commit 79b7f851d9f7cd57da073a945b2ad9db74212dd3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1433,7 +1433,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit 724cf969890103e53b88f43c25274934b6d35463
+commit 5c20df753ec3890e3d3a241509bc9872100d2eab
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1523,7 +1523,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit 8073048b1a4b7c82a3083f475590e9e60334d7a4
+commit 48ade85c9429155f14a1b016bba7949351e8b6a2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1612,7 +1612,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit c8f5931a4c4d947ad08f20138dd0028e4dd82424
+commit a3fb623b3e7206c32eeb19e3b64a454bddd64f60
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1655,7 +1655,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit 59c5267f0703fa8561e75c81a867f36ce2354041
+commit 524443a5633008e8455d7e3a511ea7941d3c5dc8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1698,7 +1698,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit 1097684324a0dc464f644e6c79a2b95d4d6832de
+commit 10bd092cd04de75eea0afbc71fba4d05b5f7b6e8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1741,7 +1741,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit e22b3243d03a4ed670bb20716641400cd93efc5c
+commit bcdc3c63e06279a735873e2139c1e795e80b0dd8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -1784,7 +1784,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit 3057d855245bc5d05218047034e6fe2ab95f3628
+commit 87605df067d58a86fff7093b6a6f66f46d64498c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -1874,7 +1874,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit cb3223f5d8dd92ae625f5dc545c8b0738cbf9d21
+commit d56143955e45ece076b25007b85a8d95d10680ae
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -1917,7 +1917,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit 1cfc5543e3c64a7bfd32bc2a4cb7f2c55c7763b5
+commit ce436e9b9eb2795d7ee4cf8c8b8f12dce6fc12d7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -1960,7 +1960,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit 6fd693c4c4c263f49b31cc21706e7b4b6f197243
+commit f7c654a89c9a513c74848b259c949e29843c6ab0
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2090,7 +2090,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit f3587f1a42809fa9b71ab23ea8c3fffaf0128d3a
+commit 4e3d024936ef4710ae77172e66a9e7e400c8a63e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2216,7 +2216,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit f8fac59e78af8aef8f54ced1e08bfa7066454efe
+commit e6394be7f37fe2e8a795983367585f696fc3e4ae
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2322,7 +2322,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit c7bd5ef1713b86330c9b6cd3f13917198af86b54
+commit 84996197faffc7bcc0fc4fd3e0f0b94cde68b1cd
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2467,7 +2467,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit d3320047426f0e182f0860e7782510e5807d4da6
+commit fdbe61ddd75c39579c256777e52980bf565dc565
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2570,7 +2570,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit 784a499f05cef0f776fec9627c922ec259529e2b
+commit 24ff6f4e83d7ea570f2b521ddd0333a02b54e005
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2686,7 +2686,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit c9aafd7b36d15bb2e48c6abac507df4e9fd79a1e
+commit aabbab43f127fa5663e5c6671d02fbc10ee8dabc
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -2809,7 +2809,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit 623b86a2a28664be35e8c8a5f9be79cdbbc1e94f
+commit 5bb5aa826c55359851c1ea61ede1b52991b1799f
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -2957,7 +2957,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit 4714763227b60c83745f65beb49f7c8049439599
+commit b1b25db06742eb59ab8e798a1bd4103848fdb8f3
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3072,7 +3072,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit cb88ab0b7142d46d575b5d8c6ee2e5afc41ffdee
+commit 6ed2ff075cb4963c1b013cef58837af10676512a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3164,7 +3164,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit b767d863dd3e95b2a0b42b582124f602d1ef4815
+commit a17cd9ba29033b826d289bbb42c193c29df9520c
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3230,7 +3230,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit 0159b7cb38afdf4dd545ba9fd011c732240c3107
+commit b32915b9550d89843256361ab51a7bbeac5c429d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3275,7 +3275,7 @@ index 0ae9cc279e6817d1ea0fa40c7780074f12bb5ba9..6c99f8d8525e8cb12de9eaf117019f15
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit 8dbb6a796bf070a4b2bab1825365352567ff7aeb
+commit 9c677eed76f84dbc32c362baa326640079fcaf70
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3359,7 +3359,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit 6503f0c1ab792480dddfd4b007f6a992127f6ad9
+commit afd0763909d9dab0aa93c8953808b26154f6fb66
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3572,7 +3572,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit 03814b2deff939f0ef6f8080241d06c4289adcb3
+commit 1602ea81f630c0ed4c965a8ac8ff10a8dba09f7b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3689,7 +3689,7 @@ index 9d71489c8abe45d9b6a3b077e29b4d2f03da6aea..5b6c59f031bbbf14a72e4aeff5740a63
                  return false;
              }
 
-commit b334e459a7964362593c6f83b4aca78d819f164a
+commit d4b43e629f53ae32b00fa8e02e95b9f78c8fd6d8
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -3785,7 +3785,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit a6b6a2a9dc5d43be7b8e8ab704509a29f7f06342
+commit 172048a1df17a491e9fee5652ce1edc2a49dbe86
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -3960,7 +3960,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit a11b6c6e56b9a85126a3d5f6aeb461464d6a7d4b
+commit 289157d15ee617dd12603095dd96dd381dd6abc0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4151,7 +4151,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit 3c1546bff7235a42c69b573daed6fc839ce73f76
+commit e6a9b3a4e8b242e8f00c219a3b25a7ce4f8a48e1
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4199,7 +4199,7 @@ index a197c6a50e61cc0990a2aa2b1668ac96bf5069f5..5887064591378cd972570ef6f24cc9f2
  
           If this flag is false, we advise applications not to use protected
 
-commit c147805469b83b4f2318ea4b0a2a0cc9ef129a99
+commit 76e58535d16511a751618594ae8a0a94ed0721ee
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -4911,7 +4911,7 @@ index 3ef0a8dc9daa71b890387a8e5069ab8a42ac634d..a69ff4af391757fcb7116cf0374f16ac
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 73966e467bad7120ff0a7a93e31b234ac49059dc
+commit 4c085d1f85d3925e294f0ff22d869b454d36111a
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -5187,7 +5187,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit 680441e41633ac4c98c246b055eda1ca1157e112
+commit e3679091dd05096699671ef6778aec2c6923236c
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5231,7 +5231,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 3381d2fdc2b348c4c73a08a19fbd5807f09572dc
+commit 30f5956f93511469b5f144cc52c80ca575622494
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5251,7 +5251,7 @@ Date:   Sat 2020-09-12 12:28:34-0700
  1 file changed, 19 insertions(+), 5 deletions(-)
 
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d549112045a 100644
+index 8d2363b6e831cc9ed38343707bfbd61bdae8127a..26b9598790848f32211b43f4cfda728bc97c1454 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 @@ -1454,21 +1454,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
@@ -5348,7 +5348,7 @@ index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d54
                  revokeRuntimePermissionInternal(permName, packageName, false, Process.SYSTEM_UID,
                          userId, null, delayingPermCallback);
              }
-@@ -2592,20 +2594,24 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2599,20 +2601,24 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                          }
                      }
                  }
@@ -5373,7 +5373,7 @@ index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d54
       *
       * <p>This restores the permission state for all users.
       *
-@@ -2938,20 +2944,28 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2945,20 +2951,28 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                                      // Hard restricted permissions cannot be held.
                                      } else if (!permissionPolicyInitialized
                                              || (!hardRestricted || restrictionExempt)) {
@@ -5402,7 +5402,7 @@ index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d54
                                                          | FLAG_PERMISSION_REVOKED_COMPAT;
                                                  wasChanged = true;
                                              }
-@@ -3893,21 +3907,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -3900,21 +3914,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              final BasePermission bp;
              synchronized (mLock) {
                  bp = mSettings.getPermissionLocked(permission);
@@ -5426,7 +5426,7 @@ index b500e1631fb523a71b117207522cca2357d1a08c..54538ed88f4cbf50a498d9b0a4761d54
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit 3e09130cc18988950dce1491df1cb1dd2626d145
+commit b2dc0a2934314a0d988144e1f3240d5ceb925b0f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5439,10 +5439,10 @@ Date:   Sun 2019-03-17 11:59:15-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 0499598239424e83633a92bc5663e179d981ee3a..bf06b0215d72aa703c96bd8bae0247e1a5ef873e 100644
+index b5fe21d81fd8f3081c0c43d9da6709d888838e54..ea4fe2d4469463aa35792d43e53d3a14c9af01a6 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1586,21 +1586,21 @@
+@@ -1588,21 +1588,21 @@
      <!-- Permissions for accessing networks -->
      <!-- ======================================= -->
      <eat-comment />
@@ -5466,10 +5466,10 @@ index 0499598239424e83633a92bc5663e179d981ee3a..bf06b0215d72aa703c96bd8bae0247e1
  
      <!-- Allows applications to access information about Wi-Fi networks.
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 54538ed88f4cbf50a498d9b0a4761d549112045a..80432966fc8cfb7f8307ac5d1860250b37910db9 100644
+index 26b9598790848f32211b43f4cfda728bc97c1454..9e6ecc739ffe6b4f23149d311fa583d94e3c064a 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -2595,21 +2595,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2602,21 +2602,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                      }
                  }
              }
@@ -5493,7 +5493,7 @@ index 54538ed88f4cbf50a498d9b0a4761d549112045a..80432966fc8cfb7f8307ac5d1860250b
       * </ul>
       *
 
-commit 7ae50c26fd9e3300d4ec6c01f0fe5a907e03f130
+commit 4b502a2426a0b9c7a2ea2007707d73824a4c6e74
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5539,10 +5539,10 @@ index 952ccdad992c74836a95e402ca88c77a64d87aad..728c0e95ca6d43fde4afa0ac00d4cf6b
    }
  
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index bf06b0215d72aa703c96bd8bae0247e1a5ef873e..130fa1dbacd8ad1847842823ff42d76d738a0ac5 100644
+index ea4fe2d4469463aa35792d43e53d3a14c9af01a6..514428efe1aab797ab52354175a522b4fa2577dc 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1580,24 +1580,32 @@
+@@ -1582,24 +1582,32 @@
           @hide
      -->
      <permission android:name="android.permission.ACCESS_MOCK_LOCATION"
@@ -5632,7 +5632,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit a863b2a3b7e463a075f3c068f427f16341246c0e
+commit b8abf0487b0790abf0aebf8187aece33eb217459
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -5732,10 +5732,10 @@ index 70e4e6cbf622eb6bb145c2183ed5ced8b10da55d..736f50f458ef8375ff300b3dfd6c8d8e
       */
      @Deprecated
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 130fa1dbacd8ad1847842823ff42d76d738a0ac5..1c67c563fa74ed37ee3519d4b350cea99c3792a6 100644
+index 514428efe1aab797ab52354175a522b4fa2577dc..d096c6409a10aa672681416e5f87276520022e56 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1370,20 +1370,32 @@
+@@ -1372,20 +1372,32 @@
  
      <!-- Allows an app to use device supported biometric modalities.
           <p>Protection level: normal
@@ -5875,10 +5875,10 @@ index 189544f98594ce96cd91a42c685a6b61cd6c9c77..9badc8c4d9c03496d12cc77ed4972e39
    }
  
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 80432966fc8cfb7f8307ac5d1860250b37910db9..422ad79d56bf2826496fc446ac7faee3cfbb3f56 100644
+index 9e6ecc739ffe6b4f23149d311fa583d94e3c064a..c744a0b5079ae60a6232efd9d0b13fde197865d1 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -2595,21 +2595,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2602,21 +2602,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                      }
                  }
              }
@@ -5902,7 +5902,7 @@ index 80432966fc8cfb7f8307ac5d1860250b37910db9..422ad79d56bf2826496fc446ac7faee3
       * </ul>
       *
 
-commit 06281db8ca47eecd6a54275128856c008319cf2a
+commit a120afc849722a2e1fcb9c3fc61b990a8519b24f
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -6081,7 +6081,7 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit d1c5c46fc59b1fe30fdb25e62e80d10961925451
+commit 6d4faf2cb0ffb7f58db63589a2bddc35e686184a
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6206,7 +6206,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit f201e246fd8ab5eb11ca4e15a9234ee41e5fdcbf
+commit fdd447620f8ce38371e233d147acdf8702c08362
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6278,7 +6278,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit f9602ac3de93ea7a8c49d2e4c6e5448c7ecca3a6
+commit 4335fae0ae53adc79b0a56581a4213ba8dc0f2b7
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6321,7 +6321,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit 87611b382658d775ea63e722f80e068624719ffc
+commit 43808a90c595fad9c64b8a00ab6020e87c3f7490
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6357,7 +6357,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit 99a91e53e607f48baf1c4d0a1584db8d1a1c8534
+commit 1e99b7c3c47e05096df7bc20d533b173c21f07cd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-29 16:37:29-0400
 
@@ -6499,7 +6499,7 @@ index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..00000000000000000000000000000000
 -VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
 ------END PRIVATE KEY-----
 
-commit af5ebef1d1d0c10db5eed9958874c1f7483d1bbf
+commit 210aa2a10aee3d986c27e167229c9a315f689921
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6564,7 +6564,7 @@ index ae354a953eecc839c3fd00bc9a25039f1edd290c..47769ef9e7a88d0ff8a42f5c9411c24f
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit 6c2d2c234a9ca81b3d9f22d1078f874207b6e8dd
+commit 2d6d700e2d632d13f339e55a801f1eb97d10593b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6593,7 +6593,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit 5975d8e91c2a6f1cb186051100739627fb0344f4
+commit 4815755e8ff33df6abbb07db2392c8cb4ac3edc1
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -6903,7 +6903,7 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit 18ecab10f3a4fb35e4b3c550d6dd6673100dd281
+commit 5953847cbb7899f8f6021e64770929a822b18387
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
@@ -6968,7 +6968,7 @@ index a5554c740e7f7f42d61e9f2f670937549d08656e..7f78193974c709046d40b0a09f006c2e
                  return sNetwork != null;
              }
 
-commit 8f2dfee43f7146c1cdf824d2c1a7fe5ac5354a94
+commit a4e08be38a62d37032bbc175bd0bb976704a9361
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7005,7 +7005,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit fe690d2d1bd44458df48b58debf8df590ba486be
+commit 7955c5763cec56a7e9c69f3070ced8188042262b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7044,7 +7044,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c2
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit 97b86bd8775f6456ac670661bdb9d967c6ddf28f
+commit 8a024f3c8d0554d97053568e76b028a7c82b0ac6
 Author: Marco Janotta <marcojntt@gmail.com>
 Date:   Fri 2021-01-08 18:19:11+0100
 
@@ -7084,7 +7084,7 @@ index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0
  
      <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
 
-commit a715fa80afd5ff01c1445cbbdca16b8843441d29
+commit 761df448bc71519ec766b8fee47753b2a55bd28f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7105,7 +7105,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit 83f2e3e1283508406177ba76a39db43084a47b8f
+commit 86c782f394790ba26f7f3cf9bd7a1bf9220c05d1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-02-21 08:39:04-0500
 
@@ -7167,7 +7167,7 @@ index e6ac9976cd7578ec426f9536fcabb0ee7594c211..b95d34f2966ba4665a0c196179e0948f
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit 8e93bf0cbc29e17a2f0f996f6998105ea9ad9c2c
+commit 58c2a0fd07aaff51096b8d16e6a2c8713db3cba8
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 13:40:28-0400
 
@@ -7414,7 +7414,7 @@ index 0000000000000000000000000000000000000000..b209556eb9caa30d3456fac88dbd5450
 +    }
 +}
 
-commit 2cf94ccb1507c14139160b86c3ea81e9d45d0b5f
+commit 3e07b572ac8aa47b3b2f43d660780a1b00549924
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-03-15 20:26:47+0000
 
@@ -7424,10 +7424,10 @@ Date:   Mon 2021-03-15 20:26:47+0000
  1 file changed, 3 insertions(+)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 1c67c563fa74ed37ee3519d4b350cea99c3792a6..513696af51b008d96670b8d7528b34b2f5d389a4 100644
+index d096c6409a10aa672681416e5f87276520022e56..097b0c91459ba953ff74b788e7ebc9af23eafbfe 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -658,20 +658,23 @@
+@@ -660,20 +660,23 @@
      <protected-broadcast android:name="android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED_INTERNAL" />
  
      <protected-broadcast android:name="android.intent.action.DEVICE_CUSTOMIZATION_READY" />
@@ -7452,7 +7452,7 @@ index 1c67c563fa74ed37ee3519d4b350cea99c3792a6..513696af51b008d96670b8d7528b34b2
           @TestApi
      -->
 
-commit f8b126f7e7c0ffa96da2721d5795046b59cea497
+commit ff929a39226fc890a053a68dc10f277f6ed1548f
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-03-15 20:39:24+0000
 
@@ -7532,7 +7532,7 @@ index b209556eb9caa30d3456fac88dbd54508b862e8b..fae669bf41962a3053cabcae9b77208a
      }
  }
 
-commit efe484aeed5b639d059fc56a4d50f6e49688f2ba
+commit fab3fab5369b472ed1e6de6aae313966d0950674
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 23:57:54-0400
 
@@ -7569,7 +7569,7 @@ index 348e9c8830e7f11132b2275bf255989313e10f75..668a170da6042febc8bf977158dfbe7b
  
      <!-- The component name, flattened to a string, for the default autofill service
 
-commit 72a839936ada1a657b503683e6b2db1fe6b5bb5d
+commit 1ed0d9dcf8bf5e807d97cd8377286f6b4e07d636
 Author: Dave Daynard <nardholio@gmail.com>
 Date:   Sun 2013-12-15 15:35:04-0500
 
@@ -7646,7 +7646,7 @@ index 409bd1f1c14733550a83391ce1fa3d82b55d9739..94265db5c69df8ce4f22d13e65d5920f
      }
  
 
-commit 73c56a20d82f6616bc04c4411eb5a17a0b1673ee
+commit 8e56ec68293bc9c05d00f3f39810fa3a739dde6d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:54:57-0400
 
@@ -7683,7 +7683,7 @@ index 2f776fc55034f6fe26ff854c96b43e25f9b88433..66243a90c507c29cab8539bedea52866
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
      // The sampling rate to push app compaction events into statsd for upload.
 
-commit 477035c9e8a73e0196152d9416cdae1cda917ede
+commit 77d0ed35ba89eee4d0ba324f0485680befe5741f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:56:10-0400
 
@@ -7720,7 +7720,7 @@ index 66243a90c507c29cab8539bedea5286677aeb203..abd238bcd670c36af51f2518c7bfcc71
      // The sampling rate to push app compaction events into statsd for upload.
      @VisibleForTesting static final float DEFAULT_STATSD_SAMPLE_RATE = 0.1f;
 
-commit e0668c6dc23803faad0c17285609d79a0a99e781
+commit fd75fa325b8d0d52306fa60760538af19f9fa6c5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 03:26:07-0400
 
@@ -7780,7 +7780,7 @@ index cd01cb703877a246a3046d3609013be58a2b41a8..7c78573e899ad3990fcc9299ae2591bd
          override fun onActiveStateChanged(
              code: Int,
 
-commit 60a7330c62e0db37fe63affb0d482eee9cad1a07
+commit ded16aed8bcb40f4d76f0ee286a691ccdb5ef0bd
 Author: pratyush <codelab@pratyush.dev>
 Date:   Sun 2021-04-25 07:04:03+0530
 
@@ -7943,7 +7943,7 @@ index 41c013b4b197f8ee2fdbbc3aa052f53b12427dd4..09cd274cbb052f67e2afa5bf5f219d49
       * @param iface The active VPN network's interface name
       * @param rangesToAdd The new UID ranges to be added to the network
 
-commit ffbfe15b0f7365be56db36f84a8a4dd69012307e
+commit 4c22238603579eab31064966057d413d543454ee
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Sun 2021-05-02 00:36:30+0000
 
@@ -8080,7 +8080,7 @@ index 89a6eca8fdaad10952869a3c6ad2e46e1818ea42..176cf79bbd049ac46256a39901dc2340
      }
  
 
-commit 306d95448a0dbf98875426abfc24a30489d70270
+commit 303a34f4d347dd7e66fd11def7c57cb2bb9a9287
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:31:26-0800
 
@@ -8258,7 +8258,7 @@ index 9635febfd545470ac5f0a3b77feb967729fb2bbf..ee6a93d8e10feb8bd425dbea9cb5d8e9
      <application android:label="Victor" android:hasCode="false"/>
  </manifest>
 
-commit 6c79c175a13fe6a3cd79a65253b51ab0b723c515
+commit 57a5f492f4e33953412b13a86b3f1badbf818e93
 Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
 Date:   Mon 2019-11-25 14:59:16+0000
 
@@ -8325,7 +8325,7 @@ index 994a18110260b3811efc38f6e5ba1c03dedc42d6..461fe2f9d4d2c1521ce677e1c5aaa3ce
      <!-- Global screenshot actions -->
      <color name="global_screenshot_button_background">#F5F5F5</color>
 
-commit 5878d6de7820d7e0ab8551852c5eb3a86e122a9a
+commit d78e672ece0024b5f3f0463fe1b7267c79aa6604
 Author: Isak Lilja <isak.lilja@sony.com>
 Date:   Thu 2020-11-12 11:56:01+0100
 
@@ -8371,7 +8371,7 @@ index 2d7aafc497d8bac0d6967edba0c0f3b20eca7eb5..2cc31f0eba4d82939dd3e531101892d0
          }
  
 
-commit 3f79cb6668eefe32ff656f6beb0ab94aaa2c92bf
+commit 976ec5fc28ef65432ff02fa6b2f90b5340e94041
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2021-05-06 20:42:26-0700
 
@@ -8409,7 +8409,7 @@ index 2cc31f0eba4d82939dd3e531101892d0b7d14f6d..f5fed3ab7de81b19cfd1b519ebfedf99
              }
          }
 
-commit 5f3cd66349cf016d0e887d18c9e4505b27e574aa
+commit 037af18ccbc44fabf06713a98803fbe682983def
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-05-14 22:52:17-0400
 
@@ -8446,7 +8446,7 @@ index 668a170da6042febc8bf977158dfbe7b50425b02..5805bd79772d2e7067a45087ef9c4759
      <integer name="config_ntpRetry">3</integer>
      <!-- Timeout to wait for NTP server response in milliseconds. -->
 
-commit cebcad4b486e068edb9874c0e0a5fd46e9814bb9
+commit b5276c9656dbc86965465f5d75cc9af9adbcaa55
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2020-04-27 13:10:15-0700
 
@@ -8743,7 +8743,7 @@ index 1217a507a8dcf715f9bc3cf993ef704aa73d392c..a6d5fa5763d4c7e87c88f34eeba32740
          public void setActiveUser(int userId) {
              checkInternalPermission();
 
-commit c985368006c7d9fc03688425712e948b3e9c4cbc (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 8bd1ef854d8c998b0939ba50ab882f3117339110
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-06-07 22:04:53+0100
 
@@ -9044,3 +9044,1172 @@ index 75f4809d752f5c06dc4be84446486aa037f7dacf..7ed49ab2a5506849d4039ca81a62e3ab
      }
  
      private void adjustStatusBarLocked(boolean forceHideHomeRecentsButtons,
+
+commit 68be01071e17a9ae3a1973804f3384ef28257970
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2021-06-09 09:26:00-0400
+
+    Revert "DO NOT MERGE Disable privacy indicators"
+    
+    This reverts commit 2628cf48a15acf1f1126d15ba9d1b3c43d934967.
+---
+ .../systemui/privacy/PrivacyItemController.kt      |   8 +-
+ .../PrivacyItemControllerFlagsTest.kt (new)        | 219 ++++++++++++++
+ .../privacy/PrivacyItemControllerTest.kt (new)     | 329 +++++++++++++++++++++
+ 3 files changed, 554 insertions(+), 2 deletions(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt b/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
+index 7c78573e899ad3990fcc9299ae2591bd465fcf72..61fe3e098946e9555b03bd0de3a17c5c2511b640 100644
+--- a/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
++++ b/packages/SystemUI/src/com/android/systemui/privacy/PrivacyItemController.kt
+@@ -97,23 +97,23 @@ class PrivacyItemController @Inject constructor(
+     private val notifyChanges = Runnable {
+         val list = privacyList
+         callbacks.forEach { it.get()?.onPrivacyItemsChanged(list) }
+     }
+ 
+     private val updateListAndNotifyChanges = Runnable {
+         updatePrivacyList()
+         uiExecutor.execute(notifyChanges)
+     }
+ 
+-    var allIndicatorsAvailable = false
++    var allIndicatorsAvailable = isAllIndicatorsEnabled()
+         private set
+-    var micCameraAvailable = false
++    var micCameraAvailable = isMicCameraEnabled()
+         private set
+ 
+     private val devicePropertiesChangedListener =
+             object : DeviceConfig.OnPropertiesChangedListener {
+         override fun onPropertiesChanged(properties: DeviceConfig.Properties) {
+                 if (DeviceConfig.NAMESPACE_PRIVACY.equals(properties.getNamespace()) &&
+                         (properties.keyset.contains(ALL_INDICATORS) ||
+                                 properties.keyset.contains(MIC_CAMERA))) {
+ 
+                     // Running on the ui executor so can iterate on callbacks
+@@ -151,20 +151,24 @@ class PrivacyItemController @Inject constructor(
+ 
+     @VisibleForTesting
+     internal var userSwitcherReceiver = Receiver()
+         set(value) {
+             unregisterReceiver()
+             field = value
+             if (listening) registerReceiver()
+         }
+ 
+     init {
++        deviceConfigProxy.addOnPropertiesChangedListener(
++                DeviceConfig.NAMESPACE_PRIVACY,
++                uiExecutor,
++                devicePropertiesChangedListener)
+         dumpManager.registerDumpable(TAG, this)
+     }
+ 
+     private fun unregisterReceiver() {
+         broadcastDispatcher.unregisterReceiver(userSwitcherReceiver)
+     }
+ 
+     private fun registerReceiver() {
+         broadcastDispatcher.registerReceiver(userSwitcherReceiver, intentFilter,
+                 null /* handler */, UserHandle.ALL)
+diff --git a/packages/SystemUI/tests/src/com/android/systemui/privacy/PrivacyItemControllerFlagsTest.kt b/packages/SystemUI/tests/src/com/android/systemui/privacy/PrivacyItemControllerFlagsTest.kt
+new file mode 100644
+index 0000000000000000000000000000000000000000..4ba29e6e02a61bae84ba775b2bad72a8022c69f5
+--- /dev/null
++++ b/packages/SystemUI/tests/src/com/android/systemui/privacy/PrivacyItemControllerFlagsTest.kt
+@@ -0,0 +1,219 @@
++/*
++ * Copyright (C) 2020 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.systemui.privacy
++
++import android.os.UserManager
++import android.provider.DeviceConfig
++import android.testing.AndroidTestingRunner
++import androidx.test.filters.SmallTest
++import com.android.internal.config.sysui.SystemUiDeviceConfigFlags
++import com.android.systemui.SysuiTestCase
++import com.android.systemui.appops.AppOpsController
++import com.android.systemui.broadcast.BroadcastDispatcher
++import com.android.systemui.dump.DumpManager
++import com.android.systemui.util.DeviceConfigProxy
++import com.android.systemui.util.DeviceConfigProxyFake
++import com.android.systemui.util.concurrency.FakeExecutor
++import com.android.systemui.util.time.FakeSystemClock
++import org.junit.Assert.assertFalse
++import org.junit.Assert.assertTrue
++import org.junit.Before
++import org.junit.Test
++import org.junit.runner.RunWith
++import org.mockito.ArgumentCaptor
++import org.mockito.Mock
++import org.mockito.Mockito
++import org.mockito.Mockito.anyBoolean
++import org.mockito.Mockito.atLeastOnce
++import org.mockito.Mockito.never
++import org.mockito.Mockito.verify
++import org.mockito.MockitoAnnotations
++
++@RunWith(AndroidTestingRunner::class)
++@SmallTest
++class PrivacyItemControllerFlagsTest : SysuiTestCase() {
++    companion object {
++        fun <T> capture(argumentCaptor: ArgumentCaptor<T>): T = argumentCaptor.capture()
++        fun <T> eq(value: T): T = Mockito.eq(value) ?: value
++        fun <T> any(): T = Mockito.any<T>()
++
++        private const val ALL_INDICATORS =
++                SystemUiDeviceConfigFlags.PROPERTY_PERMISSIONS_HUB_ENABLED
++        private const val MIC_CAMERA = SystemUiDeviceConfigFlags.PROPERTY_MIC_CAMERA_ENABLED
++    }
++
++    @Mock
++    private lateinit var appOpsController: AppOpsController
++    @Mock
++    private lateinit var callback: PrivacyItemController.Callback
++    @Mock
++    private lateinit var userManager: UserManager
++    @Mock
++    private lateinit var broadcastDispatcher: BroadcastDispatcher
++    @Mock
++    private lateinit var dumpManager: DumpManager
++
++    private lateinit var privacyItemController: PrivacyItemController
++    private lateinit var executor: FakeExecutor
++    private lateinit var deviceConfigProxy: DeviceConfigProxy
++
++    fun PrivacyItemController(): PrivacyItemController {
++        return PrivacyItemController(
++                appOpsController,
++                executor,
++                executor,
++                broadcastDispatcher,
++                deviceConfigProxy,
++                userManager,
++                dumpManager
++        )
++    }
++
++    @Before
++    fun setup() {
++        MockitoAnnotations.initMocks(this)
++        executor = FakeExecutor(FakeSystemClock())
++        deviceConfigProxy = DeviceConfigProxyFake()
++
++        privacyItemController = PrivacyItemController()
++        privacyItemController.addCallback(callback)
++
++        executor.runAllReady()
++    }
++
++    @Test
++    fun testNotListeningByDefault() {
++        assertFalse(privacyItemController.allIndicatorsAvailable)
++        assertFalse(privacyItemController.micCameraAvailable)
++
++        verify(appOpsController, never()).addCallback(any(), any())
++    }
++
++    @Test
++    fun testMicCameraChanged() {
++        changeMicCamera(true)
++        executor.runAllReady()
++
++        verify(callback).onFlagMicCameraChanged(true)
++        verify(callback, never()).onFlagAllChanged(anyBoolean())
++
++        assertTrue(privacyItemController.micCameraAvailable)
++        assertFalse(privacyItemController.allIndicatorsAvailable)
++    }
++
++    @Test
++    fun testAllChanged() {
++        changeAll(true)
++        executor.runAllReady()
++
++        verify(callback).onFlagAllChanged(true)
++        verify(callback, never()).onFlagMicCameraChanged(anyBoolean())
++
++        assertTrue(privacyItemController.allIndicatorsAvailable)
++        assertFalse(privacyItemController.micCameraAvailable)
++    }
++
++    @Test
++    fun testBothChanged() {
++        changeAll(true)
++        changeMicCamera(true)
++        executor.runAllReady()
++
++        verify(callback, atLeastOnce()).onFlagAllChanged(true)
++        verify(callback, atLeastOnce()).onFlagMicCameraChanged(true)
++
++        assertTrue(privacyItemController.allIndicatorsAvailable)
++        assertTrue(privacyItemController.micCameraAvailable)
++    }
++
++    @Test
++    fun testAll_listeningToAll() {
++        changeAll(true)
++        executor.runAllReady()
++
++        verify(appOpsController).addCallback(eq(PrivacyItemController.OPS), any())
++    }
++
++    @Test
++    fun testMicCamera_listening() {
++        changeMicCamera(true)
++        executor.runAllReady()
++
++        verify(appOpsController).addCallback(eq(PrivacyItemController.OPS), any())
++    }
++
++    @Test
++    fun testAll_listening() {
++        changeAll(true)
++        executor.runAllReady()
++
++        verify(appOpsController).addCallback(eq(PrivacyItemController.OPS), any())
++    }
++
++    @Test
++    fun testAllFalse_notListening() {
++        changeAll(true)
++        executor.runAllReady()
++        changeAll(false)
++        executor.runAllReady()
++
++        verify(appOpsController).removeCallback(any(), any())
++    }
++
++    @Test
++    fun testSomeListening_stillListening() {
++        changeAll(true)
++        changeMicCamera(true)
++        executor.runAllReady()
++        changeAll(false)
++        executor.runAllReady()
++
++        verify(appOpsController, never()).removeCallback(any(), any())
++    }
++
++    @Test
++    fun testAllDeleted_stopListening() {
++        changeAll(true)
++        executor.runAllReady()
++        changeAll(null)
++        executor.runAllReady()
++
++        verify(appOpsController).removeCallback(any(), any())
++    }
++
++    @Test
++    fun testMicDeleted_stopListening() {
++        changeMicCamera(true)
++        executor.runAllReady()
++        changeMicCamera(null)
++        executor.runAllReady()
++
++        verify(appOpsController).removeCallback(any(), any())
++    }
++
++    private fun changeMicCamera(value: Boolean?) = changeProperty(MIC_CAMERA, value)
++    private fun changeAll(value: Boolean?) = changeProperty(ALL_INDICATORS, value)
++
++    private fun changeProperty(name: String, value: Boolean?) {
++        deviceConfigProxy.setProperty(
++                DeviceConfig.NAMESPACE_PRIVACY,
++                name,
++                value?.toString(),
++                false
++        )
++    }
++}
+\ No newline at end of file
+diff --git a/packages/SystemUI/tests/src/com/android/systemui/privacy/PrivacyItemControllerTest.kt b/packages/SystemUI/tests/src/com/android/systemui/privacy/PrivacyItemControllerTest.kt
+new file mode 100644
+index 0000000000000000000000000000000000000000..5c5df2639cdd94004803fae7b9a4d89b614b0056
+--- /dev/null
++++ b/packages/SystemUI/tests/src/com/android/systemui/privacy/PrivacyItemControllerTest.kt
+@@ -0,0 +1,329 @@
++/*
++ * Copyright (C) 2020 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.systemui.privacy
++
++import android.app.ActivityManager
++import android.app.AppOpsManager
++import android.content.Intent
++import android.content.pm.UserInfo
++import android.os.UserHandle
++import android.os.UserManager
++import android.provider.DeviceConfig
++import android.testing.AndroidTestingRunner
++import android.testing.TestableLooper.RunWithLooper
++import androidx.test.filters.SmallTest
++import com.android.internal.config.sysui.SystemUiDeviceConfigFlags
++import com.android.systemui.SysuiTestCase
++import com.android.systemui.appops.AppOpItem
++import com.android.systemui.appops.AppOpsController
++import com.android.systemui.broadcast.BroadcastDispatcher
++import com.android.systemui.dump.DumpManager
++import com.android.systemui.util.DeviceConfigProxy
++import com.android.systemui.util.DeviceConfigProxyFake
++import com.android.systemui.util.concurrency.FakeExecutor
++import com.android.systemui.util.time.FakeSystemClock
++import org.hamcrest.Matchers.hasItem
++import org.hamcrest.Matchers.not
++import org.hamcrest.Matchers.nullValue
++import org.junit.Assert.assertEquals
++import org.junit.Assert.assertThat
++import org.junit.Assert.assertTrue
++import org.junit.Before
++import org.junit.Test
++import org.junit.runner.RunWith
++import org.mockito.ArgumentCaptor
++import org.mockito.ArgumentMatchers.anyInt
++import org.mockito.ArgumentMatchers.anyList
++import org.mockito.Captor
++import org.mockito.Mock
++import org.mockito.Mockito
++import org.mockito.Mockito.atLeastOnce
++import org.mockito.Mockito.doReturn
++import org.mockito.Mockito.mock
++import org.mockito.Mockito.never
++import org.mockito.Mockito.reset
++import org.mockito.Mockito.verify
++import org.mockito.Mockito.verifyNoMoreInteractions
++import org.mockito.MockitoAnnotations
++
++@RunWith(AndroidTestingRunner::class)
++@SmallTest
++@RunWithLooper
++class PrivacyItemControllerTest : SysuiTestCase() {
++
++    companion object {
++        val CURRENT_USER_ID = ActivityManager.getCurrentUser()
++        val TEST_UID = CURRENT_USER_ID * UserHandle.PER_USER_RANGE
++        const val TEST_PACKAGE_NAME = "test"
++
++        private const val ALL_INDICATORS =
++                SystemUiDeviceConfigFlags.PROPERTY_PERMISSIONS_HUB_ENABLED
++        private const val MIC_CAMERA = SystemUiDeviceConfigFlags.PROPERTY_MIC_CAMERA_ENABLED
++        fun <T> capture(argumentCaptor: ArgumentCaptor<T>): T = argumentCaptor.capture()
++        fun <T> eq(value: T): T = Mockito.eq(value) ?: value
++        fun <T> any(): T = Mockito.any<T>()
++    }
++
++    @Mock
++    private lateinit var appOpsController: AppOpsController
++    @Mock
++    private lateinit var callback: PrivacyItemController.Callback
++    @Mock
++    private lateinit var userManager: UserManager
++    @Mock
++    private lateinit var broadcastDispatcher: BroadcastDispatcher
++    @Mock
++    private lateinit var dumpManager: DumpManager
++    @Captor
++    private lateinit var argCaptor: ArgumentCaptor<List<PrivacyItem>>
++    @Captor
++    private lateinit var argCaptorCallback: ArgumentCaptor<AppOpsController.Callback>
++
++    private lateinit var privacyItemController: PrivacyItemController
++    private lateinit var executor: FakeExecutor
++    private lateinit var deviceConfigProxy: DeviceConfigProxy
++
++    fun PrivacyItemController(): PrivacyItemController {
++        return PrivacyItemController(
++                appOpsController,
++                executor,
++                executor,
++                broadcastDispatcher,
++                deviceConfigProxy,
++                userManager,
++                dumpManager
++        )
++    }
++
++    @Before
++    fun setup() {
++        MockitoAnnotations.initMocks(this)
++        executor = FakeExecutor(FakeSystemClock())
++        deviceConfigProxy = DeviceConfigProxyFake()
++
++        changeAll(true)
++
++        doReturn(listOf(object : UserInfo() {
++            init {
++                id = CURRENT_USER_ID
++            }
++        })).`when`(userManager).getProfiles(anyInt())
++
++        privacyItemController = PrivacyItemController()
++    }
++
++    @Test
++    fun testSetListeningTrueByAddingCallback() {
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        verify(appOpsController).addCallback(eq(PrivacyItemController.OPS),
++                any())
++        verify(callback).onPrivacyItemsChanged(anyList())
++    }
++
++    @Test
++    fun testSetListeningFalseByRemovingLastCallback() {
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        verify(appOpsController, never()).removeCallback(any(),
++                any())
++        privacyItemController.removeCallback(callback)
++        executor.runAllReady()
++        verify(appOpsController).removeCallback(eq(PrivacyItemController.OPS),
++                any())
++        verify(callback).onPrivacyItemsChanged(emptyList())
++    }
++
++    @Test
++    fun testDistinctItems() {
++        doReturn(listOf(AppOpItem(AppOpsManager.OP_CAMERA, TEST_UID, "", 0),
++                AppOpItem(AppOpsManager.OP_CAMERA, TEST_UID, "", 1)))
++                .`when`(appOpsController).getActiveAppOpsForUser(anyInt())
++
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        verify(callback).onPrivacyItemsChanged(capture(argCaptor))
++        assertEquals(1, argCaptor.value.size)
++    }
++
++    @Test
++    fun testRegisterReceiver_allUsers() {
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        verify(broadcastDispatcher, atLeastOnce()).registerReceiver(
++                eq(privacyItemController.userSwitcherReceiver), any(), eq(null), eq(UserHandle.ALL))
++        verify(broadcastDispatcher, never())
++                .unregisterReceiver(eq(privacyItemController.userSwitcherReceiver))
++    }
++
++    @Test
++    fun testReceiver_ACTION_USER_FOREGROUND() {
++        privacyItemController.userSwitcherReceiver.onReceive(context,
++                Intent(Intent.ACTION_USER_SWITCHED))
++        executor.runAllReady()
++        verify(userManager).getProfiles(anyInt())
++    }
++
++    @Test
++    fun testReceiver_ACTION_MANAGED_PROFILE_ADDED() {
++        privacyItemController.userSwitcherReceiver.onReceive(context,
++                Intent(Intent.ACTION_MANAGED_PROFILE_AVAILABLE))
++        executor.runAllReady()
++        verify(userManager).getProfiles(anyInt())
++    }
++
++    @Test
++    fun testReceiver_ACTION_MANAGED_PROFILE_REMOVED() {
++        privacyItemController.userSwitcherReceiver.onReceive(context,
++                Intent(Intent.ACTION_MANAGED_PROFILE_UNAVAILABLE))
++        executor.runAllReady()
++        verify(userManager).getProfiles(anyInt())
++    }
++
++    @Test
++    fun testAddMultipleCallbacks() {
++        val otherCallback = mock(PrivacyItemController.Callback::class.java)
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        verify(callback).onPrivacyItemsChanged(anyList())
++
++        privacyItemController.addCallback(otherCallback)
++        executor.runAllReady()
++        verify(otherCallback).onPrivacyItemsChanged(anyList())
++        // Adding a callback should not unnecessarily call previous ones
++        verifyNoMoreInteractions(callback)
++    }
++
++    @Test
++    fun testMultipleCallbacksAreUpdated() {
++        doReturn(emptyList<AppOpItem>()).`when`(appOpsController).getActiveAppOpsForUser(anyInt())
++
++        val otherCallback = mock(PrivacyItemController.Callback::class.java)
++        privacyItemController.addCallback(callback)
++        privacyItemController.addCallback(otherCallback)
++        executor.runAllReady()
++        reset(callback)
++        reset(otherCallback)
++
++        verify(appOpsController).addCallback(any(), capture(argCaptorCallback))
++        argCaptorCallback.value.onActiveStateChanged(0, TEST_UID, "", true)
++        executor.runAllReady()
++        verify(callback).onPrivacyItemsChanged(anyList())
++        verify(otherCallback).onPrivacyItemsChanged(anyList())
++    }
++
++    @Test
++    fun testRemoveCallback() {
++        doReturn(emptyList<AppOpItem>()).`when`(appOpsController).getActiveAppOpsForUser(anyInt())
++        val otherCallback = mock(PrivacyItemController.Callback::class.java)
++        privacyItemController.addCallback(callback)
++        privacyItemController.addCallback(otherCallback)
++        executor.runAllReady()
++        executor.runAllReady()
++        reset(callback)
++        reset(otherCallback)
++
++        verify(appOpsController).addCallback(any(), capture(argCaptorCallback))
++        privacyItemController.removeCallback(callback)
++        argCaptorCallback.value.onActiveStateChanged(0, TEST_UID, "", true)
++        executor.runAllReady()
++        verify(callback, never()).onPrivacyItemsChanged(anyList())
++        verify(otherCallback).onPrivacyItemsChanged(anyList())
++    }
++
++    @Test
++    fun testListShouldNotHaveNull() {
++        doReturn(listOf(AppOpItem(AppOpsManager.OP_ACTIVATE_VPN, TEST_UID, "", 0),
++                        AppOpItem(AppOpsManager.OP_COARSE_LOCATION, TEST_UID, "", 0)))
++                .`when`(appOpsController).getActiveAppOpsForUser(anyInt())
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        executor.runAllReady()
++
++        verify(callback).onPrivacyItemsChanged(capture(argCaptor))
++        assertEquals(1, argCaptor.value.size)
++        assertThat(argCaptor.value, not(hasItem(nullValue())))
++    }
++
++    @Test
++    fun testListShouldBeCopy() {
++        val list = listOf(PrivacyItem(PrivacyType.TYPE_CAMERA,
++                PrivacyApplication("", TEST_UID)))
++        privacyItemController.privacyList = list
++        val privacyList = privacyItemController.privacyList
++        assertEquals(list, privacyList)
++        assertTrue(list !== privacyList)
++    }
++
++    @Test
++    fun testNotListeningWhenIndicatorsDisabled() {
++        changeAll(false)
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++        verify(appOpsController, never()).addCallback(eq(PrivacyItemController.OPS),
++                any())
++    }
++
++    @Test
++    fun testNotSendingLocationWhenOnlyMicCamera() {
++        changeAll(false)
++        changeMicCamera(true)
++        executor.runAllReady()
++
++        doReturn(listOf(AppOpItem(AppOpsManager.OP_CAMERA, TEST_UID, "", 0),
++                AppOpItem(AppOpsManager.OP_COARSE_LOCATION, TEST_UID, "", 0)))
++                .`when`(appOpsController).getActiveAppOpsForUser(anyInt())
++
++        privacyItemController.addCallback(callback)
++        executor.runAllReady()
++
++        verify(callback).onPrivacyItemsChanged(capture(argCaptor))
++
++        assertEquals(1, argCaptor.value.size)
++        assertEquals(PrivacyType.TYPE_CAMERA, argCaptor.value[0].privacyType)
++    }
++
++    @Test
++    fun testNotUpdated_LocationChangeWhenOnlyMicCamera() {
++        doReturn(listOf(AppOpItem(AppOpsManager.OP_COARSE_LOCATION, TEST_UID, "", 0)))
++                .`when`(appOpsController).getActiveAppOpsForUser(anyInt())
++
++        privacyItemController.addCallback(callback)
++        changeAll(false)
++        changeMicCamera(true)
++        executor.runAllReady()
++        reset(callback) // Clean callback
++
++        verify(appOpsController).addCallback(any(), capture(argCaptorCallback))
++        argCaptorCallback.value.onActiveStateChanged(
++                AppOpsManager.OP_FINE_LOCATION, TEST_UID, TEST_PACKAGE_NAME, true)
++
++        verify(callback, never()).onPrivacyItemsChanged(any())
++    }
++
++    private fun changeMicCamera(value: Boolean?) = changeProperty(MIC_CAMERA, value)
++    private fun changeAll(value: Boolean?) = changeProperty(ALL_INDICATORS, value)
++
++    private fun changeProperty(name: String, value: Boolean?) {
++        deviceConfigProxy.setProperty(
++                DeviceConfig.NAMESPACE_PRIVACY,
++                name,
++                value?.toString(),
++                false
++        )
++    }
++}
+\ No newline at end of file
+
+commit e1653f086db9117d6e26761ce7fc67f14391b85b
+Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
+Date:   Thu 2021-07-01 12:30:04+0530
+
+    Revert "Make android.bluetooth.intent.TIMEOUT a protected broadcast"
+    
+    This reverts commit 2cf94ccb1507c14139160b86c3ea81e9d45d0b5f.
+---
+ core/res/AndroidManifest.xml | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
+index 097b0c91459ba953ff74b788e7ebc9af23eafbfe..d096c6409a10aa672681416e5f87276520022e56 100644
+--- a/core/res/AndroidManifest.xml
++++ b/core/res/AndroidManifest.xml
+@@ -660,23 +660,20 @@
+     <protected-broadcast android:name="android.provider.action.DEFAULT_SMS_PACKAGE_CHANGED_INTERNAL" />
+ 
+     <protected-broadcast android:name="android.intent.action.DEVICE_CUSTOMIZATION_READY" />
+ 
+     <!-- Added in R -->
+     <protected-broadcast android:name="android.app.action.RESET_PROTECTION_POLICY_CHANGED" />
+ 
+     <!-- For tether entitlement recheck-->
+     <protected-broadcast
+         android:name="com.android.server.connectivity.tethering.PROVISIONING_RECHECK_ALARM" />
+-
+-    <!-- For Bluetooth automatic turn off functionality-->
+-    <protected-broadcast android:name="android.bluetooth.intent.TIMEOUT" />
+     <!-- ====================================================================== -->
+     <!--                          RUNTIME PERMISSIONS                           -->
+     <!-- ====================================================================== -->
+     <eat-comment />
+ 
+     <!-- Grouping for platform runtime permissions is not accessible to apps
+          @hide
+          @SystemApi
+          @TestApi
+     -->
+
+commit 27d6e8cdc7590f1383cec7d419f8e55da944eea5
+Author: Uldiniad <olivercscott@gmail.com>
+Date:   Thu 2021-07-01 12:48:10+0530
+
+    Revert "Bluetooth timeout feature"
+    
+    This reverts commit 8e93bf0c
+---
+ .../bluetooth/BluetoothEventManager.java           | 28 ---------
+ .../bluetooth/BluetoothTimeoutReceiver.java (gone) | 67 ----------------------
+ 2 files changed, 95 deletions(-)
+
+diff --git a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
+index 248d5590a93655775adedd77f3c558ef41e17170..4b4861a018985e3d7e54a2c97d5c9154bfa3cf16 100644
+--- a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
++++ b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothEventManager.java
+@@ -19,23 +19,21 @@ package com.android.settingslib.bluetooth;
+ import android.bluetooth.BluetoothA2dp;
+ import android.bluetooth.BluetoothAdapter;
+ import android.bluetooth.BluetoothDevice;
+ import android.bluetooth.BluetoothHeadset;
+ import android.bluetooth.BluetoothHearingAid;
+ import android.bluetooth.BluetoothProfile;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+-import android.database.ContentObserver;
+ import android.os.UserHandle;
+-import android.provider.Settings;
+ import android.telephony.TelephonyManager;
+ import android.util.Log;
+ 
+ import androidx.annotation.Nullable;
+ import androidx.annotation.VisibleForTesting;
+ 
+ import com.android.settingslib.R;
+ 
+ import java.util.Collection;
+ import java.util.HashMap;
+@@ -121,33 +119,20 @@ public class BluetoothEventManager {
+         addHandler(BluetoothHeadset.ACTION_AUDIO_STATE_CHANGED,
+                 new AudioModeChangedHandler());
+         addHandler(TelephonyManager.ACTION_PHONE_STATE_CHANGED,
+                 new AudioModeChangedHandler());
+ 
+         // ACL connection changed broadcasts
+         addHandler(BluetoothDevice.ACTION_ACL_CONNECTED, new AclStateChangedHandler());
+         addHandler(BluetoothDevice.ACTION_ACL_DISCONNECTED, new AclStateChangedHandler());
+ 
+         registerAdapterIntentReceiver();
+-
+-        mContext.getContentResolver().registerContentObserver(
+-                Settings.Global.getUriFor(Settings.Global.BLUETOOTH_OFF_TIMEOUT),
+-                false,
+-                new ContentObserver(handler) {
+-            @Override
+-            public void onChange(boolean selfChange) {
+-                super.onChange(selfChange);
+-                BluetoothTimeoutReceiver.setTimeoutAlarm(mContext,
+-                        Settings.Global.getLong(context.getContentResolver(),
+-                                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
+-            }
+-        });
+     }
+ 
+     /** Register to start receiving callbacks for Bluetooth events. */
+     public void registerCallback(BluetoothCallback callback) {
+         mCallbacks.add(callback);
+     }
+ 
+     /** Unregister to stop receiving callbacks for Bluetooth events. */
+     public void unregisterCallback(BluetoothCallback callback) {
+         mCallbacks.remove(callback);
+@@ -278,43 +263,35 @@ public class BluetoothEventManager {
+             int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+                     BluetoothAdapter.ERROR);
+             // update local profiles and get paired devices
+             mLocalAdapter.setBluetoothStateInt(state);
+             // send callback to update UI and possibly start scanning
+             for (BluetoothCallback callback : mCallbacks) {
+                 callback.onBluetoothStateChanged(state);
+             }
+             // Inform CachedDeviceManager that the adapter state has changed
+             mDeviceManager.onBluetoothStateChanged(state);
+-            if (state == BluetoothAdapter.STATE_ON) {
+-                BluetoothTimeoutReceiver.setTimeoutAlarm(context,
+-                        Settings.Global.getLong(context.getContentResolver(),
+-                                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
+-            }
+         }
+     }
+ 
+     private class ScanningStateChangedHandler implements Handler {
+         private final boolean mStarted;
+ 
+         ScanningStateChangedHandler(boolean started) {
+             mStarted = started;
+         }
+ 
+         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+             for (BluetoothCallback callback : mCallbacks) {
+                 callback.onScanningStateChanged(mStarted);
+             }
+             mDeviceManager.onScanningStateChanged(mStarted);
+-            BluetoothTimeoutReceiver.setTimeoutAlarm(context,
+-                    mStarted ? 0 : Settings.Global.getLong(context.getContentResolver(),
+-                            Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
+         }
+     }
+ 
+     private class DeviceFoundHandler implements Handler {
+         public void onReceive(Context context, Intent intent,
+                 BluetoothDevice device) {
+             short rssi = intent.getShortExtra(BluetoothDevice.EXTRA_RSSI, Short.MIN_VALUE);
+             String name = intent.getStringExtra(BluetoothDevice.EXTRA_NAME);
+             // TODO Pick up UUID. They should be available for 2.1 devices.
+             // Skip for now, there's a bluez problem and we are not getting uuids even for 2.1.
+@@ -339,25 +316,20 @@ public class BluetoothEventManager {
+         }
+     }
+ 
+     private class ConnectionStateChangedHandler implements Handler {
+         @Override
+         public void onReceive(Context context, Intent intent, BluetoothDevice device) {
+             CachedBluetoothDevice cachedDevice = mDeviceManager.findDevice(device);
+             int state = intent.getIntExtra(BluetoothAdapter.EXTRA_CONNECTION_STATE,
+                     BluetoothAdapter.ERROR);
+             dispatchConnectionStateChanged(cachedDevice, state);
+-            if (state == BluetoothAdapter.STATE_DISCONNECTED) {
+-                BluetoothTimeoutReceiver.setTimeoutAlarm(context,
+-                        Settings.Global.getLong(context.getContentResolver(),
+-                                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0));
+-            }
+         }
+     }
+ 
+     private class NameChangedHandler implements Handler {
+         public void onReceive(Context context, Intent intent,
+                 BluetoothDevice device) {
+             mDeviceManager.onDeviceNameUpdated(device);
+         }
+     }
+ 
+diff --git a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java b/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
+deleted file mode 100644
+index fae669bf41962a3053cabcae9b77208a75ede6bf..0000000000000000000000000000000000000000
+--- a/packages/SettingsLib/src/com/android/settingslib/bluetooth/BluetoothTimeoutReceiver.java
++++ /dev/null
+@@ -1,67 +0,0 @@
+-/*
+- * Copyright (C) 2020 The Calyx Institute
+- *
+- * Licensed under the Apache License, Version 2.0 (the "License");
+- * you may not use this file except in compliance with the License.
+- * You may obtain a copy of the License at
+- *
+- *      http://www.apache.org/licenses/LICENSE-2.0
+- *
+- * Unless required by applicable law or agreed to in writing, software
+- * distributed under the License is distributed on an "AS IS" BASIS,
+- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+- * See the License for the specific language governing permissions and
+- * limitations under the License.
+- */
+-
+-package com.android.settingslib.bluetooth;
+-
+-import android.app.AlarmManager;
+-import android.app.PendingIntent;
+-import android.bluetooth.BluetoothAdapter;
+-import android.content.BroadcastReceiver;
+-import android.content.ComponentName;
+-import android.content.Context;
+-import android.content.Intent;
+-import android.util.Log;
+-
+-import java.util.Date;
+-
+-public class BluetoothTimeoutReceiver extends BroadcastReceiver {
+-    private static final String TAG = "BluetoothTimeoutReceiver";
+-
+-    private static final String INTENT_TIMEOUT = "android.bluetooth.intent.TIMEOUT";
+-
+-    public static void setTimeoutAlarm(Context context, long alarmTime) {
+-        Intent intent = new Intent(INTENT_TIMEOUT);
+-        intent.setClassName("com.android.settings", "com.android.settingslib.bluetooth.BluetoothTimeoutReceiver");
+-        PendingIntent pending = PendingIntent.getBroadcast(
+-                context, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+-        AlarmManager alarmManager =
+-                (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+-
+-        if (alarmTime != 0) {
+-            alarmTime = System.currentTimeMillis() + alarmTime;
+-            Log.d(TAG, "setTimeoutAlarm(): alarmTime = " + new Date(alarmTime));
+-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, alarmTime, pending);
+-        } else {
+-            alarmManager.cancel(pending);
+-        }
+-    }
+-
+-    @Override
+-    public void onReceive(Context context, Intent intent) {
+-        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+-        if (intent.getAction() == null && !intent.getAction().equals(INTENT_TIMEOUT)) {
+-            return;
+-        }
+-        if (bluetoothAdapter != null) {
+-            if (bluetoothAdapter.getState() == BluetoothAdapter.STATE_ON &&
+-                    bluetoothAdapter.getConnectionState() == BluetoothAdapter.STATE_DISCONNECTED) {
+-                bluetoothAdapter.disable();
+-            }
+-        } else {
+-            Log.e(TAG, "bluetoothAdapter is NULL!!");
+-        }
+-    }
+-}
+
+commit 5aee32bcfec3ec8c5d0c751a6f819a96fd0a4277
+Author: pratyush <codelab@pratyush.dev>
+Date:   Thu 2021-07-01 12:26:49+0530
+
+    Bluetooth auto turn off
+---
+ .../android/server/BluetoothManagerService.java    | 73 ++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+
+diff --git a/services/core/java/com/android/server/BluetoothManagerService.java b/services/core/java/com/android/server/BluetoothManagerService.java
+index 9ce7cf27f9ff802f1f566602bcc673985b4582ab..4d0c897985736781840abf24c5a40bb2369ad7a6 100644
+--- a/services/core/java/com/android/server/BluetoothManagerService.java
++++ b/services/core/java/com/android/server/BluetoothManagerService.java
+@@ -14,20 +14,21 @@
+  * limitations under the License.
+  */
+ 
+ package com.android.server;
+ 
+ import static android.content.pm.PackageManager.MATCH_SYSTEM_ONLY;
+ import static android.os.UserHandle.USER_SYSTEM;
+ 
+ import android.Manifest;
+ import android.app.ActivityManager;
++import android.app.AlarmManager;
+ import android.app.AppGlobals;
+ import android.app.AppOpsManager;
+ import android.bluetooth.BluetoothAdapter;
+ import android.bluetooth.BluetoothProfile;
+ import android.bluetooth.BluetoothProtoEnums;
+ import android.bluetooth.IBluetooth;
+ import android.bluetooth.IBluetoothCallback;
+ import android.bluetooth.IBluetoothGatt;
+ import android.bluetooth.IBluetoothHeadset;
+ import android.bluetooth.IBluetoothManager;
+@@ -505,20 +506,92 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
+             systemUiUid = pm.getPackageUid(pm.getSystemUiServiceComponent().getPackageName(),
+                     MATCH_SYSTEM_ONLY, USER_SYSTEM);
+         }
+         if (systemUiUid >= 0) {
+             Slog.d(TAG, "Detected SystemUiUid: " + Integer.toString(systemUiUid));
+         } else {
+             // Some platforms, such as wearables do not have a system ui.
+             Slog.w(TAG, "Unable to resolve SystemUI's UID.");
+         }
+         mSystemUiUid = systemUiUid;
++
++        IntentFilter btFilter = new IntentFilter();
++        btFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
++        btFilter.addAction(BluetoothAdapter.ACTION_CONNECTION_STATE_CHANGED);
++        btFilter.addAction(BluetoothAdapter.ACTION_LOCAL_NAME_CHANGED);
++        context.registerReceiver(new BroadcastReceiver() {
++            @Override
++            public void onReceive(Context broadcastContext, Intent intent) {
++                listenForTimeout(context);
++            }
++        }, btFilter);
++
++        context.getContentResolver().registerContentObserver(
++                Settings.Global.getUriFor(Settings.Global.BLUETOOTH_OFF_TIMEOUT),
++                false,
++                new ContentObserver(new Handler(context.getMainLooper())) {
++                    @Override
++                    public void onChange(boolean selfChange) {
++                        super.onChange(selfChange);
++                        listenForTimeout(context);
++                    }
++                });
++    }
++
++    private static final AlarmManager.OnAlarmListener listener = () -> {
++        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
++        if (isBtDisconnected() && bluetoothAdapter != null) {
++            bluetoothAdapter.disable();
++        }
++    };
++
++    // IF device is still connected cancel timeout for now and wait for disconnected signal
++    private void listenForTimeout(Context context) {
++        try {
++            AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
++            if(isTimeoutEnabled(context) && isBtDisconnected() && isBtTurnedOn()) {
++                final long timeout = SystemClock.elapsedRealtime() + timeout(context);
++                alarmManager.cancel(listener);
++                alarmManager.setExact(
++                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
++                        timeout,
++                        "BT Timeout",
++                        listener,
++                        new Handler(context.getMainLooper())
++                );
++            } else {
++                alarmManager.cancel(listener);
++            }
++        } catch (Exception e) {
++            Log.d(TAG, "Error thrown in listenForTimeout" + e.getLocalizedMessage());
++        }
++    }
++
++    private static boolean isBtDisconnected() {
++        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
++        return bluetoothAdapter != null && bluetoothAdapter.getState() == BluetoothAdapter.STATE_ON &&
++                bluetoothAdapter.getConnectionState() == BluetoothAdapter.STATE_DISCONNECTED;
++    }
++
++    private boolean isBtTurnedOn() {
++        BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
++        return bluetoothAdapter != null && bluetoothAdapter.getState() == BluetoothAdapter.STATE_ON;
++    }
++
++    private static long timeout(Context context) {
++        return Settings.Global.getLong(context.getContentResolver(),
++                Settings.Global.BLUETOOTH_OFF_TIMEOUT, 0);
++    }
++
++    /** Zero is default and means disabled */
++    private static boolean isTimeoutEnabled(Context context) {
++        return 0 != timeout(context);
+     }
+ 
+     /**
+      *  Returns true if airplane mode is currently on
+      */
+     private boolean isAirplaneModeOn() {
+         return Settings.Global.getInt(mContext.getContentResolver(),
+                 Settings.Global.AIRPLANE_MODE_ON, 0) == 1;
+     }
+ 
+
+commit 079066126074716767d7454c1c73910cc3e5d5ed (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Tue 2021-07-06 18:18:06+0530
+
+    WiFi auto turn off
+---
+ core/java/android/provider/Settings.java           |  6 +++
+ .../android/server/net/NetworkStatsService.java    | 61 ++++++++++++++++++++++
+ 2 files changed, 67 insertions(+)
+
+diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
+index 2351790c5adf92236034c4288b307e098fd89129..2ae477e5b6b8dbab23c314ebee2d6e4696b2a6a0 100755
+--- a/core/java/android/provider/Settings.java
++++ b/core/java/android/provider/Settings.java
+@@ -14440,20 +14440,26 @@ public final class Settings {
+          */
+         public static final String NR_NSA_TRACKING_SCREEN_OFF_MODE =
+                 "nr_nsa_tracking_screen_off_mode";
+ 
+         /**
+          * The amount of time in milliseconds before bluetooth is turned off
+          * @hide
+          */
+         public static final String BLUETOOTH_OFF_TIMEOUT = "bluetooth_off_timeout";
+ 
++        /**
++         * The amount of time in milliseconds before wifi is turned off
++         * @hide
++         */
++        public static final String WIFI_OFF_TIMEOUT = "wifi_off_timeout";
++
+         /**
+          * Whether to automatically reboot the device after a user defined timeout
+          *
+          * @hide
+          */
+          public static final String SETTINGS_REBOOT_AFTER_TIMEOUT = "settings_reboot_after_timeout";
+     }
+ 
+     /**
+      * Configuration system settings, containing settings which are applied identically for all
+diff --git a/services/core/java/com/android/server/net/NetworkStatsService.java b/services/core/java/com/android/server/net/NetworkStatsService.java
+index ba9f486092f7f0bc3673a7ec6bef51949b0f0724..4cccf62cba869d6f4af6498bc98a3c55ebd81037 100644
+--- a/services/core/java/com/android/server/net/NetworkStatsService.java
++++ b/services/core/java/com/android/server/net/NetworkStatsService.java
+@@ -99,22 +99,24 @@ import android.net.NetworkInfo;
+ import android.net.NetworkStack;
+ import android.net.NetworkState;
+ import android.net.NetworkStats;
+ import android.net.NetworkStats.NonMonotonicObserver;
+ import android.net.NetworkStatsHistory;
+ import android.net.NetworkTemplate;
+ import android.net.TrafficStats;
+ import android.net.netstats.provider.INetworkStatsProvider;
+ import android.net.netstats.provider.INetworkStatsProviderCallback;
+ import android.net.netstats.provider.NetworkStatsProvider;
++import android.net.wifi.WifiManager;
+ import android.os.BestClock;
+ import android.os.Binder;
++import android.os.Bundle;
+ import android.os.DropBoxManager;
+ import android.os.Environment;
+ import android.os.Handler;
+ import android.os.HandlerExecutor;
+ import android.os.HandlerThread;
+ import android.os.IBinder;
+ import android.os.INetworkManagementService;
+ import android.os.Looper;
+ import android.os.Message;
+ import android.os.Messenger;
+@@ -431,20 +433,79 @@ public class NetworkStatsService extends INetworkStatsService.Stub {
+         mSystemDir = Objects.requireNonNull(systemDir, "missing systemDir");
+         mBaseDir = Objects.requireNonNull(baseDir, "missing baseDir");
+         mUseBpfTrafficStats = new File("/sys/fs/bpf/map_netd_app_uid_stats_map").exists();
+         mDeps = Objects.requireNonNull(deps, "missing Dependencies");
+ 
+         final HandlerThread handlerThread = mDeps.makeHandlerThread();
+         handlerThread.start();
+         mHandler = new NetworkStatsHandler(handlerThread.getLooper());
+         mNetworkStatsSubscriptionsMonitor = deps.makeSubscriptionsMonitor(mContext,
+                 new HandlerExecutor(mHandler), this);
++        // NETWORK_STATE_CHANGED_ACTION is not a sticky broadcast receiver
++        // so by default wifi should be off if not get connected within timeout.
++        maybeRescheduleWifiAutoOff(false);
++        context.registerReceiver(
++                new BroadcastReceiver() {
++                    @Override
++                    public void onReceive(Context context, Intent intent) {
++                        try {
++                            Bundle bundle = intent.getExtras();
++                            NetworkInfo networkInfo = bundle.getParcelable(WifiManager.EXTRA_NETWORK_INFO);
++                            maybeRescheduleWifiAutoOff(networkInfo != null && networkInfo.isConnected());
++                        } catch (Exception e) {
++                            e.printStackTrace();
++                        }
++                    }
++                }, new IntentFilter(WifiManager.NETWORK_STATE_CHANGED_ACTION)
++        );
++    }
++
++    private final AlarmManager.OnAlarmListener listener = this::turnOffWifi;
++    private void turnOffWifi() {
++        try {
++            WifiManager wifiManager = (WifiManager) mContext.getSystemService(Context.WIFI_SERVICE);
++            if (isWiFiAutoTurnOffEnabled() && wifiManager.isWifiEnabled()) {
++                wifiManager.setWifiEnabled(false);
++            }
++        } catch (Exception e) {
++            Log.wtf(TAG, e.getLocalizedMessage());
++        }
++    }
++
++    private void maybeRescheduleWifiAutoOff(boolean isConnected) {
++        try {
++            if (isWiFiAutoTurnOffEnabled() && !isConnected) {
++                final long timeout = SystemClock.elapsedRealtime() + timeout();
++                mAlarmManager.cancel(listener);
++                mAlarmManager.setExact(
++                        AlarmManager.ELAPSED_REALTIME_WAKEUP,
++                        timeout,
++                        "BT Timeout",
++                        listener,
++                        new Handler(mContext.getMainLooper())
++                );
++            } else {
++                mAlarmManager.cancel(listener);
++            }
++        } catch (Exception e) {
++            Log.wtf(TAG, e.getLocalizedMessage());
++        }
++    }
++
++    private long timeout() {
++        return Settings.Global.getLong(mContext.getContentResolver(),
++                Global.WIFI_OFF_TIMEOUT, 0);
++    }
++
++    /** Zero is default and means disabled */
++    private boolean isWiFiAutoTurnOffEnabled() {
++        return 0 != timeout();
+     }
+ 
+     /**
+      * Dependencies of NetworkStatsService, for injection in tests.
+      */
+     // TODO: Move more stuff into dependencies object.
+     @VisibleForTesting
+     public static class Dependencies {
+         /**
+          * Create a HandlerThread to use in NetworkStatsService.

@@ -1,4 +1,4 @@
-commit 0b350f31eb4a42a5d7254ceebbed8630df8e3747
+commit 8a42e30e1d066c4e9d52afd2b89708c7eb0800de
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 16:42:55-0400
 
@@ -43,7 +43,7 @@ index e7c148e2db38986ffa1accdc3b87e499845fbbb3..e38b7be6c14d2d18370c72e93f2ac484
 -PRODUCT_MODEL := AOSP on sargo
 +PRODUCT_MODEL := Pixel 3a
 
-commit e62950c8a93952ea223378dee4c3bb0a1575e575
+commit 25d9b865d0ac40aad4c6f67525e83748de5166e6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:48:08-0400
 
@@ -53,7 +53,7 @@ Date:   Thu 2019-06-20 12:48:08-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 74b979cf4eece99720c1e8c3097b28d011a14903..aff7bed62ca199921c6323d4f7ecb84b8bb40af2 100644
+index 1c6d1049308fc6a345d9ec7abb6ae76ed5f56ea6..402218920a0da7886dbcee05ded9d16920e24a9a 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -130,39 +130,35 @@ PRODUCT_COPY_FILES += \
@@ -97,7 +97,7 @@ index 74b979cf4eece99720c1e8c3097b28d011a14903..aff7bed62ca199921c6323d4f7ecb84b
      POSTINSTALL_OPTIONAL_system=true
  
 
-commit 9f26fd8af02cc01a5590e0f1a4f0097228b2a282
+commit 452aca80c2eb23e160faeec97cb10666a5c0a79d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:50:53-0400
 
@@ -216,7 +216,7 @@ index 885c3e28c3960e1ff2cf72dd645e5ad8e0cfe00e..c6992bc817f15bff1772c143a7f81c75
 -insmod /vendor/lib/modules/machine_dlkm.ko
 -
 
-commit 83714bcf460d9edd33f9cf42ae8e50a9501a7695
+commit 32f8a958bf86243a45c685fecfeb33ec835f989d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:18:08-0400
 
@@ -253,7 +253,7 @@ index 399479790f3c3727b18d7ddae445a37ef261e151..4f2efcc6978e0e9b7937b7fda04d373c
  /dev/msm_wma              0660   system     audio
  /dev/msm_wmapro           0660   system     audio
 
-commit 5a4e6a893c38b91435b8218a1026e9b58dfaf594
+commit 7071cd7dd31f067623d8a70bf9bc25dc6eeaae3b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:19:03-0400
 
@@ -264,7 +264,7 @@ Date:   Thu 2019-06-13 15:19:03-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index aff7bed62ca199921c6323d4f7ecb84b8bb40af2..fa11d849fb62836e503973b986069685b0e696c5 100644
+index 402218920a0da7886dbcee05ded9d16920e24a9a..89b3c5eee28650500893497ba6d6284d2ba6864f 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -817,21 +817,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -320,7 +320,7 @@ index 8b8c27b1259e7df5e7ff5f2d364f746c66eb7f76..d8780b1fc34a411b1837424c9fb33de6
  
      <!-- Enable system navigation keys. -->
 
-commit 9772cc6e878dbc3daab58cddbc6dc3eb6d6c14a8
+commit 542df5b1517e46b25bef7ab9ab8349c7a801339b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-06-14 22:08:05-0400
 
@@ -357,7 +357,7 @@ index d8780b1fc34a411b1837424c9fb33de6e1ea6852..00f3d83da469343ffe80d458a20d76be
  
      <!-- List of regexpressions describing the interface (if any) that represent tetherable
 
-commit 185430cfe937bb4c9209e8962ef7577e589fcd25
+commit 848780a02719f055eaaf38fc83d1ce1c66dc1be1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-18 10:48:18-0400
 
@@ -367,7 +367,7 @@ Date:   Wed 2019-09-18 10:48:18-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index fa11d849fb62836e503973b986069685b0e696c5..303b1aa48241e5861b769a91df5606a521f3ff0b 100644
+index 89b3c5eee28650500893497ba6d6284d2ba6864f..d2f3811735085bc5b0e0b0dc7c6ba5271c9a0016 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -61,23 +61,20 @@ PRODUCT_PACKAGES += \
@@ -395,7 +395,7 @@ index fa11d849fb62836e503973b986069685b0e696c5..303b1aa48241e5861b769a91df5606a5
  endif
  
 
-commit 697b8033a6c4bd22c1abe55d2c9367f13c432369
+commit b6a208f6f2d5339814c16769bf99ef621c22ad57
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 02:29:31-0400
 
@@ -433,7 +433,7 @@ index f16c2abda2d821c98a383ddcc653047cdf76b7e0..f4f4d023c85e382ae942ba13a6765396
  
  # Set c2 codec in default
 
-commit a97ee998064a7124f06a788616f13d0712f581e0
+commit 33d5f25017b7a2484397f5cb1a3c0d20aa4927a0
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-09-23 22:29:17+0000
 
@@ -44943,7 +44943,7 @@ index 0000000000000000000000000000000000000000..9cea13bc43de0f7263963a12e0005b53
 +
 +</apns>
 
-commit 20e9c1f5a444899e024dcb3472aeabb93881f77f
+commit 82c39537ce9d8e48cd659a0b2eb0c8a91ece6053
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-01-18 18:39:14+0530
 
@@ -61701,7 +61701,7 @@ index 0000000000000000000000000000000000000000..41bfbfc6beaa07224860b50f1df45803
 +    <carrier_config mcc="901" mnc="58" />
 +</carrier_config_list>
 
-commit 3bb86ef8af08586af9446260701fc91bec8caf1c
+commit 42abbbc0cc9d6f7d4ea93f51697a894d1814ad60
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-11-14 03:11:59-0500
 
@@ -61770,7 +61770,7 @@ index a0b8f98e793a0a8bf4910ae6d472b0d947ed7557..e1a5ff075e269d2fa8547a79288247d9
  # PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
  
 
-commit b47fd664db7fa36b31868b10c07c754e54b097f6
+commit fb359c5594d3574c16af00c5ad88787904b9eab6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 11:41:36-0500
 
@@ -61818,7 +61818,7 @@ index f73cbb1dc9dfe127f71d9d8a3e0b8a1a7d8d3884..c7ce14365bfe57bd61e78dae1106a1f1
  on property:ota.warm_reset=0
      write /sys/module/msm_poweroff/parameters/warm_reset 0
 
-commit 9ccba5389af260dcdbcde06935060ab357a3e002
+commit 55cd76c18a29d093d52b07b3ff986363eb80c962
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:06:38-0500
 
@@ -67246,7 +67246,7 @@ index 9cea13bc43de0f7263963a12e0005b532cd27efd..8973643b5a76bb448502159b49db79f3
        mmsproxy="200.68.32.239"
        mmsport="8080"
 
-commit 356a08cea064e6b369e76ddc73a820a123d91aa5
+commit 874c9af89ade92b171cdacd90d658592ed8a3c7a
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Tue 2021-03-02 17:00:12+0530
 
@@ -78748,7 +78748,7 @@ index 41bfbfc6beaa07224860b50f1df458037745ea22..49e11e653ab013e4ced4e69774a533a0
          <string-array name="non_roaming_operator_string_array" num="1">
              <item value="72234" />
 
-commit ffcd61b3b840a801e3b79d41e6115b6eb2d0c69e
+commit af7f22b446f5f9dcc775d8480bd74a1b597c1e33
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-04-11 05:33:47-0400
 
@@ -78892,7 +78892,7 @@ index 8973643b5a76bb448502159b49db79f39439d17a..379bf3f03d73ad38114aeb7b7bbbfa1d
        mcc="401"
        mnc="77"
 
-commit a8646747041cee62ccc430290f00a32d14e7b873
+commit 7e7827c77862283d26e56f87fcdf7af856ca1caf
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -78951,7 +78951,7 @@ index 0000000000000000000000000000000000000000..29691515b16f20c5b6ba81489c14fc7b
 +    </integer-array>
 +</resources>
 
-commit 1967d4614a20b8856bb51d270c301f6a059fc729
+commit 219e266a414bc1b5b2633561058e4f55e87a7f52
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-05-03 20:59:22+0000
 
@@ -79362,7 +79362,7 @@ index 49e11e653ab013e4ced4e69774a533a0fea3412b..ac3344a40358043e94cff4371783a204
          <int name="maxImageWidth" value="2592" />
          <int name="maxMessageSize" value="1048576" />
 
-commit 1869524e12817cb02c1e9579b10a293267a7d575
+commit 8aa140580cf7170dc27202b4bec029fe88e5e085
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Tue 2021-06-08 06:27:26+0530
 
@@ -85800,7 +85800,7 @@ index e468440ec1510bfe9d516173737861461c33a88f..18295822ea9b859849a8b94619cf61c4
        mcc="730"
        mnc="01"
 
-commit 2574c5b01b89cb010e3191d4257e4a29b3987839 (HEAD, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit f81ef312474d9597e3a661829bfece045542065a
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Tue 2021-06-08 06:28:02+0530
 
@@ -100476,3 +100476,68 @@ index ac3344a40358043e94cff4371783a2043ac8fb08..686b36f488bea3c16c6e681d43b4fa0c
      </carrier_config>
 -    <carrier_config mcc="901" mnc="58" />
  </carrier_config_list>
+
+commit d1cb2982c008ea3b39a6f21ca9f33f21dc4b61aa (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+Author: Philip Rinn <rinni@inventati.org>
+Date:   Sun 2021-06-20 14:26:56+0200
+
+    Add the set of PIXEL_*_EXPERIENCE features for bonito and sargo
+---
+ device-bonito.mk            | 4 ++++
+ device-sargo.mk             | 4 ++++
+ google_experience.xml (new) | 9 +++++++++
+ 3 files changed, 17 insertions(+)
+
+diff --git a/device-bonito.mk b/device-bonito.mk
+index b1aaeeb1e9f025b0da19497ac2e13be771d90f7b..bdd1eb07870ad39cc96b311a0bb969bf87945c2d 100644
+--- a/device-bonito.mk
++++ b/device-bonito.mk
+@@ -53,10 +53,14 @@ PRODUCT_PRODUCT_PROPERTIES +=\
+ PRODUCT_COPY_FILES += \
+     device/google/bonito/vibrator/drv2624/drv2624_B4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/drv2624.bin
+ 
+ # camera front flashColor
+ PRODUCT_PROPERTY_OVERRIDES += \
+     persist.camera.front.flashColor=0xffebcc
+ 
+ # Add white point compensated coefficient
+ PRODUCT_PROPERTY_OVERRIDES += \
+     vendor.display.adaptive_white_coefficient=0.0051,-0.3462,18.964,0.0047,-0.1155,-10.312,0.005,-0.2931,12.301
++
++# Set of *_EXPERIENCE features for bonito
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/google_experience.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google_experience.xml
+diff --git a/device-sargo.mk b/device-sargo.mk
+index 28de7e90d95e81830eb7a956d8a20d1cfcda9f14..8b9a57da1e225eb82d5858f25b626be0362a7fd7 100644
+--- a/device-sargo.mk
++++ b/device-sargo.mk
+@@ -60,10 +60,14 @@ PRODUCT_PRODUCT_PROPERTIES +=\
+ PRODUCT_COPY_FILES += \
+     device/google/bonito/vibrator/drv2624/drv2624_S4.bin:$(TARGET_COPY_OUT_VENDOR)/firmware/drv2624.bin
+ 
+ # camera front flashColor
+ PRODUCT_PROPERTY_OVERRIDES += \
+     persist.camera.front.flashColor=0xffe1c1
+ 
+ # Add white point compensated coefficient
+ PRODUCT_PROPERTY_OVERRIDES += \
+     vendor.display.adaptive_white_coefficient=0.0031,0.5535,-87.498,0.0031,0.5535,-87.498,0.0031,0.5535,-87.498
++
++# Set of *_EXPERIENCE features for sargo
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/google_experience.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google_experience.xml
+diff --git a/google_experience.xml b/google_experience.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..6ad44f13ccb58340803b1a9c7006a5d384ed040f
+--- /dev/null
++++ b/google_experience.xml
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++
++<config>
++    <feature name="com.google.android.feature.GOOGLE_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2017_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2018_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
++</config>
