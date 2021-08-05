@@ -721,7 +721,7 @@ index 2c55aed22ecf2f9e9498c3b676b3518bf32f7414..90acf922337a49c66700e6f1cc8159f0
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
 
-commit 4ac614b9dfcd5676757fc9bf541183f91125ec28 (HEAD, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 4ac614b9dfcd5676757fc9bf541183f91125ec28 (tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 03:27:53-0400
 
@@ -757,3 +757,77 @@ index fd75d3b791ce0ddbbc5058ee586cf536e9d39286..0c01b90ea8c2daa3fafe931166d6b49d
   */
  fun shouldShowCameraMicIndicators(): Boolean {
      return isCameraMicIconsFlagEnabled() || isPermissionsHub2FlagEnabled()
+
+commit a87929c2040dd4c36d72b52b211d281a74015dc2 (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Sat 2021-07-24 04:33:31+0530
+
+    ui fix for special runtime permission
+---
+ .../android/permissioncontroller/permission/utils/KotlinUtils.kt    | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt b/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt
+index 64068fe410fe65f5040298bfb333e3c548c8cd09..63348d72ad0aef2d0214e1c883151b39ab97afbc 100644
+--- a/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt
++++ b/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt
+@@ -460,21 +460,21 @@ object KotlinUtils {
+         }
+ 
+         var newFlags = perm.flags
+         var isGranted = perm.isGrantedIncludingAppOp
+         var shouldKill = false
+ 
+         // Grant the permission if needed.
+         if (!perm.isGrantedIncludingAppOp) {
+             val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
+ 
+-            if (supportsRuntime) {
++            if (supportsRuntime || Utils.isSpecialRuntimePermission(perm.name)) {
+                 app.packageManager.grantRuntimePermission(group.packageInfo.packageName, perm.name,
+                     user)
+                 isGranted = true
+             } else if (affectsAppOp) {
+                 // Legacy apps do not know that they have to retry access to a
+                 // resource due to changes in runtime permissions (app ops in this
+                 // case). Therefore, we restart them on app op change, so they
+                 // can pick up the change.
+                 shouldKill = true
+                 isGranted = true
+@@ -633,21 +633,21 @@ object KotlinUtils {
+ 
+         val supportsRuntime = group.packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
+         val user = UserHandle.getUserHandleForUid(group.packageInfo.uid)
+         var newFlags = perm.flags
+         var isGranted = perm.isGrantedIncludingAppOp
+         var shouldKill = false
+ 
+         val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
+ 
+         if (perm.isGrantedIncludingAppOp) {
+-            if (supportsRuntime) {
++            if (supportsRuntime || Utils.isSpecialRuntimePermission(perm.name)) {
+                 // Revoke the permission if needed.
+                 app.packageManager.revokeRuntimePermission(group.packageInfo.packageName,
+                     perm.name, user)
+                 isGranted = false
+             } else if (affectsAppOp) {
+                 // If the permission has no corresponding app op, then it is a
+                 // third-party one and we do not offer toggling of such permissions.
+ 
+                 // Disabling an app op may put the app in a situation in which it
+                 // has a handle to state it shouldn't have, so we have to kill the
+@@ -920,11 +920,11 @@ suspend inline fun <T> Iterable<T>.forEachInParallel(
+  * @param destResId The ID of the desired destination
+  * @param args The optional bundle of args to be passed to the destination
+  */
+ fun NavController.navigateSafe(destResId: Int, args: Bundle? = null) {
+     val navAction = currentDestination?.getAction(destResId) ?: graph.getAction(destResId)
+     navAction?.let { action ->
+         if (currentDestination?.id != action.destinationId) {
+             navigate(destResId, args)
+         }
+     }
+-}
+\ No newline at end of file
++}

@@ -1,17 +1,17 @@
-commit 268cf4a05b6ae9b7804c939fd5e246396b32c4fd (grafted, HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+commit c371ef0b9fb949fc66cc0d6a684bb63e22cbabaf (grafted, HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2021-07-07 15:07:29-0400
+Date:   Mon 2021-08-02 22:21:52-0400
 
-    July update
+    August update
 ---
- Image.lz4 (new)  | Bin 0 -> 20194842 bytes
+ Image.lz4 (new)  | Bin 0 -> 20200267 bytes
  dtbo.img (new)   | Bin 0 -> 1216476 bytes
  sdm670.dtb (new) | Bin 0 -> 377530 bytes
  3 files changed, 0 insertions(+), 0 deletions(-)
 
 diff --git a/Image.lz4 b/Image.lz4
 new file mode 100644
-index 0000000000000000000000000000000000000000..33d21b1ac6d2a6f8732bc67bbe0686da45cd4574
+index 0000000000000000000000000000000000000000..583360cc4ae40c462d5dcc9c785eef359a626e6e
 Binary files /dev/null and b/Image.lz4 differ
 diff --git a/dtbo.img b/dtbo.img
 new file mode 100644

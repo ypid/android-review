@@ -34,7 +34,7 @@ index 1e78c72e6bbca0ca1d7f2a7b2109b116506176e5..d89535b922075851325380d6e206fab0
              </intent-filter>
          </activity>
 
-commit 09bbdae8bae1fa56958db627f0e8f1d01b5f6eaa (HEAD, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 09bbdae8bae1fa56958db627f0e8f1d01b5f6eaa (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-05-18 09:04:53-0400
 

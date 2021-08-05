@@ -1,4 +1,4 @@
-commit 90a4c22a617e44ae4b2c028987ae05426f2261a9
+commit 00e82fd258ef4cb025cefd78fb33c73a3442d0b8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:12-0400
 
@@ -8,7 +8,7 @@ Date:   Wed 2020-10-14 19:16:12-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index daa8e3a01038d1ebfaf82c5a9134fec5e4ca6722..c407c1992b7c605266ca52be5c1c47c3ffb6b07e 100644
+index 64bf2169f8fe35abf7640c9921e6deb77ddf8ed1..55ce88cae6511bd69a830a474cd857a7c9e99ad6 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -126,40 +126,36 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -53,7 +53,7 @@ index daa8e3a01038d1ebfaf82c5a9134fec5e4ca6722..c407c1992b7c605266ca52be5c1c47c3
      sg_write_buffer \
      f2fs_io \
 
-commit aec6abe4b5141be7328ca4d872abc8b2d38d62a7
+commit 30dda180f4eb5ccd9c48ab73dce43cb311104675
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:59-0400
 
@@ -64,7 +64,7 @@ Date:   Wed 2020-10-14 19:16:59-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index c407c1992b7c605266ca52be5c1c47c3ffb6b07e..8aca7417a37c6b39a043eac3611c168eb88445e7 100644
+index 55ce88cae6511bd69a830a474cd857a7c9e99ad6..b8de5c8829de0f1e13adc89eadf60b2de0353ac7 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -747,21 +747,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -120,7 +120,7 @@ index 974f39d89cbea95d16505c03ae84f2de893c584e..9ef69ecc2128fa848957a3ef325696c0
      <bool name="config_pinnerCameraApp">true</bool>
  
 
-commit bcf35e36f3c6b0e364d4dd3eabecc13a32fcbe7c
+commit 8707f23e529b1d0cde04a29e67524d3c2a9bbf0b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:25-0400
 
@@ -157,7 +157,7 @@ index 9ef69ecc2128fa848957a3ef325696c0bcdd6222..93061db494049523cbc33b16fee7a2c5
          <item>"usb\\d"</item>
          <item>"rndis\\d"</item>
 
-commit b192bbb73d80f32a7b8cbac414440f298537db5c
+commit 4648364fb5cee536fbec81e5f6b7c0340ee7c684
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:50-0400
 
@@ -167,7 +167,7 @@ Date:   Wed 2020-10-14 19:17:50-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 8aca7417a37c6b39a043eac3611c168eb88445e7..6a56b637250044263688305fae18ab7b60299ded 100644
+index b8de5c8829de0f1e13adc89eadf60b2de0353ac7..b22ad9f3498b08881bd0c663e5e21d155e4681f2 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -83,23 +83,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -195,7 +195,7 @@ index 8aca7417a37c6b39a043eac3611c168eb88445e7..6a56b637250044263688305fae18ab7b
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
 
-commit b51a86d8ff1ce983fc1a67826f41195f98de527d
+commit be1ff846da7ac9317bcffb9b2a3b5451eef6d5c4
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:32:37+0000
 
@@ -577,7 +577,7 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
  # Testing related defines
  BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b5r3-setup.sh
 
-commit ae42c7503b256149eb005c19189f729dff43b098
+commit 515d49804425c56761a4971f8002c4a428b94ccf
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2020-10-19 00:04:15+0000
 
@@ -616,7 +616,7 @@ index c04b53924c733a489c6e46f6be4a659b712a5eee..a947b2b7e582e8fad2749ae0f862d0f8
  /dev/msm_qcelp            0660   system     audio
  /dev/msm_evrc             0660   system     audio
 
-commit f288db0b9fca1f731cdc64b0b97177e8fce9a665
+commit d03b29f97add2346a6ff7178b93e4b5d53f26f90
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Wed 2020-07-22 18:40:15+0000
 
@@ -657,7 +657,7 @@ index 288990e5bb7ab82f090262503250e938e425c4fa..660829d37d1cf943890a4d87bf84ee09
      mkdir /data/vendor/sensors 0770
      chown system system /data/vendor/sensors
 
-commit 1f2fe9257abdd8feb11e2e8e3bfe5b9254880760
+commit 6b65d307a6673508d4c4b8c041b86a1bf048ee7c
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sat 2020-11-14 02:09:38+0000
 
@@ -734,7 +734,7 @@ index cdf6bd90615387c43769a9fc83cad55a6c7daad8..b5395725ab8b5fe9a0cd8d5aeac0d48b
  /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
  /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
 
-commit bec050fea503ee3f7123e9b0fe72406d60d813fc
+commit 09bab4382b2e16567285fc00e093719b56464203
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-02-11 22:30:29-0500
 
@@ -744,7 +744,7 @@ Date:   Thu 2021-02-11 22:30:29-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/device-common.mk b/device-common.mk
-index 6a56b637250044263688305fae18ab7b60299ded..de5729d8535439fa870fc04c14ecc0c367af8403 100644
+index b22ad9f3498b08881bd0c663e5e21d155e4681f2..a8490146b7b58da821b7b6cc795f30a21aebdb36 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -844,20 +844,22 @@ endif
@@ -771,7 +771,7 @@ index 6a56b637250044263688305fae18ab7b60299ded..de5729d8535439fa870fc04c14ecc0c3
  PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
  # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
 
-commit ee16900a6b7c6192aad51fca6dd639f7e4463e84
+commit 0c0e5496abdc0f0ad59f2bd65e04115ca79c5137
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:48:10-0500
 
@@ -812,7 +812,7 @@ index 6d588cc07e5defbc5db4cfb6388116de74386787..0a747336044e7755a130a797c67c8d7a
  
  # Testing related defines
 
-commit a0be648c3f5fe7c68c500343387787c943f474e7 (HEAD, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+commit 85baa4d9b9262a450cd53564cecfac587b21899d (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
