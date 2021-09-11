@@ -1,4 +1,4 @@
-commit 5041cd972d53b1b0520489f4db1c83038f011f5b
+commit 3fcb42d70120aecc0a2c098a0844a6dfa29bdfc3
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -130,7 +130,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit 69b91ca6edd16f4dc6c1903eee17c8a39d6b758c
+commit cd9a3b32bb2c525ef1a7bf7eb1d0f1416f50cc39
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -185,7 +185,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit 68d35cf36515fda7d6ca75f8c177ae4e3a594b73
+commit 696a3c3868ab53479fd4fbb20c0d142d5e5a5d35
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -288,7 +288,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit 82a62df509f95f0cf5b2d74ef10b336b269c6678
+commit 6344ce29e051f60cc8701dfa7d82a17af9ea42af
 Author: maxwen <max.weninger@gmail.com>
 Date:   Thu 2021-04-08 18:43:53+0200
 
@@ -344,7 +344,7 @@ index 72b67de1ddde3ec2c97f062dc99f5225b0da9795..e2aadefc42dd8eabae68923ef729dc33
      }
  }
 
-commit 1c87f5f6ead758e441a35ba3262f4990dc768716
+commit 7791358975dfb225a9651e39be9bc1ea60e50bcc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -381,7 +381,7 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..c0c9ed43e8ac6e3748c7294e0dba8957
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 4c80cc7425def3a1b73f32824c2458ca0f74354f
+commit 21c1f70e1df2fdd68d80e755bda5c78ddbe9a64d
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -419,7 +419,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 0c4dec9bed7b5b9090ffbef20e55a1f4b6b21309
+commit 3035a24c0ada9f2b8454a060a0b3cbe6856fb86c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-02-16 02:22:41-0500
 
@@ -456,7 +456,7 @@ index c0c9ed43e8ac6e3748c7294e0dba8957786c3c06..dcc149fe7a598847b1cbfc4f5d5fd818
      <bool name="config_show_system_update_settings">true</bool>
  
 
-commit a423cdd1c04916771f4093cd82b74179bd6576cb
+commit bb85e2374e8fbb7171d79a250d9d4ed3522a8dd8
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sun 2021-05-16 00:51:15+0100
 
@@ -499,7 +499,7 @@ index 41f7733cfb2bf33e2e3ac859789dca1ca63a26ae..edc910b36cfd1c5254bff5d04dd2b40a
  
      <!-- Kernel -->
 
-commit 310126e84057ff9ba370d78da7ca60c34fe27610
+commit ab9a46ea558e1152a044ebef5d20cf68c790c2f3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -509,7 +509,7 @@ Date:   Thu 2016-11-17 07:48:17-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 226398ea5eb406ee62b0973351af015cf99c2a17..94c5de4b8807a48bc6f8797fbebe50e1f036d255 100644
+index 811a44c7c5699599c5584155e54938bbdce87fa1..27a88288f18d208b484404980a46d39bb02c7e03 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3712,23 +3712,23 @@
@@ -539,7 +539,7 @@ index 226398ea5eb406ee62b0973351af015cf99c2a17..94c5de4b8807a48bc6f8797fbebe50e1
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 905a19f0ec2bb2119cc7340f38a35aa4667adc75
+commit 3d422a2cb55fae06eb2529d7aa3695ba7aa9fe8a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -576,7 +576,7 @@ index dcc149fe7a598847b1cbfc4f5d5fd8184ec66539..a9dac5256af7b26c60c5560eca50a442
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit 82a987a54ed261b55fc5e72efa129e365df0e624
+commit f55498da98d5bc102935fd541febd2b5f8863a22
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-04-17 15:15:51+0100
 
@@ -621,7 +621,7 @@ index a9dac5256af7b26c60c5560eca50a442ec561ea0..90a670fd32da06447437507cfcb50d93
      <string name="gesture_double_twist_sensor_name" translatable="false"></string>
      <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
 
-commit 2d8b56b8c0ad2abb810e43c7d06f88c1c28a99c1
+commit 44954614fa72e229a94a9acc299eda03a901a735
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-03-10 00:45:12-0500
 
@@ -679,7 +679,7 @@ index 90a670fd32da06447437507cfcb50d9378e4cdbb..8b8ac04b6b421bf9460a919971c018ec
          -->
      </string-array>
 
-commit 9277f1e8816f8b7465b82d62b513ccf317653b6f
+commit 94aef150352a26ac62b08ecad10a08ef8a212d4d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -721,7 +721,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 86b36d98442024b08887310d42dde0eb09ad24e4
+commit b9a1093d275314e3db4bd32a34951599bbaa57b6
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:11:39+0100
 
@@ -759,7 +759,7 @@ index afbda02c7731059fa7bab41fb97dee730176c0c3..fc1004603e86cadb3328887ce8e1bb04
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 717af93fa4c60b730256f8f1b7dd6557b4819302
+commit a3c855dab2a0b61b43defa3d7871a279a2872e66
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -823,7 +823,7 @@ index 1ad3cc31036ee8829539f7f7a98c5387c765f442..9ddb1ce82d6841910ee53a1c4093b0e1
          <item>LTE/TDSCDMA/GSM/WCDMA</item>
          <item>TDSCDMA/CDMA/EVDO/GSM/WCDMA </item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 94c5de4b8807a48bc6f8797fbebe50e1f036d255..e16a74820d6f094960cda12bac36028e9d352961 100644
+index 27a88288f18d208b484404980a46d39bb02c7e03..9929b3c8438cac4dca0a50bf4eb1669ef3d29e9a 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -11539,20 +11539,22 @@
@@ -1116,7 +1116,7 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit edefc7f60831a00b4fd52031d0aeabb5a07cacc0
+commit ded2ec007eb8559ae7ee3fd26dedeb5bf386d8af
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -1165,20 +1165,20 @@ index 9ddb1ce82d6841910ee53a1c4093b0e198aa6e49..00cc826972462e81477a56c3a3a50751
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index e16a74820d6f094960cda12bac36028e9d352961..f0ebe821556b1143c3c84f66435b4c4ae1e28cf6 100644
+index 9929b3c8438cac4dca0a50bf4eb1669ef3d29e9a..34363dfcbab33fef74bb5c1d3cc147340f1f47dd 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12208,11 +12208,14 @@
-     <!-- Bluetooth message permission alert for dialog title [CHAR LIMIT=none] -->
-     <string name="bluetooth_message_access_dialog_title">Allow access to messages?</string>
-     <!-- Bluetooth message permission alert for dialog content [CHAR LIMIT=none] -->
-     <string name="bluetooth_message_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your messages.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
-     <!-- Bluetooth phonebook permission alert for notification content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
-     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
-     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+@@ -12232,11 +12232,14 @@
+     <!-- Bluetooth connect permission alert for notification content [CHAR LIMIT=none] -->
+     <string name="bluetooth_connect_access_notification_content">A device wants to connect. Tap for details.</string>
+     <!-- Bluetooth connect permission alert for dialog title [CHAR LIMIT=none] -->
+     <string name="bluetooth_connect_access_dialog_title">Connect to Bluetooth device?</string>
+     <!-- Bluetooth connect permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_connect_access_dialog_content"><xliff:g id="device_name" example="My device">%1$s</xliff:g> wants to connect to this phone.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Strings for Dialog don't connect button -->
+     <string name="bluetooth_connect_access_dialog_negative">Don\u2019t connect</string>
+     <!-- Strings for Dialog connect button -->
+     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
 +
 +    <string name="scramble_pin_title">PIN scrambling</string>
 +    <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1351,7 +1351,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit ca3bf46ed785060477afa3dd28896de02eac0835
+commit 5e073e2d6ec6ea3ba1bb16dbce2339a4440e2523
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1409,17 +1409,17 @@ index 00cc826972462e81477a56c3a3a50751c57f0715..f53ebb543a5682f2c931c2b0e5e34628
      </string-array>
  
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index f0ebe821556b1143c3c84f66435b4c4ae1e28cf6..54e613468db59216b4d908099f91a2046f329cdd 100644
+index 34363dfcbab33fef74bb5c1d3cc147340f1f47dd..4972894f52548c839a9616bddb08778775a93e97 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12211,11 +12211,13 @@
-     <string name="bluetooth_message_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your messages.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
-     <!-- Bluetooth phonebook permission alert for notification content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
-     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
-     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+@@ -12235,11 +12235,13 @@
+     <string name="bluetooth_connect_access_dialog_title">Connect to Bluetooth device?</string>
+     <!-- Bluetooth connect permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_connect_access_dialog_content"><xliff:g id="device_name" example="My device">%1$s</xliff:g> wants to connect to this phone.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Strings for Dialog don't connect button -->
+     <string name="bluetooth_connect_access_dialog_negative">Don\u2019t connect</string>
+     <!-- Strings for Dialog connect button -->
+     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -1626,7 +1626,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 3e92da1e8869488d97752cdab9376a0d9a14569c
+commit e84e934cc26bd174501e8a2795c2c8805d11aadd
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1923,7 +1923,7 @@ index d6e1b6054d3bbad4ff7f07018d6986a49a2d7d38..ab51c59e1a6f0b6a03458b289e8737a6
      }
  }
 
-commit 09649bc18337aeb48c588769bc10328b72059549
+commit 0f3a0cf511f4e3c5c5cf202cc008f1b1894a269d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -4482,7 +4482,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit f036be9af988d4d4c658031545ef671bd6ec7e34
+commit 5c49f16ebf5ef0a4063fe7da176fbde10187b14e
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -4497,15 +4497,15 @@ Date:   Tue 2020-09-15 22:40:56-0700
  4 files changed, 106 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 54e613468db59216b4d908099f91a2046f329cdd..108f502abee39fab2a9951efe5f3aa0a647bf242 100644
+index 4972894f52548c839a9616bddb08778775a93e97..7402ba1c86fc8b4d0aca3bd968b63288d4cb7340 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12213,11 +12213,13 @@
-     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
-     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
-     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+@@ -12237,11 +12237,13 @@
+     <string name="bluetooth_connect_access_dialog_content"><xliff:g id="device_name" example="My device">%1$s</xliff:g> wants to connect to this phone.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Strings for Dialog don't connect button -->
+     <string name="bluetooth_connect_access_dialog_negative">Don\u2019t connect</string>
+     <!-- Strings for Dialog connect button -->
+     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -4675,7 +4675,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 1dfa46cb7d34e27f0b22a6a2870415c5ec5beddb
+commit 0c67e2be14ed047a15c4ef6aeda352d544edb830
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 
@@ -4734,17 +4734,17 @@ index 7b5a71561decd667e22aa723192e6917aa2dd075..34825937a0ed61f76d13a2050d015be7
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 108f502abee39fab2a9951efe5f3aa0a647bf242..84fe6366c3f01324e5cda89384ea3d2189ad8bbc 100644
+index 7402ba1c86fc8b4d0aca3bd968b63288d4cb7340..a9a9167a97ddc58401deb956918370b645c1871a 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12211,15 +12211,17 @@
-     <string name="bluetooth_message_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your messages.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
-     <!-- Bluetooth phonebook permission alert for notification content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_notification_content">Untrusted device wants to access your contacts and call log. Tap for details.</string>
-     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
-     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+@@ -12235,15 +12235,17 @@
+     <string name="bluetooth_connect_access_dialog_title">Connect to Bluetooth device?</string>
+     <!-- Bluetooth connect permission alert for dialog content [CHAR LIMIT=none] -->
+     <string name="bluetooth_connect_access_dialog_content"><xliff:g id="device_name" example="My device">%1$s</xliff:g> wants to connect to this phone.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+     <!-- Strings for Dialog don't connect button -->
+     <string name="bluetooth_connect_access_dialog_negative">Don\u2019t connect</string>
+     <!-- Strings for Dialog connect button -->
+     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -5008,7 +5008,7 @@ index db704ae850de73f0a2ed547a4be8f6b3048be630..c77b07821e1dabf303060cacc3b4dff5
      @Override
      public Dialog onCreateDialog(int dialogId) {
 
-commit 50873d1119d9748746d37d627894f8494686fa41
+commit 8587b09e4bd6d08054d26846ddecb3ed109649f7
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:15:32+0100
 
@@ -5021,11 +5021,11 @@ Date:   Tue 2021-04-06 01:15:32+0100
  4 files changed, 115 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 84fe6366c3f01324e5cda89384ea3d2189ad8bbc..d2baa0ac9df76d9bfde85a91be6e359343dd0418 100644
+index a9a9167a97ddc58401deb956918370b645c1871a..29e3373fd49fdde0d8689de695d5fd4bfe37cc6e 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12217,11 +12217,13 @@
-     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+@@ -12241,11 +12241,13 @@
+     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -5208,7 +5208,7 @@ index fe551d16251349f71d3473f9344a95a6217e1200..0bb5b98ee4abd88ec8cf154e769f65ba
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit ebd94f12c07da00bff4d50152099ec5aece4fe84
+commit ce7933214a07e14a5ee48f25084494512d10a6bf
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:13:36+0100
 
@@ -5220,7 +5220,7 @@ Date:   Tue 2021-04-06 01:13:36+0100
  3 files changed, 39 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index d2baa0ac9df76d9bfde85a91be6e359343dd0418..9abbe88d6c41a4f087f0b869f3d8af81295848b4 100644
+index 29e3373fd49fdde0d8689de695d5fd4bfe37cc6e..8c1930124dad2147a974fefefd858e0dae90fc98 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3058,20 +3058,22 @@
@@ -5315,7 +5315,7 @@ index 0000000000000000000000000000000000000000..32b1cb64de05bb3414088028c0d48d1e
 +    }
 +}
 
-commit 6bf65e7302e96a2481be65d132eb45194b124449
+commit b98df265b59760d4c0399b209c7f3ab30a573604
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-04-25 21:42:56-0400
 
@@ -5369,7 +5369,7 @@ index 34825937a0ed61f76d13a2050d015be719b6359a..891fe64928901b54eb6952104e82341a
          <item>5</item>
          <item>15</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 9abbe88d6c41a4f087f0b869f3d8af81295848b4..25e8271d6cc2e34a0a84d5e2c05c78f697d83700 100644
+index 8c1930124dad2147a974fefefd858e0dae90fc98..f131cca0ad08c48727a1c2185ad9af07cd8df754 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -5195,26 +5195,30 @@
@@ -5435,7 +5435,7 @@ index c98736b231f7c81b7a2ee3a4d6f4a3a4937a762b..145722aef032d9534b8ba51ca9541bdc
              android:persistent="false"
              android:summary="@string/daltonizer_mode_protanomaly_summary"
 
-commit 2571fcb36b7c714ccd1831bb5b3361bda984f70c
+commit 45b7012da46659af432fffd58eea5a930ce5c4e0
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2020-04-27 13:10:34-0700
 
@@ -5454,10 +5454,10 @@ Date:   Mon 2020-04-27 13:10:34-0700
  3 files changed, 46 insertions(+), 3 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 25e8271d6cc2e34a0a84d5e2c05c78f697d83700..cf6b0930d1bd4ef14620ef5f829142f8a5b79d4e 100644
+index f131cca0ad08c48727a1c2185ad9af07cd8df754..07e3a93714cdfc1eb82c39e958f5c445289fa6a7 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12225,11 +12225,14 @@
+@@ -12249,11 +12249,14 @@
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
      <string name="connectivity_check_title">Internet connectivity check</string>
@@ -5666,7 +5666,7 @@ index 8b16aeea65528d19e694b09222023667c7e314f1..9ff20d91427439f129716b7c99819885
              return R.string.help_url_fingerprint;
          }
 
-commit c5dc73860277043ee659644ec99e104095318560
+commit 27d5f1af553ac8021bad00f86e5943ac594b1f8c
 Author: pratyush <codelab@pratyush.dev>
 Date:   Mon 2021-06-07 22:15:59+0100
 
@@ -5736,14 +5736,14 @@ index 891fe64928901b54eb6952104e82341a7b4fbfc7..83a843dd1f7b30d938b375c2e98729f8
      <string-array name="deny_new_usb_values" translatable="false">
          <!-- Do not translate. -->
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index cf6b0930d1bd4ef14620ef5f829142f8a5b79d4e..e117f71f0afa0516a63eb111a8245cdf4e723182 100644
+index 07e3a93714cdfc1eb82c39e958f5c445289fa6a7..f016acb29a3ebe3674d6553fcf0c7374ff801acc 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -12220,19 +12220,21 @@
-     <!-- Bluetooth phonebook permission alert for dialog title [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_title">Allow access to contacts and call log?</string>
-     <!-- Bluetooth phonebook permission alert for dialog content [CHAR LIMIT=none] -->
-     <string name="bluetooth_phonebook_access_dialog_content">An untrusted Bluetooth device, <xliff:g id="device_name" example="My device">%1$s</xliff:g>, wants to access your contacts and call log. This includes data about incoming and outgoing calls.\n\nYou haven\u2019t connected to <xliff:g id="device_name" example="My device">%2$s</xliff:g> before.</string>
+@@ -12244,19 +12244,21 @@
+     <!-- Strings for Dialog don't connect button -->
+     <string name="bluetooth_connect_access_dialog_negative">Don\u2019t connect</string>
+     <!-- Strings for Dialog connect button -->
+     <string name="bluetooth_connect_access_dialog_positive">Connect</string>
  
      <string name="scramble_pin_title">PIN scrambling</string>
      <string name="scramble_pin_summary">Controls PIN scrambling option when inputting PIN on screen lock.</string>
@@ -5932,7 +5932,7 @@ index 0bb5b98ee4abd88ec8cf154e769f65bab5c47fa6..ad9b57cf22e7c554560ad9eabb4279d3
          profileSecurityControllers.add(new ChangeProfileScreenLockPreferenceController(
                  context, host));
 
-commit b0a69541ea3526a8bcc0585cb9e359e2f21e7716
+commit dd6898155d22c3fb969ab79de11382c59121e212
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 12:37:30-0400
 
@@ -6014,7 +6014,7 @@ index 83a843dd1f7b30d938b375c2e98729f872348ae0..9b3ec51897c2316ef8382d5f42026514
          <item>30 minutes</item>
      </string-array>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index e117f71f0afa0516a63eb111a8245cdf4e723182..925167e4e5c0410e1d041627bb2c4721ccce31f4 100644
+index f016acb29a3ebe3674d6553fcf0c7374ff801acc..a832b024cf7392de74389f9af5cf918e4d47d883 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -20,20 +20,39 @@
@@ -6212,7 +6212,7 @@ index 0000000000000000000000000000000000000000..244147948aa50873a9cb372b7566ce79
 +    }
 +}
 
-commit c6be9247fe520de7e278e41a26b16bb605c3eba9
+commit 46e51d8a7d8c0fc0dcecf902ac5306c0f5b74372
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Thu 2021-02-25 11:31:14-0500
 
@@ -6294,7 +6294,7 @@ index 9b3ec51897c2316ef8382d5f42026514b66f3d2c..a13a09651867bf408b1ca5c092a334f5
          <item>30 minutes</item>
      </string-array>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 925167e4e5c0410e1d041627bb2c4721ccce31f4..43e7a4ac52a1b5762187c6cc1a767aa8d1e66502 100644
+index a832b024cf7392de74389f9af5cf918e4d47d883..bd1076547f217b96e12819ef2de5a2882cee4285 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -39,20 +39,39 @@
@@ -6492,7 +6492,7 @@ index 0000000000000000000000000000000000000000..7116c9051904dd0a5109bafc7bec0420
 +    }
 +}
 
-commit 13d97a4a1d4322fb25c9e8b89f896d32a6f1fea1
+commit 95aed967c1e5a30f64dffe3ebe9fb1a94663a54e
 Author: Wonderfall <wonderfall@protonmail.com>
 Date:   Mon 2021-07-19 01:31:27+0200
 
@@ -6531,7 +6531,7 @@ index 1bfdac9556976284624600c8590a734bf6223359..8440472d5bfa1292f3b30725463d3858
      /**
       * Whether screen lock with {@code type} should be enabled.
 
-commit c468fadbe8bf56600fd918729ee11cdb194584db (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
+commit 16afef63a235f006317cfbfb02c95217203c66ee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-07-25 14:44:48-0400
 
@@ -6567,3 +6567,585 @@ index 8b8ac04b6b421bf9460a919971c018ec3a6eb6c0..f435536a9ca040ca240cceaa0d8f9c06
      <!-- Reset application package name -->
      <string-array name="config_skip_reset_apps_package_name" translatable="false">
          <item>android</item>
+
+commit 35151cd00c9bd1270715756ca21234a470e97434
+Author: stuux <stuux@posteo.net>
+Date:   Sun 2021-07-25 00:22:34+0200
+
+    use captive_portal_mode_ignore for disabling connectivity checks
+---
+ res/values/arrays.xml                              |  2 +
+ .../ConnectivityCheckPreferenceController.java     | 43 +++++++++++++++-------
+ 2 files changed, 31 insertions(+), 14 deletions(-)
+
+diff --git a/res/values/arrays.xml b/res/values/arrays.xml
+index a13a09651867bf408b1ca5c092a334f587daca31..ec01b161d5a155acac273c59eb43b09fc71c8188 100644
+--- a/res/values/arrays.xml
++++ b/res/values/arrays.xml
+@@ -266,25 +266,27 @@
+     </string-array>
+ 
+     <string-array name="scramble_pin_values" translatable="false">
+         <item>true</item>
+         <item>false</item>
+     </string-array>
+ 
+     <string-array name="connectivity_check_entries">
+         <item>GrapheneOS</item>
+         <item>Standard (Google)</item>
++        <item>Disabled</item>
+     </string-array>
+ 
+     <string-array name="connectivity_check_values" translatable="false">
+         <item>0</item>
+         <item>1</item>
++        <item>2</item>
+     </string-array>
+ 
+     <!-- Do not translate. -->
+     <string-array name="lock_after_timeout_values" translatable="false">
+         <!-- Do not translate. -->
+         <item>0</item>
+         <!-- Do not translate. -->
+         <item>5000</item>
+         <!-- Do not translate. -->
+         <item>15000</item>
+diff --git a/src/com/android/settings/network/ConnectivityCheckPreferenceController.java b/src/com/android/settings/network/ConnectivityCheckPreferenceController.java
+index 86044bfb53255e0845d6f06d2728a6ca0bc6ae4c..963d20ce2dad36b84c3800ba7f2ed92dada7bb78 100644
+--- a/src/com/android/settings/network/ConnectivityCheckPreferenceController.java
++++ b/src/com/android/settings/network/ConnectivityCheckPreferenceController.java
+@@ -57,20 +57,21 @@ public class ConnectivityCheckPreferenceController
+             "https://www.google.com/generate_204";
+     private static final String STANDARD_HTTP_URL =
+             "http://connectivitycheck.gstatic.com/generate_204";
+     private static final String STANDARD_FALLBACK_URL =
+             "http://www.google.com/gen_204";
+     private static final String STANDARD_OTHER_FALLBACK_URLS =
+             "http://play.googleapis.com/generate_204";
+ 
+     private static final int GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL_INTVAL = 0;
+     private static final int STANDARD_CAPTIVE_PORTAL_HTTP_URL_INTVAL = 1;
++    private static final int DISABLED_CAPTIVE_PORTAL_INTVAL = 2;
+ 
+     private static final String KEY_CONNECTIVITY_CHECK_SETTINGS =
+             "connectivity_check_settings";
+ 
+     private ListPreference mConnectivityPreference;
+ 
+     public ConnectivityCheckPreferenceController(Context context) {
+         super(context, KEY_CONNECTIVITY_CHECK_SETTINGS);
+     }
+ 
+@@ -89,34 +90,32 @@ public class ConnectivityCheckPreferenceController
+                 screen.findPreference(KEY_CONNECTIVITY_CHECK_SETTINGS);
+         updatePreferenceState();
+     }
+ 
+     @Override
+     public String getPreferenceKey() {
+         return KEY_CONNECTIVITY_CHECK_SETTINGS;
+     }
+ 
+     private void updatePreferenceState() {
++        if (Settings.Global.getInt(mContext.getContentResolver(),
++                Settings.Global.CAPTIVE_PORTAL_MODE, Settings.Global.CAPTIVE_PORTAL_MODE_PROMPT)
++                == Settings.Global.CAPTIVE_PORTAL_MODE_IGNORE) {
++            mConnectivityPreference.setValueIndex(DISABLED_CAPTIVE_PORTAL_INTVAL);
++            return;
++        }
++
+         String pref = Settings.Global.getString(
+                 mContext.getContentResolver(), Settings.Global.CAPTIVE_PORTAL_HTTP_URL);
+-        if (pref != null) {
+-            switch (pref) {
+-            case STANDARD_HTTP_URL:
+-                mConnectivityPreference.setValueIndex(
+-                        STANDARD_CAPTIVE_PORTAL_HTTP_URL_INTVAL);
+-                break;
+-            // intentional fallthrough
+-            case GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL:
+-            default:
+-                mConnectivityPreference.setValueIndex(
+-                        GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL_INTVAL);
+-            }
++        if (STANDARD_HTTP_URL.equals(pref)) {
++            mConnectivityPreference.setValueIndex(
++                    STANDARD_CAPTIVE_PORTAL_HTTP_URL_INTVAL);
+         } else {
+             mConnectivityPreference.setValueIndex(
+                     GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL_INTVAL);
+         }
+     }
+ 
+     @Override
+     public void onResume() {
+         updatePreferenceState();
+         if (mConnectivityPreference != null) {
+@@ -131,33 +130,49 @@ public class ConnectivityCheckPreferenceController
+         case STANDARD_CAPTIVE_PORTAL_HTTP_URL_INTVAL:
+             Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_HTTP_URL,
+                                                                 STANDARD_HTTP_URL);
+             Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_HTTPS_URL,
+                                                                 STANDARD_HTTPS_URL);
+             Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_FALLBACK_URL,
+                                                                 STANDARD_FALLBACK_URL);
+             Settings.Global.putString(
+                     cr, Settings.Global.CAPTIVE_PORTAL_OTHER_FALLBACK_URLS,
+                     STANDARD_OTHER_FALLBACK_URLS);
++            Settings.Global.putInt(cr, Settings.Global.CAPTIVE_PORTAL_MODE,
++                    Settings.Global.CAPTIVE_PORTAL_MODE_PROMPT);
+             break;
+-        // intentional fallthrough
+         case GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL_INTVAL:
+-        default:
+             Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_HTTP_URL,
+                                                                 GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL);
+             Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_HTTPS_URL,
+                                                                 GRAPHENEOS_CAPTIVE_PORTAL_HTTPS_URL);
+             Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_FALLBACK_URL,
+                                                                 GRAPHENEOS_CAPTIVE_PORTAL_FALLBACK_URL);
+             Settings.Global.putString(
+                     cr, Settings.Global.CAPTIVE_PORTAL_OTHER_FALLBACK_URLS,
+                     GRAPHENEOS_CAPTIVE_PORTAL_OTHER_FALLBACK_URL);
++            Settings.Global.putInt(cr, Settings.Global.CAPTIVE_PORTAL_MODE,
++                    Settings.Global.CAPTIVE_PORTAL_MODE_PROMPT);
++            break;
++        default:
++            // GrapheneOS URLs as placeholder
++            Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_HTTP_URL,
++                    GRAPHENEOS_CAPTIVE_PORTAL_HTTP_URL);
++            Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_HTTPS_URL,
++                    GRAPHENEOS_CAPTIVE_PORTAL_HTTPS_URL);
++            Settings.Global.putString(cr, Settings.Global.CAPTIVE_PORTAL_FALLBACK_URL,
++                    GRAPHENEOS_CAPTIVE_PORTAL_FALLBACK_URL);
++            Settings.Global.putString(
++                    cr, Settings.Global.CAPTIVE_PORTAL_OTHER_FALLBACK_URLS,
++                    GRAPHENEOS_CAPTIVE_PORTAL_OTHER_FALLBACK_URL);
++            Settings.Global.putInt(cr, Settings.Global.CAPTIVE_PORTAL_MODE,
++                    Settings.Global.CAPTIVE_PORTAL_MODE_IGNORE);
+         }
+     }
+ 
+     @Override
+     public boolean onPreferenceChange(Preference preference, Object value) {
+         final String key = preference.getKey();
+         if (KEY_CONNECTIVITY_CHECK_SETTINGS.equals(key)) {
+             setCaptivePortalURLs(mContext.getContentResolver(),
+                                                      Integer.parseInt((String)value));
+             return true;
+
+commit 9d032cc5c0c214bc19c62a887e7e14d2f152aadd
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-08-06 21:23:33+0000
+
+    Show preferred network options no matter the carrier configuration
+    
+    This ignores:
+    https://developer.android.com/reference/android/telephony/CarrierConfigManager#KEY_HIDE_CARRIER_NETWORK_SETTINGS_BOOL
+    https://developer.android.com/reference/android/telephony/CarrierConfigManager#KEY_HIDE_PREFERRED_NETWORK_TYPE_BOOL
+---
+ .../network/telephony/EnabledNetworkModePreferenceController.java       | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java b/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java
+index 29111b89ec26c62eb9de18408439d07b7fa7a5e6..8cc81b84b01816a3ad44f92aceaf0b09640285f7 100644
+--- a/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java
++++ b/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java
+@@ -69,21 +69,21 @@ public class EnabledNetworkModePreferenceController extends
+         boolean visible;
+         final PersistableBundle carrierConfig = mCarrierConfigManager.getConfigForSubId(subId);
+         if (subId == SubscriptionManager.INVALID_SUBSCRIPTION_ID) {
+             visible = false;
+         } else if (carrierConfig == null) {
+             visible = false;
+         } else if (carrierConfig.getBoolean(
+                 CarrierConfigManager.KEY_HIDE_CARRIER_NETWORK_SETTINGS_BOOL)
+                 || carrierConfig.getBoolean(
+                 CarrierConfigManager.KEY_HIDE_PREFERRED_NETWORK_TYPE_BOOL)) {
+-            visible = false;
++            visible = true;
+         } else if (carrierConfig.getBoolean(CarrierConfigManager.KEY_WORLD_PHONE_BOOL)) {
+             visible = false;
+         } else {
+             visible = true;
+         }
+ 
+         return visible ? AVAILABLE : CONDITIONALLY_UNAVAILABLE;
+     }
+ 
+     @OnLifecycleEvent(ON_START)
+
+commit abddbe11cee27b54af7f4c982e19728fbb4314cd
+Author: Rafael Matias de Lima <rafamatias.1@gmail.com>
+Date:   Fri 2020-02-07 11:35:48-0300
+
+    Fix for User edit info dialog during rotation
+    
+    [issue]
+    1. Go to Settings > System > Multiple users;
+    2. Edit user info;
+    3. Take a picture in portrait mode;
+    4. Turn the device to landscape mode;
+    
+    Observe selected image is not retained;
+    
+    [rootcause]
+    Fragments no longer need to check if the dialog
+    is showing up during onSaveInstanceState.
+    
+    [test]
+    1. Edit user info;
+    2. Select a picture;
+    3. Turn the device to landscape mode;
+---
+ src/com/android/settings/users/EditUserInfoController.java | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/com/android/settings/users/EditUserInfoController.java b/src/com/android/settings/users/EditUserInfoController.java
+index d205968d93666605d0de16545300980211b35f57..6b5e670609b8797f10d0fea52611cb362fa9ce0f 100644
+--- a/src/com/android/settings/users/EditUserInfoController.java
++++ b/src/com/android/settings/users/EditUserInfoController.java
+@@ -92,22 +92,21 @@ public class EditUserInfoController {
+ 
+     public void onRestoreInstanceState(Bundle icicle) {
+         String pendingPhoto = icicle.getString(KEY_SAVED_PHOTO);
+         if (pendingPhoto != null) {
+             mSavedPhoto = EditUserPhotoController.loadNewUserPhotoBitmap(new File(pendingPhoto));
+         }
+         mWaitingForActivityResult = icicle.getBoolean(KEY_AWAITING_RESULT, false);
+     }
+ 
+     public void onSaveInstanceState(Bundle outState) {
+-        if (mEditUserInfoDialog != null && mEditUserInfoDialog.isShowing()
+-                && mEditUserPhotoController != null) {
++        if (mEditUserInfoDialog != null && mEditUserPhotoController != null) {
+             // Bitmap cannot be stored into bundle because it may exceed parcel limit
+             // Store it in a temporary file instead
+             File file = mEditUserPhotoController.saveNewUserPhotoBitmap();
+             if (file != null) {
+                 outState.putString(KEY_SAVED_PHOTO, file.getPath());
+             }
+         }
+         if (mWaitingForActivityResult) {
+             outState.putBoolean(KEY_AWAITING_RESULT, mWaitingForActivityResult);
+         }
+
+commit 2401c0473e0e07dd9cbef5be151f1c6e5fed78b8
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Tue 2021-08-17 19:05:06+0000
+
+    Fix users being unable to set pictures
+---
+ src/com/android/settings/users/EditUserInfoController.java | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/src/com/android/settings/users/EditUserInfoController.java b/src/com/android/settings/users/EditUserInfoController.java
+index 6b5e670609b8797f10d0fea52611cb362fa9ce0f..3664e86fa571bc0eb1ccca54183cfbec4c26c85a 100644
+--- a/src/com/android/settings/users/EditUserInfoController.java
++++ b/src/com/android/settings/users/EditUserInfoController.java
+@@ -134,22 +134,21 @@ public class EditUserInfoController {
+             mUserManager = activity.getSystemService(UserManager.class);
+         }
+         LayoutInflater inflater = activity.getLayoutInflater();
+         View content = inflater.inflate(R.layout.edit_user_info_dialog_content, null);
+ 
+         final EditText userNameView = (EditText) content.findViewById(R.id.user_name);
+         userNameView.setText(currentUserName);
+ 
+         final ImageView userPhotoView = (ImageView) content.findViewById(R.id.user_photo);
+ 
+-        boolean canChangePhoto = mUserManager != null &&
+-                canChangePhoto(activity, mUserManager.getUserInfo(user.getIdentifier()));
++        boolean canChangePhoto = mUserManager != null;
+         if (!canChangePhoto) {
+             // some users can't change their photos so we need to remove suggestive
+             // background from the photoView
+             userPhotoView.setBackground(null);
+         }
+         Drawable drawable = null;
+         if (mSavedPhoto != null) {
+             drawable = CircleFramedDrawable.getInstance(activity, mSavedPhoto);
+         } else {
+             drawable = currentUserIcon;
+
+commit e8fac0fac35bcd7eb7438b33b5f7c83db08e2807
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Tue 2021-08-17 22:41:26+0000
+
+    Add LTE only entry when carrier enables world mode.
+---
+ .../network/telephony/EnabledNetworkModePreferenceController.java        | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java b/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java
+index 8cc81b84b01816a3ad44f92aceaf0b09640285f7..8bad6daf2b208dd7c14ca6666a105de8591aaa38 100644
+--- a/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java
++++ b/src/com/android/settings/network/telephony/EnabledNetworkModePreferenceController.java
+@@ -353,20 +353,21 @@ public class EnabledNetworkModePreferenceController extends
+                     add2gEntry(entryValuesInt[2]);
+                     break;
+                 case PREFERRED_NETWORK_MODE_CHOICES_WORLD_MODE:
+                     entryValues = mContext.getResources().getStringArray(
+                             R.array.preferred_network_mode_values_world_mode);
+                     entryValuesInt = Stream.of(entryValues).mapToInt(Integer::parseInt).toArray();
+                     if (entryValuesInt.length < 3) {
+                         throw new IllegalArgumentException(
+                                 "PREFERRED_NETWORK_MODE_CHOICES_WORLD_MODE index error.");
+                     }
++                    addLteOnlyEntry();
+                     addGlobalEntry(entryValuesInt[0]);
+                     addCustomEntry(mContext.getString(R.string.network_world_mode_cdma_lte),
+                             entryValuesInt[1]);
+                     addCustomEntry(mContext.getString(R.string.network_world_mode_gsm_lte),
+                             entryValuesInt[2]);
+                     break;
+                 default:
+                     throw new IllegalArgumentException("Not supported enabled network types.");
+             }
+         }
+
+commit 52d5f0f058487eec85499e90046e11181a8c35f4 (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2021-09-01 20:36:10+0000
+
+    UserManager app installation restrictions
+---
+ res/values/strings.xml                             |  2 +
+ res/xml/user_details_settings.xml                  |  4 ++
+ .../settings/users/UserDetailsSettings.java        | 43 +++++++++++++++++++---
+ 3 files changed, 44 insertions(+), 5 deletions(-)
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index bd1076547f217b96e12819ef2de5a2882cee4285..eee095c30536ac7af9e5b44dc5db5bbef6f175c8 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -7080,20 +7080,22 @@
+     <string name="user_exit_guest_confirm_title">Remove guest?</string>
+     <!-- Message to user to confirm exiting guest. [CHAR LIMIT=none] -->
+     <string name="user_exit_guest_confirm_message">All apps and data in this session will be deleted.</string>
+     <!-- Label for button in confirmation dialog when exiting guest session [CHAR LIMIT=35] -->
+     <string name="user_exit_guest_dialog_remove">Remove</string>
+ 
+     <!-- Title of preference to enable calling[CHAR LIMIT=40] -->
+     <string name="user_enable_calling">Turn on phone calls</string>
+     <!-- Title of preference to enable calling and SMS [CHAR LIMIT=45] -->
+     <string name="user_enable_calling_sms">Turn on phone calls &amp; SMS</string>
++    <!-- Title of preference to disallow installing apps [CHAR LIMIT=45] -->
++    <string name="user_disallow_install_apps">Disallow installing apps</string>
+     <!-- Title of preference to remove the user [CHAR LIMIT=35] -->
+     <string name="user_remove_user">Delete user</string>
+     <!-- Title for confirmation of turning on calls [CHAR LIMIT=40] -->
+     <string name="user_enable_calling_confirm_title">Turn on phone calls?</string>
+     <!-- Message for confirmation of turning on calls [CHAR LIMIT=none] -->
+     <string name="user_enable_calling_confirm_message">Call history will be shared with this user.</string>
+     <!-- Title for confirmation of turning on calls and SMS [CHAR LIMIT=45] -->
+     <string name="user_enable_calling_and_sms_confirm_title">Turn on phone calls &amp; SMS?</string>
+     <!-- Message for confirmation of turning on calls and SMS [CHAR LIMIT=none] -->
+     <string name="user_enable_calling_and_sms_confirm_message">Call and SMS history will be shared with this user.</string>
+diff --git a/res/xml/user_details_settings.xml b/res/xml/user_details_settings.xml
+index 9280ff11632fac81b8d8f23e743bedca72f00763..d0a055fae29c6127f7eb9ed9e7d6011a2843e0bb 100644
+--- a/res/xml/user_details_settings.xml
++++ b/res/xml/user_details_settings.xml
+@@ -22,17 +22,21 @@
+             android:key="switch_user"
+             android:icon="@drawable/ic_swap" />
+     <SwitchPreference
+             android:key="enable_calling"
+             android:icon="@drawable/ic_phone"
+             android:title="@string/user_enable_calling_sms" />
+     <com.android.settingslib.RestrictedPreference
+             android:key="app_and_content_access"
+             android:icon="@drawable/ic_lock_closed"
+             android:title="@string/user_restrictions_title" />
++    <SwitchPreference
++            android:icon="@drawable/ic_settings_install"
++            android:key="disallow_install_apps"
++            android:title="@string/user_disallow_install_apps" />
+     <com.android.settingslib.RestrictedPreference
+             android:key="remove_user"
+             android:icon="@drawable/ic_delete"
+             settings:userRestriction="no_remove_user"
+             settings:useAdminDisabledSummary="true" />
+ 
+ </PreferenceScreen>
+diff --git a/src/com/android/settings/users/UserDetailsSettings.java b/src/com/android/settings/users/UserDetailsSettings.java
+index 897b3c7b83a2e33058f42f6b5f378b160d276fdf..dc5dfb1dccae5d9f30a8dc35af0f746d6f4b5405 100644
+--- a/src/com/android/settings/users/UserDetailsSettings.java
++++ b/src/com/android/settings/users/UserDetailsSettings.java
+@@ -52,39 +52,41 @@ import java.util.List;
+  */
+ public class UserDetailsSettings extends SettingsPreferenceFragment
+         implements Preference.OnPreferenceClickListener, Preference.OnPreferenceChangeListener {
+ 
+     private static final String TAG = UserDetailsSettings.class.getSimpleName();
+ 
+     private static final String KEY_SWITCH_USER = "switch_user";
+     private static final String KEY_ENABLE_TELEPHONY = "enable_calling";
+     private static final String KEY_REMOVE_USER = "remove_user";
+     private static final String KEY_APP_AND_CONTENT_ACCESS = "app_and_content_access";
++    private static final String KEY_DISALLOW_INSTALL_APPS = "disallow_install_apps";
+ 
+     /** Integer extra containing the userId to manage */
+     static final String EXTRA_USER_ID = "user_id";
+ 
+     private static final int DIALOG_CONFIRM_REMOVE = 1;
+     private static final int DIALOG_CONFIRM_ENABLE_CALLING = 2;
+     private static final int DIALOG_CONFIRM_ENABLE_CALLING_AND_SMS = 3;
+     private static final int DIALOG_SETUP_USER = 4;
+ 
+     private UserManager mUserManager;
+     private UserCapabilities mUserCaps;
+ 
+     @VisibleForTesting
+     RestrictedPreference mSwitchUserPref;
+     private SwitchPreference mPhonePref;
+     @VisibleForTesting
+     Preference mAppAndContentAccessPref;
+     @VisibleForTesting
+     Preference mRemoveUserPref;
++    private SwitchPreference mInstallAppsPref;
+ 
+     @VisibleForTesting
+     UserInfo mUserInfo;
+     private Bundle mDefaultGuestRestrictions;
+ 
+     @Override
+     public int getMetricsCategory() {
+         return SettingsEnums.USER_DETAILS;
+     }
+ 
+@@ -124,26 +126,51 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
+             }
+         } else if (preference == mAppAndContentAccessPref) {
+             openAppAndContentAccessScreen(false);
+             return true;
+         }
+         return false;
+     }
+ 
+     @Override
+     public boolean onPreferenceChange(Preference preference, Object newValue) {
+-        if (Boolean.TRUE.equals(newValue)) {
+-            showDialog(mUserInfo.isGuest() ? DIALOG_CONFIRM_ENABLE_CALLING
+-                    : DIALOG_CONFIRM_ENABLE_CALLING_AND_SMS);
+-            return false;
++        if (preference == mPhonePref) {
++            if (Boolean.TRUE.equals(newValue)) {
++                showDialog(mUserInfo.isGuest() ? DIALOG_CONFIRM_ENABLE_CALLING
++                        : DIALOG_CONFIRM_ENABLE_CALLING_AND_SMS);
++                return false;
++            }
++            enableCallsAndSms(false);
++        } else if (preference == mInstallAppsPref) {
++            if (mUserInfo.isGuest()) {
++                mDefaultGuestRestrictions.putBoolean(UserManager.DISALLOW_INSTALL_APPS, (Boolean) newValue);
++                mUserManager.setDefaultGuestRestrictions(mDefaultGuestRestrictions);
++
++                // Update the guest's restrictions, if there is a guest
++                // TODO: Maybe setDefaultGuestRestrictions() can internally just set the restrictions
++                // on any existing guest rather than do it here with multiple Binder calls.
++                List<UserInfo> users = mUserManager.getUsers(true);
++                for (UserInfo user: users) {
++                    if (user.isGuest()) {
++                        UserHandle userHandle = UserHandle.of(user.id);
++                        for (String key : mDefaultGuestRestrictions.keySet()) {
++                            mUserManager.setUserRestriction(
++                                    key, mDefaultGuestRestrictions.getBoolean(key), userHandle);
++                        }
++                    }
++                }
++            } else {
++                UserHandle userHandle = UserHandle.of(mUserInfo.id);
++                mUserManager.setUserRestriction(UserManager.DISALLOW_INSTALL_APPS, (Boolean) newValue,
++                        userHandle);
++            }
+         }
+-        enableCallsAndSms(false);
+         return true;
+     }
+ 
+     @Override
+     public int getDialogMetricsCategory(int dialogId) {
+         switch (dialogId) {
+             case DIALOG_CONFIRM_REMOVE:
+                 return SettingsEnums.DIALOG_USER_REMOVE;
+             case DIALOG_CONFIRM_ENABLE_CALLING:
+                 return SettingsEnums.DIALOG_USER_ENABLE_CALLING;
+@@ -196,37 +223,39 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
+             throw new IllegalStateException("Arguments to this fragment must contain the user id");
+         }
+         boolean isNewUser =
+                 arguments.getBoolean(AppRestrictionsFragment.EXTRA_NEW_USER, false);
+         mUserInfo = mUserManager.getUserInfo(userId);
+ 
+         mSwitchUserPref = findPreference(KEY_SWITCH_USER);
+         mPhonePref = findPreference(KEY_ENABLE_TELEPHONY);
+         mRemoveUserPref = findPreference(KEY_REMOVE_USER);
+         mAppAndContentAccessPref = findPreference(KEY_APP_AND_CONTENT_ACCESS);
++        mInstallAppsPref = findPreference(KEY_DISALLOW_INSTALL_APPS);
+ 
+         mSwitchUserPref.setTitle(
+                 context.getString(com.android.settingslib.R.string.user_switch_to_user,
+                         mUserInfo.name));
+ 
+         if (mUserCaps.mDisallowSwitchUser) {
+             mSwitchUserPref.setDisabledByAdmin(RestrictedLockUtilsInternal.getDeviceOwner(context));
+         } else {
+             mSwitchUserPref.setDisabledByAdmin(null);
+             mSwitchUserPref.setSelectable(true);
+             mSwitchUserPref.setOnPreferenceClickListener(this);
+         }
+ 
+         if (!mUserManager.isAdminUser()) { // non admin users can't remove users and allow calls
+             removePreference(KEY_ENABLE_TELEPHONY);
+             removePreference(KEY_REMOVE_USER);
+             removePreference(KEY_APP_AND_CONTENT_ACCESS);
++            removePreference(KEY_DISALLOW_INSTALL_APPS);
+         } else {
+             if (!Utils.isVoiceCapable(context)) { // no telephony
+                 removePreference(KEY_ENABLE_TELEPHONY);
+             }
+ 
+             if (mUserInfo.isRestricted()) {
+                 removePreference(KEY_ENABLE_TELEPHONY);
+                 if (isNewUser) {
+                     // for newly created restricted users we should open the apps and content access
+                     // screen to initialize the default restrictions
+@@ -237,33 +266,37 @@ public class UserDetailsSettings extends SettingsPreferenceFragment
+             }
+ 
+             if (mUserInfo.isGuest()) {
+                 // These are not for an existing user, just general Guest settings.
+                 // Default title is for calling and SMS. Change to calling-only here
+                 mPhonePref.setTitle(R.string.user_enable_calling);
+                 mDefaultGuestRestrictions = mUserManager.getDefaultGuestRestrictions();
+                 mPhonePref.setChecked(
+                         !mDefaultGuestRestrictions.getBoolean(UserManager.DISALLOW_OUTGOING_CALLS));
+                 mRemoveUserPref.setTitle(R.string.user_exit_guest_title);
++                removePreference(KEY_DISALLOW_INSTALL_APPS);
+             } else {
+                 mPhonePref.setChecked(!mUserManager.hasUserRestriction(
+                         UserManager.DISALLOW_OUTGOING_CALLS, new UserHandle(userId)));
+                 mRemoveUserPref.setTitle(R.string.user_remove_user);
++                mInstallAppsPref.setChecked(mUserManager.hasUserRestriction(
++                        UserManager.DISALLOW_INSTALL_APPS, new UserHandle(userId)));
+             }
+             if (RestrictedLockUtilsInternal.hasBaseUserRestriction(context,
+                     UserManager.DISALLOW_REMOVE_USER, UserHandle.myUserId())) {
+                 removePreference(KEY_REMOVE_USER);
+             }
+ 
+             mRemoveUserPref.setOnPreferenceClickListener(this);
+             mPhonePref.setOnPreferenceChangeListener(this);
+             mAppAndContentAccessPref.setOnPreferenceClickListener(this);
++            mInstallAppsPref.setOnPreferenceChangeListener(this);
+         }
+     }
+ 
+     @VisibleForTesting
+     boolean canDeleteUser() {
+         if (!mUserManager.isAdminUser()) {
+             return false;
+         }
+ 
+         Context context = getActivity();

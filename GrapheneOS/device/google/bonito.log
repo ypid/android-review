@@ -1,4 +1,4 @@
-commit 7e6567edd004fb0fdc61dd421778d4b2682236cd
+commit 67a22fba9ee69b83717a181527dd5ee6d2a868fd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 16:42:55-0400
 
@@ -43,7 +43,7 @@ index e7c148e2db38986ffa1accdc3b87e499845fbbb3..e38b7be6c14d2d18370c72e93f2ac484
 -PRODUCT_MODEL := AOSP on sargo
 +PRODUCT_MODEL := Pixel 3a
 
-commit 69cb59cad3ea03133009e72a29b8c4a1b034299a
+commit 42735dc5730b0e2eac430da980df00f17e446f7b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 21:06:38-0400
 
@@ -94,7 +94,7 @@ index e38b7be6c14d2d18370c72e93f2ac4843db978e9..e234d09a6850f7e2182ed9cfcf254b5f
  PRODUCT_DEVICE := sargo
  PRODUCT_MODEL := Pixel 3a
 
-commit af0d3f8e098bcfbf373a2789e817dbd59acb5aa5
+commit be21e2d5bb8ef1942d5e287b9d5613f416c0f29d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 20:31:53-0400
 
@@ -155,7 +155,7 @@ index 0000000000000000000000000000000000000000..32d8cdd9c9446ee75d3baa9607890dc3
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := sargo
 
-commit 89da8e1d6074edeb32abbaa3adf8e6797591622a
+commit 71d2179c630c1112baebe51de448b5b10aa270f7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:48:08-0400
 
@@ -165,7 +165,7 @@ Date:   Thu 2019-06-20 12:48:08-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index c67c7930202d339274c1b91ccfa0624f07c5deb9..926fd1efb7818ae50368ecaf3f214675ed2b9e91 100644
+index 11eb58af1dc2c99cdd349509e6eb70f5d9015c92..5ea8bacd967b26ef2564e99af8b37c0fc938e39c 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -130,39 +130,35 @@ PRODUCT_COPY_FILES += \
@@ -209,7 +209,7 @@ index c67c7930202d339274c1b91ccfa0624f07c5deb9..926fd1efb7818ae50368ecaf3f214675
      POSTINSTALL_OPTIONAL_system=true
  
 
-commit 37e6e057f74c7ce20a8f49a4131e220c7ed53a6f
+commit bac3cfc54f0e2e222aa0662372ccfcc4b5dc0b71
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:50:53-0400
 
@@ -328,7 +328,7 @@ index 885c3e28c3960e1ff2cf72dd645e5ad8e0cfe00e..c6992bc817f15bff1772c143a7f81c75
 -insmod /vendor/lib/modules/machine_dlkm.ko
 -
 
-commit 0786f8ce7c80b270a6e8479e898adb88844abd2e
+commit 82912e21e1af92d99aef1469c57b3c9edc29b445
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:18:08-0400
 
@@ -365,7 +365,7 @@ index 399479790f3c3727b18d7ddae445a37ef261e151..4f2efcc6978e0e9b7937b7fda04d373c
  /dev/msm_wma              0660   system     audio
  /dev/msm_wmapro           0660   system     audio
 
-commit e27181b27d476bf6318667ded3b259073363cd92
+commit a372875d849758282fb6c531f768cca9774d632e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:19:03-0400
 
@@ -376,7 +376,7 @@ Date:   Thu 2019-06-13 15:19:03-0400
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 926fd1efb7818ae50368ecaf3f214675ed2b9e91..de26062562661341b1e58335971525e4c41bf938 100644
+index 5ea8bacd967b26ef2564e99af8b37c0fc938e39c..ecbb892f0e5ed9f603326f6c4664aa4380c01136 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -817,21 +817,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -432,7 +432,7 @@ index 8b8c27b1259e7df5e7ff5f2d364f746c66eb7f76..d8780b1fc34a411b1837424c9fb33de6
  
      <!-- Enable system navigation keys. -->
 
-commit a74f93d5e954707b4d2387fe26aa3d9b7d1d3641
+commit 7a5c0fe6613a9e082613dffa8aac0d44e6d77129
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-06-14 22:08:05-0400
 
@@ -469,7 +469,7 @@ index d8780b1fc34a411b1837424c9fb33de6e1ea6852..00f3d83da469343ffe80d458a20d76be
  
      <!-- List of regexpressions describing the interface (if any) that represent tetherable
 
-commit 9a40792716c8e12bc056e7b97f110f9d55c822d2
+commit 346f8a898f9b1ed0ba87293fe468d10129ad769e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-18 10:48:18-0400
 
@@ -479,7 +479,7 @@ Date:   Wed 2019-09-18 10:48:18-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index de26062562661341b1e58335971525e4c41bf938..f39a8a3617bf1bba826c18d3d98e594d288c2d43 100644
+index ecbb892f0e5ed9f603326f6c4664aa4380c01136..7d6f23953931b226f40cfa92aa16f008e1ca8136 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -61,23 +61,20 @@ PRODUCT_PACKAGES += \
@@ -507,7 +507,7 @@ index de26062562661341b1e58335971525e4c41bf938..f39a8a3617bf1bba826c18d3d98e594d
  endif
  
 
-commit 472b03a2dbf2810171cf4a4c4ce3ec18991110e7
+commit 6ce91d2325c6d2bdd6758ff54b5888d7f5de04e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 02:29:31-0400
 
@@ -545,7 +545,7 @@ index f16c2abda2d821c98a383ddcc653047cdf76b7e0..f4f4d023c85e382ae942ba13a6765396
  
  # Set c2 codec in default
 
-commit 594f7c6377609c78ca9b907133bcd131719a63a8
+commit d38b8a9530bca1678174328699e456844db5f53a
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-09-23 22:29:17+0000
 
@@ -67558,7 +67558,7 @@ index 0000000000000000000000000000000000000000..7f6b5e0c0bc8f5dde3782f14eb6547d7
 +    </carrier_config>
 +</carrier_config_list>
 
-commit 5ea05463b94ef67df99d105380a708e60a498ce2
+commit 9866117da51a768951d122a50c7789e0b93b6d44
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-11-14 03:11:59-0500
 
@@ -67627,7 +67627,7 @@ index 97a5587ca5508d2a54393b9021354878ec74baa8..65b23f05d2e4a824466b5dd76193000c
  # PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
  
 
-commit 53de3bc54678df20f6b48af5e5a34de80fdcbfcf
+commit ec256b235f73a71c98a59ea4971b7174e9270025
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 11:41:36-0500
 
@@ -67675,7 +67675,7 @@ index f73cbb1dc9dfe127f71d9d8a3e0b8a1a7d8d3884..c7ce14365bfe57bd61e78dae1106a1f1
  on property:ota.warm_reset=0
      write /sys/module/msm_poweroff/parameters/warm_reset 0
 
-commit 5049c441e4ffbc4613d8be40f89a7bc5567b22eb
+commit 5d88fea5d22d01e015313c53823bfdf3168c26ad
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -67734,7 +67734,7 @@ index 0000000000000000000000000000000000000000..29691515b16f20c5b6ba81489c14fc7b
 +    </integer-array>
 +</resources>
 
-commit e755419417703050e8ba6fb9f9e9050bc14c61c7 (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
+commit 03208f589480bf9355c89832d5ac818c40bdf9dc
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:26:56+0200
 
@@ -67798,3 +67798,270 @@ index 0000000000000000000000000000000000000000..6ad44f13ccb58340803b1a9c7006a5d3
 +    <feature name="com.google.android.feature.PIXEL_2018_EXPERIENCE" />
 +    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
 +</config>
+
+commit 960923390300b7c5bb81b8c7f008754bd60e9303 (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Tue 2021-09-07 21:49:56+0000
+
+    Update APNs for RQ3A.210905.001
+---
+ apns-full-conf.xml                                     |  4 ++++
+ overlay/packages/apps/CarrierConfig/res/xml/vendor.xml | 14 +++++++++-----
+ 2 files changed, 13 insertions(+), 5 deletions(-)
+
+diff --git a/apns-full-conf.xml b/apns-full-conf.xml
+index 18295822ea9b859849a8b94619cf61c4f2240d96..c482c53f273ff2b8a8e7d811b1a65e6add082a6f 100644
+--- a/apns-full-conf.xml
++++ b/apns-full-conf.xml
+@@ -5195,57 +5195,61 @@
+       mmsproxy="149.254.201.135"
+       mmsport="8080"
+       user="eesecure"
+       password="secure"
+       authtype="1"
+       type="mms"
+       user_editable="false"
+   />
+ 
+   <apn carrier="EE Internet"
++      carrier_id="718"
+       mcc="234"
+       mnc="31"
+       apn="everywhere"
+       user="eesecure"
+       password="secure"
+       authtype="1"
+       type="default,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IP"
+   />
+ 
+   <apn carrier="EE MMS"
++      carrier_id="718"
+       mcc="234"
+       mnc="31"
+       apn="eezone"
+       mmsc="http://mms/"
+       mmsproxy="149.254.201.135"
+       mmsport="8080"
+       user="eesecure"
+       password="secure"
+       authtype="1"
+       type="mms"
+   />
+ 
+   <apn carrier="EE Internet"
++      carrier_id="718"
+       mcc="234"
+       mnc="32"
+       apn="everywhere"
+       user="eesecure"
+       password="secure"
+       authtype="1"
+       type="default,supl"
+       protocol="IPV4V6"
+       roaming_protocol="IP"
+   />
+ 
+   <apn carrier="EE MMS"
++      carrier_id="718"
+       mcc="234"
+       mnc="32"
+       apn="eezone"
+       mmsc="http://mms/"
+       mmsproxy="149.254.201.135"
+       mmsport="8080"
+       user="eesecure"
+       password="secure"
+       authtype="1"
+       type="mms"
+diff --git a/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml b/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml
+index 7f6b5e0c0bc8f5dde3782f14eb6547d729ed281c..e2e4cc9a53db57e22c6f1068a137eb10c16dc932 100644
+--- a/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml
++++ b/overlay/packages/apps/CarrierConfig/res/xml/vendor.xml
+@@ -79,21 +79,21 @@
+         <int name="maxSubjectLength" value="80" />
+         <string-array name="non_roaming_operator_string_array" num="2">
+             <item value="310" />
+             <item value="311" />
+         </string-array>
+         <int name="recipientLimit" value="20" />
+         <string name="sim_country_iso_override_string">us</string>
+         <int name="smsToMmsTextThreshold" value="-1" />
+         <boolean name="support_swap_after_merge_bool" value="false" />
+     </carrier_config>
+-    <carrier_config mcc="204" mnc="04" spn="C Spire&#10;">
++    <carrier_config mcc="204" mnc="04" spn="C Spire&#13;">
+         <string name="carrier_config_version_string">cspire_nl-0.45</string>
+         <int name="cdma_3waycall_flash_delay_int" value="300" />
+         <boolean name="config_telephony_use_own_number_for_voicemail_bool" value="true" />
+         <string name="emailGatewayNumber">6245</string>
+         <boolean name="enableMMSDeliveryReports" value="false" />
+         <boolean name="enableMMSReadReports" value="false" />
+         <boolean name="enableMultipartSMS" value="false" />
+         <boolean name="enableSMSDeliveryReports" value="false" />
+         <int name="maxImageHeight" value="1944" />
+         <int name="maxImageWidth" value="2592" />
+@@ -339,21 +339,21 @@
+     <carrier_config mcc="206" mnc="20">
+         <string name="carrier_config_version_string">20620-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="206" mnc="28">
+         <string name="carrier_config_version_string">bics_be-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="206" mnc="30">
+         <string name="carrier_config_version_string">unleashed_be-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="208" mnc="00">
+-        <string name="carrier_config_version_string">orange_fr-25000000316.45</string>
++        <string name="carrier_config_version_string">orange_fr-25000000324.45</string>
+         <boolean name="allow_ussd_requests_via_telephony_manager_bool" value="false" />
+         <string-array name="carrier_metered_apn_types_strings" num="3">
+             <item value="default" />
+             <item value="dun" />
+             <item value="supl" />
+         </string-array>
+         <boolean name="carrier_supports_ss_over_ut_bool" value="false" />
+         <int name="carrier_ussd_method_int" value="2" />
+         <boolean name="carrier_volte_available_bool" value="false" />
+         <string name="carrier_vvm_package_name_string">com.orange.vvm</string>
+@@ -362,20 +362,21 @@
+         <boolean name="display_hd_plus_icon_bool" value="true" />
+         <boolean name="editable_wfc_mode_bool" value="false" />
+         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
+         <string-array name="ims_reasoninfo_mapping_string_array" num="1">
+             <item value="*|Call is dropped due to Wi-Fi signal is degraded|1407" />
+         </string-array>
+         <int name="maxImageHeight" value="1944" />
+         <int name="maxImageWidth" value="2592" />
+         <int name="maxMessageSize" value="614400" />
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
++        <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
+         <int name="volte_replacement_rat_int" value="3" />
+         <int name="wfc_spn_format_idx_int" value="1" />
+     </carrier_config>
+     <carrier_config mcc="208" mnc="01" gid1="33">
+         <string name="carrier_config_version_string">20801GID1=33-0.45</string>
+         <int name="maxImageHeight" value="1944" />
+         <int name="maxImageWidth" value="2592" />
+         <int name="maxMessageSize" value="614400" />
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+     </carrier_config>
+@@ -409,21 +410,21 @@
+         <string-array name="gsm_nonroaming_networks_string_array" num="1">
+             <item value="44053" />
+         </string-array>
+         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
+         <boolean name="nr_timers_reset_if_non_endc_and_rrc_idle_bool" value="true" />
+         <string-array name="read_only_apn_types_string_array" num="0" />
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+         <boolean name="show_blocking_pay_phone_option_bool" value="true" />
+     </carrier_config>
+     <carrier_config mcc="208" mnc="01">
+-        <string name="carrier_config_version_string">orange_fr-25000000316.45</string>
++        <string name="carrier_config_version_string">orange_fr-25000000324.45</string>
+         <boolean name="allow_ussd_requests_via_telephony_manager_bool" value="false" />
+         <string-array name="carrier_metered_apn_types_strings" num="3">
+             <item value="default" />
+             <item value="dun" />
+             <item value="supl" />
+         </string-array>
+         <boolean name="carrier_supports_ss_over_ut_bool" value="false" />
+         <int name="carrier_ussd_method_int" value="2" />
+         <boolean name="carrier_volte_available_bool" value="false" />
+         <string name="carrier_vvm_package_name_string">com.orange.vvm</string>
+@@ -432,25 +433,26 @@
+         <boolean name="display_hd_plus_icon_bool" value="true" />
+         <boolean name="editable_wfc_mode_bool" value="false" />
+         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
+         <string-array name="ims_reasoninfo_mapping_string_array" num="1">
+             <item value="*|Call is dropped due to Wi-Fi signal is degraded|1407" />
+         </string-array>
+         <int name="maxImageHeight" value="1944" />
+         <int name="maxImageWidth" value="2592" />
+         <int name="maxMessageSize" value="614400" />
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
++        <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
+         <int name="volte_replacement_rat_int" value="3" />
+         <int name="wfc_spn_format_idx_int" value="1" />
+     </carrier_config>
+     <carrier_config mcc="208" mnc="02">
+-        <string name="carrier_config_version_string">orange_fr-25000000316.45</string>
++        <string name="carrier_config_version_string">orange_fr-25000000324.45</string>
+         <boolean name="allow_ussd_requests_via_telephony_manager_bool" value="false" />
+         <string-array name="carrier_metered_apn_types_strings" num="3">
+             <item value="default" />
+             <item value="dun" />
+             <item value="supl" />
+         </string-array>
+         <boolean name="carrier_supports_ss_over_ut_bool" value="false" />
+         <int name="carrier_ussd_method_int" value="2" />
+         <boolean name="carrier_volte_available_bool" value="false" />
+         <string name="carrier_vvm_package_name_string">com.orange.vvm</string>
+@@ -459,20 +461,21 @@
+         <boolean name="display_hd_plus_icon_bool" value="true" />
+         <boolean name="editable_wfc_mode_bool" value="false" />
+         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
+         <string-array name="ims_reasoninfo_mapping_string_array" num="1">
+             <item value="*|Call is dropped due to Wi-Fi signal is degraded|1407" />
+         </string-array>
+         <int name="maxImageHeight" value="1944" />
+         <int name="maxImageWidth" value="2592" />
+         <int name="maxMessageSize" value="614400" />
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
++        <boolean name="show_wfc_location_privacy_policy_bool" value="true" />
+         <int name="volte_replacement_rat_int" value="3" />
+         <int name="wfc_spn_format_idx_int" value="1" />
+     </carrier_config>
+     <carrier_config mcc="208" mnc="09" gid1="547275554B3030656E">
+         <string name="carrier_config_version_string">truphone_zz-0.45</string>
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+     </carrier_config>
+     <carrier_config mcc="208" mnc="09" gid1="54727555533030656E">
+         <string name="carrier_config_version_string">truphone_zz-0.45</string>
+         <boolean name="show_4g_for_lte_data_icon_bool" value="true" />
+@@ -12791,21 +12794,21 @@
+     <carrier_config mcc="311" mnc="227">
+         <string name="carrier_config_version_string">311210-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="311" mnc="228">
+         <string name="carrier_config_version_string">311210-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="311" mnc="229">
+         <string name="carrier_config_version_string">311210-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="311" mnc="230">
+-        <string name="carrier_config_version_string">cspire_us-25000000425.45</string>
++        <string name="carrier_config_version_string">cspire_us-25000000426.45</string>
+         <int name="carrier_default_wfc_ims_mode_int" value="1" />
+         <boolean name="carrier_default_wfc_ims_roaming_enabled_bool" value="true" />
+         <int name="carrier_ussd_method_int" value="2" />
+         <boolean name="carrier_volte_available_bool" value="true" />
+         <boolean name="carrier_wfc_ims_available_bool" value="false" />
+         <int name="cdma_3waycall_flash_delay_int" value="300" />
+         <boolean name="config_telephony_use_own_number_for_voicemail_bool" value="true" />
+         <string name="emailGatewayNumber">6245</string>
+         <boolean name="enableMMSDeliveryReports" value="false" />
+         <boolean name="enableMMSReadReports" value="false" />
+@@ -12828,20 +12831,21 @@
+             <item value="313" />
+             <item value="314" />
+             <item value="315" />
+             <item value="316" />
+         </string-array>
+         <int name="recipientLimit" value="20" />
+         <string name="sim_country_iso_override_string">us</string>
+         <int name="smsToMmsTextThreshold" value="-1" />
+         <boolean name="support_swap_after_merge_bool" value="false" />
+         <boolean name="use_wfc_home_network_mode_in_roaming_network_bool" value="true" />
++        <int name="volte_replacement_rat_int" value="6" />
+         <int name="wfc_spn_format_idx_int" value="1" />
+     </carrier_config>
+     <carrier_config mcc="311" mnc="310" spn="LEACO">
+         <string name="carrier_config_version_string">311310SPN=LEACO-0.45</string>
+     </carrier_config>
+     <carrier_config mcc="311" mnc="340" spn="ILLINOISVALLEY">
+         <string name="carrier_config_version_string">311340SPN=ILLINOISVALLEY-0.45</string>
+         <boolean name="enableMultipartSMS" value="true" />
+         <boolean name="enabledMMS" value="true" />
+         <string name="httpParams">X-MDN: ##LINE1##</string>

@@ -1613,7 +1613,7 @@ index eac53cac855444791a7858a1080498fb37908419..336e69b597b523459dc75016f9c19184
    auto tcb = reinterpret_cast<bionic_tcb*>(mapping.static_tls + layout.offset_bionic_tcb());
    auto tls = reinterpret_cast<bionic_tls*>(mapping.static_tls + layout.offset_bionic_tls());
 
-commit 0bc4dbcbd27c7f48713913101fb3c868c215c1a3 (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 0bc4dbcbd27c7f48713913101fb3c868c215c1a3 (tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06)
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-10-20 08:17:11+1100
 
@@ -1778,3 +1778,111 @@ index b4556a74e5ca17630796656a5f01827cb7752ab3..5b0b4fb097f2adf6313115277b47a1c8
   */
  
  #define	__P(protos)	protos		/* full-blown ANSI C */
+
+commit b9d660ad3cad86a1f8dbc6cd594c58d369352d32 (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Thu 2021-07-22 16:12:55-0700
+
+    linker: Add support for opening zip files by fd paths
+    
+    In some cases, it can be useful to load libraries from zip files that
+    are only available by fd reference. For example, file descriptors of
+    APKs containing native libraries may be sent via Binder IPC for clients
+    to use.
+    
+    Unfortunately, while this linker does support loading libraries from
+    file descriptors using android_dlopen_ext, using that API is not an
+    option because our dlopen calls originate from JNI loadLibrary requests
+    in ART.
+    
+    This is necessary for compatibility with Google Play Services' dynamic
+    module system (Dynamite) without weakening the SELinux sandbox to allow
+    other apps to open module APKs from
+    /data/user_de/0/com.google.android.gms/app_chimera/m.
+    
+    Change-Id: If44d5c3faf4f50e4704688b520b197ff151ae05a
+---
+ linker/linker.cpp | 16 +++++++++++-----
+ 1 file changed, 11 insertions(+), 5 deletions(-)
+
+diff --git a/linker/linker.cpp b/linker/linker.cpp
+index f2416772218d580aa2ec8630d1fc6617dd13a455..fab9a18049c71c1c6137004642368862595404f5 100644
+--- a/linker/linker.cpp
++++ b/linker/linker.cpp
+@@ -824,37 +824,37 @@ soinfo* find_containing_library(const void* p) {
+     }
+   }
+   return nullptr;
+ }
+ 
+ class ZipArchiveCache {
+  public:
+   ZipArchiveCache() {}
+   ~ZipArchiveCache();
+ 
+-  bool get_or_open(const char* zip_path, ZipArchiveHandle* handle);
++  bool get_or_open(const char* zip_path, int zip_fd, ZipArchiveHandle* handle);
+  private:
+   DISALLOW_COPY_AND_ASSIGN(ZipArchiveCache);
+ 
+   std::unordered_map<std::string, ZipArchiveHandle> cache_;
+ };
+ 
+-bool ZipArchiveCache::get_or_open(const char* zip_path, ZipArchiveHandle* handle) {
++bool ZipArchiveCache::get_or_open(const char* zip_path, int zip_fd, ZipArchiveHandle* handle) {
+   std::string key(zip_path);
+ 
+   auto it = cache_.find(key);
+   if (it != cache_.end()) {
+     *handle = it->second;
+     return true;
+   }
+ 
+-  int fd = TEMP_FAILURE_RETRY(open(zip_path, O_RDONLY | O_CLOEXEC));
++  int fd = zip_fd != -1 ? dup(zip_fd) : TEMP_FAILURE_RETRY(open(zip_path, O_RDONLY | O_CLOEXEC));
+   if (fd == -1) {
+     return false;
+   }
+ 
+   if (OpenArchiveFd(fd, "", handle) != 0) {
+     // invalid zip-file (?)
+     CloseArchive(*handle);
+     return false;
+   }
+ 
+@@ -891,27 +891,33 @@ static int open_library_in_zipfile(ZipArchiveCache* zip_archive_cache,
+   char buf[512];
+   if (strlcpy(buf, path, sizeof(buf)) >= sizeof(buf)) {
+     PRINT("Warning: ignoring very long library path: %s", path);
+     return -1;
+   }
+ 
+   buf[separator - path] = '\0';
+ 
+   const char* zip_path = buf;
+   const char* file_path = &buf[separator - path + 2];
+-  int fd = TEMP_FAILURE_RETRY(open(zip_path, O_RDONLY | O_CLOEXEC));
++  int fd;
++  if (!strncmp("/proc/self/fd/", zip_path, strlen("/proc/self/fd/")) &&
++        sscanf(zip_path, "/proc/self/fd/%d", &fd) == 1) {
++    fd = dup(fd);
++  } else {
++    fd = TEMP_FAILURE_RETRY(open(zip_path, O_RDONLY | O_CLOEXEC));
++  }
+   if (fd == -1) {
+     return -1;
+   }
+ 
+   ZipArchiveHandle handle;
+-  if (!zip_archive_cache->get_or_open(zip_path, &handle)) {
++  if (!zip_archive_cache->get_or_open(zip_path, fd, &handle)) {
+     // invalid zip-file (?)
+     close(fd);
+     return -1;
+   }
+ 
+   ZipEntry entry;
+ 
+   if (FindEntry(handle, file_path, &entry) != 0) {
+     // Entry was not found.
+     close(fd);

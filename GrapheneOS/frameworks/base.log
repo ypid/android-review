@@ -1,4 +1,4 @@
-commit ec58276666c5f8669ec11406fc019579413dd1e5
+commit 2e9efe4611df961c8fe32b81f786271eb93518f0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -35,7 +35,7 @@ index 5f02eb6a6a37eda6a34cc94b33d263e6c8ba0fe4..d31844d5bdfad0e7b903444f0125b6a5
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit 21993c2fb697f5fbcd7374191583ff49b4f962e8
+commit 90154a1a1ca4c943cedca94ce1bc1abd1aeefc4e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -103,7 +103,7 @@ index 018bb2c9f9b2409c3db4e249d2746f8ab0e419f2..f9dabcf4b23e9772b1d947826709999e
  
          private final String mName;
 
-commit 548b719826263226304b9be097f238d7fb07c02d
+commit c3abdf40fdec1894d4cffcd38d4bcdf35537d4f2
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Fri 2021-07-16 02:00:19+0000
 
@@ -211,7 +211,7 @@ index 0ae9cc279e6817d1ea0fa40c7780074f12bb5ba9..c9eb7e624a02fff2b6d25587213c8713
                          .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
                          .setWhen(0)
 
-commit ef022b033c9b9d51b40162b610e217314767a9bd
+commit 442f274b3f54b0521026c8fafc188c8dd7ea31aa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -271,7 +271,7 @@ index d31844d5bdfad0e7b903444f0125b6a5bcbc58eb..be242ee172a1e578c3425c21e0387501
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit 95e1032c0819b6d47def0de9f5d0b449a32ec37d
+commit 789649e2a78ef8fc330462b109e628c140a46e61
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -308,7 +308,7 @@ index be242ee172a1e578c3425c21e03875014beef900..06573015c9d078b629b783c257d0e4e2
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 2a68e4d89ecd128e5c58becaf6e63caa8d93bdfe
+commit ab166f979b4ed65fa3248040c8e84b0599c6a11a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -345,7 +345,7 @@ index 06573015c9d078b629b783c257d0e4e2662212c4..5eae06de2a678b2c71f8407ad0543885
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit c536bc627f28fc4e799ac976d4cd829ca3235773
+commit 2967fc59588b98498a0a29a38b5a2b36d79f03c1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -382,7 +382,7 @@ index 5eae06de2a678b2c71f8407ad05438851aeb6ba6..670edade16c7c519fb785c7a29ff9f85
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit ea31568195d69ea4c6e73c8ad7e3e5db97773af5
+commit 1a19e31525f9c76a640daccb699ccb95e810b3e9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -419,7 +419,7 @@ index 51f69a95e1635241184a109c0b6bad7007586892..b7a3aecbb174c0a53140a2f4f701385b
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 3582120a2f67b85ce5262247210dc3d1ad5846c5
+commit ce2100b50a1707467deb8fe4d377e759d49e4ecd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -456,7 +456,7 @@ index e2e8049c2980ffdf95099d0e0d7de2f5297636b8..9f6ac309e44d2913733fd65a35b9a99b
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit cbe810e8ab50a5b2be0b65c0f6710afeebfc3e47
+commit 23b2feb9d76634b258fa934a6b3084eed6140465
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -493,7 +493,7 @@ index a90fee6788a8ac337a4d785d07ba14ed12ae2df5..918952af05f4f1d7a9cf65cf8a0c1bf2
          }
      }
 
-commit 65fd73ba54af991f23051834214961ac814846ba
+commit 311505cfa01510948d698471783297ede988c286
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -533,7 +533,7 @@ index 670edade16c7c519fb785c7a29ff9f85261f8a26..35a7dba6ae851cd5936cc4ee474c88ea
  
      <!-- The default character set for GsmAlphabet -->
 
-commit 614f03696644a759eed9d006d768bfef08a74965
+commit 3688a6d92fd10f644415459317ef6abb14bcf386
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:01:37-0400
 
@@ -573,7 +573,7 @@ index e1771a5613707d7d6e6e8d883a46b1d113e37b90..409bd1f1c14733550a83391ce1fa3d82
       * Use the old dnsmasq DHCP server for tethering instead of the framework implementation.
       */
 
-commit b7b648e5a25b7c997150564ddc7f133104d9b95a
+commit 682063b3723830a756238d97d970378ebdb225d2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -616,7 +616,7 @@ index a5501368945f56fc6636b01feb676fdbdc9fd88c..63a784b354dd1e7e238d2b1b370b3d27
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit fe8b1a828b09b4c5020c14e251b45dd80617d83c
+commit 94a9e051e7ff5730d314557cacf757ba1b95f511
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 13:06:33-0400
 
@@ -659,7 +659,7 @@ index 49c16ad96eb7197590379e22422ec7d41b52d36b..a25fd65a25be63ab4ac0a34505a80c02
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit e1cb522111777d3959bea1a337662ade1c341627
+commit ff9501e73196f6345fd9188f8e104ce9a896945f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -696,7 +696,7 @@ index 9530a74d0ece2e499eec49cca97b6eed28d29734..43860044a02467f33ec902a5708df246
      </string>
  
 
-commit 630498a233635bd6627a1cbeb418f420c238c3b6
+commit 12c76a3b3bfe7766e159548bccdd131f6fbf82cd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -733,7 +733,7 @@ index b7a3aecbb174c0a53140a2f4f701385b1b8ade25..91305c73faa16062baef8023500b7e6c
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit 65cf691b30d6ec0870cc959242d5f9fd8dd8950a
+commit 37bf79978700c2f826d5806ac7be8edfd165ffec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -790,7 +790,7 @@ index 266bfe0a22b5543ce1771fb39c25624520f1ccdf..f3021714f227ee72b142c516eeafdd4c
              if (stmt != null) stmt.close();
          }
 
-commit 52fe7901d278049950017742ead29147c48ec6a8
+commit 196d00880108a3ab02a9139f88ac17126d73bda7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 12:04:55-0400
 
@@ -1175,7 +1175,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit e11a32cfd5d4f55c1bb4421dd949e8bed5c90d2c
+commit e8b6eae7f3382a33c5d2424b469ed30876503fe1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -1188,7 +1188,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit e4956950b3a6d93e9b0a28ba3bf0833865bc5038
+commit c3a908d25e283dcfce63b67c5c01680770c837f7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -1225,7 +1225,7 @@ index 35a7dba6ae851cd5936cc4ee474c88ea2414bb47..a197c6a50e61cc0990a2aa2b1668ac96
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit dea643a5c1bd27f0ef70627569e04602e56cd85e
+commit cc53f96dfce19f09f4c2655d8dcf49210eeadfa8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -1286,7 +1286,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit d3b02a331b6c12925e712d1b4a0cda5ab2c41cfb
+commit d90546882fb61fceaad486261a45f0d962c16243
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -1500,7 +1500,7 @@ index e6a3029c5b2bf3a7d4abd597be94619d43d37c8d..a702e84813fa532408bbb61b8b745624
      }
  
 
-commit dc4e871688e3a95d0e21a4e77c317351ff72d160
+commit c0678b694db9c66ffeee898fdfb3aa4084747dd5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -1541,7 +1541,7 @@ index a702e84813fa532408bbb61b8b74562421dfad8d..9b466417853081e568693c7c4c6693a2
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit 9ecf4a5c799514f949373af8a643aa6835174b47
+commit aa919876b4aa1c30bd46b78c45a5b1a75a9ea785
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -1631,7 +1631,7 @@ index 2e32730a6ecb53b08650b29150c7493e80bfe02e..b9460f56d003a5b876f65c8b3d6af8d9
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit e0cee6e43b581bc404ed857ad44034bccc3116b1
+commit 2ff0da63eb9f25f74d3e25ea5764de0116d40ec0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -1720,7 +1720,7 @@ index b9460f56d003a5b876f65c8b3d6af8d9d593e817..4671833555152446927fd76c16799629
          System.loadLibrary("jnigraphics");
  
 
-commit 0f3bbdba8d015cd855e2a606637eaa826148cb6d
+commit f4eecf76073ababaa5875a894fc64d8d3a982d30
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -1763,7 +1763,7 @@ index 4671833555152446927fd76c16799629ce0f211c..e93e70443ee638e0b7fdac2bf97ed2ab
  
          sPreloadComplete = true;
 
-commit 1e01136b78408953509542aeb152c0ca25c8456c
+commit 98e8194ef8a54379802e96c1e214358b1b89c086
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -1806,7 +1806,7 @@ index e93e70443ee638e0b7fdac2bf97ed2ab821a6213..2d1f301668a4e31c3aa54c94407d9e1a
          preloadSharedLibraries();
          preloadTextResources();
 
-commit 574b31f97c6810a8150a8039b076b27c904b0362
+commit 6e86994f61b08b94d68fef23e19022ebefd9dec5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -1849,7 +1849,7 @@ index 2d1f301668a4e31c3aa54c94407d9e1a038ce029..b7246d0ac5cee1aeb9815ac79e61bd37
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit d1545abf15e47e1a937b9d9c061497dbfe88560c
+commit 571eda214bbc647d326bfe8bd9e81c6d80886991
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -1892,7 +1892,7 @@ index b7246d0ac5cee1aeb9815ac79e61bd370cc8aa1c..04a323254c726b0964043483c1496cc5
          preload(bootTimingsTraceLog, true);
      }
 
-commit 055e69fd71e54a20140d57088763b836f17c7c25
+commit 719e263bc3bad32e5d756bb2ae71963f270e95ee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -1982,7 +1982,7 @@ index 04a323254c726b0964043483c1496cc55ea9a220..ad3b95ec67fc57b7bb92d88ad106c43d
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit e93a0770d72f82068fb2e250173223ce5d711ca8
+commit 4a1613d727d2f6421e81cdd0370a94a02a91d7cb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -2025,7 +2025,7 @@ index ad3b95ec67fc57b7bb92d88ad106c43d9eb94725..0877a1668930533669ce723464b5bb7d
          if (fullPreload) {
              Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
 
-commit 1033cf4b5dd74025033ed288c088d8ed97d5250f
+commit f8e8ea3e530d844d1d2053552f3285f1889eb1e9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -2068,7 +2068,7 @@ index 0877a1668930533669ce723464b5bb7de05f86b0..d19868ebd9cadaa0874ffcbc67f9d683
              // Ask the WebViewFactory to do any initialization that must run in the zygote process,
              // for memory sharing purposes.
 
-commit 7e124c1baff8eda698afc59c0453ca9ab0278afe
+commit 435db20b0b3ba66c0d0aa33d5b7d46f3944d7275
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 16:47:59-0700
 
@@ -2198,7 +2198,7 @@ index 4bee075ac63bd3d0c6475fd7a8c12b0ccd91771d..aec38d9abd50e85291414f76c8458272
 +
  }
 
-commit 835371b14b0023a5f4bbf67da4f3bb859c0c4422
+commit 87597ddca16dc6389eabc502f75f21b288eabd8f
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:02:20-0700
 
@@ -2324,7 +2324,7 @@ index 888c7ab2c312d503f3af458388204c4e0df0c08d..fd0b10f43dd4dfae65b534b549f75b4b
          return mContext.getString(R.string.quick_settings_bluetooth_label);
      }
 
-commit 8e8e99d591a6b481513322b89119acc99ffca938
+commit fbdeac6ed0db530d6fc041af96a25cd66630b4f2
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:05:18-0700
 
@@ -2430,7 +2430,7 @@ index b24fdbfc562f332e10d162b234a84dc240a8ea2c..2065800a4016352c06f4a9a803316336
          return new Intent(Settings.ACTION_AIRPLANE_MODE_SETTINGS);
      }
 
-commit 35c97928e75b9955a15ce5380fd101c96d89b37f
+commit 21e87137f29a7a72c75e076a2eba639b5801bbba
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:08:33-0700
 
@@ -2575,7 +2575,7 @@ index 1279d42eb64d2d02316c65f32fb887f2c6c8d60a..9cede4ef92ef76d29716e8cb67abaea5
          return mContext.getString(R.string.quick_settings_wifi_label);
      }
 
-commit e0a65dd3884719431c225b32688c6ba148620046
+commit 8ac0515d3de0bbfbcfd3f1afb518c29c165eba46
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:11:58-0700
 
@@ -2678,7 +2678,7 @@ index 5dcb4e3b1fb9960fabd6f5cd1036e1cd708e325d..6bd153da0db7f64f59b2f14505213a1e
  
          state.value = !rotationLocked;
 
-commit 52458a7d752575196ac69fa5efea94a8e9cb0456
+commit c3d02a1dd4cf5d644646e71eb57febfd94dda44d
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:13:58-0700
 
@@ -2794,7 +2794,7 @@ index 8ba60840a666c60799d65f2a1503f998d93d5fa5..94e4c05e1c0adf0936a369a790fe2b67
          return mContext.getString(R.string.data_saver);
      }
 
-commit e883b6577455bcb86961a8026ad38a213df98694
+commit 98768df0a74952adf5028ee09037b78aef99ec62
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:15:46-0700
 
@@ -2917,7 +2917,7 @@ index 1ab77f3f752447ae340b4dd481ec2213277a1681..330caa07764b41ef08ba4f4567407604
          if (state.slash == null) {
              state.slash = new SlashState();
 
-commit 0cc6946f79956ec6bb4af609eb919581a4047060
+commit 27ba3507bfe3368f835f89189e317175d8ad62b0
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:19:36-0700
 
@@ -3065,7 +3065,7 @@ index 59597ac29e09e71a82d541a3047905c7fb6c8aab..5d52754688db078340f38b0af5f81737
      public CharSequence getTileLabel() {
          return mContext.getString(R.string.quick_settings_cellular_detail_title);
 
-commit 2ddfb8fcfd7bdb3fb1a9f19cfecd6fd02b941ed5
+commit 94b518e18fbbfd4950c6921a0bab7ca253c82927
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:21:16-0700
 
@@ -3180,7 +3180,7 @@ index 7150e435030495fffb197aa4f4e93cb32ed62469..2b11125360d308dba9150ea2208cf2da
      @Override
      protected void handleUpdateState(BooleanState state, Object arg) {
 
-commit 746962aec62144a0af0414a9fa1383e1f1ff8131
+commit bef1391340f4690e5a81e413b12e52c5ee5d2fb0
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 17:22:41-0700
 
@@ -3272,7 +3272,7 @@ index 318c0c4660cb925c44cd7bb98e8795101ae01caf..a8171878ecbd4c9b28f7c682ad4ebd52
      @Override
      public void onManagedProfileChanged() {
 
-commit d583b9cd5becb3879a25710d24a29c9a559d49fa
+commit 6d659bf2368216198b224b8a3990d4ede2446234
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-10 15:18:00-0700
 
@@ -3338,7 +3338,7 @@ index f125b7d1003520f9a0d16c2c90b39c70146192ea..b41151f917520946e102953a49d3c78f
          // Delay the reset a bit so the user can read the text.
          mKeyguardIndicationController.hideTransientIndicationDelayed(HINT_RESET_DELAY_MS);
 
-commit 446dabdd2deb50d20af5e1bf546c27f352027bd9
+commit eb0d9a20fccf41dd915da893bb205ca545db85bd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -3383,7 +3383,7 @@ index c9eb7e624a02fff2b6d25587213c871360691583..81a44b431a8e83a4874bb650d15a5f8a
                      ActiveInstrumentation aInstr = mActiveInstrumentation.get(i);
                      if (!aInstr.mFinished && aInstr.mTargetInfo.uid == app.uid) {
 
-commit 3ea757ae3be18d3c31bbbe5e5c8947f368f5ce7a
+commit 89de081df52a483049d029d96a0e2a211d7fa992
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -3467,7 +3467,7 @@ index cd53fb9ba52f44d6f5ac7abd9a51ac8bd8f807f3..a08cbb5ceecd7cee40e1f3e4f1bea73e
              int userId) {
          ResolveInfo handler = mContext.getPackageManager().resolveActivityAsUser(
 
-commit 6a7a3559ca1f43f9d6f7dbe0ff235eda488462b8
+commit ab93381d0cd04100d6f1fc98f19160e8ea12667b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -3680,7 +3680,7 @@ index b0457fce6a1a0ae9b80a145566e0c82c2bb2776c..5ac6bc3b5b5c37c835db30829b691a25
      }
  
 
-commit be0ecc1b33417d935aab5a70f708efbaa674aedd
+commit a3ae06c78ecc703594ab4e7671fac8031944835b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -3797,7 +3797,7 @@ index 9d71489c8abe45d9b6a3b077e29b4d2f03da6aea..5b6c59f031bbbf14a72e4aeff5740a63
                  return false;
              }
 
-commit 076b8a2535c45541b226b80500f22d859145e5e3
+commit 1d1b772e358dedc332bedcfdafe5409b93855618
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Fri 2019-12-27 22:44:06+1100
 
@@ -3893,7 +3893,7 @@ index b95d34f2966ba4665a0c196179e0948fa299755f..e6ac9976cd7578ec426f9536fcabb0ee
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit f724486a347b1d66e7ee680312e1e4e1976c2cba
+commit f53b52f8a30beb00ddcd174ee455b863ed28c2da
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-02-21 08:39:04-0500
 
@@ -3955,7 +3955,7 @@ index e6ac9976cd7578ec426f9536fcabb0ee7594c211..b95d34f2966ba4665a0c196179e0948f
                      if (DEBUG) {
                          throw new RuntimeException("db upgrade error");
 
-commit fa1bc758d846accfe8882c5123ea77fc9b2e9cb4
+commit cad4aed44c5399091dd8dc5ba51e7597996f3b4e
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Sun 2021-05-02 00:36:30+0000
 
@@ -4092,7 +4092,7 @@ index 89a6eca8fdaad10952869a3c6ad2e46e1818ea42..176cf79bbd049ac46256a39901dc2340
      }
  
 
-commit c0a635e1c847bea6277b5a25573e4939ef4fba91
+commit 68270f36d3d409d5a448fe75c6e9288d68430de3
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -4267,7 +4267,7 @@ index 5ac6bc3b5b5c37c835db30829b691a252216c9fb..f25e9bfcbf0c7b01d637afaa715197fd
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit 2b832e08ec1b11e26d204cf4371f1162f6fa8306
+commit f94ad53b4f0b1dd9df7f68a99203c868890721b1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-04-05 09:14:42-0400
 
@@ -4458,7 +4458,7 @@ index d6ee28b93f92edca59ac493d63d1f70f031bd35a..6d79ff7186a64c52f28221dc404f0ca6
      <!-- Zen mode condition - summary: time duration in minutes. [CHAR LIMIT=NONE] -->
      <plurals name="zen_mode_duration_minutes_summary">
 
-commit f956f1ce502e5c613c9758d97b940ec8f30081de
+commit c1e722a66f962c121af655e892fe8ab29a3c6113
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -4506,7 +4506,7 @@ index a197c6a50e61cc0990a2aa2b1668ac96bf5069f5..5887064591378cd972570ef6f24cc9f2
  
           If this flag is false, we advise applications not to use protected
 
-commit 76b43a57d24dd685e61c8e5325755e97af1b5b94
+commit 73f978c00c3ab1b80d318d04ee2577fbb429a25f
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -5218,7 +5218,7 @@ index 3ef0a8dc9daa71b890387a8e5069ab8a42ac634d..a69ff4af391757fcb7116cf0374f16ac
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 704b883f1c35c2a8383dfe8a3c304bbf55e76fd6
+commit 627bd3caa224f38b2ed34d6e0b84e3676969d7e3
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -5494,7 +5494,7 @@ index 88de34027bb96884e25b0e8f210c65e067b39040..4d483f40c6925b78bad678892a4d9325
              return;
          }
 
-commit d01ae418dfa6854ebfa93bfeb79d06226eccbb29
+commit 70a71c4590d37a22ae9f0f5a58be3f27437bd3a4
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -5538,7 +5538,7 @@ index c1173b6cf9725de63aee2ccbbb3c82fb256a9f4e..5e424432c7f6613bc9a1371056786ac4
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 5865f5a734bbe635163c93c88943a787073bc7f0
+commit e414eb8846cb25eeb489e33ca6fffb7ac13b8dd3
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -5733,7 +5733,7 @@ index 8d2363b6e831cc9ed38343707bfbd61bdae8127a..26b9598790848f32211b43f4cfda728b
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(permission, pkg.getPackageName(), compatFlags,
 
-commit eeff466744c77cfb5e7050894c60f3b670181321
+commit 12203c461aacacfac2366de97dc1667e880dc6fd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -5800,7 +5800,7 @@ index 26b9598790848f32211b43f4cfda728bc97c1454..9e6ecc739ffe6b4f23149d311fa583d9
       * </ul>
       *
 
-commit ea2043da6410d9b8c50cfdf7eb0daf19ec6ee535
+commit 8c234295570dfaac2f1072a0403a20ad691a59c7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -5939,7 +5939,7 @@ index 5f15216e8400a5cbd622dbb7943ef676e8ea2ff5..189544f98594ce96cd91a42c685a6b61
    }
  
 
-commit 1449befae0d0b9d79a44012d24adf199ec75b517
+commit e35dcbfc70a46330cf7ebeafdd8aa1ad95cd390c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -6209,7 +6209,7 @@ index 9e6ecc739ffe6b4f23149d311fa583d94e3c064a..c744a0b5079ae60a6232efd9d0b13fde
       * </ul>
       *
 
-commit e5713289f6534cc98f6129a8f57d959fe3801153
+commit 4eb1ee1fb6a22b7f81095688e7f101c4c559f67d
 Author: Zoraver Kang <zkang@wpi.edu>
 Date:   Mon 2019-09-16 16:41:30-0400
 
@@ -6388,7 +6388,338 @@ index f0b7150dd84ff31699afc655012a3ef130a63df4..41c013b4b197f8ee2fdbbc3aa052f53b
          if (pmi != null) {
              pmi.getPackageList(new PackageListObserver());
 
-commit be30686e2b5704a1dee22c253bf90cfb61e9287f
+commit f6fcf99d7696d3a0777ea78ccba13e3f14e4e410
+Author: pratyush <codelab@pratyush.dev>
+Date:   Sun 2021-04-25 07:04:03+0530
+
+    fix INTERNET enforcement for secondary users
+    
+    This code was not specifying the profile for the app so it wasn't
+    working properly with INTERNET as a runtime permission.
+---
+ .../server/connectivity/PermissionMonitor.java       | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/services/core/java/com/android/server/connectivity/PermissionMonitor.java b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
+index 41c013b4b197f8ee2fdbbc3aa052f53b12427dd4..09cd274cbb052f67e2afa5bf5f219d49d9cb60bc 100644
+--- a/services/core/java/com/android/server/connectivity/PermissionMonitor.java
++++ b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
+@@ -123,38 +123,39 @@ public class PermissionMonitor {
+         }
+     }
+ 
+     private int getPermissionForUid(int uid) {
+         int permission = 0;
+         // Check all the packages for this UID. The UID has the permission if any of the
+         // packages in it has the permission.
+         String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (packages != null && packages.length > 0) {
+             for (String name : packages) {
+-                final PackageInfo app = getPackageInfo(name);
++                int userId = UserHandle.getUserId(uid);
++                final PackageInfo app = getPackageInfo(name, userId);
+                 if (app != null && app.requestedPermissions != null) {
+                     permission |= getNetdPermissionMask(app.requestedPermissions,
+                           app.requestedPermissionsFlags);
+                 }
+             }
+         } else {
+             // The last package of this uid is removed from device. Clean the package up.
+             permission = INetd.PERMISSION_UNINSTALLED;
+         }
+         return permission;
+     }
+ 
+     // implements OnRuntimePermissionStateChangedListener
+     private void enforceINTERNETAsRuntimePermission(@NonNull String packageName,
+             @UserIdInt int userId) {
+         // userId is _not_ uid
+-        int uid = mPackageManagerInternal.getPackageUid(packageName, 0, userId);
++        int uid = mPackageManagerInternal.getPackageUidInternal( packageName, GET_PERMISSIONS, userId);
+         sendPackagePermissionsForUid(uid, getPermissionForUid(uid));
+     }
+ 
+     public PermissionMonitor(Context context, INetd netd) {
+         mPackageManager = context.getPackageManager();
+         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
+         mNetd = netd;
+ 
+         mPackageManagerInternal = LocalServices.getService(
+                 PackageManagerInternal.class);
+@@ -357,26 +358,27 @@ public class PermissionMonitor {
+             return;
+         }
+         mUsers.remove(user);
+ 
+         Set<Integer> users = new HashSet<>();
+         users.add(user);
+         update(users, mApps, false);
+     }
+ 
+     @VisibleForTesting
+-    protected Boolean highestPermissionForUid(Boolean currentPermission, String name) {
++    protected Boolean highestPermissionForUid(Boolean currentPermission, String name, int uid) {
+         if (currentPermission == SYSTEM) {
+             return currentPermission;
+         }
+         try {
+-            final PackageInfo app = mPackageManager.getPackageInfo(name, GET_PERMISSIONS);
++            final PackageInfo app = mPackageManager.getPackageInfoAsUser(name, GET_PERMISSIONS,
++                    UserHandle.getUserId(uid));
+             final boolean isNetwork = hasNetworkPermission(app);
+             final boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
+             if (isNetwork || hasRestrictedPermission) {
+                 currentPermission = hasRestrictedPermission;
+             }
+         } catch (NameNotFoundException e) {
+             // App not found.
+             loge("NameNotFoundException " + name);
+         }
+         return currentPermission;
+@@ -386,21 +388,21 @@ public class PermissionMonitor {
+      * Called when a package is added. See {link #ACTION_PACKAGE_ADDED}.
+      *
+      * @param packageName The name of the new package.
+      * @param uid The uid of the new package.
+      *
+      * @hide
+      */
+     public synchronized void onPackageAdded(String packageName, int uid) {
+         // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
+         // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
+-        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName);
++        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName, uid);
+         if (permission != mApps.get(uid)) {
+             mApps.put(uid, permission);
+ 
+             Map<Integer, Boolean> apps = new HashMap<>();
+             apps.put(uid, permission);
+             update(mUsers, apps, true);
+         }
+ 
+         // If the newly-installed package falls within some VPN's uid range, update Netd with it.
+         // This needs to happen after the mApps update above, since removeBypassingUids() depends
+@@ -438,21 +440,21 @@ public class PermissionMonitor {
+         // If the package has been removed from all users on the device, clear it form mAllApps.
+         if (mPackageManager.getNameForUid(uid) == null) {
+             mAllApps.remove(UserHandle.getAppId(uid));
+         }
+ 
+         Map<Integer, Boolean> apps = new HashMap<>();
+         Boolean permission = null;
+         String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (packages != null && packages.length > 0) {
+             for (String name : packages) {
+-                permission = highestPermissionForUid(permission, name);
++                permission = highestPermissionForUid(permission, name, uid);
+                 if (permission == SYSTEM) {
+                     // An app with this UID still has the SYSTEM permission.
+                     // Therefore, this UID must already have the SYSTEM permission.
+                     // Nothing to do.
+                     return;
+                 }
+             }
+         }
+         if (permission == mApps.get(uid)) {
+             // The permissions of this UID have not changed. Nothing to do.
+@@ -478,25 +480,23 @@ public class PermissionMonitor {
+                 permissions |= INetd.PERMISSION_INTERNET;
+             }
+             if (requestedPermissions[i].equals(UPDATE_DEVICE_STATS)
+                     && ((requestedPermissionsFlags[i] & REQUESTED_PERMISSION_GRANTED) != 0)) {
+                 permissions |= INetd.PERMISSION_UPDATE_DEVICE_STATS;
+             }
+         }
+         return permissions;
+     }
+ 
+-    private PackageInfo getPackageInfo(String packageName) {
++    private PackageInfo getPackageInfo(String packageName, int userId) {
+         try {
+-            PackageInfo app = mPackageManager.getPackageInfo(packageName, GET_PERMISSIONS
+-                    | MATCH_ANY_USER);
+-            return app;
++            return mPackageManager.getPackageInfoAsUser(packageName, GET_PERMISSIONS, userId);
+         } catch (NameNotFoundException e) {
+             return null;
+         }
+     }
+ 
+     /**
+      * Called when a new set of UID ranges are added to an active VPN network
+      *
+      * @param iface The active VPN network's interface name
+      * @param rangesToAdd The new UID ranges to be added to the network
+
+commit 13553cee8b7bf414a2e2e3b6eacc41f96a5463bc
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Thu 2021-08-12 03:44:41+0530
+
+    send uid for each user instead of just owner/admin user
+---
+ .../server/connectivity/PermissionMonitor.java     | 83 +++++++++++++---------
+ 1 file changed, 49 insertions(+), 34 deletions(-)
+
+diff --git a/services/core/java/com/android/server/connectivity/PermissionMonitor.java b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
+index 09cd274cbb052f67e2afa5bf5f219d49d9cb60bc..ee0c531ef13e0b9e633e62925e53497dae0b011f 100644
+--- a/services/core/java/com/android/server/connectivity/PermissionMonitor.java
++++ b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
+@@ -125,21 +125,21 @@ public class PermissionMonitor {
+ 
+     private int getPermissionForUid(int uid) {
+         int permission = 0;
+         // Check all the packages for this UID. The UID has the permission if any of the
+         // packages in it has the permission.
+         String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (packages != null && packages.length > 0) {
+             for (String name : packages) {
+                 int userId = UserHandle.getUserId(uid);
+                 final PackageInfo app = getPackageInfo(name, userId);
+-                if (app != null && app.requestedPermissions != null) {
++                if (app != null && app.requestedPermissions != null && app.applicationInfo.uid == uid) {
+                     permission |= getNetdPermissionMask(app.requestedPermissions,
+                           app.requestedPermissionsFlags);
+                 }
+             }
+         } else {
+             // The last package of this uid is removed from device. Clean the package up.
+             permission = INetd.PERMISSION_UNINSTALLED;
+         }
+         return permission;
+     }
+@@ -170,58 +170,59 @@ public class PermissionMonitor {
+     // receiver to monitor ongoing UID changes, so this shouldn't/needn't be called again.
+     public synchronized void startMonitoring() {
+         log("Monitoring");
+ 
+         PackageManagerInternal pmi = LocalServices.getService(PackageManagerInternal.class);
+         if (pmi != null) {
+             pmi.getPackageList(new PackageListObserver());
+         } else {
+             loge("failed to get the PackageManagerInternal service");
+         }
+-        List<PackageInfo> apps = mPackageManager.getInstalledPackages(GET_PERMISSIONS
+-                | MATCH_ANY_USER);
+-        if (apps == null) {
+-            loge("No apps");
+-            return;
+-        }
+ 
+         SparseIntArray netdPermsUids = new SparseIntArray();
+ 
+-        for (PackageInfo app : apps) {
+-            int uid = app.applicationInfo != null ? app.applicationInfo.uid : INVALID_UID;
+-            if (uid < 0) {
+-                continue;
+-            }
+-            mAllApps.add(UserHandle.getAppId(uid));
+-
+-            boolean isNetwork = hasNetworkPermission(app);
+-            boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
+-
+-            if (isNetwork || hasRestrictedPermission) {
+-                Boolean permission = mApps.get(uid);
+-                // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
+-                // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
+-                if (permission == null || permission == NETWORK) {
+-                    mApps.put(uid, hasRestrictedPermission);
+-                }
+-            }
+-
+-            //TODO: unify the management of the permissions into one codepath.
+-            int otherNetdPerms = getNetdPermissionMask(app.requestedPermissions,
+-                    app.requestedPermissionsFlags);
+-            netdPermsUids.put(uid, netdPermsUids.get(uid) | otherNetdPerms);
+-        }
+-
+         List<UserInfo> users = mUserManager.getUsers(true);  // exclude dying users
+         if (users != null) {
+             for (UserInfo user : users) {
+                 mUsers.add(user.id);
++
++                List<PackageInfo> apps = mPackageManager.getInstalledPackagesAsUser(GET_PERMISSIONS, user.id);
++                if (apps == null) {
++                    loge("No apps");
++                    continue;
++                }
++
++                for (PackageInfo app : apps) {
++                    int uid = app.applicationInfo != null ? app.applicationInfo.uid : INVALID_UID;
++                    if (uid < 0) {
++                        continue;
++                    }
++                    mAllApps.add(UserHandle.getAppId(uid));
++
++                    boolean isNetwork = hasNetworkPermission(app);
++                    boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
++
++                    if (isNetwork || hasRestrictedPermission) {
++                        Boolean permission = mApps.get(uid);
++                        // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
++                        // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
++                        if (permission == null || permission == NETWORK) {
++                            mApps.put(uid, hasRestrictedPermission);
++                        }
++                    }
++
++                    //TODO: unify the management of the permissions into one codepath.
++                    int otherNetdPerms = getNetdPermissionMask(app.requestedPermissions,
++                            app.requestedPermissionsFlags);
++                    netdPermsUids.put(uid, netdPermsUids.get(uid) | otherNetdPerms);
++                }
++
+             }
+         }
+ 
+         final SparseArray<ArraySet<String>> systemPermission =
+                 SystemConfig.getInstance().getSystemPermissions();
+         for (int i = 0; i < systemPermission.size(); i++) {
+             ArraySet<String> perms = systemPermission.valueAt(i);
+             int uid = systemPermission.keyAt(i);
+             int netdPermission = 0;
+             // Get the uids of native services that have UPDATE_DEVICE_STATS or INTERNET permission.
+@@ -301,23 +302,37 @@ public class PermissionMonitor {
+         for (Integer item : list) {
+             array[i++] = item;
+         }
+         return array;
+     }
+ 
+     private void update(Set<Integer> users, Map<Integer, Boolean> apps, boolean add) {
+         List<Integer> network = new ArrayList<>();
+         List<Integer> system = new ArrayList<>();
+         for (Entry<Integer, Boolean> app : apps.entrySet()) {
+-            List<Integer> list = app.getValue() ? system : network;
+             for (int user : users) {
+-                list.add(UserHandle.getUid(user, app.getKey()));
++                int uid = UserHandle.getUid(user, UserHandle.getAppId(app.getKey()));
++                if (uid < 0) continue;
++                String[] packages = mPackageManager.getPackagesForUid(uid);
++                if (packages == null) continue;
++                for (String pkg : packages) {
++                    PackageInfo info = getPackageInfo(pkg, user);
++                    if (info != null && info.applicationInfo.uid == uid) {
++                        boolean isNetwork = hasNetworkPermission(info);
++                        boolean hasRestrictedPermission = hasRestrictedNetworkPermission(info);
++
++                        if (isNetwork || hasRestrictedPermission) {
++                            List<Integer> list = hasRestrictedPermission ? system : network;
++                            list.add(UserHandle.getUid(user, app.getKey()));
++                        }
++                    }
++                }
+             }
+         }
+         try {
+             if (add) {
+                 mNetd.networkSetPermissionForUser(INetd.PERMISSION_NETWORK, toIntArray(network));
+                 mNetd.networkSetPermissionForUser(INetd.PERMISSION_SYSTEM, toIntArray(system));
+             } else {
+                 mNetd.networkClearPermissionForUser(toIntArray(network));
+                 mNetd.networkClearPermissionForUser(toIntArray(system));
+             }
+
+commit 32b1115c792b69c4dfceae4c080528c8682f7e0c
 Author: Renlord <me@renlord.com>
 Date:   Fri 2019-12-13 22:44:39+1100
 
@@ -6513,7 +6844,7 @@ index 71f0ab8087abb62aca8f5290a0f236ec9459f2bb..8f52ba46a4094f11106a1129a65dfade
      /**
       * @hide
 
-commit 833464e3ac3737e847609ccb09edcc1f0d3ec025
+commit 9990dfe0c2bef42a25ac893fadb5966e96bcf0b7
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -6585,7 +6916,7 @@ index aec38d9abd50e85291414f76c8458272c14b4be3..b428b56cc6e89eb74cc3685bd4734075
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 2942f86aa4fa06bf44b4b71852c3ef429c72be41
+commit f16e90598ff035f08b1279fa99cbf8e043d3a5ef
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 16:58:24-0700
 
@@ -6628,7 +6959,7 @@ index b428b56cc6e89eb74cc3685bd473407590080956..e4419682406fe5759648e5f97e34cdfb
      }
  
 
-commit 7ce552b8848fd07940c3db18c73a1c46f1007b64
+commit c8a95321297a44f996bb899d25194013604f59ed
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -6664,149 +6995,7 @@ index 999ab0802468d9a5f5de0b8a924eb3d8950ffaeb..03528e35c461f894e84cd1430e4bcf55
  
  LOCAL_MODULE := frameworks-base-overlays-debug
 
-commit 48fc961f50cfc65e12e352f7b162b7084d49b3c5
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Tue 2020-09-29 16:37:29-0400
-
-    Revert "OsuLogin: Generate AOSP keys and sign APK"
-    
-    This reverts commit d0330873bf6232019be185f987c58a693d0348f9.
----
- packages/OsuLogin/Android.bp                       |   7 +--
- .../certs/com.android.hotspot2.osulogin.pk8 (gone) | Bin 2374 -> 0 bytes
- .../com.android.hotspot2.osulogin.x509.pem (gone)  |  35 --------------
- packages/OsuLogin/certs/key.pem (gone)             |  52 ---------------------
- 4 files changed, 1 insertion(+), 93 deletions(-)
-
-diff --git a/packages/OsuLogin/Android.bp b/packages/OsuLogin/Android.bp
-index 445c81b89273167c5391fb2693496046fd1f3d05..a9e0d9fb29f9e8f248f2e042226443097eeee2eb 100644
---- a/packages/OsuLogin/Android.bp
-+++ b/packages/OsuLogin/Android.bp
-@@ -1,18 +1,13 @@
- android_app {
-     name: "OsuLogin",
-     defaults: ["wifi-module-sdk-version-defaults"],
-     static_libs: ["androidx.legacy_legacy-support-v4"],
-     resource_dirs: ["res"],
-     srcs: ["src/**/*.java"],
-     sdk_version: "system_current",
--    certificate: ":com.android.hotspot2.osulogin.certificate",
-+
-     apex_available: [
-         "com.android.wifi",
-         "test_com.android.wifi",
-     ],
- }
--
--android_app_certificate {
--    name: "com.android.hotspot2.osulogin.certificate",
--    certificate: "certs/com.android.hotspot2.osulogin"
--}
-diff --git a/packages/OsuLogin/certs/com.android.hotspot2.osulogin.pk8 b/packages/OsuLogin/certs/com.android.hotspot2.osulogin.pk8
-deleted file mode 100644
-index 87fd622cde2cd80fc6e4f7e2e019e5857336b91d..0000000000000000000000000000000000000000
-Binary files a/packages/OsuLogin/certs/com.android.hotspot2.osulogin.pk8 and /dev/null differ
-diff --git a/packages/OsuLogin/certs/com.android.hotspot2.osulogin.x509.pem b/packages/OsuLogin/certs/com.android.hotspot2.osulogin.x509.pem
-deleted file mode 100644
-index 1dfe701dc88e16254d23bf9faecaa2c08572c360..0000000000000000000000000000000000000000
---- a/packages/OsuLogin/certs/com.android.hotspot2.osulogin.x509.pem
-+++ /dev/null
-@@ -1,35 +0,0 @@
-------BEGIN CERTIFICATE-----
--MIIGDzCCA/egAwIBAgIUHzkh0UCF/H+1mZZp0ROX4nXKOUowDQYJKoZIhvcNAQEL
--BQAwgZUxCzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQH
--DA1Nb3VudGFpbiBWaWV3MRAwDgYDVQQKDAdBbmRyb2lkMRAwDgYDVQQLDAdBbmRy
--b2lkMREwDwYDVQQDDAhPc3VMb2dpbjEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBh
--bmRyb2lkLmNvbTAgFw0yMDAzMjUwMjQ5MTNaGA80NzU4MDIxOTAyNDkxM1owgZUx
--CzAJBgNVBAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1Nb3Vu
--dGFpbiBWaWV3MRAwDgYDVQQKDAdBbmRyb2lkMRAwDgYDVQQLDAdBbmRyb2lkMREw
--DwYDVQQDDAhPc3VMb2dpbjEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lk
--LmNvbTCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAMJDnjAeIZ2KUvKc
--ONwxuzIhLvXr6LRm+Uz0ebjz++5IzQJLwr/COPBG9zbIm8izj2acp+l4WVEYT6I4
--Es5LEp556ySCuZx8IjOd0Zd6NCdaKmYouDTjYTrELWUlZjfA7Km2L5x2M6ArnDO5
--zJ1BIsQ06S3C7iR3ktAQ1cFdidg6Ha2gainS0A1JKN3kL9BL1pvHRLzWZX4gsNhB
--C/6Ue3W3Sx2JRQkaaLksDdoKq0QswEk5tGfKbVr9+hHv/pztaaqEXSeV6f305cAx
--Hzd6+QJ8f8AJz2Rhnv43y72UO8b02CSP3laUj8geidR8XXw+R7Kzu8NfFDL7uVIh
--ktPaBxfWPNYtedp3JrGeZhkzljsushY+bVHECEzROhY2CiUZBEn+wwZLWe2W7oee
--VCL1EZBYctK5CfrrV6x0wvbBUF/ViwV+2LQXQNp08xB8bJBqoBn4KZjK0tTN86Dq
--qRALyoVIVh5VDU9Wbi3vrJb0/9TEQtMjuo0DS3hdtnowdRyAyhwbQHO26dqnnzBI
--XtTAve4RkOwnb8QzZde56qvRgweDE9Im1jpx4E+MMGqVYs8Txurmd/t6bCjTvp1P
--4i88crk/zqCoHEQEbiaNdfkULJAWg9wqxPjqPCTVNtOXoJwuHsNymQVSztIUSySz
--ZQ8Trk0ApqQf8yH2mjM6HJJZoNpBAgMBAAGjUzBRMB0GA1UdDgQWBBRdpduh1P+I
--BMbg5S4n1kbj5hQsOzAfBgNVHSMEGDAWgBRdpduh1P+IBMbg5S4n1kbj5hQsOzAP
--BgNVHRMBAf8EBTADAQH/MA0GCSqGSIb3DQEBCwUAA4ICAQB+FzSuoA7LCvn8l86V
--sSI4lH1KLLH+wrXp20w/wYcBY+s4hYPpAJ8YbEMOT9uibK/HpEWYFqiVCqk4gKXr
--Qraxvmtqq0WNSwkjeopTYlZeBzTC/If3UoOCp7KCfMdydIcxvk6LNokMWWqSCNP8
--QiD872XuBvj/uQeBsbHZTqruqPnu+LZwpuHFVRp/Pyj9rT61PsvGitb7q/chW0G7
--7csHOc5q2223LKlNknPsfbcR6nVEg4KfN7kPKny8iJtl2pdbfBjFDp+73nzW8qZU
--5JWO5nWL7cJh4mt5sPGrzpt/Hf8/Dngg69sImRqjv/6/wCV0pEmmNjKJkXcMaZ0T
--2TSs+A7K6l15NYk8exkMymTU7jk+iDud3tnQ68YHf/A9pDu15OCw6U/pTgOgu9co
--rBLLhGV0Tb6XAnsWKe9tsLcumQXU5ZUn9m5VJl58wQHNhUqpT7L0fWtpiTMTStVA
--/yZbndPO4SbjR5rjcAk1xge8lyIIp0WBWmwoQ/1y4DXF/yPaX733wO7uWUljgKuy
--MM/zM4zklB8nFjXfPNf3j24Bzqmy7rqy4XB64enVmYQ2mVNqfwXvINoo2XOrAmj/
--bhSWXiCFltJFM7fmJGOMEEHBt9QfbmCgmM4aoWMgH7P+HxGW+Vc3tGixBbsxNRC+
--/VrPAINQV4x5q8zGYNQBqNFn/A==
-------END CERTIFICATE-----
-diff --git a/packages/OsuLogin/certs/key.pem b/packages/OsuLogin/certs/key.pem
-deleted file mode 100644
-index f560a8d0fa624b75cfeb8c70eac356833c8eeb58..0000000000000000000000000000000000000000
---- a/packages/OsuLogin/certs/key.pem
-+++ /dev/null
-@@ -1,52 +0,0 @@
-------BEGIN PRIVATE KEY-----
--MIIJQgIBADANBgkqhkiG9w0BAQEFAASCCSwwggkoAgEAAoICAQDCQ54wHiGdilLy
--nDjcMbsyIS716+i0ZvlM9Hm48/vuSM0CS8K/wjjwRvc2yJvIs49mnKfpeFlRGE+i
--OBLOSxKeeeskgrmcfCIzndGXejQnWipmKLg042E6xC1lJWY3wOypti+cdjOgK5wz
--ucydQSLENOktwu4kd5LQENXBXYnYOh2toGop0tANSSjd5C/QS9abx0S81mV+ILDY
--QQv+lHt1t0sdiUUJGmi5LA3aCqtELMBJObRnym1a/foR7/6c7WmqhF0nlen99OXA
--MR83evkCfH/ACc9kYZ7+N8u9lDvG9Ngkj95WlI/IHonUfF18Pkeys7vDXxQy+7lS
--IZLT2gcX1jzWLXnadyaxnmYZM5Y7LrIWPm1RxAhM0ToWNgolGQRJ/sMGS1ntlu6H
--nlQi9RGQWHLSuQn661esdML2wVBf1YsFfti0F0DadPMQfGyQaqAZ+CmYytLUzfOg
--6qkQC8qFSFYeVQ1PVm4t76yW9P/UxELTI7qNA0t4XbZ6MHUcgMocG0Bztunap58w
--SF7UwL3uEZDsJ2/EM2XXueqr0YMHgxPSJtY6ceBPjDBqlWLPE8bq5nf7emwo076d
--T+IvPHK5P86gqBxEBG4mjXX5FCyQFoPcKsT46jwk1TbTl6CcLh7DcpkFUs7SFEsk
--s2UPE65NAKakH/Mh9pozOhySWaDaQQIDAQABAoICAGgX7XKhIqgVD59aoIk0yLby
--2wQBdf780ocu1O6LJiqnrdqWF/PCsdnmXN9pHTitJqD4Pm03BL0Uhs9ItqL9zStH
--7vzwY177kSQRY9aEL+AKS3/UP+hvEpF3v09ce+pSIT5LFjYDjGQ+GgQJgh+dYHC8
--XVodAphdzjhZXQCxC4TmlzKLK3ffs4X69r/3XruBd6yfWTDKvTWZdMlcCX5Pt9v6
--7HAWNvzKvuTCO2Xjo6PzStGx7v5SlMhWISJtdARInv80z+m/RdPD3zxd1flXloiD
--h7yyRQPn31cfNLgP7vwMBKmKwbuo/WZhHr/SKBHEGY0jC/CDSQKMqd/dh5ynTnbC
--vi/qjKFIHofmhzgQ+fiHMeMsAO1c9eYs8a6bDeJjhA5qJP1HjSie9Ss9z94mp6Ww
--TRkU93yVX04DU4TCCf0IcFpKdbtKp84i6iLV9lKGh9juM42hSOFUV6bhxmlJ9zvM
--yl7vfhhuFHy1SypmaK/oJ+nwac4vIMaHCX9ifl6hm/z4PrGFSYJGQoJtVOz0vT15
--lSwCJVdHkGAe0LI+3iFn5jJlluD7TqsLmZLxqTTmzDZ3U9WhAslmn5TcZd92mL0i
--ZVTfCkjyl1wUHeif2992oTUH6CFZ1jKd8xwdWvyKkvQcjhiS9GUsm7j6jolR/QI7
--VPQlocM/vCCusrMWnR7xAoIBAQDv9O8kboz6WzN6Xw5UC7MWpi2jZg1bTs/uKcfz
--biAEC96iJQ33YSkYi6QzV4jSaackU99vGkHbQIdaBTkudz+FK5XqH0auImB2xxcR
--Xu9G2j2fhzESchVTtOnotVgjiuv18SLZ/GQoSIccs0QxcisPiTa5Ij9pl8xVoS6J
--sxfqAe15hASqLh+9Ula3+Orb1kCkqK0UwU0nM9nfUH88BKvUwQIMA7kipTA8jJog
--MJOlYPQUGxkltlim8Vip//P336E7CWT6fWbfo62US6IEu6HcC6T8u8jcLjIKsmjJ
--YJyqrepZqAVMPlv2Z+mNhxRR0ct6blfjJSrEZEtxBRn98kZ1AoIBAQDPQJ1z7Mfy
--AOfjSO6Dlfr7V9SWmGvexosH0gu6H8KO+n1/ZPH5fHGt7ORubUDhkNI/fqZK0Hls
--Q9Jwgq1QI9UwMTogF8DgmZ6L6jiXhUScIk0BFhUxOBoplugaI0jdTW350D2quFUJ
--LjYo+VcRapTfXXVehHSjbUh3nmTWj0WboA+//7xq8q9KHPb1Sbiwjf7N1iYD5R8p
--PaaG0DMET+l90bxI+QVX1enwjZGcFjo8VI+qXGGkpB/1zK5yWm29ZWypLw8TZreM
--7rLUdBY1/m7MB54zOaJ2jSsxLQSXIVSGPI1ugkmFr6OxeuLdcCLN4yca3+HYHewa
--w3GCBP3kfYMdAoIBAAxG0slhYpMYgWy8WkZQhuwcum8GtJ48TQUZXCKHOtoaJVzU
--Wn+SmACqfE8oJlblkuiX5fGQPVhTV9lyNPe8oCJXFYdx7DLSjW7mRrbbzZApcEeu
--KgOQlKjAs8r1JDpFTEc7/BV9BT7OXyNHxLBm7+8OjR8xsl7bplenNHNVF18glB7I
--c1ilnXgZM1icQp/WuV3zR0+tiB3+WCJFwwy2DHiJG2qz8g/ktbATXXtSIOuwJyy0
--Kjg0uRppdKjV8Ix5A426sFDkg5PjkujoabSmSOSyL9HCZcdmEadcc2ICMGHHHhtS
--Lls1QY08ycU06QQ6oJd198cmSqbbnsR8h1TnxVUCggEBAI2zF/QSiAImLGVxj+HX
--wWnneyobvGTsSlJmgi4XWOZ4zSU011xEgVTxCp2VhS6z3YwcA4ZTUzF6jX7vWZ/Z
--YAE7JwqaMv1dCtGOqnKuY2J88Tk05/hm6zxUOQzl4wOr1O1gO0lmDn3gYpdRIv59
--aJvvQjgFR9oU9d8TJM6t1mG45gvXxfM5Si/Z7d93MBdGflgteoBfPxbrV9gEsVzZ
--ZkLoC1u5JrYPQ4t8v3mAmQB2sGNCFmCC9ncQIpV8zlsX5VsnGZ+iMwzghtRLKoRw
--GUDWVIuhdDqp+kX9CY5q82d0Lx7HZY1JsRm/cy0DZkhubmYpfDhO/QavagQDdbOr
--POECggEAXOliqX4yFvy6USXihHVM44s63gK+yH0+0iRppqoB3+E5tDyhvvvBMPLZ
--7EBkhd7ILTDXbc0c8nSl8I/556YSlIaOB4Xbf4UQbsmD4fNGEnNWFbCzcEWYOjpQ
--5QyXjIzK/k8eg22OZlC3XNjGHgb/mA5f+v2enGQNuy7WRTl1mKYZB2h/2p6xy+jV
--CGhd4btB2bOu+1XR/B2KFvI5NdtPPti05LmsYgsU00yYJfQkpc7VvOSH5Jyy3eZL
--L9xTAy7NWBQ3LGdIpX+V1jcn3SzVits0m6hOUCtJLT1snMXAKFweTvWAQynuGomc
--VPf88ITMTOBjOH6YC8jKd/n2lVWLjw==
-------END PRIVATE KEY-----
-
-commit b1a1d15fa9701d81b557d9fddf0e60ce97cefd44
+commit 7269a42f2c6074110648939e03fe16d1609ee92e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-10-04 19:02:09-0400
 
@@ -6871,7 +7060,7 @@ index ae354a953eecc839c3fd00bc9a25039f1edd290c..47769ef9e7a88d0ff8a42f5c9411c24f
                  mOverlayPackagesProvider.getNonRequiredApps(admin, userId, provisioningAction));
      }
 
-commit 22b8da494037c437b57733bf307e90b987e5009a
+commit 27d611545cf8dc25715d19da76e03c56e030020b
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -6900,7 +7089,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit 0e0130898cc250cbf850e27d15caa715d8a9f243
+commit 4f0428c2ef2acf9ce172d58164644a2fdfb071ce
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -7210,7 +7399,7 @@ index 9eede83e21e52b265e80460954a1223f9915dcaf..cb4bde87916be8d2b20e9bf1c4089657
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit d5f69a05ba10d91e2feb108a6c57f7c7996af6c6
+commit 54567d96cbdd1b40cfbdde3517d9df73df78497e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:55:15-0500
 
@@ -7275,7 +7464,7 @@ index a5554c740e7f7f42d61e9f2f670937549d08656e..7f78193974c709046d40b0a09f006c2e
                  return sNetwork != null;
              }
 
-commit af2cdc54afff620f5526f17e43792decea356b6e
+commit b2871967870f390051532168b6b70577b9811da0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -7312,7 +7501,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit 946ef5bdb1b19eb05fb567b372b2def49e3574ff
+commit c3af03681277aa8d13940c17b4ca7943522eb3ef
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 08:50:34-0500
 
@@ -7351,7 +7540,7 @@ index 7a8f411992ce59462a63b3c5951f57a268658083..f1aa10146919a216267d1cd1cdd200c2
      <color name="error_color_device_default_dark">@color/error_color_material_dark</color>
      <color name="error_color_device_default_light">@color/error_color_material_light</color>
 
-commit d4db450f2fedbbcefb0d82f3f98b74687626f659
+commit 231b0fd5b17bde77d03fb9ebfbda78942698a5b5
 Author: Marco Janotta <marcojntt@gmail.com>
 Date:   Fri 2021-01-08 18:19:11+0100
 
@@ -7391,7 +7580,7 @@ index f1aa10146919a216267d1cd1cdd200c24603d52b..404b624efd8f3a42afdac5bc0f96bdd0
  
      <color name="accent_device_default_dark">#ff82b1ff</color> <!-- blue A100 -->
 
-commit 53343813452f8f1f665f40701968c5cecb249daa
+commit f7d0a06523e32a3ba08533742a60246176add2f1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -7412,7 +7601,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit dcb855c083a57fedfc26eb1c67af6f1b926bc143
+commit 604c4233481d6999ef359572c8048f3a3b5d98a0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 23:57:54-0400
 
@@ -7449,7 +7638,7 @@ index 348e9c8830e7f11132b2275bf255989313e10f75..668a170da6042febc8bf977158dfbe7b
  
      <!-- The component name, flattened to a string, for the default autofill service
 
-commit e83b1a5827813d6b1466070e01b70eac2c90b454
+commit 470952c1eed2febccb3426795fca784892c9977a
 Author: Dave Daynard <nardholio@gmail.com>
 Date:   Sun 2013-12-15 15:35:04-0500
 
@@ -7526,7 +7715,7 @@ index 409bd1f1c14733550a83391ce1fa3d82b55d9739..94265db5c69df8ce4f22d13e65d5920f
      }
  
 
-commit 379f2d22d6edb1750f8e71d5db271764a4a00f6d
+commit c6c6090b48becf04a4b8abf4352c54b027b62aee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:54:57-0400
 
@@ -7563,7 +7752,7 @@ index 2f776fc55034f6fe26ff854c96b43e25f9b88433..66243a90c507c29cab8539bedea52866
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
      // The sampling rate to push app compaction events into statsd for upload.
 
-commit 9f37ffd40482a1a7669937815d0b1a14e9faa0ea
+commit 614cd3e796755ad865180ce71b95f93ac471a157
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:56:10-0400
 
@@ -7600,7 +7789,7 @@ index 66243a90c507c29cab8539bedea5286677aeb203..abd238bcd670c36af51f2518c7bfcc71
      // The sampling rate to push app compaction events into statsd for upload.
      @VisibleForTesting static final float DEFAULT_STATSD_SAMPLE_RATE = 0.1f;
 
-commit 898f57bb011971a0a8a066a6238bfc35be921942
+commit 3cbda7e51ed025f18df7e7f6cfad4edd3ae62f15
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 03:26:07-0400
 
@@ -7660,170 +7849,7 @@ index cd01cb703877a246a3046d3609013be58a2b41a8..7c78573e899ad3990fcc9299ae2591bd
          override fun onActiveStateChanged(
              code: Int,
 
-commit 6323770b58d82cbabee8cc294323479d32c63a19
-Author: pratyush <codelab@pratyush.dev>
-Date:   Sun 2021-04-25 07:04:03+0530
-
-    fix INTERNET enforcement for secondary users
-    
-    This code was not specifying the profile for the app so it wasn't
-    working properly with INTERNET as a runtime permission.
----
- .../server/connectivity/PermissionMonitor.java       | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/services/core/java/com/android/server/connectivity/PermissionMonitor.java b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
-index 41c013b4b197f8ee2fdbbc3aa052f53b12427dd4..09cd274cbb052f67e2afa5bf5f219d49d9cb60bc 100644
---- a/services/core/java/com/android/server/connectivity/PermissionMonitor.java
-+++ b/services/core/java/com/android/server/connectivity/PermissionMonitor.java
-@@ -123,38 +123,39 @@ public class PermissionMonitor {
-         }
-     }
- 
-     private int getPermissionForUid(int uid) {
-         int permission = 0;
-         // Check all the packages for this UID. The UID has the permission if any of the
-         // packages in it has the permission.
-         String[] packages = mPackageManager.getPackagesForUid(uid);
-         if (packages != null && packages.length > 0) {
-             for (String name : packages) {
--                final PackageInfo app = getPackageInfo(name);
-+                int userId = UserHandle.getUserId(uid);
-+                final PackageInfo app = getPackageInfo(name, userId);
-                 if (app != null && app.requestedPermissions != null) {
-                     permission |= getNetdPermissionMask(app.requestedPermissions,
-                           app.requestedPermissionsFlags);
-                 }
-             }
-         } else {
-             // The last package of this uid is removed from device. Clean the package up.
-             permission = INetd.PERMISSION_UNINSTALLED;
-         }
-         return permission;
-     }
- 
-     // implements OnRuntimePermissionStateChangedListener
-     private void enforceINTERNETAsRuntimePermission(@NonNull String packageName,
-             @UserIdInt int userId) {
-         // userId is _not_ uid
--        int uid = mPackageManagerInternal.getPackageUid(packageName, 0, userId);
-+        int uid = mPackageManagerInternal.getPackageUidInternal( packageName, GET_PERMISSIONS, userId);
-         sendPackagePermissionsForUid(uid, getPermissionForUid(uid));
-     }
- 
-     public PermissionMonitor(Context context, INetd netd) {
-         mPackageManager = context.getPackageManager();
-         mUserManager = (UserManager) context.getSystemService(Context.USER_SERVICE);
-         mNetd = netd;
- 
-         mPackageManagerInternal = LocalServices.getService(
-                 PackageManagerInternal.class);
-@@ -357,26 +358,27 @@ public class PermissionMonitor {
-             return;
-         }
-         mUsers.remove(user);
- 
-         Set<Integer> users = new HashSet<>();
-         users.add(user);
-         update(users, mApps, false);
-     }
- 
-     @VisibleForTesting
--    protected Boolean highestPermissionForUid(Boolean currentPermission, String name) {
-+    protected Boolean highestPermissionForUid(Boolean currentPermission, String name, int uid) {
-         if (currentPermission == SYSTEM) {
-             return currentPermission;
-         }
-         try {
--            final PackageInfo app = mPackageManager.getPackageInfo(name, GET_PERMISSIONS);
-+            final PackageInfo app = mPackageManager.getPackageInfoAsUser(name, GET_PERMISSIONS,
-+                    UserHandle.getUserId(uid));
-             final boolean isNetwork = hasNetworkPermission(app);
-             final boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
-             if (isNetwork || hasRestrictedPermission) {
-                 currentPermission = hasRestrictedPermission;
-             }
-         } catch (NameNotFoundException e) {
-             // App not found.
-             loge("NameNotFoundException " + name);
-         }
-         return currentPermission;
-@@ -386,21 +388,21 @@ public class PermissionMonitor {
-      * Called when a package is added. See {link #ACTION_PACKAGE_ADDED}.
-      *
-      * @param packageName The name of the new package.
-      * @param uid The uid of the new package.
-      *
-      * @hide
-      */
-     public synchronized void onPackageAdded(String packageName, int uid) {
-         // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
-         // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
--        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName);
-+        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName, uid);
-         if (permission != mApps.get(uid)) {
-             mApps.put(uid, permission);
- 
-             Map<Integer, Boolean> apps = new HashMap<>();
-             apps.put(uid, permission);
-             update(mUsers, apps, true);
-         }
- 
-         // If the newly-installed package falls within some VPN's uid range, update Netd with it.
-         // This needs to happen after the mApps update above, since removeBypassingUids() depends
-@@ -438,21 +440,21 @@ public class PermissionMonitor {
-         // If the package has been removed from all users on the device, clear it form mAllApps.
-         if (mPackageManager.getNameForUid(uid) == null) {
-             mAllApps.remove(UserHandle.getAppId(uid));
-         }
- 
-         Map<Integer, Boolean> apps = new HashMap<>();
-         Boolean permission = null;
-         String[] packages = mPackageManager.getPackagesForUid(uid);
-         if (packages != null && packages.length > 0) {
-             for (String name : packages) {
--                permission = highestPermissionForUid(permission, name);
-+                permission = highestPermissionForUid(permission, name, uid);
-                 if (permission == SYSTEM) {
-                     // An app with this UID still has the SYSTEM permission.
-                     // Therefore, this UID must already have the SYSTEM permission.
-                     // Nothing to do.
-                     return;
-                 }
-             }
-         }
-         if (permission == mApps.get(uid)) {
-             // The permissions of this UID have not changed. Nothing to do.
-@@ -478,25 +480,23 @@ public class PermissionMonitor {
-                 permissions |= INetd.PERMISSION_INTERNET;
-             }
-             if (requestedPermissions[i].equals(UPDATE_DEVICE_STATS)
-                     && ((requestedPermissionsFlags[i] & REQUESTED_PERMISSION_GRANTED) != 0)) {
-                 permissions |= INetd.PERMISSION_UPDATE_DEVICE_STATS;
-             }
-         }
-         return permissions;
-     }
- 
--    private PackageInfo getPackageInfo(String packageName) {
-+    private PackageInfo getPackageInfo(String packageName, int userId) {
-         try {
--            PackageInfo app = mPackageManager.getPackageInfo(packageName, GET_PERMISSIONS
--                    | MATCH_ANY_USER);
--            return app;
-+            return mPackageManager.getPackageInfoAsUser(packageName, GET_PERMISSIONS, userId);
-         } catch (NameNotFoundException e) {
-             return null;
-         }
-     }
- 
-     /**
-      * Called when a new set of UID ranges are added to an active VPN network
-      *
-      * @param iface The active VPN network's interface name
-      * @param rangesToAdd The new UID ranges to be added to the network
-
-commit 9c095654d06ea87aeba80b0b9f98eb351583d9c8
+commit 5b15d8871aee09e50dc81bfb80221ccc3f8a2c6d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:31:26-0800
 
@@ -8001,7 +8027,7 @@ index 9635febfd545470ac5f0a3b77feb967729fb2bbf..ee6a93d8e10feb8bd425dbea9cb5d8e9
      <application android:label="Victor" android:hasCode="false"/>
  </manifest>
 
-commit d50b294976ad318505b09584eadff8b0972ded93
+commit f2b7f15a541968de9157efaad85869f58fc4f291
 Author: jhenrique09 <jhenrique09.mcz@hotmail.com>
 Date:   Mon 2019-11-25 14:59:16+0000
 
@@ -8068,7 +8094,7 @@ index 994a18110260b3811efc38f6e5ba1c03dedc42d6..461fe2f9d4d2c1521ce677e1c5aaa3ce
      <!-- Global screenshot actions -->
      <color name="global_screenshot_button_background">#F5F5F5</color>
 
-commit 1f802bfc4b58e919b77f718cf0e6e9ed2eab3b0c
+commit c44d77fd43d82a21b784ac887f86bf76c11c7cf9
 Author: Isak Lilja <isak.lilja@sony.com>
 Date:   Thu 2020-11-12 11:56:01+0100
 
@@ -8114,7 +8140,7 @@ index 2d7aafc497d8bac0d6967edba0c0f3b20eca7eb5..2cc31f0eba4d82939dd3e531101892d0
          }
  
 
-commit bcc4327a6f896b53315129306affbba1584da9d3
+commit d6a66ba04e0fffcf8263ff414866b300ef5fa2c8
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2021-05-06 20:42:26-0700
 
@@ -8152,7 +8178,7 @@ index 2cc31f0eba4d82939dd3e531101892d0b7d14f6d..f5fed3ab7de81b19cfd1b519ebfedf99
              }
          }
 
-commit 6f111831c26573d2c56e7d46ef3c9f9349abc509
+commit 23462281fd9899e93ce2fb56802386e9173bbbbc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-05-14 22:52:17-0400
 
@@ -8189,7 +8215,7 @@ index 668a170da6042febc8bf977158dfbe7b50425b02..5805bd79772d2e7067a45087ef9c4759
      <integer name="config_ntpRetry">3</integer>
      <!-- Timeout to wait for NTP server response in milliseconds. -->
 
-commit c8b2f5a6e8e475d9e44c5342ab565e42bfaf4387
+commit e9d3fcc0df11bb31913dd31a1ec4e3095f438bbf
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2020-04-27 13:10:15-0700
 
@@ -8486,7 +8512,7 @@ index 1217a507a8dcf715f9bc3cf993ef704aa73d392c..a6d5fa5763d4c7e87c88f34eeba32740
          public void setActiveUser(int userId) {
              checkInternalPermission();
 
-commit 76e50c6c6943a32378d821682802e4ea001795b1
+commit 3b0f1b09fbcd53ed9d4e06b934b7e02b0b924747
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-06-09 09:26:00-0400
 
@@ -9117,7 +9143,7 @@ index 0000000000000000000000000000000000000000..5c5df2639cdd94004803fae7b9a4d89b
 +}
 \ No newline at end of file
 
-commit 8ade39c2c06facd99b4a0ce4e6a31a0a5cefc30c
+commit aa1c49d7df6502af20a4b08809b11e2bf648367f
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-06-07 22:04:53+0100
 
@@ -9419,7 +9445,7 @@ index 75f4809d752f5c06dc4be84446486aa037f7dacf..11a9730f18cb286f6beee489fae96592
  
      private void adjustStatusBarLocked(boolean forceHideHomeRecentsButtons,
 
-commit 63822af3ef187067226c7436d262dc2c291a4273
+commit 831a97fd72f8f926bc428dd66e23e80923d94d77
 Author: pratyush <codelab@pratyush.dev>
 Date:   Thu 2021-07-01 12:26:49+0530
 
@@ -9583,7 +9609,7 @@ index 9ce7cf27f9ff802f1f566602bcc673985b4582ab..9598faa3a667661972183aac6ee2a808
      }
  
 
-commit 6b1e4053d15ea3dfc4ca22ef2d86cfd050f9076e
+commit 97ed79e44f99df16fa11bd807ae1937b69b997ad
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Tue 2021-07-06 18:18:06+0530
 
@@ -9762,7 +9788,7 @@ index ba9f486092f7f0bc3673a7ec6bef51949b0f0724..24cba592a59dd931b7bae8bb55e5a89f
          /**
           * Create a HandlerThread to use in NetworkStatsService.
 
-commit 1a7818784d27b353820ad0b43e3ca6d504efb3fc
+commit 91c2defdc3c1b6a470fa2e01855a4348010b27b9
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-07-07 21:39:20-0700
 
@@ -10040,7 +10066,7 @@ index 5d8a9cf75ea5095ad7f3a123e8a524d1b359f599..db6d9e64529779f9f119c686fc5eee8d
    public static class StatsServiceManager.ServiceNotFoundException extends java.lang.Exception {
      ctor public StatsServiceManager.ServiceNotFoundException(@NonNull String);
 
-commit d8b1765e0c917f14dcfb68b3a344a2885a3e1f56
+commit 224889bbd935b2b2fafced9923577821e6faf3ec
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-10 00:45:36-0700
 
@@ -10218,7 +10244,7 @@ index 2e9818d15963561df4c2627f051fa4b189ba8dd6..bf1c11d0b122b57da3ab752aaa8d5bb6
  
      /**
 
-commit 3f37f8c708be086251d88f9dedbac3dd798bc5ba
+commit 070b435c0658609956ed92aa9c1f76dc7e1fe50d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-10 01:56:27-0700
 
@@ -10304,7 +10330,7 @@ index c2c25f267fad82a7c9eb40477aa4b87be5e67473..5e016456d1a48ddeea7f6592df7b25b8
 +    }
  }
 
-commit cc214db3d68ea36c2de70779b6d483667cb558ec
+commit 0480720f7859fc01e4412c96dd62a021f51d6ec2
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-07-12 16:52:21-0700
 
@@ -10393,7 +10419,7 @@ index 5e016456d1a48ddeea7f6592df7b25b8201e1189..22dab9ab29f7e98bda5d15862f56431f
      }
  }
 
-commit 91f690380566e7aa61c1e17aa1a6e1c1a240e818
+commit de2aea6ae4b86cbe4e2047de75cb607863353ef8
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Thu 2021-07-08 03:09:36-0700
 
@@ -10697,7 +10723,7 @@ index 9167f66304296813230b7264ad4f597b48f7b8f5..299b9631123b9c733d4fd96df1063f73
    <java-symbol type="string" name="etws_primary_default_message_others" />
  
 
-commit 07f021b349ba156c8599df3c4786957d319cf2d7
+commit 449eba3e2a60ea2bb68a40e289c997ce68e20abc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-07-16 12:11:51-0400
 
@@ -10774,7 +10800,7 @@ index c4c733125a3ac7adfe6c51768808cb91c1437b6e..94ed5e54e0ca9ded5f25cf4077c57d9b
      }
  }
 
-commit fc1c1b436dbc37df8f1415541fc297ca893300a7
+commit 19982c944d2d0b2a510a51939a2354d95511b4a4
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-07-12 17:18:48-0700
 
@@ -10846,7 +10872,7 @@ index 94ed5e54e0ca9ded5f25cf4077c57d9b9ef9d05d..a4d2aae22e3b425f0fdb3baa39241c9b
          Notification notification = new Notification.Builder(service, FGS_CHANNEL_ID)
                  .setSmallIcon(service.getApplicationInfo().icon)
 
-commit 23304f75ae910f27f2b30fbe2de8b1c9bb340934
+commit d8e2290789a96473290bf3e56518a7fc044c156a
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Thu 2021-07-08 03:19:08-0700
 
@@ -12451,7 +12477,7 @@ index 4a61db894b8902fede8ee120e14099e117f76552..52f6186de63f877a7a526487fe37261c
       * Deprecated
       * returns false
 
-commit fbf8a8827b6f8af59190cbdb41869d1a3de429e5
+commit ea57d6c942189705d2c52410590e6916c218e003
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-10 01:58:47-0700
 
@@ -12577,7 +12603,7 @@ index ab0ed51fb909f554a38974f89749ca2c88c6e52a..c33fc0b13fda25a31d6fbc5f6338994c
                  newPermsMsg.append(npi.name);
                  pkg.addRequestedPermission(npi.name)
 
-commit a7bc52443c5e4f28154a4d0c50654da9567d89f4
+commit eeb2d816a0c51d3debf50e46d25e10d7fa2c5ae6
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-07-12 16:00:37-0700
 
@@ -12719,7 +12745,7 @@ index 72d7149526ce413443ad4251f42076ea843493b1..d3cef1969f0a13d587f3126a14fa888c
 +    }
  }
 
-commit d7728ec6216f119e5d5236c48c1a8ddbcb2904a3
+commit e79e0d847234de20a165f63119a9694bdb23b86d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-10 02:11:04-0700
 
@@ -12881,7 +12907,7 @@ index 2869abb53b3704d90f48a7e85522f81eba248deb..52e949c5d5ef4817b2e27b9ce834d4e5
       * Get current RuleSet on device.
       *
 
-commit c883ab8036e5d9ef8715c51d9f0f6dab731e1c7d
+commit d8fbe341ed0a6167cabbcb231230db1b444e7de8
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-07-12 16:53:06-0700
 
@@ -12946,7 +12972,7 @@ index 10f77144e02275bbf12414e4819f9690f524380a..244e24fbb74fb2f66d97b17c79d27173
          }
  
 
-commit 72dc18c1d46f7b71f0e48976a81af733f486a0e1
+commit 7519c17564b596c2b153e67fe9030f6ad704840e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-07-18 15:56:20-0400
 
@@ -12985,7 +13011,7 @@ index 8bf2d41289b39cfe46bd86c8c3ca2f973c4afa32..1f698bf6f50589ccab2d5d3904e5fcd9
          return false;
      }
 
-commit bf2951c2c1a37429f2b0fb6d53e16f2307fcd13b
+commit 2840f6b0dd5de6be02fdf150be385d1cc9def319
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sun 2021-07-18 16:28:31-0700
 
@@ -13098,7 +13124,7 @@ index 22dab9ab29f7e98bda5d15862f56431f9207a37e..abc21df13c4526e38fe0bf6c48f9eba5
      }
  
 
-commit 468a7eda87e329b2918e641cdb4987fa01826dc5
+commit 0186bb73e46ced596c049e1052e3aafdffbc6cdf
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-07-19 17:17:50-0700
 
@@ -13273,7 +13299,7 @@ index 299b9631123b9c733d4fd96df1063f73fe1a9198..4a24086e0938a83b842ee1a911336277
    <java-symbol type="string" name="etws_primary_default_message_others" />
  
 
-commit 2053152f212bc91a33b4a1acbd30742fc49659e8
+commit 7d6e002c942ff73f0d105af2dcdf17fe41fc6154
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-07-30 18:24:37-0700
 
@@ -13434,104 +13460,7 @@ index 4a24086e0938a83b842ee1a911336277ce429905..e41a286becb6942ac81eb6f8e9e4abb8
    <java-symbol type="string" name="etws_primary_default_message_others" />
  
 
-commit e9cb38ad19d880aac20af8167d28d3dd81f2dfbd
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Fri 2021-07-30 18:28:44-0700
-
-    gmscompat: Fix AppOpsManager#startOpNoThrow() crash
-    
-    E AndroidRuntime: FATAL EXCEPTION: FlpThread
-    E AndroidRuntime: Process: com.google.android.gms.persistent, PID: 15448
-    E AndroidRuntime: java.lang.SecurityException: uid 10165 does not have android.permission.UPDATE_APP_OPS_STATS.
-    E AndroidRuntime:       at android.os.Parcel.createExceptionOrNull(Parcel.java:2373)
-    E AndroidRuntime:       at android.os.Parcel.createException(Parcel.java:2357)
-    E AndroidRuntime:       at android.os.Parcel.readException(Parcel.java:2340)
-    E AndroidRuntime:       at android.os.Parcel.readException(Parcel.java:2282)
-    E AndroidRuntime:       at com.android.internal.app.IAppOpsService$Stub$Proxy.startOperation(IAppOpsService.java:1148)
-    E AndroidRuntime:       at android.app.AppOpsManager.startOpNoThrow(AppOpsManager.java:7980)
-    E AndroidRuntime:       at android.app.AppOpsManager.startOpNoThrow(AppOpsManager.java:7945)
-    E AndroidRuntime:       at udb.k(:com.google.android.gms@212418046@21.24.18 (150400-383468479):2)
-    E AndroidRuntime:       at uds.p(:com.google.android.gms@212418046@21.24.18 (150400-383468479):20)
-    E AndroidRuntime:       at uds.jj(:com.google.android.gms@212418046@21.24.18 (150400-383468479):3)
-    E AndroidRuntime:       at bpev.s(:com.google.android.gms@212418046@21.24.18 (150400-383468479):22)
-    E AndroidRuntime:       at bpep.run(:com.google.android.gms@212418046@21.24.18 (150400-383468479):5)
-    E AndroidRuntime:       at android.os.Handler.handleCallback(Handler.java:938)
-    E AndroidRuntime:       at android.os.Handler.dispatchMessage(Handler.java:99)
-    E AndroidRuntime:       at aica.ja(:com.google.android.gms@212418046@21.24.18 (150400-383468479):0)
-    E AndroidRuntime:       at aica.dispatchMessage(:com.google.android.gms@212418046@21.24.18 (150400-383468479):10)
-    E AndroidRuntime:       at bqtt.ja(:com.google.android.gms@212418046@21.24.18 (150400-383468479):1)
-    E AndroidRuntime:       at aica.dispatchMessage(:com.google.android.gms@212418046@21.24.18 (150400-383468479):10)
-    E AndroidRuntime:       at android.os.Looper.loop(Looper.java:223)
-    E AndroidRuntime:       at android.os.HandlerThread.run(HandlerThread.java:67)
-    E AndroidRuntime:       Suppressed: bvgr:
-    E AndroidRuntime:               at tk_trace.location_base-GoogleLocationManagerChimeraService-IGoogleLocationManagerService_58(Unknown Source:0)
-    E AndroidRuntime:       Suppressed: bvgr:
-    E AndroidRuntime:               at tk_trace.location_base-GoogleLocationManagerChimeraService-IGoogleLocationManagerService_58(Unknown Source:0)
-    E AndroidRuntime: Caused by: android.os.RemoteException: Remote stack trace:
-    E AndroidRuntime:       at android.app.ContextImpl.enforce(ContextImpl.java:2024)
-    E AndroidRuntime:       at android.app.ContextImpl.enforcePermission(ContextImpl.java:2033)
-    E AndroidRuntime:       at com.android.server.appop.AppOpsService.verifyIncomingUid(AppOpsService.java:3750)
-    E AndroidRuntime:       at com.android.server.appop.AppOpsService.startOperation(AppOpsService.java:3448)
-    E AndroidRuntime:       at com.android.internal.app.IAppOpsService$Stub.onTransact(IAppOpsService.java:473)
-    
-    Change-Id: Iba07954e02f0b29133088a77b3633ac46e38a010
----
- core/java/android/app/AppOpsManager.java | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/core/java/android/app/AppOpsManager.java b/core/java/android/app/AppOpsManager.java
-index 6baabb69e02874ff0b13108c9210cce879c05bb3..06fcadab2b1c23ac2a0a6c43daa91801ea55d3cc 100644
---- a/core/java/android/app/AppOpsManager.java
-+++ b/core/java/android/app/AppOpsManager.java
-@@ -19,20 +19,21 @@ package android.app;
- import android.Manifest;
- import android.annotation.CallbackExecutor;
- import android.annotation.IntDef;
- import android.annotation.IntRange;
- import android.annotation.NonNull;
- import android.annotation.Nullable;
- import android.annotation.RequiresPermission;
- import android.annotation.SystemApi;
- import android.annotation.SystemService;
- import android.annotation.TestApi;
-+import android.app.compat.gms.GmsCompat;
- import android.app.usage.UsageStatsManager;
- import android.compat.Compatibility;
- import android.compat.annotation.ChangeId;
- import android.compat.annotation.EnabledAfter;
- import android.compat.annotation.UnsupportedAppUsage;
- import android.content.ComponentName;
- import android.content.ContentResolver;
- import android.content.Context;
- import android.content.pm.ApplicationInfo;
- import android.content.pm.PackageManager;
-@@ -7958,20 +7959,24 @@ public class AppOpsManager {
-      * @param message Description why op was started
-      *
-      * @return Returns {@link #MODE_ALLOWED} if the operation is allowed, or
-      * {@link #MODE_IGNORED} if it is not allowed and should be silently ignored (without
-      * causing the app to crash).
-      *
-      * @hide
-      */
-     public int startOpNoThrow(int op, int uid, @NonNull String packageName,
-             boolean startIfModeDefault, @Nullable String attributionTag, @Nullable String message) {
-+        if (GmsCompat.isEnabled() && uid != Process.myUid()) {
-+            return MODE_ALLOWED;
-+        }
-+
-         try {
-             collectNoteOpCallsForValidation(op);
-             int collectionMode = getNotedOpCollectionMode(uid, packageName, op);
-             boolean shouldCollectMessage = Process.myUid() == Process.SYSTEM_UID ? true : false;
-             if (collectionMode == COLLECT_ASYNC) {
-                 if (message == null) {
-                     // Set stack trace as default message
-                     message = getFormattedStackTrace();
-                     shouldCollectMessage = true;
-                 }
-
-commit f2967ce00835281bfc36a0969b493810917bfb58
+commit c5eb82b96994414900c9855a99002a9821fc61e4
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-07-30 18:37:17-0700
 
@@ -13784,7 +13713,7 @@ index 1f698bf6f50589ccab2d5d3904e5fcd932ceb885..97c9b2aa48ba106ea5b65ad9d51e53f3
              return info.getLine1NumberForSubscriber(subId, mContext.getOpPackageName(),
                      mContext.getAttributionTag());
 
-commit 7201348bb416e82c83c412034a5f3aa7ef4e5b16 (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
+commit 8aa084dd4a9d682ef64cf5ee47f113605637d85d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-07-30 19:36:38-0700
 
@@ -13853,3 +13782,2212 @@ index 8fbff89a599ab22303bdcec623773be23ba0d5c7..52c7a7b8f209c1eda730c4e265dc60a8
      // Static only
      private GmsHooks() { }
  
+
+commit 68254e529d1c65ac3c30ac3b3631e18de39ec31a
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sat 2021-07-31 04:03:53-0700
+
+    gmscompat: Add compatibility change for Dynamite clients
+    
+    In order to support Google Play Services' dynamic module system
+    (Dynamite) without weakening the SELinux sandbox to allow other apps to
+    open module APKs from /data/user_de/0/com.google.android.gms/app_chimera/m,
+    we'll have to apply compatibility changes to client apps as well.
+    
+    Unlike GMS_UNPRIVILEGED_COMPAT, the Dynamite client change is enabled
+    when:
+      - App is not GMS
+      - and GMS is installed
+      - and GMS is not privileged
+      - and GMS signature is valid (i.e. not microG or another unofficial
+        implementation)
+    
+    Change-Id: I91ad94bdf83317085092199ceaeb115c8f9b7031
+---
+ core/java/android/app/compat/gms/GmsCompat.java | 52 ++++++++++++++++++++++---
+ 1 file changed, 46 insertions(+), 6 deletions(-)
+
+diff --git a/core/java/android/app/compat/gms/GmsCompat.java b/core/java/android/app/compat/gms/GmsCompat.java
+index 2b35ad7f16613f86e98ad5c6f4b2211057f4e0bf..6afc66896995be32e6573ddf86e5eec66114ceb9 100644
+--- a/core/java/android/app/compat/gms/GmsCompat.java
++++ b/core/java/android/app/compat/gms/GmsCompat.java
+@@ -59,51 +59,68 @@ public final class GmsCompat {
+      * This compatibility change is special because the system enables it automatically for certain
+      * apps, but it still needs to be declared with a change ID.
+      *
+      * We don't have a bug for this in Google's issue tracker, so the change ID is a
+      * randomly-generated long.
+      */
+     @ChangeId
+     @Disabled // Overridden as a special case in CompatChange
+     private static final long GMS_UNPRIVILEGED_COMPAT = 1531297613045645771L;
+ 
++    /**
++     * Whether to enable hooks for this app to load Dynamite modules from unprivileged GMS.
++     * This is for CLIENT apps, not GMS itself.
++     */
++    @ChangeId
++    @Disabled // Overridden as a special case in CompatChange
++    private static final long GMS_UNPRIVILEGED_DYNAMITE_CLIENT = 7528921493777479941L;
++
+     private static final boolean DEBUG_VERBOSE = false;
+ 
+     // Static only
+     private GmsCompat() { }
+ 
+-    private static void logEnabled(boolean enabled) {
++    private static void logEnabled(String changeName, boolean enabled) {
+         if (!DEBUG_VERBOSE) {
+             return;
+         }
+ 
+         String pkg = ActivityThread.currentPackageName();
+         if (pkg == null) {
+             pkg = (Process.myUid() == Process.SYSTEM_UID) ? "system_server" : "[unknown]";
+         }
+ 
+-        Log.d(TAG, "Enabled for " + pkg + " (" + Process.myPid() + "): " + enabled);
++        Log.d(TAG, changeName + " enabled for " + pkg + " (" + Process.myPid() + ") = " + enabled);
+     }
+ 
+-    public static boolean isEnabled() {
+-        boolean enabled = Compatibility.isChangeEnabled(GMS_UNPRIVILEGED_COMPAT);
++    private static boolean isChangeEnabled(String changeName, long changeId) {
++        boolean enabled = Compatibility.isChangeEnabled(changeId);
+ 
+         // Compatibility changes aren't available in the system process, but this should never be
+         // enabled for it.
+         if (Process.myUid() == Process.SYSTEM_UID) {
+             enabled = false;
+         }
+ 
+-        logEnabled(enabled);
++        logEnabled(changeName, enabled);
+         return enabled;
+     }
+ 
++    public static boolean isEnabled() {
++        return isChangeEnabled("GMS_UNPRIVILEGED_COMPAT", GMS_UNPRIVILEGED_COMPAT);
++    }
++
++    /** @hide */
++    public static boolean isDynamiteClient() {
++        return isChangeEnabled("GMS_UNPRIVILEGED_DYNAMITE_CLIENT", GMS_UNPRIVILEGED_DYNAMITE_CLIENT);
++    }
++
+     /**
+      * Check whether the given app is unprivileged and part of the Google Play Services family.
+      *
+      * @hide
+      */
+     public static boolean isGmsApp(String packageName, Signature[] signatures, boolean isPrivileged) {
+         // Privileged GMS doesn't need any compatibility changes
+         if (isPrivileged) {
+             return false;
+         }
+@@ -144,16 +161,39 @@ public final class GmsCompat {
+         }
+ 
+         // Get all applicable certificates, even if GMS switches to multiple signing certificates
+         // in the future
+         Signature[] signatures = pkg.signingInfo.hasMultipleSigners() ?
+                 pkg.signingInfo.getApkContentsSigners() :
+                 pkg.signingInfo.getSigningCertificateHistory();
+         return isGmsApp(app.packageName, signatures, app.isPrivilegedApp());
+     }
+ 
++    private static boolean isGmsInstalled(ApplicationInfo relatedApp) {
++        int userId = UserHandle.getUserId(relatedApp.uid);
++        IPackageManager pm = ActivityThread.getPackageManager();
++
++        ApplicationInfo gmsApp;
++        try {
++            gmsApp = pm.getApplicationInfo(GmsInfo.PACKAGE_GMS, 0, userId);
++        } catch (RemoteException e) {
++            throw e.rethrowFromSystemServer();
++        }
++
++        // Check signature to avoid breaking microG's implementation of Dynamite
++        return gmsApp != null && isGmsApp(gmsApp);
++    }
++
+     /** @hide */
+     // CompatChange#isEnabled(ApplicationInfo)
+     public static boolean isChangeEnabled(CompatibilityChangeInfo change, ApplicationInfo app) {
+-        return change.getId() == GMS_UNPRIVILEGED_COMPAT && isGmsApp(app);
++        if (change.getId() == GMS_UNPRIVILEGED_COMPAT) {
++            return isGmsApp(app);
++        } else if (change.getId() == GMS_UNPRIVILEGED_DYNAMITE_CLIENT) {
++            // Client apps can't be GMS itself, but GMS must be installed in the same user
++            return !(GmsInfo.PACKAGE_GMS.equals(app.packageName) && isGmsApp(app)) &&
++                    isGmsInstalled(app);
++        } else {
++            return false;
++        }
+     }
+ }
+
+commit d5c88fe8a876faf6cabbb42bde23c5e59f94b2d5
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sat 2021-07-31 17:25:56-0700
+
+    gmscompat: Add support for loading Dynamite modules
+    
+    This adds support for Google Play Services' dynamic module system,
+    Dynamite, which provides shared library modules (automatically
+    downloaded and updated from Google) to any client app that uses the Play
+    Services SDK. Many of Google's first-party apps are using Dynamite
+    modules (Cronet, Measurement, Google certificates, etc.), and an
+    increasing number of third-party apps are using the Cronet Dynamite
+    module.
+    
+    The Google Play Services client normally attempts to open module APKs
+    directly from /data/user_de/0/com.google.android.gms/app_chimera/m,
+    which is available because it bypasses app data isolation.
+    Unfortunately, this is still not possible to allow without weakening the
+    SELinux sandbox [1].
+    
+    This commit modifies the module loading process to delegate file opening
+    to a GMS service and pass open ParcelFileDescriptors through IPC. On the
+    client side, everything is modified to load code and assets directly
+    from copies of the fd (via mmap).
+    
+    Newly working first-party apps: Google Maps, Google Assistant
+    
+    Other apps should also work better now that full-blown Cronet can be
+    used instead of the Java-based fallback.
+    
+    New module loading process: (* = compat)
+      - Client app starts
+          * Install libcore hooks
+      - Client app calls Play Services SDK
+      - SDK loads DynamiteLoaderImpl (IDynamiteLoader) from GMS APK
+      - GMS code (in client process) takes over
+      - GMS client creates DelegateLastClassLoader with dex and native paths
+          * Client creates DynamiteContext
+          * Request file proxy service from GMS process (via broadcast)
+          * GMS creates FileProxyService and replies via broadcast
+          * Client calls openFile
+          * GMS validates & sanitizes path and returns open ParcelFileDescriptor
+          * Client creates thread-local ModuleLoadState
+      - DelegateLastClassLoader init continues and creates DexPathList
+          * Get current module fd from thread-local ModuleLoadState
+          * Open fd as zip and parse entries
+          * mmap classes##.dex files
+          * Pass MappedByteBuffers to DexPathList (quasi-InMemoryDexClassLoader)
+      - GMS client creates module Context with assets and resources
+          * ResourcesManager calls ApkAssets.loadFromPath
+          * Get current module fd from thread-local ModuleLoadState
+          * Redirect call to ApkAssets.loadFromFd
+      - GMS client checks FileApk modification date
+          * Client calls File(path)#lastModified()
+          * Get current module path from thread-local ModuleLoadState
+          * Call FileProxyService to get modification date
+          * GMS returns modification date of sanitized path
+          * Client clears thread-local ModuleLoadState; compat end
+      - GMS client returns module Context
+    
+    Dependency commits:
+      - bionic
+        - linker: Add support for opening zip files by fd paths [2]
+      - libcore
+        - ZipFile: Add support for opening zip files by fd paths [3]
+        - libcore: Add hooks for Dynamite module support in GmsCompat [4]
+    
+    Expected module loading output:
+    
+        D GmsCompat/DynamiteClient: Loading module: /data/user_de/0/com.google.android.gms/app_chimera/m/00000011/CronetDynamite.apk!/lib/arm64-v8a
+        D GmsCompat/DynamiteClient: Requesting file proxy service from GMS
+        D GmsCompat/DynamiteServer: Sending file proxy binder to dev.kdrag0n.dynamitetest
+        D GmsCompat/DynamiteServer: Opening /data/user_de/0/com.google.android.gms/app_chimera/m/00000011/CronetDynamite.apk for remote
+        D GmsCompat/DynamiteClient: Received remote fd: /data/user_de/0/com.google.android.gms/app_chimera/m/00000011/CronetDynamite.apk -> 71
+        D GmsCompat/DynamiteClient: Creating class loader with 1 dex buffer(s)
+        D GmsCompat/DynamiteClient: Replacing /data/user_de/0/com.google.android.gms/app_chimera/m/00000011/CronetDynamite.apk -> fd 71
+        D GmsCompat/DynamiteClient: File /data/user_de/0/com.google.android.gms/app_chimera/m/00000011/CronetDynamite.apk lastModified=1627004593000
+        D GmsCompat/DynamiteClient: Finished loading module /data/user_de/0/com.google.android.gms/app_chimera/m/00000011/CronetDynamite.apk
+    
+    [1] https://android.googlesource.com/platform/system/sepolicy/+/refs/tags/android-s-beta-3/private/mls#72
+    [2] https://github.com/GrapheneOS/platform_bionic/pull/10
+    [3] https://github.com/GrapheneOS/platform_libcore/pull/1
+    [4] https://github.com/GrapheneOS/platform_libcore/pull/2
+    
+    Change-Id: I387d41308dd970ea3fcdbe32b742acbc325efd27
+---
+ core/java/android/content/res/ApkAssets.java       |   9 +
+ .../com/android/internal/gmscompat/GmsHooks.java   |  15 +-
+ .../gmscompat/dynamite/GmsDynamiteHooks.java (new) | 200 +++++++++++++++++++++
+ .../dynamite/client/DynamiteContext.java (new)     | 153 ++++++++++++++++
+ .../dynamite/client/ModuleLoadState.java (new)     |  64 +++++++
+ .../dynamite/server/FileProxyProvider.java (new)   |  86 +++++++++
+ .../dynamite/server/FileProxyService.java (new)    | 101 +++++++++++
+ .../dynamite/server/IFileProxyService.aidl (new)   |   7 +
+ 8 files changed, 631 insertions(+), 4 deletions(-)
+
+diff --git a/core/java/android/content/res/ApkAssets.java b/core/java/android/content/res/ApkAssets.java
+index bc418061e1d111088ea8b77b57e65fd1ce5313c7..6b9f8fab5426e94ed764e5fa8b2190fc46be6099 100644
+--- a/core/java/android/content/res/ApkAssets.java
++++ b/core/java/android/content/res/ApkAssets.java
+@@ -11,26 +11,28 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ package android.content.res;
+ 
+ import android.annotation.IntDef;
+ import android.annotation.NonNull;
+ import android.annotation.Nullable;
++import android.app.compat.gms.GmsCompat;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.om.OverlayableInfo;
+ import android.content.res.loader.AssetsProvider;
+ import android.content.res.loader.ResourcesProvider;
+ 
+ import com.android.internal.annotations.GuardedBy;
++import com.android.internal.gmscompat.dynamite.GmsDynamiteHooks;
+ 
+ import java.io.FileDescriptor;
+ import java.io.IOException;
+ import java.lang.annotation.Retention;
+ import java.lang.annotation.RetentionPolicy;
+ import java.util.Objects;
+ 
+ /**
+  * The loaded, immutable, in-memory representation of an APK.
+  *
+@@ -130,20 +132,27 @@ public final class ApkAssets {
+     /**
+      * Creates a new ApkAssets instance from the given path on disk.
+      *
+      * @param path The path to an APK on disk.
+      * @param flags flags that change the behavior of loaded apk assets
+      * @return a new instance of ApkAssets.
+      * @throws IOException if a disk I/O error or parsing error occurred.
+      */
+     public static @NonNull ApkAssets loadFromPath(@NonNull String path, @PropertyFlags int flags)
+             throws IOException {
++        if (GmsCompat.isDynamiteClient()) {
++            ApkAssets assets = GmsDynamiteHooks.loadAssetsFromPath(path, flags);
++            if (assets != null) {
++                return assets;
++            }
++        }
++
+         return new ApkAssets(FORMAT_APK, path, flags, null /* assets */);
+     }
+ 
+     /**
+      * Creates a new ApkAssets instance from the given path on disk.
+      *
+      * @param path The path to an APK on disk.
+      * @param flags flags that change the behavior of loaded apk assets
+      * @param assets The assets provider that overrides the loading of file-based resources
+      * @return a new instance of ApkAssets.
+diff --git a/core/java/com/android/internal/gmscompat/GmsHooks.java b/core/java/com/android/internal/gmscompat/GmsHooks.java
+index 52c7a7b8f209c1eda730c4e265dc60a83bf3539f..52a7145eed02f73c7085fd9d8ec2a68cdc55d078 100644
+--- a/core/java/com/android/internal/gmscompat/GmsHooks.java
++++ b/core/java/com/android/internal/gmscompat/GmsHooks.java
+@@ -34,20 +34,21 @@ import android.content.pm.PackageManager;
+ import android.content.pm.SharedLibraryInfo;
+ import android.os.Build;
+ import android.os.Process;
+ import android.os.UserHandle;
+ import android.os.UserManager;
+ import android.provider.Settings;
+ import android.util.Log;
+ import android.webkit.WebView;
+ 
+ import com.android.internal.R;
++import com.android.internal.gmscompat.dynamite.GmsDynamiteHooks;
+ 
+ import java.util.Collections;
+ import java.util.List;
+ 
+ /**
+  * API shims for Google Play Services compatibility. Hooks that are more complicated than a simple
+  * constant return value should be delegated to this class for easier maintenance.
+  *
+  * @hide
+  */
+@@ -190,27 +191,33 @@ public final class GmsHooks {
+         }
+ 
+         // Remove MATCH_ANY_USER flag to avoid permission denial
+         return flags & ~PackageManager.MATCH_ANY_USER;
+     }
+ 
+     // Fix RuntimeException: Using WebView from more than one process at once with the same data
+     // directory is not supported. https://crbug.com/558377
+     // Instrumentation#newApplication(ClassLoader, String, Context)
+     public static void initApplicationBeforeOnCreate(Application app) {
+-        if (!GmsCompat.isEnabled() || app == null) {
++        if (app == null) {
+             return;
+         }
+ 
+-        String processName = Application.getProcessName();
+-        if (!app.getPackageName().equals(processName)) {
+-            WebView.setDataDirectorySuffix("process-shim--" + processName);
++        if (GmsCompat.isEnabled()) {
++            String processName = Application.getProcessName();
++            if (!app.getPackageName().equals(processName)) {
++                WebView.setDataDirectorySuffix("process-shim--" + processName);
++            }
++
++            GmsDynamiteHooks.initGmsServerApp(app);
++        } else if (GmsCompat.isDynamiteClient()) {
++            GmsDynamiteHooks.initClientApp();
+         }
+     }
+ 
+     // Request user action for package install sessions
+     // LoadedApk.ReceiverDispatcher.InnerReceiver#performReceive(Intent, int, String, Bundle, boolean, boolean, int)
+     public static boolean performReceive(Intent intent) {
+         if (!GmsCompat.isEnabled()) {
+             return false;
+         }
+ 
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java b/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..dfd1a1c6e73b9be9eba2385ef6d622e756a4ccf8
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java
+@@ -0,0 +1,200 @@
++/*
++ * Copyright (C) 2021 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.internal.gmscompat.dynamite;
++
++import android.app.ActivityThread;
++import android.app.Application;
++import android.content.Context;
++import android.content.res.ApkAssets;
++import android.os.ParcelFileDescriptor;
++import android.os.Process;
++import android.os.RemoteException;
++import android.util.Log;
++
++import com.android.internal.gmscompat.GmsInfo;
++import com.android.internal.gmscompat.dynamite.client.ModuleLoadState;
++import com.android.internal.gmscompat.dynamite.client.DynamiteContext;
++import com.android.internal.gmscompat.dynamite.server.FileProxyProvider;
++
++import dalvik.system.DelegateLastClassLoader;
++import dalvik.system.DexPathList;
++
++import java.io.File;
++import java.io.FileNotFoundException;
++import java.io.IOException;
++import java.nio.ByteBuffer;
++import java.util.Arrays;
++import java.util.List;
++import java.util.Objects;
++import java.util.regex.Pattern;
++import java.util.stream.Collectors;
++
++/**
++ * Hooks specific to Dynamite module compatibility.
++ *
++ * @hide
++ */
++public final class GmsDynamiteHooks {
++    // Some hooks can be considered hot paths, so cache the enabled state.
++    private static volatile boolean isClient = false;
++    // Created lazily because most apps don't use Dynamite modules
++    private static DynamiteContext clientContext = null;
++
++    private GmsDynamiteHooks() { }
++
++    private static DynamiteContext getClientContext() {
++        if (clientContext != null) {
++            return clientContext;
++        }
++
++        Context context = Objects.requireNonNull(ActivityThread.currentApplication());
++        clientContext = new DynamiteContext(context);
++        return clientContext;
++    }
++
++    public static void initClientApp() {
++        isClient = true;
++
++        // Install hooks (requires libcore changes)
++        DexPathList.postConstructorBufferHook = GmsDynamiteHooks::getDexPathListBuffers;
++        File.lastModifiedHook = GmsDynamiteHooks::getFileLastModified;
++        DelegateLastClassLoader.librarySearchPathHook = GmsDynamiteHooks::mapRemoteLibraryPaths;
++    }
++
++    public static void initGmsServerApp(Application app) {
++        // Main GMS process only, to avoid serving proxy requests multiple times.
++        // This is specifically the main process, not persistent, because
++        // com.google.android.gms.chimera.container.FileApkIntentOperation$ExternalFileApkService
++        // is in the main process and thus the process is guaranteed to start before
++        // DelegateLastClassLoader requests the file proxy service.
++        if (!Process.isIsolated() && Application.getProcessName().equals(GmsInfo.PACKAGE_GMS)) {
++            FileProxyProvider.register(app);
++        }
++    }
++
++    // For Android assets and resources
++    // ApkAssets#loadFromPath(String, int)
++    public static ApkAssets loadAssetsFromPath(String path, int flags) throws IOException {
++        if (!isClient) {
++            return null;
++        }
++
++        ModuleLoadState state = getClientContext().getState();
++        if (state == null || !state.modulePath.equals(path)) {
++            return null;
++        }
++
++        Log.d(DynamiteContext.TAG, "Replacing " + path + " -> fd " + state.moduleFd.getInt$());
++        return ApkAssets.loadFromFd(state.moduleFd, path, flags, null);
++    }
++
++    // For Java code
++    // DexPathList(ClassLoader, String, String, File, boolean)
++    private static ByteBuffer[] getDexPathListBuffers(DexPathList pathList) {
++        if (!isClient) {
++            return null;
++        }
++
++        ModuleLoadState state = getClientContext().getState();
++        if (state == null) {
++            return null;
++        }
++
++        ByteBuffer[] buffers;
++        try {
++            buffers = state.mapDexBuffers();
++        } catch (IOException e) {
++            throw new RuntimeException(e);
++        }
++
++        Log.d(DynamiteContext.TAG, "Creating class loader with " + buffers.length + " dex buffer(s)");
++
++        // Undo path init and re-initialize with the ByteBuffers
++        return buffers;
++    }
++
++    // To fix false-positive "Module APK has been modified" check
++    // File#lastModified()
++    private static Long getFileLastModified(File file) {
++        if (!isClient) {
++            return null;
++        }
++
++        ModuleLoadState state = getClientContext().getState();
++        if (state == null || !state.modulePath.equals(file.getPath())) {
++            return null;
++        }
++
++        long lastModified;
++        try {
++            lastModified = getClientContext().getService().getLastModified(file.getPath());
++        } catch (RemoteException e) {
++            throw e.rethrowAsRuntimeException();
++        }
++        Log.d(DynamiteContext.TAG, "File " + file.getPath() + " lastModified=" + lastModified);
++
++        // This is the final hook in the module loading process, so clear the state.
++        getClientContext().setState(null);
++
++        Log.d(DynamiteContext.TAG, "Finished loading module " + state.modulePath);
++        return lastModified;
++    }
++
++    // To start the module loading process and map native library paths to fd from remote
++    public static String mapRemoteLibraryPaths(String librarySearchPath) {
++        if (!isClient || librarySearchPath == null) {
++            return librarySearchPath;
++        }
++
++        String[] searchPaths = librarySearchPath.split(Pattern.quote(File.pathSeparator));
++
++        List<String> newPaths = Arrays.stream(searchPaths).map(libPath -> {
++            if (!libPath.startsWith(getClientContext().gmsDataPrefix)) {
++                return libPath;
++            }
++
++            Log.d(DynamiteContext.TAG, "Loading module: " + libPath);
++            String[] libComponents = libPath.split("!");
++            String path = libComponents[0];
++
++            // Ask GMS to open the file and return a PFD. Be careful with ownership.
++            ParcelFileDescriptor srcPfd;
++            try {
++                srcPfd = getClientContext().getService().openFile(path);
++            } catch (RemoteException e) {
++                throw e.rethrowAsRuntimeException();
++            }
++            if (srcPfd == null) {
++                throw new RuntimeException(new FileNotFoundException(path));
++            }
++
++            // For ApkAssets, DexPathList, File#lastModified()
++            Log.d(DynamiteContext.TAG, "Received remote fd: " + path + " -> " + srcPfd.getFd());
++            ModuleLoadState state = new ModuleLoadState(path, srcPfd.getFileDescriptor());
++            getClientContext().setState(state);
++
++            // Native code dups the fd each time it loads a lib
++            String fdPath = "/proc/self/fd/" + srcPfd.getFd();
++            libComponents[0] = fdPath;
++
++            // Re-combine the path with native library components
++            return String.join("!", libComponents);
++        }).collect(Collectors.toList());
++
++        return String.join(File.pathSeparator, newPaths);
++    }
++}
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java b/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..10d99679bd256b6479bb06feb19a44593fddee49
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java
+@@ -0,0 +1,153 @@
++/*
++ * Copyright (C) 2021 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.internal.gmscompat.dynamite.client;
++
++import android.content.BroadcastReceiver;
++import android.content.Context;
++import android.content.Intent;
++import android.content.IntentFilter;
++import android.os.Bundle;
++import android.os.Handler;
++import android.os.HandlerThread;
++import android.os.IBinder;
++import android.os.RemoteException;
++import android.util.Log;
++
++import com.android.internal.gmscompat.GmsInfo;
++import com.android.internal.gmscompat.dynamite.server.FileProxyProvider;
++import com.android.internal.gmscompat.dynamite.server.IFileProxyService;
++
++/** @hide */
++public final class DynamiteContext {
++    public static final String TAG = "GmsCompat/DynamiteClient";
++
++    // Permission that only GMS holds
++    private static final String GMS_PERM = "com.google.android.gms.permission.INTERNAL_BROADCAST";
++
++    // Make sure we don't block the main thread for too long if GMS isn't available
++    private static final long GET_SERVICE_TIMEOUT = 250L;
++
++    private final Context context;
++    public final String gmsDataPrefix;
++
++    // Manage state for loading one module at a time per thread
++    private final ThreadLocal<ModuleLoadState> threadLocalState = new ThreadLocal<>();
++
++    // The remote GMS process can die at any time, so this needs to be managed carefully.
++    private IFileProxyService serviceBinder = null;
++
++    public DynamiteContext(Context context) {
++        this.context = context;
++
++        // Use our own context and replace the package name to avoid ApkAssets recursion when
++        // lazy-creating a DynamiteContext in the ApkAssets hook
++        this.gmsDataPrefix = context.createDeviceProtectedStorageContext().getDataDir().getPath()
++                .replace(context.getPackageName(), GmsInfo.PACKAGE_GMS) + "/";
++    }
++
++    public ModuleLoadState getState() {
++        return threadLocalState.get();
++    }
++    public void setState(ModuleLoadState state) {
++        threadLocalState.set(state);
++    }
++
++    public IFileProxyService getService() {
++        return serviceBinder == null ? getNewBinder() : serviceBinder;
++    }
++
++    private IFileProxyService getNewBinder() {
++        // Request a fresh service unconditionally
++        IFileProxyService binder = requestGmsService();
++
++        // Register before saving to avoid race condition if GMS dies *now*
++        try {
++            binder.asBinder().linkToDeath(() -> {
++                Log.d(DynamiteContext.TAG, "File proxy service has died");
++                serviceBinder = null;
++            }, 0);
++
++            serviceBinder = binder;
++            return binder;
++        } catch (RemoteException e) {
++            serviceBinder = null;
++            return null;
++        }
++    }
++
++    private IFileProxyService requestGmsService() {
++        // Create a dedicated thread to avoid deadlocks, since this might be called on the main thread
++        HandlerThread thread = new HandlerThread(FileProxyProvider.THREAD_NAME);
++        thread.start();
++        Handler handler = new Handler(thread.getLooper());
++
++        // Potential return values
++        final IFileProxyService[] service = {null};
++        final RuntimeException[] receiverException = {null};
++        BroadcastReceiver replyReceiver = new BroadcastReceiver() {
++            @Override
++            public void onReceive(Context context, Intent intent) {
++                if (!intent.getAction().equals(FileProxyProvider.ACTION_RESPONSE)) {
++                    return;
++                }
++
++                try {
++                    Bundle bundle = intent.getBundleExtra(FileProxyProvider.EXTRA_BUNDLE);
++                    IBinder binder = bundle.getBinder(FileProxyProvider.EXTRA_BINDER);
++                    service[0] = IFileProxyService.Stub.asInterface(binder);
++                } catch (RuntimeException e) {
++                    receiverException[0] = e;
++                } finally {
++                    thread.quitSafely();
++                }
++            }
++        };
++
++        // Register receiver first
++        IntentFilter filter = new IntentFilter(FileProxyProvider.ACTION_RESPONSE);
++        // For security, we require the reply to come from GMS (by permission) so other apps
++        // can't inject code into our process by replying with a fake proxy service that returns
++        // malicious APKs.
++        context.registerReceiver(replyReceiver, filter, GMS_PERM, handler);
++
++        // Now, send the broadcast and wait...
++        try {
++            Log.d(TAG, "Requesting file proxy service from GMS");
++
++            Intent intent = new Intent(FileProxyProvider.ACTION_REQUEST);
++            intent.setPackage(GmsInfo.PACKAGE_GMS);
++            intent.putExtra(FileProxyProvider.EXTRA_PACKAGE, context.getPackageName());
++            context.sendBroadcast(intent, GMS_PERM);
++            thread.join(GET_SERVICE_TIMEOUT);
++        } catch (InterruptedException e) {
++            throw new RuntimeException(e);
++        } finally {
++            context.unregisterReceiver(replyReceiver);
++            // Attempt to stop the thread if join() timed out
++            thread.quit();
++        }
++
++        // Rethrow exception or return value
++        if (receiverException[0] != null) {
++            throw receiverException[0];
++        } else if (service[0] != null) {
++            return service[0];
++        } else {
++            throw new IllegalStateException("Dynamite file proxy request timed out");
++        }
++    }
++}
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/client/ModuleLoadState.java b/core/java/com/android/internal/gmscompat/dynamite/client/ModuleLoadState.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..29b39679b75d6fb524ee2e452c8eda05e5d5ca58
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/dynamite/client/ModuleLoadState.java
+@@ -0,0 +1,64 @@
++/*
++ * Copyright (C) 2021 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.internal.gmscompat.dynamite.client;
++
++import android.util.jar.StrictJarFile;
++
++import java.io.FileDescriptor;
++import java.io.FileInputStream;
++import java.io.IOException;
++import java.nio.ByteBuffer;
++import java.nio.channels.FileChannel;
++import java.util.ArrayList;
++import java.util.regex.Pattern;
++import java.util.zip.ZipEntry;
++
++/** @hide */
++public final class ModuleLoadState {
++    private static final Pattern CLASSES_DEX_PATTERN = Pattern.compile("^classes\\d*\\.dex$");
++
++    public String modulePath;
++    public FileDescriptor moduleFd;
++
++    public ModuleLoadState(String modulePath, FileDescriptor moduleFd) {
++        this.modulePath = modulePath;
++        // Do NOT close the original fd. The Bionic linker could dup it for library loading
++        // at any time. Unfortunately, this results in CloseGuard warnings, but it's more efficient
++        // to just ignore them.
++        this.moduleFd = moduleFd;
++    }
++
++    public ByteBuffer[] mapDexBuffers() throws IOException {
++        // Native code doesn't assume ownership, so we can safely use the original fd temporarily
++        FileChannel channel = new FileInputStream(moduleFd).getChannel();
++        // Dynamite modules don't seem to have proper v2 signatures, so don't verify them
++        StrictJarFile jar = new StrictJarFile(moduleFd, false, false);
++
++        ArrayList<ByteBuffer> buffers = new ArrayList<>(1);
++        jar.iterator().forEachRemaining(entry -> {
++            if (entry.getMethod() == ZipEntry.STORED && CLASSES_DEX_PATTERN.matcher(entry.getName()).matches()) {
++                try {
++                    buffers.add(channel.map(FileChannel.MapMode.READ_ONLY, entry.getDataOffset(), entry.getSize()));
++                } catch (IOException e) {
++                    throw new RuntimeException(e);
++                }
++            }
++        });
++
++        return buffers.toArray(new ByteBuffer[0]);
++    }
++}
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..c39bf23bc734a6aff391fd5f0d40c5b2bb735855
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java
+@@ -0,0 +1,86 @@
++/*
++ * Copyright (C) 2021 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.internal.gmscompat.dynamite.server;
++
++import android.app.Application;
++import android.content.BroadcastReceiver;
++import android.content.Context;
++import android.content.Intent;
++import android.content.IntentFilter;
++import android.os.Bundle;
++import android.os.Handler;
++import android.os.HandlerThread;
++import android.util.Log;
++
++/** @hide */
++public final class FileProxyProvider extends BroadcastReceiver {
++    public static final String EXTRA_BUNDLE = "service_bundle";
++    public static final String EXTRA_BINDER = "service_binder";
++    public static final String EXTRA_PACKAGE = "service_client_package";
++
++    public static final String ACTION_REQUEST = "com.android.internal.gmscompat.REQUEST_DYNAMITE_FILE_PROXY";
++    public static final String ACTION_RESPONSE = "com.android.internal.gmscompat.DYNAMITE_FILE_PROXY";
++
++    public static final String THREAD_NAME = "DynamiteFileProxy";
++
++    private FileProxyService service;
++
++    private FileProxyProvider() { }
++
++    @Override
++    public void onReceive(Context context, Intent intent) {
++        if (!intent.getAction().equals(ACTION_REQUEST)) {
++            return;
++        }
++
++        if (service == null) {
++            service = new FileProxyService(context);
++        }
++
++        Intent reply = new Intent(ACTION_RESPONSE);
++
++        // Use an explicit intent to avoid sending multiple replies to clients that
++        // request the file proxy binder at the same time. Security doesn't matter because
++        // this is a public service, and we can't use PendingIntents due to permission checks
++        // on the client side.
++        String clientPackage = intent.getStringExtra(EXTRA_PACKAGE);
++        if (clientPackage == null) {
++            return;
++        }
++        reply.setPackage(clientPackage);
++
++        // New bundle is required because Intent doesn't expose IBinder extras
++        Bundle bundle = new Bundle();
++        bundle.putBinder(EXTRA_BINDER, service.asBinder());
++        reply.putExtra(EXTRA_BUNDLE, bundle);
++
++        Log.d(FileProxyService.TAG, "Sending file proxy binder to " + clientPackage);
++        context.sendBroadcast(reply);
++    }
++
++    public static void register(Context context) {
++        Log.d(FileProxyService.TAG, "Registering file proxy provider from " + Application.getProcessName());
++
++        // Create a dedicated thread to avoid blocking clients for too long
++        HandlerThread thread = new HandlerThread(THREAD_NAME);
++        thread.start();
++        Handler handler = new Handler(thread.getLooper());
++
++        IntentFilter filter = new IntentFilter(ACTION_REQUEST);
++        context.registerReceiver(new FileProxyProvider(), filter, null, handler);
++    }
++}
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..d4b89fefbe1c7c181d3908574250a4daf9d475a2
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java
+@@ -0,0 +1,101 @@
++/*
++ * Copyright (C) 2021 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.internal.gmscompat.dynamite.server;
++
++import android.content.Context;
++import android.os.ParcelFileDescriptor;
++import android.system.ErrnoException;
++import android.system.Os;
++import android.system.OsConstants;
++import android.util.Log;
++
++import java.io.File;
++import java.io.FileNotFoundException;
++import java.io.IOException;
++import java.util.Arrays;
++import java.util.List;
++
++/** @hide */
++public final class FileProxyService extends IFileProxyService.Stub {
++    public static final String TAG = "GmsCompat/DynamiteServer";
++    private static final String CHIMERA_REL_PATH = "app_chimera/m/";
++
++    private final File deDataRoot;
++    private final String chimeraRoot;
++
++    public FileProxyService(Context context) {
++        deDataRoot = context.createDeviceProtectedStorageContext().getDataDir();
++        chimeraRoot = deDataRoot.getPath() + "/" + CHIMERA_REL_PATH;
++    }
++
++    private String sanitizeModulePath(String rawPath) {
++        // Normalize path for security checks
++        String path;
++        try {
++            path = new File(rawPath).getCanonicalPath();
++        } catch (IOException e) {
++            throw new SecurityException("Invalid path " + rawPath + ": " + e.getMessage());
++        }
++
++        // Modules can only be in DE Chimera storage
++        if (!path.startsWith(chimeraRoot)) {
++            throw new SecurityException("Path " + rawPath + " is not in " + chimeraRoot);
++        }
++
++        // Check permissions recursively
++        String relPath = path.substring(deDataRoot.getPath().length() + 1); // already checked prefix above
++        List<String> relParts = Arrays.asList(relPath.split("/"));
++        for (int i = 0; i < relParts.size(); i++) {
++            List<String> leadingParts = relParts.subList(0, i + 1);
++            String nodePath = deDataRoot + "/" + String.join("/", leadingParts);
++            int mode;
++            try {
++                mode = Os.stat(nodePath).st_mode;
++            } catch (ErrnoException e) {
++                throw new SecurityException("Failed to stat " + rawPath + ": " + e.getMessage());
++            }
++
++            // World-readable or world-executable, depending on type
++            boolean isDir = new File(nodePath).isDirectory();
++            int permBit = isDir ? OsConstants.S_IXOTH : OsConstants.S_IROTH;
++            if ((mode & permBit) == 0) {
++                throw new SecurityException("Node " + nodePath + " in path " + rawPath + " is not world-readable");
++            }
++        }
++
++        return path;
++    }
++
++    private ParcelFileDescriptor getFilePfd(String path) {
++        Log.d(TAG, "Opening " + path + " for remote");
++        try {
++            return ParcelFileDescriptor.open(new File(path), ParcelFileDescriptor.MODE_READ_ONLY);
++        } catch (FileNotFoundException e) {
++            return null;
++        }
++    }
++
++    @Override
++    public ParcelFileDescriptor openFile(String rawPath) {
++        return getFilePfd(sanitizeModulePath(rawPath));
++    }
++
++    @Override
++    public long getLastModified(String rawPath) {
++        return new File(sanitizeModulePath(rawPath)).lastModified();
++    }
++}
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/server/IFileProxyService.aidl b/core/java/com/android/internal/gmscompat/dynamite/server/IFileProxyService.aidl
+new file mode 100644
+index 0000000000000000000000000000000000000000..15e5c4195715e9cf93bf6bf89023063c589ae24d
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/dynamite/server/IFileProxyService.aidl
+@@ -0,0 +1,7 @@
++package com.android.internal.gmscompat.dynamite.server;
++
++/** @hide */
++interface IFileProxyService {
++    ParcelFileDescriptor openFile(String path);
++    long getLastModified(String path);
++}
+
+commit 3e5a83b91538695ef6a3d6a1936cde340ee8b300
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sun 2021-08-01 17:20:11-0700
+
+    gmscompat: Call Application init hook before ContentProvider installation
+    
+    For correctness, we need to install hooks before any application code
+    starts to run (except the Application constructor, which typically
+    doesn't do anything special) because ContentProviders are installed
+    before Application#onCreate().
+    
+    Change-Id: I50129b198c00cca30e546d5d532098f704202db0
+---
+ core/java/android/app/Instrumentation.java             | 3 ++-
+ core/java/com/android/internal/gmscompat/GmsHooks.java | 4 ----
+ 2 files changed, 2 insertions(+), 5 deletions(-)
+
+diff --git a/core/java/android/app/Instrumentation.java b/core/java/android/app/Instrumentation.java
+index 3d38d5ebbbdbfb988ec9d9ed53fdacafcd488a5b..eb9339529fee1446a55ed16ee2fd631e25814dc7 100644
+--- a/core/java/android/app/Instrumentation.java
++++ b/core/java/android/app/Instrumentation.java
+@@ -1152,53 +1152,54 @@ public class Instrumentation {
+      * @param context The context to initialize the application with
+      * 
+      * @return The newly instantiated Application object.
+      */
+     public Application newApplication(ClassLoader cl, String className, Context context)
+             throws InstantiationException, IllegalAccessException, 
+             ClassNotFoundException {
+         Application app = getFactory(context.getPackageName())
+                 .instantiateApplication(cl, className);
+         app.attach(context);
++        GmsHooks.initApplicationBeforeOnCreate(app);
+         return app;
+     }
+     
+     /**
+      * Perform instantiation of the process's {@link Application} object.  The
+      * default implementation provides the normal system behavior.
+      * 
+      * @param clazz The class used to create an Application object from.
+      * @param context The context to initialize the application with
+      * 
+      * @return The newly instantiated Application object.
+      */
+     static public Application newApplication(Class<?> clazz, Context context)
+             throws InstantiationException, IllegalAccessException, 
+             ClassNotFoundException {
+         Application app = (Application)clazz.newInstance();
+         app.attach(context);
++        GmsHooks.initApplicationBeforeOnCreate(app);
+         return app;
+     }
+ 
+     /**
+      * Perform calling of the application's {@link Application#onCreate}
+      * method.  The default implementation simply calls through to that method.
+      *
+      * <p>Note: This method will be called immediately after {@link #onCreate(Bundle)}.
+      * Often instrumentation tests start their test thread in onCreate(); you
+      * need to be careful of races between these.  (Well between it and
+      * everything else, but let's start here.)
+      *
+      * @param app The application being created.
+      */
+     public void callApplicationOnCreate(Application app) {
+-        GmsHooks.initApplicationBeforeOnCreate(app);
+         app.onCreate();
+     }
+     
+     /**
+      * Perform instantiation of an {@link Activity} object.  This method is intended for use with
+      * unit tests, such as android.test.ActivityUnitTestCase.  The activity will be useable
+      * locally but will be missing some of the linkages necessary for use within the system.
+      * 
+      * @param clazz The Class of the desired Activity
+      * @param context The base context for the activity to use
+diff --git a/core/java/com/android/internal/gmscompat/GmsHooks.java b/core/java/com/android/internal/gmscompat/GmsHooks.java
+index 52a7145eed02f73c7085fd9d8ec2a68cdc55d078..57ca25a450ba317386ef34df1283abc29a8bb4b8 100644
+--- a/core/java/com/android/internal/gmscompat/GmsHooks.java
++++ b/core/java/com/android/internal/gmscompat/GmsHooks.java
+@@ -191,24 +191,20 @@ public final class GmsHooks {
+         }
+ 
+         // Remove MATCH_ANY_USER flag to avoid permission denial
+         return flags & ~PackageManager.MATCH_ANY_USER;
+     }
+ 
+     // Fix RuntimeException: Using WebView from more than one process at once with the same data
+     // directory is not supported. https://crbug.com/558377
+     // Instrumentation#newApplication(ClassLoader, String, Context)
+     public static void initApplicationBeforeOnCreate(Application app) {
+-        if (app == null) {
+-            return;
+-        }
+-
+         if (GmsCompat.isEnabled()) {
+             String processName = Application.getProcessName();
+             if (!app.getPackageName().equals(processName)) {
+                 WebView.setDataDirectorySuffix("process-shim--" + processName);
+             }
+ 
+             GmsDynamiteHooks.initGmsServerApp(app);
+         } else if (GmsCompat.isDynamiteClient()) {
+             GmsDynamiteHooks.initClientApp();
+         }
+
+commit ab3890f19ddaa7d93dce531c0b8e459df37b1d80
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sun 2021-08-01 17:27:23-0700
+
+    gmscompat: Optimize compatibility change checks
+    
+    Querying the state of a compatibility change is relatively expensive
+    because it involves a layer of Compatibility.Callbacks indirection
+    followed by an array binary search for disabled change IDs. Considering
+    that some of our hooks are in potentially-hot paths, such as
+    File#lastModified() in file manager/archival apps, it's worth optimizing
+    the checks.
+    
+    For performance, check the compatibility change states once at init time
+    (before Application#onCreate) and cache the states in volatile fields.
+    The fields need to be volatile in order to ensure thread safety during
+    early app init (especially if GmsCompat classes get loaded into Zygote
+    somehow), but that's a miniscule cost compared to calling
+    Compatibility#isChangeEnabled repeatedly.
+    
+    Change-Id: Ic8a9afb388428efc0ead638bd6f41bc789192cbc
+---
+ core/java/android/app/compat/gms/GmsCompat.java    | 29 ++++++++++++++++------
+ .../com/android/internal/gmscompat/GmsHooks.java   |  2 ++
+ .../gmscompat/dynamite/GmsDynamiteHooks.java       | 13 ++++------
+ 3 files changed, 28 insertions(+), 16 deletions(-)
+
+diff --git a/core/java/android/app/compat/gms/GmsCompat.java b/core/java/android/app/compat/gms/GmsCompat.java
+index 6afc66896995be32e6573ddf86e5eec66114ceb9..7c01b6edbe2296d778b0ad2f97183137d9834d0f 100644
+--- a/core/java/android/app/compat/gms/GmsCompat.java
++++ b/core/java/android/app/compat/gms/GmsCompat.java
+@@ -45,20 +45,21 @@ import com.android.internal.gmscompat.GmsInfo;
+  *
+  * All GMS compatibility hooks should call methods on GmsCompat. Hooks that are more complicated
+  * than returning a simple constant value should also be implemented in GmsHooks to reduce
+  * maintenance overhead.
+  *
+  * @hide
+  */
+ @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
+ public final class GmsCompat {
+     private static final String TAG = "GmsCompat/Core";
++    private static final boolean DEBUG_VERBOSE = false;
+ 
+     /**
+      * Whether to enable Google Play Services compatibility for this app.
+      *
+      * This compatibility change is special because the system enables it automatically for certain
+      * apps, but it still needs to be declared with a change ID.
+      *
+      * We don't have a bug for this in Google's issue tracker, so the change ID is a
+      * randomly-generated long.
+      */
+@@ -67,25 +68,36 @@ public final class GmsCompat {
+     private static final long GMS_UNPRIVILEGED_COMPAT = 1531297613045645771L;
+ 
+     /**
+      * Whether to enable hooks for this app to load Dynamite modules from unprivileged GMS.
+      * This is for CLIENT apps, not GMS itself.
+      */
+     @ChangeId
+     @Disabled // Overridden as a special case in CompatChange
+     private static final long GMS_UNPRIVILEGED_DYNAMITE_CLIENT = 7528921493777479941L;
+ 
+-    private static final boolean DEBUG_VERBOSE = false;
++    // Some hooks are in (potentially) hot paths, so cache the change enable states.
++    private static volatile boolean isGmsCompatEnabled = false;
++    private static volatile boolean isDynamiteClientEnabled = false;
+ 
+     // Static only
+     private GmsCompat() { }
+ 
++    public static boolean isEnabled() {
++        return isGmsCompatEnabled;
++    }
++
++    /** @hide */
++    public static boolean isDynamiteClient() {
++        return isDynamiteClientEnabled;
++    }
++
+     private static void logEnabled(String changeName, boolean enabled) {
+         if (!DEBUG_VERBOSE) {
+             return;
+         }
+ 
+         String pkg = ActivityThread.currentPackageName();
+         if (pkg == null) {
+             pkg = (Process.myUid() == Process.SYSTEM_UID) ? "system_server" : "[unknown]";
+         }
+ 
+@@ -98,27 +110,28 @@ public final class GmsCompat {
+         // Compatibility changes aren't available in the system process, but this should never be
+         // enabled for it.
+         if (Process.myUid() == Process.SYSTEM_UID) {
+             enabled = false;
+         }
+ 
+         logEnabled(changeName, enabled);
+         return enabled;
+     }
+ 
+-    public static boolean isEnabled() {
+-        return isChangeEnabled("GMS_UNPRIVILEGED_COMPAT", GMS_UNPRIVILEGED_COMPAT);
+-    }
+-
+-    /** @hide */
+-    public static boolean isDynamiteClient() {
+-        return isChangeEnabled("GMS_UNPRIVILEGED_DYNAMITE_CLIENT", GMS_UNPRIVILEGED_DYNAMITE_CLIENT);
++    /**
++     * Must be called to initialize the compatibility change enable states before any hooks run.
++     *
++     * @hide
++     */
++    public static void initChangeEnableStates() {
++        isGmsCompatEnabled = isChangeEnabled("GMS_UNPRIVILEGED_COMPAT", GMS_UNPRIVILEGED_COMPAT);
++        isDynamiteClientEnabled = isChangeEnabled("GMS_UNPRIVILEGED_DYNAMITE_CLIENT", GMS_UNPRIVILEGED_DYNAMITE_CLIENT);
+     }
+ 
+     /**
+      * Check whether the given app is unprivileged and part of the Google Play Services family.
+      *
+      * @hide
+      */
+     public static boolean isGmsApp(String packageName, Signature[] signatures, boolean isPrivileged) {
+         // Privileged GMS doesn't need any compatibility changes
+         if (isPrivileged) {
+diff --git a/core/java/com/android/internal/gmscompat/GmsHooks.java b/core/java/com/android/internal/gmscompat/GmsHooks.java
+index 57ca25a450ba317386ef34df1283abc29a8bb4b8..d21346d59aeeb62b85243758735e3fee71162669 100644
+--- a/core/java/com/android/internal/gmscompat/GmsHooks.java
++++ b/core/java/com/android/internal/gmscompat/GmsHooks.java
+@@ -191,20 +191,22 @@ public final class GmsHooks {
+         }
+ 
+         // Remove MATCH_ANY_USER flag to avoid permission denial
+         return flags & ~PackageManager.MATCH_ANY_USER;
+     }
+ 
+     // Fix RuntimeException: Using WebView from more than one process at once with the same data
+     // directory is not supported. https://crbug.com/558377
+     // Instrumentation#newApplication(ClassLoader, String, Context)
+     public static void initApplicationBeforeOnCreate(Application app) {
++        GmsCompat.initChangeEnableStates();
++
+         if (GmsCompat.isEnabled()) {
+             String processName = Application.getProcessName();
+             if (!app.getPackageName().equals(processName)) {
+                 WebView.setDataDirectorySuffix("process-shim--" + processName);
+             }
+ 
+             GmsDynamiteHooks.initGmsServerApp(app);
+         } else if (GmsCompat.isDynamiteClient()) {
+             GmsDynamiteHooks.initClientApp();
+         }
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java b/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java
+index dfd1a1c6e73b9be9eba2385ef6d622e756a4ccf8..38f0bf0748291101af51499da725eea2f3db8e23 100644
+--- a/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java
++++ b/core/java/com/android/internal/gmscompat/dynamite/GmsDynamiteHooks.java
+@@ -11,20 +11,21 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.internal.gmscompat.dynamite;
+ 
+ import android.app.ActivityThread;
+ import android.app.Application;
++import android.app.compat.gms.GmsCompat;
+ import android.content.Context;
+ import android.content.res.ApkAssets;
+ import android.os.ParcelFileDescriptor;
+ import android.os.Process;
+ import android.os.RemoteException;
+ import android.util.Log;
+ 
+ import com.android.internal.gmscompat.GmsInfo;
+ import com.android.internal.gmscompat.dynamite.client.ModuleLoadState;
+ import com.android.internal.gmscompat.dynamite.client.DynamiteContext;
+@@ -42,77 +43,73 @@ import java.util.List;
+ import java.util.Objects;
+ import java.util.regex.Pattern;
+ import java.util.stream.Collectors;
+ 
+ /**
+  * Hooks specific to Dynamite module compatibility.
+  *
+  * @hide
+  */
+ public final class GmsDynamiteHooks {
+-    // Some hooks can be considered hot paths, so cache the enabled state.
+-    private static volatile boolean isClient = false;
+     // Created lazily because most apps don't use Dynamite modules
+     private static DynamiteContext clientContext = null;
+ 
+     private GmsDynamiteHooks() { }
+ 
+     private static DynamiteContext getClientContext() {
+         if (clientContext != null) {
+             return clientContext;
+         }
+ 
+         Context context = Objects.requireNonNull(ActivityThread.currentApplication());
+         clientContext = new DynamiteContext(context);
+         return clientContext;
+     }
+ 
+     public static void initClientApp() {
+-        isClient = true;
+-
+         // Install hooks (requires libcore changes)
+         DexPathList.postConstructorBufferHook = GmsDynamiteHooks::getDexPathListBuffers;
+         File.lastModifiedHook = GmsDynamiteHooks::getFileLastModified;
+         DelegateLastClassLoader.librarySearchPathHook = GmsDynamiteHooks::mapRemoteLibraryPaths;
+     }
+ 
+     public static void initGmsServerApp(Application app) {
+         // Main GMS process only, to avoid serving proxy requests multiple times.
+         // This is specifically the main process, not persistent, because
+         // com.google.android.gms.chimera.container.FileApkIntentOperation$ExternalFileApkService
+         // is in the main process and thus the process is guaranteed to start before
+         // DelegateLastClassLoader requests the file proxy service.
+         if (!Process.isIsolated() && Application.getProcessName().equals(GmsInfo.PACKAGE_GMS)) {
+             FileProxyProvider.register(app);
+         }
+     }
+ 
+     // For Android assets and resources
+     // ApkAssets#loadFromPath(String, int)
+     public static ApkAssets loadAssetsFromPath(String path, int flags) throws IOException {
+-        if (!isClient) {
++        if (!GmsCompat.isDynamiteClient()) {
+             return null;
+         }
+ 
+         ModuleLoadState state = getClientContext().getState();
+         if (state == null || !state.modulePath.equals(path)) {
+             return null;
+         }
+ 
+         Log.d(DynamiteContext.TAG, "Replacing " + path + " -> fd " + state.moduleFd.getInt$());
+         return ApkAssets.loadFromFd(state.moduleFd, path, flags, null);
+     }
+ 
+     // For Java code
+     // DexPathList(ClassLoader, String, String, File, boolean)
+     private static ByteBuffer[] getDexPathListBuffers(DexPathList pathList) {
+-        if (!isClient) {
++        if (!GmsCompat.isDynamiteClient()) {
+             return null;
+         }
+ 
+         ModuleLoadState state = getClientContext().getState();
+         if (state == null) {
+             return null;
+         }
+ 
+         ByteBuffer[] buffers;
+         try {
+@@ -123,21 +120,21 @@ public final class GmsDynamiteHooks {
+ 
+         Log.d(DynamiteContext.TAG, "Creating class loader with " + buffers.length + " dex buffer(s)");
+ 
+         // Undo path init and re-initialize with the ByteBuffers
+         return buffers;
+     }
+ 
+     // To fix false-positive "Module APK has been modified" check
+     // File#lastModified()
+     private static Long getFileLastModified(File file) {
+-        if (!isClient) {
++        if (!GmsCompat.isDynamiteClient()) {
+             return null;
+         }
+ 
+         ModuleLoadState state = getClientContext().getState();
+         if (state == null || !state.modulePath.equals(file.getPath())) {
+             return null;
+         }
+ 
+         long lastModified;
+         try {
+@@ -149,21 +146,21 @@ public final class GmsDynamiteHooks {
+ 
+         // This is the final hook in the module loading process, so clear the state.
+         getClientContext().setState(null);
+ 
+         Log.d(DynamiteContext.TAG, "Finished loading module " + state.modulePath);
+         return lastModified;
+     }
+ 
+     // To start the module loading process and map native library paths to fd from remote
+     public static String mapRemoteLibraryPaths(String librarySearchPath) {
+-        if (!isClient || librarySearchPath == null) {
++        if (!GmsCompat.isDynamiteClient() || librarySearchPath == null) {
+             return librarySearchPath;
+         }
+ 
+         String[] searchPaths = librarySearchPath.split(Pattern.quote(File.pathSeparator));
+ 
+         List<String> newPaths = Arrays.stream(searchPaths).map(libPath -> {
+             if (!libPath.startsWith(getClientContext().gmsDataPrefix)) {
+                 return libPath;
+             }
+ 
+
+commit fe1564b8af0bac927067567de7e2d3af4ac6b056
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2021-08-02 03:32:40-0700
+
+    gmscompat: dynamite: Create proxy service with application context
+    
+    We don't currently keep any Context references in the service, but this
+    is still more future-proof for avoiding memory leaks.
+    
+    Change-Id: I09930e751498125d96a2002ec470065947b74e66
+---
+ .../android/internal/gmscompat/dynamite/server/FileProxyProvider.java  | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java
+index c39bf23bc734a6aff391fd5f0d40c5b2bb735855..b7eae2bbc289abccb5b5ae05496bb5b4640291a0 100644
+--- a/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java
++++ b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyProvider.java
+@@ -41,21 +41,22 @@ public final class FileProxyProvider extends BroadcastReceiver {
+ 
+     private FileProxyProvider() { }
+ 
+     @Override
+     public void onReceive(Context context, Intent intent) {
+         if (!intent.getAction().equals(ACTION_REQUEST)) {
+             return;
+         }
+ 
+         if (service == null) {
+-            service = new FileProxyService(context);
++            // The service is a singleton, so use the application context to prevent memory leaks.
++            service = new FileProxyService(context.getApplicationContext());
+         }
+ 
+         Intent reply = new Intent(ACTION_RESPONSE);
+ 
+         // Use an explicit intent to avoid sending multiple replies to clients that
+         // request the file proxy binder at the same time. Security doesn't matter because
+         // this is a public service, and we can't use PendingIntents due to permission checks
+         // on the client side.
+         String clientPackage = intent.getStringExtra(EXTRA_PACKAGE);
+         if (clientPackage == null) {
+
+commit 16552283688f65edf12b771a8e4d460150ea791f
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2021-08-02 03:37:20-0700
+
+    gmscompat: dynamite: Remove redundant File#isDirectory() call
+    
+    Change-Id: I44f7581b9e5701dbeb21f601f4147aab785aa6f2
+---
+ .../android/internal/gmscompat/dynamite/server/FileProxyService.java   | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java
+index d4b89fefbe1c7c181d3908574250a4daf9d475a2..8656f0767d6167eaa6532c2c427765d7cd720dd4 100644
+--- a/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java
++++ b/core/java/com/android/internal/gmscompat/dynamite/server/FileProxyService.java
+@@ -63,22 +63,21 @@ public final class FileProxyService extends IFileProxyService.Stub {
+             List<String> leadingParts = relParts.subList(0, i + 1);
+             String nodePath = deDataRoot + "/" + String.join("/", leadingParts);
+             int mode;
+             try {
+                 mode = Os.stat(nodePath).st_mode;
+             } catch (ErrnoException e) {
+                 throw new SecurityException("Failed to stat " + rawPath + ": " + e.getMessage());
+             }
+ 
+             // World-readable or world-executable, depending on type
+-            boolean isDir = new File(nodePath).isDirectory();
+-            int permBit = isDir ? OsConstants.S_IXOTH : OsConstants.S_IROTH;
++            int permBit = OsConstants.S_ISDIR(mode) ? OsConstants.S_IXOTH : OsConstants.S_IROTH;
+             if ((mode & permBit) == 0) {
+                 throw new SecurityException("Node " + nodePath + " in path " + rawPath + " is not world-readable");
+             }
+         }
+ 
+         return path;
+     }
+ 
+     private ParcelFileDescriptor getFilePfd(String path) {
+         Log.d(TAG, "Opening " + path + " for remote");
+
+commit 07a7b0d1cf0ae555a7fc0fcab99960167a823ab1
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-08-03 16:59:39-0700
+
+    gmscompat: Check shared user ID of GMS and GSF packages
+    
+    On ROMs with support for signature spoofing, microG can be reported as
+    being signed with Google's certificate. Check the shared user ID to
+    avoid breaking microG with our API shims.
+    
+    Change-Id: Icc6f09eaeef313012bc5ecd2214ce3e3d475b3e0
+---
+ core/java/android/app/compat/gms/GmsCompat.java          | 15 ++++++++++-----
+ core/java/com/android/internal/gmscompat/GmsInfo.java    |  3 +++
+ services/core/java/com/android/server/pm/AppsFilter.java |  3 ++-
+ 3 files changed, 15 insertions(+), 6 deletions(-)
+
+diff --git a/core/java/android/app/compat/gms/GmsCompat.java b/core/java/android/app/compat/gms/GmsCompat.java
+index 7c01b6edbe2296d778b0ad2f97183137d9834d0f..4aadde0b4f5be0a6ea4276e738351a73fdde140e 100644
+--- a/core/java/android/app/compat/gms/GmsCompat.java
++++ b/core/java/android/app/compat/gms/GmsCompat.java
+@@ -125,29 +125,34 @@ public final class GmsCompat {
+     public static void initChangeEnableStates() {
+         isGmsCompatEnabled = isChangeEnabled("GMS_UNPRIVILEGED_COMPAT", GMS_UNPRIVILEGED_COMPAT);
+         isDynamiteClientEnabled = isChangeEnabled("GMS_UNPRIVILEGED_DYNAMITE_CLIENT", GMS_UNPRIVILEGED_DYNAMITE_CLIENT);
+     }
+ 
+     /**
+      * Check whether the given app is unprivileged and part of the Google Play Services family.
+      *
+      * @hide
+      */
+-    public static boolean isGmsApp(String packageName, Signature[] signatures, boolean isPrivileged) {
++    public static boolean isGmsApp(String packageName, Signature[] signatures, boolean isPrivileged,
++            String sharedUserId) {
+         // Privileged GMS doesn't need any compatibility changes
+         if (isPrivileged) {
+             return false;
+         }
+ 
+-        if (!GmsInfo.PACKAGE_GMS.equals(packageName) &&
+-                !GmsInfo.PACKAGE_GSF.equals(packageName) &&
+-                !GmsInfo.PACKAGE_PLAY_STORE.equals(packageName)) {
++        if (GmsInfo.PACKAGE_GMS.equals(packageName) || GmsInfo.PACKAGE_GSF.equals(packageName)) {
++            // Check the shared user ID to avoid affecting microG with a spoofed signature. This is a
++            // reliable indicator because apps can't change their shared user ID after shipping with it.
++            if (!GmsInfo.SHARED_USER_ID.equals(sharedUserId)) {
++                return false;
++            }
++        } else if (!GmsInfo.PACKAGE_PLAY_STORE.equals(packageName)) {
+             return false;
+         }
+ 
+         // Validate signature to avoid affecting apps like microG and Gcam Services Provider.
+         // This isn't actually necessary from a security perspective because GMS doesn't get any
+         // special privileges, but it's a failsafe to avoid unintentional compatibility issues.
+         boolean validCert = false;
+         for (Signature signature : signatures) {
+             if (signature.toCharsString().equals(GmsInfo.SIGNING_CERT)) {
+                 validCert = true;
+@@ -171,21 +176,21 @@ public final class GmsCompat {
+             throw e.rethrowFromSystemServer();
+         } finally {
+             Binder.restoreCallingIdentity(token);
+         }
+ 
+         // Get all applicable certificates, even if GMS switches to multiple signing certificates
+         // in the future
+         Signature[] signatures = pkg.signingInfo.hasMultipleSigners() ?
+                 pkg.signingInfo.getApkContentsSigners() :
+                 pkg.signingInfo.getSigningCertificateHistory();
+-        return isGmsApp(app.packageName, signatures, app.isPrivilegedApp());
++        return isGmsApp(app.packageName, signatures, app.isPrivilegedApp(), pkg.sharedUserId);
+     }
+ 
+     private static boolean isGmsInstalled(ApplicationInfo relatedApp) {
+         int userId = UserHandle.getUserId(relatedApp.uid);
+         IPackageManager pm = ActivityThread.getPackageManager();
+ 
+         ApplicationInfo gmsApp;
+         try {
+             gmsApp = pm.getApplicationInfo(GmsInfo.PACKAGE_GMS, 0, userId);
+         } catch (RemoteException e) {
+diff --git a/core/java/com/android/internal/gmscompat/GmsInfo.java b/core/java/com/android/internal/gmscompat/GmsInfo.java
+index e80ac457b6e7c4851a1efc03691829c1afe4fecb..15e6560930ba9c917b1789754f0323e6c2dc2551 100644
+--- a/core/java/com/android/internal/gmscompat/GmsInfo.java
++++ b/core/java/com/android/internal/gmscompat/GmsInfo.java
+@@ -16,16 +16,19 @@
+ 
+ package com.android.internal.gmscompat;
+ 
+ /** @hide */
+ public final class GmsInfo {
+     // Package names for GMS apps
+     public static final String PACKAGE_GMS = "com.google.android.gms";
+     public static final String PACKAGE_GSF = "com.google.android.gsf";
+     public static final String PACKAGE_PLAY_STORE = "com.android.vending";
+ 
++    // Shared user ID for GMS and GSF
++    public static final String SHARED_USER_ID = "com.google.uid.shared";
++
+     // Signing certificate for GMS apps, used to check package eligibility.
+     // This is Google's 2008 MD5 certificate because Play Store doesn't use the new SHA-256 one yet.
+     public static final String SIGNING_CERT = "308204433082032ba003020102020900c2e08746644a308d300d06092a864886f70d01010405003074310b3009060355040613025553311330110603550408130a43616c69666f726e6961311630140603550407130d4d6f756e7461696e205669657731143012060355040a130b476f6f676c6520496e632e3110300e060355040b1307416e64726f69643110300e06035504031307416e64726f6964301e170d3038303832313233313333345a170d3336303130373233313333345a3074310b3009060355040613025553311330110603550408130a43616c69666f726e6961311630140603550407130d4d6f756e7461696e205669657731143012060355040a130b476f6f676c6520496e632e3110300e060355040b1307416e64726f69643110300e06035504031307416e64726f696430820120300d06092a864886f70d01010105000382010d00308201080282010100ab562e00d83ba208ae0a966f124e29da11f2ab56d08f58e2cca91303e9b754d372f640a71b1dcb130967624e4656a7776a92193db2e5bfb724a91e77188b0e6a47a43b33d9609b77183145ccdf7b2e586674c9e1565b1f4c6a5955bff251a63dabf9c55c27222252e875e4f8154a645f897168c0b1bfc612eabf785769bb34aa7984dc7e2ea2764cae8307d8c17154d7ee5f64a51a44a602c249054157dc02cd5f5c0e55fbef8519fbe327f0b1511692c5a06f19d18385f5c4dbc2d6b93f68cc2979c70e18ab93866b3bd5db8999552a0e3b4c99df58fb918bedc182ba35e003c1b4b10dd244a8ee24fffd333872ab5221985edab0fc0d0b145b6aa192858e79020103a381d93081d6301d0603551d0e04160414c77d8cc2211756259a7fd382df6be398e4d786a53081a60603551d2304819e30819b8014c77d8cc2211756259a7fd382df6be398e4d786a5a178a4763074310b3009060355040613025553311330110603550408130a43616c69666f726e6961311630140603550407130d4d6f756e7461696e205669657731143012060355040a130b476f6f676c6520496e632e3110300e060355040b1307416e64726f69643110300e06035504031307416e64726f6964820900c2e08746644a308d300c0603551d13040530030101ff300d06092a864886f70d010104050003820101006dd252ceef85302c360aaace939bcff2cca904bb5d7a1661f8ae46b2994204d0ff4a68c7ed1a531ec4595a623ce60763b167297a7ae35712c407f208f0cb109429124d7b106219c084ca3eb3f9ad5fb871ef92269a8be28bf16d44c8d9a08e6cb2f005bb3fe2cb96447e868e731076ad45b33f6009ea19c161e62641aa99271dfd5228c5c587875ddb7f452758d661f6cc0cccb7352e424cc4365c523532f7325137593c4ae341f4db41edda0d0b1071a7c440f0fe9ea01cb627ca674369d084bd2fd911ff06cdbf2cfa10dc0f893ae35762919048c7efc64c7144178342f70581c9de573af55b390dd7fdb9418631895d5f759f30112687ff621410c069308a";
+ 
+     private GmsInfo() { }
+ }
+diff --git a/services/core/java/com/android/server/pm/AppsFilter.java b/services/core/java/com/android/server/pm/AppsFilter.java
+index 244e24fbb74fb2f66d97b17c79d271734eaa0fab..9e989c3a4dd503566cff76029651caa812b6e8ca 100644
+--- a/services/core/java/com/android/server/pm/AppsFilter.java
++++ b/services/core/java/com/android/server/pm/AppsFilter.java
+@@ -563,21 +563,22 @@ public class AppsFilter {
+ 
+         if (mProtectedBroadcasts.addAll(newPkg.getProtectedBroadcasts())) {
+             mQueriesViaComponentRequireRecompute = true;
+         }
+ 
+         final boolean newIsForceQueryable =
+                 mForceQueryable.contains(newPkgSetting.appId)
+                         /* shared user that is already force queryable */
+                         || newPkgSetting.forceQueryableOverride /* adb override */
+                         || GmsCompat.isGmsApp(newPkg.getPackageName(),
+-                            newPkg.getSigningDetails().signatures, newPkg.isPrivileged())
++                            newPkg.getSigningDetails().signatures, newPkg.isPrivileged(),
++                            newPkgSetting.sharedUser != null ? newPkgSetting.sharedUser.name : null)
+                         || (newPkgSetting.isSystem() && (mSystemAppsQueryable
+                         || newPkg.isForceQueryable()
+                         || ArrayUtils.contains(mForceQueryableByDevicePackageNames,
+                         newPkg.getPackageName())));
+         if (newIsForceQueryable
+                 || (mSystemSigningDetails != null
+                 && isSystemSigned(mSystemSigningDetails, newPkgSetting))) {
+             mForceQueryable.add(newPkgSetting.appId);
+         }
+ 
+
+commit 611f2bc30e2adabbc5ef7a0dcde4677ac2c6c6fb
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-08-17 20:54:15-0700
+
+    gmscompat: Fix detection of system processes in secondary users
+    
+    The chooser and resolver activities run as a special system UI process
+    belonging to the core "android" package, separate from both
+    system_server and com.android.systemui. This process, named
+    "android:ui", runs separately under each user with the special app ID
+    1000 (SYSTEM_UID).
+    
+    Check the app ID instead of the UID to fix detection of SYSTEM_UID
+    processes in secondary users.
+    
+    This fixes the following crash:
+    
+    FATAL EXCEPTION: AsyncTask #2
+    Process: system:ui, PID: 8982
+    java.lang.RuntimeException: An error occurred while executing doInBackground()
+            at android.os.AsyncTask$4.done(AsyncTask.java:415)
+            at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:383)
+            at java.util.concurrent.FutureTask.setException(FutureTask.java:252)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:271)
+            at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:305)
+            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+            at java.lang.Thread.run(Thread.java:923)
+    Caused by: java.lang.RuntimeException: No data directory found for package android
+            at android.app.ContextImpl.getDataDir(ContextImpl.java:2560)
+            at com.android.internal.gmscompat.dynamite.client.DynamiteContext.<init>(DynamiteContext.java:58)
+            at com.android.internal.gmscompat.dynamite.GmsDynamiteHooks.getClientContext(GmsDynamiteHooks.java:64)
+            at com.android.internal.gmscompat.dynamite.GmsDynamiteHooks.loadAssetsFromPath(GmsDynamiteHooks.java:93)
+            at android.content.res.ApkAssets.loadFromPath(ApkAssets.java:143)
+            at android.app.ResourcesManager.loadApkAssets(ResourcesManager.java:374)
+            at android.app.ResourcesManager.access$000(ResourcesManager.java:67)
+            at android.app.ResourcesManager$ApkAssetsSupplier.load(ResourcesManager.java:146)
+            at android.app.ResourcesManager.createApkAssetsSupplierNotLocked(ResourcesManager.java:833)
+            at android.app.ResourcesManager.getResources(ResourcesManager.java:937)
+            at android.app.ActivityThread.getTopLevelResources(ActivityThread.java:2226)
+            at android.app.ApplicationPackageManager.getResourcesForApplication(ApplicationPackageManager.java:1682)
+            at com.android.internal.app.ResolverListAdapter$TargetPresentationGetter.getIconBitmap(ResolverListAdapter.java:920)
+            at com.android.internal.app.ResolverListAdapter$ActivityInfoPresentationGetter.getIconBitmap(ResolverListAdapter.java:843)
+            at com.android.internal.app.ResolverListAdapter$TargetPresentationGetter.getIcon(ResolverListAdapter.java:908)
+            at com.android.internal.app.ResolverListAdapter$ActivityInfoPresentationGetter.getIcon(ResolverListAdapter.java:843)
+            at com.android.internal.app.ResolverListAdapter.loadIconForResolveInfo(ResolverListAdapter.java:599)
+            at com.android.internal.app.ResolverListAdapter$LoadIconTask.doInBackground(ResolverListAdapter.java:782)
+            at com.android.internal.app.ResolverListAdapter$LoadIconTask.doInBackground(ResolverListAdapter.java:769)
+            at android.os.AsyncTask$3.call(AsyncTask.java:394)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+            ... 4 more
+    
+    Change-Id: I928db502d2cc24e50ed2798575e0e8a37475cd97
+---
+ core/java/android/app/compat/gms/GmsCompat.java | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/core/java/android/app/compat/gms/GmsCompat.java b/core/java/android/app/compat/gms/GmsCompat.java
+index 4aadde0b4f5be0a6ea4276e738351a73fdde140e..7802a84a06ab8d1499ca18bf2698f8b60a4680df 100644
+--- a/core/java/android/app/compat/gms/GmsCompat.java
++++ b/core/java/android/app/compat/gms/GmsCompat.java
+@@ -101,22 +101,23 @@ public final class GmsCompat {
+             pkg = (Process.myUid() == Process.SYSTEM_UID) ? "system_server" : "[unknown]";
+         }
+ 
+         Log.d(TAG, changeName + " enabled for " + pkg + " (" + Process.myPid() + ") = " + enabled);
+     }
+ 
+     private static boolean isChangeEnabled(String changeName, long changeId) {
+         boolean enabled = Compatibility.isChangeEnabled(changeId);
+ 
+         // Compatibility changes aren't available in the system process, but this should never be
+-        // enabled for it.
+-        if (Process.myUid() == Process.SYSTEM_UID) {
++        // enabled for it or other core "android" system processes (such as the android:ui process
++        // used for chooser and resolver activities).
++        if (UserHandle.getAppId(Process.myUid()) == Process.SYSTEM_UID) {
+             enabled = false;
+         }
+ 
+         logEnabled(changeName, enabled);
+         return enabled;
+     }
+ 
+     /**
+      * Must be called to initialize the compatibility change enable states before any hooks run.
+      *
+
+commit f9b9ae4b17e4afa7031e759af09055af1338a001
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-08-17 21:24:33-0700
+
+    gmscompat: Don't use Context to get device-protected data directory
+    
+    Not all packages have data directories:
+    
+    FATAL EXCEPTION: AsyncTask #2
+    Process: system:ui, PID: 8982
+    java.lang.RuntimeException: An error occurred while executing doInBackground()
+            at android.os.AsyncTask$4.done(AsyncTask.java:415)
+            at java.util.concurrent.FutureTask.finishCompletion(FutureTask.java:383)
+            at java.util.concurrent.FutureTask.setException(FutureTask.java:252)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:271)
+            at android.os.AsyncTask$SerialExecutor$1.run(AsyncTask.java:305)
+            at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1167)
+            at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:641)
+            at java.lang.Thread.run(Thread.java:923)
+    Caused by: java.lang.RuntimeException: No data directory found for package android
+            at android.app.ContextImpl.getDataDir(ContextImpl.java:2560)
+            at com.android.internal.gmscompat.dynamite.client.DynamiteContext.<init>(DynamiteContext.java:58)
+            at com.android.internal.gmscompat.dynamite.GmsDynamiteHooks.getClientContext(GmsDynamiteHooks.java:64)
+            at com.android.internal.gmscompat.dynamite.GmsDynamiteHooks.loadAssetsFromPath(GmsDynamiteHooks.java:93)
+            at android.content.res.ApkAssets.loadFromPath(ApkAssets.java:143)
+            at android.app.ResourcesManager.loadApkAssets(ResourcesManager.java:374)
+            at android.app.ResourcesManager.access$000(ResourcesManager.java:67)
+            at android.app.ResourcesManager$ApkAssetsSupplier.load(ResourcesManager.java:146)
+            at android.app.ResourcesManager.createApkAssetsSupplierNotLocked(ResourcesManager.java:833)
+            at android.app.ResourcesManager.getResources(ResourcesManager.java:937)
+            at android.app.ActivityThread.getTopLevelResources(ActivityThread.java:2226)
+            at android.app.ApplicationPackageManager.getResourcesForApplication(ApplicationPackageManager.java:1682)
+            at com.android.internal.app.ResolverListAdapter$TargetPresentationGetter.getIconBitmap(ResolverListAdapter.java:920)
+            at com.android.internal.app.ResolverListAdapter$ActivityInfoPresentationGetter.getIconBitmap(ResolverListAdapter.java:843)
+            at com.android.internal.app.ResolverListAdapter$TargetPresentationGetter.getIcon(ResolverListAdapter.java:908)
+            at com.android.internal.app.ResolverListAdapter$ActivityInfoPresentationGetter.getIcon(ResolverListAdapter.java:843)
+            at com.android.internal.app.ResolverListAdapter.loadIconForResolveInfo(ResolverListAdapter.java:599)
+            at com.android.internal.app.ResolverListAdapter$LoadIconTask.doInBackground(ResolverListAdapter.java:782)
+            at com.android.internal.app.ResolverListAdapter$LoadIconTask.doInBackground(ResolverListAdapter.java:769)
+            at android.os.AsyncTask$3.call(AsyncTask.java:394)
+            at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+            ... 4 more
+    
+    Use the underlying Environment methods instead to construct a
+    device-protected data path for GMs without relying on error-prone
+    Context methods.
+    
+    Change-Id: I180cfe464f80a55ac534e150199ba1708841d13d
+---
+ .../internal/gmscompat/dynamite/client/DynamiteContext.java   | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+
+diff --git a/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java b/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java
+index 10d99679bd256b6479bb06feb19a44593fddee49..4fd3e06f996ed2fcd2cf08c35a6f223adff8f289 100644
+--- a/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java
++++ b/core/java/com/android/internal/gmscompat/dynamite/client/DynamiteContext.java
+@@ -14,30 +14,33 @@
+  * limitations under the License.
+  */
+ 
+ package com.android.internal.gmscompat.dynamite.client;
+ 
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.os.Bundle;
++import android.os.Environment;
+ import android.os.Handler;
+ import android.os.HandlerThread;
+ import android.os.IBinder;
+ import android.os.RemoteException;
+ import android.util.Log;
+ 
+ import com.android.internal.gmscompat.GmsInfo;
+ import com.android.internal.gmscompat.dynamite.server.FileProxyProvider;
+ import com.android.internal.gmscompat.dynamite.server.IFileProxyService;
+ 
++import java.io.File;
++
+ /** @hide */
+ public final class DynamiteContext {
+     public static final String TAG = "GmsCompat/DynamiteClient";
+ 
+     // Permission that only GMS holds
+     private static final String GMS_PERM = "com.google.android.gms.permission.INTERNAL_BROADCAST";
+ 
+     // Make sure we don't block the main thread for too long if GMS isn't available
+     private static final long GET_SERVICE_TIMEOUT = 250L;
+ 
+@@ -46,24 +49,24 @@ public final class DynamiteContext {
+ 
+     // Manage state for loading one module at a time per thread
+     private final ThreadLocal<ModuleLoadState> threadLocalState = new ThreadLocal<>();
+ 
+     // The remote GMS process can die at any time, so this needs to be managed carefully.
+     private IFileProxyService serviceBinder = null;
+ 
+     public DynamiteContext(Context context) {
+         this.context = context;
+ 
+-        // Use our own context and replace the package name to avoid ApkAssets recursion when
+-        // lazy-creating a DynamiteContext in the ApkAssets hook
+-        this.gmsDataPrefix = context.createDeviceProtectedStorageContext().getDataDir().getPath()
+-                .replace(context.getPackageName(), GmsInfo.PACKAGE_GMS) + "/";
++        // Get data directory path without using package context or current data dir, since not all
++        // packages have data directories and package context causes recursion in ApkAssets
++        File userDe = Environment.getDataUserDeDirectory(null, context.getUserId());
++        gmsDataPrefix = userDe.getPath() + '/' + GmsInfo.PACKAGE_GMS + '/';
+     }
+ 
+     public ModuleLoadState getState() {
+         return threadLocalState.get();
+     }
+     public void setState(ModuleLoadState state) {
+         threadLocalState.set(state);
+     }
+ 
+     public IFileProxyService getService() {
+
+commit 8ef6c5b59872a9f156f1108ef394a01ad482ab5e
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Wed 2021-08-18 01:23:35-0700
+
+    gmscompat: Check past signing certificates for forceQueryable
+    
+    The force queryable check in AppsFilter calls isGmsApp with the
+    *current* APK signatures, which works for some Google apps. However,
+    Google Services Framework (com.google.android.gsf) has a v3 signature
+    that uses a new certificate, so the legacy MD5 certificate we check for
+    is classified as a past signing certificate instead. As a result,
+    forceQueryable is never set for GSF because it fails the isGmsApp check.
+    
+    Account for both current and past signing certificates in the AppsFilter
+    path in order to fix the issue.
+    
+    Change-Id: Id4f4002dcc4882e986707c9e02b970246ee62d77
+---
+ core/java/android/app/compat/gms/GmsCompat.java    | 28 +++++++++++++++-------
+ .../java/com/android/server/pm/AppsFilter.java     |  9 ++++---
+ 2 files changed, 26 insertions(+), 11 deletions(-)
+
+diff --git a/core/java/android/app/compat/gms/GmsCompat.java b/core/java/android/app/compat/gms/GmsCompat.java
+index 7802a84a06ab8d1499ca18bf2698f8b60a4680df..60c09fa766a80dacebca8d95c607130f057903b8 100644
+--- a/core/java/android/app/compat/gms/GmsCompat.java
++++ b/core/java/android/app/compat/gms/GmsCompat.java
+@@ -121,50 +121,62 @@ public final class GmsCompat {
+     /**
+      * Must be called to initialize the compatibility change enable states before any hooks run.
+      *
+      * @hide
+      */
+     public static void initChangeEnableStates() {
+         isGmsCompatEnabled = isChangeEnabled("GMS_UNPRIVILEGED_COMPAT", GMS_UNPRIVILEGED_COMPAT);
+         isDynamiteClientEnabled = isChangeEnabled("GMS_UNPRIVILEGED_DYNAMITE_CLIENT", GMS_UNPRIVILEGED_DYNAMITE_CLIENT);
+     }
+ 
++    private static boolean validateCerts(Signature[] signatures) {
++        for (Signature signature : signatures) {
++            if (signature.toCharsString().equals(GmsInfo.SIGNING_CERT)) {
++                return true;
++            }
++        }
++
++        return false;
++    }
++
+     /**
+      * Check whether the given app is unprivileged and part of the Google Play Services family.
+      *
+      * @hide
+      */
+-    public static boolean isGmsApp(String packageName, Signature[] signatures, boolean isPrivileged,
+-            String sharedUserId) {
++    public static boolean isGmsApp(String packageName, Signature[] signatures,
++            Signature[] signatures2, boolean isPrivileged, String sharedUserId) {
+         // Privileged GMS doesn't need any compatibility changes
+         if (isPrivileged) {
+             return false;
+         }
+ 
+         if (GmsInfo.PACKAGE_GMS.equals(packageName) || GmsInfo.PACKAGE_GSF.equals(packageName)) {
+             // Check the shared user ID to avoid affecting microG with a spoofed signature. This is a
+             // reliable indicator because apps can't change their shared user ID after shipping with it.
+             if (!GmsInfo.SHARED_USER_ID.equals(sharedUserId)) {
+                 return false;
+             }
+         } else if (!GmsInfo.PACKAGE_PLAY_STORE.equals(packageName)) {
+             return false;
+         }
+ 
+         // Validate signature to avoid affecting apps like microG and Gcam Services Provider.
+         // This isn't actually necessary from a security perspective because GMS doesn't get any
+         // special privileges, but it's a failsafe to avoid unintentional compatibility issues.
+-        boolean validCert = false;
+-        for (Signature signature : signatures) {
+-            if (signature.toCharsString().equals(GmsInfo.SIGNING_CERT)) {
+-                validCert = true;
+-            }
++        boolean validCert = validateCerts(signatures);
++
++        // Try past signing certificates if necessary. We iterate through two separate arrays here
++        // instead of concatenating them beforehand because this method gets called for every
++        // package on the system at boot, and thus needs to be efficient.
++        if (!validCert && signatures2 != null) {
++            validCert = validateCerts(signatures2);
+         }
+ 
+         return validCert;
+     }
+ 
+     /** @hide */
+     public static boolean isGmsApp(ApplicationInfo app) {
+         int userId = UserHandle.getUserId(app.uid);
+         IPackageManager pm = ActivityThread.getPackageManager();
+ 
+@@ -177,21 +189,21 @@ public final class GmsCompat {
+             throw e.rethrowFromSystemServer();
+         } finally {
+             Binder.restoreCallingIdentity(token);
+         }
+ 
+         // Get all applicable certificates, even if GMS switches to multiple signing certificates
+         // in the future
+         Signature[] signatures = pkg.signingInfo.hasMultipleSigners() ?
+                 pkg.signingInfo.getApkContentsSigners() :
+                 pkg.signingInfo.getSigningCertificateHistory();
+-        return isGmsApp(app.packageName, signatures, app.isPrivilegedApp(), pkg.sharedUserId);
++        return isGmsApp(app.packageName, signatures, null, app.isPrivilegedApp(), pkg.sharedUserId);
+     }
+ 
+     private static boolean isGmsInstalled(ApplicationInfo relatedApp) {
+         int userId = UserHandle.getUserId(relatedApp.uid);
+         IPackageManager pm = ActivityThread.getPackageManager();
+ 
+         ApplicationInfo gmsApp;
+         try {
+             gmsApp = pm.getApplicationInfo(GmsInfo.PACKAGE_GMS, 0, userId);
+         } catch (RemoteException e) {
+diff --git a/services/core/java/com/android/server/pm/AppsFilter.java b/services/core/java/com/android/server/pm/AppsFilter.java
+index 9e989c3a4dd503566cff76029651caa812b6e8ca..94774e9515fcb35bc1036d61d7a13d0722c6dafe 100644
+--- a/services/core/java/com/android/server/pm/AppsFilter.java
++++ b/services/core/java/com/android/server/pm/AppsFilter.java
+@@ -558,27 +558,30 @@ public class AppsFilter {
+         final AndroidPackage newPkg = newPkgSetting.pkg;
+         if (newPkg == null) {
+             // nothing to add
+             return;
+         }
+ 
+         if (mProtectedBroadcasts.addAll(newPkg.getProtectedBroadcasts())) {
+             mQueriesViaComponentRequireRecompute = true;
+         }
+ 
++        final boolean isGmsApp = GmsCompat.isGmsApp(newPkg.getPackageName(),
++                newPkg.getSigningDetails().signatures,
++                newPkg.getSigningDetails().pastSigningCertificates,
++                newPkg.isPrivileged(),
++                newPkgSetting.sharedUser != null ? newPkgSetting.sharedUser.name : null);
+         final boolean newIsForceQueryable =
+                 mForceQueryable.contains(newPkgSetting.appId)
+                         /* shared user that is already force queryable */
+                         || newPkgSetting.forceQueryableOverride /* adb override */
+-                        || GmsCompat.isGmsApp(newPkg.getPackageName(),
+-                            newPkg.getSigningDetails().signatures, newPkg.isPrivileged(),
+-                            newPkgSetting.sharedUser != null ? newPkgSetting.sharedUser.name : null)
++                        || isGmsApp
+                         || (newPkgSetting.isSystem() && (mSystemAppsQueryable
+                         || newPkg.isForceQueryable()
+                         || ArrayUtils.contains(mForceQueryableByDevicePackageNames,
+                         newPkg.getPackageName())));
+         if (newIsForceQueryable
+                 || (mSystemSigningDetails != null
+                 && isSystemSigned(mSystemSigningDetails, newPkgSetting))) {
+             mForceQueryable.add(newPkgSetting.appId);
+         }
+ 
+
+commit b8ede45675d838884e72feb146c1ebd0c4509a6b
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-08-22 22:12:14-0400
+
+    gmscompat: add hook for requestCellInfoUpdate
+---
+ telephony/java/android/telephony/TelephonyManager.java | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/telephony/java/android/telephony/TelephonyManager.java b/telephony/java/android/telephony/TelephonyManager.java
+index 97c9b2aa48ba106ea5b65ad9d51e53f3d39e057c..ce40260d15e5055a549d660634ff94c9edc5b8c5 100644
+--- a/telephony/java/android/telephony/TelephonyManager.java
++++ b/telephony/java/android/telephony/TelephonyManager.java
+@@ -6066,20 +6066,26 @@ public class TelephonyManager {
+      * @param workSource the requestor to whom the power consumption for this should be attributed.
+      * @param executor the executor on which callback will be invoked.
+      * @param callback a callback to receive CellInfo.
+      * @hide
+      */
+     @SystemApi
+     @RequiresPermission(allOf = {android.Manifest.permission.ACCESS_FINE_LOCATION,
+             android.Manifest.permission.MODIFY_PHONE_STATE})
+     public void requestCellInfoUpdate(@NonNull WorkSource workSource,
+             @NonNull @CallbackExecutor Executor executor, @NonNull CellInfoCallback callback) {
++        if (GmsCompat.isEnabled()) {
++            // attribute power consumption to Play services instead of blaming the app using it
++            requestCellInfoUpdate(executor, callback);
++            return;
++        }
++
+         try {
+             ITelephony telephony = getITelephony();
+             if (telephony == null) return;
+             telephony.requestCellInfoUpdateWithWorkSource(
+                     getSubId(),
+                     new ICellInfoCallback.Stub() {
+                         @Override
+                         public void onCellInfo(List<CellInfo> cellInfo) {
+                             final long identity = Binder.clearCallingIdentity();
+                             try {
+
+commit 424881a807d5f46a81c57c4bd846cbf795fc8793
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-08-24 17:25:41-0400
+
+    gmscompat: add AppOps compatibility layer
+    
+    Play services uses app ops to enforce system permissions for apps using
+    APIs through it. This can be supported for an untrusted proxy with the
+    proxy app op APIs. There's no equivalent to startOp for the proxy API
+    system so noteOp is used as an approximation where Play services will be
+    taking more blame than necessary, which is fine.
+---
+ core/java/android/app/AppOpsManager.java | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+diff --git a/core/java/android/app/AppOpsManager.java b/core/java/android/app/AppOpsManager.java
+index 6baabb69e02874ff0b13108c9210cce879c05bb3..f3dbb3e64bf9170fdf638bf0d87af8cfac747452 100644
+--- a/core/java/android/app/AppOpsManager.java
++++ b/core/java/android/app/AppOpsManager.java
+@@ -19,20 +19,21 @@ package android.app;
+ import android.Manifest;
+ import android.annotation.CallbackExecutor;
+ import android.annotation.IntDef;
+ import android.annotation.IntRange;
+ import android.annotation.NonNull;
+ import android.annotation.Nullable;
+ import android.annotation.RequiresPermission;
+ import android.annotation.SystemApi;
+ import android.annotation.SystemService;
+ import android.annotation.TestApi;
++import android.app.compat.gms.GmsCompat;
+ import android.app.usage.UsageStatsManager;
+ import android.compat.Compatibility;
+ import android.compat.annotation.ChangeId;
+ import android.compat.annotation.EnabledAfter;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.ComponentName;
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.pm.ApplicationInfo;
+ import android.content.pm.PackageManager;
+@@ -7430,20 +7431,24 @@ public class AppOpsManager {
+      * @param message A message describing the reason the op was noted
+      *
+      * @return Returns {@link #MODE_ALLOWED} if the operation is allowed, or
+      * {@link #MODE_IGNORED} if it is not allowed and should be silently ignored (without
+      * causing the app to crash).
+      *
+      * @hide
+      */
+     public int noteOpNoThrow(int op, int uid, @Nullable String packageName,
+             @Nullable String attributionTag, @Nullable String message) {
++        if (GmsCompat.isEnabled() && uid != Process.myUid()) {
++            return noteProxyOpNoThrow(op, packageName, uid, attributionTag, message);
++        }
++
+         try {
+             collectNoteOpCallsForValidation(op);
+             int collectionMode = getNotedOpCollectionMode(uid, packageName, op);
+             boolean shouldCollectMessage = Process.myUid() == Process.SYSTEM_UID ? true : false;
+             if (collectionMode == COLLECT_ASYNC) {
+                 if (message == null) {
+                     // Set stack trace as default message
+                     message = getFormattedStackTrace();
+                     shouldCollectMessage = true;
+                 }
+@@ -7958,20 +7963,24 @@ public class AppOpsManager {
+      * @param message Description why op was started
+      *
+      * @return Returns {@link #MODE_ALLOWED} if the operation is allowed, or
+      * {@link #MODE_IGNORED} if it is not allowed and should be silently ignored (without
+      * causing the app to crash).
+      *
+      * @hide
+      */
+     public int startOpNoThrow(int op, int uid, @NonNull String packageName,
+             boolean startIfModeDefault, @Nullable String attributionTag, @Nullable String message) {
++        if (GmsCompat.isEnabled() && uid != Process.myUid()) {
++            return noteProxyOpNoThrow(op, packageName, uid, attributionTag, message);
++        }
++
+         try {
+             collectNoteOpCallsForValidation(op);
+             int collectionMode = getNotedOpCollectionMode(uid, packageName, op);
+             boolean shouldCollectMessage = Process.myUid() == Process.SYSTEM_UID ? true : false;
+             if (collectionMode == COLLECT_ASYNC) {
+                 if (message == null) {
+                     // Set stack trace as default message
+                     message = getFormattedStackTrace();
+                     shouldCollectMessage = true;
+                 }
+@@ -8035,20 +8044,24 @@ public class AppOpsManager {
+     /**
+      * Report that an application is no longer performing an operation that had previously
+      * been started with {@link #startOp(int, int, String, boolean, String, String)}. There is no
+      * validation of input or result; the parameters supplied here must be the exact same ones
+      * previously passed in when starting the operation.
+      *
+      * @hide
+      */
+     public void finishOp(int op, int uid, @NonNull String packageName,
+             @Nullable String attributionTag) {
++        if (GmsCompat.isEnabled() && uid != Process.myUid()) {
++            return;
++        }
++
+         try {
+             mService.finishOperation(getClientId(), op, uid, packageName, attributionTag);
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+     /**
+      * Checks whether the given op for a package is active, i.e. did someone call {@link #startOp}
+      * without {@link #finishOp} yet.
+
+commit 951967890898c9409d58e083d4c8872c84122b65 (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-08-24 17:30:27-0400
+
+    gmscompat: map hasBaseUserRestriction to hasUserRestriction
+---
+ core/java/android/os/UserManager.java | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/core/java/android/os/UserManager.java b/core/java/android/os/UserManager.java
+index f5ace0f327a2c790273194a566a70b5818f620bd..06b7bc520c985a28fc4c62ac96c632306d6e9949 100644
+--- a/core/java/android/os/UserManager.java
++++ b/core/java/android/os/UserManager.java
+@@ -2492,20 +2492,24 @@ public class UserManager {
+      * restrictions set by device policy.
+      * @param restrictionKey the string key representing the restriction
+      * @param userHandle the UserHandle of the user for whom to retrieve the restrictions.
+      */
+     @TestApi
+     @UnsupportedAppUsage
+     @RequiresPermission(anyOf = {Manifest.permission.MANAGE_USERS,
+             Manifest.permission.CREATE_USERS})
+     public boolean hasBaseUserRestriction(@UserRestrictionKey @NonNull String restrictionKey,
+             @NonNull UserHandle userHandle) {
++        if (GmsCompat.isEnabled()) {
++            // cannot ignore restrictions set by device policy
++            return hasUserRestriction(restrictionKey, userHandle);
++        }
+         try {
+             return mService.hasBaseUserRestriction(restrictionKey, userHandle.getIdentifier());
+         } catch (RemoteException re) {
+             throw re.rethrowFromSystemServer();
+         }
+     }
+ 
+     /**
+      * This will no longer work.  Device owners and profile owners should use
+      * {@link DevicePolicyManager#addUserRestriction(ComponentName, String)} instead.

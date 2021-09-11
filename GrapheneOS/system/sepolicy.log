@@ -1,4 +1,4 @@
-commit 127c4624bf2c22e0bd4f77198527acec802bcab3
+commit 89d2378d4be1e2992e14893877f37fe34e7a3031
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-09-14 23:59:13-0400
 
@@ -61,7 +61,7 @@ index a8c61be8ffdaa9ae1adc5b3a7c29365fc2872430..25e450d4f091027ba4283638497bd0da
  user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit 2808aca669eb9a1a21b8a522142c679db3a3131b
+commit 63d63109aca8ed156c6c1116bc3911a8ea47894c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-17 18:14:24-0500
 
@@ -124,7 +124,7 @@ index a4fab1f228f342ae5baa6caf709723caa4e9e2f4..f6870d79b420f4f30cacdf5196295ecc
  persist.logd.           u:object_r:logd_prop:s0
  ro.logd.                u:object_r:logd_prop:s0
 
-commit 1476e1b2a037ba1399884f840db9309ed0ff8fd7
+commit a20c388783dd6c7346dc418400f040604c33ddaf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 00:08:40-0400
 
@@ -417,7 +417,7 @@ index 0000000000000000000000000000000000000000..97a850ba19008bf220eb55c09bacf86f
 +
 +type updater_app, domain;
 
-commit d09a85c0d7023368302079b0520f97d1d690f2fb
+commit 45499a79409ee0423291ba71c083949efa7a759b
 Author: aeonsolution@protonmail.com <theaeonsolution@protonmail.com>
 Date:   Mon 2020-09-14 23:37:37-0500
 
@@ -482,7 +482,7 @@ index 3beec38e02742a98dd8f0e8e71ef3093ba8887a6..3d4aa764a6bc089dfb6eeb3f6df5a053
  allow platform_app stats_service:service_manager find;
  
 
-commit 8f5a8a493ce2e2403c0e8ed7735ef54e66c2c39d
+commit a889f8c5e3811fbf7d110ada2207f5b7eb5469b3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-09-14 22:12:24-0700
 
@@ -1156,7 +1156,7 @@ index cc51a2b72d88ef50dda08c4bb72adba6d232308a..97f93ec7a5e5250e486c39b9cda562e3
    proc_panic
    proc_page_cluster
 
-commit 2dba5139f82f302d8b770be8fcdfc2abe8157cc7
+commit 70878cdc97b8175bbb63abd55ff7882b6a655a4e
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-09-15 22:44:40-0700
 
@@ -1219,7 +1219,7 @@ index c65ceede41b4d2bc394c50c1e151f3d43a0b77af..4281bfd9d5affe26c9d575f70f8eb4b7
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
  persist.sys.            u:object_r:system_prop:s0
 
-commit 8876cf86e1c860d4f3835b162bbe86a820f0d227
+commit 690412153a084551d5644c4323c7160b544118fd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-07-18 21:21:40-0400
 
@@ -1290,7 +1290,7 @@ index c7adb845019ba16ae94f6de8d4bab50d94dd2767..04b667dd2acc5567105c7ae8d5497ccd
  genfscon proc /sys/kernel/hostname u:object_r:proc_hostname:s0
  genfscon proc /sys/kernel/hotplug u:object_r:usermodehelper:s0
 
-commit 57fe7c8d1410702d0559b728786a277482eb521d
+commit d3851466b1891ba5eee3710c500f1c10525958b5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-13 22:56:27-0400
 
@@ -1405,7 +1405,7 @@ index ba54b70acad2b89a5cbe4e0610d585ce7154555f..00000000000000000000000000000000
 -# is wiped, but preloads_copy.sh still runs.
 -dontaudit preloads_copy postinstall_mnt_dir:dir search;
 
-commit 30d96cb1732bd901753511daea6004b0423226d0
+commit 4a8c0a3be15222d1a1e85dff3fd873b18587fbf9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:14:26-0400
 
@@ -1490,7 +1490,7 @@ index c5f7013caebef38559f341d23973853dc70d87e0..e4189733444e7354c2ddfbcdfe16b09c
  allow priv_app system_api_service:service_manager find;
  
 
-commit d8c7ec2c2479c2d5ef89cb03f6a6760641990279
+commit 8131e49342b7347dd68c2cf809ae7fa03b6b2931
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:17:31-0400
 
@@ -1551,7 +1551,7 @@ index 7ea23e1c3aa0a10f645074caefdd8455c26458d9..96c4e6c510bc8ef3098ccf31fe00dd83
  set_prop(healthd, exported2_system_prop)
  set_prop(healthd, exported3_system_prop)
 
-commit 9976757fcbf760d21aa677b3948464f6d98972af
+commit dff9b80adfb28651824ecc9b62630203f1f45fe6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:20:43-0400
 
@@ -1618,7 +1618,7 @@ index e5b9fd670024740fc3d5158d0a7e77c49f751f14..c809b0a8b2ed30752bf82c24adb06e45
  allow appdomain zygote_exec:file rx_file_perms;
  
 
-commit df94774b75acb47fb035dc24af963cc987a08d9a
+commit 74ecc2dbbd25bdce354f96cf238d073e5077a45d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:21:01-0400
 
@@ -1685,7 +1685,7 @@ index c809b0a8b2ed30752bf82c24adb06e4560333c2f..0925233f43753268e11e17aab13f6af5
  # Notify zygote of death;
  allow appdomain zygote:process sigchld;
 
-commit f500dc01d468c0ff6dab5c5e914bd45fc9c922f6
+commit bd60a8912d65380e95b132056f1027374a66eacf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-10-22 23:39:34-0400
 
@@ -1864,7 +1864,7 @@ index fa9388cc4f394a7bf5d8a77dc078b1a84e321691..35fed80028bf8b359f36c405c7176d5c
 +user=_app seinfo=base fromRunAs=true domain=runas_app levelFrom=user
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit 43569f5231228fbd81d01535b0ab02d6854cccb8
+commit f238c4dbd291f78ed29072df2b5cf8e031ec5f95
 Author: Renlord <me@renlord.com>
 Date:   Sat 2020-02-22 02:04:41+1100
 
@@ -3070,7 +3070,7 @@ index cf1e85670568e1e1a4852628a7db120237af55c0..9fd8476bf2c5ce867c413065e8c1b085
          'vendor_init',
          }
 
-commit d5ffc237d94223ab08e6b6fb257fc7f081361ffb
+commit 17b5db9f32ea745642cc313ec40f9dbabe14d798
 Author: Renlord <me@renlord.com>
 Date:   Sun 2020-02-23 22:41:07+1100
 
@@ -5197,7 +5197,7 @@ index 0000000000000000000000000000000000000000..86740d042480b7f0c165b0e6f41cd0f1
 +
 +type isolated_base_app, domain;
 
-commit 8541cfbd7d072ec7b7d9ea3c204a39663eabff8d
+commit cff73ecbf48917172abc02de0f090764ce64e367
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:12:12+1100
 
@@ -5328,7 +5328,7 @@ index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d
  userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
  
 
-commit 6c662e788b9624069d9daf4f2a44bb8880e657de
+commit 06de6aa8c01ca3bfe15f67964c76db5399047631
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:17:45+1100
 
@@ -5713,7 +5713,7 @@ index 290292fa190d090f9ec8a414e680f80efd203458..559368149db0130e6518a980373ebb8d
  allow appdomain zygote_exec:file rx_file_perms;
  
 
-commit 2b0dc4d4b62b76de8c7a49eaf3f742b7748768af
+commit 074019d1303017cf71affa5068c32530cb97b1b5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 20:12:32-0500
 
@@ -5850,7 +5850,7 @@ index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf421
  auditallow untrusted_base_app_27 ashmem_device:chr_file open;
  
 
-commit 1e389258207c1ebf9a8b5a6ff7acd505f00d1d54
+commit fcb088eb35143e4ba4b36000da33788ab3e0735c
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:30:48+1100
 
@@ -6153,7 +6153,7 @@ index d9fd5a12e0ffa74ee1e3e5c67b17203c2e43d05c..3bea704155ea3e615e3bde0e45238b9f
  allow untrusted_app_all app_data_file:{ lnk_file sock_file fifo_file } create_file_perms;
  
 
-commit 4e7a2e04674001ce7d9d235a1dad5b31259bcfca
+commit 562f298937f6d3e6625ce541f13a18ddbb38232b
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-02-26 10:23:23+1100
 
@@ -6490,7 +6490,7 @@ index 559368149db0130e6518a980373ebb8df4f1a982..bb2d7cfd96f69e2ec852d7e733625c4e
  allow appdomain zygote:process sigchld;
  
 
-commit 207a9d6ae4f63a21b9c10e4d2a67c6e0a2e8965e
+commit 1a2a1c07b35739e43e72351d463c131271031f6a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:14:36-0400
 
@@ -6553,7 +6553,7 @@ index 56f977522e8a2b796a7db4ef5b0f29b98bd82048..c5e92f0491b08fe265668accd9ace6e7
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit 44659354a1f9cd8444ad580fbaedb7e863efdeb0
+commit 34269ad2aa13cfcc6bf7fe7176b26238ea1fcee7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:34:49-0400
 
@@ -6888,7 +6888,7 @@ index c5e92f0491b08fe265668accd9ace6e7b9c2afed..773ef6d758ef14a687f919ff707e173e
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit 6cf547ddaf12a7581661fdf68379212da75338e8
+commit 1f88e8ebef83adb552df769b649e7cb72af142fc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-02-29 11:03:35-0500
 
@@ -6960,7 +6960,7 @@ index bb2d7cfd96f69e2ec852d7e733625c4e1f7bbcdf..7cb5bac64194b9d01fe0c5ec8eed23ac
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit bd06d01ec43e84466df26156e905cc221bae62a9
+commit e968ed0018dc250c8bbde44d8e4918ebd9fb4005
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-02-27 20:37:55+1100
 
@@ -7297,7 +7297,7 @@ index 7cb5bac64194b9d01fe0c5ec8eed23ac2f2689f1..98f42478104289cbdaba7967b1edbea6
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit e0170ad664f824a33ac8048ceeeef511c337e4e1
+commit 680e6bcc1b0d1e5438e3467b54da132261c4f0b3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 06:41:22-0500
 
@@ -7480,7 +7480,7 @@ index 5f08f8d6b1d8d30ea8c7403ccc32b84c3765f770..cb54b14425e7a584994e24556fbad574
  
  # Allow apps access to /vendor/overlay
 
-commit 94e2e86dc2e17d10b597aed5eb81c5c7059c4a93
+commit 472d91e275c36698c5ebeea0aa39c7c33de5fef9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 18:29:13-0500
 
@@ -7621,7 +7621,7 @@ index 464c5854b8f3755b4b450a6a60cc8d2899657a8a..572c0127681f366afe0a9e05956dfd76
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit ed27ea73e1ba90a002dc6200806bf3085a14bd64
+commit 503332f96347d921cc00005b847f9497c8660d1b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 
@@ -7965,7 +7965,7 @@ index cb54b14425e7a584994e24556fbad57405f5515c..84a68694e2f9f555b20bc3ca5b131803
  }:file no_x_file_perms;
  
 
-commit 91a8b3259e3bc56adc6d7c4d69a944cdb9ce1d06
+commit 3b896055810f2e38cde0095083811c35bc0a49c6
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 02:26:20+0100
 
@@ -8140,7 +8140,7 @@ index 97f93ec7a5e5250e486c39b9cda562e3cbd866d5..72938eb4a9733faf7cd5770ae369dd5c
  # declarations.
  allow init fs_type:filesystem ~relabelto;
 
-commit 6be3bf0b6ccac4dcb34b5ac378e41961033ced01 (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 8b0419ac044d5173b9c787cc66180a586c3a601b (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 02:27:06+0100
 
