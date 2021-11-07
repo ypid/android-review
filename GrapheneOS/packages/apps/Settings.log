@@ -1,4 +1,4 @@
-commit 3fcb42d70120aecc0a2c098a0844a6dfa29bdfc3
+commit a7569723777438a04c567e09369a71a71a35e36a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -130,7 +130,7 @@ index 17958c960102fa49315a04800050c27aefe6fa20..65fafee0d1d390cae7d0544a09550506
 +    }
  }
 
-commit cd9a3b32bb2c525ef1a7bf7eb1d0f1416f50cc39
+commit 8aa79fb99d0e75dff5aa95ab0c2b497fe7d4c08a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-09-24 16:51:25-0700
 
@@ -185,7 +185,7 @@ index adfc7ec4b6f3a2ad4e72f52e2ffe262231c50081..da121fc8968c973759c8af9aeac4996f
      }
  }
 
-commit 696a3c3868ab53479fd4fbb20c0d142d5e5a5d35
+commit edbf666a55e27ea01c3c8e1fed26310ad64c21b6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-06-28 13:31:54-0400
 
@@ -288,7 +288,7 @@ index 27fc9f022ea134cf357fcd9d565341f88ff5dd0e..fb3c1ca9a9f19d2bdcc022d3f1df33f4
                      ChooseLockSettingsHelper.EXTRA_KEY_FOR_CHANGE_CRED_REQUIRED_FOR_BOOT, false)) {
                  SaveAndFinishWorker w = new SaveAndFinishWorker();
 
-commit 6344ce29e051f60cc8701dfa7d82a17af9ea42af
+commit 7ee3d2d1c67eecbe56ff966f92213e6d9660b68b
 Author: maxwen <max.weninger@gmail.com>
 Date:   Thu 2021-04-08 18:43:53+0200
 
@@ -344,7 +344,7 @@ index 72b67de1ddde3ec2c97f062dc99f5225b0da9795..e2aadefc42dd8eabae68923ef729dc33
      }
  }
 
-commit 7791358975dfb225a9651e39be9bc1ea60e50bcc
+commit 8f1b10391b749ef4a018f10b85a1f8cdf04ab172
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -381,7 +381,7 @@ index de0dcfbcb6c6b909a5a6105cd8bb9ca665b85ac4..c0c9ed43e8ac6e3748c7294e0dba8957
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 21c1f70e1df2fdd68d80e755bda5c78ddbe9a64d
+commit 29d12955aabf8a7fc1de71a51daa7a8ec3e508a0
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -419,7 +419,7 @@ index 367f426f5fb86fe02dc00563f371bc7ad70e555a..5de78eb0db22e777efcda15b39edc9e1
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 3035a24c0ada9f2b8454a060a0b3cbe6856fb86c
+commit 3e4cad8ff2e57a316de9234b36d21d9f35914bf4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-02-16 02:22:41-0500
 
@@ -456,7 +456,7 @@ index c0c9ed43e8ac6e3748c7294e0dba8957786c3c06..dcc149fe7a598847b1cbfc4f5d5fd818
      <bool name="config_show_system_update_settings">true</bool>
  
 
-commit bb85e2374e8fbb7171d79a250d9d4ed3522a8dd8
+commit ac15d48f48c3fd11b8934807ae5de8c14f536852
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sun 2021-05-16 00:51:15+0100
 
@@ -499,7 +499,7 @@ index 41f7733cfb2bf33e2e3ac859789dca1ca63a26ae..edc910b36cfd1c5254bff5d04dd2b40a
  
      <!-- Kernel -->
 
-commit ab9a46ea558e1152a044ebef5d20cf68c790c2f3
+commit 841d65a2ff0e6e93f393bc1a09c6217b7efd9712
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -539,7 +539,7 @@ index 811a44c7c5699599c5584155e54938bbdce87fa1..27a88288f18d208b484404980a46d39b
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="master_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit 3d422a2cb55fae06eb2529d7aa3695ba7aa9fe8a
+commit d14e6a772063e6bb69d034038cd841de9863232b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -576,7 +576,7 @@ index dcc149fe7a598847b1cbfc4f5d5fd8184ec66539..a9dac5256af7b26c60c5560eca50a442
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit f55498da98d5bc102935fd541febd2b5f8863a22
+commit 273fba43244a4628b7d58447f4e0cb7575986d30
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-04-17 15:15:51+0100
 
@@ -621,17 +621,17 @@ index a9dac5256af7b26c60c5560eca50a442ec561ea0..90a670fd32da06447437507cfcb50d93
      <string name="gesture_double_twist_sensor_name" translatable="false"></string>
      <string name="gesture_double_twist_sensor_vendor" translatable="false"></string>
 
-commit 44954614fa72e229a94a9acc299eda03a901a735
+commit ab3c1fa80f3db4c67f7b88cdc882637a0cbde4a5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-03-10 00:45:12-0500
 
-    add built-in accessibility services
+    add TalkBack accessibility service
 ---
- res/values/config.xml | 2 ++
- 1 file changed, 2 insertions(+)
+ res/values/config.xml | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index 90a670fd32da06447437507cfcb50d9378e4cdbb..8b8ac04b6b421bf9460a919971c018ec3a6eb6c0 100755
+index 90a670fd32da06447437507cfcb50d9378e4cdbb..ead4848e7eb21dd91be75779916074006a94c9b6 100755
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
 @@ -71,20 +71,21 @@
@@ -656,30 +656,8 @@ index 90a670fd32da06447437507cfcb50d9378e4cdbb..8b8ac04b6b421bf9460a919971c018ec
          -->
      </string-array>
  
-@@ -95,20 +96,21 @@
-         <item>com.example.package.second/com.example.class.SecondService</item>
-         -->
-     </string-array>
- 
-     <!-- List containing the component names of pre-installed interaction control services. -->
-     <string-array name="config_preinstalled_interaction_control_services" translatable="false">
-         <!--
-         <item>com.example.package.first/com.example.class.FirstService</item>
-         <item>com.example.package.second/com.example.class.SecondService</item>
-         -->
-+        <item>com.google.android.accessibility.talkback/com.android.switchaccess.SwitchAccessService</item>
-     </string-array>
- 
-     <!-- List containing the order of services in screen reader category by componentname.
-          All componentnames in a category need to be specified to guarantee correct behavior.-->
-     <string-array name="config_order_screen_reader_services" translatable="false">
-         <!--
-         <item>com.example.package.first/com.example.class.FirstService</item>
-         <item>com.example.package.second/com.example.class.SecondService</item>
-         -->
-     </string-array>
 
-commit 94aef150352a26ac62b08ecad10a08ef8a212d4d
+commit c7da46ec67e4296531e3d3cc7bdad1e1e6948eee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -721,7 +699,7 @@ index 36ad2ce9746c7aa8ff94183c22def30724e054e2..afbda02c7731059fa7bab41fb97dee73
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit b9a1093d275314e3db4bd32a34951599bbaa57b6
+commit 2b9a8f2a24cc60193320a945a48270e3efd93d4a
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:11:39+0100
 
@@ -759,7 +737,7 @@ index afbda02c7731059fa7bab41fb97dee730176c0c3..fc1004603e86cadb3328887ce8e1bb04
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit a3c855dab2a0b61b43defa3d7871a279a2872e66
+commit 6f538c804a4c3052a7d9a7cc0a1a6a1378e36b19
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2020-02-27 19:34:56-0800
 
@@ -1116,7 +1094,7 @@ index 83fa208c1b954815566f418e10f78fc99124b0fd..4d888c61e53fabd9a104de9a5c938cbe
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit ded2ec007eb8559ae7ee3fd26dedeb5bf386d8af
+commit fbf436f230dc95ce932ae38e3c3ead11efb8eae1
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -1351,7 +1329,7 @@ index c8288c6c7f20dd06062c252d05d7c64aa60760b5..d8422b7d240d9d597cf2a1c6351670df
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 5e073e2d6ec6ea3ba1bb16dbce2339a4440e2523
+commit 635f11275800bee98f00461961164c5d3e5ea66f
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1626,7 +1604,7 @@ index d8422b7d240d9d597cf2a1c6351670df6edcfa07..a3d213381b60b31c85250467bbd32af8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit e84e934cc26bd174501e8a2795c2c8805d11aadd
+commit 9bc33b2f1a94c5b801f2c7078b996478cd4d11ac
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-12-08 23:58:24+0100
 
@@ -1923,7 +1901,7 @@ index d6e1b6054d3bbad4ff7f07018d6986a49a2d7d38..ab51c59e1a6f0b6a03458b289e8737a6
      }
  }
 
-commit 0f3a0cf511f4e3c5c5cf202cc008f1b1894a269d
+commit bef63219dd362fb130bcaf5da123aeda0259525e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-12-02 10:38:08-0500
 
@@ -4482,7 +4460,7 @@ index 81a602b4fbcbf4ec70916650dcdbbf7540ab687f..c2d2bf1298e7ee6a9104a9730a40479e
    <string-array name="autofill_logging_level_entries">
      <item msgid="2263571982739726576">"Valiwe"</item>
 
-commit 5c49f16ebf5ef0a4063fe7da176fbde10187b14e
+commit 27512b4c1f44356de48e5c846233b83ce584ad56
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -4675,7 +4653,7 @@ index a3d213381b60b31c85250467bbd32af865499803..fe551d16251349f71d3473f9344a95a6
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 0c67e2be14ed047a15c4ef6aeda352d544edb830
+commit 8c80cb03b42431bfb79e26e8854bd838d645aef7
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2020-11-25 14:34:33+0000
 
@@ -5008,7 +4986,7 @@ index db704ae850de73f0a2ed547a4be8f6b3048be630..c77b07821e1dabf303060cacc3b4dff5
      @Override
      public Dialog onCreateDialog(int dialogId) {
 
-commit 8587b09e4bd6d08054d26846ddecb3ed109649f7
+commit 52ea603339c54d589009c8ee218509f3835ad011
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:15:32+0100
 
@@ -5208,7 +5186,7 @@ index fe551d16251349f71d3473f9344a95a6217e1200..0bb5b98ee4abd88ec8cf154e769f65ba
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit ce7933214a07e14a5ee48f25084494512d10a6bf
+commit 893f1a53dd4f7c2c5c85ed351b10c647a11ff337
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:13:36+0100
 
@@ -5315,7 +5293,7 @@ index 0000000000000000000000000000000000000000..32b1cb64de05bb3414088028c0d48d1e
 +    }
 +}
 
-commit b98df265b59760d4c0399b209c7f3ab30a573604
+commit 3768dfb4f58c77b708952b2e524b22ff11316079
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-04-25 21:42:56-0400
 
@@ -5435,7 +5413,7 @@ index c98736b231f7c81b7a2ee3a4d6f4a3a4937a762b..145722aef032d9534b8ba51ca9541bdc
              android:persistent="false"
              android:summary="@string/daltonizer_mode_protanomaly_summary"
 
-commit 45b7012da46659af432fffd58eea5a930ce5c4e0
+commit 81d308220876329631972e6cce05dd7c21badc12
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2020-04-27 13:10:34-0700
 
@@ -5666,7 +5644,7 @@ index 8b16aeea65528d19e694b09222023667c7e314f1..9ff20d91427439f129716b7c99819885
              return R.string.help_url_fingerprint;
          }
 
-commit 27d5f1af553ac8021bad00f86e5943ac594b1f8c
+commit 607919bb5de5aa42558f73840a1f1c06fc5c04fd
 Author: pratyush <codelab@pratyush.dev>
 Date:   Mon 2021-06-07 22:15:59+0100
 
@@ -5932,7 +5910,7 @@ index 0bb5b98ee4abd88ec8cf154e769f65bab5c47fa6..ad9b57cf22e7c554560ad9eabb4279d3
          profileSecurityControllers.add(new ChangeProfileScreenLockPreferenceController(
                  context, host));
 
-commit dd6898155d22c3fb969ab79de11382c59121e212
+commit 43ca9fac87286bab5db3be5ee079e0047a469a66
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 12:37:30-0400
 
@@ -6212,7 +6190,7 @@ index 0000000000000000000000000000000000000000..244147948aa50873a9cb372b7566ce79
 +    }
 +}
 
-commit 46e51d8a7d8c0fc0dcecf902ac5306c0f5b74372
+commit ff9e9e0abf72b4df05d21bb462a305c8c09a8ba0
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Thu 2021-02-25 11:31:14-0500
 
@@ -6492,7 +6470,7 @@ index 0000000000000000000000000000000000000000..7116c9051904dd0a5109bafc7bec0420
 +    }
 +}
 
-commit 95aed967c1e5a30f64dffe3ebe9fb1a94663a54e
+commit 110d56b3363c3798d7c8732cc0020c8c28866819
 Author: Wonderfall <wonderfall@protonmail.com>
 Date:   Mon 2021-07-19 01:31:27+0200
 
@@ -6531,7 +6509,7 @@ index 1bfdac9556976284624600c8590a734bf6223359..8440472d5bfa1292f3b30725463d3858
      /**
       * Whether screen lock with {@code type} should be enabled.
 
-commit 16afef63a235f006317cfbfb02c95217203c66ee
+commit 96576113a3ab8b27dcf80d017fbd5ef8a8654d97
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-07-25 14:44:48-0400
 
@@ -6541,10 +6519,10 @@ Date:   Sun 2021-07-25 14:44:48-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index 8b8ac04b6b421bf9460a919971c018ec3a6eb6c0..f435536a9ca040ca240cceaa0d8f9c06f1412fde 100755
+index ead4848e7eb21dd91be75779916074006a94c9b6..7265addc5a4091cfd1f50ff2baf472cfcbe62007 100755
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
-@@ -419,21 +419,21 @@
+@@ -418,21 +418,21 @@
      <!-- Whether wifi_mac_address should be shown or not. -->
      <bool name="config_show_wifi_mac_address">true</bool>
  
@@ -6568,7 +6546,7 @@ index 8b8ac04b6b421bf9460a919971c018ec3a6eb6c0..f435536a9ca040ca240cceaa0d8f9c06
      <string-array name="config_skip_reset_apps_package_name" translatable="false">
          <item>android</item>
 
-commit 35151cd00c9bd1270715756ca21234a470e97434
+commit c3817c3c1251d559a59a8332702d0613d2bd9590
 Author: stuux <stuux@posteo.net>
 Date:   Sun 2021-07-25 00:22:34+0200
 
@@ -6734,7 +6712,7 @@ index 86044bfb53255e0845d6f06d2728a6ca0bc6ae4c..963d20ce2dad36b84c3800ba7f2ed92d
                                                       Integer.parseInt((String)value));
              return true;
 
-commit 9d032cc5c0c214bc19c62a887e7e14d2f152aadd
+commit 286910c6cbc8c77153e7e230a4d02bea745ea571
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-06 21:23:33+0000
 
@@ -6775,7 +6753,7 @@ index 29111b89ec26c62eb9de18408439d07b7fa7a5e6..8cc81b84b01816a3ad44f92aceaf0b09
  
      @OnLifecycleEvent(ON_START)
 
-commit abddbe11cee27b54af7f4c982e19728fbb4314cd
+commit f021fce389d25e3900d1677c193d5eff6d3e816e
 Author: Rafael Matias de Lima <rafamatias.1@gmail.com>
 Date:   Fri 2020-02-07 11:35:48-0300
 
@@ -6830,7 +6808,7 @@ index d205968d93666605d0de16545300980211b35f57..6b5e670609b8797f10d0fea52611cb36
              outState.putBoolean(KEY_AWAITING_RESULT, mWaitingForActivityResult);
          }
 
-commit 2401c0473e0e07dd9cbef5be151f1c6e5fed78b8
+commit 72dcea3f0d5f541eb300b01fc96fbe9183771a64
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-08-17 19:05:06+0000
 
@@ -6868,7 +6846,7 @@ index 6b5e670609b8797f10d0fea52611cb362fa9ce0f..3664e86fa571bc0eb1ccca54183cfbec
          } else {
              drawable = currentUserIcon;
 
-commit e8fac0fac35bcd7eb7438b33b5f7c83db08e2807
+commit 69c4f503dc2309786d5449fc30aaf5242b28c373
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-08-17 22:41:26+0000
 
@@ -6904,7 +6882,7 @@ index 8cc81b84b01816a3ad44f92aceaf0b09640285f7..8bad6daf2b208dd7c14ca6666a105de8
              }
          }
 
-commit 52d5f0f058487eec85499e90046e11181a8c35f4 (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+commit 62f81c237b7f4a33fbb13752def9cbf3f5c9e0d4 (HEAD, tag: RQ3A.211001.001.2021100502, m/master)
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-09-01 20:36:10+0000
 

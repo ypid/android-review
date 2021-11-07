@@ -152,7 +152,7 @@ index 77f2428177acf03eaa0d7ef20b13ff50a5523cf6..54eeb86e78989659a9047c7da30827a7
              android:autoRemoveFromRecents="true">
              <intent-filter>
 
-commit f74f99a9f316ec04a9e7090379cd3c02237674c5 (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+commit f74f99a9f316ec04a9e7090379cd3c02237674c5 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:36:04+0100
 

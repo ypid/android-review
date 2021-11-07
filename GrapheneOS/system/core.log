@@ -1,4 +1,4 @@
-commit 731a9ef2f1b4a28632b4a8bab159d1d2843b1521
+commit 8c0f3c0e04d279daf9f0e9a338c698ed95a026b6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2018-12-13 09:26:25-0500
 
@@ -35,7 +35,7 @@ index a9af0b094da4e7bbdde03fbe98ca200566e1289e..9dd5444578199e1be0c5ffcc3239de33
      write /sys/fs/f2fs/${dev.mnt.blk.data}/cp_interval 200
      write /sys/fs/f2fs/${dev.mnt.blk.data}/gc_urgent_sleep_time 50
 
-commit 3116c299ffb301a67023ddb4369c030abaad8f32
+commit 3cf5d4c7ef406552cc91edc772e938892b867412
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:46:34-0500
 
@@ -84,7 +84,7 @@ index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bf
      CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
      CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
 
-commit 1c2a540a3af0204088a8dc7f7616a28b8e8c219a
+commit b3a0c2c5db28852b6d485542c8a4f1649a256892
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:41:57-0500
 
@@ -120,7 +120,7 @@ index 6cbe642c081b13c12d7d951b0620d2dcf52e4b89..82fc8ca6413cb55f1ea7ef53968cc649
  }
  
 
-commit af343f08a6dc856ad9f518866302d94a3b967cf8
+commit 943a8bfbeea6dd09876ee361d8f70cf90ac87086
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-06-15 17:51:42-0400
 
@@ -167,7 +167,7 @@ index 9dd5444578199e1be0c5ffcc3239de333f54208a..7ef43016e86db545c9cb076fc311f981
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
 
-commit 3fe948b4b99f2139eff47a95a6943adcb58efeb7
+commit a54efdc9bf339289af62dbce445485ec708bb12c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:49:29-0400
 
@@ -205,7 +205,7 @@ index 7ef43016e86db545c9cb076fc311f981f4894df2..4fefe9c89dae14a8a8a8e32dacca5d9b
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 6f2d9deff97d5b54fa44c18e2f75d263c68e7935
+commit 780cce3e59b2da986f67162431b22713505e8dc0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:54:28-0400
 
@@ -243,7 +243,7 @@ index 4fefe9c89dae14a8a8a8e32dacca5d9ba0d46b5e..d2f8d74529a30aa7fda1f9873c8871b2
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 358670be6efa18b3202c4a563419d3946e69bf1d (tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06)
+commit ad017fba58cf8918a2dfe05f90affd2e1abe6b6a (HEAD, tag: RQ3A.211001.001.2021100502, m/master)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 03:02:51+0100
 
@@ -283,124 +283,3 @@ index d2f8d74529a30aa7fda1f9873c8871b2cc5af87b..d60dfa7b653f491cc74d6b7507541f0f
  # can lower it to 1 (allowing thread-scoped pofiling) via security.perf_harden.
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
-
-commit be11b59725aa6118b0e1f0712572e835c3d50746 (HEAD, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Thu 2021-07-22 17:12:00-0400
-
-    fix use-after-free from event handling closures
----
- init/epoll.cpp | 10 ++++++----
- init/epoll.h   |  5 +++--
- 2 files changed, 9 insertions(+), 6 deletions(-)
-
-diff --git a/init/epoll.cpp b/init/epoll.cpp
-index 17d63fa5d8598bc16b01b72119aa5506dc93fccb..f3370a8f7a90cf0c1ae610819415fca787d1b9e6 100644
---- a/init/epoll.cpp
-+++ b/init/epoll.cpp
-@@ -35,21 +35,22 @@ Result<void> Epoll::Open() {
-     if (epoll_fd_ == -1) {
-         return ErrnoError() << "epoll_create1 failed";
-     }
-     return {};
- }
- 
- Result<void> Epoll::RegisterHandler(int fd, std::function<void()> handler, uint32_t events) {
-     if (!events) {
-         return Error() << "Must specify events";
-     }
--    auto [it, inserted] = epoll_handlers_.emplace(fd, std::move(handler));
-+    auto sp = std::make_shared<std::function<void()>>(std::move(handler));
-+    auto [it, inserted] = epoll_handlers_.emplace(fd, std::move(sp));
-     if (!inserted) {
-         return Error() << "Cannot specify two epoll handlers for a given FD";
-     }
-     epoll_event ev;
-     ev.events = events;
-     // std::map's iterators do not get invalidated until erased, so we use the
-     // pointer to the std::function in the map directly for epoll_ctl.
-     ev.data.ptr = reinterpret_cast<void*>(&it->second);
-     if (epoll_ctl(epoll_fd_, EPOLL_CTL_ADD, fd, &ev) == -1) {
-         Result<void> result = ErrnoError() << "epoll_ctl failed to add fd";
-@@ -62,32 +63,33 @@ Result<void> Epoll::RegisterHandler(int fd, std::function<void()> handler, uint3
- Result<void> Epoll::UnregisterHandler(int fd) {
-     if (epoll_ctl(epoll_fd_, EPOLL_CTL_DEL, fd, nullptr) == -1) {
-         return ErrnoError() << "epoll_ctl failed to remove fd";
-     }
-     if (epoll_handlers_.erase(fd) != 1) {
-         return Error() << "Attempting to remove epoll handler for FD without an existing handler";
-     }
-     return {};
- }
- 
--Result<std::vector<std::function<void()>*>> Epoll::Wait(
-+Result<std::vector<std::shared_ptr<std::function<void()>>>> Epoll::Wait(
-         std::optional<std::chrono::milliseconds> timeout) {
-     int timeout_ms = -1;
-     if (timeout && timeout->count() < INT_MAX) {
-         timeout_ms = timeout->count();
-     }
-     const auto max_events = epoll_handlers_.size();
-     epoll_event ev[max_events];
-     auto num_events = TEMP_FAILURE_RETRY(epoll_wait(epoll_fd_, ev, max_events, timeout_ms));
-     if (num_events == -1) {
-         return ErrnoError() << "epoll_wait failed";
-     }
--    std::vector<std::function<void()>*> pending_functions;
-+    std::vector<std::shared_ptr<std::function<void()>>> pending_functions;
-     for (int i = 0; i < num_events; ++i) {
--        pending_functions.emplace_back(reinterpret_cast<std::function<void()>*>(ev[i].data.ptr));
-+        auto sp = *reinterpret_cast<std::shared_ptr<std::function<void()>>*>(ev[i].data.ptr);
-+        pending_functions.emplace_back(std::move(sp));
-     }
- 
-     return pending_functions;
- }
- 
- }  // namespace init
- }  // namespace android
-diff --git a/init/epoll.h b/init/epoll.h
-index c32a6614fe2ebbeeaed178eee9894c00cccf8bb5..eca91ac04826d58a68cd1f6b92e3d2ae936fc3e9 100644
---- a/init/epoll.h
-+++ b/init/epoll.h
-@@ -15,37 +15,38 @@
-  */
- 
- #pragma once
- 
- #include <stdint.h>
- #include <sys/epoll.h>
- 
- #include <chrono>
- #include <functional>
- #include <map>
-+#include <memory>
- #include <optional>
- #include <vector>
- 
- #include <android-base/unique_fd.h>
- 
- #include "result.h"
- 
- namespace android {
- namespace init {
- 
- class Epoll {
-   public:
-     Epoll();
- 
-     Result<void> Open();
-     Result<void> RegisterHandler(int fd, std::function<void()> handler, uint32_t events = EPOLLIN);
-     Result<void> UnregisterHandler(int fd);
--    Result<std::vector<std::function<void()>*>> Wait(
-+    Result<std::vector<std::shared_ptr<std::function<void()>>>> Wait(
-             std::optional<std::chrono::milliseconds> timeout);
- 
-   private:
-     android::base::unique_fd epoll_fd_;
--    std::map<int, std::function<void()>> epoll_handlers_;
-+    std::map<int, std::shared_ptr<std::function<void()>>> epoll_handlers_;
- };
- 
- }  // namespace init
- }  // namespace android
