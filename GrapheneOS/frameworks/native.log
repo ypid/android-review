@@ -1,4 +1,4 @@
-commit 6ff4e668467a79b610a003bd989bc0833ade0912
+commit 5b1e64b73ea73057eda0289d2e5bdc19eda0a849 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 16:28:57-0400
 
@@ -10,7 +10,7 @@ Date:   Sat 2017-10-07 16:28:57-0400
  1 file changed, 1 insertion(+)
 
 diff --git a/libs/sensor/Sensor.cpp b/libs/sensor/Sensor.cpp
-index 9d817ae0bd994c8efe162f55cff2111ed9d0cd02..91df16e64a7831100750834b687659264668eb7e 100644
+index 0a49008584a4dfa0f2574e6294f563f1f9b2016b..94bac9177cee5343fb763469f79e5c7c93c5c94e 100644
 --- a/libs/sensor/Sensor.cpp
 +++ b/libs/sensor/Sensor.cpp
 @@ -52,20 +52,21 @@ Sensor::Sensor(struct sensor_t const& hwSensor, const uuid_t& uuid, int halVersi
@@ -35,49 +35,3 @@ index 9d817ae0bd994c8efe162f55cff2111ed9d0cd02..91df16e64a7831100750834b68765926
          mFifoReservedEventCount = 0;
          mFifoMaxEventCount = 0;
      }
-
-commit 1f05db99ab42ee184c1c318f66bf6ee4b869ae5b (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sat 2021-01-02 20:17:35-0500
-
-    fix use-after-free in adbd_auth
-    
-    The writev call is using references to data from the packet after it's
-    popped from the queue. This was discovered in GrapheneOS due to using
-    zero-on-free by default. It ends up resulting in adb being unable to
-    persistently whitelist keys.
-    
-    Change-Id: Ibd9c1c4170bfe632b598b7666d09e4ce939a9e95
----
- libs/adbd_auth/adbd_auth.cpp | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/libs/adbd_auth/adbd_auth.cpp b/libs/adbd_auth/adbd_auth.cpp
-index dae6eebaa526c39c664bc6310281105b61911395..15bd5c39136c3d7b27a256c59a076133b1c3de8f 100644
---- a/libs/adbd_auth/adbd_auth.cpp
-+++ b/libs/adbd_auth/adbd_auth.cpp
-@@ -275,23 +275,22 @@ public:
-             iovs[0].iov_base = const_cast<char*>("WF");
-             iovs[0].iov_len = 2;
-             iovs[1].iov_base = &p->transport_type;
-             iovs[1].iov_len = 1;
-             iovs[2].iov_base = p->public_key.data();
-             iovs[2].iov_len = p->public_key.size();
-         } else {
-             LOG(FATAL) << "adbd_auth: unhandled packet type?";
-         }
- 
--        output_queue_.pop_front();
--
-         ssize_t rc = writev(framework_fd_.get(), iovs, iovcnt);
-+        output_queue_.pop_front();
-         if (rc == -1 && errno != EAGAIN && errno != EWOULDBLOCK) {
-             PLOG(ERROR) << "adbd_auth: failed to write to framework fd";
-             ReplaceFrameworkFd(unique_fd());
-             return false;
-         }
- 
-         return true;
-     }
- 
-     void Run() {

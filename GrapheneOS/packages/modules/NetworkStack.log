@@ -1,4 +1,4 @@
-commit 9004b50b88d01b60d883e1639e707e47f1de6a4e
+commit fe7d287456388dd595f9235a4c03e4afac818987
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 03:54:51-0500
 
@@ -8,7 +8,7 @@ Date:   Wed 2020-11-25 03:54:51-0500
  1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index d6a11abe196fa157b908a1ccd67f7c8de856032b..c86935f3b57116aad1e143d8ca40cabcf42c6d81 100644
+index 805ca0410b1d176d64278af8a45d217e8a39957f..c16d86d1ed0a195823c3e99b6a8fbed36da97c74 100644
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
 @@ -6,40 +6,40 @@
@@ -57,7 +57,7 @@ index d6a11abe196fa157b908a1ccd67f7c8de856032b..c86935f3b57116aad1e143d8ca40cabc
      <!-- Literal commas are not allowed in the url configuration because they
           are used as a separator internally. -->
 
-commit 561b45b730b4a4d78dfd827109757d34c3a85008
+commit 2df1a8acc63fa6b874caf820cf5699602ca5ca90
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-25 06:30:31-0500
 
@@ -99,7 +99,7 @@ index 2863edd734c10b5325750152756ea4ee7d0fda76..00000000000000000000000000000000
 -    </string-array>
 -</resources>
 
-commit e2b33d4d19f7489779d3fcfe78855077bbdef528
+commit 4476086a03b8d68d285a3185518e3c16c8529dc6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-12-28 20:57:14-0500
 
@@ -109,10 +109,10 @@ Date:   Mon 2020-12-28 20:57:14-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/android/net/util/NetworkStackUtils.java b/src/android/net/util/NetworkStackUtils.java
-index 94de7c3979e56a40e8282a20c5729a276734673d..c73ca517032417e6548164c3af5398110312d5f1 100755
+index 81d0c08be30d7914bdbade6d0cdaec9315395acd..9405aede15360e27e0e7e469b116fd32b97ce512 100755
 --- a/src/android/net/util/NetworkStackUtils.java
 +++ b/src/android/net/util/NetworkStackUtils.java
-@@ -163,28 +163,28 @@ public class NetworkStackUtils {
+@@ -158,28 +158,28 @@ public class NetworkStackUtils {
       * List of fallback probe specs to use for detecting captive portals. This is an alternative to
       * fallback URLs that provides more flexibility on detection rules. Empty, so unused by default.
       */
@@ -144,29 +144,29 @@ index 94de7c3979e56a40e8282a20c5729a276734673d..c73ca517032417e6548164c3af539811
      public static final String DHCP_INIT_REBOOT_ENABLED = "dhcp_init_reboot_enabled";
  
 
-commit 1af8ee8f7017ebec8bf7b1507b3ed8cfa71af9b5 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+commit 53cd7b672cba18e41c175d7b3d176808dee568a5 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Thu 2021-05-20 13:21:31+0530
 
     avoid reusing DHCP state for full MAC randomization
 ---
- src/android/net/dhcp/DhcpClient.java | 30 +++++++++++++++++++++++++++++-
- 1 file changed, 29 insertions(+), 1 deletion(-)
+ src/android/net/dhcp/DhcpClient.java | 29 ++++++++++++++++++++++++++++-
+ 1 file changed, 28 insertions(+), 1 deletion(-)
 
 diff --git a/src/android/net/dhcp/DhcpClient.java b/src/android/net/dhcp/DhcpClient.java
-index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb91970fe1 100644
+index 8e0e9d3497779ffef86525e74a207c9c554794d7..4876c2f13979fa2f1a70c02e332be3cab40a3a86 100644
 --- a/src/android/net/dhcp/DhcpClient.java
 +++ b/src/android/net/dhcp/DhcpClient.java
-@@ -67,20 +67,23 @@ import android.net.ipmemorystore.NetworkAttributes;
+@@ -69,20 +69,23 @@ import android.net.ipmemorystore.NetworkAttributes;
  import android.net.ipmemorystore.OnNetworkAttributesRetrievedListener;
  import android.net.ipmemorystore.OnStatusListener;
  import android.net.metrics.DhcpClientEvent;
  import android.net.metrics.DhcpErrorEvent;
  import android.net.metrics.IpConnectivityLog;
+ import android.net.networkstack.aidl.dhcp.DhcpOption;
  import android.net.util.HostnameTransliterator;
  import android.net.util.InterfaceParams;
  import android.net.util.NetworkStackUtils;
- import android.net.util.PacketReader;
  import android.net.util.SocketUtils;
 +import android.net.wifi.WifiConfiguration;
 +import android.net.wifi.WifiInfo;
@@ -181,10 +181,10 @@ index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb
  import android.system.ErrnoException;
  import android.system.Os;
  import android.util.EventLog;
-@@ -104,20 +107,22 @@ import com.android.networkstack.apishim.common.ShimUtils;
- import com.android.networkstack.arp.ArpPacket;
+@@ -109,20 +112,21 @@ import com.android.networkstack.arp.ArpPacket;
  import com.android.networkstack.metrics.IpProvisioningMetrics;
  
+ import java.io.ByteArrayOutputStream;
  import java.io.FileDescriptor;
  import java.io.IOException;
  import java.net.Inet4Address;
@@ -193,7 +193,7 @@ index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb
  import java.nio.ByteBuffer;
  import java.util.Arrays;
 +import java.util.ArrayList;
-+import java.util.List;
+ import java.util.List;
  import java.util.Random;
  
  /**
@@ -203,8 +203,7 @@ index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb
   * 5.1 and below, as configured on Nexus 6. The interface is the same as DhcpStateMachine.
   *
   * TODO:
-  *
-@@ -1191,21 +1196,21 @@ public class DhcpClient extends StateMachine {
+@@ -1235,21 +1239,21 @@ public class DhcpClient extends StateMachine {
  
                  case EVENT_CONFIGURATION_OBTAINED:
                      final long currentTime = System.currentTimeMillis();
@@ -227,15 +226,15 @@ index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb
                      return HANDLED;
  
                  default:
-@@ -1216,20 +1221,43 @@ public class DhcpClient extends StateMachine {
+@@ -1269,20 +1273,43 @@ public class DhcpClient extends StateMachine {
  
-         @Override
-         public void exit() {
-             super.exit();
-             removeMessages(EVENT_CONFIGURATION_INVALID);
-             removeMessages(EVENT_CONFIGURATION_TIMEOUT);
-             removeMessages(EVENT_CONFIGURATION_OBTAINED);
-         }
+     private boolean maybeTransitionToIpv6OnlyWaitState(@NonNull final DhcpPacket packet) {
+         if (!isIPv6OnlyPreferredModeEnabled()) return false;
+         if (packet.getIpv6OnlyWaitTimeMillis() == DhcpPacket.V6ONLY_PREFERRED_ABSENCE) return false;
+ 
+         mIpv6OnlyWaitTimeMs = packet.getIpv6OnlyWaitTimeMillis();
+         transitionTo(mIpv6OnlyWaitState);
+         return true;
      }
  
 +    private static final int RANDOMIZATION_ALWAYS = 100;
@@ -268,6 +267,6 @@ index 4fedf30893c5b9de9926694c966b25de3c99689b..5b613a2aa50ecdcb4760ea20dbcbf9cb
          // 2. received the DHCPACK packet from DHCP Servers that support Rapid
          //    Commit option, process it by following RFC4039.
          if (packet instanceof DhcpOfferPacket) {
-             mOffer = packet.toDhcpResults();
-             if (mOffer != null) {
-                 Log.d(TAG, "Got pending lease: " + mOffer);
+             if (maybeTransitionToIpv6OnlyWaitState(packet)) {
+                 return;
+             }

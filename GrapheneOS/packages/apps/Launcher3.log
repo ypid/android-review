@@ -1,4 +1,200 @@
-commit d8afe4260fd5de838f0fea929f1da9db92049a59
+commit 63808f61a5c20d92372e449851aa8f45786bd6d0
+Author: Steven Ng <stevenckng@google.com>
+Date:   Wed 2021-08-11 22:40:06+0100
+
+    Fix pending restore widget touch issue
+    
+    After http://ag/14980850, we block updateAppWidget until app widget
+    is restored. However, PendingAppWidgetHostView constructor relies
+    on updateAppWidget(null) to trigger set listener in getDefaultView().
+    We should call super.updateAppWidget(null) in the constructor instead.
+    
+    Test: manual
+    Bug: 14980850
+    Change-Id: I30af9778a636af2ad822e7abc152b6f0bfdea1bf
+---
+ src/com/android/launcher3/widget/PendingAppWidgetHostView.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/launcher3/widget/PendingAppWidgetHostView.java b/src/com/android/launcher3/widget/PendingAppWidgetHostView.java
+index d3a019001d201e428dee809bb4fa89bbf092c6e2..57a6d3fb07a8b47dd376ea3ba21290468b1f42b4 100644
+--- a/src/com/android/launcher3/widget/PendingAppWidgetHostView.java
++++ b/src/com/android/launcher3/widget/PendingAppWidgetHostView.java
+@@ -78,21 +78,21 @@ public class PendingAppWidgetHostView extends LauncherAppWidgetHostView
+         mStartState = info.restoreStatus;
+         mDisabledForSafeMode = disabledForSafeMode;
+ 
+         mPaint = new TextPaint();
+         mPaint.setColor(Themes.getAttrColor(getContext(), android.R.attr.textColorPrimary));
+         mPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
+                 mLauncher.getDeviceProfile().iconTextSizePx, getResources().getDisplayMetrics()));
+         setBackgroundResource(R.drawable.pending_widget_bg);
+         setWillNotDraw(false);
+ 
+-        updateAppWidget(null);
++        super.updateAppWidget(null);
+         setOnClickListener(ItemClickHandler.INSTANCE);
+ 
+         if (info.pendingItemInfo == null) {
+             info.pendingItemInfo = new PackageItemInfo(info.providerName.getPackageName());
+             info.pendingItemInfo.user = info.user;
+             cache.updateIconInBackground(this, info.pendingItemInfo);
+         } else {
+             reapplyItemInfo(info.pendingItemInfo);
+         }
+     }
+
+commit ca69681b23998eb10ca8eadf608bc31d8e7f9a3c
+Author: Damian Patel <damianpatel@google.com>
+Date:   Wed 2021-07-28 14:38:39+0000
+
+    API level 30 upgrade: AOSP/Launcher3
+    
+    The AndroidManifest.xml and build.gradle file of the AOSP
+    Launcher app has been upgraded so that its targetSdkVersion
+    is 30. This change has been made on git_master so that
+    we can avoid presubmit conflicts when making this change
+    on the aosp-master branch.
+    
+    Change-Id: Ie476f8cbe56bf51218b15b8361a22fec2dc845e6
+    (cherry picked from commit 499ffce2e704aa82b4d10468f99afd3dc4e727f8)
+---
+ AndroidManifest.xml | 2 +-
+ build.gradle        | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 8066816e892bd4325ae9d4ef589c0b24f6f9fb13..f793131fd3d603fd952b2f2a2d59485570e284ec 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -13,21 +13,21 @@
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ */
+ -->
+ <manifest
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     package="com.android.launcher3">
+-    <uses-sdk android:targetSdkVersion="29" android:minSdkVersion="26"/>
++    <uses-sdk android:targetSdkVersion="30" android:minSdkVersion="26"/>
+     <!--
+     Manifest entries specific to Launcher3. This is merged with AndroidManifest-common.xml.
+     Refer comments around specific entries on how to extend individual components.
+     -->
+ 
+     <application
+         android:backupAgent="com.android.launcher3.LauncherBackupAgent"
+         android:fullBackupOnly="true"
+         android:fullBackupContent="@xml/backupscheme"
+         android:hardwareAccelerated="true"
+diff --git a/build.gradle b/build.gradle
+index a7eef13a3d36f9b63101177159610618162c36c0..0622d877643c356e00fca2265eeb2394b984bbd6 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -14,22 +14,22 @@ final String ANDROID_TOP = "${rootDir}/../../.."
+ final String FRAMEWORK_PREBUILTS_DIR = "${ANDROID_TOP}/prebuilts/framework_intermediates/"
+ 
+ apply plugin: 'com.android.application'
+ apply plugin: 'com.google.protobuf'
+ 
+ android {
+     compileSdkVersion COMPILE_SDK
+     buildToolsVersion BUILD_TOOLS_VERSION
+ 
+     defaultConfig {
+-        minSdkVersion 25
+-        targetSdkVersion 28
++        minSdkVersion 26
++        targetSdkVersion 30
+         versionCode 1
+         versionName "1.0"
+ 
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+         vectorDrawables.useSupportLibrary = true
+     }
+     buildTypes {
+         debug {
+             minifyEnabled false
+         }
+
+commit 145cdda8063c896a6b6608f2212b43ab5c98a120
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2019-11-14 07:32:46-0500
+
+    rebranding
+---
+ quickstep/res/values/strings.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/quickstep/res/values/strings.xml b/quickstep/res/values/strings.xml
+index 4aee2a9ccb3469f14f846343b618169c2d465d68..03439cc4aa9f09ac6bdf4fde237465c89bf67553 100644
+--- a/quickstep/res/values/strings.xml
++++ b/quickstep/res/values/strings.xml
+@@ -12,21 +12,21 @@
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+ -->
+ <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+ 
+     <!-- Application name -->
+-    <string name="derived_app_name" translatable="false">Quickstep</string>
++    <string name="derived_app_name" translatable="false">GrapheneOS Launcher</string>
+ 
+     <!-- Options for recent tasks -->
+     <!-- Title for an option to keep an app pinned to the screen until it is unpinned -->
+     <string name="recent_task_option_pin">Pin</string>
+     <!-- Title for an option to enter freeform mode for a given app -->
+     <string name="recent_task_option_freeform">Freeform</string>
+ 
+     <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
+     <string name="recents_empty_message">No recent items</string>
+ 
+
+commit 8473d80da29bbbdad28c063cb5a8b6cc3d3cd11a
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-10-09 05:04:58-0400
+
+    use com.android.wallpaper as wallpaper picker
+---
+ res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/res/values/config.xml b/res/values/config.xml
+index 04c359ede36ce449bc0da9760c368752b5cbbfab..aeec3275242d9604093c1fdb1630089dfa9865a5 100644
+--- a/res/values/config.xml
++++ b/res/values/config.xml
+@@ -76,21 +76,21 @@
+     <!-- View IDs to store item highlight information -->
+     <item type="id" name="view_unhighlight_background" />
+ 
+     <!-- view ID used to restore work tab state -->
+     <item type="id" name="work_tab_state_id" />
+ 
+     <!-- Menu id for feature flags -->
+     <item type="id" name="menu_apply_flags" />
+ 
+     <!-- Default packages -->
+-    <string name="wallpaper_picker_package" translatable="false"></string>
++    <string name="wallpaper_picker_package" translatable="false">com.android.wallpaper</string>
+     <string name="local_colors_extraction_class" translatable="false"></string>
+ 
+     <!-- Accessibility actions -->
+     <item type="id" name="action_remove" />
+     <item type="id" name="action_uninstall" />
+     <item type="id" name="action_reconfigure" />
+     <item type="id" name="action_add_to_workspace" />
+     <item type="id" name="action_move" />
+     <item type="id" name="action_move_to_workspace" />
+     <item type="id" name="action_move_screen_backwards" />
+
+commit 38337afe138db269b2397091ec7d2b250b6cea93
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-12-06 22:05:39-0500
 
@@ -8,7 +204,7 @@ Date:   Tue 2016-12-06 22:05:39-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index 88a9abaf8d49b9bac3f5d19afa88165e1c199201..d4a65f05bbf92abdab5f3402147cdc0306c9f396 100644
+index f066dc1e02098f445e26915fa1b31fd96b53e76d..9f274870a4fb60af049be822cb622f8ad0f40ebd 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -45,21 +45,21 @@ public final class FeatureFlags {
@@ -35,87 +231,146 @@ index 88a9abaf8d49b9bac3f5d19afa88165e1c199201..d4a65f05bbf92abdab5f3402147cdc03
       *    and set a default value for the flag. This will be the default value on Debug builds.
       */
 
-commit e725b06cdee38b7a49876a4b9390a97ac2aff44a
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Thu 2019-11-14 07:32:46-0500
+commit c0085b41e33e462dd53dafdc7da15770570dffb4
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2021-10-11 20:48:24-0700
 
-    rebranding
----
- quickstep/res/values/strings.xml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/quickstep/res/values/strings.xml b/quickstep/res/values/strings.xml
-index 769d29838ae4e9f9944cbce48d97e9ad12d18097..263163622464d56f4cced80247b368c41cef2420 100644
---- a/quickstep/res/values/strings.xml
-+++ b/quickstep/res/values/strings.xml
-@@ -12,21 +12,21 @@
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
- -->
- <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
- 
-     <!-- Application name -->
--    <string name="derived_app_name" translatable="false">Quickstep</string>
-+    <string name="derived_app_name" translatable="false">GrapheneOS Launcher</string>
- 
-     <!-- Options for recent tasks -->
-     <!-- Title for an option to enter split screen mode for a given app -->
-     <string name="recent_task_option_split_screen">Split screen</string>
-     <!-- Title for an option to keep an app pinned to the screen until it is unpinned -->
-     <string name="recent_task_option_pin">Pin</string>
-     <!-- Title for an option to enter freeform mode for a given app -->
-     <string name="recent_task_option_freeform">Freeform</string>
- 
-     <!-- Recents: The empty recents string. [CHAR LIMIT=NONE] -->
-
-commit efa8145b1ac6ae4b8c22dd09a19c764ec934b5e7
-Author: Luca Stefani <luca.stefani.ge1@gmail.com>
-Date:   Fri 2019-11-01 23:21:37+0100
-
-    Specify the wallpaper picker package
+    Enable new app open/close animations
     
-    Change-Id: Ib94bac4546a328462ec83a7d2e1ffca56ef7343a
+    Change-Id: Ia676c935700f306b90f7810b32eb1aa630cea355
 ---
- res/values/config.xml | 2 +-
+ src/com/android/launcher3/config/FeatureFlags.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index 9f274870a4fb60af049be822cb622f8ad0f40ebd..d4fb2eb70a5323d285c4fdfa6df1bade13e7744c 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -224,38 +224,38 @@ public final class FeatureFlags {
+ 
+     public static final BooleanFlag ENABLE_OVERVIEW_GRID = getDebugFlag(
+             "ENABLE_OVERVIEW_GRID", false, "Uses grid overview layout. "
+             + "Only applicable on large screen devices.");
+ 
+     public static final BooleanFlag ENABLE_TWO_PANEL_HOME = getDebugFlag(
+             "ENABLE_TWO_PANEL_HOME", false,
+             "Uses two panel on home screen. Only applicable on large screen devices.");
+ 
+     public static final BooleanFlag ENABLE_SCRIM_FOR_APP_LAUNCH = getDebugFlag(
+-            "ENABLE_SCRIM_FOR_APP_LAUNCH", false,
++            "ENABLE_SCRIM_FOR_APP_LAUNCH", true,
+             "Enables scrim during app launch animation.");
+ 
+     public static final BooleanFlag ENABLE_SPLIT_SELECT = getDebugFlag(
+             "ENABLE_SPLIT_SELECT", false, "Uses new split screen selection overview UI");
+ 
+     public static final BooleanFlag ENABLE_ENFORCED_ROUNDED_CORNERS = new DeviceFlag(
+             "ENABLE_ENFORCED_ROUNDED_CORNERS", true, "Enforce rounded corners on all App Widgets");
+ 
+     public static final BooleanFlag ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER = new DeviceFlag(
+             "ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER", true,
+             "Enables a local filter for recommended widgets.");
+ 
+     public static final BooleanFlag NOTIFY_CRASHES = getDebugFlag("NOTIFY_CRASHES", false,
+             "Sends a notification whenever launcher encounters an uncaught exception.");
+ 
+     public static final BooleanFlag PROTOTYPE_APP_CLOSE = getDebugFlag(
+-            "PROTOTYPE_APP_CLOSE", false, "Enables new app close");
++            "PROTOTYPE_APP_CLOSE", true, "Enables new app close");
+ 
+     public static final BooleanFlag ENABLE_WALLPAPER_SCRIM = getDebugFlag(
+             "ENABLE_WALLPAPER_SCRIM", false,
+             "Enables scrim over wallpaper for text protection.");
+ 
+     public static void initialize(Context context) {
+         synchronized (sDebugFlags) {
+             for (DebugFlag flag : sDebugFlags) {
+                 flag.initialize(context);
+             }
+
+commit 909443705318a424238f62d835bb7c2791afd8f8
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2021-10-11 20:48:31-0700
+
+    Enable crossfade when changing theme
+    
+    Change-Id: Id376cd3bfdd3b280cfca14c736bbd0f36174cdc2
+---
+ src/com/android/launcher3/config/FeatureFlags.java | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/res/values/config.xml b/res/values/config.xml
-index 75fcc907db54f3ef5e1ae413fa350d9321fea5a8..368bf0ef62a4cb316b65d46bdc15d60455f1fd85 100644
---- a/res/values/config.xml
-+++ b/res/values/config.xml
-@@ -82,21 +82,21 @@
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index d4fb2eb70a5323d285c4fdfa6df1bade13e7744c..f89dfa12bf187e6d3a7f3f91b168938b94e27d8d 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -204,21 +204,21 @@ public final class FeatureFlags {
+     public static final BooleanFlag ENABLE_MINIMAL_DEVICE = getDebugFlag(
+             "ENABLE_MINIMAL_DEVICE", false,
+             "Allow user to toggle minimal device mode in launcher.");
  
-     <!-- Menu id for feature flags -->
-     <item type="id" name="menu_apply_flags" />
+     public static final BooleanFlag EXPANDED_SMARTSPACE = new DeviceFlag(
+             "EXPANDED_SMARTSPACE", false, "Expands smartspace height to two rows. "
+               + "Any apps occupying the first row will be removed from workspace.");
  
-     <!-- Popup items -->
-     <integer name="config_popupOpenCloseDuration">150</integer>
-     <integer name="config_popupArrowOpenCloseDuration">40</integer>
-     <integer name="config_removeNotificationViewDuration">300</integer>
+     // TODO: b/172467144 Remove ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE feature flag.
+     public static final BooleanFlag ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE = new DeviceFlag(
+-            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", false, "Enables a "
++            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", true, "Enables a "
+             + "crossfade animation when the system these changes.");
  
-     <!-- Default packages -->
--    <string name="wallpaper_picker_package" translatable="false"></string>
-+    <string name="wallpaper_picker_package" translatable="false">com.android.wallpaper</string>
-     <string name="calendar_component_name" translatable="false"></string>
-     <string name="clock_component_name" translatable="false"></string>
+     // TODO: b/174174514 Remove ENABLE_APP_PREDICTIONS_WHILE_VISIBLE feature flag.
+     public static final BooleanFlag ENABLE_APP_PREDICTIONS_WHILE_VISIBLE = new DeviceFlag(
+             "ENABLE_APP_PREDICTIONS_WHILE_VISIBLE", true, "Allows app "
+             + "predictions to be updated while they are visible to the user.");
  
-     <!-- Accessibility actions -->
-     <item type="id" name="action_remove" />
-     <item type="id" name="action_uninstall" />
-     <item type="id" name="action_reconfigure" />
-     <item type="id" name="action_add_to_workspace" />
-     <item type="id" name="action_move" />
-     <item type="id" name="action_move_to_workspace" />
+     public static final BooleanFlag ENABLE_TASKBAR = getDebugFlag(
+             "ENABLE_TASKBAR", false, "Allows a system Taskbar to be shown on larger devices.");
+ 
 
-commit ea64162de9f65b834c17a179be588b0a551e6b21
+commit adae3e812f1f1d60d3905320539d7fc84fa5c12f
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2021-10-11 20:48:38-0700
+
+    Enable new keyguard-to-launcher animation
+    
+    Change-Id: I45acf7708da2b4e302c100b8fd95abba2dd964f8
+---
+ src/com/android/launcher3/config/FeatureFlags.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index f89dfa12bf187e6d3a7f3f91b168938b94e27d8d..a3dc71b01cd2115c9f405e7ae07b79f0c5b2956d 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -75,21 +75,21 @@ public final class FeatureFlags {
+     public static final BooleanFlag QUICKSTEP_SPRINGS = getDebugFlag(
+             "QUICKSTEP_SPRINGS", true, "Enable springs for quickstep animations");
+ 
+     public static final BooleanFlag UNSTABLE_SPRINGS = getDebugFlag(
+             "UNSTABLE_SPRINGS", false, "Enable unstable springs for quickstep animations");
+ 
+     public static final BooleanFlag ENABLE_LOCAL_COLOR_POPUPS = getDebugFlag(
+             "ENABLE_LOCAL_COLOR_POPUPS", false, "Enable local color extraction for popups.");
+ 
+     public static final BooleanFlag KEYGUARD_ANIMATION = getDebugFlag(
+-            "KEYGUARD_ANIMATION", false, "Enable animation for keyguard going away on wallpaper");
++            "KEYGUARD_ANIMATION", true, "Enable animation for keyguard going away on wallpaper");
+ 
+     public static final BooleanFlag ADAPTIVE_ICON_WINDOW_ANIM = getDebugFlag(
+             "ADAPTIVE_ICON_WINDOW_ANIM", true, "Use adaptive icons for window animations.");
+ 
+     public static final BooleanFlag ENABLE_QUICKSTEP_LIVE_TILE = getDebugFlag(
+             "ENABLE_QUICKSTEP_LIVE_TILE", true, "Enable live tile in Quickstep overview");
+ 
+     public static final BooleanFlag ENABLE_QUICKSTEP_WIDGET_APP_START = getDebugFlag(
+             "ENABLE_QUICKSTEP_WIDGET_APP_START", true,
+             "Enable Quickstep animation when launching activities from an app widget");
+
+commit 3c604e1318d647aea94526f6346f920ed8a8709b
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:59+0100
 
-    Properly expose GridOptionsProvider
+    Properly expose GridCustomizationsProvider
     
     Change-Id: I8268a215257ae0e399c56ac8b44cdfdff8cc92a0
 ---
@@ -123,10 +378,10 @@ Date:   Fri 2019-11-01 23:17:59+0100
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest-common.xml b/AndroidManifest-common.xml
-index 77f2428177acf03eaa0d7ef20b13ff50a5523cf6..54eeb86e78989659a9047c7da30827a75476f99c 100644
+index d725a16f80a71f16a98a177311679cc39e49799f..73afe4a7d11184ee8e63b05a5939aef87ce4411a 100644
 --- a/AndroidManifest-common.xml
 +++ b/AndroidManifest-common.xml
-@@ -149,21 +149,23 @@
+@@ -129,21 +129,23 @@
              android:writePermission="${packageName}.permission.WRITE_SETTINGS"
              android:readPermission="${packageName}.permission.READ_SETTINGS" />
  
@@ -149,67 +404,955 @@ index 77f2428177acf03eaa0d7ef20b13ff50a5523cf6..54eeb86e78989659a9047c7da30827a7
              android:name="com.android.launcher3.settings.SettingsActivity"
              android:label="@string/settings_button_text"
              android:theme="@style/HomeSettingsTheme"
+             android:exported="true"
              android:autoRemoveFromRecents="true">
-             <intent-filter>
 
-commit f74f99a9f316ec04a9e7090379cd3c02237674c5 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
-Author: Luca Stefani <luca.stefani.ge1@gmail.com>
-Date:   Fri 2019-11-01 23:36:04+0100
+commit 9711bf81573ed74f50484f59f997ee686b5f91d9
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2020-11-02 22:46:39-0800
 
-    Specify the component name to start the picker
+    Launcher3: Add Settings to center of default 5x5 dock
     
-    Change-Id: I13d4d088357bee438ac78b632f08cffbac34ad3f
+    This space is usually empty on AOSP, so let's fill it with Settings.
+    
+    Change-Id: I33e925dd71350018e1859ba843cccf3cac95ad6d
 ---
- src/com/android/launcher3/views/OptionsPopupView.java | 4 ++++
- 1 file changed, 4 insertions(+)
+ res/xml/default_workspace_5x5.xml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/src/com/android/launcher3/views/OptionsPopupView.java b/src/com/android/launcher3/views/OptionsPopupView.java
-index d558781be8df0afe3917211494077b215d022963..0cd1de6d598f4ec874ce0ef7cef2a58ff7310c6e 100644
---- a/src/com/android/launcher3/views/OptionsPopupView.java
-+++ b/src/com/android/launcher3/views/OptionsPopupView.java
-@@ -14,20 +14,21 @@
-  * limitations under the License.
-  */
- package com.android.launcher3.views;
+diff --git a/res/xml/default_workspace_5x5.xml b/res/xml/default_workspace_5x5.xml
+index ccdde2ca8004de83895446d6fe1e38e103dc6aef..223ad38e91a9aa5bbeb48e003b80c84ce08ec9c3 100644
+--- a/res/xml/default_workspace_5x5.xml
++++ b/res/xml/default_workspace_5x5.xml
+@@ -10,21 +10,21 @@
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
  
- import static com.android.launcher3.Utilities.EXTRA_WALLPAPER_FLAVOR;
- import static com.android.launcher3.Utilities.EXTRA_WALLPAPER_OFFSET;
- import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.IGNORE;
- import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_SETTINGS_BUTTON_TAP_OR_LONGPRESS;
- import static com.android.launcher3.logging.StatsLogManager.LauncherEvent.LAUNCHER_WIDGETSTRAY_BUTTON_TAP_OR_LONGPRESS;
+ <favorites xmlns:launcher="http://schemas.android.com/apk/res-auto/com.android.launcher3">
  
-+import android.content.ComponentName;
- import android.content.Context;
- import android.content.Intent;
- import android.graphics.Rect;
- import android.graphics.RectF;
- import android.text.TextUtils;
- import android.util.ArrayMap;
- import android.util.AttributeSet;
- import android.view.MotionEvent;
- import android.view.View;
- import android.view.View.OnClickListener;
-@@ -208,20 +209,23 @@ public class OptionsPopupView extends ArrowPopup
-             return false;
-         }
-         Intent intent = new Intent(Intent.ACTION_SET_WALLPAPER)
-                 .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
-                 .putExtra(EXTRA_WALLPAPER_OFFSET,
-                         launcher.getWorkspace().getWallpaperOffsetForCenterPage());
-         if (!Utilities.existsStyleWallpapers(launcher)) {
-             intent.putExtra(EXTRA_WALLPAPER_FLAVOR, "wallpaper_only");
-         } else {
-             intent.putExtra(EXTRA_WALLPAPER_FLAVOR, "focus_wallpaper");
-+            intent.setComponent(new ComponentName(
-+                    launcher.getString(R.string.wallpaper_picker_package),
-+                    "com.android.customization.picker.CustomizationPickerActivity"));
-         }
-         String pickerPackage = launcher.getString(R.string.wallpaper_picker_package);
-         if (!TextUtils.isEmpty(pickerPackage)) {
-             intent.setPackage(pickerPackage);
-         }
-         return launcher.startActivitySafely(v, intent, dummyInfo(intent), null);
+     <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
+-    <!-- Dialer, Messaging, [Maps/Music], Browser, Camera -->
++    <!-- Dialer, Messaging, [Maps/Music/Settings], Browser, Camera -->
+     <resolve
+         launcher:container="-101"
+         launcher:screen="0"
+         launcher:x="0"
+         launcher:y="0" >
+         <favorite launcher:uri="#Intent;action=android.intent.action.DIAL;end" />
+         <favorite launcher:uri="tel:123" />
+         <favorite launcher:uri="#Intent;action=android.intent.action.CALL_BUTTON;end" />
+     </resolve>
+ 
+@@ -40,20 +40,21 @@
+         <favorite launcher:uri="mmsto:" />
+     </resolve>
+ 
+     <resolve
+         launcher:container="-101"
+         launcher:screen="2"
+         launcher:x="2"
+         launcher:y="0" >
+         <favorite launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_MAPS;end" />
+         <favorite launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_MUSIC;end" />
++        <favorite launcher:uri="#Intent;action=android.settings.SETTINGS;end" />
+     </resolve>
+ 
+     <resolve
+         launcher:container="-101"
+         launcher:screen="3"
+         launcher:x="3"
+         launcher:y="0" >
+         <favorite
+             launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_BROWSER;end" />
+         <favorite launcher:uri="http://www.example.com/" />
+
+commit cd0b6fa16ca21b2fcaac38ee877090d5feb5f9ae
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2020-11-02 22:47:19-0800
+
+    Launcher3: Add 2x2 workspace grid option
+    
+    The Pixel stock ROM offers this option in ThemePicker.
+    
+    Change-Id: I059f81c24eeb42acdabdc29e0cc773830f778181
+---
+ res/xml/default_workspace_2x2.xml (new) | 61 +++++++++++++++++++++++++++++++++
+ res/xml/device_profiles.xml             | 30 +++++++++++++++-
+ 2 files changed, 90 insertions(+), 1 deletion(-)
+
+diff --git a/res/xml/default_workspace_2x2.xml b/res/xml/default_workspace_2x2.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..51d9e07005ce9cdffd0a8f5ccc185d8d4078f464
+--- /dev/null
++++ b/res/xml/default_workspace_2x2.xml
+@@ -0,0 +1,61 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- Copyright (C) 2015 The Android Open Source Project
++
++     Licensed under the Apache License, Version 2.0 (the "License");
++     you may not use this file except in compliance with the License.
++     You may obtain a copy of the License at
++
++          http://www.apache.org/licenses/LICENSE-2.0
++
++     Unless required by applicable law or agreed to in writing, software
++     distributed under the License is distributed on an "AS IS" BASIS,
++     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++     See the License for the specific language governing permissions and
++     limitations under the License.
++-->
++
++<favorites xmlns:launcher="http://schemas.android.com/apk/res-auto/com.android.launcher3">
++
++    <!-- Hotseat (We use the screen as the position of the item in the hotseat) -->
++    <!-- Messaging, Dialer -->
++
++    <resolve
++        launcher:container="-101"
++        launcher:screen="0"
++        launcher:x="0"
++        launcher:y="0" >
++        <favorite launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_MESSAGING;end" />
++        <favorite launcher:uri="sms:" />
++        <favorite launcher:uri="smsto:" />
++        <favorite launcher:uri="mms:" />
++        <favorite launcher:uri="mmsto:" />
++    </resolve>
++
++    <resolve
++        launcher:container="-101"
++        launcher:screen="2"
++        launcher:x="2"
++        launcher:y="0" >
++        <favorite launcher:uri="#Intent;action=android.intent.action.DIAL;end" />
++        <favorite launcher:uri="tel:123" />
++        <favorite launcher:uri="#Intent;action=android.intent.action.CALL_BUTTON;end" />
++    </resolve>
++
++    <!-- Bottom row -->
++    <resolve
++        launcher:screen="0"
++        launcher:x="0"
++        launcher:y="-1" >
++        <favorite launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_EMAIL;end" />
++        <favorite launcher:uri="mailto:" />
++    </resolve>
++
++    <resolve
++        launcher:screen="0"
++        launcher:x="1"
++        launcher:y="-1" >
++        <favorite launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_GALLERY;end" />
++        <favorite launcher:uri="#Intent;type=images/*;end" />
++    </resolve>
++
++</favorites>
+diff --git a/res/xml/device_profiles.xml b/res/xml/device_profiles.xml
+index 256999cd7f4835340f7aa378a2eb517bf6b37fa6..34e0f569e358679b175dfb30feacee898d8c9af8 100644
+--- a/res/xml/device_profiles.xml
++++ b/res/xml/device_profiles.xml
+@@ -10,20 +10,48 @@
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+ <profiles xmlns:launcher="http://schemas.android.com/apk/res-auto" >
+ 
++    <grid-option
++        launcher:name="2_by_2"
++        launcher:numRows="2"
++        launcher:numColumns="2"
++        launcher:numFolderRows="2"
++        launcher:numFolderColumns="2"
++        launcher:numHotseatIcons="2"
++        launcher:dbFile="launcher_2_by_2.db"
++        launcher:defaultLayoutId="@xml/default_workspace_2x2" >
++
++        <display-option
++            launcher:name="Super Short Stubby"
++            launcher:minWidthDps="200"
++            launcher:minHeightDps="200"
++            launcher:iconImageSize="48"
++            launcher:iconTextSize="13.0"
++            launcher:canBeDefault="true" />
++
++        <display-option
++            launcher:name="Shorter Stubby"
++            launcher:minWidthDps="200"
++            launcher:minHeightDps="300"
++            launcher:iconImageSize="48"
++            launcher:iconTextSize="13.0"
++            launcher:canBeDefault="true" />
++
++    </grid-option>
++
+     <grid-option
+         launcher:name="3_by_3"
+         launcher:numRows="3"
+         launcher:numColumns="3"
+         launcher:numFolderRows="2"
+         launcher:numFolderColumns="3"
+         launcher:numHotseatIcons="3"
+         launcher:dbFile="launcher_3_by_3.db"
+         launcher:defaultLayoutId="@xml/default_workspace_3x3" >
+ 
+@@ -126,11 +154,11 @@
+         <display-option
+             launcher:name="Shorter Stubby"
+             launcher:minWidthDps="255"
+             launcher:minHeightDps="400"
+             launcher:iconImageSize="48"
+             launcher:iconTextSize="13.0"
+             launcher:canBeDefault="true" />
+ 
+     </grid-option>
+ 
+-</profiles>
+\ No newline at end of file
++</profiles>
+
+commit c43d1932dd7d7b08dfd740dc565ec1e86c623fc6
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sat 2020-12-12 19:05:59-0800
+
+    Launcher3: Reduce app label text size
+    
+    The default 13-point label size can barely fit any app names on modern
+    phone form factors without ellipsizing. Reducing the size to 12 points
+    allows us to fit most apps names, and upon visual inspection, it appears
+    to be the same size as that of Pixel Launcher.
+    
+    Change-Id: I6ad63c14237f1f38c86ec02059b03896e5dd3a77
+---
+ res/xml/device_profiles.xml | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/res/xml/device_profiles.xml b/res/xml/device_profiles.xml
+index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977bdb7f01a4 100644
+--- a/res/xml/device_profiles.xml
++++ b/res/xml/device_profiles.xml
+@@ -25,140 +25,140 @@
+         launcher:numFolderColumns="2"
+         launcher:numHotseatIcons="2"
+         launcher:dbFile="launcher_2_by_2.db"
+         launcher:defaultLayoutId="@xml/default_workspace_2x2" >
+ 
+         <display-option
+             launcher:name="Super Short Stubby"
+             launcher:minWidthDps="200"
+             launcher:minHeightDps="200"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Shorter Stubby"
+             launcher:minWidthDps="200"
+             launcher:minHeightDps="300"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+     </grid-option>
+ 
+     <grid-option
+         launcher:name="3_by_3"
+         launcher:numRows="3"
+         launcher:numColumns="3"
+         launcher:numFolderRows="2"
+         launcher:numFolderColumns="3"
+         launcher:numHotseatIcons="3"
+         launcher:dbFile="launcher_3_by_3.db"
+         launcher:defaultLayoutId="@xml/default_workspace_3x3" >
+ 
+         <display-option
+             launcher:name="Super Short Stubby"
+             launcher:minWidthDps="255"
+             launcher:minHeightDps="300"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Shorter Stubby"
+             launcher:minWidthDps="255"
+             launcher:minHeightDps="400"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+     </grid-option>
+ 
+     <grid-option
+         launcher:name="4_by_4"
+         launcher:numRows="4"
+         launcher:numColumns="4"
+         launcher:numFolderRows="3"
+         launcher:numFolderColumns="4"
+         launcher:numHotseatIcons="4"
+         launcher:dbFile="launcher_4_by_4.db"
+         launcher:defaultLayoutId="@xml/default_workspace_4x4" >
+ 
+         <display-option
+             launcher:name="Short Stubby"
+             launcher:minWidthDps="275"
+             launcher:minHeightDps="420"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Stubby"
+             launcher:minWidthDps="255"
+             launcher:minHeightDps="450"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Nexus S"
+             launcher:minWidthDps="296"
+             launcher:minHeightDps="491.33"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Nexus 4"
+             launcher:minWidthDps="359"
+             launcher:minHeightDps="567"
+             launcher:iconImageSize="54"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Nexus 5"
+             launcher:minWidthDps="335"
+             launcher:minHeightDps="567"
+             launcher:iconImageSize="54"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+     </grid-option>
+ 
+     <grid-option
+         launcher:name="5_by_5"
+         launcher:numRows="5"
+         launcher:numColumns="5"
+         launcher:numFolderRows="4"
+         launcher:numFolderColumns="4"
+         launcher:numHotseatIcons="5"
+         launcher:dbFile="launcher.db"
+         launcher:defaultLayoutId="@xml/default_workspace_5x5" >
+ 
+         <display-option
+             launcher:name="Large Phone"
+             launcher:minWidthDps="406"
+             launcher:minHeightDps="694"
+             launcher:iconImageSize="56"
+-            launcher:iconTextSize="14.4"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+         <display-option
+             launcher:name="Large Phone Split Display"
+             launcher:minWidthDps="406"
+             launcher:minHeightDps="694"
+             launcher:iconImageSize="56"
+-            launcher:iconTextSize="14.4"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="split_display" />
+ 
+         <display-option
+             launcher:name="Shorter Stubby"
+             launcher:minWidthDps="255"
+             launcher:minHeightDps="400"
+             launcher:iconImageSize="48"
+-            launcher:iconTextSize="13.0"
++            launcher:iconTextSize="12.0"
+             launcher:canBeDefault="true" />
+ 
+     </grid-option>
+ 
+ </profiles>
+
+commit ee7667a9cbdeb5d89d0909c7840042fa535bb0f6
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 22:39:21-0700
+
+    Revert "Modifying screenshot button visibility"
+    
+    This reverts commit 02fc23c99354ce5e3f3e428ccb75557380f610d4.
+    
+    Google never added code to change the visibility of the screenshot
+    button in AOSP, so it gets stuck on GONE. Simply revert the change to
+    fix it.
+    
+    Signed-off-by: Danny Lin <danny@kdrag0n.dev>
+    Change-Id: I5b2558ec2daeff2fd45a64c9ef26b3a8912a2ce7
+---
+ quickstep/res/layout/overview_actions_container.xml | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/quickstep/res/layout/overview_actions_container.xml b/quickstep/res/layout/overview_actions_container.xml
+index 68680d3f38c7676da905eab6cc385e700add2420..b652252ce1bd6281efe05c77bd85ef9da7faa3cb 100644
+--- a/quickstep/res/layout/overview_actions_container.xml
++++ b/quickstep/res/layout/overview_actions_container.xml
+@@ -32,22 +32,21 @@
+             android:layout_height="1dp"
+             android:layout_weight="1" />
+ 
+         <Button
+             android:id="@+id/action_screenshot"
+             style="@style/OverviewActionButton"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:drawableStart="@drawable/ic_screenshot"
+             android:text="@string/action_screenshot"
+-            android:theme="@style/ThemeControlHighlightWorkspaceColor"
+-            android:visibility="gone" />
++            android:theme="@style/ThemeControlHighlightWorkspaceColor" />
+ 
+         <Space
+             android:layout_width="0dp"
+             android:layout_height="1dp"
+             android:layout_weight="1" />
+ 
+         <Button
+             android:id="@+id/action_share"
+             style="@style/OverviewActionButton"
+             android:layout_width="wrap_content"
+
+commit 875712153dd2793c81adc28cf7830b2f4a0f3510
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Wed 2021-10-06 22:31:24-0700
+
+    Add ripple animation to task menu items
+    
+    Change-Id: If69416ede272267743c96deff8876bc50c6c9075
+---
+ quickstep/res/drawable/task_menu_item_bg.xml | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/quickstep/res/drawable/task_menu_item_bg.xml b/quickstep/res/drawable/task_menu_item_bg.xml
+index b6a8b909ee9a39f017e252bc8fe22338ffc2f660..bfd8d9e012ae63b263ba7a9ab5b5713c62ec8852 100644
+--- a/quickstep/res/drawable/task_menu_item_bg.xml
++++ b/quickstep/res/drawable/task_menu_item_bg.xml
+@@ -8,14 +8,19 @@
+ 
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+-    <solid android:color="?android:attr/colorPrimary"/>
+-    <corners android:radius="@dimen/task_menu_item_corner_radius"/>
+-</shape>
++<ripple xmlns:android="http://schemas.android.com/apk/res/android"
++     android:color="?android:attr/colorControlHighlight">
++     <item>
++          <shape>
++               <solid android:color="?android:attr/colorPrimary"/>
++               <corners android:radius="@dimen/task_menu_item_corner_radius"/>
++          </shape>
++     </item>
++</ripple>
+
+commit 13ab360cd304eb17d63348b151d2e84c770a0e60
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Wed 2021-10-06 22:45:33-0700
+
+    Fix all apps header color in dark mode
+    
+    Change-Id: Ib2ce7f6e3c9b87a4626699cb54673d88392a5f41
+---
+ res/values/styles.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/res/values/styles.xml b/res/values/styles.xml
+index d30b80c813c5a78872ed2a4440c70586a23321ca..4694881af5c5c4fd7232f53a3084010deff70a47 100644
+--- a/res/values/styles.xml
++++ b/res/values/styles.xml
+@@ -90,20 +90,21 @@
+     </style>
+ 
+     <style name="LauncherTheme.Dark" parent="@style/LauncherTheme">
+         <item name="android:textColorPrimary">@color/text_color_primary_dark</item>
+         <item name="android:textColorSecondary">@color/text_color_secondary_dark</item>
+         <item name="android:textColorTertiary">@color/text_color_tertiary_dark</item>
+         <item name="android:textColorHint">#A0FFFFFF</item>
+         <item name="android:colorControlHighlight">#19FFFFFF</item>
+         <item name="android:colorPrimary">#FF212121</item>
+         <item name="allAppsScrimColor">?android:attr/colorBackgroundFloating</item>
++        <item name="allappsHeaderProtectionColor">@color/popup_color_tertiary_dark</item>
+         <item name="allAppsNavBarScrimColor">#80000000</item>
+         <item name="allAppsTheme">@style/AllAppsTheme.Dark</item>
+         <item name="popupColorPrimary">@color/popup_color_primary_dark</item>
+         <item name="popupColorSecondary">@color/popup_color_secondary_dark</item>
+         <item name="popupColorTertiary">@color/popup_color_tertiary_dark</item>
+         <item name="popupNotificationDotColor">@color/popup_notification_dot_dark</item>
+         <item name="popupShadeFirst">@color/popup_shade_first_dark</item>
+         <item name="popupShadeSecond">@color/popup_shade_second_dark</item>
+         <item name="popupShadeThird">@color/popup_shade_third_dark</item>
+         <item name="widgetsTheme">@style/WidgetContainerTheme.Dark</item>
+
+commit 742a99d7dd9af6d8c121d0f0359d355776bc4012
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sun 2021-10-10 03:38:23-0700
+
+    Fix Personal/Work profile tab colors in All Apps
+    
+    The default AOSP colors are broken and result in poor contrast, among
+    other issues.
+    
+    Change-Id: Id7824bc08cac0aad055f41c0b617e15300af05d4
+---
+ res/color-night-v31/all_apps_tab_text.xml              |  6 +++---
+ res/color-night-v31/all_apps_tabs_background.xml (new) | 18 ++++++++++++++++++
+ res/color-v31/all_apps_tab_text.xml                    |  6 +++---
+ 3 files changed, 24 insertions(+), 6 deletions(-)
+
+diff --git a/res/color-night-v31/all_apps_tab_text.xml b/res/color-night-v31/all_apps_tab_text.xml
+index 83237b49e506ebc86e4b82483c7e6a47a99902ae..eaac621cfc06ec546bb94ab078dce484d8e094b9 100644
+--- a/res/color-night-v31/all_apps_tab_text.xml
++++ b/res/color-night-v31/all_apps_tab_text.xml
+@@ -7,13 +7,13 @@
+ 
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+-    <item android:color="@android:color/system_neutral1_50" android:state_selected="true"/>
+-    <item android:color="@android:color/system_neutral2_700"/>
+-</selector>
+\ No newline at end of file
++    <item android:color="?android:textColorPrimaryInverse" android:state_selected="true"/>
++    <item android:color="?android:textColorSecondary"/>
++</selector>
+diff --git a/res/color-night-v31/all_apps_tabs_background.xml b/res/color-night-v31/all_apps_tabs_background.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..fc8a4d7d79497c3589257e17541abe4913c374f3
+--- /dev/null
++++ b/res/color-night-v31/all_apps_tabs_background.xml
+@@ -0,0 +1,18 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- Copyright (C) 2021 The Android Open Source Project
++
++     Licensed under the Apache License, Version 2.0 (the "License");
++     you may not use this file except in compliance with the License.
++     You may obtain a copy of the License at
++
++          http://www.apache.org/licenses/LICENSE-2.0
++
++     Unless required by applicable law or agreed to in writing, software
++     distributed under the License is distributed on an "AS IS" BASIS,
++     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++     See the License for the specific language governing permissions and
++     limitations under the License.
++-->
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:color="@android:color/system_neutral1_800" />
++</selector>
+diff --git a/res/color-v31/all_apps_tab_text.xml b/res/color-v31/all_apps_tab_text.xml
+index c3520a7ab59b8119e9d09a1bc0450d073aa8f30e..d133a31a2d271361a88160302bf01e5813c41382 100644
+--- a/res/color-v31/all_apps_tab_text.xml
++++ b/res/color-v31/all_apps_tab_text.xml
+@@ -7,13 +7,13 @@
+ 
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+-    <item android:color="@android:color/system_neutral1_900" android:state_selected="true"/>
+-    <item android:color="@android:color/system_neutral2_700"/>
+-</selector>
+\ No newline at end of file
++    <item android:color="?android:textColorPrimary" android:state_selected="true"/>
++    <item android:color="?android:textColorSecondary"/>
++</selector>
+
+commit ae2a55fc3b5fdd7f684003a47f41cd3d9db0737d
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Sun 2021-10-10 03:40:52-0700
+
+    Improve search bar UI in All Apps
+    
+    This is similar to, but not exactly the same as, Pixel stock:
+    
+    - Background color with contrast in light mode
+    - Round, flat search bar surface with color matching the header
+      background
+    - Solid rounded background when positioned at the beginning of the list
+    - Subtle placeholder text (medium weight) without icon
+    - Same font size as Settings search bar
+    
+    Change-Id: Ifa9fabe3a8236513fad8030c0bd8ed4d27ebd549
+---
+ res/drawable/all_apps_search_hint.xml                              | 4 ++--
+ res/drawable/bg_all_apps_searchbox.xml                             | 6 +++---
+ res/layout/search_container_all_apps.xml                           | 6 +++---
+ res/layout/secondary_launcher.xml                                  | 7 +++----
+ res/values-v31/colors.xml                                          | 2 +-
+ src/com/android/launcher3/allapps/AllAppsContainerView.java        | 2 +-
+ .../launcher3/allapps/search/AppsSearchContainerLayout.java        | 1 -
+ 7 files changed, 13 insertions(+), 15 deletions(-)
+
+diff --git a/res/drawable/all_apps_search_hint.xml b/res/drawable/all_apps_search_hint.xml
+index b2ff7a428e63371a988c91be1a882d8fc850536d..c0e6811bb9e2ca3bcc5286564ecc0cf66661ba44 100644
+--- a/res/drawable/all_apps_search_hint.xml
++++ b/res/drawable/all_apps_search_hint.xml
+@@ -9,12 +9,12 @@
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <selector xmlns:android="http://schemas.android.com/apk/res/android">
+     <item android:color="@android:color/transparent" android:state_focused="true" />
+-    <item android:color="?android:attr/colorAccent"/>
+-</selector>
+\ No newline at end of file
++    <item android:color="?android:attr/textColorSecondary" android:alpha="?android:attr/disabledAlpha" />
++</selector>
+diff --git a/res/drawable/bg_all_apps_searchbox.xml b/res/drawable/bg_all_apps_searchbox.xml
+index c3249279af2eed16519197d2f289d73366d54dcf..2d02238f1b9a2eca360297e548b7a655cf85d027 100644
+--- a/res/drawable/bg_all_apps_searchbox.xml
++++ b/res/drawable/bg_all_apps_searchbox.xml
+@@ -7,13 +7,13 @@
+ 
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+-    <solid android:color="?attr/popupColorPrimary" />
+-    <corners android:radius="2dp" />
+-</shape>
+\ No newline at end of file
++     <solid android:color="?attr/allappsHeaderProtectionColor" />
++     <corners android:radius="58dp" />
++</shape>
+diff --git a/res/layout/search_container_all_apps.xml b/res/layout/search_container_all_apps.xml
+index e1646ba43e04ae291d30146597b2be72c37ea1d9..5ebf9c8cf88221e8be0a0e4d28db437e3b826b81 100644
+--- a/res/layout/search_container_all_apps.xml
++++ b/res/layout/search_container_all_apps.xml
+@@ -14,24 +14,24 @@
+      limitations under the License.
+ -->
+ <com.android.launcher3.allapps.search.AppsSearchContainerLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@id/search_container_all_apps"
+     android:layout_width="match_parent"
+     android:layout_height="@dimen/all_apps_search_bar_field_height"
+     android:layout_centerHorizontal="true"
+     android:layout_gravity="top|center_horizontal"
+     android:background="@drawable/bg_all_apps_searchbox"
+-    android:elevation="1dp"
++    android:elevation="0dp"
+     android:focusableInTouchMode="true"
+-    android:gravity="center"
+     android:hint="@string/all_apps_search_bar_hint"
+     android:imeOptions="actionSearch|flagNoExtractUi"
+     android:inputType="text|textNoSuggestions|textCapWords"
+     android:maxLines="1"
+     android:padding="8dp"
++    android:paddingStart="16dp"
+     android:saveEnabled="false"
+     android:scrollHorizontally="true"
+     android:singleLine="true"
+     android:textColor="?android:attr/textColorSecondary"
+     android:textColorHint="@drawable/all_apps_search_hint"
+-    android:textSize="16sp" />
+\ No newline at end of file
++    android:textSize="20sp" />
+diff --git a/res/layout/secondary_launcher.xml b/res/layout/secondary_launcher.xml
+index b15a320bba7c60488a3d2504b8b393add4624dfd..131de0011d791a422fab7331c9001007f87fda44 100644
+--- a/res/layout/secondary_launcher.xml
++++ b/res/layout/secondary_launcher.xml
+@@ -98,28 +98,27 @@
+             </com.android.launcher3.workprofile.PersonalWorkSlidingTabStrip>
+         </com.android.launcher3.allapps.FloatingHeaderView>
+ 
+         <com.android.launcher3.allapps.search.AppsSearchContainerLayout
+             android:id="@id/search_container_all_apps"
+             android:layout_width="match_parent"
+             android:layout_height="@dimen/all_apps_search_bar_field_height"
+             android:layout_centerHorizontal="true"
+             android:layout_gravity="top|center_horizontal"
+             android:background="@drawable/bg_all_apps_searchbox"
+-            android:elevation="1dp"
++            android:elevation="0dp"
+             android:focusableInTouchMode="true"
+-            android:gravity="center"
+             android:hint="@string/all_apps_search_bar_hint"
+             android:imeOptions="actionSearch|flagNoExtractUi"
+             android:inputType="text|textNoSuggestions|textCapWords"
+             android:maxLines="1"
+             android:padding="8dp"
+             android:saveEnabled="false"
+             android:scrollHorizontally="true"
+             android:singleLine="true"
+             android:textColor="?android:attr/textColorSecondary"
+             android:textColorHint="@drawable/all_apps_search_hint"
+-            android:textSize="16sp" />
++            android:textSize="20sp" />
+ 
+         <include layout="@layout/all_apps_fast_scroller" />
+     </com.android.launcher3.allapps.AllAppsContainerView>
+-</com.android.launcher3.secondarydisplay.SecondaryDragLayer>
+\ No newline at end of file
++</com.android.launcher3.secondarydisplay.SecondaryDragLayer>
+diff --git a/res/values-v31/colors.xml b/res/values-v31/colors.xml
+index d73ee570807ede6450b0143eaf18c694f88b1ae7..5dae30736eb25ab885beb6ca55eb7d4644a73b34 100644
+--- a/res/values-v31/colors.xml
++++ b/res/values-v31/colors.xml
+@@ -12,21 +12,21 @@
+ ** Unless required by applicable law or agreed to in writing, software
+ ** distributed under the License is distributed on an "AS IS" BASIS,
+ ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ ** See the License for the specific language governing permissions and
+ ** limitations under the License.
+ */
+ -->
+ <resources  xmlns:android="http://schemas.android.com/apk/res/android">
+     <color name="popup_color_primary_light">@android:color/system_accent2_50</color>
+     <color name="popup_color_secondary_light">@android:color/system_neutral2_100</color>
+-    <color name="popup_color_tertiary_light">@android:color/system_neutral2_300</color>
++    <color name="popup_color_tertiary_light">@android:color/system_neutral2_100</color>
+     <color name="popup_color_neutral_dark">@android:color/system_neutral1_1000</color>
+     <color name="popup_color_primary_dark">@android:color/system_neutral2_800</color>
+     <color name="popup_color_secondary_dark">@android:color/system_neutral1_900</color>
+     <color name="popup_color_tertiary_dark">@android:color/system_neutral2_700</color>
+ 
+     <color name="popup_notification_dot_light">@android:color/system_accent1_100</color>
+     <color name="popup_notification_dot_dark">@android:color/system_accent2_600</color>
+ 
+     <color name="workspace_text_color_light">@android:color/system_neutral1_0</color>
+     <color name="workspace_text_color_dark">@android:color/system_neutral1_1000</color>
+diff --git a/src/com/android/launcher3/allapps/AllAppsContainerView.java b/src/com/android/launcher3/allapps/AllAppsContainerView.java
+index d2c71b2afee6c68b6e8ce924f32611e2b23cf289..b5bc3e4287dc8afd8c3972df1bd37065e41b6915 100644
+--- a/src/com/android/launcher3/allapps/AllAppsContainerView.java
++++ b/src/com/android/launcher3/allapps/AllAppsContainerView.java
+@@ -791,21 +791,21 @@ public class AllAppsContainerView extends SpringRelativeLayout implements DragSo
      }
  
-     static WorkspaceItemInfo dummyInfo(Intent intent) {
-         WorkspaceItemInfo dummyInfo = new WorkspaceItemInfo();
+ 
+     protected void updateHeaderScroll(int scrolledOffset) {
+         float prog = Math.max(0, Math.min(1, (float) scrolledOffset / mHeaderThreshold));
+         int viewBG = ColorUtils.blendARGB(mScrimColor, mHeaderProtectionColor, prog);
+         int headerColor = ColorUtils.setAlphaComponent(viewBG,
+                 (int) (getSearchView().getAlpha() * 255));
+         if (headerColor != mHeaderColor) {
+             mHeaderColor = headerColor;
+-            getSearchView().setBackgroundColor(viewBG);
++            getSearchView().setBackgroundResource(R.drawable.bg_all_apps_searchbox);
+             getFloatingHeaderView().setHeaderColor(viewBG);
+             invalidateHeader();
+             if (scrolledOffset == 0 && mSearchUiManager.getEditText() != null) {
+                 mSearchUiManager.getEditText().show();
+             }
+         }
+     }
+ 
+     /**
+      * redraws header protection
+diff --git a/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java b/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java
+index 24912173ff79622087858341bd029796a9db3316..0b64f24aadf90df57493c395b9b2e61db61c73db 100644
+--- a/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java
++++ b/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java
+@@ -72,21 +72,20 @@ public class AppsSearchContainerLayout extends ExtendedEditText
+     }
+ 
+     public AppsSearchContainerLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+         super(context, attrs, defStyleAttr);
+ 
+         mLauncher = BaseDraggingActivity.fromContext(context);
+         mSearchBarController = new AllAppsSearchBarController();
+ 
+         mSearchQueryBuilder = new SpannableStringBuilder();
+         Selection.setSelection(mSearchQueryBuilder, 0);
+-        setHint(prefixTextWithIcon(getContext(), R.drawable.ic_allapps_search, getHint()));
+ 
+         mContentOverlap =
+                 getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_field_height) / 2;
+     }
+ 
+     @Override
+     protected void onAttachedToWindow() {
+         super.onAttachedToWindow();
+         mAppsView.getAppsStore().addUpdateListener(this);
+     }
+
+commit 6a331a015d9384184f0ae921ff144a1607e08060
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-10-24 23:25:26-0400
+
+    Revert "Enable new keyguard-to-launcher animation"
+    
+    This reverts commit e05a7454af78b0d3c71e7a29021c871cc7f10f0d.
+---
+ src/com/android/launcher3/config/FeatureFlags.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index a3dc71b01cd2115c9f405e7ae07b79f0c5b2956d..f89dfa12bf187e6d3a7f3f91b168938b94e27d8d 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -75,21 +75,21 @@ public final class FeatureFlags {
+     public static final BooleanFlag QUICKSTEP_SPRINGS = getDebugFlag(
+             "QUICKSTEP_SPRINGS", true, "Enable springs for quickstep animations");
+ 
+     public static final BooleanFlag UNSTABLE_SPRINGS = getDebugFlag(
+             "UNSTABLE_SPRINGS", false, "Enable unstable springs for quickstep animations");
+ 
+     public static final BooleanFlag ENABLE_LOCAL_COLOR_POPUPS = getDebugFlag(
+             "ENABLE_LOCAL_COLOR_POPUPS", false, "Enable local color extraction for popups.");
+ 
+     public static final BooleanFlag KEYGUARD_ANIMATION = getDebugFlag(
+-            "KEYGUARD_ANIMATION", true, "Enable animation for keyguard going away on wallpaper");
++            "KEYGUARD_ANIMATION", false, "Enable animation for keyguard going away on wallpaper");
+ 
+     public static final BooleanFlag ADAPTIVE_ICON_WINDOW_ANIM = getDebugFlag(
+             "ADAPTIVE_ICON_WINDOW_ANIM", true, "Use adaptive icons for window animations.");
+ 
+     public static final BooleanFlag ENABLE_QUICKSTEP_LIVE_TILE = getDebugFlag(
+             "ENABLE_QUICKSTEP_LIVE_TILE", true, "Enable live tile in Quickstep overview");
+ 
+     public static final BooleanFlag ENABLE_QUICKSTEP_WIDGET_APP_START = getDebugFlag(
+             "ENABLE_QUICKSTEP_WIDGET_APP_START", true,
+             "Enable Quickstep animation when launching activities from an app widget");
+
+commit 1f15c9f3e2217ec8df3b993024a8d6b30dfdde42
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-10-24 23:25:17-0400
+
+    Revert "Enable crossfade when changing theme"
+    
+    This reverts commit ad57ac4de56e5567c4101bb6c76314553c69d464.
+---
+ src/com/android/launcher3/config/FeatureFlags.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index f89dfa12bf187e6d3a7f3f91b168938b94e27d8d..d4fb2eb70a5323d285c4fdfa6df1bade13e7744c 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -204,21 +204,21 @@ public final class FeatureFlags {
+     public static final BooleanFlag ENABLE_MINIMAL_DEVICE = getDebugFlag(
+             "ENABLE_MINIMAL_DEVICE", false,
+             "Allow user to toggle minimal device mode in launcher.");
+ 
+     public static final BooleanFlag EXPANDED_SMARTSPACE = new DeviceFlag(
+             "EXPANDED_SMARTSPACE", false, "Expands smartspace height to two rows. "
+               + "Any apps occupying the first row will be removed from workspace.");
+ 
+     // TODO: b/172467144 Remove ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE feature flag.
+     public static final BooleanFlag ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE = new DeviceFlag(
+-            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", true, "Enables a "
++            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", false, "Enables a "
+             + "crossfade animation when the system these changes.");
+ 
+     // TODO: b/174174514 Remove ENABLE_APP_PREDICTIONS_WHILE_VISIBLE feature flag.
+     public static final BooleanFlag ENABLE_APP_PREDICTIONS_WHILE_VISIBLE = new DeviceFlag(
+             "ENABLE_APP_PREDICTIONS_WHILE_VISIBLE", true, "Allows app "
+             + "predictions to be updated while they are visible to the user.");
+ 
+     public static final BooleanFlag ENABLE_TASKBAR = getDebugFlag(
+             "ENABLE_TASKBAR", false, "Allows a system Taskbar to be shown on larger devices.");
+ 
+
+commit 3734b3ab79463cb923980a003f989f5739bc87dc (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-10-24 23:43:00-0400
+
+    Revert "Enable new app open/close animations"
+    
+    This reverts commit d2306682c05b612c6d81eefd1a70399f32bfa2c3.
+---
+ src/com/android/launcher3/config/FeatureFlags.java | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
+index d4fb2eb70a5323d285c4fdfa6df1bade13e7744c..9f274870a4fb60af049be822cb622f8ad0f40ebd 100644
+--- a/src/com/android/launcher3/config/FeatureFlags.java
++++ b/src/com/android/launcher3/config/FeatureFlags.java
+@@ -224,38 +224,38 @@ public final class FeatureFlags {
+ 
+     public static final BooleanFlag ENABLE_OVERVIEW_GRID = getDebugFlag(
+             "ENABLE_OVERVIEW_GRID", false, "Uses grid overview layout. "
+             + "Only applicable on large screen devices.");
+ 
+     public static final BooleanFlag ENABLE_TWO_PANEL_HOME = getDebugFlag(
+             "ENABLE_TWO_PANEL_HOME", false,
+             "Uses two panel on home screen. Only applicable on large screen devices.");
+ 
+     public static final BooleanFlag ENABLE_SCRIM_FOR_APP_LAUNCH = getDebugFlag(
+-            "ENABLE_SCRIM_FOR_APP_LAUNCH", true,
++            "ENABLE_SCRIM_FOR_APP_LAUNCH", false,
+             "Enables scrim during app launch animation.");
+ 
+     public static final BooleanFlag ENABLE_SPLIT_SELECT = getDebugFlag(
+             "ENABLE_SPLIT_SELECT", false, "Uses new split screen selection overview UI");
+ 
+     public static final BooleanFlag ENABLE_ENFORCED_ROUNDED_CORNERS = new DeviceFlag(
+             "ENABLE_ENFORCED_ROUNDED_CORNERS", true, "Enforce rounded corners on all App Widgets");
+ 
+     public static final BooleanFlag ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER = new DeviceFlag(
+             "ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER", true,
+             "Enables a local filter for recommended widgets.");
+ 
+     public static final BooleanFlag NOTIFY_CRASHES = getDebugFlag("NOTIFY_CRASHES", false,
+             "Sends a notification whenever launcher encounters an uncaught exception.");
+ 
+     public static final BooleanFlag PROTOTYPE_APP_CLOSE = getDebugFlag(
+-            "PROTOTYPE_APP_CLOSE", true, "Enables new app close");
++            "PROTOTYPE_APP_CLOSE", false, "Enables new app close");
+ 
+     public static final BooleanFlag ENABLE_WALLPAPER_SCRIM = getDebugFlag(
+             "ENABLE_WALLPAPER_SCRIM", false,
+             "Enables scrim over wallpaper for text protection.");
+ 
+     public static void initialize(Context context) {
+         synchronized (sDebugFlags) {
+             for (DebugFlag flag : sDebugFlags) {
+                 flag.initialize(context);
+             }

@@ -1,201 +1,104 @@
-commit 00e82fd258ef4cb025cefd78fb33c73a3442d0b8
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-10-14 19:16:12-0400
+commit cddfe3e82ba06d7f5710cac11c00c7558d0db4cc
+Author: Neha Jain <jainne@google.com>
+Date:   Wed 2021-09-22 23:36:56+0000
 
-    disable system_other odex
+    Update Redbull SVN to 38
+    
+    Bug: 200859230
+    Change-Id: Ic8e53bf23714b1f8c9c8c3e0aab0178a2fc91e4c
+    (cherry picked from commit f476233c0addd3ac21e6fe05171f133f26ad429e)
 ---
- device-common.mk | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/device-common.mk b/device-common.mk
-index 64bf2169f8fe35abf7640c9921e6deb77ddf8ed1..55ce88cae6511bd69a830a474cd857a7c9e99ad6 100644
---- a/device-common.mk
-+++ b/device-common.mk
-@@ -126,40 +126,36 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
- else
-   PRODUCT_COPY_FILES += \
-       $(LOCAL_PATH)/init.hardware.mpssrfs.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).mpssrfs.rc
-   PRODUCT_COPY_FILES += \
-       $(LOCAL_PATH)/init.hardware.diag.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).diag.rc
- endif
- 
- # A/B support
- PRODUCT_PACKAGES += \
-     otapreopt_script \
--    cppreopts.sh \
-     update_engine \
-     update_verifier
- 
- PRODUCT_PACKAGES += \
-     e2fsck_ramdisk \
-     tune2fs_ramdisk \
-     resize2fs_ramdisk
- 
- # Use Sdcardfs
- PRODUCT_PRODUCT_PROPERTIES += \
-     ro.sys.sdcardfs=1
- 
- PRODUCT_PACKAGES += \
-     bootctrl.lito \
-     bootctrl.lito.recovery
- 
--PRODUCT_PROPERTY_OVERRIDES += \
--    ro.cp_system_other_odex=1
--
- AB_OTA_POSTINSTALL_CONFIG += \
-     RUN_POSTINSTALL_system=true \
-     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-     FILESYSTEM_TYPE_system=ext4 \
-     POSTINSTALL_OPTIONAL_system=true
- 
- PRODUCT_PACKAGES += \
-     update_engine_sideload \
-     sg_write_buffer \
-     f2fs_io \
-
-commit 30dda180f4eb5ccd9c48ab73dce43cb311104675
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-10-14 19:16:59-0400
-
-    SystemUIGoogle -> SystemUI
----
- device-common.mk                                       | 2 +-
- overlay/frameworks/base/core/res/res/values/config.xml | 4 ++--
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/device-common.mk b/device-common.mk
-index 55ce88cae6511bd69a830a474cd857a7c9e99ad6..b8de5c8829de0f1e13adc89eadf60b2de0353ac7 100644
---- a/device-common.mk
-+++ b/device-common.mk
-@@ -747,21 +747,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
- 
- # Enable tcpdump_logger on userdebug and eng
- ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-     PRODUCT_PROPERTY_OVERRIDES += \
-         persist.vendor.tcpdump.log.alwayson=false \
-         persist.vendor.tcpdump.log.br_num=5
- endif
- 
- # Preopt SystemUI
- PRODUCT_DEXPREOPT_SPEED_APPS += \
--    SystemUIGoogle
-+    SystemUI
- 
- # Enable stats logging in LMKD
- TARGET_LMKD_STATS_LOG := true
- PRODUCT_PRODUCT_PROPERTIES += \
-     ro.lmk.log_stats=true
- 
- PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/init.gadgethal.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.gadgethal.sh
- 
- # default usb oem functions
-diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index 974f39d89cbea95d16505c03ae84f2de893c584e..9ef69ecc2128fa848957a3ef325696c0bcdd6222 100755
---- a/overlay/frameworks/base/core/res/res/values/config.xml
-+++ b/overlay/frameworks/base/core/res/res/values/config.xml
-@@ -282,22 +282,22 @@
-         <item>"/apex/com.android.art/javalib/arm64/boot.oat"</item>
-         <item>"/apex/com.android.art/javalib/arm64/boot-core-libart.oat"</item>
-         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
-         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
-         <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
-         <item>"/system/framework/framework.jar"</item>
-         <item>"/system/framework/services.jar"</item>
-         <item>"/system/framework/arm64/boot-framework.oat"</item>
-         <item>"/system/framework/oat/arm64/services.odex"</item>
-         <item>"/system/lib64/libsurfaceflinger.so"</item>
--        <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
--        <item>"/system_ext/priv-app/SystemUIGoogle/oat/arm64/SystemUIGoogle.odex"</item>
-+        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
-+        <item>"/system_ext/priv-app/SystemUI/oat/arm64/SystemUI.odex"</item>
-         <item>"/vendor/lib64/lib_aion_buffer.so"</item>
-         <item>"/vendor/lib64/libcamxexternalformatutils.so"</item>
-         <item>"/vendor/lib64/libipebpsstriping.so"</item>
-         <item>"/vendor/lib64/libCB.so"</item>
-         <item>"/vendor/lib64/libgsl.so"</item>
-     </string-array>
- 
-     <!-- Should the pinner service pin the Camera application? -->
-     <bool name="config_pinnerCameraApp">true</bool>
- 
-
-commit 8707f23e529b1d0cde04a29e67524d3c2a9bbf0b
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-10-14 19:17:25-0400
-
-    raise maximum users to 16
----
- overlay/frameworks/base/core/res/res/values/config.xml | 2 +-
+ device-common.mk | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
-index 9ef69ecc2128fa848957a3ef325696c0bcdd6222..93061db494049523cbc33b16fee7a2c57a671a8e 100755
---- a/overlay/frameworks/base/core/res/res/values/config.xml
-+++ b/overlay/frameworks/base/core/res/res/values/config.xml
-@@ -114,21 +114,21 @@
-     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
-     <bool name="config_cellBroadcastAppLinks">true</bool>
- 
-     <!-- reference volume index for music stream to limit headphone volume and display warning -->
-     <integer name="config_safe_media_volume_index">7</integer>
- 
-     <!--  Whether Multiuser UI should be shown -->
-     <bool name="config_enableMultiUserUI">true</bool>
- 
-     <!--  Maximum number of supported users -->
--    <integer name="config_multiuserMaximumUsers">4</integer>
-+    <integer name="config_multiuserMaximumUsers">16</integer>
- 
-     <!-- Whether Hearing Aid profile is supported -->
-     <bool name="config_hearing_aid_profile_supported">true</bool>
- 
-     <!-- List of regexpressions describing the interface (if any) that represent tetherable
-          USB interfaces.  If the device doesn't want to support tething over USB this should
-          be empty.  An example would be "usb.*" -->
-     <string-array translatable="false" name="config_tether_usb_regexs">
-         <item>"usb\\d"</item>
-         <item>"rndis\\d"</item>
-
-commit 4648364fb5cee536fbec81e5f6b7c0340ee7c684
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-10-14 19:17:50-0400
-
-    disable GSI keys
----
- device-common.mk | 3 ---
- 1 file changed, 3 deletions(-)
-
 diff --git a/device-common.mk b/device-common.mk
-index b8de5c8829de0f1e13adc89eadf60b2de0353ac7..b22ad9f3498b08881bd0c663e5e21d155e4681f2 100644
+index 46f1aac610d367192f01d332d9b9c143f20ebab3..6e9329933fcc48d3b0dbc74cfd5bca23362d7d2b 100644
 --- a/device-common.mk
 +++ b/device-common.mk
-@@ -83,23 +83,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
-     ro.control_privapp_permissions=enforce
+@@ -828,21 +828,21 @@ PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
  
- PRODUCT_PACKAGES += \
-     messaging \
-     dmabuf_dump
+ HIDL_WRAPPER := qti-telephony-hidl-wrapper
+ HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
+ HIDL_WRAPPER += qti-telephony-hidl-wrapper-prd
+ HIDL_WRAPPER += qti_telephony_hidl_wrapper_prd.xml
+ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
  
- TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
+ # Increment the SVN for any official public releases
+ ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
+ PRODUCT_PROPERTY_OVERRIDES += \
+-	ro.vendor.build.svn=37
++	ro.vendor.build.svn=38
+ endif
  
- $(call inherit-product, $(LOCAL_PATH)/utils.mk)
- 
--# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
--$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
--
- PRODUCT_CHARACTERISTICS := nosdcard
- PRODUCT_SHIPPING_API_LEVEL := 30
- 
- DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+ # Enable iwlan service logging for debug
+ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+     PRODUCT_PROPERTY_OVERRIDES += persist.vendor.iwlan.logging.logcat=true
+ endif
  
  PRODUCT_COPY_FILES += \
-     $(LOCAL_KERNEL):kernel \
-     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_RECOVERY)/root/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
-     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
-     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
+     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+ 
 
-commit be1ff846da7ac9317bcffb9b2a3b5451eef6d5c4
+commit 022973c4509897bdfbdcbd830105cad3c00de6db
+Merge: 3de6a72 cddfe3e
+Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
+Date:   Thu 2021-09-23 01:29:22+0000
+
+    Merge cherrypicks of [15891228, 15891079, 15891299, 15890644, 15891300, 15891043, 15891044, 15891045, 15891046, 15891354, 15891355] into sc-release
+    
+    Change-Id: Id407069a70514d9f63f93c0ccb7d10fdbcb98387
+
+commit 2a58538fdf131cd1978529d65e8e1b505a7335d3
+Author: Steve Berbary <sberbary@google.com>
+Date:   Fri 2021-10-08 18:09:59+0000
+
+    Update Redbull SVN to 39
+    Bug: 202436544
+    
+    Change-Id: Ic12fb2075643ca2b463b0c0138d248ee95973059
+    (cherry picked from commit f88d4a81f329e5c7172910ce7043240c56f02feb)
+---
+ device-common.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/device-common.mk b/device-common.mk
+index 6e9329933fcc48d3b0dbc74cfd5bca23362d7d2b..ca96da3657f6253af29e0dea2a8a7d8fe9affb36 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -828,21 +828,21 @@ PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
+ 
+ HIDL_WRAPPER := qti-telephony-hidl-wrapper
+ HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
+ HIDL_WRAPPER += qti-telephony-hidl-wrapper-prd
+ HIDL_WRAPPER += qti_telephony_hidl_wrapper_prd.xml
+ PRODUCT_PACKAGES += $(HIDL_WRAPPER)
+ 
+ # Increment the SVN for any official public releases
+ ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
+ PRODUCT_PROPERTY_OVERRIDES += \
+-	ro.vendor.build.svn=38
++	ro.vendor.build.svn=39
+ endif
+ 
+ # Enable iwlan service logging for debug
+ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+     PRODUCT_PROPERTY_OVERRIDES += persist.vendor.iwlan.logging.logcat=true
+ endif
+ 
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+ 
+
+commit f9e78d7c74aeeb0e6f3449778a58c49e9f1d0869
+Merge: 022973c 2a58538
+Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
+Date:   Wed 2021-10-20 20:28:29+0000
+
+    Merge cherrypicks of [16017878] into sc-release.
+    
+    Change-Id: Idcce168ffc62efeacad27e73f7299264c058ce0e
+
+commit f08c6098d18b85953f3bb07afb61edaccac69c16
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:32:37+0000
 
@@ -203,14 +106,14 @@ Date:   Fri 2020-11-20 11:32:37+0000
     
     Change-Id: Ibbba891cc1cee34611c9e03b431e6b998a35bd40
 ---
- BoardConfig-common.mk | 328 +-------------------------------------------------
- 1 file changed, 3 insertions(+), 325 deletions(-)
+ BoardConfig-common.mk | 332 +-------------------------------------------------
+ 1 file changed, 3 insertions(+), 329 deletions(-)
 
 diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
-index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce81e483444 100644
+index 693d733be66024a561ff8bffb84d21f893b58adf..81ea1a9bb9bad85f1abc897667049f75d0d35f26 100644
 --- a/BoardConfig-common.mk
 +++ b/BoardConfig-common.mk
-@@ -102,251 +102,20 @@ BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
+@@ -129,252 +129,20 @@ BOARD_PERSISTIMAGE_FILE_SYSTEM_TYPE := ext4
  
  # boot.img
  BOARD_BOOTIMAGE_PARTITION_SIZE := 0x06000000
@@ -451,6 +354,7 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
 -	sctp_diag.ko \
 -	qrtr-smd.ko \
 -	msm_drm.ko \
+-	dm-user.ko \
 -
  # system_ext.img
  BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -462,7 +366,7 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
  
  include device/google/redbull-sepolicy/redbull-sepolicy.mk
  
-@@ -481,110 +250,19 @@ TARGET_BOARD_INFO_FILE := $(TARGET_BOARD_NAME_DIR)/board-info.txt
+@@ -518,115 +286,21 @@ TARGET_BOARD_INFO_FILE := $(TARGET_BOARD_NAME_DIR)/board-info.txt
  TARGET_BOARD_COMMON_PATH := $(TARGET_BOARD_NAME_DIR)/sm7250
  
  # Common kernel file handling
@@ -486,6 +390,9 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
 -    KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/kasan
 -else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_memory, $(TARGET_PRODUCT)))
 -    KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_memory
+-else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_memory_accounting, $(TARGET_PRODUCT)))
+-    KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_memory_accounting
+-BOARD_KERNEL_CMDLINE += page_owner=on
 -else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_locking, $(TARGET_PRODUCT)))
 -    KERNEL_MODULE_DIR := $(TARGET_KERNEL_DIR)/debug_locking
 -else ifeq (,$(filter-out $(TARGET_BOOTLOADER_BOARD_NAME)_kernel_debug_hang, $(TARGET_PRODUCT)))
@@ -574,204 +481,12 @@ index 8e9ad5fb852c8b1556ed7155ad49d93a90b59daa..9d24b2e50331eedc38bd31651ef28ce8
 -endif
 +BOARD_PREBUILT_DTBIMAGE_DIR := $(TARGET_KERNEL_DIR)
  
+ BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
+ 
  # Testing related defines
  BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b5r3-setup.sh
 
-commit 515d49804425c56761a4971f8002c4a428b94ccf
-Author: anupritaisno1 <www.anuprita804@gmail.com>
-Date:   Mon 2020-10-19 00:04:15+0000
-
-    fix hw_random permissions
-    
-    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
----
- ueventd.rc | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/ueventd.rc b/ueventd.rc
-index c04b53924c733a489c6e46f6be4a659b712a5eee..a947b2b7e582e8fad2749ae0f862d0f80c6fdee5 100644
---- a/ueventd.rc
-+++ b/ueventd.rc
-@@ -52,21 +52,21 @@ firmware_directories /vendor/firmware_mnt/image/
- /dev/spcom                0660   system     system
- /dev/sp_kernel            0660   system     system
- /dev/sp_ssr               0660   system     system
- /dev/sp_keymaster         0660   system     system
- /dev/sec_nvm_*            0660   system     system
- 
- /dev/jpeg0                0660   system     camera
- /dev/adsprpc-smd          0664   system     system
- /dev/adsprpc-smd-secure   0644   system     system
- 
--/dev/hw_random            0600   root       root
-+/dev/hw_random            0440   root       system
- /dev/sdsprpc-smd          0660   system     system
- 
- /dev/wcd-dsp-glink        0660   system     audio
- /dev/wcd_dsp0_control     0660   system     audio
- /dev/wcd-spi-ac-client    0660   system     audio
- /dev/iaxxx-odsp-celldrv   0660   system     audio
- /dev/tunnel0              0660   system     audio
- 
- /dev/msm_qcelp            0660   system     audio
- /dev/msm_evrc             0660   system     audio
-
-commit d03b29f97add2346a6ff7178b93e4b5d53f26f90
-Author: Artem Borisov <dedsa2002@gmail.com>
-Date:   Wed 2020-07-22 18:40:15+0000
-
-    redbull: Trigger boot_wlan on boot
-    
-    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
-    Change-Id: Id8f0dc92733625656ad19463ae2fa685178242da
----
- init.hardware.rc | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/init.hardware.rc b/init.hardware.rc
-index 288990e5bb7ab82f090262503250e938e425c4fa..660829d37d1cf943890a4d87bf84ee09ade67800 100644
---- a/init.hardware.rc
-+++ b/init.hardware.rc
-@@ -362,20 +362,23 @@ on zygote-start
-     mkdir /data/vendor/location/mq 0770 gps gps
-     mkdir /data/vendor/location/xtwifi 0770 gps gps
-     mkdir /dev/socket/location 0770 gps gps
-     mkdir /dev/socket/location/mq 0770 gps gps
-     mkdir /dev/socket/location/xtra 0770 gps gps
- 
-     #Create directories for wifihal services
-     mkdir /dev/socket/wifihal 0770 wifi wifi
-     chmod 2770 /dev/socket/wifihal
- 
-+    # Trigger WLAN driver load
-+    write /sys/kernel/boot_wlan/boot_wlan 1
-+
- on early-boot
-     # Change owner for sensors-related directories
-     chown root system /mnt/vendor/persist/sensors/registry
-     chown root system /mnt/vendor/persist/sensors/registry/registry
-     chown system root /mnt/vendor/persist/sensors/sensors_settings
-     chown root root /mnt/vendor/persist/sensors/registry/registry/sensors_settings
- 
-     # Set up sensors-related data directories and permissions
-     mkdir /data/vendor/sensors 0770
-     chown system system /data/vendor/sensors
-
-commit 6b65d307a6673508d4c4b8c041b86a1bf048ee7c
-Author: anupritaisno1 <www.anuprita804@gmail.com>
-Date:   Sat 2020-11-14 02:09:38+0000
-
-    redbull: disable chained vbmeta
-    
-    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
-    Change-Id: Iba8e6a3a2ee9e969e90ca422d85355b212d02634
----
- BoardConfig-common.mk | 8 --------
- fstab.hardware        | 6 +++---
- 2 files changed, 3 insertions(+), 11 deletions(-)
-
-diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
-index 9d24b2e50331eedc38bd31651ef28ce81e483444..6d588cc07e5defbc5db4cfb6388116de74386787 100644
---- a/BoardConfig-common.mk
-+++ b/BoardConfig-common.mk
-@@ -63,38 +63,30 @@ BOARD_USES_METADATA_PARTITION := true
- 
- AB_OTA_UPDATER := true
- 
- AB_OTA_PARTITIONS += \
-     boot \
-     vendor_boot \
-     system \
-     vbmeta \
-     dtbo \
-     product \
--    vbmeta_system \
-     system_ext
- 
- # Partitions (listed in the file) to be wiped under recovery.
- TARGET_RECOVERY_WIPE := device/google/redbull/recovery.wipe
- TARGET_RECOVERY_FSTAB := device/google/redbull/fstab.hardware
- TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
- TARGET_RECOVERY_UI_LIB := \
-     librecovery_ui_pixel \
-     libfstab
- 
--# Enable chain partition for system.
--BOARD_AVB_VBMETA_SYSTEM := system
--BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
--BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
--BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
--BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
--
- # product.img
- BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
- 
- # userdata.img
- TARGET_USERIMAGES_USE_F2FS := true
- BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
- BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
- 
- # persist.img
- BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
-diff --git a/fstab.hardware b/fstab.hardware
-index cdf6bd90615387c43769a9fc83cad55a6c7daad8..b5395725ab8b5fe9a0cd8d5aeac0d48b363d1471 100644
---- a/fstab.hardware
-+++ b/fstab.hardware
-@@ -1,12 +1,12 @@
- # Android fstab file.
- 
- #<src>                                                  <mnt_point>            <type>  <mnt_flags and options>                              <fs_mgr_flags>
--system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
--system_ext                                              /system_ext            ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
--vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
-+system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
-+system_ext                                              /system_ext            ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
-+vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
- product                                                 /product               ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
- /dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard,sync                    wait,formattable,first_stage_mount,check,metadata_csum
- /dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                             defaults
- /dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt       latemount,wait,check,quota,formattable,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,reservedsize=128M,sysfs_path=/sys/devices/platform/soc/1d84000.ufshc,keydirectory=/metadata/vold/metadata_encryption,checkpoint=fs
- /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
- /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
-
-commit 09bab4382b2e16567285fc00e093719b56464203
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Thu 2021-02-11 22:30:29-0500
-
-    set boot security patch level
----
- device-common.mk | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/device-common.mk b/device-common.mk
-index b22ad9f3498b08881bd0c663e5e21d155e4681f2..a8490146b7b58da821b7b6cc795f30a21aebdb36 100644
---- a/device-common.mk
-+++ b/device-common.mk
-@@ -844,20 +844,22 @@ endif
- 
- PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
- 
- PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
- 
- # Set Vendor SPL to match platform
- VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
- 
-+BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
-+
- PRODUCT_PROPERTY_OVERRIDES += vendor.audio.adm.buffering.ms=3
- PRODUCT_PROPERTY_OVERRIDES += vendor.audio_hal.period_multiplier=2
- PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
- 
- # Enable AAudio MMAP/NOIRQ data path.
- # 1 is AAUDIO_POLICY_NEVER  means only use Legacy path.
- # 2 is AAUDIO_POLICY_AUTO   means try MMAP then fallback to Legacy path.
- # 3 is AAUDIO_POLICY_ALWAYS means only use MMAP path.
- PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
- # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
-
-commit 0c0e5496abdc0f0ad59f2bd65e04115ca79c5137
+commit d833c909d06713388623081f5bcb4c6e3ad45451
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:48:10-0500
 
@@ -781,10 +496,10 @@ Date:   Tue 2021-03-02 05:48:10-0500
  1 file changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
-index 6d588cc07e5defbc5db4cfb6388116de74386787..0a747336044e7755a130a797c67c8d7af5e9cb46 100644
+index 81ea1a9bb9bad85f1abc897667049f75d0d35f26..7367b4cc8c852ac7b1dcc30e1c006f3c02cb6fca 100644
 --- a/BoardConfig-common.mk
 +++ b/BoardConfig-common.mk
-@@ -235,25 +235,21 @@ PRODUCT_COPY_FILES += \
+@@ -279,25 +279,21 @@ PRODUCT_COPY_FILES += \
  
  # TARGET_BOOLOADER_BOARD_NAME sensitive common boilerplate
  
@@ -810,9 +525,397 @@ index 6d588cc07e5defbc5db4cfb6388116de74386787..0a747336044e7755a130a797c67c8d7a
  # DTB
  BOARD_PREBUILT_DTBIMAGE_DIR := $(TARGET_KERNEL_DIR)
  
- # Testing related defines
+ BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
 
-commit 85baa4d9b9262a450cd53564cecfac587b21899d (HEAD, tag: RQ3A.210805.001.A1.2021.08.03.03, m/master)
+commit a7234bbf8549dd5165df0bc766ad38a156cc1c16
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-10-14 19:16:12-0400
+
+    disable system_other odex
+---
+ device-common.mk | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/device-common.mk b/device-common.mk
+index ca96da3657f6253af29e0dea2a8a7d8fe9affb36..31727fd610d6a392ad0cffd8c995df73751f1c67 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -133,44 +133,40 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ else
+   PRODUCT_COPY_FILES += \
+       $(LOCAL_PATH)/init.hardware.mpssrfs.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).mpssrfs.rc
+   PRODUCT_COPY_FILES += \
+       $(LOCAL_PATH)/init.hardware.diag.rc.user:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.$(PRODUCT_PLATFORM).diag.rc
+ endif
+ 
+ # A/B support
+ PRODUCT_PACKAGES += \
+     otapreopt_script \
+-    cppreopts.sh \
+     update_engine \
+     update_verifier
+ 
+ PRODUCT_PACKAGES += \
+     linker.vendor_ramdisk \
+     tune2fs.vendor_ramdisk \
+     resize2fs.vendor_ramdisk
+ 
+ # Use Sdcardfs
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.sys.sdcardfs=1
+ 
+ # Use FUSE passthrough
+ PRODUCT_PRODUCT_PROPERTIES += \
+     persist.sys.fuse.passthrough.enable=true
+ 
+ PRODUCT_PACKAGES += \
+     bootctrl.lito \
+     bootctrl.lito.recovery
+ 
+-PRODUCT_PROPERTY_OVERRIDES += \
+-    ro.cp_system_other_odex=1
+-
+ AB_OTA_POSTINSTALL_CONFIG += \
+     RUN_POSTINSTALL_system=true \
+     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
+     FILESYSTEM_TYPE_system=ext4 \
+     POSTINSTALL_OPTIONAL_system=true
+ 
+ PRODUCT_PACKAGES += \
+     update_engine_sideload
+ 
+ PRODUCT_PACKAGES_DEBUG += \
+
+commit f3ea5023a08071408c0e670bc20b354ce97b549d
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-10-14 19:16:59-0400
+
+    SystemUIGoogle -> SystemUI
+---
+ device-common.mk                                       | 2 +-
+ overlay/frameworks/base/core/res/res/values/config.xml | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/device-common.mk b/device-common.mk
+index 31727fd610d6a392ad0cffd8c995df73751f1c67..b462d75656d111e3e3dc10809fa134dad8c33a94 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -750,21 +750,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
+ 
+ # Enable tcpdump_logger on userdebug and eng
+ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+     PRODUCT_PROPERTY_OVERRIDES += \
+         persist.vendor.tcpdump.log.alwayson=false \
+         persist.vendor.tcpdump.log.br_num=5
+ endif
+ 
+ # Preopt SystemUI
+ PRODUCT_DEXPREOPT_SPEED_APPS += \
+-    SystemUIGoogle
++    SystemUI
+ 
+ # Enable stats logging in LMKD
+ TARGET_LMKD_STATS_LOG := true
+ 
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/init.gadgethal.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.gadgethal.sh
+ 
+ # default usb oem functions
+ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+   PRODUCT_PROPERTY_OVERRIDES += \
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index ea46820150f4cb83a6d65525c9c75da527c86a7d..1ab6df86faac622ac426ddf239c677d957da6f0b 100755
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -268,21 +268,21 @@
+     <bool name="config_LTE_eri_for_network_name">false</bool>
+ 
+     <!-- Default list of files pinned by the Pinner Service -->
+     <string-array translatable="false" name="config_defaultPinnerServiceFiles">
+         <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
+         <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
+         <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
+         <item>"/system/framework/framework.jar"</item>
+         <item>"/system/framework/services.jar"</item>
+         <item>"/system/bin/surfaceflinger"</item>
+-        <item>"/system_ext/priv-app/SystemUIGoogle/SystemUIGoogle.apk"</item>
++        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
+         <item>"/vendor/lib64/lib_aion_buffer.so"</item>
+         <item>"/vendor/lib64/libcamxexternalformatutils.so"</item>
+         <item>"/vendor/lib64/libipebpsstriping.so"</item>
+         <item>"/vendor/lib64/libCB.so"</item>
+         <item>"/vendor/lib64/libgsl.so"</item>
+     </string-array>
+ 
+     <!-- Should the pinner service pin the Camera application? -->
+     <bool name="config_pinnerCameraApp">true</bool>
+ 
+
+commit b679fd6325366f642e25d3252887d721b30af832
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-10-14 19:17:25-0400
+
+    raise maximum users to 16
+---
+ overlay/frameworks/base/core/res/res/values/config.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index 1ab6df86faac622ac426ddf239c677d957da6f0b..99fa2f8a623cfb31647560cb5bab30d7c2205412 100755
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -111,21 +111,21 @@
+     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
+     <bool name="config_cellBroadcastAppLinks">true</bool>
+ 
+     <!-- reference volume index for music stream to limit headphone volume and display warning -->
+     <integer name="config_safe_media_volume_index">7</integer>
+ 
+     <!--  Whether Multiuser UI should be shown -->
+     <bool name="config_enableMultiUserUI">true</bool>
+ 
+     <!--  Maximum number of supported users -->
+-    <integer name="config_multiuserMaximumUsers">4</integer>
++    <integer name="config_multiuserMaximumUsers">16</integer>
+ 
+     <!-- Whether Hearing Aid profile is supported -->
+     <bool name="config_hearing_aid_profile_supported">true</bool>
+ 
+     <!-- List of regexpressions describing the interface (if any) that represent tetherable
+          USB interfaces.  If the device doesn't want to support tething over USB this should
+          be empty.  An example would be "usb.*" -->
+     <string-array translatable="false" name="config_tether_usb_regexs">
+         <item>"usb\\d"</item>
+         <item>"rndis\\d"</item>
+
+commit c92071ba51e4610bda4c0241398d86caeb2821ce
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-10-14 19:17:50-0400
+
+    disable GSI keys
+---
+ device-common.mk | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/device-common.mk b/device-common.mk
+index b462d75656d111e3e3dc10809fa134dad8c33a94..50d0b1ad5f6ad6487d005cbdaf74ca2727814794 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -88,23 +88,20 @@ PRODUCT_COPY_FILES += \
+ PRODUCT_PROPERTY_OVERRIDES += \
+     ro.control_privapp_permissions=enforce
+ 
+ PRODUCT_PACKAGES += \
+     messaging \
+ 
+ TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
+ 
+ $(call inherit-product, $(LOCAL_PATH)/utils.mk)
+ 
+-# Installs gsi keys into ramdisk, to boot a developer GSI with verified boot.
+-$(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
+-
+ PRODUCT_CHARACTERISTICS := nosdcard
+ PRODUCT_SHIPPING_API_LEVEL := 30
+ BOARD_SHIPPING_API_LEVEL := 30
+ 
+ DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+ 
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_KERNEL):kernel \
+     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
+     $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
+
+commit 58ef4cdf4db71dab3171fa2972aca7bd8505adb1
+Author: Artem Borisov <dedsa2002@gmail.com>
+Date:   Wed 2020-07-22 18:40:15+0000
+
+    redbull: Trigger boot_wlan on boot
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+    Change-Id: Id8f0dc92733625656ad19463ae2fa685178242da
+---
+ init.hardware.rc | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/init.hardware.rc b/init.hardware.rc
+index cc808edd3fd4aaa324e0cfa4b37c3fb55d1cd92c..678fb9a10733c1da5b32d550e83709203b8e23db 100644
+--- a/init.hardware.rc
++++ b/init.hardware.rc
+@@ -347,20 +347,23 @@ on zygote-start
+     mkdir /data/vendor/location/mq 0770 gps gps
+     mkdir /data/vendor/location/xtwifi 0770 gps gps
+     mkdir /dev/socket/location 0770 gps gps
+     mkdir /dev/socket/location/mq 0770 gps gps
+     mkdir /dev/socket/location/xtra 0770 gps gps
+ 
+     #Create directories for wifihal services
+     mkdir /dev/socket/wifihal 0770 wifi wifi
+     chmod 2770 /dev/socket/wifihal
+ 
++    # Trigger WLAN driver load
++    write /sys/kernel/boot_wlan/boot_wlan 1
++
+ on early-boot
+     # Change owner for sensors-related directories
+     chown root system /mnt/vendor/persist/sensors/registry
+     chown root system /mnt/vendor/persist/sensors/registry/registry
+     chown system root /mnt/vendor/persist/sensors/sensors_settings
+     chown root root /mnt/vendor/persist/sensors/registry/registry/sensors_settings
+ 
+     # Set up sensors-related data directories and permissions
+     mkdir /data/vendor/sensors 0770
+     chown system system /data/vendor/sensors
+
+commit 0e6af2871fc8b358dae0bd9469382bc0666da4b7
+Author: anupritaisno1 <www.anuprita804@gmail.com>
+Date:   Sat 2020-11-14 02:09:38+0000
+
+    redbull: disable chained vbmeta
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
+    Change-Id: Iba8e6a3a2ee9e969e90ca422d85355b212d02634
+---
+ BoardConfig-common.mk | 41 ++++++++---------------------------------
+ fstab.hardware        |  6 +++---
+ 2 files changed, 11 insertions(+), 36 deletions(-)
+
+diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
+index 7367b4cc8c852ac7b1dcc30e1c006f3c02cb6fca..f7d1f95f671a1da497d140fbb163d539f63a5c6a 100644
+--- a/BoardConfig-common.mk
++++ b/BoardConfig-common.mk
+@@ -66,62 +66,37 @@ TARGET_NO_KERNEL := false
+ BOARD_USES_GENERIC_KERNEL_IMAGE := true
+ BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
+ ifneq ($(PRODUCT_BUILD_VENDOR_BOOT_IMAGE),false)
+ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
+ endif
+ 
+ BOARD_USES_METADATA_PARTITION := true
+ 
+ AB_OTA_UPDATER := true
+ 
+-ifneq ($(PRODUCT_BUILD_SYSTEM_IMAGE),false)
+-AB_OTA_PARTITIONS += system
+-AB_OTA_PARTITIONS += vbmeta_system
+-endif
+-ifneq ($(PRODUCT_BUILD_PRODUCT_IMAGE),false)
+-AB_OTA_PARTITIONS += product
+-endif
+-ifneq ($(PRODUCT_BUILD_SYSTEM_EXT_IMAGE),false)
+-AB_OTA_PARTITIONS += system_ext
+-endif
+-ifneq ($(PRODUCT_BUILD_BOOT_IMAGE),false)
+-AB_OTA_PARTITIONS += boot
+-endif
+-ifneq ($(PRODUCT_BUILD_VENDOR_BOOT_IMAGE),false)
+-AB_OTA_PARTITIONS += vendor_boot
+-AB_OTA_PARTITIONS += dtbo
+-endif
+-ifneq ($(PRODUCT_BUILD_VBMETA_IMAGE),false)
+-AB_OTA_PARTITIONS += vbmeta
+-endif
++AB_OTA_PARTITIONS += \
++    boot \
++    vendor_boot \
++    system \
++    vbmeta \
++    dtbo \
++    product \
++    system_ext
+ 
+ # Partitions (listed in the file) to be wiped under recovery.
+ TARGET_RECOVERY_WIPE := device/google/redbull/recovery.wipe
+ TARGET_RECOVERY_FSTAB := device/google/redbull/fstab.hardware
+ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+ TARGET_RECOVERY_UI_LIB := \
+     librecovery_ui_pixel \
+     libfstab
+ 
+-# Enable chain partition for system.
+-BOARD_AVB_VBMETA_SYSTEM := system system_ext product
+-BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+-BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
+-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 1
+-
+-# Enable chained vbmeta for boot images
+-BOARD_AVB_BOOT_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+-BOARD_AVB_BOOT_ALGORITHM := SHA256_RSA2048
+-BOARD_AVB_BOOT_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
+-BOARD_AVB_BOOT_ROLLBACK_INDEX_LOCATION := 2
+-
+ # product.img
+ BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := ext4
+ 
+ # userdata.img
+ TARGET_USERIMAGES_USE_F2FS := true
+ BOARD_USERDATAIMAGE_PARTITION_SIZE := 10737418240
+ BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := f2fs
+ 
+ # persist.img
+ BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
+diff --git a/fstab.hardware b/fstab.hardware
+index d27d483bdd519620efa0f58c2da2a92108332b14..e6d6cbe0d83817969f2b904a57afe12a79f2309a 100644
+--- a/fstab.hardware
++++ b/fstab.hardware
+@@ -1,14 +1,14 @@
+ # Android fstab file.
+ 
+ #<src>                                                  <mnt_point>            <type>  <mnt_flags and options>                              <fs_mgr_flags>
+ /dev/block/bootdevice/by-name/boot                      /boot                  emmc    defaults                                             slotselect,avb=boot,first_stage_mount
+-system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+-system_ext                                              /system_ext            ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+-vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
++system                                                  /system                ext4    ro,barrier=1                                         wait,slotselect,avb=vbmeta,logical,first_stage_mount
++system_ext                                              /system_ext            ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
++vendor                                                  /vendor                ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
+ product                                                 /product               ext4    ro,barrier=1                                         wait,slotselect,avb,logical,first_stage_mount
+ /dev/block/by-name/metadata                             /metadata              ext4    noatime,nosuid,nodev,discard,data=journal,commit=1   wait,formattable,first_stage_mount,check,metadata_csum
+ /dev/block/bootdevice/by-name/modem                     /vendor/firmware_mnt   vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait,slotselect
+ /dev/block/bootdevice/by-name/misc                      /misc                  emmc    defaults                                             defaults
+ /dev/block/bootdevice/by-name/userdata                  /data                  f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt       latemount,wait,check,quota,formattable,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,reservedsize=128M,sysfs_path=/dev/sys/block/bootdevice,keydirectory=/metadata/vold/metadata_encryption,checkpoint=fs
+ /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
+ /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
+
+commit 8ad40ac1305e30019ff89505bacff1208c1e94f7
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2021-02-11 22:30:29-0500
+
+    set boot security patch level
+---
+ device-common.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/device-common.mk b/device-common.mk
+index 50d0b1ad5f6ad6487d005cbdaf74ca2727814794..45402377d5ccdb901e499943346151bae6503696 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -838,20 +838,22 @@ endif
+ 
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+ 
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/task_profiles.json:$(TARGET_COPY_OUT_VENDOR)/etc/task_profiles.json
+ 
+ # Set Vendor SPL to match platform
+ VENDOR_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
+ 
++BOOT_SECURITY_PATCH = $(PLATFORM_SECURITY_PATCH)
++
+ PRODUCT_PROPERTY_OVERRIDES += vendor.audio.adm.buffering.ms=2
+ PRODUCT_PROPERTY_OVERRIDES += vendor.audio_hal.period_multiplier=2
+ PRODUCT_PROPERTY_OVERRIDES += af.fast_track_multiplier=1
+ 
+ # Enable AAudio MMAP/NOIRQ data path.
+ # 1 is AAUDIO_POLICY_NEVER  means only use Legacy path.
+ # 2 is AAUDIO_POLICY_AUTO   means try MMAP then fallback to Legacy path.
+ # 3 is AAUDIO_POLICY_ALWAYS means only use MMAP path.
+ PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
+ # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
+
+commit 880aa6bc6999966c395bcb456a20497da537faa1
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -869,3 +972,176 @@ index 0000000000000000000000000000000000000000..333bb3248d690c8fdeef553d5dbb801c
 +        <item>1</item>
 +    </integer-array>
 +</resources>
+
+commit 24b484a13b252e69b9ce61e4266a2349f066dc77
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sun 2021-10-10 02:35:39+0100
+
+    Do not set ro.incremental.enable via kernel module
+---
+ device-common.mk | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/device-common.mk b/device-common.mk
+index 45402377d5ccdb901e499943346151bae6503696..39c4bd301bfd2ef0aa8b1ad704970a4e43ae7948 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -943,23 +943,20 @@ endif
+ # Disable Rescue Party on userdebug & eng build
+ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ PRODUCT_PRODUCT_PROPERTIES += \
+     persist.sys.disable_rescue=true
+ endif
+ 
+ # Set support one-handed mode
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.support_one_handed_mode=true
+ 
+-# Enable Incremental on the device via kernel module
+-PRODUCT_PROPERTY_OVERRIDES += \
+-        ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
+ 
+ # Enforce generic ramdisk allow list
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+ 
+ # Enable watchdog timeout loop breaker.
+ PRODUCT_PROPERTY_OVERRIDES += \
+     framework_watchdog.fatal_window.second=600 \
+     framework_watchdog.fatal_count=3
+ 
+ # Set system properties identifying the chipset
+
+commit b974ff9497971fbaa5f5e9795c42f185e874febf
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:12:42-0700
+
+    Enable microphone and camera privacy toggles
+    
+    The HALs on this device support microphone and camera toggles, and they
+    are enabled on stock.
+    
+    Change-Id: I3342364f2e1deed5678776783d55fc7d364317d7
+---
+ overlay/frameworks/base/core/res/res/values/config.xml | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/overlay/frameworks/base/core/res/res/values/config.xml b/overlay/frameworks/base/core/res/res/values/config.xml
+index 99fa2f8a623cfb31647560cb5bab30d7c2205412..7642a8919c0d52d003adc7144cbc2194557b2614 100755
+--- a/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -338,11 +338,16 @@
+     </integer-array>
+ 
+     <!-- Delay that allows some content to arrive at the display before switching
+          from DOZE to ON, in millis. -->
+     <integer name="config_wakeUpDelayDoze">32</integer>
+ 
+     <!-- Whether the device enable the standalone (SA) mode of 5G NR.-->
+     <bool name="config_telephony5gStandalone">true</bool>
+     <!-- Whether the device enable the non-standalone (NSA) mode of 5G NR.-->
+     <bool name="config_telephony5gNonStandalone">true</bool>
++
++    <!-- Whether this device is supporting the microphone toggle -->
++    <bool name="config_supportsMicToggle">true</bool>
++    <!-- Whether this device is supporting the camera toggle -->
++    <bool name="config_supportsCamToggle">true</bool>
+ </resources>
+
+commit 0bba177464f92deb70d140e15f69955ae011689e
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-10-11 17:56:30-0400
+
+    Declare support for ARMv8.2 extensions
+    
+    This allows clang and ART to make use of ARMv8.2 extensions for better
+    performance.
+---
+ BoardConfig-common.mk | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
+index f7d1f95f671a1da497d140fbb163d539f63a5c6a..d5c8bb90ba06940790f71910327e855f85aabe3f 100644
+--- a/BoardConfig-common.mk
++++ b/BoardConfig-common.mk
+@@ -14,29 +14,29 @@
+ # limitations under the License.
+ #
+ 
+ include build/make/target/board/BoardConfigMainlineCommon.mk
+ include build/make/target/board/BoardConfigPixelCommon.mk
+ 
+ TARGET_BOARD_PLATFORM := lito
+ USES_DEVICE_GOOGLE_REDBULL := true
+ 
+ TARGET_ARCH := arm64
+-TARGET_ARCH_VARIANT := armv8-a
++TARGET_ARCH_VARIANT := armv8-2a-dotprod
+ TARGET_CPU_ABI := arm64-v8a
+ TARGET_CPU_ABI2 :=
+ TARGET_CPU_VARIANT := generic
+ TARGET_CPU_VARIANT_RUNTIME := cortex-a76
+ 
+ ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
+ TARGET_2ND_ARCH := arm
+-TARGET_2ND_ARCH_VARIANT := armv8-a
++TARGET_2ND_ARCH_VARIANT := armv8-2a
+ TARGET_2ND_CPU_ABI := armeabi-v7a
+ TARGET_2ND_CPU_ABI2 := armeabi
+ TARGET_2ND_CPU_VARIANT := generic
+ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
+ endif
+ 
+ BUILD_BROKEN_DUP_RULES := true
+ BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
+ BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
+ BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
+
+commit 6d57f0a4b78626af40c67c508308b6f5c0e5e188 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-10-11 17:57:02-0400
+
+    Optimize native executables for Cortex-A76 CPU
+    
+    Allow the compiler to take advantage of ARMv8.2 extensions to improve
+    performance in native executables, not just Java code compiled by ART.
+---
+ BoardConfig-common.mk | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
+index d5c8bb90ba06940790f71910327e855f85aabe3f..cde1cbced48d2eb90451ff30942222b3a37bad12 100644
+--- a/BoardConfig-common.mk
++++ b/BoardConfig-common.mk
+@@ -17,30 +17,28 @@
+ include build/make/target/board/BoardConfigMainlineCommon.mk
+ include build/make/target/board/BoardConfigPixelCommon.mk
+ 
+ TARGET_BOARD_PLATFORM := lito
+ USES_DEVICE_GOOGLE_REDBULL := true
+ 
+ TARGET_ARCH := arm64
+ TARGET_ARCH_VARIANT := armv8-2a-dotprod
+ TARGET_CPU_ABI := arm64-v8a
+ TARGET_CPU_ABI2 :=
+-TARGET_CPU_VARIANT := generic
+-TARGET_CPU_VARIANT_RUNTIME := cortex-a76
++TARGET_CPU_VARIANT := cortex-a76
+ 
+ ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
+ TARGET_2ND_ARCH := arm
+ TARGET_2ND_ARCH_VARIANT := armv8-2a
+ TARGET_2ND_CPU_ABI := armeabi-v7a
+ TARGET_2ND_CPU_ABI2 := armeabi
+-TARGET_2ND_CPU_VARIANT := generic
+-TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
++TARGET_2ND_CPU_VARIANT := cortex-a76
+ endif
+ 
+ BUILD_BROKEN_DUP_RULES := true
+ BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
+ BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
+ BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
+ BOARD_KERNEL_CMDLINE += service_locator.enable=1
+ BOARD_KERNEL_CMDLINE += androidboot.memcg=1 cgroup.memory=nokmem
+ BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 # STOPSHIP b/113233473
+ BOARD_KERNEL_CMDLINE += usbcore.autosuspend=7

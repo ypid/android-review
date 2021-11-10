@@ -1,4 +1,4 @@
-commit da1020cc2923c0a61a3dd55109aa342bd2097c1b (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit b3f472c9c261aa955e6ead89a11d6dbf06391ead (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-09 01:53:11-0400
 
@@ -6,15 +6,17 @@ Date:   Wed 2020-09-09 01:53:11-0400
     
     This was adopted before the earliest stable release of GrapheneOS, so
     backwards compatibility is not implemented anymore.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- libfscrypt/fscrypt.cpp | 13 ++-----------
- 1 file changed, 2 insertions(+), 11 deletions(-)
+ libfscrypt/fscrypt.cpp | 14 ++------------
+ 1 file changed, 2 insertions(+), 12 deletions(-)
 
 diff --git a/libfscrypt/fscrypt.cpp b/libfscrypt/fscrypt.cpp
-index a52ed90c28e4a976f3ad14d3e81f7bb4613a7e9d..7852349ff2e00f63e4e24aabd259f6e30512cb39 100644
+index f6e97f11a0fff52b80b0f2f0b9fc07dd4d857697..b9cd70048874c8ce5fa8843b21b1e692618e030e 100644
 --- a/libfscrypt/fscrypt.cpp
 +++ b/libfscrypt/fscrypt.cpp
-@@ -221,31 +221,22 @@ bool ParseOptionsForApiLevel(unsigned int first_api_level, const std::string& op
+@@ -219,32 +219,22 @@ bool ParseOptionsForApiLevel(unsigned int first_api_level, const std::string& op
                  options->flags |= FSCRYPT_POLICY_FLAG_IV_INO_LBLK_32;
              } else if (flag == "wrappedkey_v0") {
                  options->use_hw_wrapped_key = true;
@@ -31,7 +33,8 @@ index a52ed90c28e4a976f3ad14d3e81f7bb4613a7e9d..7852349ff2e00f63e4e24aabd259f6e3
 -    // For everything else, use 16-byte padding.  This is more secure (it helps
 -    // hide the length of filenames), and it makes the inputs evenly divisible
 -    // into cipher blocks which is more efficient for encryption and decryption.
--    if (!is_gki && options->version == 1 && options->filenames_mode == FSCRYPT_MODE_AES_256_CTS) {
+-    if (first_api_level <= __ANDROID_API_Q__ && options->version == 1 &&
+-        options->filenames_mode == FSCRYPT_MODE_AES_256_CTS) {
 -        options->flags |= FSCRYPT_POLICY_FLAGS_PAD_4;
 -    } else {
 -        options->flags |= FSCRYPT_POLICY_FLAGS_PAD_16;
@@ -44,7 +47,7 @@ index a52ed90c28e4a976f3ad14d3e81f7bb4613a7e9d..7852349ff2e00f63e4e24aabd259f6e3
      // encryption modes.
      if (options->contents_mode == FSCRYPT_MODE_ADIANTUM) {
          if (options->filenames_mode != FSCRYPT_MODE_ADIANTUM) {
-             LOG(ERROR) << "Adiantum must be both contents and filenames mode or neither, invalid options: " << options_string;
+             LOG(ERROR) << "Adiantum must be both contents and filenames mode or neither, invalid "
+                           "options: "
+                        << options_string;
              return false;
-         }
-         options->flags |= FSCRYPT_POLICY_FLAG_DIRECT_KEY;

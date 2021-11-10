@@ -1,4 +1,4 @@
-commit a02c9e85d36ac34b4bae8e1145a3890b508289c4
+commit 41370290313831de14698290c1c18a35e40acc78
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:03:50-0400
 
@@ -34,7 +34,7 @@ index d46df92d3335fbb62d0285cd077ede2b8e2aed1c..312d8d8e9c1ec3fd3a88c01c64d159f1
  };
  
 
-commit 5aad7029eeeb0e6f6bb73ecbea1ee0060e7b3ab3
+commit e658f910676ac7890bad71893f40bf27b01fac49
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:04:44-0400
 
@@ -72,7 +72,7 @@ index a0930087c7ee4194c82e19f521fa3bbf5eb45a7d..97aad2054e59d0db5eb5bb427e2d1ba0
  
    ui->ResetKeyInterruptStatus();
 diff --git a/recovery.cpp b/recovery.cpp
-index 7675121d4d42afa9f3b2db0f8447dae9d52827e7..d26275b39c75f963355417a5b19770edeabf5257 100644
+index 36924fbdf430413622e80d2c450f6e0573f19d79..018b2f0ad1da4ea2e07c5bb417d334f9bda60383 100644
 --- a/recovery.cpp
 +++ b/recovery.cpp
 @@ -696,21 +696,21 @@ Device::BuiltinAction start_recovery(Device* device, const std::vector<std::stri
@@ -85,7 +85,7 @@ index 7675121d4d42afa9f3b2db0f8447dae9d52827e7..d26275b39c75f963355417a5b19770ed
    }
  
    std::vector<std::string> title_lines =
-       android::base::Split(android::base::GetProperty("ro.bootimage.build.fingerprint", ""), ":");
+       android::base::Split(android::base::GetProperty("ro.build.fingerprint", ""), ":");
 -  title_lines.insert(std::begin(title_lines), "Android Recovery");
 +  title_lines.insert(std::begin(title_lines), "GrapheneOS Recovery");
    ui->SetTitle(title_lines);
@@ -99,7 +99,7 @@ index 7675121d4d42afa9f3b2db0f8447dae9d52827e7..d26275b39c75f963355417a5b19770ed
    }
    printf("\n\n");
 
-commit 1202bd49bdbc462869e680a51c554b5db28bb8aa (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 83c5f1152b829cbd5d2768ba3f3884d7f845b5e2 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-08-19 09:31:04-0400
 
@@ -109,16 +109,16 @@ Date:   Wed 2020-08-19 09:31:04-0400
  1 file changed, 2 insertions(+), 14 deletions(-)
 
 diff --git a/install/install.cpp b/install/install.cpp
-index d404997dce55a37b3f2ebe033112f6f48686ba00..26d7c766495a3ae4fa3b09c4d4408de13edc4175 100644
+index 6e74f80ab0796afc08196b7211f9eddd76d219c9..94d873c8ce009c8b2484a90649586f01727fbbc6 100644
 --- a/install/install.cpp
 +++ b/install/install.cpp
-@@ -197,36 +197,24 @@ bool CheckPackageMetadata(const std::map<std::string, std::string>& metadata, Ot
-     return false;
+@@ -203,36 +203,24 @@ bool CheckPackageMetadata(const std::map<std::string, std::string>& metadata, Ot
    }
  
    auto device = android::base::GetProperty("ro.product.device", "");
    auto pkg_device = get_value(metadata, "pre-device");
-   if (pkg_device != device || pkg_device.empty()) {
+   // device name can be a | separated list, so need to check
+   if (pkg_device.empty() || !isInStringList(device, pkg_device, FINGERPRING_SEPARATOR)) {
      LOG(ERROR) << "Package is for product " << pkg_device << " but expected " << device;
      return false;
    }

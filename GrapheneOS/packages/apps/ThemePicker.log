@@ -1,4 +1,4 @@
-commit 4f944bd8988b796ca377835f86037e96335b9fc5
+commit 0b9bbac807e16d7a48cd0ba30d3d1e33e3fc0c04
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 21:14:29+0100
 
@@ -6,46 +6,43 @@ Date:   Fri 2019-11-01 21:14:29+0100
     
     Change-Id: I044b1d9201ac0b8780fc37a387f401f3dd0ddeac
 ---
- Android.mk                                        | 10 ++++++++++
- privapp_whitelist_com.android.wallpaper.xml (new) | 23 +++++++++++++++++++++++
- 2 files changed, 33 insertions(+)
+ Android.bp                                        | 10 ++++++++++
+ privapp_whitelist_com.android.wallpaper.xml (new) | 24 +++++++++++++++++++++++
+ 2 files changed, 34 insertions(+)
 
-diff --git a/Android.mk b/Android.mk
-index 987c875e8db22145e9eb3cf414c0254b82d9acff..e83f71d64d391e6bfb59e5e58703941b9fef8524 100644
---- a/Android.mk
-+++ b/Android.mk
-@@ -42,15 +42,25 @@ else
- endif
+diff --git a/Android.bp b/Android.bp
+index 57d30ce5a45e2005ff2912b1cbff4b001d70923d..c82aa4b15d5b65b98809f1513a3eee01399e0b71 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -90,12 +90,22 @@ android_app {
+         enabled: false,
+     },
+     kotlincflags: ["-Xjvm-default=enable"],
+     certificate: "",
  
- LOCAL_SRC_FILES := $(call all-java-files-under, $(WALLPAPER_PATH)/src) \
-     $(call all-java-files-under, src) \
-     $(call all-java-files-under, src_override)
- 
- LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
- 
- LOCAL_MANIFEST_FILE := AndroidManifest.xml
- 
-+LOCAL_REQUIRED_MODULES := privapp_whitelist_com.android.wallpaper.xml
+     privileged: true,
+     system_ext_specific: true,
+     platform_apis: true,
+     manifest: "AndroidManifest.xml",
+     additional_manifests: [":WallpaperPicker2_Manifest"],
 +
- include $(BUILD_PACKAGE)
- 
-+include $(CLEAR_VARS)
-+LOCAL_MODULE := privapp_whitelist_com.android.wallpaper.xml
-+LOCAL_MODULE_CLASS := ETC
-+LOCAL_MODULE_TAGS := optional
-+LOCAL_MODULE_PATH := $(TARGET_OUT_SYSTEM_EXT_ETC)/permissions
-+LOCAL_SYSTEM_EXT_MODULE := true
-+LOCAL_SRC_FILES := $(LOCAL_MODULE)
-+include $(BUILD_PREBUILT)
- 
- # ==================================================
- include $(call all-makefiles-under,$(LOCAL_PATH))
++    required: ["privapp_whitelist_com.android.wallpaper.xml"],
+     overrides: ["WallpaperPicker2"],
+ }
++
++prebuilt_etc_xml {
++    name: "privapp_whitelist_com.android.wallpaper.xml",
++    src: "privapp_whitelist_com.android.wallpaper.xml",
++    system_ext_specific: true,
++    filename_from_src: true,
++    sub_dir: "permissions",
++}
 diff --git a/privapp_whitelist_com.android.wallpaper.xml b/privapp_whitelist_com.android.wallpaper.xml
 new file mode 100644
-index 0000000000000000000000000000000000000000..a61cd419139f6849d085fc5c75bc1ee11c7dba59
+index 0000000000000000000000000000000000000000..e3f3b658dfb1e90752dbac2b97b04e6eaa52126d
 --- /dev/null
 +++ b/privapp_whitelist_com.android.wallpaper.xml
-@@ -0,0 +1,23 @@
+@@ -0,0 +1,24 @@
 +<?xml version="1.0" encoding="utf-8"?>
 +<!--
 +  ~ Copyright (C) 2019 The Android Open Source Project
@@ -64,13 +61,52 @@ index 0000000000000000000000000000000000000000..a61cd419139f6849d085fc5c75bc1ee1
 +  -->
 +<permissions>
 +    <privapp-permissions package="com.android.wallpaper">
-+        <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
 +        <permission name="android.permission.SET_WALLPAPER_COMPONENT"/>
-+        <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
++        <permission name="android.permission.MODIFY_DAY_NIGHT_MODE"/>
++        <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
++        <permission name="android.permission.WRITE_SECURE_SETTINGS" />
 +    </privapp-permissions>
 +</permissions>
 
-commit 4fcc112ffe21a9d753bbbbe49d37ce78554acbd7
+commit 1b852a759b49c6c8876625be9cdedee0776e46b2
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:00:36-0700
+
+    Override legacy WallpaperPicker app
+    
+    Change-Id: I9a1907527eea0e8e7cd10bab64ba79c2c4006c59
+---
+ Android.bp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Android.bp b/Android.bp
+index c82aa4b15d5b65b98809f1513a3eee01399e0b71..fcedfdfe85a1b8c57eb32c91920dc861478f3af8 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -92,20 +92,20 @@ android_app {
+     kotlincflags: ["-Xjvm-default=enable"],
+     certificate: "",
+ 
+     privileged: true,
+     system_ext_specific: true,
+     platform_apis: true,
+     manifest: "AndroidManifest.xml",
+     additional_manifests: [":WallpaperPicker2_Manifest"],
+ 
+     required: ["privapp_whitelist_com.android.wallpaper.xml"],
+-    overrides: ["WallpaperPicker2"],
++    overrides: ["WallpaperPicker2", "WallpaperPicker"],
+ }
+ 
+ prebuilt_etc_xml {
+     name: "privapp_whitelist_com.android.wallpaper.xml",
+     src: "privapp_whitelist_com.android.wallpaper.xml",
+     system_ext_specific: true,
+     filename_from_src: true,
+     sub_dir: "permissions",
+ }
+
+commit 4651a95448373c2ba6f9e4ea30c5bf83a3176d04
 Author: LuK1337 <priv.luk@gmail.com>
 Date:   Tue 2020-09-15 03:27:19+0200
 
@@ -78,49 +114,49 @@ Date:   Tue 2020-09-15 03:27:19+0200
     
     Change-Id: If43a594da31fbab9280ce45b049737f6c534b620
 ---
- Android.mk                                         | 11 ++++++-
+ Android.bp                                         | 14 +++++++-
  ...ult_permissions_com.android.wallpaper.xml (new) | 37 ++++++++++++++++++++++
- 2 files changed, 47 insertions(+), 1 deletion(-)
+ 2 files changed, 50 insertions(+), 1 deletion(-)
 
-diff --git a/Android.mk b/Android.mk
-index e83f71d64d391e6bfb59e5e58703941b9fef8524..5a443d2d3a854233e8580880c2a041f40739ecaf 100644
---- a/Android.mk
-+++ b/Android.mk
-@@ -42,24 +42,33 @@ else
- endif
+diff --git a/Android.bp b/Android.bp
+index fcedfdfe85a1b8c57eb32c91920dc861478f3af8..0d57de2a0b49c6ade18fb06488010dbe3afc74a4 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -91,21 +91,33 @@ android_app {
+     },
+     kotlincflags: ["-Xjvm-default=enable"],
+     certificate: "",
  
- LOCAL_SRC_FILES := $(call all-java-files-under, $(WALLPAPER_PATH)/src) \
-     $(call all-java-files-under, src) \
-     $(call all-java-files-under, src_override)
+     privileged: true,
+     system_ext_specific: true,
+     platform_apis: true,
+     manifest: "AndroidManifest.xml",
+     additional_manifests: [":WallpaperPicker2_Manifest"],
  
- LOCAL_RESOURCE_DIR := $(LOCAL_PATH)/res
- 
- LOCAL_MANIFEST_FILE := AndroidManifest.xml
- 
--LOCAL_REQUIRED_MODULES := privapp_whitelist_com.android.wallpaper.xml
-+LOCAL_REQUIRED_MODULES := default_permissions_com.android.wallpaper.xml privapp_whitelist_com.android.wallpaper.xml
- 
- include $(BUILD_PACKAGE)
- 
-+include $(CLEAR_VARS)
-+LOCAL_MODULE := default_permissions_com.android.wallpaper.xml
-+LOCAL_MODULE_CLASS := ETC
-+LOCAL_MODULE_TAGS := optional
-+LOCAL_MODULE_PATH := $(TARGET_OUT_SYSTEM_EXT_ETC)/default-permissions
-+LOCAL_SYSTEM_EXT_MODULE := true
-+LOCAL_SRC_FILES := $(LOCAL_MODULE)
-+include $(BUILD_PREBUILT)
+-    required: ["privapp_whitelist_com.android.wallpaper.xml"],
++    required: [
++        "privapp_whitelist_com.android.wallpaper.xml",
++        "default_permissions_com.android.wallpaper.xml",
++    ],
 +
- include $(CLEAR_VARS)
- LOCAL_MODULE := privapp_whitelist_com.android.wallpaper.xml
- LOCAL_MODULE_CLASS := ETC
- LOCAL_MODULE_TAGS := optional
- LOCAL_MODULE_PATH := $(TARGET_OUT_SYSTEM_EXT_ETC)/permissions
- LOCAL_SYSTEM_EXT_MODULE := true
- LOCAL_SRC_FILES := $(LOCAL_MODULE)
- include $(BUILD_PREBUILT)
+     overrides: ["WallpaperPicker2", "WallpaperPicker"],
+ }
  
- # ==================================================
+ prebuilt_etc_xml {
+     name: "privapp_whitelist_com.android.wallpaper.xml",
+     src: "privapp_whitelist_com.android.wallpaper.xml",
+     system_ext_specific: true,
+     filename_from_src: true,
+     sub_dir: "permissions",
+ }
++
++prebuilt_etc_xml {
++    name: "default_permissions_com.android.wallpaper.xml",
++    src: "default_permissions_com.android.wallpaper.xml",
++    system_ext_specific: true,
++    filename_from_src: true,
++    sub_dir: "default-permissions",
++}
 diff --git a/default_permissions_com.android.wallpaper.xml b/default_permissions_com.android.wallpaper.xml
 new file mode 100644
 index 0000000000000000000000000000000000000000..41b23ce171fce5bc63a38aed0c4570ce29047f9d
@@ -165,7 +201,7 @@ index 0000000000000000000000000000000000000000..41b23ce171fce5bc63a38aed0c4570ce
 +    </exception>
 +</exceptions>
 
-commit 0234607e43e9a8756095b11866ad177105811cb0
+commit 3c5cf62f489d5ca4eac2704afc0fa6981ed2df34
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:08+0100
 
@@ -177,19 +213,19 @@ Date:   Fri 2019-11-01 23:17:08+0100
  1 file changed, 3 insertions(+)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 1bcacab42ba463163e59f2063d174c187b8ef1bc..6ef8930130f26ba41ffd7843da8b484e0afeb952 100755
+index 90e05cb1b08d9e9ec2e03c01a666780a7bdec44e..391f06b8d9b5630ba110027774e8fde012835037 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -3,20 +3,23 @@
-           xmlns:tools="http://schemas.android.com/tools"
-           package="com.android.wallpaper">
- 
-     <uses-sdk android:targetSdkVersion="30" android:minSdkVersion="28"/>
- 
-     <uses-permission android:name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
-     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
-     <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
-     <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+@@ -29,20 +29,23 @@
+         <!-- Intent filter with action WallpaperService (live wallpaper interface) -->
+         <intent>
+             <action android:name="android.service.wallpaper.WallpaperService" />
+         </intent>
+         <!-- Intent filter with action used to discover partner -->
+         <intent>
+             <action android:name="com.android.launcher3.action.PARTNER_CUSTOMIZATION" />
+         </intent>
+     </queries>
  
 +    <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
 +    <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS" />
@@ -205,545 +241,95 @@ index 1bcacab42ba463163e59f2063d174c187b8ef1bc..6ef8930130f26ba41ffd7843da8b484e
          android:supportsRtl="true"
          android:name="com.android.customization.picker.CustomizationPickerApplication"
 
-commit a824028c055a706ea14a328e5111e8a5ae533d13
-Author: Demon000 <demonsingur@gmail.com>
-Date:   Wed 2019-11-20 19:35:20+0100
+commit ca891a7cfd778a0b0ad7eecf499a6279e74fd388
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:12:40-0700
 
-    ThemePicker: limit number of icon previews shown
+    Declare HOME query for launcher discovery
     
-    Change-Id: I8a1506fd0e8cddbaf4d6df28b75045c2e7801a81
+    ThemePicker needs to query the current launcher in order to render
+    launcher/wallpaper previews, toggle themed icons, and change the app
+    grid size.
+    
+    Change-Id: Id79fe1eaa4d09f775a37a1dfb1091ed08a1d3422
 ---
- .../customization/model/theme/custom/ShapeOptionsProvider.java     | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/src/com/android/customization/model/theme/custom/ShapeOptionsProvider.java b/src/com/android/customization/model/theme/custom/ShapeOptionsProvider.java
-index f93b89203abfbd73f9d1ba9f6f5cdc52bdc020ad..f32fd547ccd79a8064833cbf8d5db7901a425747 100644
---- a/src/com/android/customization/model/theme/custom/ShapeOptionsProvider.java
-+++ b/src/com/android/customization/model/theme/custom/ShapeOptionsProvider.java
-@@ -48,20 +48,22 @@ import com.android.wallpaper.R;
- import java.util.ArrayList;
- import java.util.List;
- 
- /**
-  * Implementation of {@link ThemeComponentOptionProvider} that reads {@link ShapeOption}s from
-  * icon overlays.
-  */
- public class ShapeOptionsProvider extends ThemeComponentOptionProvider<ShapeOption> {
- 
-     private static final String TAG = "ShapeOptionsProvider";
-+    private static final int MAX_ICON_SHAPE_PREVIEWS = 6;
-+
-     private final String[] mShapePreviewIconPackages;
-     private int mThumbSize;
- 
-     public ShapeOptionsProvider(Context context, OverlayManagerCompat manager) {
-         super(context, manager, OVERLAY_CATEGORY_SHAPE);
-         mShapePreviewIconPackages = context.getResources().getStringArray(
-                 R.array.icon_shape_preview_packages);
-         mThumbSize = mContext.getResources().getDimensionPixelSize(
-                 R.dimen.component_shape_thumb_size);
-     }
-@@ -99,22 +101,27 @@ public class ShapeOptionsProvider extends ThemeComponentOptionProvider<ShapeOpti
-         PathShape shape = new PathShape(path, PATH_SIZE, PATH_SIZE);
-         ShapeDrawable shapeDrawable = new ShapeDrawable(shape);
-         shapeDrawable.setIntrinsicHeight(mThumbSize);
-         shapeDrawable.setIntrinsicWidth(mThumbSize);
-         return shapeDrawable;
-     }
- 
-     private List<ShapeAppIcon> getShapedAppIcons(Path path) {
-         List<ShapeAppIcon> shapedAppIcons = new ArrayList<>();
-         for (String packageName : mShapePreviewIconPackages) {
-+            if (shapedAppIcons.size() == MAX_ICON_SHAPE_PREVIEWS) {
-+                break;
-+            }
-+
-             Drawable icon = null;
-             CharSequence name = null;
-+
-             try {
-                 Drawable appIcon = mContext.getPackageManager().getApplicationIcon(packageName);
-                 if (appIcon instanceof AdaptiveIconDrawable) {
-                     AdaptiveIconDrawable adaptiveIcon = (AdaptiveIconDrawable) appIcon;
-                     icon = new DynamicAdaptiveIconDrawable(adaptiveIcon.getBackground(),
-                             adaptiveIcon.getForeground(), path);
- 
-                     ApplicationInfo appInfo = mContext.getPackageManager()
-                             .getApplicationInfo(packageName, /* flag= */ 0);
-                     name = mContext.getPackageManager().getApplicationLabel(appInfo);
-
-commit cd83b4027923e92dfa19d77cb37ae9a232b2ed49
-Author: El Dainosor <eldainosor@gmail.com>
-Date:   Mon 2019-12-09 07:13:33+0100
-
-    ThemePicker: Show item name under the category name
-    
-    When selecting an option, the name will show up for the
-    respective font, icon, accent colour or shape.
-    
-    Change-Id: I834dbf30301dba47b1a7e850940af32e92c14b2d
----
- res/layout/theme_component_preview.xml                       |  1 +
- .../model/theme/custom/ThemeComponentOption.java             | 12 ++++++++++++
- 2 files changed, 13 insertions(+)
-
-diff --git a/res/layout/theme_component_preview.xml b/res/layout/theme_component_preview.xml
-index bf3255d1331f0c3efea015e58805b4a764d1fd14..46618903f20b97bf49ce60994c4829e1971e28b4 100644
---- a/res/layout/theme_component_preview.xml
-+++ b/res/layout/theme_component_preview.xml
-@@ -42,20 +42,21 @@
-             app:layout_constraintVertical_chainStyle="spread_inside"/>
- 
-         <TextView
-             android:id="@+id/theme_preview_card_header"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:layout_gravity="center_horizontal"
-             android:drawablePadding="@dimen/theme_preview_header_drawable_padding"
-             android:textAppearance="@style/CardTitleTextAppearance"
-             android:importantForAccessibility="no"
-+            android:gravity="center_horizontal"
-             app:layout_constraintBottom_toTopOf="@id/theme_preview_card_body_container"
-             app:layout_constraintEnd_toEndOf="parent"
-             app:layout_constraintHorizontal_bias="0.5"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/theme_preview_top_bar"
-             app:layout_goneMarginTop="@dimen/card_header_top_margin"
-             app:layout_constraintVertical_chainStyle="spread_inside"
-             tools:text="Default"/>
- 
-         <FrameLayout
-diff --git a/src/com/android/customization/model/theme/custom/ThemeComponentOption.java b/src/com/android/customization/model/theme/custom/ThemeComponentOption.java
-index 5922f5cb38976d6967eec3e9059909adf5193c79..327ff6591881a338b6748586670e7dfc1f0f2605 100644
---- a/src/com/android/customization/model/theme/custom/ThemeComponentOption.java
-+++ b/src/com/android/customization/model/theme/custom/ThemeComponentOption.java
-@@ -144,20 +144,23 @@ public abstract class ThemeComponentOption implements CustomizationOption<ThemeC
-             bindPreviewHeader(container, R.string.preview_name_font, R.drawable.ic_font);
- 
-             ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
-             if (cardBody.getChildCount() == 0) {
-                 LayoutInflater.from(container.getContext()).inflate(
-                         R.layout.preview_card_font_content,
-                         cardBody, true);
-             }
-             TextView title = container.findViewById(R.id.font_card_title);
-             title.setTypeface(mHeadlineFont);
-+            TextView header = container.findViewById(R.id.theme_preview_card_header);
-+            header.setText(String.format("%s\n(%s)",
-+                    container.getContext().getString(R.string.preview_name_font), mLabel));
-             TextView bodyText = container.findViewById(R.id.font_card_body);
-             bodyText.setTypeface(mBodyFont);
-             container.findViewById(R.id.font_card_divider).setBackgroundColor(
-                     title.getCurrentTextColor());
-         }
- 
-         @Override
-         public Builder buildStep(Builder builder) {
-             builder.setHeadlineFontFamily(mHeadlineFont).setBodyFontFamily(mBodyFont);
-             return super.buildStep(builder);
-@@ -226,20 +229,23 @@ public abstract class ThemeComponentOption implements CustomizationOption<ThemeC
-             return R.layout.theme_icon_option;
-         }
- 
-         @Override
-         public void bindPreview(ViewGroup container) {
-             container.setContentDescription(
-                     container.getContext().getString(R.string.icon_preview_content_description));
- 
-             bindPreviewHeader(container, R.string.preview_name_icon, R.drawable.ic_wifi_24px);
- 
-+            TextView header = container.findViewById(R.id.theme_preview_card_header);
-+            header.setText(String.format("%s\n(%s)",
-+                    container.getContext().getString(R.string.preview_name_icon), mLabel));
-             ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
-             if (cardBody.getChildCount() == 0) {
-                 LayoutInflater.from(container.getContext()).inflate(
-                         R.layout.preview_card_icon_content, cardBody, true);
-             }
-             for (int i = 0; i < mIconIds.length && i < mIcons.size(); i++) {
-                 ((ImageView) container.findViewById(mIconIds[i])).setImageDrawable(
-                         mIcons.get(i));
-             }
-         }
-@@ -359,20 +365,23 @@ public abstract class ThemeComponentOption implements CustomizationOption<ThemeC
-             return R.layout.theme_color_option;
-         }
- 
-         @Override
-         public void bindPreview(ViewGroup container) {
-             container.setContentDescription(
-                     container.getContext().getString(R.string.color_preview_content_description));
- 
-             bindPreviewHeader(container, R.string.preview_name_color, R.drawable.ic_colorize_24px);
- 
-+            TextView header = container.findViewById(R.id.theme_preview_card_header);
-+            header.setText(String.format("%s\n(%s)",
-+                    container.getContext().getString(R.string.preview_name_color), mLabel));
-             ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
-             if (cardBody.getChildCount() == 0) {
-                 LayoutInflater.from(container.getContext()).inflate(
-                         R.layout.preview_card_color_content, cardBody, true);
-             }
-             Resources res = container.getResources();
-             @ColorInt int accentColor = resolveColor(res);
-             @ColorInt int controlGreyColor = res.getColor(R.color.control_grey);
-             ColorStateList tintList = new ColorStateList(
-                     new int[][]{
-@@ -502,20 +511,23 @@ public abstract class ThemeComponentOption implements CustomizationOption<ThemeC
-             return R.layout.theme_shape_option;
-         }
- 
-         @Override
-         public void bindPreview(ViewGroup container) {
-             container.setContentDescription(
-                     container.getContext().getString(R.string.shape_preview_content_description));
- 
-             bindPreviewHeader(container, R.string.preview_name_shape, R.drawable.ic_shapes_24px);
- 
-+            TextView header = container.findViewById(R.id.theme_preview_card_header);
-+            header.setText(String.format("%s\n(%s)",
-+                    container.getContext().getString(R.string.preview_name_shape), mLabel));
-             ViewGroup cardBody = container.findViewById(R.id.theme_preview_card_body_container);
-             if (cardBody.getChildCount() == 0) {
-                 LayoutInflater.from(container.getContext()).inflate(
-                         R.layout.preview_card_shape_content, cardBody, true);
-             }
-             for (int i = 0; i < mShapeIconIds.length && i < mAppIcons.size(); i++) {
-                 ImageView iconView = cardBody.findViewById(mShapeIconIds[i]);
-                 iconView.setBackground(mAppIcons.get(i).getDrawableCopy());
-             }
-         }
-
-commit 1b3d423d8183cb95ca9be5bc89b34ed8a0cf7315
-Author: Marc K <morckx@gmail.com>
-Date:   Fri 2020-04-24 13:37:14+0200
-
-    Fix preview tile in grid option picker
-    
-    Create GridTileDrawable with cols and rows parameters in correct order
-    and display also non quadratic configurations correctly.
-    
-    Change-Id: I6bb64564e86ec002831dc04bf95f51318dc9e6b3
----
- .../android/customization/model/grid/GridOption.java    |  2 +-
- .../android/customization/widget/GridTileDrawable.java  | 17 ++++++++++++-----
- 2 files changed, 13 insertions(+), 6 deletions(-)
-
-diff --git a/src/com/android/customization/model/grid/GridOption.java b/src/com/android/customization/model/grid/GridOption.java
-index 43afee418555d85c8315fcb61194d34e0c50f959..b62a4ee4a269765fb967883e879e40c4c5229ec9 100644
---- a/src/com/android/customization/model/grid/GridOption.java
-+++ b/src/com/android/customization/model/grid/GridOption.java
-@@ -55,21 +55,21 @@ public class GridOption implements CustomizationOption<GridOption>, Parcelable {
-     public final int rows;
-     public final int cols;
-     public final Uri previewImageUri;
-     public final int previewPagesCount;
- 
-     public GridOption(String title, String name, boolean isCurrent, int rows, int cols,
-             Uri previewImageUri, int previewPagesCount, String iconShapePath) {
-         mTitle = title;
-         mIsCurrent = isCurrent;
-         mIconShapePath = iconShapePath;
--        mTileDrawable = new GridTileDrawable(rows, cols, mIconShapePath);
-+        mTileDrawable = new GridTileDrawable(cols, rows, iconShapePath);
-         this.name = name;
-         this.rows = rows;
-         this.cols = cols;
-         this.previewImageUri = previewImageUri;
-         this.previewPagesCount = previewPagesCount;
-     }
- 
-     protected GridOption(Parcel in) {
-         mTitle = in.readString();
-         mIsCurrent = in.readByte() != 0;
-diff --git a/src/com/android/customization/widget/GridTileDrawable.java b/src/com/android/customization/widget/GridTileDrawable.java
-index c746aaf88b0a57966098ca41dc28c010dcb05860..6d5850353cac27f94292aa10fcf60297b092d848 100644
---- a/src/com/android/customization/widget/GridTileDrawable.java
-+++ b/src/com/android/customization/widget/GridTileDrawable.java
-@@ -21,49 +21,56 @@ public class GridTileDrawable extends Drawable {
-     private static final float PATH_SIZE = 100f;
-     // We want each "icon" using 80% of the available size, so there's 10% padding on each side
-     private static final float ICON_SCALE = .8f;
-     private final int mCols;
-     private final int mRows;
-     private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-     private final Path mShapePath;
-     private final Path mTransformedPath;
-     private final Matrix mScaleMatrix;
-     private float mCellSize = -1f;
--    private float mSpaceBetweenIcons;
-+    private float mMarginTop;
-+    private float mMarginLeft;
- 
-     public GridTileDrawable(int cols, int rows, String path) {
-         mCols = cols;
-         mRows = rows;
- 
-         mShapePath = PathParser.createPathFromPathData(path);
-         mTransformedPath = new Path(mShapePath);
-         mScaleMatrix = new Matrix();
-     }
- 
-     @Override
-     protected void onBoundsChange(Rect bounds) {
-+        float spaceBetweenIcons;
-+
-         super.onBoundsChange(bounds);
--        mCellSize = (float) bounds.height() / mRows;
--        mSpaceBetweenIcons = mCellSize * ((1 - ICON_SCALE) / 2);
-+        mCellSize = Math.min((float) bounds.height() / mRows,  (float) bounds.width() / mCols);
-+
-+        spaceBetweenIcons = mCellSize * ((1 - ICON_SCALE) / 2);
-+        mMarginTop = (bounds.height() - mCellSize * mRows) / 2 + spaceBetweenIcons;
-+        mMarginLeft = (bounds.width() - mCellSize * mCols) / 2 + spaceBetweenIcons;
-+
- 
-         float scaleFactor = (mCellSize * ICON_SCALE) / PATH_SIZE;
-         mScaleMatrix.setScale(scaleFactor, scaleFactor);
-         mShapePath.transform(mScaleMatrix, mTransformedPath);
-     }
- 
-     @Override
-     public void draw(Canvas canvas) {
-         for (int r = 0; r < mRows; r++) {
-             for (int c = 0; c < mCols; c++) {
-                 int saveCount = canvas.save();
--                float x = (c * mCellSize) + mSpaceBetweenIcons;
--                float y = (r * mCellSize) + mSpaceBetweenIcons;
-+                float x = (c * mCellSize) + mMarginLeft;
-+                float y = (r * mCellSize) + mMarginTop;
-                 canvas.translate(x, y);
-                 canvas.drawPath(mTransformedPath, mPaint);
-                 canvas.restoreToCount(saveCount);
-             }
-         }
-     }
- 
-     @Override
-     public void setAlpha(int alpha) {
-         mPaint.setAlpha(alpha);
-
-commit ce0c23f8b5466388fdf7eb15fe513633d03ffc6b
-Author: LuK1337 <priv.luk@gmail.com>
-Date:   Tue 2020-09-15 12:04:54+0200
-
-    ThemePicker: Fix ugly black/transparent bar under nav area
-    
-    Change-Id: I4ba6407ff0f775ac8f694db15b4bd5c2571bdc27
----
- AndroidManifest.xml   | 2 +-
- res/values/styles.xml | 2 ++
- 2 files changed, 3 insertions(+), 1 deletion(-)
+ AndroidManifest.xml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 6ef8930130f26ba41ffd7843da8b484e0afeb952..3bbdc2269880e7d0dd30a91fa8d3471471c24d7f 100755
+index 391f06b8d9b5630ba110027774e8fde012835037..9529b60e428107c3b2cb06bb341e209750a6d7d1 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -21,21 +21,21 @@
-         android:label="@string/app_name"
-         android:requiredForAllUsers="true"
-         android:restoreAnyVersion="true"
-         android:supportsRtl="true"
-         android:name="com.android.customization.picker.CustomizationPickerApplication"
-         android:theme="@style/CustomizationTheme">
-         <activity
-             android:name="com.android.customization.picker.CustomizationPickerActivity"
-             android:label="@string/app_name"
-             android:resizeableActivity="false"
--            android:theme="@style/CustomizationTheme.NoActionBar">
-+            android:theme="@style/CustomizationTheme.NoActionBar.CustomizationPicker">
-             <intent-filter>
-                 <action android:name="android.intent.action.SET_WALLPAPER"/>
+@@ -27,20 +27,25 @@
+             <action android:name="android.intent.action.VIEW" />
+         </intent>
+         <!-- Intent filter with action WallpaperService (live wallpaper interface) -->
+         <intent>
+             <action android:name="android.service.wallpaper.WallpaperService" />
+         </intent>
+         <!-- Intent filter with action used to discover partner -->
+         <intent>
+             <action android:name="com.android.launcher3.action.PARTNER_CUSTOMIZATION" />
+         </intent>
++        <!-- Intent filter with action used to discover launcher -->
++        <intent>
++            <action android:name="android.intent.action.MAIN" />
++            <category android:name="android.intent.category.HOME" />
++        </intent>
+     </queries>
  
-                 <category android:name="android.intent.category.DEFAULT"/>
-             </intent-filter>
-         </activity>
-         <activity android:name="com.android.customization.picker.theme.CustomThemeActivity"
-                   android:resizeableActivity="false"
-                   android:theme="@style/CustomizationTheme.NoActionBar"/>
+     <uses-permission android:name="com.android.launcher3.permission.READ_SETTINGS" />
+     <uses-permission android:name="com.android.launcher3.permission.WRITE_SETTINGS" />
  
-diff --git a/res/values/styles.xml b/res/values/styles.xml
-index b4e19716e02c5b423f5466f7c62bdd6dcda1f569..09480128a3755805991949ca20fcff93d574b698 100644
---- a/res/values/styles.xml
-+++ b/res/values/styles.xml
-@@ -31,21 +31,23 @@
- 
-         <item name="actionButtonStyle">?android:actionButtonStyle</item>
-         <item name="actionMenuTextColor">?android:actionMenuTextColor</item>
-     </style>
- 
-     <style name="CustomizationTheme.NoActionBar">
-         <item name="android:windowActionBar">false</item>
-         <item name="android:windowNoTitle">true</item>
-         <item name="android:fitsSystemWindows">false</item>
-         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-+    </style>
- 
-+    <style name="CustomizationTheme.NoActionBar.CustomizationPicker" parent="CustomizationTheme.NoActionBar">
-         <item name="android:windowBackground">@android:color/transparent</item>
-         <item name="android:windowContentOverlay">@null</item>
-         <item name="android:windowDisablePreview">true</item>
-     </style>
- 
-     <!-- Bottom nav -->
-     <style name="BottomNavStyle">
-         <item name="itemIconTint">@color/bottom_nav_item_color</item>
-         <item name="itemTextColor">@color/bottom_nav_item_color</item>
-         <item name="itemTextAppearanceActive">@style/BottomNavTextAppearanceActive</item>
+     <application
+         tools:replace="android:icon,android:name"
+         android:extractNativeLibs="false"
+         android:hardwareAccelerated="true"
+         android:icon="@drawable/ic_home"
 
-commit c31887fd0b4aa94e64b2cba552b3b883f3308d79
+commit f4ccba9422c69117442dbd858f7a9fcea5a6bb7e
 Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Tue 2020-11-03 11:38:07-0800
+Date:   Tue 2021-10-05 22:40:58-0700
 
-    ThemePicker: Use more descriptive icon pack names
+    Add permission for launcher preview rendering
     
-    AOSP icon packs have proper names (or at least codenames) set as app
-    names that we can query through PackageManager. Show those instead of a
-    meaningless number for easier icon pack identification.
-    
-    Change-Id: I233294ce8ccad131d2cf84ffc44b25ed8655795d
+    Change-Id: Ie707dcd98161e8f5993b0504295fddc3f395cd20
 ---
- .../customization/model/theme/custom/IconOptionsProvider.java        | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ AndroidManifest.xml                         | 1 +
+ privapp_whitelist_com.android.wallpaper.xml | 1 +
+ 2 files changed, 2 insertions(+)
 
-diff --git a/src/com/android/customization/model/theme/custom/IconOptionsProvider.java b/src/com/android/customization/model/theme/custom/IconOptionsProvider.java
-index f7b669b1f4250afffaf44a59cc7746930ffefc44..1457d541747697e2d49dbe96a578db69e3ac4653 100644
---- a/src/com/android/customization/model/theme/custom/IconOptionsProvider.java
-+++ b/src/com/android/customization/model/theme/custom/IconOptionsProvider.java
-@@ -17,20 +17,21 @@ package com.android.customization.model.theme.custom;
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 9529b60e428107c3b2cb06bb341e209750a6d7d1..d8cb91ecdbe62c0dfbc886f6747154823677d626 100755
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -1,20 +1,21 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+           xmlns:tools="http://schemas.android.com/tools"
+           package="com.android.wallpaper">
  
- import static com.android.customization.model.ResourceConstants.ANDROID_PACKAGE;
- import static com.android.customization.model.ResourceConstants.ICONS_FOR_PREVIEW;
- import static com.android.customization.model.ResourceConstants.OVERLAY_CATEGORY_ICON_ANDROID;
- import static com.android.customization.model.ResourceConstants.OVERLAY_CATEGORY_ICON_LAUNCHER;
- import static com.android.customization.model.ResourceConstants.OVERLAY_CATEGORY_ICON_SETTINGS;
- import static com.android.customization.model.ResourceConstants.OVERLAY_CATEGORY_ICON_SYSUI;
- import static com.android.customization.model.ResourceConstants.OVERLAY_CATEGORY_ICON_THEMEPICKER;
+     <uses-sdk android:targetSdkVersion="30" android:minSdkVersion="28"/>
  
- import android.content.Context;
-+import android.content.pm.PackageManager;
- import android.content.pm.PackageManager.NameNotFoundException;
- import android.content.res.Resources;
- import android.content.res.Resources.NotFoundException;
- import android.graphics.drawable.Drawable;
- import android.os.UserHandle;
- import android.util.Log;
+     <uses-permission android:name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
+     <uses-permission android:name="android.permission.WRITE_SECURE_SETTINGS"/>
+     <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT" />
++    <uses-permission android:name="android.permission.BIND_WALLPAPER" />
  
- import com.android.customization.model.ResourceConstants;
- import com.android.customization.model.theme.OverlayManagerCompat;
- import com.android.customization.model.theme.custom.ThemeComponentOption.IconOption;
-@@ -64,28 +65,31 @@ public class IconOptionsProvider extends ThemeComponentOptionProvider<IconOption
-         mLauncherIconsOverlayPackages.addAll(manager.getOverlayPackagesForCategory(
-                 OVERLAY_CATEGORY_ICON_LAUNCHER, UserHandle.myUserId(), targetPackages));
-         mThemePickerIconsOverlayPackages.addAll(manager.getOverlayPackagesForCategory(
-                 OVERLAY_CATEGORY_ICON_THEMEPICKER, UserHandle.myUserId(), targetPackages));
-     }
+     <uses-permission android:name="android.permission.MODIFY_DAY_NIGHT_MODE" />
  
-     @Override
-     protected void loadOptions() {
-         addDefault();
- 
-+        PackageManager pm = mContext.getPackageManager();
-         Map<String, IconOption> optionsByPrefix = new HashMap<>();
-         for (String overlayPackage : mOverlayPackages) {
-             IconOption option = addOrUpdateOption(optionsByPrefix, overlayPackage,
-                     OVERLAY_CATEGORY_ICON_ANDROID);
-             try{
-                 for (String iconName : ICONS_FOR_PREVIEW) {
-                     option.addIcon(loadIconPreviewDrawable(iconName, overlayPackage));
-                 }
-+
-+                option.setLabel(pm.getApplicationInfo(overlayPackage, 0).loadLabel(pm).toString());
-             } catch (NotFoundException | NameNotFoundException e) {
-                 Log.w(TAG, String.format("Couldn't load icon overlay details for %s, will skip it",
-                         overlayPackage), e);
-             }
-         }
- 
-         for (String overlayPackage : mSysUiIconsOverlayPackages) {
-             addOrUpdateOption(optionsByPrefix, overlayPackage, OVERLAY_CATEGORY_ICON_SYSUI);
-         }
- 
-@@ -97,21 +101,20 @@ public class IconOptionsProvider extends ThemeComponentOptionProvider<IconOption
-             addOrUpdateOption(optionsByPrefix, overlayPackage, OVERLAY_CATEGORY_ICON_LAUNCHER);
-         }
- 
-         for (String overlayPackage : mThemePickerIconsOverlayPackages) {
-             addOrUpdateOption(optionsByPrefix, overlayPackage, OVERLAY_CATEGORY_ICON_THEMEPICKER);
-         }
- 
-         for (IconOption option : optionsByPrefix.values()) {
-             if (option.isValid(mContext)) {
-                 mOptions.add(option);
--                option.setLabel(mContext.getString(R.string.icon_component_label, mOptions.size()));
-             }
-         }
-     }
- 
-     private IconOption addOrUpdateOption(Map<String, IconOption> optionsByPrefix,
-             String overlayPackage, String category) {
-         String prefix = overlayPackage.substring(0, overlayPackage.lastIndexOf("."));
-         IconOption option;
-         if (!optionsByPrefix.containsKey(prefix)) {
-             option = new IconOption();
-
-commit 7f7695239538be4a3536198c4b07ff39fe2b9e54
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Tue 2020-11-03 22:33:25-0800
-
-    ThemePicker: Use title capitalization for style name field
-    
-    This is a title, so it should be using title-case (or sentence case, as
-    suggested by the Material text guidelines) instead of no capitalization.
-    
-    Change-Id: Iceb341d0fff9658d860ce3d6f2eef9a21894c858
----
- res/layout/fragment_custom_theme_name.xml | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/res/layout/fragment_custom_theme_name.xml b/res/layout/fragment_custom_theme_name.xml
-index 532e9044625a6ae0d7f0335fa2cd3546e74ba3b5..28dffd35c083c4da60147ecfea13da405f5ebc46 100644
---- a/res/layout/fragment_custom_theme_name.xml
-+++ b/res/layout/fragment_custom_theme_name.xml
-@@ -73,15 +73,16 @@
- 
-                 <EditText
-                         android:id="@+id/custom_theme_name"
-                         android:layout_width="wrap_content"
-                         android:layout_height="wrap_content"
-                         android:layout_marginVertical="16dp"
-                         android:layout_marginHorizontal="16dp"
-                         android:layout_gravity="center|top"
-                         android:importantForAutofill="no"
-                         android:minWidth="300dp"
-+                        android:inputType="textCapWords"
-                         style="@style/CustomThemeNameEditText"/>
-             </LinearLayout>
-         </ScrollView>
-     </androidx.constraintlayout.widget.ConstraintLayout>
- </LinearLayout>
-
-commit 8506a68f544fae9300229ac0489afb7f1664fe7d
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Wed 2020-11-04 01:27:52-0800
-
-    ThemePicker: Grant missing wallpaper permissions
-    
-    Some wallpaper-related permissions necessary for launcher previews (and
-    possibly some other functionality) are missing here. Grant the missing
-    permissions to fix launcher preview rendering.
-    
-    Change-Id: I177b0a6e58ffc50d0c3fa76a0137d3bdb7d63d11
----
- privapp_whitelist_com.android.wallpaper.xml | 2 ++
- 1 file changed, 2 insertions(+)
-
+     <queries>
+         <!-- Specific intents Wallpaper picker query for -->
+         <!-- Intent filter with action SET_WALLPAPER -->
+         <intent>
+             <action android:name="android.intent.action.SET_WALLPAPER" />
+         </intent>
+         <!-- Intent filter with action GET_CONTENT and data's mimeType as "image/*" -->
 diff --git a/privapp_whitelist_com.android.wallpaper.xml b/privapp_whitelist_com.android.wallpaper.xml
-index a61cd419139f6849d085fc5c75bc1ee11c7dba59..abcec3dde9ea37697be6c4c6db2e8e9e11ccea2b 100644
+index e3f3b658dfb1e90752dbac2b97b04e6eaa52126d..5dee99b0b9153e49fa55a1f1d81dab3cbf9d5118 100644
 --- a/privapp_whitelist_com.android.wallpaper.xml
 +++ b/privapp_whitelist_com.android.wallpaper.xml
-@@ -9,15 +9,17 @@
-   ~      http://www.apache.org/licenses/LICENSE-2.0
+@@ -10,15 +10,16 @@
    ~
    ~ Unless required by applicable law or agreed to in writing, software
    ~ distributed under the License is distributed on an "AS IS" BASIS,
@@ -753,15 +339,15 @@ index a61cd419139f6849d085fc5c75bc1ee11c7dba59..abcec3dde9ea37697be6c4c6db2e8e9e
    -->
  <permissions>
      <privapp-permissions package="com.android.wallpaper">
-+        <permission name="android.permission.BIND_WALLPAPER"/>
-         <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
-+        <permission name="android.permission.READ_WALLPAPER_INTERNAL"/>
          <permission name="android.permission.SET_WALLPAPER_COMPONENT"/>
-         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
++        <permission name="android.permission.BIND_WALLPAPER"/>
+         <permission name="android.permission.MODIFY_DAY_NIGHT_MODE"/>
+         <permission name="android.permission.CHANGE_OVERLAY_PACKAGES"/>
+         <permission name="android.permission.WRITE_SECURE_SETTINGS" />
      </privapp-permissions>
  </permissions>
 
-commit bd4464615ccd99de2cd924d3be49a8f432e9bede
+commit e21451b745c959db2bc40aa3610e66f4e1646aae
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sat 2021-04-17 15:28:59+0100
 
@@ -802,13 +388,11 @@ index a070dbec1a8ae45b6f5dacadd5e4bed37ac69d2b..42bc4cff144ddc31f75f2843bd39a749
      </array>
  </resources>
 
-commit 9deebd59abcf50ff3683dbd45747cd6ec073143b (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Fri 2021-04-30 19:33:27+0000
+commit 445a8f9b194db27ceea0f63bd522197f93ba8b56 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-10-09 16:50:31-0400
 
-    ThemePicker: Use generic default themes stub
-    
-    Change-Id: I3e2adadea2a1fbc246dc6faaa0a4ca56b7658cd6
+    use generic default themes stub
 ---
  res/values/override.xml | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)

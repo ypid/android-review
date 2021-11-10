@@ -1,4 +1,4 @@
-commit 0d8292da5563eec6014986a126bc7affcd0a0310 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, tag: RQ1A.210205.004.2021.02.02.09, m/master)
+commit 645fb5419e10fad09071b7ee67d7267433610617
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-01-05 19:56:45-0800
 
@@ -34,6 +34,2622 @@ index dd142ec9e83cace4669e61ddc25879f8fcc77443..673c049ef14013deb3a2c80564eb8b28
 +      <item value="TEST" />
      </string-array>
    </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="20820" />
++      <item value="20821" />
++      <item value="20888" />
++    </string-array>
++    <string name="feature_flag_name">vvm_carrier_flag_20820</string>
++    <int name="vvm_port_number_int" value="5499" />
++    <string name="vvm_destination_number_string">22344</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_ignore_transcription" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="302490" />
++    </string-array>
++    <string name="feature_flag_name">vvm_carrier_freedom_ca</string>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">455677</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_freedom_ca_allows_transcription </string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="20610" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">8082</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string-array name="vvm_disabled_capabilities_string_array">
++      <item value="STARTTLS" />
++    </string-array>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="20801" />
++      <item value="20802" />
++    </string-array>
++    <int name="vvm_port_number_int" value="20481" />
++    <string name="vvm_destination_number_string">21101</string>
++    <string-array name="carrier_vvm_package_name_string_array">
++      <item value="com.orange.vvm" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string-array name="vvm_disabled_capabilities_string_array">
++      <item value="STARTTLS" />
++    </string-array>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="20801?gid1=4e524a31" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_27099</string>
++    <string-array name="mccmnc">
++      <item value="27099" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">64085</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string-array name="vvm_disabled_capabilities_string_array">
++      <item value="STARTTLS" />
++    </string-array>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="23410" />
++    </string-array>
++    <boolean name="vvm_ignore_transcription" value="true" />
++    <int name="vvm_port_number_int" value="2700" />
++    <string name="vvm_destination_number_string">9017</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <string-array name="carrier_vvm_package_name_string_array">
++      <item value="com.o2.android.vvm" />
++    </string-array>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_o2_uk_allows_transcription </string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="23410?gid1=^0a.*" />
++      <item value="23410?gid1=^537.*" />
++      <item value="23410?gid1=^508.*" />
++      <item value="23410?gid1=^519.*" />
++      <item value="23410?gid1=^85.*" />
++      <item value="23410?gid1=^61.*" />
++      <item value="23410?gid1=^67.*" />
++      <item value="23410?gid1=^99.*" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_swisscom_ch</string>
++    <string-array name="mccmnc">
++      <item value="22801" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <int name="vvm_ssl_port_number_int" value="993" />
++    <string name="vvm_destination_number_string">30047</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="310160" />
++      <item value="310200" />
++      <item value="310210" />
++      <item value="310220" />
++      <item value="310230" />
++      <item value="310240" />
++      <item value="310250" />
++      <item value="310260" />
++      <item value="310270" />
++      <item value="310300" />
++      <item value="310310" />
++      <item value="310490" />
++      <item value="310530" />
++      <item value="310590" />
++      <item value="310640" />
++      <item value="310660" />
++      <item value="310800" />
++    </string-array>
++    <int name="vvm_port_number_int" value="1808" />
++    <int name="vvm_ssl_port_number_int" value="993" />
++    <string name="vvm_destination_number_string">122</string>
++    <string-array name="carrier_vvm_package_name_string_array">
++      <item value="com.tmobile.vvm.application" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_cvvm</string>
++    <string-array name="vvm_disabled_capabilities_string_array">
++      <item value="AUTH=DIGEST-MD5" />
++    </string-array>
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tmobile_us_allows_transcription </string>
++    <boolean name="vvm_ignore_transcription" value="true" />
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_tracfone_usa_tmo_disable </string>
++    <boolean name="feature_flag_default_value" value="true" />
++    <boolean name="vvm_overrides_carrier_config" value="true" />
++    <string-array name="mccmnc">
++      <item value="310260?gid1=4d4b" />
++      <item value="310260?gid1=534d" />
++      <item value="310260?gid1=6134" />
++      <item value="310260?gid1=ddff" />
++      <item value="310260?gid1=deff" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="310240?gid1=6230" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_tracfone_usa_tmo_enable </string>
++    <boolean name="vvm_overrides_carrier_config" value="true" />
++    <string-array name="mccmnc">
++      <item value="310260?gid1=4d4b" />
++      <item value="310260?gid1=534d" />
++      <item value="310260?gid1=6134" />
++      <item value="310260?gid1=ddff" />
++      <item value="310260?gid1=deff" />
++    </string-array>
++    <int name="vvm_port_number_int" value="1808" />
++    <int name="vvm_ssl_port_number_int" value="993" />
++    <string name="vvm_destination_number_string">122</string>
++    <string name="vvm_type_string">vvm_type_cvvm</string>
++    <string-array name="vvm_disabled_capabilities_string_array">
++      <item value="AUTH=DIGEST-MD5" />
++    </string-array>
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tracfone_tmo_us_allows_transcription </string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BA01270000000000" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">900080006200</string>
++    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
++    <string name="vvm_client_prefix_string">//VZWVVM</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tracfone_vzw_us_allows_transcription </string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_visible_vzw_enable </string>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BAE1000000000000" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">900080006200</string>
++    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
++    <string name="vvm_client_prefix_string">//VZWVVM</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_visible_vzw_us_allows_transcription </string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_visible_vzw_disable </string>
++    <boolean name="feature_flag_default_value" value="true" />
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BAE1000000000000" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BA01490000000000" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">900080006200</string>
++    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
++    <string name="vvm_client_prefix_string">//VZWVVM</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_charter_vzw_us_allows_transcription </string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BA01450000000000" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">900080006200</string>
++    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
++    <string name="vvm_client_prefix_string">//VZWVVM</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++    <boolean name="vvm_transcription_always_allowed" value="true" />
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BA00010000000000" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_flag_302220</string>
++    <string-array name="mccmnc">
++      <item value="302220" />
++    </string-array>
++    <int name="vvm_port_number_int" value="5499" />
++    <string name="vvm_destination_number_string">7723</string>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string name="vvm_network_capability_string">mms</string>
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="310004" />
++      <item value="310010" />
++      <item value="310012" />
++      <item value="310013" />
++      <item value="310590" />
++      <item value="310890" />
++      <item value="310910" />
++      <item value="311110" />
++      <item value="311270" />
++      <item value="311271" />
++      <item value="311272" />
++      <item value="311273" />
++      <item value="311274" />
++      <item value="311275" />
++      <item value="311276" />
++      <item value="311277" />
++      <item value="311278" />
++      <item value="311279" />
++      <item value="311280" />
++      <item value="311281" />
++      <item value="311282" />
++      <item value="311283" />
++      <item value="311284" />
++      <item value="311285" />
++      <item value="311286" />
++      <item value="311287" />
++      <item value="311288" />
++      <item value="311289" />
++      <item value="311390" />
++      <item value="311480" />
++      <item value="311481" />
++      <item value="311482" />
++      <item value="311483" />
++      <item value="311484" />
++      <item value="311485" />
++      <item value="311486" />
++      <item value="311487" />
++      <item value="311488" />
++      <item value="311489" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">900080006200</string>
++    <string name="vvm_type_string">vvm_type_vvm3</string>
++    <string name="vvm_client_prefix_string">//VZWVVM</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++    <string name="default_vmg_url">https://mobile.vzw.com/VMGIMS/VMServices </string>
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="310016" />
++      <item value="310030" />
++      <item value="310070" />
++      <item value="310080" />
++      <item value="310090" />
++      <item value="310150" />
++      <item value="310170" />
++      <item value="310280" />
++      <item value="310380" />
++      <item value="310410" />
++      <item value="310560" />
++      <item value="310670" />
++      <item value="310680" />
++      <item value="310950" />
++      <item value="311070" />
++      <item value="311090" />
++      <item value="311180" />
++      <item value="311190" />
++      <item value="312090" />
++      <item value="312670" />
++      <item value="312680" />
++      <item value="313100" />
++      <item value="313110" />
++      <item value="313120" />
++      <item value="313130" />
++      <item value="313140" />
++      <item value="313790" />
++      <item value="334050" />
++      <item value="334090" />
++    </string-array>
++    <string name="feature_flag_name">vvm_carrier_att</string>
++    <int name="vvm_port_number_int" value="5499" />
++    <string name="vvm_destination_number_string">94183574</string>
++    <string-array name="carrier_vvm_package_name_string_array">
++      <item value="com.att.mobile.android.vvm" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_advvm</string>
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++    <boolean name="vvm_ignore_transcription" value="true" />
++    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_att_us_allows_transcription </string>
++    <boolean name="vvm_use_direct_tls_connection" value="true" />
++    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
++    <boolean name="vvm_greeting_update_bool" value="false" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="20827" />
++    </string-array>
++    <int name="vvm_port_number_int" value="5499" />
++    <string name="vvm_destination_number_string">223</string>
++    <string-array name="carrier_vvm_package_name_string_array">
++      <item value="com.coriolis.visualvoicemailcoriolis" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_omtp</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_cellcom</string>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BA00040000000000" />
++      <item value="311850" />
++    </string-array>
++    <int name="vvm_port_number_int" value="0" />
++    <string name="vvm_destination_number_string">9966</string>
++    <int name="vvm_application_port_number_int" value="5499" />
++    <string name="vvm_type_string">vvm_type_omtp_1_2</string>
++    <boolean name="vvm_cellular_data_required_bool" value="true" />
++    <string-array name="carrier_vvm_package_name_string_array">
++      <item value="com.cellcom.cellcomvisualvoicemail" />
++    </string-array>
++    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
++  </pbundle_as_map>
++  <pbundle_as_map>
++    <string name="feature_flag_name">vvm_carrier_cellcom_disabled</string>
++    <string-array name="mccmnc">
++      <item value="311480?gid1=BA00040000000000" />
++      <item value="311850" />
++    </string-array>
++    <string name="vvm_type_string">vvm_type_disable</string>
++  </pbundle_as_map>
+ </list>
+
+commit 29bfc03176332143edea49b825d17f1439f69898
+Author: Adrian DC <radian.dc@gmail.com>
+Date:   Sat 2017-12-09 11:38:00-0600
+
+    Dialer: disable anti-falsing for call answer screen
+    
+     * The anti-falsing implementation from HumanInteractionClassifier
+        regularly prevents easy swipe to answer, requiring multiple
+        attempts until accepted.
+    
+    Change-Id: Iebad27f9da7bb8fea6fc663dc99ac6c17d94ed5f
+    (cherry picked from commit 583e42df0f6f02f1a6c05dbdc5559f42e99c8727)
+---
+ .../answer/impl/answermethod/FlingUpDownTouchHandler.java | 15 ---------------
+ 1 file changed, 15 deletions(-)
+
+diff --git a/java/com/android/incallui/answer/impl/answermethod/FlingUpDownTouchHandler.java b/java/com/android/incallui/answer/impl/answermethod/FlingUpDownTouchHandler.java
+index a21073d6551f3712555b07f9ba98f765f9ef386e..7abea5481e42c7d380086c6220355edd83d8c433 100644
+--- a/java/com/android/incallui/answer/impl/answermethod/FlingUpDownTouchHandler.java
++++ b/java/com/android/incallui/answer/impl/answermethod/FlingUpDownTouchHandler.java
+@@ -360,35 +360,20 @@ class FlingUpDownTouchHandler implements OnTouchListener {
+   @FloatRange(from = -1f, to = 1f)
+   private float pointerYToProgress(float pointerY) {
+     boolean pointerAboveZero = pointerY > zeroY;
+     float nearestThreshold = pointerAboveZero ? rejectThresholdY : acceptThresholdY;
+ 
+     float absoluteProgress = (pointerY - zeroY) / (nearestThreshold - zeroY);
+     return MathUtil.clamp(absoluteProgress * (pointerAboveZero ? -1 : 1), -1f, 1f);
+   }
+ 
+   private boolean isFalseTouch() {
+-    if (falsingManager != null && falsingManager.isEnabled()) {
+-      if (falsingManager.isFalseTouch()) {
+-        if (touchUsesFalsing) {
+-          LogUtil.i("FlingUpDownTouchHandler.isFalseTouch", "rejecting false touch");
+-          return true;
+-        } else {
+-          LogUtil.i(
+-              "FlingUpDownTouchHandler.isFalseTouch",
+-              "Suspected false touch, but not using false touch rejection for this gesture");
+-          return false;
+-        }
+-      } else {
+-        return false;
+-      }
+-    }
+     return !touchAboveFalsingThreshold;
+   }
+ 
+   private void trackMovement(MotionEvent event) {
+     if (velocityTracker != null) {
+       velocityTracker.addMovement(event);
+     }
+   }
+ 
+   private void fling(float velocity, @FlingTarget int target, boolean centerBecauseOfFalsing) {
+
+commit 039137799016776aaaba866cb38bf46f931ba63e
+Author: codeworkx <daniel.hillenbrand@codeworkx.de>
+Date:   Sat 2019-05-11 08:33:47+0200
+
+    Dialer: AudioModeProvider: use wired route for usb headsets
+    
+    Change-Id: I920a9c259af5597dfd9a88a72e4ac54cb6e73f7a
+---
+ java/com/android/incallui/audiomode/AudioModeProvider.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/java/com/android/incallui/audiomode/AudioModeProvider.java b/java/com/android/incallui/audiomode/AudioModeProvider.java
+index 6bdd23968eb229e93238c136a9bc1717a66278ae..17c8f998096d22222872d102ba11f063df2dce5f 100644
+--- a/java/com/android/incallui/audiomode/AudioModeProvider.java
++++ b/java/com/android/incallui/audiomode/AudioModeProvider.java
+@@ -81,20 +81,21 @@ public class AudioModeProvider {
+     AudioManager audioManager = context.getSystemService(AudioManager.class);
+     boolean hasBluetooth = false;
+     boolean hasHeadset = false;
+     for (AudioDeviceInfo info : audioManager.getDevices(AudioManager.GET_DEVICES_OUTPUTS)) {
+       switch (info.getType()) {
+         case AudioDeviceInfo.TYPE_BLUETOOTH_A2DP:
+         case AudioDeviceInfo.TYPE_BLUETOOTH_SCO:
+           hasBluetooth = true;
+           continue;
+         case AudioDeviceInfo.TYPE_WIRED_HEADSET:
++        case AudioDeviceInfo.TYPE_USB_HEADSET:
+           hasHeadset = true;
+           continue;
+         default:
+           continue;
+       }
+     }
+     if (hasBluetooth) {
+       LogUtil.i("AudioModeProvider.getApproximatedAudioRoute", "Routing to bluetooth");
+       return CallAudioState.ROUTE_BLUETOOTH;
+     }
+
+commit 87303b8c17e9de7afbc04bff8467150b375e662e
+Author: Jesse Chan <jc@lineageos.org>
+Date:   Mon 2020-05-18 14:14:56+0800
+
+    Dialer: allow framework to do dark theming automatically
+    
+    Change-Id: I5b840ba257adda69882e1fe19a55510802c45106
+    Signed-off-by: Jesse Chan <jc@lineageos.org>
+---
+ java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+index db06df4bd2d47b19d562712678f385afa109a76b..3533cf92c3192b9ae42190efdc1835287f9d25ab 100644
+--- a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
++++ b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+@@ -31,20 +31,21 @@
+ 
+   <style name="Dialer.ThemeBase.NoActionBar">
+     <!-- Copied from Theme.AppCompat.Light.NoActionBar. We can remove this and update the Dialer
+         base style once none of our activities depend on ActionBar anymore. -->
+     <item name="windowActionBar">false</item>
+     <item name="windowNoTitle">true</item>
+   </style>
+ 
+   <!-- Activities and Applications should inherit from one of the themes above. -->
+   <style name="Dialer.ThemeBase">
++    <item name="android:forceDarkAllowed">true</item>
+     <!-- These values should be used to color all backgrounds. -->
+     <item name="android:colorBackground">@color/dialer_background_color</item>
+     <item name="android:colorBackgroundFloating">@android:color/white</item>
+ 
+     <!-- These values should be used to set text color. -->
+     <item name="android:textColorPrimary">@color/dialer_primary_text_color</item>
+     <item name="android:textColorSecondary">@color/dialer_secondary_text_color</item>
+     <item name="android:textColorPrimaryInverse">@color/google_grey_300</item>
+     <item name="android:textColorSecondaryInverse">@color/google_grey_400</item>
+     <item name="android:textColorHint">@color/google_grey_600</item>
+
+commit bea4ac346d4d62ce8fde7a6f64a346c8332089fc
+Author: Scott Warner <Tortel1210@gmail.com>
+Date:   Wed 2020-06-24 15:38:56-0400
+
+    Dialer: Use a DayNight launch theme
+    
+    This prevents the white launch screen from appearing when the system theme
+    is dark
+    
+    Change-Id: I1ee8ff493910578b5e5c9de67ea1f7390178051a
+---
+ java/com/android/dialer/main/impl/AndroidManifest.xml   | 2 +-
+ java/com/android/dialer/main/impl/MainActivity.java     | 2 ++
+ java/com/android/dialer/main/impl/res/values/styles.xml | 7 +++++++
+ 3 files changed, 10 insertions(+), 1 deletion(-)
+
+diff --git a/java/com/android/dialer/main/impl/AndroidManifest.xml b/java/com/android/dialer/main/impl/AndroidManifest.xml
+index a1ed5eb9e348e4bfbe5ff92ef5656eb7bab5eb1d..55eea5d66d0bfeb665c4f176a38c65db62f884be 100644
+--- a/java/com/android/dialer/main/impl/AndroidManifest.xml
++++ b/java/com/android/dialer/main/impl/AndroidManifest.xml
+@@ -23,21 +23,21 @@
+     <!-- The entrance point for Phone UI.
+          stateAlwaysHidden is set to suppress keyboard show up on dialpad screen. -->
+     <activity
+         android:name="com.android.dialer.main.impl.MainActivity"
+         android:clearTaskOnLaunch="true"
+         android:directBootAware="true"
+         android:exported="true"
+         android:label="@string/main_activity_label"
+         android:launchMode="singleTask"
+         android:resizeableActivity="true"
+-        android:theme="@style/MainActivityTheme"
++        android:theme="@style/LaunchTheme"
+         android:windowSoftInputMode="stateAlwaysHidden|adjustNothing">
+ 
+       <intent-filter>
+         <action android:name="com.android.dialer.main.impl.MAIN"/>
+         <category android:name="android.intent.category.DEFAULT"/>
+       </intent-filter>
+ 
+       <intent-filter>
+         <action android:name="android.intent.action.DIAL"/>
+ 
+diff --git a/java/com/android/dialer/main/impl/MainActivity.java b/java/com/android/dialer/main/impl/MainActivity.java
+index 1129609ed05b88cccbc1809a1745bee6bbabeeaa..f539bdcee23299fb5995faddf4101bf8878f9903 100644
+--- a/java/com/android/dialer/main/impl/MainActivity.java
++++ b/java/com/android/dialer/main/impl/MainActivity.java
+@@ -22,20 +22,21 @@ import android.os.Bundle;
+ import android.support.v4.content.LocalBroadcastManager;
+ import com.android.dialer.blockreportspam.ShowBlockReportSpamDialogReceiver;
+ import com.android.dialer.calllog.config.CallLogConfigComponent;
+ import com.android.dialer.common.Assert;
+ import com.android.dialer.common.LogUtil;
+ import com.android.dialer.interactions.PhoneNumberInteraction.DisambigDialogDismissedListener;
+ import com.android.dialer.interactions.PhoneNumberInteraction.InteractionErrorCode;
+ import com.android.dialer.interactions.PhoneNumberInteraction.InteractionErrorListener;
+ import com.android.dialer.main.MainActivityPeer;
+ import com.android.dialer.main.impl.bottomnav.BottomNavBar.TabIndex;
++import com.android.dialer.R;
+ import com.android.dialer.util.TransactionSafeActivity;
+ 
+ /** This is the main activity for dialer. It hosts favorites, call log, search, dialpad, etc... */
+ // TODO(calderwoodra): Do not extend TransactionSafeActivity after new SpeedDial is launched
+ public class MainActivity extends TransactionSafeActivity
+     implements MainActivityPeer.PeerSupplier,
+         // TODO(calderwoodra): remove these 2 interfaces when we migrate to new speed dial fragment
+         InteractionErrorListener,
+         DisambigDialogDismissedListener {
+ 
+@@ -65,20 +66,21 @@ public class MainActivity extends TransactionSafeActivity
+    * @return intent for MainActivity.class
+    */
+   public static Intent getIntent(Context context) {
+     return new Intent(context, MainActivity.class)
+         .setAction(Intent.ACTION_VIEW)
+         .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+   }
+ 
+   @Override
+   protected void onCreate(Bundle savedInstanceState) {
++    setTheme(R.style.MainActivityTheme);
+     super.onCreate(savedInstanceState);
+     LogUtil.enterBlock("MainActivity.onCreate");
+     // If peer was set by the super, don't reset it.
+     activePeer = getNewPeer();
+     activePeer.onActivityCreate(savedInstanceState);
+ 
+     showBlockReportSpamDialogReceiver =
+         new ShowBlockReportSpamDialogReceiver(getSupportFragmentManager());
+   }
+ 
+diff --git a/java/com/android/dialer/main/impl/res/values/styles.xml b/java/com/android/dialer/main/impl/res/values/styles.xml
+index 25f247e15c7cb175b50833884ac89a0feaf4294a..139b8b2490c55a34d62eee1b5ebf70841a9f81d1 100644
+--- a/java/com/android/dialer/main/impl/res/values/styles.xml
++++ b/java/com/android/dialer/main/impl/res/values/styles.xml
+@@ -9,20 +9,27 @@
+   ~      http://www.apache.org/licenses/LICENSE-2.0
+   ~
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+ 
++  <style name="LaunchTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
++    <item name="android:colorPrimary">@color/dialer_theme_color</item>
++    <item name="colorPrimary">@color/dialer_theme_color</item>
++    <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
++    <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
++  </style>
++
+   <!-- Activities should use this theme as their style -->
+   <style name="MainActivityTheme" parent="MainActivityThemeBase"/>
+ 
+   <style name="MainActivityTheme.Dark" parent="MainActivityTheme.Dark"/>
+ 
+   <!-- Used as a procy for values-v27/styles.xml -->
+   <style name="MainActivityThemeBase" parent="Dialer.ThemeBase.NoActionBar">
+     <!-- Required for actionmode/multiselect to render properly. -->
+     <!-- TODO(a bug): Check to see if we can remove this after NewVoicemailFragment launches -->
+     <item name="actionModeStyle">@style/MainActionModeStyle</item>
+
+commit d8b9cbd1699fdcdee0716f9771787fdcf2d2c68d
+Author: Timi <timi.rautamaki@gmail.com>
+Date:   Mon 2021-05-10 16:41:09+0200
+
+    Dialer: use black/white navigation colors
+    
+    Change-Id: I9d2ee0bbc7d765e605d6f60c7866565c83dff295
+---
+ .../dialer/app/res/values-night/colors.xml (new)     | 20 ++++++++++++++++++++
+ java/com/android/dialer/app/res/values/colors.xml    |  3 +++
+ .../dialer/main/impl/bottomnav/BottomNavItem.java    |  4 ++--
+ 3 files changed, 25 insertions(+), 2 deletions(-)
+
+diff --git a/java/com/android/dialer/app/res/values-night/colors.xml b/java/com/android/dialer/app/res/values-night/colors.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..1d165af81f98a14357fcf06163662ab7d9f7b7ba
+--- /dev/null
++++ b/java/com/android/dialer/app/res/values-night/colors.xml
+@@ -0,0 +1,20 @@
++<!--
++  ~ Copyright (C) 2012 The Android Open Source Project
++  ~
++  ~ Licensed under the Apache License, Version 2.0 (the "License");
++  ~ you may not use this file except in compliance with the License.
++  ~ You may obtain a copy of the License at
++  ~
++  ~      http://www.apache.org/licenses/LICENSE-2.0
++  ~
++  ~ Unless required by applicable law or agreed to in writing, software
++  ~ distributed under the License is distributed on an "AS IS" BASIS,
++  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  ~ See the License for the specific language governing permissions and
++  ~ limitations under the License
++-->
++
++<resources>
++  <color name="nav_item">#80FFFFFF</color>
++  <color name="nav_item_selected">#FFFFFF</color>
++</resources>
+diff --git a/java/com/android/dialer/app/res/values/colors.xml b/java/com/android/dialer/app/res/values/colors.xml
+index a9713474d5fff5491d64caf6b047c423585c5694..2fdb45f3bb8768dfa422b3fdc6426e5c96b47aaa 100644
+--- a/java/com/android/dialer/app/res/values/colors.xml
++++ b/java/com/android/dialer/app/res/values/colors.xml
+@@ -16,11 +16,14 @@
+ 
+ <resources>
+   <color name="voicemail_icon_disabled_tint">#80000000</color>
+   <color name="voicemail_playpause_icon_tint">?colorIcon</color>
+ 
+   <!-- Text color for the "Remove" text when a contact is dragged on top of the remove view -->
+   <color name="remove_highlighted_text_color">#FF3F3B</color>
+ 
+   <!--  Colors for blocked numbers list -->
+   <color name="blocked_number_block_color">#F44336</color>
++
++  <color name="nav_item">#80666666</color>
++  <color name="nav_item_selected">#666666</color>
+ </resources>
+diff --git a/java/com/android/dialer/main/impl/bottomnav/BottomNavItem.java b/java/com/android/dialer/main/impl/bottomnav/BottomNavItem.java
+index 4794b88236897c8de60c394bfa4e3067414ebcf1..4cba2a4709c44113fbb9ffe92027f5fd4fed5bde 100644
+--- a/java/com/android/dialer/main/impl/bottomnav/BottomNavItem.java
++++ b/java/com/android/dialer/main/impl/bottomnav/BottomNavItem.java
+@@ -49,22 +49,22 @@ final class BottomNavItem extends LinearLayout {
+     image = findViewById(R.id.bottom_nav_item_image);
+     text = findViewById(R.id.bottom_nav_item_text);
+     notificationBadge = findViewById(R.id.notification_badge);
+   }
+ 
+   @Override
+   public void setSelected(boolean selected) {
+     super.setSelected(selected);
+     int colorId =
+         selected
+-            ? ThemeComponent.get(getContext()).theme().getColorPrimary()
+-            : ThemeComponent.get(getContext()).theme().getTextColorSecondary();
++            ? getContext().getResources().getColor(R.color.nav_item_selected)
++            : getContext().getResources().getColor(R.color.nav_item);
+     image.setImageTintList(ColorStateList.valueOf(colorId));
+     text.setTextColor(colorId);
+   }
+ 
+   void setup(@StringRes int stringRes, @DrawableRes int drawableRes) {
+     text.setText(stringRes);
+     image.setImageResource(drawableRes);
+   }
+ 
+   void setNotificationCount(int count) {
+
+commit eb9abac3d4be2ef0c5cb7cee909219c244008150
+Author: Timi Rautamäki <timi.rautamaki@gmail.com>
+Date:   Thu 2021-07-08 19:20:03+0200
+
+    Dialer: correct the expanded search bar height
+    
+    This causes the expand animation to be choppy first time
+    
+    Test: make Dialer, verify the animation no longer shifts the
+    view first time the animation is played.
+    
+    Change-Id: Ia72b38ab39f19c2518385d6a858dc2fd194bbb55
+---
+ .../android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml b/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml
+index e5b72f2333a8fa6b78c501d0437505510839f236..a7b3aebd235961218fc7283cf01c7a11c99db012 100644
+--- a/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml
++++ b/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml
+@@ -10,21 +10,21 @@
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <RelativeLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     android:id="@+id/search_box_expanded"
+     android:layout_width="match_parent"
+-    android:layout_height="@dimen/expanded_search_bar_height"
++    android:layout_height="@dimen/collapsed_search_bar_height"
+     android:visibility="invisible">
+ 
+   <ImageButton
+       android:id="@+id/search_back_button"
+       android:layout_width="48dp"
+       android:layout_height="48dp"
+       android:layout_marginStart="8dp"
+       android:layout_centerVertical="true"
+       android:background="?attr/selectableItemBackgroundBorderless"
+       android:contentDescription="@string/action_menu_back_from_search"
+
+commit d65fd07b261e92e20a329ae2ec687e16021b7cff
+Author: Timi Rautamäki <timi.rautamaki@gmail.com>
+Date:   Sun 2021-07-11 13:34:21+0200
+
+    Dialer: update dark theme colors
+    
+    The dark theme colors exist in
+    java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+    that would be used with AOSPThemeModule. As the app uses framework
+    dark theme instead of the module, copy the dark theme colors to
+    values-night.
+    
+    Change-Id: I02a36b01ba581e62556ce6e0151ff0a35209467a
+---
+ .../res/values-night/colors_dialer_dark.xml (new)  | 22 ++++++++++++++++++++++
+ 1 file changed, 22 insertions(+)
+
+diff --git a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..369656f445c90da1a32e2dde732f088bfb11e4d2
+--- /dev/null
++++ b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+@@ -0,0 +1,22 @@
++<!--
++  ~ Copyright (C) 2018 The Android Open Source Project
++  ~
++  ~ Licensed under the Apache License, Version 2.0 (the "License");
++  ~ you may not use this file except in compliance with the License.
++  ~ You may obtain a copy of the License at
++  ~
++  ~      http://www.apache.org/licenses/LICENSE-2.0
++  ~
++  ~ Unless required by applicable law or agreed to in writing, software
++  ~ distributed under the License is distributed on an "AS IS" BASIS,
++  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  ~ See the License for the specific language governing permissions and
++  ~ limitations under the License
++  -->
++<resources>
++  <!-- Essential theme colors -->
++  <color name="dialer_theme_color">#5195EA</color>
++  <color name="dialer_theme_color_20pct">#335195EA</color>
++  <color name="dialer_theme_color_dark">#2374CE</color>
++  <color name="dialer_secondary_color">#5195EA</color>
++</resources>
+
+commit f2b2900a13a50f0ac74f8e4b05f460fa4921fe8b
+Author: Timi Rautamäki <timi.rautamaki@gmail.com>
+Date:   Sun 2021-07-11 13:38:50+0200
+
+    Dialer: update ripple color
+    
+    Ripple on dark should be lighter than background.
+    
+    Change-Id: I01993eac93f29609353ef1e1e9b5dc9a211a640c
+---
+ java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml   | 3 +++
+ .../dialer/theme/hidden/res/values-night/colors_dialer_dark.xml        | 1 +
+ .../com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml | 1 +
+ 3 files changed, 5 insertions(+)
+
+diff --git a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+index 3533cf92c3192b9ae42190efdc1835287f9d25ab..9a181b2f00fb930ee3752d098d7ec4e087d456b1 100644
+--- a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
++++ b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+@@ -20,27 +20,30 @@
+   <style name="Dialer.ThemeBase.ActionBar">
+     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
+     <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
+     <item name="actionBarSize">@dimen/action_bar_height</item>
+ 
+     <!-- Pulled from Theme.AppCompat.Light.DarkActionbar-->
+     <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+     <item name="actionBarWidgetTheme">@null</item>
+     <item name="actionBarTheme">@style/DialerActionBarBaseTheme</item>
+     <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
++
++    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
+   </style>
+ 
+   <style name="Dialer.ThemeBase.NoActionBar">
+     <!-- Copied from Theme.AppCompat.Light.NoActionBar. We can remove this and update the Dialer
+         base style once none of our activities depend on ActionBar anymore. -->
+     <item name="windowActionBar">false</item>
+     <item name="windowNoTitle">true</item>
++    <item name="colorControlHighlight">@color/dialer_ripple_color</item>
+   </style>
+ 
+   <!-- Activities and Applications should inherit from one of the themes above. -->
+   <style name="Dialer.ThemeBase">
+     <item name="android:forceDarkAllowed">true</item>
+     <!-- These values should be used to color all backgrounds. -->
+     <item name="android:colorBackground">@color/dialer_background_color</item>
+     <item name="android:colorBackgroundFloating">@android:color/white</item>
+ 
+     <!-- These values should be used to set text color. -->
+diff --git a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+index 369656f445c90da1a32e2dde732f088bfb11e4d2..38a17c5ce31b96e21d7beb03935a4114ff44c474 100644
+--- a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
++++ b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+@@ -12,11 +12,12 @@
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+   <!-- Essential theme colors -->
+   <color name="dialer_theme_color">#5195EA</color>
+   <color name="dialer_theme_color_20pct">#335195EA</color>
+   <color name="dialer_theme_color_dark">#2374CE</color>
+   <color name="dialer_secondary_color">#5195EA</color>
++  <color name="dialer_ripple_color">#33ffffff</color>
+ </resources>
+diff --git a/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml b/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+index 988aad78fd2df4b1225c8eda1f6c5b818137b2bc..e688ee1495f017cf1940c878e4ab846fecf8129c 100644
+--- a/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
++++ b/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+@@ -13,11 +13,12 @@
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+   <!-- Essential theme colors -->
+   <color name="dialer_theme_color">#2A56C6</color>
+   <color name="dialer_theme_color_20pct">#332A56C6</color>
+   <color name="dialer_theme_color_dark">#1C3AA9</color>
+   <color name="dialer_secondary_color">#F50057</color>
+   <color name="dialer_background_color">#FAFAFA</color>
++  <color name="dialer_ripple_color">#1f000000</color>
+ </resources>
+
+commit a9ef3db2ab17c69a535f3d432fa6d5680ed521e3
+Author: Timi Rautamäki <timi.rautamaki@gmail.com>
+Date:   Sun 2021-07-11 19:56:07+0200
+
+    Dialer: set statusbar color same as activity background
+    
+     * Keep styles that use actionBar as is because it uses
+       normal actionbar
+     * Set light statusbar attribute for some styles
+    
+    Change-Id: I8748aa4d12f8e0c68d14d514ea5a2bd4100ee3ca
+---
+ .../main/impl/res/values-night/styles.xml (new)    | 27 ++++++++++++++++++++++
+ .../android/dialer/main/impl/res/values/styles.xml |  1 +
+ .../theme/base/res/values/theme_dialer_light.xml   |  1 +
+ .../theme/common/res/values-night/colors.xml (new) | 21 +++++++++++++++++
+ .../hidden/res/values-night/colors_dialer_dark.xml |  2 +-
+ .../hidden/res/values/colors_dialer_light.xml      |  3 ++-
+ 6 files changed, 53 insertions(+), 2 deletions(-)
+
+diff --git a/java/com/android/dialer/main/impl/res/values-night/styles.xml b/java/com/android/dialer/main/impl/res/values-night/styles.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..63d4e9c1e703b1966edb2565c409a6d456430e52
+--- /dev/null
++++ b/java/com/android/dialer/main/impl/res/values-night/styles.xml
+@@ -0,0 +1,27 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++  ~ Copyright (C) 2017 The Android Open Source Project
++  ~
++  ~ Licensed under the Apache License, Version 2.0 (the "License");
++  ~ you may not use this file except in compliance with the License.
++  ~ You may obtain a copy of the License at
++  ~
++  ~      http://www.apache.org/licenses/LICENSE-2.0
++  ~
++  ~ Unless required by applicable law or agreed to in writing, software
++  ~ distributed under the License is distributed on an "AS IS" BASIS,
++  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  ~ See the License for the specific language governing permissions and
++  ~ limitations under the License
++  -->
++<resources>
++
++  <style name="LaunchTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
++    <item name="android:colorPrimary">@color/dialer_theme_color</item>
++    <item name="colorPrimary">@color/dialer_theme_color</item>
++    <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
++    <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
++    <item name="android:windowLightStatusBar">false</item>
++  </style>
++
++</resources>
+diff --git a/java/com/android/dialer/main/impl/res/values/styles.xml b/java/com/android/dialer/main/impl/res/values/styles.xml
+index 139b8b2490c55a34d62eee1b5ebf70841a9f81d1..63d4cad29f6c05d438526093fba72e14eb802cd8 100644
+--- a/java/com/android/dialer/main/impl/res/values/styles.xml
++++ b/java/com/android/dialer/main/impl/res/values/styles.xml
+@@ -14,20 +14,21 @@
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+ 
+   <style name="LaunchTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+     <item name="android:colorPrimary">@color/dialer_theme_color</item>
+     <item name="colorPrimary">@color/dialer_theme_color</item>
+     <item name="android:colorPrimaryDark">@color/dialer_theme_color_dark</item>
+     <item name="colorPrimaryDark">@color/dialer_theme_color_dark</item>
++    <item name="android:windowLightStatusBar">true</item>
+   </style>
+ 
+   <!-- Activities should use this theme as their style -->
+   <style name="MainActivityTheme" parent="MainActivityThemeBase"/>
+ 
+   <style name="MainActivityTheme.Dark" parent="MainActivityTheme.Dark"/>
+ 
+   <!-- Used as a procy for values-v27/styles.xml -->
+   <style name="MainActivityThemeBase" parent="Dialer.ThemeBase.NoActionBar">
+     <!-- Required for actionmode/multiselect to render properly. -->
+diff --git a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+index 9a181b2f00fb930ee3752d098d7ec4e087d456b1..1d9ef699e3fa5862ff80de16cd922827e13ab3a6 100644
+--- a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
++++ b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+@@ -21,20 +21,21 @@
+     <!-- These are used to style all actionbars in Dialer. These aren't needed in Dialer.ThemeBase.NoActionBar -->
+     <item name="actionBarStyle">@style/DialerActionBarBaseStyle</item>
+     <item name="actionBarSize">@dimen/action_bar_height</item>
+ 
+     <!-- Pulled from Theme.AppCompat.Light.DarkActionbar-->
+     <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+     <item name="actionBarWidgetTheme">@null</item>
+     <item name="actionBarTheme">@style/DialerActionBarBaseTheme</item>
+     <item name="listChoiceBackgroundIndicator">@drawable/abc_list_selector_holo_dark</item>
+ 
++    <item name="android:colorPrimaryDark">@color/settings_primary_dark</item>
+     <item name="colorControlHighlight">@color/dialer_ripple_color</item>
+   </style>
+ 
+   <style name="Dialer.ThemeBase.NoActionBar">
+     <!-- Copied from Theme.AppCompat.Light.NoActionBar. We can remove this and update the Dialer
+         base style once none of our activities depend on ActionBar anymore. -->
+     <item name="windowActionBar">false</item>
+     <item name="windowNoTitle">true</item>
+     <item name="colorControlHighlight">@color/dialer_ripple_color</item>
+   </style>
+diff --git a/java/com/android/dialer/theme/common/res/values-night/colors.xml b/java/com/android/dialer/theme/common/res/values-night/colors.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..aa42d8b8895086f751d4aa4028b08f7a2c9da1bf
+--- /dev/null
++++ b/java/com/android/dialer/theme/common/res/values-night/colors.xml
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++  ~ Copyright (C) 2012 The Android Open Source Project
++  ~
++  ~ Licensed under the Apache License, Version 2.0 (the "License");
++  ~ you may not use this file except in compliance with the License.
++  ~ You may obtain a copy of the License at
++  ~
++  ~      http://www.apache.org/licenses/LICENSE-2.0
++  ~
++  ~ Unless required by applicable law or agreed to in writing, software
++  ~ distributed under the License is distributed on an "AS IS" BASIS,
++  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  ~ See the License for the specific language governing permissions and
++  ~ limitations under the License
++  -->
++<!-- The colors in this file aren't configured at the theme level. -->
++<resources>
++  <!-- Settings -->
++  <color name="dialer_settings_theme_color_dark">#1C3AA9</color>
++</resources>
+diff --git a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+index 38a17c5ce31b96e21d7beb03935a4114ff44c474..74cbb89c5261f14841959881e08ef6b67e6bff8b 100644
+--- a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
++++ b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+@@ -10,14 +10,14 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+   <!-- Essential theme colors -->
+   <color name="dialer_theme_color">#5195EA</color>
+   <color name="dialer_theme_color_20pct">#335195EA</color>
+-  <color name="dialer_theme_color_dark">#2374CE</color>
+   <color name="dialer_secondary_color">#5195EA</color>
+   <color name="dialer_ripple_color">#33ffffff</color>
++  <color name="settings_primary_dark">#2374CE</color>
+ </resources>
+diff --git a/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml b/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+index e688ee1495f017cf1940c878e4ab846fecf8129c..4aa0b121c799dcc9725dfddd001477461bd756e8 100644
+--- a/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
++++ b/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+@@ -10,15 +10,16 @@
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+   <!-- Essential theme colors -->
+   <color name="dialer_theme_color">#2A56C6</color>
+   <color name="dialer_theme_color_20pct">#332A56C6</color>
+-  <color name="dialer_theme_color_dark">#1C3AA9</color>
++  <color name="dialer_theme_color_dark">@color/dialer_background_color</color>
+   <color name="dialer_secondary_color">#F50057</color>
+   <color name="dialer_background_color">#FAFAFA</color>
+   <color name="dialer_ripple_color">#1f000000</color>
++  <color name="settings_primary_dark">#1C3AA9</color>
+ </resources>
+
+commit 2f136576e296a21dd144b7ba80719a619d08b862
+Author: Timi Rautamäki <timi.rautamaki@gmail.com>
+Date:   Sun 2021-07-11 20:40:27+0200
+
+    Dialer: improve search bar
+    
+     * Make background color lighter
+     * Update border radius
+     * Update ripple to follow border radius
+     * Remove the background color, use same as activity
+     * Update the back-icon color to white/black for consistency
+    
+    Change-Id: I648a2bd0da47fec99d8a8457c70451e77ed9f8be
+---
+ .../search_bar_background_rounded_corners.xml       | 17 ++++++++++++-----
+ ...h_bar_background_rounded_corners_shape.xml (new) | 21 +++++++++++++++++++++
+ .../impl/toolbar/res/layout/expanded_search_bar.xml |  4 ++--
+ .../main/impl/toolbar/res/layout/toolbar_layout.xml |  2 --
+ .../android/dialer/theme/base/res/values/attr.xml   |  2 ++
+ .../theme/base/res/values/theme_dialer_light.xml    |  1 +
+ .../hidden/res/values-night/colors_dialer_dark.xml  |  1 +
+ .../theme/hidden/res/values/colors_dialer_light.xml |  1 +
+ 8 files changed, 40 insertions(+), 9 deletions(-)
+
+diff --git a/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners.xml b/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners.xml
+index 88f5a04ca2c0aeddd81a7c89ddd8ab2d6b950c18..2130db443aee8ead51969466f6d891ca109d0cdb 100644
+--- a/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners.xml
++++ b/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners.xml
+@@ -7,15 +7,22 @@
+   ~ You may obtain a copy of the License at
+   ~
+   ~      http://www.apache.org/licenses/LICENSE-2.0
+   ~
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+-<shape xmlns:android="http://schemas.android.com/apk/res/android"
+-  android:shape="rectangle">
+-  <solid android:color="?android:attr/colorBackgroundFloating"/>
+-  <corners android:radius="2dp"/>
+-</shape>
++<ripple xmlns:android="http://schemas.android.com/apk/res/android"
++    android:color="@color/dialer_ripple_color">
++
++    <item android:id="@android:id/mask">
++        <shape android:shape="rectangle">
++            <solid android:color="@android:color/white" />
++            <corners android:radius="8dp" />
++        </shape>
++    </item>
++
++  <item android:drawable="@drawable/search_bar_background_rounded_corners_shape" />
++</ripple>
+diff --git a/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners_shape.xml b/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners_shape.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..ee3219ec17ebac1f003e94b0ae60e023dbb797b8
+--- /dev/null
++++ b/java/com/android/dialer/main/impl/toolbar/res/drawable/search_bar_background_rounded_corners_shape.xml
+@@ -0,0 +1,21 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++  ~ Copyright (C) 2018 The Android Open Source Project
++  ~
++  ~ Licensed under the Apache License, Version 2.0 (the "License");
++  ~ you may not use this file except in compliance with the License.
++  ~ You may obtain a copy of the License at
++  ~
++  ~      http://www.apache.org/licenses/LICENSE-2.0
++  ~
++  ~ Unless required by applicable law or agreed to in writing, software
++  ~ distributed under the License is distributed on an "AS IS" BASIS,
++  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  ~ See the License for the specific language governing permissions and
++  ~ limitations under the License
++  -->
++<shape xmlns:android="http://schemas.android.com/apk/res/android"
++  android:shape="rectangle">
++  <solid android:color="?attr/colorBackgroundSearchBar"/>
++  <corners android:radius="8dp"/>
++</shape>
+diff --git a/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml b/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml
+index a7b3aebd235961218fc7283cf01c7a11c99db012..d9051a6919ebad24908c20977201e8138b295294 100644
+--- a/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml
++++ b/java/com/android/dialer/main/impl/toolbar/res/layout/expanded_search_bar.xml
+@@ -22,21 +22,21 @@
+ 
+   <ImageButton
+       android:id="@+id/search_back_button"
+       android:layout_width="48dp"
+       android:layout_height="48dp"
+       android:layout_marginStart="8dp"
+       android:layout_centerVertical="true"
+       android:background="?attr/selectableItemBackgroundBorderless"
+       android:contentDescription="@string/action_menu_back_from_search"
+       android:src="@drawable/quantum_ic_arrow_back_vd_theme_24"
+-      android:tint="?android:attr/colorPrimary"/>
++      android:tint="?colorIcon"/>
+ 
+   <EditText
+       android:id="@+id/search_view"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_toEndOf="@+id/search_back_button"
+       android:layout_toStartOf="@+id/search_clear_button"
+       android:layout_centerVertical="true"
+       android:layout_marginStart="8dp"
+       android:minHeight="48dp"
+@@ -55,11 +55,11 @@
+       android:layout_width="48dp"
+       android:layout_height="48dp"
+       android:layout_alignParentEnd="true"
+       android:layout_centerVertical="true"
+       android:scaleType="center"
+       android:background="?attr/selectableItemBackgroundBorderless"
+       android:contentDescription="@string/description_clear_search"
+       android:src="@drawable/quantum_ic_close_vd_theme_24"
+       android:tint="?colorIcon"
+       android:visibility="gone"/>
+-</RelativeLayout>
+\ No newline at end of file
++</RelativeLayout>
+diff --git a/java/com/android/dialer/main/impl/toolbar/res/layout/toolbar_layout.xml b/java/com/android/dialer/main/impl/toolbar/res/layout/toolbar_layout.xml
+index 049cf2ef53f88bb1a1366a3970161724134515e3..129aac9dd76b37c48aab585993e379249b4f5a6a 100644
+--- a/java/com/android/dialer/main/impl/toolbar/res/layout/toolbar_layout.xml
++++ b/java/com/android/dialer/main/impl/toolbar/res/layout/toolbar_layout.xml
+@@ -11,41 +11,39 @@
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ <com.android.dialer.main.impl.toolbar.MainToolbar
+     xmlns:android="http://schemas.android.com/apk/res/android"
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:layout_width="match_parent"
+     android:layout_height="@dimen/expanded_search_bar_height"
+-    android:background="?android:attr/colorPrimary"
+     app:contentInsetEnd="0dp"
+     app:contentInsetStart="0dp">
+   <FrameLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+     <com.android.dialer.main.impl.toolbar.SearchBarView
+         android:id="@+id/search_view_container"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_margin="@dimen/search_bar_margin"
+         android:background="@drawable/search_bar_background_rounded_corners"
+         android:elevation="4dp"
+         android:minHeight="@dimen/collapsed_search_bar_height">
+ 
+       <RelativeLayout
+           android:id="@+id/search_box_collapsed"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+-          android:background="?android:attr/selectableItemBackground"
+           android:gravity="center_vertical">
+ 
+         <ImageView
+             android:id="@+id/search_magnifying_glass"
+             android:layout_width="48dp"
+             android:layout_height="48dp"
+             android:layout_marginStart="8dp"
+             android:layout_centerVertical="true"
+             android:importantForAccessibility="no"
+             android:scaleType="center"
+diff --git a/java/com/android/dialer/theme/base/res/values/attr.xml b/java/com/android/dialer/theme/base/res/values/attr.xml
+index 606d161ad84607d460d982b46b204b3fdd131cd7..790ae7043547d799355e91eef388408118351133 100644
+--- a/java/com/android/dialer/theme/base/res/values/attr.xml
++++ b/java/com/android/dialer/theme/base/res/values/attr.xml
+@@ -8,20 +8,22 @@
+   ~
+   ~      http://www.apache.org/licenses/LICENSE-2.0
+   ~
+   ~ Unless required by applicable law or agreed to in writing, software
+   ~ distributed under the License is distributed on an "AS IS" BASIS,
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
++  <!-- Used to color the search bar background -->
++  <attr name="colorBackgroundSearchBar" format="color"/>
+   <!-- Used to style all icons in Dialer. -->
+   <attr name="colorIcon" format="color"/>
+   <!-- Used to style some icons a little lighter in Dialer. -->
+   <attr name="colorIconSecondary" format="color"/>
+   <!-- Used to color text on dark backgrounds. White in Light Theme. -->
+   <attr name="colorTextOnUnthemedDarkBackground" format="color"/>
+   <!-- Used to color icons on dark backgrounds. White in Light Theme. -->
+   <attr name="colorIconOnUnthemedDarkBackground" format="color"/>
+   <!-- Used to color the background of chat bubbles we send -->
+   <attr name="colorMobileOriginatingChatBackground" format="color"/>
+diff --git a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+index 1d9ef699e3fa5862ff80de16cd922827e13ab3a6..f0e7e6fad9fb7a5a112fc581c68ba18299bc9e90 100644
+--- a/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
++++ b/java/com/android/dialer/theme/base/res/values/theme_dialer_light.xml
+@@ -39,20 +39,21 @@
+     <item name="windowNoTitle">true</item>
+     <item name="colorControlHighlight">@color/dialer_ripple_color</item>
+   </style>
+ 
+   <!-- Activities and Applications should inherit from one of the themes above. -->
+   <style name="Dialer.ThemeBase">
+     <item name="android:forceDarkAllowed">true</item>
+     <!-- These values should be used to color all backgrounds. -->
+     <item name="android:colorBackground">@color/dialer_background_color</item>
+     <item name="android:colorBackgroundFloating">@android:color/white</item>
++    <item name="colorBackgroundSearchBar">@color/dialer_search_bar_color</item>
+ 
+     <!-- These values should be used to set text color. -->
+     <item name="android:textColorPrimary">@color/dialer_primary_text_color</item>
+     <item name="android:textColorSecondary">@color/dialer_secondary_text_color</item>
+     <item name="android:textColorPrimaryInverse">@color/google_grey_300</item>
+     <item name="android:textColorSecondaryInverse">@color/google_grey_400</item>
+     <item name="android:textColorHint">@color/google_grey_600</item>
+ 
+     <!-- These will be automatically used to color most Appcompat/Material widgets. -->
+     <item name="android:colorPrimary">@color/dialer_theme_color</item>
+diff --git a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+index 74cbb89c5261f14841959881e08ef6b67e6bff8b..8d04c725319edf2be03a26f7f05c8737f8934986 100644
+--- a/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
++++ b/java/com/android/dialer/theme/hidden/res/values-night/colors_dialer_dark.xml
+@@ -12,12 +12,13 @@
+   ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   ~ See the License for the specific language governing permissions and
+   ~ limitations under the License
+   -->
+ <resources>
+   <!-- Essential theme colors -->
+   <color name="dialer_theme_color">#5195EA</color>
+   <color name="dialer_theme_color_20pct">#335195EA</color>
+   <color name="dialer_secondary_color">#5195EA</color>
+   <color name="dialer_ripple_color">#33ffffff</color>
++  <color name="dialer_search_bar_color">@color/google_grey_900</color>
+   <color name="settings_primary_dark">#2374CE</color>
+ </resources>
+diff --git a/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml b/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+index 4aa0b121c799dcc9725dfddd001477461bd756e8..e4d1e29aafe202add75235eac423009e6c23bbe8 100644
+--- a/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
++++ b/java/com/android/dialer/theme/hidden/res/values/colors_dialer_light.xml
+@@ -14,12 +14,13 @@
+   ~ limitations under the License
+   -->
+ <resources>
+   <!-- Essential theme colors -->
+   <color name="dialer_theme_color">#2A56C6</color>
+   <color name="dialer_theme_color_20pct">#332A56C6</color>
+   <color name="dialer_theme_color_dark">@color/dialer_background_color</color>
+   <color name="dialer_secondary_color">#F50057</color>
+   <color name="dialer_background_color">#FAFAFA</color>
+   <color name="dialer_ripple_color">#1f000000</color>
++  <color name="dialer_search_bar_color">@color/google_grey_50</color>
+   <color name="settings_primary_dark">#1C3AA9</color>
+ </resources>
+
+commit ce742829b1e5c61f39bf4522f7b0ffba098c6873
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-10-22 18:18:48+0100
+
+    Update visual voicemail configuration for sp1a.210812.015
+---
+ .../android/voicemail/impl/res/xml/vvm_config.xml  | 803 +++++++++++----------
+ 1 file changed, 404 insertions(+), 399 deletions(-)
+
+diff --git a/java/com/android/voicemail/impl/res/xml/vvm_config.xml b/java/com/android/voicemail/impl/res/xml/vvm_config.xml
+index 673c049ef14013deb3a2c80564eb8b2847982b6d..4f332317ab7240cbfb617883a8ae3a3d2aa4be7e 100644
+--- a/java/com/android/voicemail/impl/res/xml/vvm_config.xml
++++ b/java/com/android/voicemail/impl/res/xml/vvm_config.xml
+@@ -8,410 +8,415 @@
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+ <list name="carrier_config_list">
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="TEST" />
+-    </string-array>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="20820" />
+-      <item value="20821" />
+-      <item value="20888" />
+-    </string-array>
+-    <string name="feature_flag_name">vvm_carrier_flag_20820</string>
+-    <int name="vvm_port_number_int" value="5499" />
+-    <string name="vvm_destination_number_string">22344</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_ignore_transcription" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="302490" />
+-    </string-array>
+-    <string name="feature_flag_name">vvm_carrier_freedom_ca</string>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">455677</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_freedom_ca_allows_transcription </string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="20610" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">8082</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string-array name="vvm_disabled_capabilities_string_array">
+-      <item value="STARTTLS" />
+-    </string-array>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="20801" />
+-      <item value="20802" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="20481" />
+-    <string name="vvm_destination_number_string">21101</string>
+-    <string-array name="carrier_vvm_package_name_string_array">
+-      <item value="com.orange.vvm" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string-array name="vvm_disabled_capabilities_string_array">
+-      <item value="STARTTLS" />
+-    </string-array>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="20801?gid1=4e524a31" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_27099</string>
+-    <string-array name="mccmnc">
+-      <item value="27099" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">64085</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string-array name="vvm_disabled_capabilities_string_array">
+-      <item value="STARTTLS" />
+-    </string-array>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="23410" />
+-    </string-array>
+-    <boolean name="vvm_ignore_transcription" value="true" />
+-    <int name="vvm_port_number_int" value="2700" />
+-    <string name="vvm_destination_number_string">9017</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <string-array name="carrier_vvm_package_name_string_array">
+-      <item value="com.o2.android.vvm" />
+-    </string-array>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_o2_uk_allows_transcription </string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="23410?gid1=^0a.*" />
+-      <item value="23410?gid1=^537.*" />
+-      <item value="23410?gid1=^508.*" />
+-      <item value="23410?gid1=^519.*" />
+-      <item value="23410?gid1=^85.*" />
+-      <item value="23410?gid1=^61.*" />
+-      <item value="23410?gid1=^67.*" />
+-      <item value="23410?gid1=^99.*" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_swisscom_ch</string>
+-    <string-array name="mccmnc">
+-      <item value="22801" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <int name="vvm_ssl_port_number_int" value="993" />
+-    <string name="vvm_destination_number_string">30047</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="310160" />
+-      <item value="310200" />
+-      <item value="310210" />
+-      <item value="310220" />
+-      <item value="310230" />
+-      <item value="310240" />
+-      <item value="310250" />
+-      <item value="310260" />
+-      <item value="310270" />
+-      <item value="310300" />
+-      <item value="310310" />
+-      <item value="310490" />
+-      <item value="310530" />
+-      <item value="310590" />
+-      <item value="310640" />
+-      <item value="310660" />
+-      <item value="310800" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="1808" />
+-    <int name="vvm_ssl_port_number_int" value="993" />
+-    <string name="vvm_destination_number_string">122</string>
+-    <string-array name="carrier_vvm_package_name_string_array">
+-      <item value="com.tmobile.vvm.application" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_cvvm</string>
+-    <string-array name="vvm_disabled_capabilities_string_array">
+-      <item value="AUTH=DIGEST-MD5" />
+-    </string-array>
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tmobile_us_allows_transcription </string>
+-    <boolean name="vvm_ignore_transcription" value="true" />
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_tracfone_usa_tmo_disable </string>
+-    <boolean name="feature_flag_default_value" value="true" />
+-    <boolean name="vvm_overrides_carrier_config" value="true" />
+-    <string-array name="mccmnc">
+-      <item value="310260?gid1=4d4b" />
+-      <item value="310260?gid1=534d" />
+-      <item value="310260?gid1=6134" />
+-      <item value="310260?gid1=ddff" />
+-      <item value="310260?gid1=deff" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="310240?gid1=6230" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_tracfone_usa_tmo_enable </string>
+-    <boolean name="vvm_overrides_carrier_config" value="true" />
+-    <string-array name="mccmnc">
+-      <item value="310260?gid1=4d4b" />
+-      <item value="310260?gid1=534d" />
+-      <item value="310260?gid1=6134" />
+-      <item value="310260?gid1=ddff" />
+-      <item value="310260?gid1=deff" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="1808" />
+-    <int name="vvm_ssl_port_number_int" value="993" />
+-    <string name="vvm_destination_number_string">122</string>
+-    <string name="vvm_type_string">vvm_type_cvvm</string>
+-    <string-array name="vvm_disabled_capabilities_string_array">
+-      <item value="AUTH=DIGEST-MD5" />
+-    </string-array>
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tracfone_tmo_us_allows_transcription </string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BA01270000000000" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">900080006200</string>
+-    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
+-    <string name="vvm_client_prefix_string">//VZWVVM</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_tracfone_vzw_us_allows_transcription </string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_visible_vzw_enable </string>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BAE1000000000000" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">900080006200</string>
+-    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
+-    <string name="vvm_client_prefix_string">//VZWVVM</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_visible_vzw_us_allows_transcription </string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_visible_vzw_disable </string>
+-    <boolean name="feature_flag_default_value" value="true" />
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BAE1000000000000" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BA01490000000000" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">900080006200</string>
+-    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
+-    <string name="vvm_client_prefix_string">//VZWVVM</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_charter_vzw_us_allows_transcription </string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BA01450000000000" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">900080006200</string>
+-    <string name="vvm_type_string">vvm_type_vvm3_mvno</string>
+-    <string name="vvm_client_prefix_string">//VZWVVM</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-    <boolean name="vvm_transcription_always_allowed" value="true" />
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BA00010000000000" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_flag_302220</string>
+-    <string-array name="mccmnc">
+-      <item value="302220" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="5499" />
+-    <string name="vvm_destination_number_string">7723</string>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string name="vvm_network_capability_string">mms</string>
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="310004" />
+-      <item value="310010" />
+-      <item value="310012" />
+-      <item value="310013" />
+-      <item value="310590" />
+-      <item value="310890" />
+-      <item value="310910" />
+-      <item value="311110" />
+-      <item value="311270" />
+-      <item value="311271" />
+-      <item value="311272" />
+-      <item value="311273" />
+-      <item value="311274" />
+-      <item value="311275" />
+-      <item value="311276" />
+-      <item value="311277" />
+-      <item value="311278" />
+-      <item value="311279" />
+-      <item value="311280" />
+-      <item value="311281" />
+-      <item value="311282" />
+-      <item value="311283" />
+-      <item value="311284" />
+-      <item value="311285" />
+-      <item value="311286" />
+-      <item value="311287" />
+-      <item value="311288" />
+-      <item value="311289" />
+-      <item value="311390" />
+-      <item value="311480" />
+-      <item value="311481" />
+-      <item value="311482" />
+-      <item value="311483" />
+-      <item value="311484" />
+-      <item value="311485" />
+-      <item value="311486" />
+-      <item value="311487" />
+-      <item value="311488" />
+-      <item value="311489" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">900080006200</string>
+-    <string name="vvm_type_string">vvm_type_vvm3</string>
+-    <string name="vvm_client_prefix_string">//VZWVVM</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-    <string name="default_vmg_url">https://mobile.vzw.com/VMGIMS/VMServices </string>
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="310016" />
+-      <item value="310030" />
+-      <item value="310070" />
+-      <item value="310080" />
+-      <item value="310090" />
+-      <item value="310150" />
+-      <item value="310170" />
+-      <item value="310280" />
+-      <item value="310380" />
+-      <item value="310410" />
+-      <item value="310560" />
+-      <item value="310670" />
+-      <item value="310680" />
+-      <item value="310950" />
+-      <item value="311070" />
+-      <item value="311090" />
+-      <item value="311180" />
+-      <item value="311190" />
+-      <item value="312090" />
+-      <item value="312670" />
+-      <item value="312680" />
+-      <item value="313100" />
+-      <item value="313110" />
+-      <item value="313120" />
+-      <item value="313130" />
+-      <item value="313140" />
+-      <item value="313790" />
+-      <item value="334050" />
+-      <item value="334090" />
+-    </string-array>
+-    <string name="feature_flag_name">vvm_carrier_att</string>
+-    <int name="vvm_port_number_int" value="5499" />
+-    <string name="vvm_destination_number_string">94183574</string>
+-    <string-array name="carrier_vvm_package_name_string_array">
+-      <item value="com.att.mobile.android.vvm" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_advvm</string>
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-    <boolean name="vvm_ignore_transcription" value="true" />
+-    <string name="vvm_transcription_allowed_for_carrier_flag_name"> vvm_att_us_allows_transcription </string>
+-    <boolean name="vvm_use_direct_tls_connection" value="true" />
+-    <boolean name="vvm_change_greeting_enabled_bool" value="true" />
+-    <boolean name="vvm_greeting_update_bool" value="false" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string-array name="mccmnc">
+-      <item value="20827" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="5499" />
+-    <string name="vvm_destination_number_string">223</string>
+-    <string-array name="carrier_vvm_package_name_string_array">
+-      <item value="com.coriolis.visualvoicemailcoriolis" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_omtp</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_cellcom</string>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BA00040000000000" />
+-      <item value="311850" />
+-    </string-array>
+-    <int name="vvm_port_number_int" value="0" />
+-    <string name="vvm_destination_number_string">9966</string>
+-    <int name="vvm_application_port_number_int" value="5499" />
+-    <string name="vvm_type_string">vvm_type_omtp_1_2</string>
+-    <boolean name="vvm_cellular_data_required_bool" value="true" />
+-    <string-array name="carrier_vvm_package_name_string_array">
+-      <item value="com.cellcom.cellcomvisualvoicemail" />
+-    </string-array>
+-    <boolean name="vvm_legacy_mode_enabled_bool" value="true" />
+-  </pbundle_as_map>
+-  <pbundle_as_map>
+-    <string name="feature_flag_name">vvm_carrier_cellcom_disabled</string>
+-    <string-array name="mccmnc">
+-      <item value="311480?gid1=BA00040000000000" />
+-      <item value="311850" />
+-    </string-array>
+-    <string name="vvm_type_string">vvm_type_disable</string>
+-  </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="TEST"/>
++        </string-array>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="20601"/>
++            <item value="20801"/>
++            <item value="20810"/>
++            <item value="20820"/>
++            <item value="20826"/>
++        </string-array>
++        <string name="feature_flag_name"/>
++        <int name="vvm_port_number_int" value="5499"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="20820"/>
++            <item value="20821"/>
++            <item value="20888"/>
++        </string-array>
++        <string name="feature_flag_name"/>
++        <int name="vvm_port_number_int" value="5499"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_ignore_transcription" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="302490"/>
++            <item value="302491"/>
++        </string-array>
++        <string name="feature_flag_name"/>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <string name="vvm_network_capability_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="20610"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string-array name="vvm_disabled_capabilities_string_array">
++            <item value="STARTTLS"/>
++        </string-array>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="20801"/>
++            <item value="20802"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="20481"/>
++        <string name="vvm_destination_number_string"/>
++        <string-array name="carrier_vvm_package_name_string_array">
++            <item value="com.orange.vvm"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string-array name="vvm_disabled_capabilities_string_array">
++            <item value="STARTTLS"/>
++        </string-array>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="20801?gid1=4e524a31"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <string-array name="mccmnc">
++            <item value="27099"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string-array name="vvm_disabled_capabilities_string_array">
++            <item value="STARTTLS"/>
++        </string-array>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="23410"/>
++        </string-array>
++        <boolean name="vvm_ignore_transcription" value="true"/>
++        <int name="vvm_port_number_int" value="2700"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string-array name="carrier_vvm_package_name_string_array">
++            <item value="com.o2.android.vvm"/>
++        </string-array>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <string name="enable_reduce_vvm_server_load_flag_name"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="23410?gid1=^0a.*"/>
++            <item value="23410?gid1=^537.*"/>
++            <item value="23410?gid1=^508.*"/>
++            <item value="23410?gid1=^519.*"/>
++            <item value="23410?gid1=^85.*"/>
++            <item value="23410?gid1=^61.*"/>
++            <item value="23410?gid1=^67.*"/>
++            <item value="23410?gid1=^99.*"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <string-array name="mccmnc">
++            <item value="22801"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <int name="vvm_ssl_port_number_int" value="993"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="310160"/>
++            <item value="310200"/>
++            <item value="310210"/>
++            <item value="310220"/>
++            <item value="310230"/>
++            <item value="310240"/>
++            <item value="310250"/>
++            <item value="310260"/>
++            <item value="310270"/>
++            <item value="310300"/>
++            <item value="310310"/>
++            <item value="310490"/>
++            <item value="310530"/>
++            <item value="310590"/>
++            <item value="310640"/>
++            <item value="310660"/>
++            <item value="310800"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="1808"/>
++        <int name="vvm_ssl_port_number_int" value="993"/>
++        <string name="vvm_destination_number_string"/>
++        <string-array name="carrier_vvm_package_name_string_array">
++            <item value="com.tmobile.vvm.application"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++        <string-array name="vvm_disabled_capabilities_string_array">
++            <item value="AUTH=DIGEST-MD5"/>
++        </string-array>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <boolean name="vvm_ignore_transcription" value="true"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="310240?gid1=6230"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <boolean name="vvm_overrides_carrier_config" value="true"/>
++        <string-array name="mccmnc">
++            <item value="310240?gid1=4d4b"/>
++            <item value="310240?gid1=534d"/>
++            <item value="310240?gid1=deff"/>
++            <item value="310260?gid1=4d4b"/>
++            <item value="310260?gid1=534d"/>
++            <item value="310260?gid1=6134"/>
++            <item value="310260?gid1=ddff"/>
++            <item value="310260?gid1=deff"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="1808"/>
++        <int name="vvm_ssl_port_number_int" value="993"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string-array name="vvm_disabled_capabilities_string_array">
++            <item value="AUTH=DIGEST-MD5"/>
++        </string-array>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BA01270000000000"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string name="vvm_client_prefix_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BAE1000000000000"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string name="vvm_client_prefix_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <boolean name="feature_flag_default_value" value="true"/>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BAE1000000000000"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BA01490000000000"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string name="vvm_client_prefix_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BA01450000000000"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string name="vvm_client_prefix_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++        <boolean name="vvm_transcription_always_allowed" value="true"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BA00010000000000"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <string-array name="mccmnc">
++            <item value="302220"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="5499"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string name="vvm_network_capability_string"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="310004"/>
++            <item value="310010"/>
++            <item value="310012"/>
++            <item value="310013"/>
++            <item value="310590"/>
++            <item value="310890"/>
++            <item value="310910"/>
++            <item value="311110"/>
++            <item value="311270"/>
++            <item value="311271"/>
++            <item value="311272"/>
++            <item value="311273"/>
++            <item value="311274"/>
++            <item value="311275"/>
++            <item value="311276"/>
++            <item value="311277"/>
++            <item value="311278"/>
++            <item value="311279"/>
++            <item value="311280"/>
++            <item value="311281"/>
++            <item value="311282"/>
++            <item value="311283"/>
++            <item value="311284"/>
++            <item value="311285"/>
++            <item value="311286"/>
++            <item value="311287"/>
++            <item value="311288"/>
++            <item value="311289"/>
++            <item value="311390"/>
++            <item value="311480"/>
++            <item value="311481"/>
++            <item value="311482"/>
++            <item value="311483"/>
++            <item value="311484"/>
++            <item value="311485"/>
++            <item value="311486"/>
++            <item value="311487"/>
++            <item value="311488"/>
++            <item value="311489"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <string name="vvm_type_string"/>
++        <string name="vvm_client_prefix_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++        <string name="default_vmg_url"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="310016"/>
++            <item value="310030"/>
++            <item value="310070"/>
++            <item value="310080"/>
++            <item value="310090"/>
++            <item value="310150"/>
++            <item value="310170"/>
++            <item value="310280"/>
++            <item value="310380"/>
++            <item value="310410"/>
++            <item value="310560"/>
++            <item value="310670"/>
++            <item value="310680"/>
++            <item value="310950"/>
++            <item value="311070"/>
++            <item value="311090"/>
++            <item value="311180"/>
++            <item value="311190"/>
++            <item value="312090"/>
++            <item value="312670"/>
++            <item value="312680"/>
++            <item value="313100"/>
++            <item value="313110"/>
++            <item value="313120"/>
++            <item value="313130"/>
++            <item value="313140"/>
++            <item value="313790"/>
++            <item value="334050"/>
++            <item value="334090"/>
++        </string-array>
++        <string name="feature_flag_name"/>
++        <int name="vvm_port_number_int" value="5499"/>
++        <string name="vvm_destination_number_string"/>
++        <string-array name="carrier_vvm_package_name_string_array">
++            <item value="com.att.mobile.android.vvm"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++        <boolean name="vvm_ignore_transcription" value="true"/>
++        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
++        <boolean name="vvm_use_direct_tls_connection" value="true"/>
++        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
++        <boolean name="vvm_greeting_update_bool" value="false"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string-array name="mccmnc">
++            <item value="20827"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="5499"/>
++        <string name="vvm_destination_number_string"/>
++        <string-array name="carrier_vvm_package_name_string_array">
++            <item value="com.coriolis.visualvoicemailcoriolis"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BA00040000000000"/>
++            <item value="311850"/>
++        </string-array>
++        <int name="vvm_port_number_int" value="0"/>
++        <string name="vvm_destination_number_string"/>
++        <int name="vvm_application_port_number_int" value="5499"/>
++        <string name="vvm_type_string"/>
++        <boolean name="vvm_cellular_data_required_bool" value="true"/>
++        <string-array name="carrier_vvm_package_name_string_array">
++            <item value="com.cellcom.cellcomvisualvoicemail"/>
++        </string-array>
++        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
++    </pbundle_as_map>
++    <pbundle_as_map>
++        <string name="feature_flag_name"/>
++        <string-array name="mccmnc">
++            <item value="311480?gid1=BA00040000000000"/>
++            <item value="311850"/>
++        </string-array>
++        <string name="vvm_type_string"/>
++    </pbundle_as_map>
+ </list>
+
+commit edb99d0b49d93859bee3f02760333deb5cd96391 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-10-25 05:51:21-0400
+
+    Revert "Update visual voicemail configuration for sp1a.210812.015"
+    
+    This reverts commit ce742829b1e5c61f39bf4522f7b0ffba098c6873.
+---
+ .../android/voicemail/impl/res/xml/vvm_config.xml  | 803 ++++++++++-----------
+ 1 file changed, 399 insertions(+), 404 deletions(-)
+
+diff --git a/java/com/android/voicemail/impl/res/xml/vvm_config.xml b/java/com/android/voicemail/impl/res/xml/vvm_config.xml
+index 4f332317ab7240cbfb617883a8ae3a3d2aa4be7e..673c049ef14013deb3a2c80564eb8b2847982b6d 100644
+--- a/java/com/android/voicemail/impl/res/xml/vvm_config.xml
++++ b/java/com/android/voicemail/impl/res/xml/vvm_config.xml
+@@ -8,415 +8,410 @@
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+ <list name="carrier_config_list">
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="TEST"/>
+-        </string-array>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="20601"/>
+-            <item value="20801"/>
+-            <item value="20810"/>
+-            <item value="20820"/>
+-            <item value="20826"/>
+-        </string-array>
+-        <string name="feature_flag_name"/>
+-        <int name="vvm_port_number_int" value="5499"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="20820"/>
+-            <item value="20821"/>
+-            <item value="20888"/>
+-        </string-array>
+-        <string name="feature_flag_name"/>
+-        <int name="vvm_port_number_int" value="5499"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_ignore_transcription" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="302490"/>
+-            <item value="302491"/>
+-        </string-array>
+-        <string name="feature_flag_name"/>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <string name="vvm_network_capability_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="20610"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string-array name="vvm_disabled_capabilities_string_array">
+-            <item value="STARTTLS"/>
+-        </string-array>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="20801"/>
+-            <item value="20802"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="20481"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string-array name="carrier_vvm_package_name_string_array">
+-            <item value="com.orange.vvm"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string-array name="vvm_disabled_capabilities_string_array">
+-            <item value="STARTTLS"/>
+-        </string-array>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="20801?gid1=4e524a31"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <string-array name="mccmnc">
+-            <item value="27099"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string-array name="vvm_disabled_capabilities_string_array">
+-            <item value="STARTTLS"/>
+-        </string-array>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="23410"/>
+-        </string-array>
+-        <boolean name="vvm_ignore_transcription" value="true"/>
+-        <int name="vvm_port_number_int" value="2700"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string-array name="carrier_vvm_package_name_string_array">
+-            <item value="com.o2.android.vvm"/>
+-        </string-array>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <string name="enable_reduce_vvm_server_load_flag_name"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="23410?gid1=^0a.*"/>
+-            <item value="23410?gid1=^537.*"/>
+-            <item value="23410?gid1=^508.*"/>
+-            <item value="23410?gid1=^519.*"/>
+-            <item value="23410?gid1=^85.*"/>
+-            <item value="23410?gid1=^61.*"/>
+-            <item value="23410?gid1=^67.*"/>
+-            <item value="23410?gid1=^99.*"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <string-array name="mccmnc">
+-            <item value="22801"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <int name="vvm_ssl_port_number_int" value="993"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="310160"/>
+-            <item value="310200"/>
+-            <item value="310210"/>
+-            <item value="310220"/>
+-            <item value="310230"/>
+-            <item value="310240"/>
+-            <item value="310250"/>
+-            <item value="310260"/>
+-            <item value="310270"/>
+-            <item value="310300"/>
+-            <item value="310310"/>
+-            <item value="310490"/>
+-            <item value="310530"/>
+-            <item value="310590"/>
+-            <item value="310640"/>
+-            <item value="310660"/>
+-            <item value="310800"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="1808"/>
+-        <int name="vvm_ssl_port_number_int" value="993"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string-array name="carrier_vvm_package_name_string_array">
+-            <item value="com.tmobile.vvm.application"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-        <string-array name="vvm_disabled_capabilities_string_array">
+-            <item value="AUTH=DIGEST-MD5"/>
+-        </string-array>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <boolean name="vvm_ignore_transcription" value="true"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="310240?gid1=6230"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <boolean name="vvm_overrides_carrier_config" value="true"/>
+-        <string-array name="mccmnc">
+-            <item value="310240?gid1=4d4b"/>
+-            <item value="310240?gid1=534d"/>
+-            <item value="310240?gid1=deff"/>
+-            <item value="310260?gid1=4d4b"/>
+-            <item value="310260?gid1=534d"/>
+-            <item value="310260?gid1=6134"/>
+-            <item value="310260?gid1=ddff"/>
+-            <item value="310260?gid1=deff"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="1808"/>
+-        <int name="vvm_ssl_port_number_int" value="993"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string-array name="vvm_disabled_capabilities_string_array">
+-            <item value="AUTH=DIGEST-MD5"/>
+-        </string-array>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BA01270000000000"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string name="vvm_client_prefix_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BAE1000000000000"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string name="vvm_client_prefix_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <boolean name="feature_flag_default_value" value="true"/>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BAE1000000000000"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BA01490000000000"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string name="vvm_client_prefix_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BA01450000000000"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string name="vvm_client_prefix_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-        <boolean name="vvm_transcription_always_allowed" value="true"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BA00010000000000"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <string-array name="mccmnc">
+-            <item value="302220"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="5499"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string name="vvm_network_capability_string"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="310004"/>
+-            <item value="310010"/>
+-            <item value="310012"/>
+-            <item value="310013"/>
+-            <item value="310590"/>
+-            <item value="310890"/>
+-            <item value="310910"/>
+-            <item value="311110"/>
+-            <item value="311270"/>
+-            <item value="311271"/>
+-            <item value="311272"/>
+-            <item value="311273"/>
+-            <item value="311274"/>
+-            <item value="311275"/>
+-            <item value="311276"/>
+-            <item value="311277"/>
+-            <item value="311278"/>
+-            <item value="311279"/>
+-            <item value="311280"/>
+-            <item value="311281"/>
+-            <item value="311282"/>
+-            <item value="311283"/>
+-            <item value="311284"/>
+-            <item value="311285"/>
+-            <item value="311286"/>
+-            <item value="311287"/>
+-            <item value="311288"/>
+-            <item value="311289"/>
+-            <item value="311390"/>
+-            <item value="311480"/>
+-            <item value="311481"/>
+-            <item value="311482"/>
+-            <item value="311483"/>
+-            <item value="311484"/>
+-            <item value="311485"/>
+-            <item value="311486"/>
+-            <item value="311487"/>
+-            <item value="311488"/>
+-            <item value="311489"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string name="vvm_type_string"/>
+-        <string name="vvm_client_prefix_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-        <string name="default_vmg_url"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="310016"/>
+-            <item value="310030"/>
+-            <item value="310070"/>
+-            <item value="310080"/>
+-            <item value="310090"/>
+-            <item value="310150"/>
+-            <item value="310170"/>
+-            <item value="310280"/>
+-            <item value="310380"/>
+-            <item value="310410"/>
+-            <item value="310560"/>
+-            <item value="310670"/>
+-            <item value="310680"/>
+-            <item value="310950"/>
+-            <item value="311070"/>
+-            <item value="311090"/>
+-            <item value="311180"/>
+-            <item value="311190"/>
+-            <item value="312090"/>
+-            <item value="312670"/>
+-            <item value="312680"/>
+-            <item value="313100"/>
+-            <item value="313110"/>
+-            <item value="313120"/>
+-            <item value="313130"/>
+-            <item value="313140"/>
+-            <item value="313790"/>
+-            <item value="334050"/>
+-            <item value="334090"/>
+-        </string-array>
+-        <string name="feature_flag_name"/>
+-        <int name="vvm_port_number_int" value="5499"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string-array name="carrier_vvm_package_name_string_array">
+-            <item value="com.att.mobile.android.vvm"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-        <boolean name="vvm_ignore_transcription" value="true"/>
+-        <string name="vvm_transcription_allowed_for_carrier_flag_name"/>
+-        <boolean name="vvm_use_direct_tls_connection" value="true"/>
+-        <boolean name="vvm_change_greeting_enabled_bool" value="true"/>
+-        <boolean name="vvm_greeting_update_bool" value="false"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string-array name="mccmnc">
+-            <item value="20827"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="5499"/>
+-        <string name="vvm_destination_number_string"/>
+-        <string-array name="carrier_vvm_package_name_string_array">
+-            <item value="com.coriolis.visualvoicemailcoriolis"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BA00040000000000"/>
+-            <item value="311850"/>
+-        </string-array>
+-        <int name="vvm_port_number_int" value="0"/>
+-        <string name="vvm_destination_number_string"/>
+-        <int name="vvm_application_port_number_int" value="5499"/>
+-        <string name="vvm_type_string"/>
+-        <boolean name="vvm_cellular_data_required_bool" value="true"/>
+-        <string-array name="carrier_vvm_package_name_string_array">
+-            <item value="com.cellcom.cellcomvisualvoicemail"/>
+-        </string-array>
+-        <boolean name="vvm_legacy_mode_enabled_bool" value="true"/>
+-    </pbundle_as_map>
+-    <pbundle_as_map>
+-        <string name="feature_flag_name"/>
+-        <string-array name="mccmnc">
+-            <item value="311480?gid1=BA00040000000000"/>
+-            <item value="311850"/>
+-        </string-array>
+-        <string name="vvm_type_string"/>
+-    </pbundle_as_map>
++  <pbundle_as_map>
++    <string-array name="mccmnc">
++      <item value="TEST" />
++    </string-array>
++  </pbundle_as_map>
 +  <pbundle_as_map>
 +    <string-array name="mccmnc">
 +      <item value="20820" />

@@ -1,4 +1,4 @@
-commit 495d537b57959a0607fcf40b76379275d05b9dff
+commit 3b74165dd5c197197b40eca7b5cf96d91f24c2e8 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2020-12-15 18:58:04-0800
 
@@ -9,14 +9,14 @@ Date:   Tue 2020-12-15 18:58:04-0800
     
     Change-Id: If14630ed4a98f843f7c310984380e919776d6827
 ---
- src/com/android/wallpaper/module/DefaultCategoryProvider.java | 5 -----
- 1 file changed, 5 deletions(-)
+ src/com/android/wallpaper/module/DefaultCategoryProvider.java | 6 ------
+ 1 file changed, 6 deletions(-)
 
 diff --git a/src/com/android/wallpaper/module/DefaultCategoryProvider.java b/src/com/android/wallpaper/module/DefaultCategoryProvider.java
-index e687bf5d4963a93f2e42b72ba4c3fbc11c6553fc..b6c3d0cac51b29a2078cab7e2672a3b26763701a 100755
+index e82045de7d7af114cac139fd90577d3c9d33c23b..30e5c4dad37ba48cf73c7eff1997b5c1a833d26a 100755
 --- a/src/com/android/wallpaper/module/DefaultCategoryProvider.java
 +++ b/src/com/android/wallpaper/module/DefaultCategoryProvider.java
-@@ -287,29 +287,24 @@ public class DefaultCategoryProvider implements CategoryProvider {
+@@ -302,43 +302,37 @@ public class DefaultCategoryProvider implements CategoryProvider {
                  while (((type = parser.next()) != XmlPullParser.END_TAG
                          || parser.getDepth() > depth) && type != XmlPullParser.END_DOCUMENT) {
                      if ((type == XmlPullParser.START_TAG)
@@ -32,10 +32,6 @@ index e687bf5d4963a93f2e42b72ba4c3fbc11c6553fc..b6c3d0cac51b29a2078cab7e2672a3b2
                                  || parser.getDepth() > categoryDepth)
                                  && type != XmlPullParser.END_DOCUMENT) {
                              if (type == XmlPullParser.START_TAG) {
--                                if (!publishedPlaceholder) {
--                                    publishProgress(categoryBuilder.buildPlaceholder());
--                                    publishedPlaceholder = true;
--                                }
                                  WallpaperInfo wallpaper = null;
                                  if (SystemStaticWallpaperInfo.TAG_NAME.equals(parser.getName())) {
                                      wallpaper = SystemStaticWallpaperInfo
@@ -46,278 +42,21 @@ index e687bf5d4963a93f2e42b72ba4c3fbc11c6553fc..b6c3d0cac51b29a2078cab7e2672a3b2
                                  } else if (LiveWallpaperInfo.TAG_NAME.equals(parser.getName())) {
                                      wallpaper = LiveWallpaperInfo.fromAttributeSet(mAppContext,
                                              categoryBuilder.getId(), Xml.asAttributeSet(parser));
-
-commit e427967b61f22b8eb75ed90d8850cabf90624a23
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Tue 2020-12-15 18:59:20-0800
-
-    WallpaperPicker2: Fix race condition for fast-loading wallpapers
-    
-    System-static wallpapers loaded from partner stub APK resources load too
-    fast. This causes the picker to crash due to a race condition where it
-    tries to show the wallpaper before the view is ready:
-    
-    FATAL EXCEPTION: main
-    Process: com.android.wallpaper, PID: 4864
-    java.lang.NullPointerException: Attempt to invoke virtual method 'void com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView.setMinimumScaleType(int)' on a null object reference
-            at com.android.wallpaper.picker.ImagePreviewFragment.initFullResView(ImagePreviewFragment.java:280)
-            at com.android.wallpaper.picker.ImagePreviewFragment.lambda$RaBjTEvfm2i30bFpCcUjYw_1BDU(Unknown Source:0)
-            at com.android.wallpaper.picker.-$$Lambda$ImagePreviewFragment$RaBjTEvfm2i30bFpCcUjYw_1BDU.run(Unknown Source:2)
-            at com.android.wallpaper.picker.PreviewFragment.lambda$setUpExploreIntentAndLabel$0$PreviewFragment(PreviewFragment.java:240)
-            at com.android.wallpaper.picker.-$$Lambda$PreviewFragment$npbExW2iAAviwY49N2_aNAid7Ng.onReceiveExploreIntent(Unknown Source:4)
-            at com.android.wallpaper.picker.WallpaperInfoHelper.loadExploreIntent(WallpaperInfoHelper.java:54)
-            at com.android.wallpaper.picker.PreviewFragment.setUpExploreIntentAndLabel(PreviewFragment.java:235)
-            at com.android.wallpaper.picker.ImagePreviewFragment.lambda$onBottomActionBarReady$1$ImagePreviewFragment(ImagePreviewFragment.java:270)
-            at com.android.wallpaper.picker.-$$Lambda$ImagePreviewFragment$7qLwwxCCQAeJYZjhYOD-FrUSX0U.onDimensionsDecoded(Unknown Source:2)
-            at com.android.wallpaper.asset.StreamableAsset$DecodeDimensionsAsyncTask.onPostExecute(StreamableAsset.java:388)
-            at com.android.wallpaper.asset.StreamableAsset$DecodeDimensionsAsyncTask.onPostExecute(StreamableAsset.java:374)
-            at android.os.AsyncTask.finish(AsyncTask.java:771)
-            at android.os.AsyncTask.access$900(AsyncTask.java:199)
-            at android.os.AsyncTask$InternalHandler.handleMessage(AsyncTask.java:788)
-            at android.os.Handler.dispatchMessage(Handler.java:106)
-            at android.os.Looper.loop(Looper.java:223)
-            at android.app.ActivityThread.main(ActivityThread.java:7660)
-            at java.lang.reflect.Method.invoke(Native Method)
-            at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:592)
-            at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:947)
-    
-    Only show the wallpaper once both callbacks have completed to fix the
-    crash.
-    
-    Change-Id: I26738dd3911562ae3992a4a58523cb3bc3d570e1
----
- .../wallpaper/picker/ImagePreviewFragment.java      | 21 ++++++++++++++++++++-
- 1 file changed, 20 insertions(+), 1 deletion(-)
-
-diff --git a/src/com/android/wallpaper/picker/ImagePreviewFragment.java b/src/com/android/wallpaper/picker/ImagePreviewFragment.java
-index 1ea49f085e86b29f74b4b1076272eac1f0e3a610..6bbee62aebe749128a3c57816da5d05bef963f89 100755
---- a/src/com/android/wallpaper/picker/ImagePreviewFragment.java
-+++ b/src/com/android/wallpaper/picker/ImagePreviewFragment.java
-@@ -78,20 +78,21 @@ import java.util.Locale;
-  * Fragment which displays the UI for previewing an individual static wallpaper and its attribution
-  * information.
-  */
- public class ImagePreviewFragment extends PreviewFragment {
- 
-     private static final float DEFAULT_WALLPAPER_MAX_ZOOM = 8f;
- 
-     private final WallpaperSurfaceCallback mWallpaperSurfaceCallback =
-             new WallpaperSurfaceCallback();
- 
-+    private boolean mFullResViewInitialized;
-     private SubsamplingScaleImageView mFullResImageView;
-     private Asset mWallpaperAsset;
-     private Point mScreenSize;
-     private Point mRawWallpaperSize; // Native size of wallpaper image.
-     private ImageView mLowResImageView;
-     private TouchForwardingLayout mTouchForwardingLayout;
-     private ConstraintLayout mContainer;
-     private SurfaceView mWorkspaceSurface;
-     private WorkspaceSurfaceHolderCallback mWorkspaceSurfaceCallback;
-     private SurfaceView mWallpaperSurface;
-@@ -261,29 +262,40 @@ public class ImagePreviewFragment extends PreviewFragment {
-                 showLoadWallpaperErrorDialog();
-                 return;
-             }
- 
-             if (mBottomActionBar != null) {
-                 mBottomActionBar.enableActions();
-             }
- 
-             mRawWallpaperSize = dimensions;
- 
--            setUpExploreIntentAndLabel(ImagePreviewFragment.this::initFullResView);
-+            setUpExploreIntentAndLabel(() -> {
-+                synchronized (this) {
-+                    /* Init if we finish after WallpaperSurfaceCallback */
-+                    if (mFullResImageView != null && !mFullResViewInitialized) {
-+                        initFullResView();
-+                    }
-+                }
-+            });
-         });
-     }
- 
-     /**
-      * Initializes MosaicView by initializing tiling, setting a fallback page bitmap, and
-      * initializing a zoom-scroll observer and click listener.
-      */
-     private void initFullResView() {
-+        synchronized (this) {
-+            mFullResViewInitialized = true;
-+        }
-+
-         // Minimum scale will only be respected under this scale type.
-         mFullResImageView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CUSTOM);
-         // When we set a minimum scale bigger than the scale with which the full image is shown,
-         // disallow user to pan outside the view we show the wallpaper in.
-         mFullResImageView.setPanLimit(SubsamplingScaleImageView.PAN_LIMIT_INSIDE);
- 
-         // Set a solid black "page bitmap" so MosaicView draws a black background while waiting
-         // for the image to load or a transparent one if a thumbnail already loaded.
-         Bitmap backgroundBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
-         int preColor = ContextCompat.getColor(getContext(), R.color.fullscreen_preview_background);
-@@ -507,20 +519,27 @@ public class ImagePreviewFragment extends PreviewFragment {
-                         makeMeasureSpec(height, EXACTLY));
-                 wallpaperPreviewContainer.layout(0, 0, width, height);
-                 mTouchForwardingLayout.setTargetView(mFullResImageView);
- 
-                 cleanUp();
-                 mHost = new SurfaceControlViewHost(context,
-                         context.getDisplay(), mWallpaperSurface.getHostToken());
-                 mHost.setView(wallpaperPreviewContainer, wallpaperPreviewContainer.getWidth(),
-                         wallpaperPreviewContainer.getHeight());
-                 mWallpaperSurface.setChildSurfacePackage(mHost.getSurfacePackage());
-+
-+                synchronized (this) {
-+                    /* Init if we finish after decodeRawDimensions */
-+                    if (mRawWallpaperSize != null && !mFullResViewInitialized) {
-+                        initFullResView();
-+                    }
-+                }
-             }
-         }
- 
-         @Override
-         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) { }
- 
-         @Override
-         public void surfaceDestroyed(SurfaceHolder holder) { }
- 
-         public void cleanUp() {
-
-commit 9463b0fb2b28180c0efe7fc7e6aa78e8bbf7ae6b
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Tue 2021-01-12 21:01:42-0800
-
-    WallpaperPicker2: Merge code review updates for race condition fix
-    
-    This adds improvements to the original change from LineageOS code
-    review.
-    
-    Change-Id: Ie6ee02379f0a1a185b94e0a66c285638ec834f37
----
- .../wallpaper/picker/ImagePreviewFragment.java      | 21 ++++++---------------
- 1 file changed, 6 insertions(+), 15 deletions(-)
-
-diff --git a/src/com/android/wallpaper/picker/ImagePreviewFragment.java b/src/com/android/wallpaper/picker/ImagePreviewFragment.java
-index 6bbee62aebe749128a3c57816da5d05bef963f89..9ff7c9897a3cc82ecaf692c17a9d021f833e019e 100755
---- a/src/com/android/wallpaper/picker/ImagePreviewFragment.java
-+++ b/src/com/android/wallpaper/picker/ImagePreviewFragment.java
-@@ -262,37 +262,34 @@ public class ImagePreviewFragment extends PreviewFragment {
-                 showLoadWallpaperErrorDialog();
-                 return;
-             }
- 
-             if (mBottomActionBar != null) {
-                 mBottomActionBar.enableActions();
-             }
- 
-             mRawWallpaperSize = dimensions;
- 
--            setUpExploreIntentAndLabel(() -> {
--                synchronized (this) {
--                    /* Init if we finish after WallpaperSurfaceCallback */
--                    if (mFullResImageView != null && !mFullResViewInitialized) {
--                        initFullResView();
--                    }
--                }
--            });
-+            setUpExploreIntentAndLabel(ImagePreviewFragment.this::initFullResView);
-         });
-     }
- 
-     /**
-      * Initializes MosaicView by initializing tiling, setting a fallback page bitmap, and
-      * initializing a zoom-scroll observer and click listener.
-      */
-     private void initFullResView() {
-         synchronized (this) {
-+            // Skip init if already initialized or dependencies aren't ready yet
-+            if (mFullResViewInitialized || mFullResImageView == null || mRawWallpaperSize == null) {
-+                return;
-+            }
-             mFullResViewInitialized = true;
-         }
- 
-         // Minimum scale will only be respected under this scale type.
-         mFullResImageView.setMinimumScaleType(SubsamplingScaleImageView.SCALE_TYPE_CUSTOM);
-         // When we set a minimum scale bigger than the scale with which the full image is shown,
-         // disallow user to pan outside the view we show the wallpaper in.
-         mFullResImageView.setPanLimit(SubsamplingScaleImageView.PAN_LIMIT_INSIDE);
- 
-         // Set a solid black "page bitmap" so MosaicView draws a black background while waiting
-@@ -519,27 +516,21 @@ public class ImagePreviewFragment extends PreviewFragment {
-                         makeMeasureSpec(height, EXACTLY));
-                 wallpaperPreviewContainer.layout(0, 0, width, height);
-                 mTouchForwardingLayout.setTargetView(mFullResImageView);
- 
-                 cleanUp();
-                 mHost = new SurfaceControlViewHost(context,
-                         context.getDisplay(), mWallpaperSurface.getHostToken());
-                 mHost.setView(wallpaperPreviewContainer, wallpaperPreviewContainer.getWidth(),
-                         wallpaperPreviewContainer.getHeight());
-                 mWallpaperSurface.setChildSurfacePackage(mHost.getSurfacePackage());
--
--                synchronized (this) {
--                    /* Init if we finish after decodeRawDimensions */
--                    if (mRawWallpaperSize != null && !mFullResViewInitialized) {
--                        initFullResView();
--                    }
--                }
-+                initFullResView();
-             }
-         }
- 
-         @Override
-         public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) { }
- 
-         @Override
-         public void surfaceDestroyed(SurfaceHolder holder) { }
- 
-         public void cleanUp() {
-
-commit 1ba998a821ff7c80415bb038904143038282f37d (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Wed 2020-11-04 01:26:46-0800
-
-    WallpaperPicker2: Declare usage of missing permissions
-    
-    Some wallpaper-related permissions necessary for launcher previews (and
-    possibly some other functionality) are missing in AOSP WallpaperPicker2.
-    Declare usage of the missing permissions to fix launcher preview
-    rendering.
-    
-    Change-Id: I09692367b0002d01f389a41f4e951a37a992b01c
----
- AndroidManifest.xml | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index f0f7024a0cb03821d157df9068853fcdae9cfd98..0d616b85d8f4a6b7a71767cab04ff7f031c934c8 100755
---- a/AndroidManifest.xml
-+++ b/AndroidManifest.xml
-@@ -8,20 +8,23 @@
-   <permission
-       android:name="com.android.wallpaper.NOTIFY_ROTATING_WALLPAPER_CHANGED"
-       android:protectionLevel="signature"/>
- 
-   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-   <uses-permission android:name="android.permission.INTERNET" />
-   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-   <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-   <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-   <uses-permission android:name="android.permission.SET_WALLPAPER" />
-+  <uses-permission android:name="android.permission.BIND_WALLPAPER"/>
-+  <uses-permission android:name="android.permission.READ_WALLPAPER_INTERNAL"/>
-+  <uses-permission android:name="android.permission.SET_WALLPAPER_COMPONENT"/>
-   <uses-permission android:name="android.permission.WAKE_LOCK" />
-   <uses-permission
-       android:name="com.android.wallpaper.NOTIFY_ROTATING_WALLPAPER_CHANGED" />
- 
-   <queries>
-     <intent>
-       <action android:name="com.android.launcher3.action.PARTNER_CUSTOMIZATION"/>
-     </intent>
-     <intent>
-       <action android:name="android.service.wallpaper.WallpaperService"/>
+                                 }
+                                 if (wallpaper != null) {
+                                     categoryBuilder.addWallpaper(wallpaper);
+-                                    // Publish progress only if there's at least one wallpaper
+-                                    if (!publishedPlaceholder) {
+-                                        publishProgress(categoryBuilder.buildPlaceholder());
+-                                        publishedPlaceholder = true;
+-                                    }
+                                 }
+                             }
+                         }
+                         WallpaperCategory category = categoryBuilder.build();
+                         if (!category.getUnmodifiableWallpapers().isEmpty()) {
+                             categories.add(category);
+                             publishProgress(category);
+                         }
+                     }
+                 }

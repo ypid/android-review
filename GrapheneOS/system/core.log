@@ -1,55 +1,58 @@
-commit 8c0f3c0e04d279daf9f0e9a338c698ed95a026b6
+commit 753f2bc0ec46c8750d7e44250ac9caf74b0d82b2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2018-12-13 09:26:25-0500
 
     increase max_map_count for hardened malloc
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  rootdir/init.rc | 2 ++
  1 file changed, 2 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index a9af0b094da4e7bbdde03fbe98ca200566e1289e..9dd5444578199e1be0c5ffcc3239de333f54208a 100644
+index 376a678a8361073fbabff8915125c2d86ca903f2..10e824cde7fbebe5a70d3167a51c88ca69702cc3 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -847,20 +847,22 @@ on boot
-     # parameters to match how it is managing things.
-     write /proc/sys/vm/overcommit_memory 1
-     write /proc/sys/vm/min_free_order_shift 4
- 
-     # System server manages zram writeback
-     chown root system /sys/block/zram0/idle
-     chmod 0664 /sys/block/zram0/idle
-     chown root system /sys/block/zram0/writeback
+@@ -999,20 +999,22 @@ on boot
      chmod 0664 /sys/block/zram0/writeback
+ 
+     # to access F2FS sysfs on dm-<num> directly
+     mkdir /dev/sys/fs/by-name 0755 system system
+     symlink /sys/fs/f2fs/${dev.mnt.blk.data} /dev/sys/fs/by-name/userdata
+ 
+     # to access dm-<num> sysfs
+     mkdir /dev/sys/block/by-name 0755 system system
+     symlink /sys/devices/virtual/block/${dev.mnt.blk.data} /dev/sys/block/by-name/userdata
  
 +    write /proc/sys/vm/max_map_count 1048576
 +
-     # Tweak background writeout
-     write /proc/sys/vm/dirty_expire_centisecs 200
-     write /proc/sys/vm/dirty_background_ratio  5
- 
-     # F2FS tuning. Set cp_interval larger than dirty_expire_centisecs
+     # F2FS tuning. Set cp_interval larger than dirty_expire_centisecs, 30 secs,
      # to avoid power consumption when system becomes mostly idle. Be careful
      # to make it too large, since it may bring userdata loss, if they
      # are not aware of using fsync()/sync() to prepare sudden power-cut.
-     write /sys/fs/f2fs/${dev.mnt.blk.data}/cp_interval 200
-     write /sys/fs/f2fs/${dev.mnt.blk.data}/gc_urgent_sleep_time 50
+     write /dev/sys/fs/by-name/userdata/cp_interval 200
+     write /dev/sys/fs/by-name/userdata/gc_urgent_sleep_time 50
+     write /dev/sys/fs/by-name/userdata/iostat_enable 1
+ 
+     # limit discard size to 128MB in order to avoid long IO latency
+     # for filesystem tuning first (dm or sda)
 
-commit 3cf5d4c7ef406552cc91edc772e938892b867412
+commit 759399bf49b24081917e9bc80ac07c3ea00a958e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:46:34-0500
 
     tighten up mount permissions
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  init/first_stage_init.cpp | 6 +++---
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/init/first_stage_init.cpp b/init/first_stage_init.cpp
-index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bfaca8ad97 100644
+index 78e5b60a191b94351631328f5ee24388b5571ccd..3044ffbd71147d3036fd24493f668f634ed5850c 100644
 --- a/init/first_stage_init.cpp
 +++ b/init/first_stage_init.cpp
-@@ -185,31 +185,31 @@ int FirstStageMain(int argc, char** argv) {
-     // Clear the umask.
+@@ -195,35 +195,35 @@ int FirstStageMain(int argc, char** argv) {
      umask(0);
  
      CHECKCALL(clearenv());
@@ -59,6 +62,7 @@ index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bf
      CHECKCALL(mount("tmpfs", "/dev", "tmpfs", MS_NOSUID, "mode=0755"));
      CHECKCALL(mkdir("/dev/pts", 0755));
      CHECKCALL(mkdir("/dev/socket", 0755));
+     CHECKCALL(mkdir("/dev/dm-user", 0755));
 -    CHECKCALL(mount("devpts", "/dev/pts", "devpts", 0, NULL));
 +    CHECKCALL(mount("devpts", "/dev/pts", "devpts", MS_NOSUID|MS_NOEXEC, NULL));
  #define MAKE_STR(x) __STRING(x)
@@ -69,6 +73,10 @@ index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bf
      CHECKCALL(chmod("/proc/cmdline", 0440));
      std::string cmdline;
      android::base::ReadFileToString("/proc/cmdline", &cmdline);
+     // Don't expose the raw bootconfig to unprivileged processes.
+     chmod("/proc/bootconfig", 0440);
+     std::string bootconfig;
+     android::base::ReadFileToString("/proc/bootconfig", &bootconfig);
      gid_t groups[] = {AID_READPROC};
      CHECKCALL(setgroups(arraysize(groups), groups));
 -    CHECKCALL(mount("sysfs", "/sys", "sysfs", 0, NULL));
@@ -84,65 +92,31 @@ index 021557697c36fdc08468fe5d61453c1918e97a65..ff16ff344b8a56a0b619c1abf95aa0bf
      CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
      CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
 
-commit b3a0c2c5db28852b6d485542c8a4f1649a256892
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Fri 2015-02-06 11:41:57-0500
-
-    zero sensitive information with explicit_bzero
----
- init/security.cpp | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/init/security.cpp b/init/security.cpp
-index 6cbe642c081b13c12d7d951b0620d2dcf52e4b89..82fc8ca6413cb55f1ea7ef53968cc64968243478 100644
---- a/init/security.cpp
-+++ b/init/security.cpp
-@@ -71,20 +71,21 @@ Result<void> MixHwrngIntoLinuxRngAction(const BuiltinArguments&) {
-     while (total_bytes_written < sizeof(buf)) {
-         ssize_t chunk_size =
-             TEMP_FAILURE_RETRY(read(hwrandom_fd, buf, sizeof(buf) - total_bytes_written));
-         if (chunk_size == -1) {
-             return ErrnoError() << "Failed to read from /dev/hw_random";
-         } else if (chunk_size == 0) {
-             return Error() << "Failed to read from /dev/hw_random: EOF";
-         }
- 
-         chunk_size = TEMP_FAILURE_RETRY(write(urandom_fd, buf, chunk_size));
-+        explicit_bzero(buf, chunk_size);
-         if (chunk_size == -1) {
-             return ErrnoError() << "Failed to write to /dev/urandom";
-         }
-         total_bytes_written += chunk_size;
-     }
- 
-     LOG(INFO) << "Mixed " << total_bytes_written << " bytes from /dev/hw_random into /dev/urandom";
-     return {};
- }
- 
-
-commit 943a8bfbeea6dd09876ee361d8f70cf90ac87086
+commit 13485e55b1fc6f6252248b69e3ee8b6da4ea796c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-06-15 17:51:42-0400
 
     add properties for controlling deny_new_usb
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  rootdir/init.rc | 12 ++++++++++++
  1 file changed, 12 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 9dd5444578199e1be0c5ffcc3239de333f54208a..7ef43016e86db545c9cb076fc311f981f4894df2 100644
+index 10e824cde7fbebe5a70d3167a51c88ca69702cc3..77dea972612e631e143ec74d8475fad60010a9cf 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -989,20 +989,32 @@ on property:sys.boot_completed=1
- # system server cannot write to /proc/sys files,
- # and chown/chmod does not work for /proc/sys/ entries.
- # So proxy writes through init.
- on property:sys.sysctl.extra_free_kbytes=*
-     write /proc/sys/vm/extra_free_kbytes ${sys.sysctl.extra_free_kbytes}
+@@ -1140,20 +1140,32 @@ on property:sys.sysctl.extra_free_kbytes=*
+ 
+ # Allow users to drop caches
+ on property:perf.drop_caches=3
+     write /proc/sys/vm/drop_caches 3
+     setprop perf.drop_caches 0
  
  # "tcp_default_init_rwnd" Is too long!
- on property:sys.sysctl.tcp_def_init_rwnd=*
-     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${sys.sysctl.tcp_def_init_rwnd}
+ on property:net.tcp_def_init_rwnd=*
+     write /proc/sys/net/ipv4/tcp_default_init_rwnd ${net.tcp_def_init_rwnd}
  
 +on property:persist.security.deny_new_usb=disabled
 +    write /proc/sys/kernel/deny_new_usb 0
@@ -167,20 +141,22 @@ index 9dd5444578199e1be0c5ffcc3239de333f54208a..7ef43016e86db545c9cb076fc311f981
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
 
-commit a54efdc9bf339289af62dbce445485ec708bb12c
+commit 126c540eceb323a65960e8b908732f4aeb886750
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:49:29-0400
 
     enable kernel mitigations for link races
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  rootdir/init.rc | 3 +++
  1 file changed, 3 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 7ef43016e86db545c9cb076fc311f981f4894df2..4fefe9c89dae14a8a8a8e32dacca5d9ba0d46b5e 100644
+index 77dea972612e631e143ec74d8475fad60010a9cf..a20c524bd675aef71b880cc75e7340f89e452ad2 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -221,20 +221,23 @@ on init
+@@ -276,20 +276,23 @@ on init
      mkdir /mnt/runtime/full/self 0755 root root
  
      # Symlink to keep legacy apps working in multi-user world
@@ -205,20 +181,22 @@ index 7ef43016e86db545c9cb076fc311f981f4894df2..4fefe9c89dae14a8a8a8e32dacca5d9b
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 780cce3e59b2da986f67162431b22713505e8dc0
+commit 4b787c8db4f690b3f8af146e7cb3970e4e323d07
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:54:28-0400
 
     enable kernel mitigations for file spoofing
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  rootdir/init.rc | 3 +++
  1 file changed, 3 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 4fefe9c89dae14a8a8a8e32dacca5d9ba0d46b5e..d2f8d74529a30aa7fda1f9873c8871b2cc5af87b 100644
+index a20c524bd675aef71b880cc75e7340f89e452ad2..eebb26adcd50e87f129f8652de57970e014f3889 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -224,20 +224,23 @@ on init
+@@ -279,20 +279,23 @@ on init
      symlink /storage/self/primary /mnt/sdcard
      symlink /mnt/user/0/primary /mnt/runtime/default/self/primary
  
@@ -243,20 +221,22 @@ index 4fefe9c89dae14a8a8a8e32dacca5d9ba0d46b5e..d2f8d74529a30aa7fda1f9873c8871b2
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit ad017fba58cf8918a2dfe05f90affd2e1abe6b6a (HEAD, tag: RQ3A.211001.001.2021100502, m/master)
+commit db920f09ac076ed309c4494c1dc28c50fdad9e5a (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 03:02:51+0100
 
     add a property for controlling ptrace_scope
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  rootdir/init.rc | 6 ++++++
  1 file changed, 6 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index d2f8d74529a30aa7fda1f9873c8871b2cc5af87b..d60dfa7b653f491cc74d6b7507541f0fb444f55a 100644
+index eebb26adcd50e87f129f8652de57970e014f3889..335ef9a1e0cbb5337575c73a0fbd4218fed2f13a 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -1007,20 +1007,26 @@ on property:persist.security.deny_new_usb=disabled
+@@ -1158,20 +1158,26 @@ on property:persist.security.deny_new_usb=disabled
  
  on property:persist.security.deny_new_usb=enabled
      write /proc/sys/kernel/deny_new_usb 1

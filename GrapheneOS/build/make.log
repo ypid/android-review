@@ -1,63 +1,191 @@
-commit 57c7456fd7a0536bca33056a8a6a6fa5f7ae9e7d
-Author: Chirayu Desai <chirayudesai1@gmail.com>
-Date:   Fri 2020-03-27 03:49:31+0530
+commit 659e044b986c7207297cd2b92a660b91394ce037
+Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
+Date:   Thu 2021-09-23 01:29:27+0000
 
-    releasetools: Use du -b
+    Version bump to SP1A.211105.003 [core/build_id.mk]
     
-    * When $OUT is on a compressed disk,
-      `du -k -s` might not return the correct sizes.
-    * Adding `-b` gets us close to the actual size.
-    
-    toybox commit: https://github.com/landley/toybox/pull/177
-    
-    Test: m, builds and boots.
-    Devices: crosshatch blueline bonito sargo (anything with dynamic partitions)
+    Change-Id: If3c90060e117372b9590550813fafb7b1d9dd4b8
 ---
- tools/releasetools/build_image.py | 2 +-
+ core/build_id.mk | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/tools/releasetools/build_image.py b/tools/releasetools/build_image.py
-index 8cf074147e6f90a4601974b8dc36437a70cc762a..7567346493282ad35cf2e372c45ddbde0e3df181 100755
---- a/tools/releasetools/build_image.py
-+++ b/tools/releasetools/build_image.py
-@@ -50,21 +50,21 @@ class BuildImageError(Exception):
+diff --git a/core/build_id.mk b/core/build_id.mk
+index c4aa6999eae4a7f995309264aa5501ea4fd0a625..91ac0e268dbb1308a5deba0ff28fe2c410ecd197 100644
+--- a/core/build_id.mk
++++ b/core/build_id.mk
+@@ -11,11 +11,11 @@
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ # BUILD_ID is usually used to specify the branch name
+ # (like "MAIN") or a branch name and a release candidate
+ # (like "CRB01").  It must be a single word, and is
+ # capitalized by convention.
  
- def GetDiskUsage(path):
-   """Returns the number of bytes that "path" occupies on host.
- 
-   Args:
-     path: The directory or file to calculate size on.
- 
-   Returns:
-     The number of bytes based on a 1K block_size.
-   """
--  cmd = ["du", "-k", "-s", path]
-+  cmd = ["du", "-b", "-k", "-s", path]
-   output = common.RunAndCheckOutput(cmd, verbose=False)
-   return int(output.split()[0]) * 1024
- 
- 
- def GetInodeUsage(path):
-   """Returns the number of inodes that "path" occupies on host.
- 
-   Args:
-     path: The directory or file to calculate inode number on.
- 
+-BUILD_ID=SP1A.211105.002
++BUILD_ID=SP1A.211105.003
 
-commit a5800cff74c25dd03ecffc85177d656466443515
+commit 53d8aa9e906bf1ac5e7ca942a8965cbc48550960
+Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
+Date:   Wed 2021-10-20 20:28:37+0000
+
+    Version bump to SP1A.211105.004 [core/build_id.mk]
+    
+    Change-Id: I5efdc7bbff1a82c3827d35649eab32d288828c06
+---
+ core/build_id.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/build_id.mk b/core/build_id.mk
+index 91ac0e268dbb1308a5deba0ff28fe2c410ecd197..fe2823a4abec7a1b16e947ac1b7acd80131c5dc5 100644
+--- a/core/build_id.mk
++++ b/core/build_id.mk
+@@ -11,11 +11,11 @@
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ # BUILD_ID is usually used to specify the branch name
+ # (like "MAIN") or a branch name and a release candidate
+ # (like "CRB01").  It must be a single word, and is
+ # capitalized by convention.
+ 
+-BUILD_ID=SP1A.211105.003
++BUILD_ID=SP1A.211105.004
+
+commit c3c6512e5f91e37ad50f459fa3f4a27a36836c49
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2021-10-06 04:08:11+0100
+
+    Set BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES as workaround for APV
+    
+    Change-Id: I25cff5eec6335f526e27fa7ed08c79b9fbfcfe5a
+---
+ target/board/BoardConfigPixelCommon.mk | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/target/board/BoardConfigPixelCommon.mk b/target/board/BoardConfigPixelCommon.mk
+index a970fec1ecf83bd1d2a55cf2a247fb445dd2b139..67c3a2b62d17c3b2b3f36c05bfe5972e5a88f369 100644
+--- a/target/board/BoardConfigPixelCommon.mk
++++ b/target/board/BoardConfigPixelCommon.mk
+@@ -9,10 +9,13 @@ BOARD_AVB_SYSTEM_OTHER_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ BOARD_AVB_SYSTEM_EXT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ BOARD_AVB_PRODUCT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ 
+ # vendor and odm.
+ BOARD_AVB_VENDOR_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ 
+ # vendor_dlkm and odm_dlkm.
+ BOARD_AVB_VENDOR_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ BOARD_AVB_ODM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
++
++# temporary hack for APV
++BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+
+commit 6e94781ea9e3134eddaf148aeca463b1a6c45ac4
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2020-09-16 18:05:27-0400
+
+    add factory images scripts to otatools.zip
+---
+ core/Makefile | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/core/Makefile b/core/Makefile
+index 2d56edb9eee5f1591b9597b0fab09f1cf70de4cb..1a72716ae28194fd178de7676252d294835aeb3a 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -4417,20 +4417,25 @@ endif
+ ifneq (,$(wildcard external/avb))
+ INTERNAL_OTATOOLS_PACKAGE_FILES += \
+   $(sort $(shell find external/avb/test/data -type f -name "testkey_*.pem" -o \
+       -name "atx_metadata.bin"))
+ endif
+ ifeq (true,$(PRODUCT_SUPPORTS_VBOOT))
+ INTERNAL_OTATOOLS_PACKAGE_FILES += \
+   $(sort $(shell find external/vboot_reference/tests/devkeys -type f))
+ endif
+ 
++# Factory images
++INTERNAL_OTATOOLS_PACKAGE_FILES += \
++  device/common/clear-factory-images-variables.sh \
++  device/common/generate-factory-images-common.sh
++
+ INTERNAL_OTATOOLS_RELEASETOOLS := \
+   $(sort $(shell find build/make/tools/releasetools -name "*.pyc" -prune -o \
+       \( -type f -o -type l \) -print))
+ 
+ BUILT_OTATOOLS_PACKAGE := $(PRODUCT_OUT)/otatools.zip
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_ZIP_ROOT := $(call intermediates-dir-for,PACKAGING,otatools)/otatools
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_PACKAGE_FILES := $(INTERNAL_OTATOOLS_PACKAGE_FILES)
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_RELEASETOOLS := $(INTERNAL_OTATOOLS_RELEASETOOLS)
+ $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
+ $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
+
+commit 13cee460773dcdc8c946fb5af8368f5793ec7496
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2021-10-15 00:58:53-0400
+
+    add GrapheneOS scripts to otatools.zip
+---
+ core/Makefile | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/core/Makefile b/core/Makefile
+index 1a72716ae28194fd178de7676252d294835aeb3a..a7153704c87f9c0280d7be6104f47517ed78bcb5 100644
+--- a/core/Makefile
++++ b/core/Makefile
+@@ -4422,20 +4422,29 @@ endif
+ ifeq (true,$(PRODUCT_SUPPORTS_VBOOT))
+ INTERNAL_OTATOOLS_PACKAGE_FILES += \
+   $(sort $(shell find external/vboot_reference/tests/devkeys -type f))
+ endif
+ 
+ # Factory images
+ INTERNAL_OTATOOLS_PACKAGE_FILES += \
+   device/common/clear-factory-images-variables.sh \
+   device/common/generate-factory-images-common.sh
+ 
++# GrapheneOS scripts
++INTERNAL_OTATOOLS_PACKAGE_FILES += \
++  script/common.sh \
++  script/decrypt_keys.sh \
++  script/encrypt_keys.sh \
++  script/generate_metadata.py \
++  script/release.sh \
++  script/signify_prehash.sh
++
+ INTERNAL_OTATOOLS_RELEASETOOLS := \
+   $(sort $(shell find build/make/tools/releasetools -name "*.pyc" -prune -o \
+       \( -type f -o -type l \) -print))
+ 
+ BUILT_OTATOOLS_PACKAGE := $(PRODUCT_OUT)/otatools.zip
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_ZIP_ROOT := $(call intermediates-dir-for,PACKAGING,otatools)/otatools
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_PACKAGE_FILES := $(INTERNAL_OTATOOLS_PACKAGE_FILES)
+ $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_RELEASETOOLS := $(INTERNAL_OTATOOLS_RELEASETOOLS)
+ $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
+ $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
+
+commit 5bcbfb4cdd9c59e8df05fb171d8e85fc557711a0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-11-23 04:27:20-0500
 
     enable ro.control_privapp_permissions=enforce
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  core/main.mk | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/core/main.mk b/core/main.mk
-index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8e2678cb9 100644
+index c10a3cc5412a69c593488fd6196e3c581a17eab5..dd74da5b465e53ef162b35286ca9ee4896dbe70b 100644
 --- a/core/main.mk
 +++ b/core/main.mk
-@@ -258,20 +258,21 @@ endif
+@@ -367,20 +367,21 @@ endif
  
  ## user/userdebug ##
  
@@ -66,12 +194,12 @@ index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8
  tags_to_install :=
  ifneq (,$(user_variant))
    # Target is secure in user builds.
-   ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=1
-   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
-+  ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
+   ADDITIONAL_SYSTEM_PROPERTIES += ro.secure=1
+   ADDITIONAL_SYSTEM_PROPERTIES += security.perf_harden=1
++  ADDITIONAL_SYSTEM_PROPERTIES += ro.control_privapp_permissions=enforce
  
    ifeq ($(user_variant),user)
-     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+     ADDITIONAL_SYSTEM_PROPERTIES += ro.adb.secure=1
    endif
  
    ifeq ($(user_variant),userdebug)
@@ -80,17 +208,19 @@ index 357c70da33e8198ae39c8e1f499acb248f281f38..97103e3f85ba6409b585c13e3a6ebbe8
    else
      # Disable debugging in plain user builds.
 
-commit 00aa98a92704d779965ab35220c4e3deb3d68daf
+commit a84abaae3696c95dbecee925fcf45cc7b2b95866
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:24:59-0400
 
     include Updater app when OFFICIAL_BUILD=true
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/media_system.mk | 4 ++++
  1 file changed, 4 insertions(+)
 
 diff --git a/target/product/media_system.mk b/target/product/media_system.mk
-index 4d507b5fb05a17bf1208a6cbcb9385cee9ec7384..dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662 100644
+index 30a8621b1565c61fe0154d5486e81103ea77e1f4..52329852398cf298b062f82b2bbea674639963c0 100644
 --- a/target/product/media_system.mk
 +++ b/target/product/media_system.mk
 @@ -30,20 +30,24 @@ PRODUCT_PACKAGES += \
@@ -119,11 +249,13 @@ index 4d507b5fb05a17bf1208a6cbcb9385cee9ec7384..dad89f4e1f0d9a4f4cb6a24b6bbf8e9c
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit fee8c026423c1c2f934d01996d1c24b9e436d31c
+commit 0d48daabf18fca638ac38dca79458268f939b134
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:59:56-0400
 
     include Stk in base telephony support
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/aosp_base_telephony.mk | 3 ++-
  1 file changed, 2 insertions(+), 1 deletion(-)
@@ -147,30 +279,78 @@ index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c808
 +    messaging \
 +    Stk
 
-commit 8c9183f29406a93cb596ebd76ca27eb8c5f8bbe8
+commit cd3e45371e618071bfa0eebc5ca7298e636caf00
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:28:11-0400
 
     always use dex preopt
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- core/dex_preopt_config.mk | 7 +------
- 1 file changed, 1 insertion(+), 6 deletions(-)
+ core/board_config.mk      |  5 +----
+ core/dex_preopt_config.mk | 32 +++++++++++++-------------------
+ 2 files changed, 14 insertions(+), 23 deletions(-)
 
+diff --git a/core/board_config.mk b/core/board_config.mk
+index 1b08f9a0b4059d840cbaf5335e255df143ebecb6..aaca505270af48b4463e16a2e68f6fd6491fe1dc 100644
+--- a/core/board_config.mk
++++ b/core/board_config.mk
+@@ -140,24 +140,21 @@ _build_broken_var_list := \
+ _build_broken_var_list += \
+   $(foreach m,$(AVAILABLE_BUILD_MODULE_TYPES) \
+               $(DEFAULT_WARNING_BUILD_MODULE_TYPES) \
+               $(DEFAULT_ERROR_BUILD_MODULE_TYPES), \
+     BUILD_BROKEN_USES_$(m))
+ 
+ _board_true_false_vars := $(_build_broken_var_list)
+ _board_strip_readonly_list += $(_build_broken_var_list) \
+   BUILD_BROKEN_NINJA_USES_ENV_VARS
+ 
+-# Conditional to building on linux, as dex2oat currently does not work on darwin.
+-ifeq ($(HOST_OS),linux)
+-  WITH_DEXPREOPT := true
+-endif
++WITH_DEXPREOPT := true
+ 
+ # ###############################################################
+ # Broken build defaults
+ # ###############################################################
+ $(foreach v,$(_build_broken_var_list),$(eval $(v) :=))
+ BUILD_BROKEN_NINJA_USES_ENV_VARS :=
+ 
+ # Boards may be defined under $(SRC_TARGET_DIR)/board/$(TARGET_DEVICE)
+ # or under vendor/*/$(TARGET_DEVICE).  Search in both places, but
+ # make sure only one exists.
 diff --git a/core/dex_preopt_config.mk b/core/dex_preopt_config.mk
-index ccf53f52295bfaceb718df5c5e51da87f535e2b4..7fb3644291a1e95ce256c4d85dd164dbfba4853d 100644
+index 51238a36ca10cecc8192b9157d4d792566acae91..9d261453f4cd07cd666202b60281c2726df2c85f 100644
 --- a/core/dex_preopt_config.mk
 +++ b/core/dex_preopt_config.mk
-@@ -1,33 +1,28 @@
- DEX_PREOPT_CONFIG := $(SOONG_OUT_DIR)/dexpreopt.config
+@@ -11,21 +11,23 @@ else ifneq (true,$(filter true,$(PRODUCT_USES_DEFAULT_ART_CONFIG)))
+   # ART config means that some important system properties are not set, which
+   # would result in passing bad arguments to dex2oat and failing the build.
+   ENABLE_PREOPT :=
+   ENABLE_PREOPT_BOOT_IMAGES :=
+ else ifeq (true,$(DISABLE_PREOPT))
+   # Disable dexpreopt for libraries/apps, but do compile boot images.
+   ENABLE_PREOPT :=
+ endif
  
  # The default value for LOCAL_DEX_PREOPT
--DEX_PREOPT_DEFAULT ?= true
+-DEX_PREOPT_DEFAULT ?= $(ENABLE_PREOPT)
 +DEX_PREOPT_DEFAULT := true
++
++WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
  
- # The default filter for which files go into the system_other image (if it is
- # being used). Note that each pattern p here matches both '/<p>' and /system/<p>'.
- # To bundle everything one should set this to '%'.
- SYSTEM_OTHER_ODEX_FILTER ?= \
+ # Whether to fail immediately if verify_uses_libraries check fails, or to keep
+ # going and restrict dexpreopt to not compile any code for the failed module.
+ #
+ # The intended use case for this flag is to have a smoother migration path for
+ # the Java modules that need to add <uses-library> information in their build
+ # files. The flag allows to quickly silence build errors. This flag should be
+ # used with caution and only as a temporary measure, as it masks real errors
+ # and affects performance.
+ ifndef RELAX_USES_LIBRARY_CHECK
+@@ -43,39 +45,31 @@ SYSTEM_OTHER_ODEX_FILTER ?= \
      app/% \
      priv-app/% \
      system_ext/app/% \
@@ -178,167 +358,237 @@ index ccf53f52295bfaceb718df5c5e51da87f535e2b4..7fb3644291a1e95ce256c4d85dd164db
      product/app/% \
      product/priv-app/% \
  
- # Conditional to building on linux, as dex2oat currently does not work on darwin.
- ifeq ($(HOST_OS),linux)
+ # Global switch to control if updatable boot jars are included in dexpreopt.
+ DEX_PREOPT_WITH_UPDATABLE_BCP := true
+ 
+-# Conditional to building on linux, as dex2oat currently does not work on darwin.
+-ifeq ($(HOST_OS),linux)
 -  ifeq (eng,$(TARGET_BUILD_VARIANT))
 -    # For an eng build only pre-opt the boot image and system server. This gives reasonable performance
 -    # and still allows a simple workflow: building in frameworks/base and syncing.
 -    WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY ?= true
 -  endif
-   # Add mini-debug-info to the boot classpath unless explicitly asked not to.
-   ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
-     PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
-   endif
+-  # Add mini-debug-info to the boot classpath unless explicitly asked not to.
+-  ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
+-    PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
+-  endif
++# Add mini-debug-info to the boot classpath unless explicitly asked not to.
++ifneq (false,$(WITH_DEXPREOPT_DEBUG_INFO))
++  PRODUCT_DEX_PREOPT_BOOT_FLAGS += --generate-mini-debug-info
++endif
  
-   # Non eng linux builds must have preopt enabled so that system server doesn't run as interpreter
-   # only. b/74209329
-   ifeq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
-     ifneq (true,$(WITH_DEXPREOPT))
-       ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
+-  # Non eng linux builds must have preopt enabled so that system server doesn't run as interpreter
+-  # only. b/74209329
+-  ifeq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
+-    ifneq (true,$(WITH_DEXPREOPT))
+-      ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
+-        $(call pretty-error, DEXPREOPT must be enabled for user and userdebug builds)
+-      endif
++# Non eng builds must have preopt enabled so that system server doesn't run as interpreter
++# only. b/74209329
++ifeq (,$(filter eng, $(TARGET_BUILD_VARIANT)))
++  ifneq (true,$(WITH_DEXPREOPT))
++    ifneq (true,$(WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY))
++      $(call pretty-error, DEXPREOPT must be enabled for user and userdebug builds)
+     endif
+   endif
+ endif
+ 
+ # Get value of a property. It is first searched from PRODUCT_VENDOR_PROPERTIES
+ # and then falls back to PRODUCT_SYSTEM_PROPERTIES
+ # $1: name of the property
+ define get-product-default-property
+ $(strip \
+   $(eval _prop := $(patsubst $(1)=%,%,$(filter $(1)=%,$(PRODUCT_VENDOR_PROPERTIES))))\
 
-commit 904c1e837a2dd9b251d57c2e064186d5af047df0
+commit 1a9e67830cbade36383cd654199fab09725d8d5e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2016-08-28 14:14:10-0400
 
     disable ART JIT and JIT profiling
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/runtime_libart.mk | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
-index 693b686fbb4b0fb700f12d9ddd422362b52ccf90..6aae4507edf29df107597125f6d044caf62af909 100644
+index b511aa6b94b940679026e1f51be52b6d54469e53..031e7b827f37a3213cbae3f1a484ce51683f0e5c 100644
 --- a/target/product/runtime_libart.mk
 +++ b/target/product/runtime_libart.mk
-@@ -38,22 +38,22 @@ PRODUCT_PACKAGES += \
-     cacerts \
- 
- PRODUCT_PACKAGES += \
-     hiddenapi-package-whitelist.xml \
- 
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-     dalvik.vm.image-dex2oat-Xms=64m \
-     dalvik.vm.image-dex2oat-Xmx=64m \
-     dalvik.vm.dex2oat-Xms=64m \
-     dalvik.vm.dex2oat-Xmx=512m \
+@@ -79,22 +79,22 @@ PRODUCT_PACKAGES += \
+ # listed here:
+ #
+ # https://source.android.com/devices/architecture/hidl/thermal-mitigation#thermal-api
+ #
+ # If the thermal status of the device reaches or exceeds the value set here
+ # background dexopt will be terminated and rescheduled using an exponential
+ # backoff polcy.
+ #
+ # The thermal cutoff value is currently set to THERMAL_STATUS_MODERATE.
+ PRODUCT_SYSTEM_PROPERTIES += \
 -    dalvik.vm.usejit=true \
 -    dalvik.vm.usejitprofiles=true \
 +    dalvik.vm.usejit=false \
 +    dalvik.vm.usejitprofiles=false \
      dalvik.vm.dexopt.secondary=true \
+     dalvik.vm.dexopt.thermal-cutoff=2 \
      dalvik.vm.appimageformat=lz4
  
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ PRODUCT_SYSTEM_PROPERTIES += \
      ro.dalvik.vm.native.bridge=0
  
  # Different dexopt types for different package update/install times.
  # On eng builds, make "boot" reasons only extract for faster turnaround.
  ifeq (eng,$(TARGET_BUILD_VARIANT))
-     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 
-commit 9fbeacdfb2a706d37dcf4403bdfad984da8c8a09
+commit ee54d101132b3655eecc8c13775e7eff7e238e0f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-09-07 23:27:07-0400
 
     disable dexopt profile usage
     
     Profiling is disabled, but make sure that profiles are not used at all.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- target/product/runtime_libart.mk | 9 +++------
- 1 file changed, 3 insertions(+), 6 deletions(-)
+ target/product/runtime_libart.mk | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
 diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
-index 6aae4507edf29df107597125f6d044caf62af909..309672b785f1b34a839214b65bdcfa7e474eb06c 100644
+index 031e7b827f37a3213cbae3f1a484ce51683f0e5c..ec0f89b81eb694c59007d379f8e9619303c49d0e 100644
 --- a/target/product/runtime_libart.mk
 +++ b/target/product/runtime_libart.mk
-@@ -58,27 +58,24 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+@@ -100,36 +100,33 @@ PRODUCT_SYSTEM_PROPERTIES += \
  ifeq (eng,$(TARGET_BUILD_VARIANT))
-     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-         pm.dexopt.first-boot=extract \
-         pm.dexopt.boot=extract
+     PRODUCT_SYSTEM_PROPERTIES += \
+         pm.dexopt.first-boot?=extract \
+         pm.dexopt.boot-after-ota?=extract
  else
-     PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-         pm.dexopt.first-boot=quicken \
-         pm.dexopt.boot=verify
+     PRODUCT_SYSTEM_PROPERTIES += \
+         pm.dexopt.first-boot?=verify \
+         pm.dexopt.boot-after-ota?=verify
  endif
  
 -# The install filter is speed-profile in order to enable the use of
 -# profiles from the dex metadata files. Note that if a profile is not provided
 -# or if it is empty speed-profile is equivalent to (quicken + empty app image).
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
--    pm.dexopt.install=speed-profile \
--    pm.dexopt.bg-dexopt=speed-profile \
--    pm.dexopt.ab-ota=speed-profile \
-+    pm.dexopt.install=speed \
-+    pm.dexopt.bg-dexopt=speed \
-+    pm.dexopt.ab-ota=speed \
-     pm.dexopt.inactive=verify \
-     pm.dexopt.shared=speed
+ # Note that `cmdline` is not strictly needed but it simplifies the management
+ # of compilation reason in the platform (as we have a unified, single path,
+ # without exceptions).
+ PRODUCT_SYSTEM_PROPERTIES += \
+     pm.dexopt.post-boot?=extract \
+-    pm.dexopt.install?=speed-profile \
++    pm.dexopt.install?=speed \
+     pm.dexopt.install-fast?=skip \
+-    pm.dexopt.install-bulk?=speed-profile \
++    pm.dexopt.install-bulk?=speed \
+     pm.dexopt.install-bulk-secondary?=verify \
+     pm.dexopt.install-bulk-downgraded?=verify \
+     pm.dexopt.install-bulk-secondary-downgraded?=extract \
+-    pm.dexopt.bg-dexopt?=speed-profile \
+-    pm.dexopt.ab-ota?=speed-profile \
++    pm.dexopt.bg-dexopt?=speed \
++    pm.dexopt.ab-ota?=speed \
+     pm.dexopt.inactive?=verify \
+     pm.dexopt.cmdline?=verify \
+     pm.dexopt.shared?=speed
  
  # Pass file with the list of updatable boot class path packages to dex2oat.
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ PRODUCT_SYSTEM_PROPERTIES += \
      dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
  
  # Enable resolution of startup const strings.
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-     dalvik.vm.dex2oat-resolve-startup-strings=true
+ PRODUCT_SYSTEM_PROPERTIES += \
 
-commit bce436243196294fa115b9be5f877f5433201919
+commit 9a9f39f1b650b0a336422575f21170eecc155a8a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-09-29 01:02:28-0400
 
-    stop relying on background compilation
+    always use speed mode ahead-of-time compilation
     
     The interpreter is too slow without the JIT to help it.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- target/product/runtime_libart.mk | 14 ++------------
- 1 file changed, 2 insertions(+), 12 deletions(-)
+ target/product/runtime_libart.mk | 38 ++++++++++++++------------------------
+ 1 file changed, 14 insertions(+), 24 deletions(-)
 
 diff --git a/target/product/runtime_libart.mk b/target/product/runtime_libart.mk
-index 309672b785f1b34a839214b65bdcfa7e474eb06c..724a455db99ef7a9aac4b92696bd95e7f5361870 100644
+index ec0f89b81eb694c59007d379f8e9619303c49d0e..2916e4b2e7fcbcfb2ee6c2cc8b54b31153a555e2 100644
 --- a/target/product/runtime_libart.mk
 +++ b/target/product/runtime_libart.mk
-@@ -46,33 +46,23 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-     dalvik.vm.dex2oat-Xms=64m \
-     dalvik.vm.dex2oat-Xmx=512m \
+@@ -88,48 +88,38 @@ PRODUCT_PACKAGES += \
+ PRODUCT_SYSTEM_PROPERTIES += \
      dalvik.vm.usejit=false \
      dalvik.vm.usejitprofiles=false \
      dalvik.vm.dexopt.secondary=true \
+     dalvik.vm.dexopt.thermal-cutoff=2 \
      dalvik.vm.appimageformat=lz4
  
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ PRODUCT_SYSTEM_PROPERTIES += \
      ro.dalvik.vm.native.bridge=0
  
 -# Different dexopt types for different package update/install times.
 -# On eng builds, make "boot" reasons only extract for faster turnaround.
 -ifeq (eng,$(TARGET_BUILD_VARIANT))
--    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
--        pm.dexopt.first-boot=extract \
--        pm.dexopt.boot=extract
+-    PRODUCT_SYSTEM_PROPERTIES += \
+-        pm.dexopt.first-boot?=extract \
+-        pm.dexopt.boot-after-ota?=extract
 -else
--    PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
--        pm.dexopt.first-boot=quicken \
--        pm.dexopt.boot=verify
+-    PRODUCT_SYSTEM_PROPERTIES += \
+-        pm.dexopt.first-boot?=verify \
+-        pm.dexopt.boot-after-ota?=verify
 -endif
 -
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ # Note that `cmdline` is not strictly needed but it simplifies the management
+ # of compilation reason in the platform (as we have a unified, single path,
+ # without exceptions).
+ PRODUCT_SYSTEM_PROPERTIES += \
+-    pm.dexopt.post-boot?=extract \
+-    pm.dexopt.install?=speed \
+-    pm.dexopt.install-fast?=skip \
+-    pm.dexopt.install-bulk?=speed \
+-    pm.dexopt.install-bulk-secondary?=verify \
+-    pm.dexopt.install-bulk-downgraded?=verify \
+-    pm.dexopt.install-bulk-secondary-downgraded?=extract \
+-    pm.dexopt.bg-dexopt?=speed \
+-    pm.dexopt.ab-ota?=speed \
+-    pm.dexopt.inactive?=verify \
+-    pm.dexopt.cmdline?=verify \
+-    pm.dexopt.shared?=speed
 +    pm.dexopt.first-boot=speed \
-+    pm.dexopt.boot=speed \
-     pm.dexopt.install=speed \
-     pm.dexopt.bg-dexopt=speed \
-     pm.dexopt.ab-ota=speed \
-     pm.dexopt.inactive=verify \
-     pm.dexopt.shared=speed
++    pm.dexopt.boot-after-ota=speed \
++    pm.dexopt.post-boot=speed \
++    pm.dexopt.install=speed \
++    pm.dexopt.install-fast=speed \
++    pm.dexopt.install-bulk=speed \
++    pm.dexopt.install-bulk-secondary=speed \
++    pm.dexopt.install-bulk-downgraded=speed \
++    pm.dexopt.install-bulk-secondary-downgraded=speed \
++    pm.dexopt.bg-dexopt=speed \
++    pm.dexopt.ab-ota=speed \
++    pm.dexopt.inactive=speed \
++    pm.dexopt.cmdline=speed \
++    pm.dexopt.shared=speed
  
  # Pass file with the list of updatable boot class path packages to dex2oat.
- PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+ PRODUCT_SYSTEM_PROPERTIES += \
      dalvik.vm.dex2oat-updatable-bcp-packages-file=/system/etc/updatable-bcp-packages.txt
  
+ # Enable resolution of startup const strings.
+ PRODUCT_SYSTEM_PROPERTIES += \
+     dalvik.vm.dex2oat-resolve-startup-strings=true
+ 
+ # Specify default block size of 512K to enable parallel image decompression.
 
-commit a1c7c8829ed988d558e43104ec5305defac8a9f0
+commit aea4482edf196261dc1894f836d6565595228cf4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:42:53-0400
 
     add Auditor app
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_product.mk | 1 +
  1 file changed, 1 insertion(+)
@@ -370,11 +620,13 @@ index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e27
      OneTimeInitializer \
      preinstalled-packages-platform-handheld-product.xml \
 
-commit 3f594002874858daef92af7a2cf6e8d751953b09
+commit 179bffcf8da5ac57bfed5bc4bf67d5cb8f875245
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:43:04-0400
 
     add PdfViewer app
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_product.mk | 1 +
  1 file changed, 1 insertion(+)
@@ -403,20 +655,22 @@ index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 4c3e78af87607a67726d7b4c298ad572afbc38e9
+commit 8a2c7924d1057891f35541e9e40d1c47ba0bb883
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-06-17 07:13:49-0400
 
     set deny_new_usb feature to dynamic by default
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  core/main.mk | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/core/main.mk b/core/main.mk
-index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78a55979cf 100644
+index dd74da5b465e53ef162b35286ca9ee4896dbe70b..12e961d25fe17f5ba665e9fb94796f6efa7c2af5 100644
 --- a/core/main.mk
 +++ b/core/main.mk
-@@ -259,20 +259,21 @@ endif
+@@ -368,20 +368,21 @@ endif
  ## user/userdebug ##
  
  user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
@@ -424,13 +678,13 @@ index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78
  tags_to_install :=
  ifneq (,$(user_variant))
    # Target is secure in user builds.
-   ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=1
-   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
-   ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
-+  ADDITIONAL_DEFAULT_PROPERTIES += persist.security.deny_new_usb=dynamic
+   ADDITIONAL_SYSTEM_PROPERTIES += ro.secure=1
+   ADDITIONAL_SYSTEM_PROPERTIES += security.perf_harden=1
+   ADDITIONAL_SYSTEM_PROPERTIES += ro.control_privapp_permissions=enforce
++  ADDITIONAL_SYSTEM_PROPERTIES += persist.security.deny_new_usb=dynamic
  
    ifeq ($(user_variant),user)
-     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+     ADDITIONAL_SYSTEM_PROPERTIES += ro.adb.secure=1
    endif
  
    ifeq ($(user_variant),userdebug)
@@ -439,27 +693,29 @@ index 97103e3f85ba6409b585c13e3a6ebbe8e2678cb9..e95a7ea62332bd8d6f141da182ae2f78
    else
      # Disable debugging in plain user builds.
 
-commit 508c9f9cbd04cdb52806e4ac2e6dd48fd27254d6
+commit 3bd926a75648fccc04e37b0986a82c6ade16beb1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-09-13 22:05:56-0400
 
     use -fwrapv when signed overflow checking is off
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  core/config_sanitizers.mk | 6 ++++++
  1 file changed, 6 insertions(+)
 
 diff --git a/core/config_sanitizers.mk b/core/config_sanitizers.mk
-index efb21e7c6a532c8dd7ce63950d187a4bf37a4ba4..41d7fe5dbf3b4a471bd96bc568593ad0534ac58f 100644
+index 46f7f2477b620acd5f539c2c140d52e38e539a77..017aa238225c4a30981f68c28c175225d6616291 100644
 --- a/core/config_sanitizers.mk
 +++ b/core/config_sanitizers.mk
-@@ -440,10 +440,16 @@ endif
- # http://b/119329758, Android core does not boot up with this sanitizer yet.
- # Previously sanitized modules might not pass new implicit-integer-sign-change check.
+@@ -501,10 +501,16 @@ endif
+ 
+ # http://b/177566116, libc++ may crash with this sanitizer.
  # Disable this check unless it has been explicitly specified.
  ifneq ($(findstring fsanitize,$(my_cflags)),)
    ifneq ($(findstring integer,$(my_cflags)),)
-     ifeq ($(findstring sanitize=implicit-integer-sign-change,$(my_cflags)),)
-       my_cflags += -fno-sanitize=implicit-integer-sign-change
+     ifeq ($(findstring sanitize=unsigned-shift-base,$(my_cflags)),)
+       my_cflags += -fno-sanitize=unsigned-shift-base
      endif
    endif
  endif
@@ -470,11 +726,13 @@ index efb21e7c6a532c8dd7ce63950d187a4bf37a4ba4..41d7fe5dbf3b4a471bd96bc568593ad0
 +  endif
 +endif
 
-commit b80b862be0f9336d7c4a6b419c143642280cffa4
+commit 2cf0c4de7668b1023a7a0ef9754743e60921fe0c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:18:49-0400
 
     add ExactCalculator app
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_product.mk | 1 +
  1 file changed, 1 insertion(+)
@@ -506,169 +764,21 @@ index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00
      frameworks-base-overlays
  
 
-commit 8207f8f751f2c2380185a3c4063a91f116d8a51a
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2019-09-09 00:28:44-0400
-
-    force !WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY
----
- core/board_config.mk | 2 ++
- core/product.mk      | 1 -
- 2 files changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/core/board_config.mk b/core/board_config.mk
-index 86162b6f37eca5da4d11b3acccee8b0f2999e933..9aad5c17d863b0c60c5c0f84b5a8ffd59cfccc88 100644
---- a/core/board_config.mk
-+++ b/core/board_config.mk
-@@ -45,20 +45,21 @@ _board_strip_readonly_list := \
-   TARGET_BOARD_PLATFORM \
-   TARGET_BOARD_PLATFORM_GPU \
-   TARGET_BOOTLOADER_BOARD_NAME \
-   TARGET_FS_CONFIG_GEN \
-   TARGET_NO_BOOTLOADER \
-   TARGET_NO_KERNEL \
-   TARGET_NO_RECOVERY \
-   TARGET_NO_RADIOIMAGE \
-   TARGET_HARDWARE_3D \
-   WITH_DEXPREOPT \
-+  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY \
- 
- # File system variables
- _board_strip_readonly_list += \
-   BOARD_FLASH_BLOCK_SIZE \
-   BOARD_BOOTIMAGE_PARTITION_SIZE \
-   BOARD_RECOVERYIMAGE_PARTITION_SIZE \
-   BOARD_SYSTEMIMAGE_PARTITION_SIZE \
-   BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE \
-   BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE \
-   BOARD_USERDATAIMAGE_PARTITION_SIZE \
-@@ -99,20 +100,21 @@ _build_broken_var_list += \
-               $(DEFAULT_ERROR_BUILD_MODULE_TYPES), \
-     BUILD_BROKEN_USES_$(m))
- 
- _board_true_false_vars := $(_build_broken_var_list)
- _board_strip_readonly_list += $(_build_broken_var_list) \
-   BUILD_BROKEN_NINJA_USES_ENV_VARS
- 
- # Conditional to building on linux, as dex2oat currently does not work on darwin.
- ifeq ($(HOST_OS),linux)
-   WITH_DEXPREOPT := true
-+  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY := false
- endif
- 
- # ###############################################################
- # Broken build defaults
- # ###############################################################
- $(foreach v,$(_build_broken_var_list),$(eval $(v) :=))
- BUILD_BROKEN_NINJA_USES_ENV_VARS :=
- 
- # Boards may be defined under $(SRC_TARGET_DIR)/board/$(TARGET_DEVICE)
- # or under vendor/*/$(TARGET_DEVICE).  Search in both places, but
-diff --git a/core/product.mk b/core/product.mk
-index f8ba5936f8043c6965692408d2b3299b3f38ea99..f60e9c4c124c6fcbc4d07864a80fcb45f0a3599f 100644
---- a/core/product.mk
-+++ b/core/product.mk
-@@ -542,21 +542,20 @@ define _resolve-short-product-name
-   )
- endef
- define resolve-short-product-name
- $(strip $(call _resolve-short-product-name,$(1)))
- endef
- 
- # BoardConfig variables that are also inherited in product mks. Should ideally
- # be cleaned up to not be product variables.
- _readonly_late_variables := \
-   DEVICE_PACKAGE_OVERLAYS \
--  WITH_DEXPREOPT_BOOT_IMG_AND_SYSTEM_SERVER_ONLY \
- 
- # Modified internally in the build system
- _readonly_late_variables += \
-   PRODUCT_COPY_FILES \
-   PRODUCT_DEX_PREOPT_NEVER_ALLOW_STRIPPING \
-   PRODUCT_DEX_PREOPT_BOOT_FLAGS \
- 
- _readonly_early_variables := $(filter-out $(_readonly_late_variables),$(_product_var_list))
- 
- #
-
-commit 528af7def25b4001b8323b106732ccd88a4587ce
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2019-09-09 01:16:05-0400
-
-    use speed mode for dexpreopt
----
- core/product_config.mk               | 2 ++
- target/product/go_defaults_common.mk | 2 +-
- 2 files changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/core/product_config.mk b/core/product_config.mk
-index a16af05cf4bd5842b7aa6e643fd0023ad9d36316..3c99424ac4f827f28334b48edd687e7e7121e6bd 100644
---- a/core/product_config.mk
-+++ b/core/product_config.mk
-@@ -363,20 +363,22 @@ ifdef OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE
-     PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := $(OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE)
-   endif
- else ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
-   # No shipping level defined
- else ifeq ($(call math_gt,$(PRODUCT_SHIPPING_API_LEVEL),29),true)
-   PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
- endif
- 
- $(KATI_obsolete_var OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE,Use PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE instead)
- 
-+PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
-+
- define product-overrides-config
- $$(foreach rule,$$(PRODUCT_$(1)_OVERRIDES),\
-     $$(if $$(filter 2,$$(words $$(subst :,$$(space),$$(rule)))),,\
-         $$(error Rule "$$(rule)" in PRODUCT_$(1)_OVERRIDE is not <module_name>:<new_value>)))
- endef
- 
- $(foreach var, \
-     MANIFEST_PACKAGE_NAME \
-     PACKAGE_NAME \
-     CERTIFICATE, \
-diff --git a/target/product/go_defaults_common.mk b/target/product/go_defaults_common.mk
-index ca171dff5c6151eb818271161c8051f7894b0160..17a3ac75e81b95c594e7dea087765a0089a58d05 100644
---- a/target/product/go_defaults_common.mk
-+++ b/target/product/go_defaults_common.mk
-@@ -15,21 +15,21 @@
- #
- 
- # Sets Android Go recommended default product options..
- 
- 
- # Set lowram options and enable traced by default
- PRODUCT_PROPERTY_OVERRIDES += \
-      ro.config.low_ram=true \
- 
- # Speed profile services and wifi-service to reduce RAM and storage.
--PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-+PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed
- 
- # Always preopt extracted APKs to prevent extracting out of the APK for gms
- # modules.
- PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
- 
- # Use a profile based boot image for this device. Note that this is currently a
- # generic profile and not Android Go optimized.
- PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
- PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
- 
-
-commit 0894969e87d8d849fc7ef89d3bb1acafb240ac9d
+commit 880d95bad1016d367cf982e3e3a515efa64a682c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-09-21 08:44:23-0400
 
-    mainline: disable updatable apex for simplicity
+    mainline: disable updatable apex
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- target/product/mainline_system.mk | 3 ---
+ target/product/generic_system.mk | 3 ---
  1 file changed, 3 deletions(-)
 
-diff --git a/target/product/mainline_system.mk b/target/product/mainline_system.mk
-index a787707a04451c9aab2aa20adeb2cc5ef0116997..1f22163c32669377d5147755d17f69a98d3d5e04 100644
---- a/target/product/mainline_system.mk
-+++ b/target/product/mainline_system.mk
+diff --git a/target/product/generic_system.mk b/target/product/generic_system.mk
+index f13c9db4d1f98a7dee642a52de659a6227d8c7ce..d930957dfb181dad61bfea434e21575720a9a06a 100644
+--- a/target/product/generic_system.mk
++++ b/target/product/generic_system.mk
 @@ -14,23 +14,20 @@
  # limitations under the License.
  #
@@ -691,14 +801,16 @@ index a787707a04451c9aab2aa20adeb2cc5ef0116997..1f22163c32669377d5147755d17f69a9
  PRODUCT_PACKAGES += \
      LiveWallpapersPicker \
      PartnerBookmarksProvider \
-     PresencePolling \
-     RcsService \
+     Stk \
+     Tag \
 
-commit ae74a3a6c15c03a97d3c895c22bc021ae302b732
+commit 20dd3f41c53ac3b4d31da98b3919b550a5dcd98b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:21:18-0500
 
     replace Browser2 with TrichromeChrome
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_product.mk | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -738,11 +850,13 @@ index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff40
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 63f99a42eca2c1818ee83f976a9fb60b6d291d58
+commit 97e831cafdab0d482c556f2a520c14fbcad21ab8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:23:07-0500
 
     replace webview with TrichromeWebView
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/media_product.mk | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
@@ -765,17 +879,19 @@ index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49
 -    webview \
 +    TrichromeWebView \
 
-commit bf4b31ca065b624e18ca73809c0315eaed244c96
+commit 66c1f4eb8760c5df75be5985b4abdb6e16957405
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 00:55:25-0400
 
     add Seedvault as backup provider
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/media_system.mk | 2 ++
  1 file changed, 2 insertions(+)
 
 diff --git a/target/product/media_system.mk b/target/product/media_system.mk
-index dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662..77b77fef89594c0ed5c04b20d8f3f32273835aa2 100644
+index 52329852398cf298b062f82b2bbea674639963c0..a835c2c016743d3c790f80b0c253e1c606bf3a14 100644
 --- a/target/product/media_system.mk
 +++ b/target/product/media_system.mk
 @@ -34,20 +34,22 @@ PRODUCT_PACKAGES += \
@@ -802,11 +918,13 @@ index dad89f4e1f0d9a4f4cb6a24b6bbf8e9c0aaca662..77b77fef89594c0ed5c04b20d8f3f322
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 4a668f9f7a957e17f29ec8fb3158122cfee0ac83
+commit a800bba0154c7c5e59558a9139a696e791623206
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-03-11 18:08:31+1100
 
     add SetupWizard
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_system_ext.mk | 1 +
  1 file changed, 1 insertion(+)
@@ -831,7 +949,7 @@ index d935fbfddfce5d511c3d0e5f20bd73630a553efd..0e2a48fcf5cc9ae9335da7597489b844
      SystemUI \
      WallpaperCropper \
 
-commit 8f8570e39ce4e8b24909600de4cc7e59b9b6dfde
+commit 844c73d492cde1582e4839d9350eda2462a29367
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-03-16 18:01:18-0400
 
@@ -844,18 +962,20 @@ Date:   Mon 2020-03-16 18:01:18-0400
     space and doing a bunch of unnecessary work on each device. It also
     reduces the scope of verified boot by having the compiled odex code for
     base system apps outside of the verified system partition.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/board/BoardConfigMainlineCommon.mk | 4 ----
  1 file changed, 4 deletions(-)
 
 diff --git a/target/board/BoardConfigMainlineCommon.mk b/target/board/BoardConfigMainlineCommon.mk
-index bf015e502468da3231b417df160651e9783a9059..e26bceff2299824b50602319eda446bd0c58220a 100644
+index 00f6e5b0ac56d846a4958e845ff3b1225945e533..cac3c22950564a444241fdf439979d4824f227a8 100644
 --- a/target/board/BoardConfigMainlineCommon.mk
 +++ b/target/board/BoardConfigMainlineCommon.mk
-@@ -20,24 +20,20 @@ TARGET_COPY_OUT_PRODUCT := product
- BOARD_USES_METADATA_PARTITION := true
+@@ -21,24 +21,20 @@ BOARD_USES_METADATA_PARTITION := true
  
- BOARD_VNDK_VERSION := current
+ # Default is current, but allow devices to override vndk version if needed.
+ BOARD_VNDK_VERSION ?= current
  
  # Required flag for non-64 bit devices from P.
  TARGET_USES_64_BIT_BINDER := true
@@ -878,62 +998,27 @@ index bf015e502468da3231b417df160651e9783a9059..e26bceff2299824b50602319eda446bd
  BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  
 
-commit d3193b690099f69c537e88273cd357cc2db209a1
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Tue 2020-03-17 16:52:01-0400
-
-    use speed filter for boot images and non-prebuilts
----
- core/product_config.mk | 2 ++
- 1 file changed, 2 insertions(+)
-
-diff --git a/core/product_config.mk b/core/product_config.mk
-index 3c99424ac4f827f28334b48edd687e7e7121e6bd..10dfda5a4179fb516ad8c50b32b9e5f8e4110bd9 100644
---- a/core/product_config.mk
-+++ b/core/product_config.mk
-@@ -364,20 +364,22 @@ ifdef OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE
-   endif
- else ifeq ($(PRODUCT_SHIPPING_API_LEVEL),)
-   # No shipping level defined
- else ifeq ($(call math_gt,$(PRODUCT_SHIPPING_API_LEVEL),29),true)
-   PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE := true
- endif
- 
- $(KATI_obsolete_var OVERRIDE_PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE,Use PRODUCT_ENFORCE_PRODUCT_PARTITION_INTERFACE instead)
- 
- PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := speed
-+PRODUCT_DEX_PREOPT_BOOT_FLAGS := --compiler-filter=speed
-+PRODUCT_DEX_PREOPT_DEFAULT_FLAGS := --compiler-filter=speed
- 
- define product-overrides-config
- $$(foreach rule,$$(PRODUCT_$(1)_OVERRIDES),\
-     $$(if $$(filter 2,$$(words $$(subst :,$$(space),$$(rule)))),,\
-         $$(error Rule "$$(rule)" in PRODUCT_$(1)_OVERRIDE is not <module_name>:<new_value>)))
- endef
- 
- $(foreach var, \
-     MANIFEST_PACKAGE_NAME \
-     PACKAGE_NAME \
-
-commit 3076599192ec381dd83818fd72f1671fa0f6fdc7
+commit ebe1c8f7076f7d4b0240fcf7a96fbf086fd3cfa6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-05-12 21:02:49-0400
 
     always use UTC as the time zone for build dates
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  core/main.mk             | 2 +-
  core/version_defaults.mk | 2 +-
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/main.mk b/core/main.mk
-index e95a7ea62332bd8d6f141da182ae2f78a55979cf..2ccc28d25e54acb4f6a69045284ee5b5aadef5d5 100644
+index 12e961d25fe17f5ba665e9fb94796f6efa7c2af5..d29afefed80d9c64b4195fa7e518590c2171d2f2 100644
 --- a/core/main.mk
 +++ b/core/main.mk
-@@ -39,21 +39,21 @@ include $(BUILD_SYSTEM)/clang/config.mk
- # without changing the command line every time.  Avoids rebuilds
- # when using ninja.
- $(shell mkdir -p $(SOONG_OUT_DIR) && \
-     echo -n $(BUILD_NUMBER) > $(SOONG_OUT_DIR)/build_number.txt)
+@@ -46,21 +46,21 @@ $(shell mkdir -p $(SOONG_OUT_DIR) && \
+         mv $(SOONG_OUT_DIR)/build_number.tmp $(SOONG_OUT_DIR)/build_number.txt; \
+     else \
+         rm $(SOONG_OUT_DIR)/build_number.tmp; \
+     fi)
  BUILD_NUMBER_FILE := $(SOONG_OUT_DIR)/build_number.txt
  .KATI_READONLY := BUILD_NUMBER_FILE
  $(KATI_obsolete_var BUILD_NUMBER,See https://android.googlesource.com/platform/build/+/master/Changes.md#BUILD_NUMBER)
@@ -953,7 +1038,7 @@ index e95a7ea62332bd8d6f141da182ae2f78a55979cf..2ccc28d25e54acb4f6a69045284ee5b5
    FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
  endif
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index 4a00f443cfa45ebd6268e53dd778c15e3ba6d8aa..018be262544a1fe7d0049ef3fc720b9c3a7f0f83 100644
+index 4c832277786ceddee4877f2c4b6d0728d969e1b3..a47d7f4e15c0ff035f44d0174037360265382551 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -268,21 +268,21 @@ ifndef BUILD_ID
@@ -980,7 +1065,7 @@ index 4a00f443cfa45ebd6268e53dd778c15e3ba6d8aa..018be262544a1fe7d0049ef3fc720b9c
  ifndef BUILD_NUMBER
    # BUILD_NUMBER should be set to the source control value that
 
-commit 6b769ae60549ed029c3512d7d6c1007502a854e2
+commit f13ef094a9aa616c058380ed678cacebfe854c7e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-05-16 19:44:32-0400
 
@@ -999,12 +1084,14 @@ Date:   Sat 2020-05-16 19:44:32-0400
     finer-grained security levels prevent apps from directly sharing data
     without going through intents, eliminating many common vulnerabilities
     and giving the OS better control over how apps can communicate.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  core/version_defaults.mk | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index 018be262544a1fe7d0049ef3fc720b9c3a7f0f83..2f150d182556909a45189588c0c053a75c272bab 100644
+index a47d7f4e15c0ff035f44d0174037360265382551..f195e1ab9ede0dd486c7a674e159cc6f64549628 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
@@ -1023,49 +1110,7 @@ index 018be262544a1fe7d0049ef3fc720b9c3a7f0f83..2f150d182556909a45189588c0c053a7
  endif
  .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
 
-commit 918c4bd7d06840319c41c795e07ff1253c85b5d6
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-09-16 18:05:27-0400
-
-    add otatools.zip files for factory images
----
- core/Makefile | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/core/Makefile b/core/Makefile
-index 3e748eb2dc801e880b04d30660f7d316cc768a72..875f59206c468408202858c96c987cbf366d9b36 100644
---- a/core/Makefile
-+++ b/core/Makefile
-@@ -4193,20 +4193,27 @@ endif
- ifneq (,$(wildcard external/avb))
- INTERNAL_OTATOOLS_PACKAGE_FILES += \
-   $(sort $(shell find external/avb/test/data -type f -name "testkey_*.pem" -o \
-       -name "atx_metadata.bin"))
- endif
- ifeq (true,$(PRODUCT_SUPPORTS_VBOOT))
- INTERNAL_OTATOOLS_PACKAGE_FILES += \
-   $(sort $(shell find external/vboot_reference/tests/devkeys -type f))
- endif
- 
-+# Factory images
-+INTERNAL_OTATOOLS_PACKAGE_FILES += \
-+  device/common/clear-factory-images-variables.sh \
-+  device/common/generate-factory-images-common.sh \
-+  device/linaro/hikey/factory-images/generate-factory-images-hikey.sh \
-+  device/linaro/hikey/factory-images/generate-factory-images-hikey960.sh
-+
- INTERNAL_OTATOOLS_RELEASETOOLS := \
-   $(sort $(shell find build/make/tools/releasetools -name "*.pyc" -prune -o \
-       \( -type f -o -type l \) -print))
- 
- BUILT_OTATOOLS_PACKAGE := $(PRODUCT_OUT)/otatools.zip
- $(BUILT_OTATOOLS_PACKAGE): PRIVATE_ZIP_ROOT := $(call intermediates-dir-for,PACKAGING,otatools)/otatools
- $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_PACKAGE_FILES := $(INTERNAL_OTATOOLS_PACKAGE_FILES)
- $(BUILT_OTATOOLS_PACKAGE): PRIVATE_OTATOOLS_RELEASETOOLS := $(INTERNAL_OTATOOLS_RELEASETOOLS)
- $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
- $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
-
-commit a2b51906dece2ea351b5aa4b66fa8cdefbf37ff6
+commit 35d683b7fe97590a0248bbf57add57536401644b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-09-17 10:53:00-0400
 
@@ -1075,20 +1120,22 @@ Date:   Thu 2020-09-17 10:53:00-0400
     impacts the wrapper spawning model for the stock OS which is available
     by default, making it an upstream bug rather than a missing feature for
     exec-based spawning in GrapheneOS.
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- target/product/mainline_system.mk | 2 +-
+ target/product/generic_system.mk | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/target/product/mainline_system.mk b/target/product/mainline_system.mk
-index 1f22163c32669377d5147755d17f69a98d3d5e04..db2af7d1d2c958cef76a0969ea46a7cf677b4730 100644
---- a/target/product/mainline_system.mk
-+++ b/target/product/mainline_system.mk
-@@ -108,21 +108,21 @@ PRODUCT_HOST_PACKAGES += \
+diff --git a/target/product/generic_system.mk b/target/product/generic_system.mk
+index d930957dfb181dad61bfea434e21575720a9a06a..f0a9400b869483eed2a80d7233b495fe68ca8a03 100644
+--- a/target/product/generic_system.mk
++++ b/target/product/generic_system.mk
+@@ -106,21 +106,21 @@ PRODUCT_PACKAGES += \
+ 
  # Include all zygote init scripts. "ro.zygote" will select one of them.
  PRODUCT_COPY_FILES += \
      system/core/rootdir/init.zygote32.rc:system/etc/init/hw/init.zygote32.rc \
      system/core/rootdir/init.zygote64.rc:system/etc/init/hw/init.zygote64.rc \
-     system/core/rootdir/init.zygote32_64.rc:system/etc/init/hw/init.zygote32_64.rc \
      system/core/rootdir/init.zygote64_32.rc:system/etc/init/hw/init.zygote64_32.rc \
  
  # Enable dynamic partition size
@@ -1097,27 +1144,29 @@ index 1f22163c32669377d5147755d17f69a98d3d5e04..db2af7d1d2c958cef76a0969ea46a7cf
 -PRODUCT_ENFORCE_RRO_TARGETS := *
 +#PRODUCT_ENFORCE_RRO_TARGETS := *
  
- PRODUCT_NAME := mainline_system
+ PRODUCT_NAME := generic_system
  PRODUCT_BRAND := generic
  
  # Define /system partition-specific product properties to identify that /system
- # partition is mainline_system.
+ # partition is generic_system.
  PRODUCT_SYSTEM_NAME := mainline
  PRODUCT_SYSTEM_BRAND := Android
  PRODUCT_SYSTEM_MANUFACTURER := Android
  PRODUCT_SYSTEM_MODEL := mainline
 
-commit 97aa08edd60152489d74da60300d5f670dfb6236
+commit e284aa2ea4ce750ad1b9a36270a50981ad6cd96a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-09 23:48:11-0500
 
     add talkback
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_system.mk | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/target/product/handheld_system.mk b/target/product/handheld_system.mk
-index 77c103d7eeccca74b9192359053af34ff922c3f0..cb69007c73a9d6c71c6f319739a5fcf2fcea0b23 100644
+index b7a2d0dad0aa52bc47d70b23291ff32782527900..c0e3fa15fd187e60a56031091fd07f966e763895 100644
 --- a/target/product/handheld_system.mk
 +++ b/target/product/handheld_system.mk
 @@ -58,20 +58,21 @@ PRODUCT_PACKAGES += \
@@ -1143,34 +1192,36 @@ index 77c103d7eeccca74b9192359053af34ff922c3f0..cb69007c73a9d6c71c6f319739a5fcf2
  
  PRODUCT_SYSTEM_SERVER_APPS += \
 
-commit f253a3f16f5d82080101e90abc8db88a720773af
+commit 27e405c0e796f6ac65c5013aedda4dc513ecae07
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:05:40-0400
 
     ignore tethering provisioning requirement
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  core/main.mk | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/core/main.mk b/core/main.mk
-index 2ccc28d25e54acb4f6a69045284ee5b5aadef5d5..69ce4359397069d695b5dbff5a8bf52c83873908 100644
+index d29afefed80d9c64b4195fa7e518590c2171d2f2..a8c331b7484eeb8481bd6c2ebfcdcd54f18635f7 100644
 --- a/core/main.mk
 +++ b/core/main.mk
-@@ -260,20 +260,21 @@ endif
+@@ -369,20 +369,21 @@ endif
  
  user_variant := $(filter user userdebug,$(TARGET_BUILD_VARIANT))
  enable_target_debugging := true
  tags_to_install :=
  ifneq (,$(user_variant))
    # Target is secure in user builds.
-   ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=1
-   ADDITIONAL_DEFAULT_PROPERTIES += security.perf_harden=1
-   ADDITIONAL_DEFAULT_PROPERTIES += ro.control_privapp_permissions=enforce
-   ADDITIONAL_DEFAULT_PROPERTIES += persist.security.deny_new_usb=dynamic
-+  ADDITIONAL_DEFAULT_PROPERTIES += net.tethering.noprovisioning=true
+   ADDITIONAL_SYSTEM_PROPERTIES += ro.secure=1
+   ADDITIONAL_SYSTEM_PROPERTIES += security.perf_harden=1
+   ADDITIONAL_SYSTEM_PROPERTIES += ro.control_privapp_permissions=enforce
+   ADDITIONAL_SYSTEM_PROPERTIES += persist.security.deny_new_usb=dynamic
++  ADDITIONAL_SYSTEM_PROPERTIES += net.tethering.noprovisioning=true
  
    ifeq ($(user_variant),user)
-     ADDITIONAL_DEFAULT_PROPERTIES += ro.adb.secure=1
+     ADDITIONAL_SYSTEM_PROPERTIES += ro.adb.secure=1
    endif
  
    ifeq ($(user_variant),userdebug)
@@ -1179,7 +1230,7 @@ index 2ccc28d25e54acb4f6a69045284ee5b5aadef5d5..69ce4359397069d695b5dbff5a8bf52c
    else
      # Disable debugging in plain user builds.
 
-commit 85a12632e3a547eb7d40234b8a5db10578e3d72d
+commit 4fbce1e40e56c963ff8a417680c40283f6a5c2c9
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 23:43:06-0800
 
@@ -1188,20 +1239,20 @@ Date:   Mon 2020-11-02 23:43:06-0800
     We're using WallpaperPicker2 in ThemePicker now.
     
     Change-Id: I9d1d93ec93b06851346c31e0e994debcef14a087
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/aosp_product.mk | 1 -
- target/product/mainline.mk     | 1 -
- 2 files changed, 2 deletions(-)
+ 1 file changed, 1 deletion(-)
 
 diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
-index e3819e6115db2e4f63156b3fb701df7bc59da6a2..e03ea9ac6e164a118424bf8161ff376207e58039 100644
+index e396ad11ff2f62edd1262e1400c3ef3243b90366..8e194ca959cd10aa90bdf0a11845a58178c8fc27 100644
 --- a/target/product/aosp_product.mk
 +++ b/target/product/aosp_product.mk
-@@ -25,21 +25,20 @@ $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+@@ -25,16 +25,15 @@ $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
  PRODUCT_PRODUCT_PROPERTIES += \
-     ro.config.ringtone=Ring_Synth_04.ogg \
-     ro.config.notification_sound=pixiedust.ogg \
-     ro.com.android.dataroaming=true \
+     ro.config.ringtone?=Ring_Synth_04.ogg \
+     ro.config.notification_sound?=pixiedust.ogg \
+     ro.com.android.dataroaming?=true \
  
  # More AOSP packages
  PRODUCT_PACKAGES += \
@@ -1214,35 +1265,14 @@ index e3819e6115db2e4f63156b3fb701df7bc59da6a2..e03ea9ac6e164a118424bf8161ff3762
  #   Provide a APN configuration to GSI product
  PRODUCT_COPY_FILES += \
      device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
- 
- # NFC:
- #   Provide a libnfc-nci.conf to GSI product
- PRODUCT_COPY_FILES += \
-     device/generic/common/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
-diff --git a/target/product/mainline.mk b/target/product/mainline.mk
-index 22436e66b3a97f5c0d5d14990b1cd3e90ce0bb48..9d4b872f22050773a3dc50702cc32306593cb020 100644
---- a/target/product/mainline.mk
-+++ b/target/product/mainline.mk
-@@ -27,13 +27,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_vendor.mk)
- $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
- 
- $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
- 
- PRODUCT_PROPERTY_OVERRIDES += \
-     ro.config.ringtone=Ring_Synth_04.ogg \
-     ro.com.android.dataroaming=true \
- 
- PRODUCT_PACKAGES += \
-     PhotoTable \
--    WallpaperPicker \
- 
- PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 
-commit 6131e4e4db1b4abd8a7c4fdff024a94d14a374e9
+commit 61cfc9e869bc11b5223923e3724ac02b5db92f9c
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Fri 2021-04-30 18:42:13+0000
 
     Build in themes
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/handheld_product.mk | 3 +++
  1 file changed, 3 insertions(+)
@@ -1266,25 +1296,26 @@ index f504f61874b48910ccbf294e7bfaff402030b08b..a1796547a83e5b1435ceb2cb7ffb22bc
 +# Build in theming functionality
 +$(call inherit-product-if-exists, themes/main.mk)
 
-commit 8b729b2f368bf343f08d8254cc43b844642a8d92 (HEAD, tag: RQ3A.211001.001.2021100502, m/master)
+commit fba32f18981ed5127a06078bcf7985b4c255d96b
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-09-29 04:29:05+0100
 
     Only copy sample APNs if a device does not supply any.
     
     Controlled by OEM_APNS := true
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  target/product/aosp_product.mk        | 2 ++
  target/product/full_base_telephony.mk | 6 +++++-
- target/product/mainline.mk            | 2 ++
- 3 files changed, 9 insertions(+), 1 deletion(-)
+ 2 files changed, 7 insertions(+), 1 deletion(-)
 
 diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
-index e03ea9ac6e164a118424bf8161ff376207e58039..57266cf8a3cc019b4bfcdeb0f6f6d515de2966d1 100644
+index 8e194ca959cd10aa90bdf0a11845a58178c8fc27..129ec68fa94d02f7cada32b6b6121689943c7e55 100644
 --- a/target/product/aosp_product.mk
 +++ b/target/product/aosp_product.mk
-@@ -28,17 +28,19 @@ PRODUCT_PRODUCT_PROPERTIES += \
-     ro.com.android.dataroaming=true \
+@@ -28,12 +28,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.com.android.dataroaming?=true \
  
  # More AOSP packages
  PRODUCT_PACKAGES += \
@@ -1298,13 +1329,8 @@ index e03ea9ac6e164a118424bf8161ff376207e58039..57266cf8a3cc019b4bfcdeb0f6f6d515
  PRODUCT_COPY_FILES += \
      device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 +endif
- 
- # NFC:
- #   Provide a libnfc-nci.conf to GSI product
- PRODUCT_COPY_FILES += \
-     device/generic/common/nfc/libnfc-nci.conf:$(TARGET_COPY_OUT_PRODUCT)/etc/libnfc-nci.conf
 diff --git a/target/product/full_base_telephony.mk b/target/product/full_base_telephony.mk
-index af4097d87afc9d481d984933e989fc916e368970..b54dba694c52cd098158efbd1d8b54a44e39f30c 100644
+index d8a54cd7f3de9348a8960efdae8530c28b99172f..a2353e9857f6baf096542e160c7c17215796cc03 100644
 --- a/target/product/full_base_telephony.mk
 +++ b/target/product/full_base_telephony.mk
 @@ -17,15 +17,19 @@
@@ -1313,9 +1339,9 @@ index af4097d87afc9d481d984933e989fc916e368970..b54dba694c52cd098158efbd1d8b54a4
  # build quite specifically for the emulator, and might not be
  # entirely appropriate to inherit from for on-device configurations.
  
- PRODUCT_PROPERTY_OVERRIDES := \
-     keyguard.no_require_sim=true \
-     ro.com.android.dataroaming=true
+ PRODUCT_VENDOR_PROPERTIES := \
+     keyguard.no_require_sim?=true \
+     ro.com.android.dataroaming?=true
  
  PRODUCT_COPY_FILES := \
 -    device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
@@ -1328,21 +1354,234 @@ index af4097d87afc9d481d984933e989fc916e368970..b54dba694c52cd098158efbd1d8b54a4
 +
  $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
-diff --git a/target/product/mainline.mk b/target/product/mainline.mk
-index 9d4b872f22050773a3dc50702cc32306593cb020..ac1c3bd57672d4250be7eb645e161687d8b2d85a 100644
---- a/target/product/mainline.mk
-+++ b/target/product/mainline.mk
-@@ -28,11 +28,13 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
+
+commit 2ab5c1db704cffb0dfa5d955c5853523971dabc3
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sun 2021-10-10 03:09:35+0100
+
+    Pixel devices use OEM APNs
+---
+ target/board/BoardConfigPixelCommon.mk | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/target/board/BoardConfigPixelCommon.mk b/target/board/BoardConfigPixelCommon.mk
+index 67c3a2b62d17c3b2b3f36c05bfe5972e5a88f369..6cbd2da67bd8cbcf06110af6731ef304575bc6ef 100644
+--- a/target/board/BoardConfigPixelCommon.mk
++++ b/target/board/BoardConfigPixelCommon.mk
+@@ -12,10 +12,13 @@ BOARD_AVB_PRODUCT_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ # vendor and odm.
+ BOARD_AVB_VENDOR_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ BOARD_AVB_ODM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
  
- $(call inherit-product, frameworks/base/data/sounds/AllAudio.mk)
+ # vendor_dlkm and odm_dlkm.
+ BOARD_AVB_VENDOR_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
+ BOARD_AVB_ODM_DLKM_ADD_HASHTREE_FOOTER_ARGS += --hash_algorithm sha256
  
- PRODUCT_PROPERTY_OVERRIDES += \
-     ro.config.ringtone=Ring_Synth_04.ogg \
-     ro.com.android.dataroaming=true \
+ # temporary hack for APV
+ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
++
++# Pixel devices ship with OEM APNs, so do not bundle the sample AOSP APNs
++OEM_APNS := true
+
+commit a80b7fa8a9ff5341cebe9ba97a61117f909b822a
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-10-12 08:19:39-0400
+
+    add cortex-a76 to ARMv8.2 list
+---
+ core/combo/TARGET_linux-arm.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/core/combo/TARGET_linux-arm.mk b/core/combo/TARGET_linux-arm.mk
+index 11c19444bee868f99d2eb0d48ddff705182dadd3..44cc99a946e13bc9e0cac8071f2ef6855ddeba4c 100644
+--- a/core/combo/TARGET_linux-arm.mk
++++ b/core/combo/TARGET_linux-arm.mk
+@@ -26,21 +26,21 @@
+ # instructions available in a given architecture version.
+ #
+ # The blocks also define specific arch_variant_cflags, which
+ # include defines, and compiler settings for the given architecture
+ # version.
+ #
  
+ KNOWN_ARMv8_CORES := cortex-a53 cortex-a53.a57 cortex-a55 cortex-a73 cortex-a75 cortex-a76
+ KNOWN_ARMv8_CORES += kryo kryo385 exynos-m1 exynos-m2
+ 
+-KNOWN_ARMv82a_CORES := cortex-a55 cortex-a75 kryo385
++KNOWN_ARMv82a_CORES := cortex-a55 cortex-a75 cortex-a76 kryo385
+ 
+ ifeq (,$(strip $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT)))
+   TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT := generic
+ endif
+ 
+ # This quickly checks TARGET_2ND_ARCH_VARIANT against the lists above.
+ ifneq (,$(filter $(TARGET_$(combo_2nd_arch_prefix)CPU_VARIANT), $(KNOWN_ARMv82a_CORES)))
+   ifeq (,$(TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT))
+     TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT := armv8-2a
+   else ifneq (armv8-2a,$(TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT))
+
+commit ead0b5af05e0770774f4a5c193e791a06beca4a2
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2021-10-21 23:38:39-0400
+
+    work around OEM_APNS issue
+---
+ target/product/aosp_product.mk        | 1 +
+ target/product/full_base_telephony.mk | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
+index 129ec68fa94d02f7cada32b6b6121689943c7e55..f583463091a2586fc79ad707bb6d3857adb1f86c 100644
+--- a/target/product/aosp_product.mk
++++ b/target/product/aosp_product.mk
+@@ -28,14 +28,15 @@ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.com.android.dataroaming?=true \
+ 
+ # More AOSP packages
  PRODUCT_PACKAGES += \
+     messaging \
      PhotoTable \
+     preinstalled-packages-platform-aosp-product.xml \
  
-+ifneq ($(OEM_APNS),true)
- PRODUCT_COPY_FILES += device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+ # Telephony:
+ #   Provide a APN configuration to GSI product
++OEM_APNS := true
+ ifneq ($(OEM_APNS),true)
+ PRODUCT_COPY_FILES += \
+     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+ endif
+diff --git a/target/product/full_base_telephony.mk b/target/product/full_base_telephony.mk
+index a2353e9857f6baf096542e160c7c17215796cc03..2e8ea7cf9d50406c09340308c0e5632867041667 100644
+--- a/target/product/full_base_telephony.mk
++++ b/target/product/full_base_telephony.mk
+@@ -19,17 +19,18 @@
+ # build quite specifically for the emulator, and might not be
+ # entirely appropriate to inherit from for on-device configurations.
+ 
+ PRODUCT_VENDOR_PROPERTIES := \
+     keyguard.no_require_sim?=true \
+     ro.com.android.dataroaming?=true
+ 
+ PRODUCT_COPY_FILES := \
+     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+ 
++OEM_APNS := true
+ ifneq ($(OEM_APNS),true)
+ PRODUCT_COPY_FILES += \
+     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+ endif
+ 
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
+
+commit a821d81d6027172cdf28395a19deda96f61f1838
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-10-24 23:02:07-0400
+
+    product: Enable gestural navigation overlay to match default nav mode
+    
+    This fixes an occasional issue where the navbar is in a broken state
+    (gesture nav works, but the bar is rendered as if it's 2/3-button nav)
+    after wiping data or provisioning new users.
+    
+    From Danny Lin <danny@kdrag0n.dev> in ProtonAOSP.
+---
+ target/product/aosp_product.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
+index f583463091a2586fc79ad707bb6d3857adb1f86c..21888c801426bb7adff094a76f44b5b94ca4471a 100644
+--- a/target/product/aosp_product.mk
++++ b/target/product/aosp_product.mk
+@@ -19,20 +19,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony_product.mk)
+ 
+ # Default AOSP sounds
+ $(call inherit-product-if-exists, frameworks/base/data/sounds/AllAudio.mk)
+ 
+ # Additional settings used in all AOSP builds
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.config.ringtone?=Ring_Synth_04.ogg \
+     ro.config.notification_sound?=pixiedust.ogg \
+     ro.com.android.dataroaming?=true \
++    ro.boot.vendor.overlay.theme=com.android.internal.systemui.navbar.gestural
+ 
+ # More AOSP packages
+ PRODUCT_PACKAGES += \
+     messaging \
+     PhotoTable \
+     preinstalled-packages-platform-aosp-product.xml \
+ 
+ # Telephony:
+ #   Provide a APN configuration to GSI product
+ OEM_APNS := true
+
+commit 9a3cd9775e3fbbab83407a7209b74a7d123d190f
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-10-30 09:20:51-0400
+
+    use GrapheneOS Camera app
+---
+ target/product/handheld_product.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/target/product/handheld_product.mk b/target/product/handheld_product.mk
+index a1796547a83e5b1435ceb2cb7ffb22bcb4ccd791..580e742ea1e58995c2b41a1786215e1ada6c5edf 100644
+--- a/target/product/handheld_product.mk
++++ b/target/product/handheld_product.mk
+@@ -17,21 +17,21 @@
+ # This makefile contains the product partition contents for
+ # a generic phone or tablet device. Only add something here if
+ # it definitely doesn't belong on other types of devices (if it
+ # does, use base_product.mk).
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/media_product.mk)
+ 
+ # /product packages
+ PRODUCT_PACKAGES += \
+     Auditor \
+     Calendar \
+-    Camera2 \
++    Camera \
+     Contacts \
+     DeskClock \
+     ExactCalculator \
+     Gallery2 \
+     LatinIME \
+     Music \
+     OneTimeInitializer \
+     PdfViewer \
+     preinstalled-packages-platform-handheld-product.xml \
+     QuickSearchBox \
+
+commit 4e532f414872fc199099cef09710167c2c8b3cf3 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-11-01 17:29:44-0400
+
+    set device specific build ids
+---
+ core/build_id.mk | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
+
+diff --git a/core/build_id.mk b/core/build_id.mk
+index fe2823a4abec7a1b16e947ac1b7acd80131c5dc5..d82beb2453d7646164b837e69bc1a43e8ad0b777 100644
+--- a/core/build_id.mk
++++ b/core/build_id.mk
+@@ -11,11 +11,17 @@
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ # BUILD_ID is usually used to specify the branch name
+ # (like "MAIN") or a branch name and a release candidate
+ # (like "CRB01").  It must be a single word, and is
+ # capitalized by convention.
+ 
+-BUILD_ID=SP1A.211105.004
++ifneq (,$(filter bonito sargo,$(TARGET_PRODUCT)))
++    BUILD_ID=SP1A.211105.002
++else ifneq (,$(filter barbet,$(TARGET_PRODUCT)))
++    BUILD_ID=SP1A.211105.003
++else
++    BUILD_ID=SP1A.211105.004
 +endif

@@ -1,4 +1,4 @@
-commit 97b4f0135c4b7f5598caebd9aa9cb315d6cefeef (HEAD, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit b26f3097b2eda6019b30f88d86fa8c808b323f81
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2020-06-05 03:15:21-0400
 
@@ -24,3 +24,60 @@ index 1e35dc6787972d1f253cb68d8ac4a47cebf0692e..78dd28801cc24a83a266c5de72b1b4b2
  import sys
  from subprocess import Popen, PIPE
  from tempfile import mkstemp
+
+commit 51055c89df4fa22bd875128a0b2c77eca89fff34
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-10-09 20:14:08-0400
+
+    remove obsolete wallpaper_picker_package override
+---
+ overlay/packages/apps/Launcher3/res/values/config.xml (gone) | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/overlay/packages/apps/Launcher3/res/values/config.xml b/overlay/packages/apps/Launcher3/res/values/config.xml
+deleted file mode 100644
+index 27e41023af5366b1860ca3d974d105c538815f88..0000000000000000000000000000000000000000
+--- a/overlay/packages/apps/Launcher3/res/values/config.xml
++++ /dev/null
+@@ -1,4 +0,0 @@
+-<resources>
+-    <!-- Package name of the default wallpaper picker. -->
+-    <string name="wallpaper_picker_package" translatable="false">com.android.wallpaper.livepicker</string>
+-</resources>
+
+commit 3e7dd4561df3ca0730a67fca7b5a757fef678107 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-10-16 21:36:34-0400
+
+    constify JNINativeMethod table
+---
+ MultiDisplayProvider/jni/com_android_emulator_multidisplay.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/MultiDisplayProvider/jni/com_android_emulator_multidisplay.cpp b/MultiDisplayProvider/jni/com_android_emulator_multidisplay.cpp
+index 10e928288c904caacdbb17c8bab4dcf9a9f7d503..559b97498d391dea4967ce9c6eb205b995964e69 100644
+--- a/MultiDisplayProvider/jni/com_android_emulator_multidisplay.cpp
++++ b/MultiDisplayProvider/jni/com_android_emulator_multidisplay.cpp
+@@ -159,21 +159,21 @@ static bool nativeReleaseListener(JNIEnv* env, jobject obj, jint id) {
+ }
+ 
+ static bool nativeResizeListener(JNIEnv* env, jobject obj, jint id, jint w, jint h) {
+     if (gFrameListener[id]) {
+         gFrameListener[id]->setDefaultBufferSize(w, h);
+         return true;
+     }
+     return false;
+ }
+ 
+-static JNINativeMethod sMethods[] = {
++static const JNINativeMethod sMethods[] = {
+     { "nativeOpen", "()I", (void*) nativeOpen },
+     { "nativeCreateSurface", "(III)Landroid/view/Surface;", (void*) nativeCreateSurface },
+     { "nativeReadPipe", "([I)Z", (void*) nativeReadPipe},
+     { "nativeReleaseListener", "(I)Z", (void*) nativeReleaseListener},
+     { "nativeResizeListener", "(III)Z", (void*) nativeResizeListener},
+ };
+ 
+ /*
+  * JNI Initialization
+  */

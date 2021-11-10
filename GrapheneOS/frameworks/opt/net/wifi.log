@@ -1,29 +1,27 @@
-commit a0d9bda06b71694f38fe02bbe24628ee21a7d270 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
-Author: Renlord <me@renlord.com>
-Date:   Sat 2019-12-21 00:33:56+1100
+commit 04232c6b6fb3db17b765538d21d61637ee957723 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: renlord <me@renlord.com>
+Date:   Fri 2021-10-15 19:11:18+0530
 
     add support for always generating new random MAC
     
     To trigger re-generation of randomized MAC addressed for an already
     connected AP. User simply has to toggle on/off wifi. Otherwise, on
     re-connection, a new randomized MAC address also gets generated.
+    
+    based on https://github.com/GrapheneOS/platform_frameworks_opt_net_wifi/commit/a0d9bda06b71694f38fe02bbe24628ee21a7d270
 ---
- .../android/wifitrackerlib/StandardWifiEntry.java  | 34 +++++++++++++++++-----
+ .../android/wifitrackerlib/StandardWifiEntry.java  | 31 ++++++++++++++++------
  .../src/com/android/wifitrackerlib/WifiEntry.java  |  1 +
- .../com/android/server/wifi/ClientModeImpl.java    |  5 ++--
- .../com/android/server/wifi/WifiConfigManager.java | 13 +++++++--
- .../android/server/wifi/WifiConfigurationUtil.java |  2 +-
- .../java/com/android/server/wifi/WifiMetrics.java  |  4 +--
- 6 files changed, 43 insertions(+), 16 deletions(-)
+ 2 files changed, 24 insertions(+), 8 deletions(-)
 
 diff --git a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
-index 51270545b6ad7e3bc5c4e811bad66b31e88bdb63..a96ba03e3051127a127785f331a3acd526bb64e3 100644
+index 994331a69543c3252fae69e89fba22a60d27019f..002617727cd8baff8060ea70d4036eb1cf850526 100644
 --- a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
 +++ b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
-@@ -317,21 +317,21 @@ public class StandardWifiEntry extends WifiEntry {
+@@ -247,21 +247,21 @@ public class StandardWifiEntry extends WifiEntry {
  
      @Override
-     public String getMacAddress() {
+     public synchronized String getMacAddress() {
          if (mWifiInfo != null) {
              final String wifiInfoMac = mWifiInfo.getMacAddress();
              if (!TextUtils.isEmpty(wifiInfoMac)
@@ -31,19 +29,19 @@ index 51270545b6ad7e3bc5c4e811bad66b31e88bdb63..a96ba03e3051127a127785f331a3acd5
                  return wifiInfoMac;
              }
          }
--        if (mWifiConfig == null || getPrivacy() != PRIVACY_RANDOMIZED_MAC) {
-+        if (mWifiConfig == null || getPrivacy() == PRIVACY_DEVICE_MAC) {
+-        if (mTargetWifiConfig == null || getPrivacy() != PRIVACY_RANDOMIZED_MAC) {
++        if (mTargetWifiConfig == null || getPrivacy() == PRIVACY_DEVICE_MAC) {
              final String[] factoryMacs = mWifiManager.getFactoryMacAddresses();
              if (factoryMacs.length > 0) {
                  return factoryMacs[0];
              }
              return null;
          }
-         return mWifiConfig.getRandomizedMacAddress().toString();
+         return mTargetWifiConfig.getRandomizedMacAddress().toString();
      }
  
      @Override
-@@ -571,36 +571,42 @@ public class StandardWifiEntry extends WifiEntry {
+@@ -501,40 +501,55 @@ public class StandardWifiEntry extends WifiEntry {
      }
  
      @Override
@@ -53,75 +51,64 @@ index 51270545b6ad7e3bc5c4e811bad66b31e88bdb63..a96ba03e3051127a127785f331a3acd5
  
      @Override
      @Privacy
-     public int getPrivacy() {
--        if (mWifiConfig != null
--                && mWifiConfig.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_NONE) {
+     public synchronized int getPrivacy() {
+-        if (mTargetWifiConfig != null
+-                && mTargetWifiConfig.macRandomizationSetting
+-                == WifiConfiguration.RANDOMIZATION_NONE) {
 -            return PRIVACY_DEVICE_MAC;
-+        if (mWifiConfig != null) {
-+            switch(mWifiConfig.macRandomizationSetting) {
++        if (mTargetWifiConfig != null) {
++            switch(mTargetWifiConfig.macRandomizationSetting) {
 +                case WifiConfiguration.RANDOMIZATION_NONE:
 +                    return PRIVACY_DEVICE_MAC;
 +                case WifiConfiguration.RANDOMIZATION_PERSISTENT:
 +                    return PRIVACY_RANDOMIZED_MAC;
-+                case WifiConfiguration.RANDOMIZATION_ALWAYS:
-+                    return PRIVACY_FULLY_RANDOMIZED_MAC;
 +                default:
-+                    return PRIVACY_FULLY_RANDOMIZED_MAC;
++                    return PRIVACY_RANDOMIZATION_ALWAYS;
 +            }
          } else {
 -            return PRIVACY_RANDOMIZED_MAC;
-+            return PRIVACY_FULLY_RANDOMIZED_MAC;
++            return PRIVACY_RANDOMIZATION_ALWAYS;
          }
      }
  
      @Override
-     public void setPrivacy(int privacy) {
+     public synchronized void setPrivacy(int privacy) {
          if (!canSetPrivacy()) {
              return;
          }
--
--        mWifiConfig.macRandomizationSetting = privacy == PRIVACY_RANDOMIZED_MAC
--                ? WifiConfiguration.RANDOMIZATION_PERSISTENT : WifiConfiguration.RANDOMIZATION_NONE;
-+        mWifiConfig.macRandomizationSetting = translatePrivacyToWifiConfigurationValues(privacy);
-         mWifiManager.save(mWifiConfig, null /* listener */);
+ 
+-        mTargetWifiConfig.macRandomizationSetting = privacy == PRIVACY_RANDOMIZED_MAC
+-                ? WifiConfiguration.RANDOMIZATION_AUTO : WifiConfiguration.RANDOMIZATION_NONE;
++        mTargetWifiConfig.macRandomizationSetting = translatePrivacyToWifiConfigurationValues(privacy);
+         mWifiManager.save(mTargetWifiConfig, null /* listener */);
      }
  
-     @Override
-     public boolean isAutoJoinEnabled() {
-         if (mWifiConfig == null) {
-             return false;
-         }
- 
-         return mWifiConfig.allowAutojoin;
-@@ -922,11 +928,23 @@ public class StandardWifiEntry extends WifiEntry {
-         final int ageSeconds = (int) (nowMs - scanResult.timestamp / 1000) / 1000;
-         description.append(",").append(ageSeconds).append("s");
-         description.append("}");
-         return description.toString();
-     }
- 
-     @Override
-     String getNetworkSelectionDescription() {
-         return Utils.getNetworkSelectionDescription(getWifiConfiguration());
-     }
-+
 +    private static int translatePrivacyToWifiConfigurationValues(int privacy_value) {
 +        switch(privacy_value) {
-+            case PRIVACY_FULLY_RANDOMIZED_MAC:
-+                return WifiConfiguration.RANDOMIZATION_ALWAYS;
 +            case PRIVACY_RANDOMIZED_MAC:
 +                return WifiConfiguration.RANDOMIZATION_PERSISTENT;
 +            case PRIVACY_DEVICE_MAC:
 +                return WifiConfiguration.RANDOMIZATION_NONE;
++            default:
++                return WifiConfiguration.RANDOMIZATION_ALWAYS;
 +        }
-+        return WifiConfiguration.RANDOMIZATION_ALWAYS;
 +    }
- }
++
+     @Override
+     public synchronized boolean isAutoJoinEnabled() {
+         if (mTargetWifiConfig == null) {
+             return false;
+         }
+ 
+         return mTargetWifiConfig.allowAutojoin;
+     }
+ 
+     @Override
 diff --git a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java
-index 675c80d0ac170566d49b633070fed1521a16f108..f2398975e68d5f3782b85d69ff3289d348b51b45 100644
+index 6ec5d8ba3348e08240e3b973c3fedd09164a1f83..f7e1dcb19bedcd2e7395d25e0c648703eb9093e5 100644
 --- a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java
 +++ b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java
-@@ -141,20 +141,21 @@ public abstract class WifiEntry implements Comparable<WifiEntry> {
+@@ -149,20 +149,21 @@ public class WifiEntry implements Comparable<WifiEntry> {
              PRIVACY_DEVICE_MAC,
              PRIVACY_RANDOMIZED_MAC,
              PRIVACY_UNKNOWN
@@ -132,224 +119,14 @@ index 675c80d0ac170566d49b633070fed1521a16f108..f2398975e68d5f3782b85d69ff3289d3
      public static final int PRIVACY_DEVICE_MAC = 0;
      public static final int PRIVACY_RANDOMIZED_MAC = 1;
      public static final int PRIVACY_UNKNOWN = 2;
-+    public static final int PRIVACY_FULLY_RANDOMIZED_MAC = 100;
++    public static final int PRIVACY_RANDOMIZATION_ALWAYS = 100;
  
      @Retention(RetentionPolicy.SOURCE)
      @IntDef(value = {
              FREQUENCY_2_4_GHZ,
              FREQUENCY_5_GHZ,
              FREQUENCY_6_GHZ,
+             FREQUENCY_60_GHZ,
              FREQUENCY_UNKNOWN
      })
  
-     public @interface Frequency {}
-diff --git a/service/java/com/android/server/wifi/ClientModeImpl.java b/service/java/com/android/server/wifi/ClientModeImpl.java
-index 3a24f358041b022cc5b5561228883578182d1aaf..7fbc2bca67c1cb7ce9d7465308510c76decdb217 100644
---- a/service/java/com/android/server/wifi/ClientModeImpl.java
-+++ b/service/java/com/android/server/wifi/ClientModeImpl.java
-@@ -6434,21 +6434,22 @@ public class ClientModeImpl extends StateMachine {
-                             || config.allowedKeyManagement.get(
-                             WifiConfiguration.KeyMgmt.FILS_SHA384))) {
-             // Upgrade legacy WPA/WPA2 connection to WPA3
-             if (mVerboseLoggingEnabled) {
-                 Log.d(TAG, "Upgrade legacy WPA/WPA2 connection to WPA3");
-             }
-             config.setSecurityParams(WifiConfiguration.SECURITY_TYPE_SAE);
-         }
- 
-         if (isConnectedMacRandomizationEnabled()) {
--            if (config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_PERSISTENT) {
-+            if (config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_PERSISTENT ||
-+                    config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_ALWAYS) {
-                 configureRandomizedMacAddress(config);
-             } else {
-                 setCurrentMacToFactoryMac(config);
-             }
-         }
- 
-         if (config.enterpriseConfig != null
-                 && config.enterpriseConfig.isAuthenticationSimBased()
-                 && mWifiCarrierInfoManager.isImsiEncryptionInfoAvailable(
-                 mWifiCarrierInfoManager.getBestMatchSubscriptionId(config))
-@@ -6471,21 +6472,21 @@ public class ClientModeImpl extends StateMachine {
- 
-     private boolean startIpClient(WifiConfiguration config, boolean isFilsConnection) {
-         if (mIpClient == null) {
-             return false;
-         }
- 
-         final boolean isUsingStaticIp =
-                 (config.getIpAssignment() == IpConfiguration.IpAssignment.STATIC);
-         final boolean isUsingMacRandomization =
-                 config.macRandomizationSetting
--                        == WifiConfiguration.RANDOMIZATION_PERSISTENT
-+                        != WifiConfiguration.RANDOMIZATION_NONE
-                         && isConnectedMacRandomizationEnabled();
-         if (mVerboseLoggingEnabled) {
-             final String key = config.getKey();
-             log("startIpClient netId=" + Integer.toString(mLastNetworkId)
-                     + " " + key + " "
-                     + " roam=" + mIsAutoRoaming
-                     + " static=" + isUsingStaticIp
-                     + " randomMac=" + isUsingMacRandomization
-                     + " isFilsConnection=" + isFilsConnection);
-         }
-diff --git a/service/java/com/android/server/wifi/WifiConfigManager.java b/service/java/com/android/server/wifi/WifiConfigManager.java
-index 8fc91cb0983ded666390b2fb66da1efe757d325d..25304cca4783da1117971363225534e592be7597 100644
---- a/service/java/com/android/server/wifi/WifiConfigManager.java
-+++ b/service/java/com/android/server/wifi/WifiConfigManager.java
-@@ -418,23 +418,28 @@ public class WifiConfigManager {
-     }
- 
-     /**
-      * Determine if the framework should perform "aggressive" MAC randomization when connecting
-      * to the SSID or FQDN in the input WifiConfiguration.
-      * @param config
-      * @return
-      */
-     public boolean shouldUseAggressiveRandomization(WifiConfiguration config) {
-         if (!isMacRandomizationSupported()
--                || config.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_PERSISTENT) {
-+                || config.macRandomizationSetting < WifiConfiguration.RANDOMIZATION_PERSISTENT) {
-             return false;
-         }
-+
-+        if (config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_ALWAYS) {
-+            return true;
-+        }
-+
-         if (mFrameworkFacade.getIntegerSetting(mContext,
-                 ENHANCED_MAC_RANDOMIZATION_FEATURE_FORCE_ENABLE_FLAG, 0) == 1) {
-             return true;
-         }
-         if (config.getIpConfiguration().getIpAssignment() == IpConfiguration.IpAssignment.STATIC) {
-             return false;
-         }
-         if (config.isPasspoint()) {
-             return isNetworkOptInForAggressiveRandomization(config.FQDN);
-         } else {
-@@ -539,21 +544,23 @@ public class WifiConfigManager {
-     }
- 
-     /**
-      * This method is called before connecting to a network that has "aggressive randomization"
-      * enabled, and will re-randomize the MAC address if needed.
-      * @param config the WifiConfiguration to make the update
-      * @return the updated MacAddress
-      */
-     private MacAddress updateRandomizedMacIfNeeded(WifiConfiguration config) {
-         boolean shouldUpdateMac = config.randomizedMacExpirationTimeMs
--                < mClock.getWallClockMillis();
-+                < mClock.getWallClockMillis() ||
-+                config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_ALWAYS;
-+
-         if (!shouldUpdateMac) {
-             return config.getRandomizedMacAddress();
-         }
-         WifiConfiguration internalConfig = getInternalConfiguredNetwork(config.networkId);
-         internalConfig.setRandomizedMacAddress(MacAddressUtils.createRandomUnicastAddress());
-         return internalConfig.getRandomizedMacAddress();
-     }
- 
-     /**
-      * Returns the randomized MAC address that should be used for this WifiConfiguration.
-@@ -1572,21 +1579,21 @@ public class WifiConfigManager {
- 
-     /**
-      * Check whether a network belong to a known list of networks that may not support randomized
-      * MAC.
-      * @param networkId
-      * @return true if the network is in the hotlist and MAC randomization is enabled.
-      */
-     public boolean isInFlakyRandomizationSsidHotlist(int networkId) {
-         WifiConfiguration config = getConfiguredNetwork(networkId);
-         return config != null
--                && config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_PERSISTENT
-+                && config.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_NONE
-                 && mDeviceConfigFacade.getRandomizationFlakySsidHotlist().contains(config.SSID);
-     }
- 
-     /**
-      * Helper method to mark a network enabled for network selection.
-      */
-     private void setNetworkSelectionEnabled(WifiConfiguration config) {
-         NetworkSelectionStatus status = config.getNetworkSelectionStatus();
-         if (status.getNetworkSelectionStatus()
-                 != NetworkSelectionStatus.NETWORK_SELECTION_ENABLED) {
-diff --git a/service/java/com/android/server/wifi/WifiConfigurationUtil.java b/service/java/com/android/server/wifi/WifiConfigurationUtil.java
-index 336d978107c23530c385238068537ead83904742..9c3e074ae1d67743cfe25bc91c5983844f91a0b2 100644
---- a/service/java/com/android/server/wifi/WifiConfigurationUtil.java
-+++ b/service/java/com/android/server/wifi/WifiConfigurationUtil.java
-@@ -196,21 +196,21 @@ public class WifiConfigurationUtil {
-      * Compare existing and new WifiConfiguration objects after a network update and return if
-      * MAC randomization setting has changed or not.
-      * @param existingConfig Existing WifiConfiguration object corresponding to the network.
-      * @param newConfig      New WifiConfiguration object corresponding to the network.
-      * @return true if MAC randomization setting setting changed or the existing confiuration is
-      * null and the newConfig is setting macRandomizationSetting to the default value.
-      */
-     public static boolean hasMacRandomizationSettingsChanged(WifiConfiguration existingConfig,
-             WifiConfiguration newConfig) {
-         if (existingConfig == null) {
--            return newConfig.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_PERSISTENT;
-+            return newConfig.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_ALWAYS;
-         }
-         return newConfig.macRandomizationSetting != existingConfig.macRandomizationSetting;
-     }
- 
-     /**
-      * Compare existing and new WifiEnterpriseConfig objects after a network update and return if
-      * credential parameters have changed or not.
-      *
-      * @param existingEnterpriseConfig Existing WifiConfiguration object corresponding to the
-      *                                 network.
-diff --git a/service/java/com/android/server/wifi/WifiMetrics.java b/service/java/com/android/server/wifi/WifiMetrics.java
-index 75d53fc95fe4f104299d9d5e3102c3d38bb427f6..4ef2e5f8e6a6cbcb4cfccda669e805117adf7e0b 100644
---- a/service/java/com/android/server/wifi/WifiMetrics.java
-+++ b/service/java/com/android/server/wifi/WifiMetrics.java
-@@ -1549,21 +1549,21 @@ public class WifiMetrics {
-             mCurrentConnectionEvent.mRouterFingerPrint.updateFromWifiConfiguration(config);
-             mCurrentConnectionEvent.mConfigBssid = "any";
-             mCurrentConnectionEvent.mRealStartTime = mClock.getElapsedSinceBootMillis();
-             mCurrentConnectionEvent.mWifiState = mWifiState;
-             mCurrentConnectionEvent.mScreenOn = mScreenOn;
-             mConnectionEventList.add(mCurrentConnectionEvent);
-             mScanResultRssiTimestampMillis = -1;
-             if (config != null) {
-                 mCurrentConnectionEvent.mConnectionEvent.useRandomizedMac =
-                         config.macRandomizationSetting
--                        == WifiConfiguration.RANDOMIZATION_PERSISTENT;
-+                        != WifiConfiguration.RANDOMIZATION_NONE;
-                 mCurrentConnectionEvent.mConnectionEvent.useAggressiveMac =
-                         mWifiConfigManager.shouldUseAggressiveRandomization(config);
-                 mCurrentConnectionEvent.mConnectionEvent.connectionNominator =
-                         mNetworkIdToNominatorId.get(config.networkId,
-                                 WifiMetricsProto.ConnectionEvent.NOMINATOR_UNKNOWN);
-                 ScanResult candidate = config.getNetworkSelectionStatus().getCandidate();
-                 if (candidate != null) {
-                     // Cache the RSSI of the candidate, as the connection event level is updated
-                     // from other sources (polls, bssid_associations) and delta requires the
-                     // scanResult rssi
-@@ -3951,21 +3951,21 @@ public class WifiMetrics {
-                         mWifiLogProto.numLegacyPersonalNetworks++;
-                     }
-                 }
-                 mWifiLogProto.numNetworksAddedByApps++;
-                 if (config.hiddenSSID) {
-                     mWifiLogProto.numHiddenNetworks++;
-                 }
-                 if (config.isPasspoint()) {
-                     mWifiLogProto.numPasspointNetworks++;
-                 }
--                if (config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_PERSISTENT) {
-+                if (config.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_NONE) {
-                     mWifiLogProto.numSavedNetworksWithMacRandomization++;
-                 }
-             }
-         }
-     }
- 
-     /**
-      * Update metrics for saved Passpoint profiles.
-      *
-      * @param numSavedProfiles The number of saved Passpoint profiles

@@ -1,0 +1,996 @@
+commit 82f1563818c22b8b3986466a0cc56e175036e43f
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 17:05:49-0700
+
+    Add callback for enforcing INTERNET permission changes
+    
+    Change-Id: Ic79b9c6a6cb35c69de16732ce5be0a3e6e81d066
+---
+ framework/api/system-current.txt                         |  1 +
+ framework/src/android/net/ConnectivityManager.java       | 16 ++++++++++++++++
+ framework/src/android/net/IConnectivityManager.aidl      |  2 ++
+ service/src/com/android/server/ConnectivityService.java  |  6 ++++++
+ .../android/server/connectivity/PermissionMonitor.java   |  5 +++++
+ 5 files changed, 30 insertions(+)
+
+diff --git a/framework/api/system-current.txt b/framework/api/system-current.txt
+index d1d51da151bf8601d3deb8510c8ca57c13675906..09a678d9bea8d27871f2c66abc4deb504d16873f 100644
+--- a/framework/api/system-current.txt
++++ b/framework/api/system-current.txt
+@@ -44,20 +44,21 @@ package android.net {
+     method @NonNull public android.net.CaptivePortalData.Builder setVenueInfoUrl(@Nullable android.net.Uri);
+     method @NonNull public android.net.CaptivePortalData.Builder setVenueInfoUrl(@Nullable android.net.Uri, int);
+   }
+ 
+   public class ConnectivityManager {
+     method @NonNull @RequiresPermission(android.Manifest.permission.PACKET_KEEPALIVE_OFFLOAD) public android.net.SocketKeepalive createNattKeepalive(@NonNull android.net.Network, @NonNull android.os.ParcelFileDescriptor, @NonNull java.net.InetAddress, @NonNull java.net.InetAddress, @NonNull java.util.concurrent.Executor, @NonNull android.net.SocketKeepalive.Callback);
+     method @NonNull @RequiresPermission(android.Manifest.permission.PACKET_KEEPALIVE_OFFLOAD) public android.net.SocketKeepalive createSocketKeepalive(@NonNull android.net.Network, @NonNull java.net.Socket, @NonNull java.util.concurrent.Executor, @NonNull android.net.SocketKeepalive.Callback);
+     method @Deprecated @RequiresPermission(android.Manifest.permission.NETWORK_SETTINGS) public String getCaptivePortalServerUrl();
+     method @Deprecated @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void getLatestTetheringEntitlementResult(int, boolean, @NonNull java.util.concurrent.Executor, @NonNull android.net.ConnectivityManager.OnTetheringEntitlementResultListener);
+     method @Deprecated @RequiresPermission(anyOf={android.Manifest.permission.TETHER_PRIVILEGED, android.Manifest.permission.WRITE_SETTINGS}) public boolean isTetheringSupported();
++    method public void onPackagePermissionChanged(int);
+     method @RequiresPermission(anyOf={android.net.NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK, android.Manifest.permission.NETWORK_FACTORY}) public int registerNetworkProvider(@NonNull android.net.NetworkProvider);
+     method public void registerQosCallback(@NonNull android.net.QosSocketInfo, @NonNull java.util.concurrent.Executor, @NonNull android.net.QosCallback);
+     method @Deprecated @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void registerTetheringEventCallback(@NonNull java.util.concurrent.Executor, @NonNull android.net.ConnectivityManager.OnTetheringEventCallback);
+     method @RequiresPermission(android.net.NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK) public void requestNetwork(@NonNull android.net.NetworkRequest, int, int, @NonNull android.os.Handler, @NonNull android.net.ConnectivityManager.NetworkCallback);
+     method @RequiresPermission(anyOf={android.Manifest.permission.NETWORK_AIRPLANE_MODE, android.Manifest.permission.NETWORK_SETTINGS, android.Manifest.permission.NETWORK_SETUP_WIZARD, android.Manifest.permission.NETWORK_STACK}) public void setAirplaneMode(boolean);
+     method @RequiresPermission(android.Manifest.permission.CONTROL_OEM_PAID_NETWORK_PREFERENCE) public void setOemNetworkPreference(@NonNull android.net.OemNetworkPreferences, @Nullable java.util.concurrent.Executor, @Nullable Runnable);
+     method @RequiresPermission(anyOf={android.net.NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK, android.Manifest.permission.NETWORK_STACK}) public boolean shouldAvoidBadWifi();
+     method @RequiresPermission(android.net.NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK) public void startCaptivePortalApp(@NonNull android.net.Network, @NonNull android.os.Bundle);
+     method @Deprecated @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void startTethering(int, boolean, android.net.ConnectivityManager.OnStartTetheringCallback);
+     method @Deprecated @RequiresPermission(android.Manifest.permission.TETHER_PRIVILEGED) public void startTethering(int, boolean, android.net.ConnectivityManager.OnStartTetheringCallback, android.os.Handler);
+diff --git a/framework/src/android/net/ConnectivityManager.java b/framework/src/android/net/ConnectivityManager.java
+index 2eb5fb72a61f7c4aa992bdf430b6edfafc47438c..fd37a9746a79b8ab003cae83f6a552c4b16e8a73 100644
+--- a/framework/src/android/net/ConnectivityManager.java
++++ b/framework/src/android/net/ConnectivityManager.java
+@@ -9,38 +9,40 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ package android.net;
+ 
+ import static android.annotation.SystemApi.Client.MODULE_LIBRARIES;
++import static android.annotation.SystemApi.Client.SYSTEM_SERVER;
+ import static android.net.NetworkRequest.Type.BACKGROUND_REQUEST;
+ import static android.net.NetworkRequest.Type.LISTEN;
+ import static android.net.NetworkRequest.Type.LISTEN_FOR_BEST;
+ import static android.net.NetworkRequest.Type.REQUEST;
+ import static android.net.NetworkRequest.Type.TRACK_DEFAULT;
+ import static android.net.NetworkRequest.Type.TRACK_SYSTEM_DEFAULT;
+ import static android.net.QosCallback.QosCallbackRegistrationException;
+ 
+ import android.annotation.CallbackExecutor;
+ import android.annotation.IntDef;
+ import android.annotation.NonNull;
+ import android.annotation.Nullable;
+ import android.annotation.RequiresPermission;
+ import android.annotation.SdkConstant;
+ import android.annotation.SdkConstant.SdkConstantType;
+ import android.annotation.SuppressLint;
+ import android.annotation.SystemApi;
+ import android.annotation.SystemService;
++import android.annotation.UserIdInt;
+ import android.app.PendingIntent;
+ import android.app.admin.DevicePolicyManager;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.ComponentName;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.net.ConnectivityDiagnosticsManager.DataStallReport.DetectionMethod;
+ import android.net.IpSecManager.UdpEncapsulationSocket;
+ import android.net.SocketKeepalive.Callback;
+ import android.net.TetheringManager.StartTetheringCallback;
+@@ -5492,11 +5494,25 @@ public class ConnectivityManager {
+      * Get the network ID range reserved for IPSec tunnel interfaces.
+      *
+      * @return A Range which indicates the network ID range of IPSec tunnel interface.
+      * @hide
+      */
+     @SystemApi(client = MODULE_LIBRARIES)
+     @NonNull
+     public static Range<Integer> getIpSecNetIdRange() {
+         return new Range(TUN_INTF_NETID_START, TUN_INTF_NETID_START + TUN_INTF_NETID_RANGE - 1);
+     }
++
++    /**
++     * Notify ConnectivityService of a runtime permission change for the given package and user ID.
++     *
++     * @hide
++     */
++    @SystemApi
++    public void onPackagePermissionChanged(int uid) {
++        try {
++            mService.onPackagePermissionChanged(uid);
++        } catch (RemoteException e) {
++            throw e.rethrowFromSystemServer();
++        }
++    }
+ }
+diff --git a/framework/src/android/net/IConnectivityManager.aidl b/framework/src/android/net/IConnectivityManager.aidl
+index 50ec78120fbea72f3a152edd1c9d94be303b6ff4..2d09c042291a6398ae0cf0892e39d35386603c15 100644
+--- a/framework/src/android/net/IConnectivityManager.aidl
++++ b/framework/src/android/net/IConnectivityManager.aidl
+@@ -221,11 +221,13 @@ interface IConnectivityManager
+     void setProfileNetworkPreference(in UserHandle profile, int preference,
+             in IOnCompleteListener listener);
+ 
+     int getRestrictBackgroundStatusByCaller();
+ 
+     void offerNetwork(int providerId, in NetworkScore score,
+             in NetworkCapabilities caps, in INetworkOfferCallback callback);
+     void unofferNetwork(in INetworkOfferCallback callback);
+ 
+     void setTestAllowBadWifiUntil(long timeMs);
++
++    void onPackagePermissionChanged(int uid);
+ }
+diff --git a/service/src/com/android/server/ConnectivityService.java b/service/src/com/android/server/ConnectivityService.java
+index e34c0640c25e42123971f95920c549e0e3e94af7..05a1a9ec57f3054c8752cfea4bc8deaaab828d9c 100644
+--- a/service/src/com/android/server/ConnectivityService.java
++++ b/service/src/com/android/server/ConnectivityService.java
+@@ -86,20 +86,21 @@ import static android.net.shared.NetworkMonitorUtils.isPrivateDnsValidationRequi
+ import static android.os.Process.INVALID_UID;
+ import static android.os.Process.VPN_UID;
+ import static android.system.OsConstants.IPPROTO_TCP;
+ import static android.system.OsConstants.IPPROTO_UDP;
+ 
+ import static java.util.Map.Entry;
+ 
+ import android.Manifest;
+ import android.annotation.NonNull;
+ import android.annotation.Nullable;
++import android.annotation.UserIdInt;
+ import android.app.AppOpsManager;
+ import android.app.BroadcastOptions;
+ import android.app.PendingIntent;
+ import android.app.usage.NetworkStatsManager;
+ import android.content.BroadcastReceiver;
+ import android.content.ComponentName;
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+@@ -10318,11 +10319,16 @@ public class ConnectivityService extends IConnectivityManager.Stub
+             return netcap;
+         }
+ 
+         private NetworkRequest createTestNetworkRequest() {
+             final NetworkCapabilities netcap = new NetworkCapabilities();
+             netcap.clearAll();
+             netcap.addTransportType(TRANSPORT_TEST);
+             return createNetworkRequest(NetworkRequest.Type.REQUEST, netcap);
+         }
+     }
++
++    @Override
++    public void onPackagePermissionChanged(int uid) {
++        mPermissionMonitor.onInternetPermissionChanged(uid);
++    }
+ }
+diff --git a/service/src/com/android/server/connectivity/PermissionMonitor.java b/service/src/com/android/server/connectivity/PermissionMonitor.java
+index a49c0a6e8e0c414158d7751f9543a139663068c8..a43ee18b395d87b5c4b0485cc82eafea3f8b88f5 100755
+--- a/service/src/com/android/server/connectivity/PermissionMonitor.java
++++ b/service/src/com/android/server/connectivity/PermissionMonitor.java
+@@ -25,20 +25,21 @@ import static android.content.pm.PackageInfo.REQUESTED_PERMISSION_GRANTED;
+ import static android.content.pm.PackageManager.GET_PERMISSIONS;
+ import static android.content.pm.PackageManager.MATCH_ANY_USER;
+ import static android.net.ConnectivitySettingsManager.UIDS_ALLOWED_ON_RESTRICTED_NETWORKS;
+ import static android.net.NetworkStack.PERMISSION_MAINLINE_NETWORK_STACK;
+ import static android.os.Process.INVALID_UID;
+ import static android.os.Process.SYSTEM_UID;
+ 
+ import static com.android.net.module.util.CollectionUtils.toIntArray;
+ 
+ import android.annotation.NonNull;
++import android.annotation.UserIdInt;
+ import android.content.BroadcastReceiver;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.pm.ApplicationInfo;
+ import android.content.pm.PackageInfo;
+ import android.content.pm.PackageManager;
+ import android.content.pm.PackageManager.NameNotFoundException;
+ import android.database.ContentObserver;
+ import android.net.ConnectivitySettingsManager;
+@@ -271,20 +272,24 @@ public class PermissionMonitor {
+             for (int j = 0; j < hasPermissionUids.length; j++) {
+                 final int uid = hasPermissionUids[j];
+                 netdPermsUids.put(uid, netdPermsUids.get(uid) | netdPermission);
+             }
+         }
+         log("Users: " + mUsers.size() + ", Apps: " + mApps.size());
+         update(mUsers, mApps, true);
+         sendPackagePermissionsToNetd(netdPermsUids);
+     }
+ 
++    public void onInternetPermissionChanged(int uid) {
++        sendPackagePermissionsForUid(UserHandle.getAppId(uid), getPermissionForUid(uid));
++    }
++
+     @VisibleForTesting
+     synchronized void updateUidsAllowedOnRestrictedNetworks(final Set<Integer> uids) {
+         mUidsAllowedOnRestrictedNetworks.clear();
+         // This is necessary for the app id to match in isUidAllowedOnRestrictedNetworks, and will
+         // grant the permission to all uids associated with the app ID. This is safe even if the app
+         // is only installed on some users because the uid cannot match some other app – this uid is
+         // in effect not installed and can't be run.
+         // TODO (b/192431153): Change appIds back to uids.
+         for (int uid : uids) {
+             mUidsAllowedOnRestrictedNetworks.add(UserHandle.getAppId(uid));
+
+commit 2767af0551780e030d45a64ca46eafff57be47ec
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 18:42:40-0700
+
+    gmscompat: Add ConnectivityManager hook for baseline compatibility
+    
+    This is part of GmsCompat's baseline compatibility for unprivileged
+    Google Play Services.
+    
+    Change-Id: I3e87706f1f3b87c0af9d00f6ce92144469596f8c
+---
+ framework/src/android/net/ConnectivityManager.java | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/framework/src/android/net/ConnectivityManager.java b/framework/src/android/net/ConnectivityManager.java
+index fd37a9746a79b8ab003cae83f6a552c4b16e8a73..60e6c3d46d4ab361efcf713958a4034ccad485c2 100644
+--- a/framework/src/android/net/ConnectivityManager.java
++++ b/framework/src/android/net/ConnectivityManager.java
+@@ -31,20 +31,21 @@ import android.annotation.NonNull;
+ import android.annotation.Nullable;
+ import android.annotation.RequiresPermission;
+ import android.annotation.SdkConstant;
+ import android.annotation.SdkConstant.SdkConstantType;
+ import android.annotation.SuppressLint;
+ import android.annotation.SystemApi;
+ import android.annotation.SystemService;
+ import android.annotation.UserIdInt;
+ import android.app.PendingIntent;
+ import android.app.admin.DevicePolicyManager;
++import android.app.compat.gms.GmsCompat;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.ComponentName;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.net.ConnectivityDiagnosticsManager.DataStallReport.DetectionMethod;
+ import android.net.IpSecManager.UdpEncapsulationSocket;
+ import android.net.SocketKeepalive.Callback;
+ import android.net.TetheringManager.StartTetheringCallback;
+ import android.net.TetheringManager.TetheringEventCallback;
+ import android.net.TetheringManager.TetheringRequest;
+@@ -2600,20 +2601,24 @@ public class ConnectivityManager {
+      *
+      * @return a boolean - {@code true} indicating Tethering is supported.
+      *
+      * @deprecated Use {@link TetheringEventCallback#onTetheringSupported(boolean)} instead.
+      * {@hide}
+      */
+     @SystemApi
+     @RequiresPermission(anyOf = {android.Manifest.permission.TETHER_PRIVILEGED,
+             android.Manifest.permission.WRITE_SETTINGS})
+     public boolean isTetheringSupported() {
++        if (GmsCompat.isEnabled()) {
++            return false;
++        }
++
+         return getTetheringManager().isTetheringSupported();
+     }
+ 
+     /**
+      * Callback for use with {@link #startTethering} to find out whether tethering succeeded.
+      *
+      * @deprecated Use {@link TetheringManager.StartTetheringCallback} instead.
+      * @hide
+      */
+     @SystemApi
+
+commit 40f981c24c79d5a2337eb50ae5ee4c618c577653
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Wed 2021-10-13 22:20:53+0530
+
+    use uid instead of app id
+---
+ .../server/connectivity/PermissionMonitor.java     | 142 ++++++++++-----------
+ 1 file changed, 68 insertions(+), 74 deletions(-)
+
+diff --git a/service/src/com/android/server/connectivity/PermissionMonitor.java b/service/src/com/android/server/connectivity/PermissionMonitor.java
+index a43ee18b395d87b5c4b0485cc82eafea3f8b88f5..8625f3c8035814fa6e80b2ee04b5ef65ab4c5f3e 100755
+--- a/service/src/com/android/server/connectivity/PermissionMonitor.java
++++ b/service/src/com/android/server/connectivity/PermissionMonitor.java
+@@ -218,89 +218,89 @@ public class PermissionMonitor {
+                     @Override
+                     public void onChange(boolean selfChange) {
+                         onSettingChanged();
+                     }
+                 });
+ 
+         // Read UIDS_ALLOWED_ON_RESTRICTED_NETWORKS setting and update
+         // mUidsAllowedOnRestrictedNetworks.
+         updateUidsAllowedOnRestrictedNetworks(mDeps.getUidsAllowedOnRestrictedNetworks(mContext));
+ 
+-        List<PackageInfo> apps = mPackageManager.getInstalledPackages(GET_PERMISSIONS
+-                | MATCH_ANY_USER);
+-        if (apps == null) {
+-            loge("No apps");
+-            return;
+-        }
+-
+         SparseIntArray netdPermsUids = new SparseIntArray();
+ 
+-        for (PackageInfo app : apps) {
+-            int uid = app.applicationInfo != null ? app.applicationInfo.uid : INVALID_UID;
+-            if (uid < 0) {
++        mUsers.addAll(mUserManager.getUserHandles(true /* excludeDying */));
++
++        for(UserHandle user : mUsers){
++            PackageManager pmUser = mContext.createContextAsUser(user,0).getPackageManager();
++            List<PackageInfo> apps = pmUser.getInstalledPackages(GET_PERMISSIONS);
++            if (apps == null) {
++                loge("No apps");
+                 continue;
+             }
+-            mAllApps.add(UserHandle.getAppId(uid));
+ 
+-            boolean isNetwork = hasNetworkPermission(app);
+-            boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
++            for (PackageInfo app : apps) {
++                int uid = app.applicationInfo != null ? app.applicationInfo.uid : INVALID_UID;
++                if (uid < 0) {
++                    continue;
++                }
++                mAllApps.add(uid);
+ 
+-            if (isNetwork || hasRestrictedPermission) {
+-                Boolean permission = mApps.get(UserHandle.getAppId(uid));
+-                // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
+-                // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
+-                if (permission == null || permission == NETWORK) {
+-                    mApps.put(UserHandle.getAppId(uid), hasRestrictedPermission);
++                boolean isNetwork = hasNetworkPermission(app);
++                boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
++
++                if (isNetwork || hasRestrictedPermission) {
++                    Boolean permission = mApps.get(uid);
++                    // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
++                    // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
++                    if (permission == null || permission == NETWORK) {
++                        mApps.put(uid, hasRestrictedPermission);
++                    }
+                 }
+-            }
+ 
+-            //TODO: unify the management of the permissions into one codepath.
+-            int otherNetdPerms = getNetdPermissionMask(app.requestedPermissions,
+-                    app.requestedPermissionsFlags);
+-            netdPermsUids.put(uid, netdPermsUids.get(uid) | otherNetdPerms);
++                //TODO: unify the management of the permissions into one codepath.
++                int otherNetdPerms = getNetdPermissionMask(app.requestedPermissions,
++                        app.requestedPermissionsFlags);
++                netdPermsUids.put(uid, netdPermsUids.get(uid) | otherNetdPerms);
++            }
+         }
+ 
+-        mUsers.addAll(mUserManager.getUserHandles(true /* excludeDying */));
+-
+         final SparseArray<String> netdPermToSystemPerm = new SparseArray<>();
+         netdPermToSystemPerm.put(INetd.PERMISSION_INTERNET, INTERNET);
+         netdPermToSystemPerm.put(INetd.PERMISSION_UPDATE_DEVICE_STATS, UPDATE_DEVICE_STATS);
+         for (int i = 0; i < netdPermToSystemPerm.size(); i++) {
+             final int netdPermission = netdPermToSystemPerm.keyAt(i);
+             final String systemPermission = netdPermToSystemPerm.valueAt(i);
+             final int[] hasPermissionUids =
+                     mSystemConfigManager.getSystemPermissionUids(systemPermission);
+             for (int j = 0; j < hasPermissionUids.length; j++) {
+                 final int uid = hasPermissionUids[j];
+                 netdPermsUids.put(uid, netdPermsUids.get(uid) | netdPermission);
+             }
+         }
+         log("Users: " + mUsers.size() + ", Apps: " + mApps.size());
+         update(mUsers, mApps, true);
+         sendPackagePermissionsToNetd(netdPermsUids);
+     }
+ 
+     public void onInternetPermissionChanged(int uid) {
+-        sendPackagePermissionsForUid(UserHandle.getAppId(uid), getPermissionForUid(uid));
++        sendPackagePermissionsForUid(uid, getPermissionForUid(uid));
+     }
+ 
+     @VisibleForTesting
+     synchronized void updateUidsAllowedOnRestrictedNetworks(final Set<Integer> uids) {
+         mUidsAllowedOnRestrictedNetworks.clear();
+         // This is necessary for the app id to match in isUidAllowedOnRestrictedNetworks, and will
+         // grant the permission to all uids associated with the app ID. This is safe even if the app
+         // is only installed on some users because the uid cannot match some other app – this uid is
+         // in effect not installed and can't be run.
+         // TODO (b/192431153): Change appIds back to uids.
+-        for (int uid : uids) {
+-            mUidsAllowedOnRestrictedNetworks.add(UserHandle.getAppId(uid));
+-        }
++        mUidsAllowedOnRestrictedNetworks.addAll(uids);
+     }
+ 
+     @VisibleForTesting
+     static boolean isVendorApp(@NonNull ApplicationInfo appInfo) {
+         return appInfo.isVendor() || appInfo.isOem() || appInfo.isProduct();
+     }
+ 
+     @VisibleForTesting
+     boolean isCarryoverPackage(final ApplicationInfo appInfo) {
+         if (appInfo == null) return false;
+@@ -308,21 +308,21 @@ public class PermissionMonitor {
+                 // Backward compatibility for b/114245686, on devices that launched before Q daemons
+                 // and apps running as the system UID are exempted from this check.
+                 || (appInfo.uid == SYSTEM_UID && mDeps.getDeviceFirstSdkInt() < VERSION_Q);
+     }
+ 
+     @VisibleForTesting
+     synchronized boolean isUidAllowedOnRestrictedNetworks(final ApplicationInfo appInfo) {
+         if (appInfo == null) return false;
+         // Check whether package's uid is in allowed on restricted networks uid list. If so, this
+         // uid can have netd system permission.
+-        return mUidsAllowedOnRestrictedNetworks.contains(UserHandle.getAppId(appInfo.uid));
++        return mUidsAllowedOnRestrictedNetworks.contains(appInfo.uid);
+     }
+ 
+     @VisibleForTesting
+     boolean hasPermission(@NonNull final PackageInfo app, @NonNull final String permission) {
+         if (app.requestedPermissions == null || app.requestedPermissionsFlags == null) {
+             return false;
+         }
+         final int index = CollectionUtils.indexOf(app.requestedPermissions, permission);
+         if (index < 0 || index >= app.requestedPermissionsFlags.length) return false;
+         return (app.requestedPermissionsFlags[index] & REQUESTED_PERMISSION_GRANTED) != 0;
+@@ -344,28 +344,28 @@ public class PermissionMonitor {
+                 || hasPermission(app, CONNECTIVITY_USE_RESTRICTED_NETWORKS);
+     }
+ 
+     /** Returns whether the given uid has using background network permission. */
+     public synchronized boolean hasUseBackgroundNetworksPermission(final int uid) {
+         // Apps with any of the CHANGE_NETWORK_STATE, NETWORK_STACK, CONNECTIVITY_INTERNAL or
+         // CONNECTIVITY_USE_RESTRICTED_NETWORKS permission has the permission to use background
+         // networks. mApps contains the result of checks for both hasNetworkPermission and
+         // hasRestrictedNetworkPermission. If uid is in the mApps list that means uid has one of
+         // permissions at least.
+-        return mApps.containsKey(UserHandle.getAppId(uid));
++        return mApps.containsKey(uid);
+     }
+ 
+     /**
+      * Returns whether the given uid has permission to use restricted networks.
+      */
+     public synchronized boolean hasRestrictedNetworksPermission(int uid) {
+-        return Boolean.TRUE.equals(mApps.get(UserHandle.getAppId(uid)));
++        return Boolean.TRUE.equals(mApps.get(uid));
+     }
+ 
+     private void update(Set<UserHandle> users, Map<Integer, Boolean> apps, boolean add) {
+         List<Integer> network = new ArrayList<>();
+         List<Integer> system = new ArrayList<>();
+         for (Entry<Integer, Boolean> app : apps.entrySet()) {
+             List<Integer> list = app.getValue() ? system : network;
+             for (UserHandle user : users) {
+                 if (user == null) continue;
+ 
+@@ -417,47 +417,43 @@ public class PermissionMonitor {
+ 
+     /**
+      * Compare the current network permission and the given package's permission to find out highest
+      * permission for the uid.
+      *
+      * @param currentPermission Current uid network permission
+      * @param name The package has same uid that need compare its permission to update uid network
+      *             permission.
+      */
+     @VisibleForTesting
+-    protected Boolean highestPermissionForUid(Boolean currentPermission, String name) {
++    protected Boolean highestPermissionForUid(Boolean currentPermission, String name, int uid) {
+         if (currentPermission == SYSTEM) {
+             return currentPermission;
+         }
+-        try {
+-            final PackageInfo app = mPackageManager.getPackageInfo(name,
+-                    GET_PERMISSIONS | MATCH_ANY_USER);
++        final PackageInfo app = getPackageInfo(name, UserHandle.getUserHandleForUid(uid));
++        if(app != null){
+             final boolean isNetwork = hasNetworkPermission(app);
+             final boolean hasRestrictedPermission = hasRestrictedNetworkPermission(app);
+             if (isNetwork || hasRestrictedPermission) {
+                 currentPermission = hasRestrictedPermission;
+             }
+-        } catch (NameNotFoundException e) {
+-            // App not found.
+-            loge("NameNotFoundException " + name);
+         }
+         return currentPermission;
+     }
+ 
+     private int getPermissionForUid(final int uid) {
+         int permission = INetd.PERMISSION_NONE;
+         // Check all the packages for this UID. The UID has the permission if any of the
+         // packages in it has the permission.
+         final String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (packages != null && packages.length > 0) {
+             for (String name : packages) {
+-                final PackageInfo app = getPackageInfo(name);
++                PackageInfo app = getPackageInfo(name,  UserHandle.getUserHandleForUid(uid));
+                 if (app != null && app.requestedPermissions != null) {
+                     permission |= getNetdPermissionMask(app.requestedPermissions,
+                             app.requestedPermissionsFlags);
+                 }
+             }
+         } else {
+             // The last package of this uid is removed from device. Clean the package up.
+             permission = INetd.PERMISSION_UNINSTALLED;
+         }
+         return permission;
+@@ -467,139 +463,136 @@ public class PermissionMonitor {
+      * Called when a package is added.
+      *
+      * @param packageName The name of the new package.
+      * @param uid The uid of the new package.
+      *
+      * @hide
+      */
+     public synchronized void onPackageAdded(@NonNull final String packageName, final int uid) {
+         // TODO: Netd is using appId for checking traffic permission. Correct the methods that are
+         //  using appId instead of uid actually
+-        sendPackagePermissionsForUid(UserHandle.getAppId(uid), getPermissionForUid(uid));
++        sendPackagePermissionsForUid(uid, getPermissionForUid(uid));
+ 
+         // If multiple packages share a UID (cf: android:sharedUserId) and ask for different
+         // permissions, don't downgrade (i.e., if it's already SYSTEM, leave it as is).
+-        final int appId = UserHandle.getAppId(uid);
+-        final Boolean permission = highestPermissionForUid(mApps.get(appId), packageName);
+-        if (permission != mApps.get(appId)) {
+-            mApps.put(appId, permission);
++        final Boolean permission = highestPermissionForUid(mApps.get(uid), packageName, uid);
++        if (permission != mApps.get(uid)) {
++            mApps.put(uid, permission);
+ 
+             Map<Integer, Boolean> apps = new HashMap<>();
+-            apps.put(appId, permission);
++            apps.put(uid, permission);
+             update(mUsers, apps, true);
+         }
+ 
+         // If the newly-installed package falls within some VPN's uid range, update Netd with it.
+         // This needs to happen after the mApps update above, since removeBypassingUids() depends
+         // on mApps to check if the package can bypass VPN.
+         for (Map.Entry<String, Set<UidRange>> vpn : mVpnUidRanges.entrySet()) {
+             if (UidRange.containsUid(vpn.getValue(), uid)) {
+                 final Set<Integer> changedUids = new HashSet<>();
+                 changedUids.add(uid);
+                 removeBypassingUids(changedUids, /* vpnAppUid */ -1);
+                 updateVpnUids(vpn.getKey(), changedUids, true);
+             }
+         }
+-        mAllApps.add(appId);
++        mAllApps.add(uid);
+     }
+ 
+     private Boolean highestUidNetworkPermission(int uid) {
+         Boolean permission = null;
+         final String[] packages = mPackageManager.getPackagesForUid(uid);
+         if (!CollectionUtils.isEmpty(packages)) {
+             for (String name : packages) {
+                 // If multiple packages have the same UID, give the UID all permissions that
+                 // any package in that UID has.
+-                permission = highestPermissionForUid(permission, name);
++                permission = highestPermissionForUid(permission, name, uid);
+                 if (permission == SYSTEM) {
+                     break;
+                 }
+             }
+         }
+         return permission;
+     }
+ 
+     /**
+      * Called when a package is removed.
+      *
+      * @param packageName The name of the removed package or null.
+      * @param uid containing the integer uid previously assigned to the package.
+      *
+      * @hide
+      */
+     public synchronized void onPackageRemoved(@NonNull final String packageName, final int uid) {
+         // TODO: Netd is using appId for checking traffic permission. Correct the methods that are
+         //  using appId instead of uid actually
+-        sendPackagePermissionsForUid(UserHandle.getAppId(uid), getPermissionForUid(uid));
++        sendPackagePermissionsForUid(uid, getPermissionForUid(uid));
+ 
+         // If the newly-removed package falls within some VPN's uid range, update Netd with it.
+         // This needs to happen before the mApps update below, since removeBypassingUids() depends
+         // on mApps to check if the package can bypass VPN.
+         for (Map.Entry<String, Set<UidRange>> vpn : mVpnUidRanges.entrySet()) {
+             if (UidRange.containsUid(vpn.getValue(), uid)) {
+                 final Set<Integer> changedUids = new HashSet<>();
+                 changedUids.add(uid);
+                 removeBypassingUids(changedUids, /* vpnAppUid */ -1);
+                 updateVpnUids(vpn.getKey(), changedUids, false);
+             }
+         }
+         // If the package has been removed from all users on the device, clear it form mAllApps.
+         if (mPackageManager.getNameForUid(uid) == null) {
+-            mAllApps.remove(UserHandle.getAppId(uid));
++            mAllApps.remove(uid);
+         }
+ 
+         Map<Integer, Boolean> apps = new HashMap<>();
+-        final Boolean permission = highestUidNetworkPermission(uid);
++        final Boolean permission = highestPermissionForUid(null, packageName,uid);
+         if (permission == SYSTEM) {
+             // An app with this UID still has the SYSTEM permission.
+             // Therefore, this UID must already have the SYSTEM permission.
+             // Nothing to do.
+             return;
+         }
+ 
+-        final int appId = UserHandle.getAppId(uid);
+-        if (permission == mApps.get(appId)) {
++        if (permission == mApps.get(uid)) {
+             // The permissions of this UID have not changed. Nothing to do.
+             return;
+         } else if (permission != null) {
+-            mApps.put(appId, permission);
+-            apps.put(appId, permission);
++            mApps.put(uid, permission);
++            apps.put(uid, permission);
+             update(mUsers, apps, true);
+         } else {
+-            mApps.remove(appId);
+-            apps.put(appId, NETWORK);  // doesn't matter which permission we pick here
++            mApps.remove(uid);
++            apps.put(uid, NETWORK);  // doesn't matter which permission we pick here
+             update(mUsers, apps, false);
+         }
+     }
+ 
+     private static int getNetdPermissionMask(String[] requestedPermissions,
+-                                             int[] requestedPermissionsFlags) {
++            int[] requestedPermissionsFlags) {
+         int permissions = 0;
+         if (requestedPermissions == null || requestedPermissionsFlags == null) return permissions;
+         for (int i = 0; i < requestedPermissions.length; i++) {
+             if (requestedPermissions[i].equals(INTERNET)
+                     && ((requestedPermissionsFlags[i] & REQUESTED_PERMISSION_GRANTED) != 0)) {
+                 permissions |= INetd.PERMISSION_INTERNET;
+             }
+             if (requestedPermissions[i].equals(UPDATE_DEVICE_STATS)
+                     && ((requestedPermissionsFlags[i] & REQUESTED_PERMISSION_GRANTED) != 0)) {
+                 permissions |= INetd.PERMISSION_UPDATE_DEVICE_STATS;
+             }
+         }
+         return permissions;
+     }
+ 
+-    private PackageInfo getPackageInfo(String packageName) {
++    private PackageInfo getPackageInfo(String packageName, UserHandle user) {
+         try {
+-            PackageInfo app = mPackageManager.getPackageInfo(packageName, GET_PERMISSIONS
+-                    | MATCH_ANY_USER);
+-            return app;
++            return mContext.createContextAsUser(user, 0).getPackageManager()
++                    .getPackageInfo(packageName, GET_PERMISSIONS);
+         } catch (NameNotFoundException e) {
+             return null;
+         }
+     }
+ 
+     /**
+      * Called when a new set of UID ranges are added to an active VPN network
+      *
+      * @param iface The active VPN network's interface name
+      * @param rangesToAdd The new UID ranges to be added to the network
+@@ -674,21 +667,21 @@ public class PermissionMonitor {
+      * Remove all apps which can elect to bypass the VPN from the list of uids
+      *
+      * An app can elect to bypass the VPN if it hold SYSTEM permission, or if its the active VPN
+      * app itself.
+      *
+      * @param uids The list of uids to operate on
+      * @param vpnAppUid The uid of the VPN app
+      */
+     private void removeBypassingUids(Set<Integer> uids, int vpnAppUid) {
+         uids.remove(vpnAppUid);
+-        uids.removeIf(uid -> mApps.getOrDefault(UserHandle.getAppId(uid), NETWORK) == SYSTEM);
++        uids.removeIf(uid -> mApps.getOrDefault(uid, NETWORK) == SYSTEM);
+     }
+ 
+     /**
+      * Update netd about the list of uids that are under an active VPN connection which they cannot
+      * bypass.
+      *
+      * This is to instruct netd to set up appropriate filtering rules for these uids, such that they
+      * can only receive ingress packets from the VPN's tunnel interface (and loopback).
+      *
+      * @param iface the interface name of the active VPN connection
+@@ -816,47 +809,48 @@ public class PermissionMonitor {
+         updateUidsAllowedOnRestrictedNetworks(mDeps.getUidsAllowedOnRestrictedNetworks(mContext));
+         uidsToUpdate.addAll(mUidsAllowedOnRestrictedNetworks);
+ 
+         final Map<Integer, Boolean> updatedUids = new HashMap<>();
+         final Map<Integer, Boolean> removedUids = new HashMap<>();
+ 
+         // Step2. For each uid to update, find out its new permission.
+         for (Integer uid : uidsToUpdate) {
+             final Boolean permission = highestUidNetworkPermission(uid);
+ 
+-            final int appId = UserHandle.getAppId(uid);
+             if (null == permission) {
+-                removedUids.put(appId, NETWORK); // Doesn't matter which permission is set here.
+-                mApps.remove(appId);
++                removedUids.put(uid, NETWORK); // Doesn't matter which permission is set here.
++                mApps.remove(uid);
+             } else {
+-                updatedUids.put(appId, permission);
+-                mApps.put(appId, permission);
++                updatedUids.put(uid, permission);
++                mApps.put(uid, permission);
+             }
+         }
+ 
+         // Step3. Update or revoke permission for uids with netd.
+         update(mUsers, updatedUids, true /* add */);
+         update(mUsers, removedUids, false /* add */);
+     }
+ 
+     private synchronized void onExternalApplicationsAvailable(String[] pkgList) {
+         if (CollectionUtils.isEmpty(pkgList)) {
+             Log.e(TAG, "No available external application.");
+             return;
+         }
+ 
+-        for (String app : pkgList) {
+-            final PackageInfo info = getPackageInfo(app);
+-            if (info == null || info.applicationInfo == null) continue;
++        for (UserHandle user : mUsers){
++            for (String app : pkgList) {
++                final PackageInfo info = getPackageInfo(app, user);
++                if (info == null || info.applicationInfo == null) continue;
+ 
+-            final int appId = info.applicationInfo.uid;
+-            onPackageAdded(app, appId); // Use onPackageAdded to add package one by one.
++                final int appId = info.applicationInfo.uid;
++                onPackageAdded(app, appId); // Use onPackageAdded to add package one by one.
++            }
+         }
+     }
+ 
+     /** Dump info to dumpsys */
+     public void dump(IndentingPrintWriter pw) {
+         pw.println("Interface filtering rules:");
+         pw.increaseIndent();
+         for (Map.Entry<String, Set<UidRange>> vpn : mVpnUidRanges.entrySet()) {
+             pw.println("Interface: " + vpn.getKey());
+             pw.println("UIDs: " + vpn.getValue().toString());
+
+commit 75405c4cf0d20728d929bf46bedafddcf2a04b6f
+Author: Dave Daynard <nardholio@gmail.com>
+Date:   Fri 2021-10-15 18:02:03+0100
+
+    Remove DUN requirement for tethering
+    
+    Ported from 11.
+    
+    Tethering was moved from frameworks/base/packages/Tethering to packages/modules/Connectivity/Tethering
+---
+ .../com/android/networkstack/tethering/TetheringConfiguration.java | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java b/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+index b6240c456186e50d5b0c8102c98863c82c0ec6df..727317c555feb7d28b63a1deae15281b6cac1a0d 100644
+--- a/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
++++ b/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+@@ -9,36 +9,34 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.networkstack.tethering;
+ 
+-import static android.content.Context.TELEPHONY_SERVICE;
+ import static android.net.ConnectivityManager.TYPE_ETHERNET;
+ import static android.net.ConnectivityManager.TYPE_MOBILE;
+ import static android.net.ConnectivityManager.TYPE_MOBILE_DUN;
+ import static android.net.ConnectivityManager.TYPE_MOBILE_HIPRI;
+ import static android.provider.DeviceConfig.NAMESPACE_CONNECTIVITY;
+ 
+ import android.content.ContentResolver;
+ import android.content.Context;
+ import android.content.res.Resources;
+ import android.net.TetheringConfigurationParcel;
+ import android.net.util.SharedLog;
+ import android.provider.DeviceConfig;
+ import android.provider.Settings;
+ import android.telephony.SubscriptionManager;
+-import android.telephony.TelephonyManager;
+ import android.text.TextUtils;
+ 
+ import com.android.internal.annotations.VisibleForTesting;
+ import com.android.modules.utils.build.SdkLevel;
+ import com.android.net.module.util.DeviceConfigUtils;
+ 
+ import java.io.PrintWriter;
+ import java.util.ArrayList;
+ import java.util.Arrays;
+ import java.util.Collection;
+@@ -363,24 +361,21 @@ public class TetheringConfiguration {
+ 
+     private static String makeString(String[] strings) {
+         if (strings == null) return "null";
+         final StringJoiner sj = new StringJoiner(",", "[", "]");
+         for (String s : strings) sj.add(s);
+         return sj.toString();
+     }
+ 
+     /** Check whether dun is required. */
+     public static boolean checkDunRequired(Context ctx) {
+-        final TelephonyManager tm = (TelephonyManager) ctx.getSystemService(TELEPHONY_SERVICE);
+-        // TelephonyManager would uses the active data subscription, which should be the one used
+-        // by tethering.
+-        return (tm != null) ? tm.isTetheringApnRequired() : false;
++        return false;
+     }
+ 
+     public int getOffloadPollInterval() {
+         return mOffloadPollInterval;
+     }
+ 
+     public boolean isBpfOffloadEnabled() {
+         return mEnableBpfOffload;
+     }
+ 
+
+commit 9f84b841ab239c1a8b302f4d3596f051f076a0a4
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sun 2021-10-17 23:27:09+0100
+
+    Use Cloudflare DNS servers instead of Google DNS servers for diagnostics, connectivity checking and tethering
+---
+ .../com/android/networkstack/tethering/TetheringConfiguration.java    | 2 +-
+ framework/src/android/net/util/DnsUtils.java                          | 4 ++--
+ service/src/com/android/server/connectivity/NetworkDiagnostics.java   | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
+
+diff --git a/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java b/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+index 727317c555feb7d28b63a1deae15281b6cac1a0d..0ba43af9b73137d875ed2c4fcd82681b19b1fb5f 100644
+--- a/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
++++ b/Tethering/src/com/android/networkstack/tethering/TetheringConfiguration.java
+@@ -66,21 +66,21 @@ public class TetheringConfiguration {
+     // BT is limited to max default of 5 connections. 192.168.44.1 to 192.168.48.1
+     // with 255.255.255.0
+     // P2P is 192.168.49.1 and 255.255.255.0
+     private static final String[] LEGACY_DHCP_DEFAULT_RANGE = {
+         "192.168.42.2", "192.168.42.254", "192.168.43.2", "192.168.43.254",
+         "192.168.44.2", "192.168.44.254", "192.168.45.2", "192.168.45.254",
+         "192.168.46.2", "192.168.46.254", "192.168.47.2", "192.168.47.254",
+         "192.168.48.2", "192.168.48.254", "192.168.49.2", "192.168.49.254",
+     };
+ 
+-    private static final String[] DEFAULT_IPV4_DNS = {"8.8.4.4", "8.8.8.8"};
++    private static final String[] DEFAULT_IPV4_DNS = {"1.0.0.1", "1.1.1.1"};
+ 
+     @VisibleForTesting
+     public static final int TETHER_USB_RNDIS_FUNCTION = 0;
+ 
+     @VisibleForTesting
+     public static final int TETHER_USB_NCM_FUNCTION   = 1;
+ 
+     /**
+      * Override enabling BPF offload configuration for tethering.
+      */
+diff --git a/framework/src/android/net/util/DnsUtils.java b/framework/src/android/net/util/DnsUtils.java
+index 3fe245edb9e2fcb9f526dcef8553eecaa6f901a8..d3e2f66105964fda9f389330ce2cb0b34ff41a24 100644
+--- a/framework/src/android/net/util/DnsUtils.java
++++ b/framework/src/android/net/util/DnsUtils.java
+@@ -335,31 +335,31 @@ public class DnsUtils {
+         }
+         return dstByte.length * CHAR_BIT;
+     }
+ 
+     /**
+      * Check if given network has Ipv4 capability
+      * This function matches the behaviour of have_ipv4 in the native resolver.
+      */
+     public static boolean haveIpv4(@Nullable Network network) {
+         final SocketAddress addrIpv4 =
+-                new InetSocketAddress(InetAddresses.parseNumericAddress("8.8.8.8"), 0);
++                new InetSocketAddress(InetAddresses.parseNumericAddress("1.1.1.1"), 0);
+         return checkConnectivity(network, AF_INET, addrIpv4);
+     }
+ 
+     /**
+      * Check if given network has Ipv6 capability
+      * This function matches the behaviour of have_ipv6 in the native resolver.
+      */
+     public static boolean haveIpv6(@Nullable Network network) {
+         final SocketAddress addrIpv6 =
+-                new InetSocketAddress(InetAddresses.parseNumericAddress("2000::"), 0);
++                new InetSocketAddress(InetAddresses.parseNumericAddress("2606:4700:4700::1001"), 0);
+         return checkConnectivity(network, AF_INET6, addrIpv6);
+     }
+ 
+     private static boolean checkConnectivity(@Nullable Network network,
+             int domain, @NonNull SocketAddress addr) {
+         final FileDescriptor socket;
+         try {
+             socket = Os.socket(domain, SOCK_DGRAM, IPPROTO_UDP);
+         } catch (ErrnoException e) {
+             return false;
+diff --git a/service/src/com/android/server/connectivity/NetworkDiagnostics.java b/service/src/com/android/server/connectivity/NetworkDiagnostics.java
+index 2e51be39bfae397eb293a6fb9c56a4df7572de52..9aa754ea36a7ff80b8f5df42f83bc26f4a6382eb 100644
+--- a/service/src/com/android/server/connectivity/NetworkDiagnostics.java
++++ b/service/src/com/android/server/connectivity/NetworkDiagnostics.java
+@@ -90,23 +90,23 @@ import javax.net.ssl.SSLSocketFactory;
+  *
+  * The supplied timeout bounds the entire diagnostic process.  Each specific
+  * check class must implement this upper bound on measurements in whichever
+  * manner is most appropriate and effective.
+  *
+  * @hide
+  */
+ public class NetworkDiagnostics {
+     private static final String TAG = "NetworkDiagnostics";
+ 
+-    private static final InetAddress TEST_DNS4 = InetAddresses.parseNumericAddress("8.8.8.8");
++    private static final InetAddress TEST_DNS4 = InetAddresses.parseNumericAddress("1.1.1.1");
+     private static final InetAddress TEST_DNS6 = InetAddresses.parseNumericAddress(
+-            "2001:4860:4860::8888");
++            "2606:4700:4700::1001");
+ 
+     // For brevity elsewhere.
+     private static final long now() {
+         return SystemClock.elapsedRealtime();
+     }
+ 
+     // Values from RFC 1035 section 4.1.1, names from <arpa/nameser.h>.
+     // Should be a member of DnsUdpCheck, but "compiler says no".
+     public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
+ 
+
+commit f088aa6bc79d06444e2424b73f9e16c6947107fa (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sun 2021-10-17 23:31:28+0100
+
+    default to GrapheneOS connectivity check server
+---
+ service/src/com/android/server/ConnectivityService.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/service/src/com/android/server/ConnectivityService.java b/service/src/com/android/server/ConnectivityService.java
+index 05a1a9ec57f3054c8752cfea4bc8deaaab828d9c..2831dc3b15d574cfbe5cae0760c9dbbb3f65fc0c 100644
+--- a/service/src/com/android/server/ConnectivityService.java
++++ b/service/src/com/android/server/ConnectivityService.java
+@@ -298,21 +298,21 @@ public class ConnectivityService extends IConnectivityManager.Stub
+     private static final boolean LOGD_BLOCKED_NETWORKINFO = true;
+ 
+     /**
+      * Default URL to use for {@link #getCaptivePortalServerUrl()}. This should not be changed
+      * by OEMs for configuration purposes, as this value is overridden by
+      * ConnectivitySettingsManager.CAPTIVE_PORTAL_HTTP_URL.
+      * R.string.config_networkCaptivePortalServerUrl should be overridden instead for this purpose
+      * (preferably via runtime resource overlays).
+      */
+     private static final String DEFAULT_CAPTIVE_PORTAL_HTTP_URL =
+-            "http://connectivitycheck.gstatic.com/generate_204";
++            "http://connectivitycheck.grapheneos.network/generate_204";
+ 
+     // TODO: create better separation between radio types and network types
+ 
+     // how long to wait before switching back to a radio's default network
+     private static final int RESTORE_DEFAULT_NETWORK_DELAY = 1 * 60 * 1000;
+     // system property that can override the above value
+     private static final String NETWORK_RESTORE_DELAY_PROP_NAME =
+             "android.telephony.apn-restore";
+ 
+     // How long to wait before putting up a "This network doesn't have an Internet connection,

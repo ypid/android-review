@@ -1,0 +1,36 @@
+commit e3752890565c6587cc19b692b5caf6bfb558c2fb (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-11-02 14:44:13-0400
+
+    invalidate icon cache between OS releases
+---
+ iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java b/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java
+index d685737c447cc4ce743c5009484d8c611f576def..ef49892032a3a5c285d8127a7f448e9ce5f4f0a9 100644
+--- a/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java
++++ b/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java
+@@ -221,21 +221,21 @@ public abstract class BaseIconCache {
+         return new IconCacheUpdateHandler(this);
+     }
+ 
+     /**
+      * Refreshes the system state definition used to check the validity of the cache. It
+      * incorporates all the properties that can affect the cache like the list of enabled locale
+      * and system-version.
+      */
+     private void updateSystemState() {
+         mLocaleList = mContext.getResources().getConfiguration().getLocales();
+-        mSystemState = mLocaleList.toLanguageTags() + "," + Build.VERSION.SDK_INT;
++        mSystemState = mLocaleList.toLanguageTags() + "," + Build.VERSION.INCREMENTAL;
+     }
+ 
+     protected String getIconSystemState(String packageName) {
+         return mSystemState;
+     }
+ 
+     /**
+      * Adds an entry into the DB and the in-memory cache.
+      * @param replaceExisting if true, it will recreate the bitmap even if it already exists in
+      *                        the memory. This is useful then the previous bitmap was created using

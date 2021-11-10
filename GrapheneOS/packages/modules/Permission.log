@@ -1,0 +1,1078 @@
+commit 54a1f607f0cb5f995a4e9bef0b8ab0eb60301bbe
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2017-07-22 21:43:50-0400
+
+    always treat INTERNET as a runtime permission
+    
+    ported from 10: 6c4f112dde47f21ce5a583f5bd8b217db6de5c02
+---
+ .../permissioncontroller/permission/model/AppPermissionGroup.java    | 5 +++--
+ .../android/permissioncontroller/permission/model/Permission.java    | 3 ++-
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java b/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
+index 869ff76baa73fac20593af9ca49589a2aa3e3229..cb80394e54e617110e093e5711558f668ed7e3ad 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
+@@ -27,20 +27,21 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+ import android.app.ActivityManager;
+ import android.app.AppOpsManager;
+ import android.app.Application;
+ import android.content.Context;
+ import android.content.pm.PackageInfo;
+ import android.content.pm.PackageItemInfo;
+ import android.content.pm.PackageManager;
+ import android.content.pm.PackageManager.NameNotFoundException;
+ import android.content.pm.PermissionGroupInfo;
+ import android.content.pm.PermissionInfo;
++import android.Manifest;
+ import android.os.Build;
+ import android.os.UserHandle;
+ import android.permission.PermissionManager;
+ import android.text.TextUtils;
+ import android.util.ArrayMap;
+ import android.util.Log;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+ import androidx.annotation.StringRes;
+@@ -865,21 +866,21 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup>
+                 continue;
+             }
+ 
+             if (!permission.isGrantingAllowed(mIsEphemeralApp, mAppSupportsRuntimePermissions)) {
+                 // Skip unallowed permissions.
+                 continue;
+             }
+ 
+             boolean wasGranted = permission.isGrantedIncludingAppOp();
+ 
+-            if (mAppSupportsRuntimePermissions) {
++            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName())) {
+                 // Do not touch permissions fixed by the system.
+                 if (permission.isSystemFixed()) {
+                     wasAllGranted = false;
+                     break;
+                 }
+ 
+                 // Ensure the permission app op is enabled before the permission grant.
+                 if (permission.affectsAppOp() && !permission.isAppOpAllowed()) {
+                     permission.setAppOpAllowed(true);
+                 }
+@@ -1050,21 +1051,21 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup>
+                     && !ArrayUtils.contains(filterPermissions, permission.getName())) {
+                 continue;
+             }
+ 
+             // Do not touch permissions fixed by the system.
+             if (permission.isSystemFixed()) {
+                 wasAllRevoked = false;
+                 break;
+             }
+ 
+-            if (mAppSupportsRuntimePermissions) {
++            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName())) {
+                 // Revoke the permission if needed.
+                 if (permission.isGranted()) {
+                     permission.setGranted(false);
+                 }
+ 
+                 // Update the permission flags.
+                 if (fixedByTheUser) {
+                     // Take a note that the user fixed the permission.
+                     if (permission.isUserSet() || !permission.isUserFixed()) {
+                         permission.setUserSet(false);
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java b/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
+index 49381db2b7eca0c37cb3344913c74776ee3af5f2..3af5241af1fdc82eddd3a52353e408729eadecb2 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
+@@ -11,20 +11,21 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.permissioncontroller.permission.model;
+ 
+ import android.content.pm.PackageManager;
+ import android.content.pm.PermissionInfo;
++import android.Manifest;
+ 
+ import androidx.annotation.NonNull;
+ 
+ import java.util.ArrayList;
+ import java.util.Objects;
+ 
+ /**
+  * A permission and it's properties.
+  *
+  * @see AppPermissionGroup
+@@ -130,21 +131,21 @@ public final class Permission {
+ 
+     /**
+      * Check if the permission is granted, also considering the state of the app-op.
+      *
+      * <p>For the UI, check the grant state of the whole group via
+      * {@link AppPermissionGroup#areRuntimePermissionsGranted}.
+      *
+      * @return {@code true} if the permission (and the app-op) is granted.
+      */
+     public boolean isGrantedIncludingAppOp() {
+-        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && !isReviewRequired();
++        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && (!isReviewRequired() || Manifest.permission.INTERNET.equals(mName));
+     }
+ 
+     public boolean isReviewRequired() {
+         return (mFlags & PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED) != 0;
+     }
+ 
+     public void unsetReviewRequired() {
+         mFlags &= ~PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
+     }
+ 
+
+commit b33f0dbc46322fc239d8bcee5801591d97622c8c
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Fri 2017-07-21 10:29:15-0400
+
+    add INTERNET permission toggle
+    
+    ported from 10: a07271ed7e45239369f2ca33496d939d2e9cbd08
+---
+ .../src/com/android/permissioncontroller/permission/utils/Utils.java   | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+index 68e31e5b2bfc16dae364b7c4fbeb107441e596b7..79ff02e48abad4c991a60060ab4f0f595091713b 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+@@ -17,20 +17,21 @@
+ package com.android.permissioncontroller.permission.utils;
+ 
+ import static android.Manifest.permission_group.ACTIVITY_RECOGNITION;
+ import static android.Manifest.permission_group.CALENDAR;
+ import static android.Manifest.permission_group.CALL_LOG;
+ import static android.Manifest.permission_group.CAMERA;
+ import static android.Manifest.permission_group.CONTACTS;
+ import static android.Manifest.permission_group.LOCATION;
+ import static android.Manifest.permission_group.MICROPHONE;
+ import static android.Manifest.permission_group.NEARBY_DEVICES;
++import static android.Manifest.permission_group.NETWORK;
+ import static android.Manifest.permission_group.PHONE;
+ import static android.Manifest.permission_group.SENSORS;
+ import static android.Manifest.permission_group.SMS;
+ import static android.Manifest.permission_group.STORAGE;
+ import static android.app.AppOpsManager.MODE_ALLOWED;
+ import static android.app.AppOpsManager.OPSTR_LEGACY_STORAGE;
+ import static android.content.Context.MODE_PRIVATE;
+ import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
+ import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT;
+ import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT;
+@@ -274,20 +275,22 @@ public final class Utils {
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.ACTIVITY_RECOGNITION, ACTIVITY_RECOGNITION);
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.CAMERA, CAMERA);
+         if (SdkLevel.isAtLeastS()) {
+             PLATFORM_PERMISSIONS.put(Manifest.permission.BACKGROUND_CAMERA, CAMERA);
+         }
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.BODY_SENSORS, SENSORS);
+ 
++        PLATFORM_PERMISSIONS.put(Manifest.permission.INTERNET, NETWORK);
++
+         PLATFORM_PERMISSION_GROUPS = new ArrayMap<>();
+         int numPlatformPermissions = PLATFORM_PERMISSIONS.size();
+         for (int i = 0; i < numPlatformPermissions; i++) {
+             String permission = PLATFORM_PERMISSIONS.keyAt(i);
+             String permissionGroup = PLATFORM_PERMISSIONS.valueAt(i);
+ 
+             ArrayList<String> permissionsOfThisGroup = PLATFORM_PERMISSION_GROUPS.get(
+                     permissionGroup);
+             if (permissionsOfThisGroup == null) {
+                 permissionsOfThisGroup = new ArrayList<>();
+
+commit a48ad848fda3eb0971b44aea4e26e8485ccb0d73
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2017-10-07 15:55:58-0400
+
+    always treat OTHER_SENSORS as a runtime permission
+    
+    ported from 10: a1204e6126189810018ff5540858536a1c58ac37
+---
+ .../permissioncontroller/permission/model/AppPermissionGroup.java     | 4 ++--
+ .../com/android/permissioncontroller/permission/model/Permission.java | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java b/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
+index cb80394e54e617110e093e5711558f668ed7e3ad..a74a6312144d9db28699bae3ee1f5b826020db61 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
+@@ -866,21 +866,21 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup>
+                 continue;
+             }
+ 
+             if (!permission.isGrantingAllowed(mIsEphemeralApp, mAppSupportsRuntimePermissions)) {
+                 // Skip unallowed permissions.
+                 continue;
+             }
+ 
+             boolean wasGranted = permission.isGrantedIncludingAppOp();
+ 
+-            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName())) {
++            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName()) || Manifest.permission.OTHER_SENSORS.equals(permission.getName())) {
+                 // Do not touch permissions fixed by the system.
+                 if (permission.isSystemFixed()) {
+                     wasAllGranted = false;
+                     break;
+                 }
+ 
+                 // Ensure the permission app op is enabled before the permission grant.
+                 if (permission.affectsAppOp() && !permission.isAppOpAllowed()) {
+                     permission.setAppOpAllowed(true);
+                 }
+@@ -1051,21 +1051,21 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup>
+                     && !ArrayUtils.contains(filterPermissions, permission.getName())) {
+                 continue;
+             }
+ 
+             // Do not touch permissions fixed by the system.
+             if (permission.isSystemFixed()) {
+                 wasAllRevoked = false;
+                 break;
+             }
+ 
+-            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName())) {
++            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName()) || Manifest.permission.OTHER_SENSORS.equals(permission.getName())) {
+                 // Revoke the permission if needed.
+                 if (permission.isGranted()) {
+                     permission.setGranted(false);
+                 }
+ 
+                 // Update the permission flags.
+                 if (fixedByTheUser) {
+                     // Take a note that the user fixed the permission.
+                     if (permission.isUserSet() || !permission.isUserFixed()) {
+                         permission.setUserSet(false);
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java b/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
+index 3af5241af1fdc82eddd3a52353e408729eadecb2..f65b75a9ca7de9501225025994d974ce0c54efb9 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
+@@ -131,21 +131,21 @@ public final class Permission {
+ 
+     /**
+      * Check if the permission is granted, also considering the state of the app-op.
+      *
+      * <p>For the UI, check the grant state of the whole group via
+      * {@link AppPermissionGroup#areRuntimePermissionsGranted}.
+      *
+      * @return {@code true} if the permission (and the app-op) is granted.
+      */
+     public boolean isGrantedIncludingAppOp() {
+-        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && (!isReviewRequired() || Manifest.permission.INTERNET.equals(mName));
++        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && (!isReviewRequired() || Manifest.permission.INTERNET.equals(mName) || Manifest.permission.OTHER_SENSORS.equals(mName));
+     }
+ 
+     public boolean isReviewRequired() {
+         return (mFlags & PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED) != 0;
+     }
+ 
+     public void unsetReviewRequired() {
+         mFlags &= ~PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
+     }
+ 
+
+commit b958afe33d183d57ee834a18289ae93d7f3c41b4
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2017-10-07 15:56:35-0400
+
+    add OTHER_SENSORS permission group
+    
+    ported from 10: fc8c816e07ce39583774db8fe668e0505b6aa504
+---
+ .../src/com/android/permissioncontroller/permission/utils/Utils.java    | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+index 79ff02e48abad4c991a60060ab4f0f595091713b..fdd04c8c94572c41a38339b60e48ff7c20411071 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+@@ -18,20 +18,21 @@ package com.android.permissioncontroller.permission.utils;
+ 
+ import static android.Manifest.permission_group.ACTIVITY_RECOGNITION;
+ import static android.Manifest.permission_group.CALENDAR;
+ import static android.Manifest.permission_group.CALL_LOG;
+ import static android.Manifest.permission_group.CAMERA;
+ import static android.Manifest.permission_group.CONTACTS;
+ import static android.Manifest.permission_group.LOCATION;
+ import static android.Manifest.permission_group.MICROPHONE;
+ import static android.Manifest.permission_group.NEARBY_DEVICES;
+ import static android.Manifest.permission_group.NETWORK;
++import static android.Manifest.permission_group.OTHER_SENSORS;
+ import static android.Manifest.permission_group.PHONE;
+ import static android.Manifest.permission_group.SENSORS;
+ import static android.Manifest.permission_group.SMS;
+ import static android.Manifest.permission_group.STORAGE;
+ import static android.app.AppOpsManager.MODE_ALLOWED;
+ import static android.app.AppOpsManager.OPSTR_LEGACY_STORAGE;
+ import static android.content.Context.MODE_PRIVATE;
+ import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
+ import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT;
+ import static android.content.pm.PackageManager.FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT;
+@@ -276,20 +277,21 @@ public final class Utils {
+         PLATFORM_PERMISSIONS.put(Manifest.permission.ACTIVITY_RECOGNITION, ACTIVITY_RECOGNITION);
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.CAMERA, CAMERA);
+         if (SdkLevel.isAtLeastS()) {
+             PLATFORM_PERMISSIONS.put(Manifest.permission.BACKGROUND_CAMERA, CAMERA);
+         }
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.BODY_SENSORS, SENSORS);
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.INTERNET, NETWORK);
++        PLATFORM_PERMISSIONS.put(Manifest.permission.OTHER_SENSORS, OTHER_SENSORS);
+ 
+         PLATFORM_PERMISSION_GROUPS = new ArrayMap<>();
+         int numPlatformPermissions = PLATFORM_PERMISSIONS.size();
+         for (int i = 0; i < numPlatformPermissions; i++) {
+             String permission = PLATFORM_PERMISSIONS.keyAt(i);
+             String permissionGroup = PLATFORM_PERMISSIONS.valueAt(i);
+ 
+             ArrayList<String> permissionsOfThisGroup = PLATFORM_PERMISSION_GROUPS.get(
+                     permissionGroup);
+             if (permissionsOfThisGroup == null) {
+
+commit 3a993052fb17717bd61fd16c482a6e369219f1b0
+Author: inthewaves <inthewaves@pm.me>
+Date:   Sat 2020-09-12 15:40:58-0700
+
+    refactor handling of special runtime permissions
+---
+ .../permission/model/AppPermissionGroup.java           |  5 ++---
+ .../permission/model/Permission.java                   |  5 +++--
+ .../permissioncontroller/permission/utils/Utils.java   | 18 ++++++++++++++++++
+ 3 files changed, 23 insertions(+), 5 deletions(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java b/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
+index a74a6312144d9db28699bae3ee1f5b826020db61..87001d20aa9c0d0b95c8f20e76626a12abdd28ba 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/model/AppPermissionGroup.java
+@@ -27,21 +27,20 @@ import static android.content.pm.PackageManager.PERMISSION_GRANTED;
+ import android.app.ActivityManager;
+ import android.app.AppOpsManager;
+ import android.app.Application;
+ import android.content.Context;
+ import android.content.pm.PackageInfo;
+ import android.content.pm.PackageItemInfo;
+ import android.content.pm.PackageManager;
+ import android.content.pm.PackageManager.NameNotFoundException;
+ import android.content.pm.PermissionGroupInfo;
+ import android.content.pm.PermissionInfo;
+-import android.Manifest;
+ import android.os.Build;
+ import android.os.UserHandle;
+ import android.permission.PermissionManager;
+ import android.text.TextUtils;
+ import android.util.ArrayMap;
+ import android.util.Log;
+ 
+ import androidx.annotation.NonNull;
+ import androidx.annotation.Nullable;
+ import androidx.annotation.StringRes;
+@@ -866,21 +865,21 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup>
+                 continue;
+             }
+ 
+             if (!permission.isGrantingAllowed(mIsEphemeralApp, mAppSupportsRuntimePermissions)) {
+                 // Skip unallowed permissions.
+                 continue;
+             }
+ 
+             boolean wasGranted = permission.isGrantedIncludingAppOp();
+ 
+-            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName()) || Manifest.permission.OTHER_SENSORS.equals(permission.getName())) {
++            if (mAppSupportsRuntimePermissions || Utils.isSpecialRuntimePermission(permission.getName())) {
+                 // Do not touch permissions fixed by the system.
+                 if (permission.isSystemFixed()) {
+                     wasAllGranted = false;
+                     break;
+                 }
+ 
+                 // Ensure the permission app op is enabled before the permission grant.
+                 if (permission.affectsAppOp() && !permission.isAppOpAllowed()) {
+                     permission.setAppOpAllowed(true);
+                 }
+@@ -1051,21 +1050,21 @@ public final class AppPermissionGroup implements Comparable<AppPermissionGroup>
+                     && !ArrayUtils.contains(filterPermissions, permission.getName())) {
+                 continue;
+             }
+ 
+             // Do not touch permissions fixed by the system.
+             if (permission.isSystemFixed()) {
+                 wasAllRevoked = false;
+                 break;
+             }
+ 
+-            if (mAppSupportsRuntimePermissions || Manifest.permission.INTERNET.equals(permission.getName()) || Manifest.permission.OTHER_SENSORS.equals(permission.getName())) {
++            if (mAppSupportsRuntimePermissions || Utils.isSpecialRuntimePermission(permission.getName())) {
+                 // Revoke the permission if needed.
+                 if (permission.isGranted()) {
+                     permission.setGranted(false);
+                 }
+ 
+                 // Update the permission flags.
+                 if (fixedByTheUser) {
+                     // Take a note that the user fixed the permission.
+                     if (permission.isUserSet() || !permission.isUserFixed()) {
+                         permission.setUserSet(false);
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java b/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
+index f65b75a9ca7de9501225025994d974ce0c54efb9..3f17de88277651bb821cc2ec695630fcb398b9e1 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/model/Permission.java
+@@ -11,24 +11,25 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.permissioncontroller.permission.model;
+ 
+ import android.content.pm.PackageManager;
+ import android.content.pm.PermissionInfo;
+-import android.Manifest;
+ 
+ import androidx.annotation.NonNull;
+ 
++import com.android.permissioncontroller.permission.utils.Utils;
++
+ import java.util.ArrayList;
+ import java.util.Objects;
+ 
+ /**
+  * A permission and it's properties.
+  *
+  * @see AppPermissionGroup
+  */
+ public final class Permission {
+     private final @NonNull PermissionInfo mPermissionInfo;
+@@ -131,21 +132,21 @@ public final class Permission {
+ 
+     /**
+      * Check if the permission is granted, also considering the state of the app-op.
+      *
+      * <p>For the UI, check the grant state of the whole group via
+      * {@link AppPermissionGroup#areRuntimePermissionsGranted}.
+      *
+      * @return {@code true} if the permission (and the app-op) is granted.
+      */
+     public boolean isGrantedIncludingAppOp() {
+-        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && (!isReviewRequired() || Manifest.permission.INTERNET.equals(mName) || Manifest.permission.OTHER_SENSORS.equals(mName));
++        return mGranted && (!affectsAppOp() || isAppOpAllowed()) && (!isReviewRequired() || Utils.isSpecialRuntimePermission(mName));
+     }
+ 
+     public boolean isReviewRequired() {
+         return (mFlags & PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED) != 0;
+     }
+ 
+     public void unsetReviewRequired() {
+         mFlags &= ~PackageManager.FLAG_PERMISSION_REVIEW_REQUIRED;
+     }
+ 
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+index fdd04c8c94572c41a38339b60e48ff7c20411071..5a309a7def6d70de109452764f69dd25dafcca45 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+@@ -171,20 +171,23 @@ public final class Utils {
+     public static final int FLAGS_PERMISSION_RESTRICTION_ANY_EXEMPT =
+             FLAG_PERMISSION_RESTRICTION_SYSTEM_EXEMPT
+                     | FLAG_PERMISSION_RESTRICTION_UPGRADE_EXEMPT
+                     | FLAG_PERMISSION_RESTRICTION_INSTALLER_EXEMPT;
+ 
+     /**
+      * The default length of the timeout for one-time permissions
+      */
+     public static final long ONE_TIME_PERMISSIONS_TIMEOUT_MILLIS = 1 * 60 * 1000; // 1 minute
+ 
++    /** Mapping permission -> group for all special runtime permissions */
++    private static final ArrayMap<String, String> SPECIAL_RUNTIME_PERMISSIONS;
++
+     /** Mapping permission -> group for all dangerous platform permissions */
+     private static final ArrayMap<String, String> PLATFORM_PERMISSIONS;
+ 
+     /** Mapping group -> permissions for all dangerous platform permissions */
+     private static final ArrayMap<String, ArrayList<String>> PLATFORM_PERMISSION_GROUPS;
+ 
+     /** Set of groups that will be able to receive one-time grant */
+     private static final ArraySet<String> ONE_TIME_PERMISSION_GROUPS;
+ 
+     private static final ArrayMap<String, Integer> PERM_GROUP_REQUEST_RES;
+@@ -279,20 +282,24 @@ public final class Utils {
+         PLATFORM_PERMISSIONS.put(Manifest.permission.CAMERA, CAMERA);
+         if (SdkLevel.isAtLeastS()) {
+             PLATFORM_PERMISSIONS.put(Manifest.permission.BACKGROUND_CAMERA, CAMERA);
+         }
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.BODY_SENSORS, SENSORS);
+ 
+         PLATFORM_PERMISSIONS.put(Manifest.permission.INTERNET, NETWORK);
+         PLATFORM_PERMISSIONS.put(Manifest.permission.OTHER_SENSORS, OTHER_SENSORS);
+ 
++        SPECIAL_RUNTIME_PERMISSIONS = new ArrayMap<>();
++        SPECIAL_RUNTIME_PERMISSIONS.put(Manifest.permission.INTERNET, NETWORK);
++        SPECIAL_RUNTIME_PERMISSIONS.put(Manifest.permission.OTHER_SENSORS, OTHER_SENSORS);
++
+         PLATFORM_PERMISSION_GROUPS = new ArrayMap<>();
+         int numPlatformPermissions = PLATFORM_PERMISSIONS.size();
+         for (int i = 0; i < numPlatformPermissions; i++) {
+             String permission = PLATFORM_PERMISSIONS.keyAt(i);
+             String permissionGroup = PLATFORM_PERMISSIONS.valueAt(i);
+ 
+             ArrayList<String> permissionsOfThisGroup = PLATFORM_PERMISSION_GROUPS.get(
+                     permissionGroup);
+             if (permissionsOfThisGroup == null) {
+                 permissionsOfThisGroup = new ArrayList<>();
+@@ -718,20 +725,31 @@ public final class Utils {
+ 
+     /**
+      * Is the permissions a platform runtime permission
+      *
+      * @return the names of the runtime platform permissions.
+      */
+     public static boolean isRuntimePlatformPermission(@NonNull String permission) {
+         return PLATFORM_PERMISSIONS.containsKey(permission);
+     }
+ 
++    /**
++     * Is the permission a special runtime permission?
++     * These are treated as a runtime permission even for legacy apps. They
++     * need to be granted by default for all apps to maintain compatibility.
++     *
++     * @return whether the permission is a special runtime permission.
++     */
++    public static boolean isSpecialRuntimePermission(@NonNull String permission) {
++        return SPECIAL_RUNTIME_PERMISSIONS.containsKey(permission);
++    }
++
+     /**
+      * Should UI show this permission.
+      *
+      * <p>If the user cannot change the group, it should not be shown.
+      *
+      * @param group The group that might need to be shown to the user
+      *
+      * @return
+      */
+     public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
+
+commit 224e195815629c2c9ce1d2816696d04a9ee0a024
+Author: inthewaves <inthewaves@pm.me>
+Date:   Wed 2020-09-16 17:30:37-0700
+
+    don't auto revoke Network and Sensors
+    
+    These shouldn't be automatically removed since apps are currently
+    granted these by default for compatibility. Users have to explicitly
+    remove them rather than granting them. Apps would need to be aware of
+    them and request them from the user to treat them like the standard
+    permissions.
+---
+ .../permission/data/HibernationSettingStateLiveData.kt        |  3 ++-
+ .../permission/service/AutoRevokePermissions.kt               |  3 ++-
+ .../android/permissioncontroller/permission/utils/Utils.java  | 11 +++++++++++
+ 3 files changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/data/HibernationSettingStateLiveData.kt b/PermissionController/src/com/android/permissioncontroller/permission/data/HibernationSettingStateLiveData.kt
+index 18686875adadc1b1d227d946ecd65019d71d6ff7..fad5be5b6e876ef6c0b8e179923008a1db4ef195 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/data/HibernationSettingStateLiveData.kt
++++ b/PermissionController/src/com/android/permissioncontroller/permission/data/HibernationSettingStateLiveData.kt
+@@ -23,20 +23,21 @@ import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_DEFAULT
+ import android.content.pm.PackageManager.FLAG_PERMISSION_GRANTED_BY_ROLE
+ import android.os.UserHandle
+ import com.android.permissioncontroller.PermissionControllerApplication
+ import com.android.permissioncontroller.permission.data.PackagePermissionsLiveData.Companion.NON_RUNTIME_NORMAL_PERMS
+ import com.android.permissioncontroller.permission.model.livedatatypes.HibernationSettingState
+ import com.android.permissioncontroller.hibernation.ExemptServicesLiveData
+ import com.android.permissioncontroller.hibernation.HibernationEnabledLiveData
+ import com.android.permissioncontroller.hibernation.isHibernationJobEnabled
+ import com.android.permissioncontroller.hibernation.isPackageHibernationExemptByUser
+ import com.android.permissioncontroller.hibernation.isPackageHibernationExemptBySystem
++import com.android.permissioncontroller.permission.utils.Utils
+ import kotlinx.coroutines.Job
+ 
+ /**
+  * A LiveData which tracks the hibernation/auto-revoke state for one user package.
+  *
+  * @param app The current application
+  * @param packageName The package name whose state we want
+  * @param user The user for whom we want the package
+  */
+ class HibernationSettingStateLiveData private constructor(
+@@ -88,21 +89,21 @@ class HibernationSettingStateLiveData private constructor(
+         }
+ 
+         val canHibernate = !isPackageHibernationExemptByUser(app, packageLiveData.value!!)
+         val revocableGroups = mutableListOf<String>()
+         if (!isPackageHibernationExemptBySystem(packageLiveData.value!!, user)) {
+             permStateLiveDatas.forEach { (groupName, liveData) ->
+                 val default = liveData.value?.any { (_, permState) ->
+                     permState.permFlags and (FLAG_PERMISSION_GRANTED_BY_DEFAULT or
+                             FLAG_PERMISSION_GRANTED_BY_ROLE) != 0
+                 } ?: false
+-                if (!default) {
++                if (!default && !Utils.isSpecialRuntimePermissionGroup(groupName)) {
+                     revocableGroups.add(groupName)
+                 }
+             }
+         }
+ 
+         postValue(HibernationSettingState(isHibernationJobEnabled(), canHibernate, revocableGroups))
+     }
+ 
+     override fun onOpChanged(op: String?, packageName: String?) {
+         if (op == OPSTR_AUTO_REVOKE_PERMISSIONS_IF_UNUSED && packageName == packageName) {
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/service/AutoRevokePermissions.kt b/PermissionController/src/com/android/permissioncontroller/permission/service/AutoRevokePermissions.kt
+index d57e7975192117683431818d8ba46a8d69fea975..4cfa0d38b174ae8932e81fcadaa0bac31ca1326c 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/service/AutoRevokePermissions.kt
++++ b/PermissionController/src/com/android/permissioncontroller/permission/service/AutoRevokePermissions.kt
+@@ -93,21 +93,22 @@ suspend fun revokeAppPermissions(
+ 
+                 val fixed = group.isBackgroundFixed || group.isForegroundFixed
+                 val granted = group.permissions.any { (_, perm) ->
+                     perm.isGrantedIncludingAppOp && perm.name !in EXEMPT_PERMISSIONS
+                 }
+                 if (!fixed &&
+                     granted &&
+                     !group.isGrantedByDefault &&
+                     !group.isGrantedByRole &&
+                     !group.isRevokeWhenRequested &&
+-                    group.isUserSensitive) {
++                    group.isUserSensitive &&
++                    !Utils.isSpecialRuntimePermissionGroup(groupName)) {
+ 
+                     val revocablePermissions = group.permissions.keys.toList()
+ 
+                     if (revocablePermissions.isEmpty()) {
+                         return@forEachInParallel
+                     }
+ 
+                     if (DEBUG_AUTO_REVOKE) {
+                         DumpableLog.i(LOG_TAG,
+                                 "revokeUnused $packageName - $revocablePermissions")
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+index 5a309a7def6d70de109452764f69dd25dafcca45..3df07ff43373c55f94f904af66ff288e7c16e257 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/utils/Utils.java
+@@ -736,20 +736,31 @@ public final class Utils {
+      * Is the permission a special runtime permission?
+      * These are treated as a runtime permission even for legacy apps. They
+      * need to be granted by default for all apps to maintain compatibility.
+      *
+      * @return whether the permission is a special runtime permission.
+      */
+     public static boolean isSpecialRuntimePermission(@NonNull String permission) {
+         return SPECIAL_RUNTIME_PERMISSIONS.containsKey(permission);
+     }
+ 
++    /**
++     * Is the permission group a special runtime permission group?
++     * These are treated as a runtime permission even for legacy apps. They
++     * need to be granted by default for all apps to maintain compatibility.
++     *
++     * @return whether the permission group is a special runtime permission group.
++     */
++    public static boolean isSpecialRuntimePermissionGroup(@NonNull String permissionGroup) {
++        return SPECIAL_RUNTIME_PERMISSIONS.containsValue(permissionGroup);
++    }
++
+     /**
+      * Should UI show this permission.
+      *
+      * <p>If the user cannot change the group, it should not be shown.
+      *
+      * @param group The group that might need to be shown to the user
+      *
+      * @return
+      */
+     public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
+
+commit 7f72319f45da80f967778ceaa795aad4b8db2aab
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:18:57-0700
+
+    PermissionController: Enable usage timeline for all permission groups
+    
+    Now that we've set the device config to keep discrete app op history for
+    all permission groups shown in the privacy dashboard, let's allow users
+    to view usage timelines for all of them.
+    
+    Change-Id: Ia23e3e3ecebd1a9b1268a66bb6d0f571ac32d01a
+---
+ .../ui/handheld/PermissionUsageV2ControlPreference.java     | 13 ++++++++++++-
+ 1 file changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java
+index 794c760d123c2010fa6b520cdb0b3ae89c1940f3..15c8d3cffc9ee5cb166ea44d72eac2938430c104 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java
+@@ -39,21 +39,30 @@ import com.android.permissioncontroller.permission.utils.KotlinUtils;
+ 
+ import java.util.List;
+ 
+ /**
+  * Preference for the top level privacy hub page
+  */
+ public class PermissionUsageV2ControlPreference extends Preference {
+     private static final List<String> SENSOR_DATA_PERMISSIONS = List.of(
+             Manifest.permission_group.LOCATION,
+             Manifest.permission_group.CAMERA,
+-            Manifest.permission_group.MICROPHONE
++            Manifest.permission_group.MICROPHONE,
++            Manifest.permission_group.SENSORS,
++            Manifest.permission_group.CALENDAR,
++            Manifest.permission_group.CALL_LOG,
++            Manifest.permission_group.CONTACTS,
++            Manifest.permission_group.STORAGE,
++            Manifest.permission_group.NEARBY_DEVICES,
++            Manifest.permission_group.PHONE,
++            Manifest.permission_group.ACTIVITY_RECOGNITION,
++            Manifest.permission_group.SMS
+     );
+ 
+     private final Context mContext;
+     private final String mGroupName;
+     private final int mCount;
+     private final boolean mShowSystem;
+     private final long mSessionId;
+ 
+     public PermissionUsageV2ControlPreference(@NonNull Context context, @NonNull String groupName,
+             int count, boolean showSystem, long sessionId) {
+@@ -96,20 +105,22 @@ public class PermissionUsageV2ControlPreference extends Preference {
+     }
+ 
+     private void logSensorDataTimelineViewed(String groupName) {
+         int act = 0;
+         if (groupName.equals(Manifest.permission_group.LOCATION)) {
+             act = PERMISSION_USAGE_FRAGMENT_INTERACTION__ACTION__LOCATION_ACCESS_TIMELINE_VIEWED;
+         } else if (groupName.equals(Manifest.permission_group.CAMERA)) {
+             act = PERMISSION_USAGE_FRAGMENT_INTERACTION__ACTION__CAMERA_ACCESS_TIMELINE_VIEWED;
+         } else if (groupName.equals(Manifest.permission_group.MICROPHONE)) {
+             act = PERMISSION_USAGE_FRAGMENT_INTERACTION__ACTION__MICROPHONE_ACCESS_TIMELINE_VIEWED;
++        } else {
++            return;
+         }
+         write(PERMISSION_USAGE_FRAGMENT_INTERACTION, mSessionId, act);
+     }
+ 
+     @Override
+     public void onBindViewHolder(PreferenceViewHolder view) {
+         super.onBindViewHolder(view);
+ 
+         if (SdkLevel.isAtLeastS()) {
+             TextView titleView = (TextView) view.findViewById(android.R.id.title);
+
+commit 0a72897bdf712bc90455efc4dada80ace9bcc47a
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:40:50-0700
+
+    PermissionController: Show up to 7 days of permission usage history
+    
+    Now that we've configured the discrete app op registry to save up to 7
+    days of usage history, expose all the history in the privacy dashboard.
+    
+    Change-Id: If03f24891785368aa1707fb113123fc5d4507c32
+---
+ .../permission/ui/handheld/dashboard/PermissionDetailsFragment.java   | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/PermissionDetailsFragment.java b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/PermissionDetailsFragment.java
+index 05e7292fade42b173bc77e6e13eb5b55e61c42ae..3b9772b65e8d23045b4999a8a229c467444b9a1f 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/PermissionDetailsFragment.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/PermissionDetailsFragment.java
+@@ -81,21 +81,21 @@ import java.util.stream.Collectors;
+ import java.util.stream.Stream;
+ 
+ import kotlin.Triple;
+ 
+ /**
+  * The permission details page showing the history/timeline of a permission
+  */
+ @RequiresApi(Build.VERSION_CODES.S)
+ public class PermissionDetailsFragment extends SettingsWithLargeHeader implements
+         PermissionUsages.PermissionsUsagesChangeCallback {
+-    public static final int FILTER_24_HOURS = 2;
++    public static final int FILTER_7_DAYS = 1;
+ 
+     private static final List<String> ALLOW_CLUSTERING_PERMISSION_GROUPS = Arrays.asList(
+             permission_group.LOCATION, permission_group.CAMERA, permission_group.MICROPHONE
+     );
+     private static final int ONE_HOUR_MS = 3600000;
+     private static final int ONE_MINUTE_MS = 60000;
+     private static final int CLUSTER_MINUTES_APART = 1;
+ 
+     private static final String KEY_SHOW_SYSTEM_PREFS = "_show_system";
+     private static final String SHOW_SYSTEM_KEY = PermissionDetailsFragment.class.getName()
+@@ -120,21 +120,21 @@ public class PermissionDetailsFragment extends SettingsWithLargeHeader implement
+     private @NonNull RoleManager mRoleManager;
+ 
+     private long mSessionId;
+ 
+     @Override
+     public void onCreate(Bundle savedInstanceState) {
+         super.onCreate(savedInstanceState);
+ 
+         mFinishedInitialLoad = false;
+         initializeTimeFilter();
+-        mFilterTimeIndex = FILTER_24_HOURS;
++        mFilterTimeIndex = FILTER_7_DAYS;
+ 
+         if (savedInstanceState != null) {
+             mShowSystem = savedInstanceState.getBoolean(SHOW_SYSTEM_KEY);
+             mSessionId = savedInstanceState.getLong(SESSION_ID_KEY);
+         } else {
+             mShowSystem = getArguments().getBoolean(
+                     ManagePermissionsActivity.EXTRA_SHOW_SYSTEM, false);
+             mSessionId = getArguments().getLong(EXTRA_SESSION_ID, INVALID_SESSION_ID);
+         }
+ 
+
+commit 5f8444311b71aabb297f95d719f09380d34bbe94
+Author: Pratyush <codelab@pratyush.dev>
+Date:   Fri 2021-10-15 08:55:52+0530
+
+    ui fix for special runtime permission
+    
+    Toggles were not working correctly for API < 23.
+---
+ .../com/android/permissioncontroller/permission/utils/KotlinUtils.kt    | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt b/PermissionController/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt
+index da93d4f7821a6e565b8f3501f772515a22171e32..96f6e356f30a97142fc7e684d5e3f5738c69af5f 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt
++++ b/PermissionController/src/com/android/permissioncontroller/permission/utils/KotlinUtils.kt
+@@ -540,20 +540,21 @@ object KotlinUtils {
+      */
+     private fun grantRuntimePermission(
+         app: Application,
+         perm: LightPermission,
+         isOneTime: Boolean,
+         group: LightAppPermGroup
+     ): Pair<LightPermission, Boolean> {
+         val pkgInfo = group.packageInfo
+         val user = UserHandle.getUserHandleForUid(pkgInfo.uid)
+         val supportsRuntime = pkgInfo.targetSdkVersion >= Build.VERSION_CODES.M
++                || Utils.isSpecialRuntimePermission(perm.name)
+         val isGrantingAllowed = (!pkgInfo.isInstantApp || perm.isInstantPerm) &&
+             (supportsRuntime || !perm.isRuntimeOnly)
+         // Do not touch permissions fixed by the system, or permissions that cannot be granted
+         if (!isGrantingAllowed || perm.isSystemFixed) {
+             return perm to false
+         }
+ 
+         var newFlags = perm.flags
+         var isGranted = perm.isGrantedIncludingAppOp
+         var shouldKill = false
+@@ -769,20 +770,21 @@ object KotlinUtils {
+     ): Pair<LightPermission, Boolean> {
+         // Do not touch permissions fixed by the system.
+         if (perm.isSystemFixed) {
+             return perm to false
+         }
+ 
+         val user = UserHandle.getUserHandleForUid(group.packageInfo.uid)
+         var newFlags = perm.flags
+         var isGranted = perm.isGrantedIncludingAppOp
+         val supportsRuntime = group.packageInfo.targetSdkVersion >= Build.VERSION_CODES.M
++                || Utils.isSpecialRuntimePermission(perm.name)
+         var shouldKill = false
+ 
+         val affectsAppOp = permissionToOp(perm.name) != null || perm.isBackgroundPermission
+ 
+         if (perm.isGrantedIncludingAppOp) {
+             if (supportsRuntime && !isPermissionSplitFromNonRuntime(app, perm.name,
+                             group.packageInfo.targetSdkVersion)) {
+                 // Revoke the permission if needed.
+                 app.packageManager.revokeRuntimePermission(group.packageInfo.packageName,
+                     perm.name, user)
+
+commit 7cbf7effc67cbd627c4ccc59bae6c91059b24222
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sun 2021-10-17 22:53:22-0400
+
+    SystemUI: Use new privacy indicators for location
+    
+    Android has had location indicators for a while, but let's use the new
+    privacy indicator infrastructure for displaying them. This makes them
+    integrate better with the new camera and microphone indicators.
+---
+ .../permissioncontroller/permission/ui/handheld/dashboard/Utils.kt      | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/Utils.kt b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/Utils.kt
+index 29fa50ae3e8f8cb13c112b5f55da58c9a9ce0a00..72cb2eb2f56629c7db41fe9e1d776c7302161e1c 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/Utils.kt
++++ b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/dashboard/Utils.kt
+@@ -84,21 +84,21 @@ fun shouldShowCameraMicIndicators(): Boolean {
+     return isCameraMicIconsFlagEnabled() || isPermissionsHub2FlagEnabled()
+ }
+ 
+ /**
+  * Whether the location indicators are enabled by flag.
+  *
+  * @return whether the location indicators are enabled by flag.
+  */
+ fun isLocationIndicatorsFlagEnabled(): Boolean {
+     return DeviceConfig.getBoolean(DeviceConfig.NAMESPACE_PRIVACY,
+-            PROPERTY_LOCATION_INDICATORS_ENABLED, false)
++            PROPERTY_LOCATION_INDICATORS_ENABLED, true)
+ }
+ 
+ /**
+  * Whether to show the location indicators. The location indicators are enable if the
+  * permission hub, or location indicator specifically are enabled.
+  */
+ fun shouldShowLocationIndicators(): Boolean {
+     return isLocationIndicatorsFlagEnabled() || isPermissionsHub2FlagEnabled()
+ }
+ 
+
+commit 85a96d3126f2ef87495665a13c8fe3b9b5d16650
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Mon 2021-10-18 03:23:42-0400
+
+    fix usage UI summary for Network/Sensors
+---
+ PermissionController/res/values/strings.xml                         | 3 +++
+ .../permission/ui/handheld/PermissionUsageV2ControlPreference.java  | 6 +++++-
+ 2 files changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/PermissionController/res/values/strings.xml b/PermissionController/res/values/strings.xml
+index ba03cbf638b078055fcb712e83983d368ec435ec..ff3c4478006aea4f932edbfff9bf28e8d77e3369 100644
+--- a/PermissionController/res/values/strings.xml
++++ b/PermissionController/res/values/strings.xml
+@@ -440,20 +440,23 @@
+ 
+     <!-- Label for the title of the permission bar chart showing how often the most common permissions are used [CHAR LIMIT=50] -->
+     <string name="permission_usage_bar_chart_title_last_minute">Permission usage in last 1 minute</string>
+ 
+     <!-- Label for the bars on the chart that shows how many apps have used various permissions [CHAR LIMIT=10] -->
+     <plurals name="permission_usage_bar_label">
+         <item quantity="one">1 app</item>
+         <item quantity="other"><xliff:g id="number" example="7">%s</xliff:g> apps</item>
+     </plurals>
+ 
++    <!-- Summary text if tracking permission usage is not supported [CHAR LIMIT=60] -->
++    <string name="permission_usage_preference_summary_not_supported">Tracking usage not yet supported</string>
++
+     <!-- Summary text if a permission usage is not used [CHAR LIMIT=60] -->
+     <string name="permission_usage_preference_summary_not_used">Not used in past 24 hours</string>
+ 
+     <!-- Label for the permission usage preference that shows how many apps have used various permissions [CHAR LIMIT=50] -->
+     <plurals name="permission_usage_preference_label">
+         <item quantity="one">Used by 1 app</item>
+         <item quantity="other">Used by <xliff:g id="number" example="7">%1$d</xliff:g> apps</item>
+     </plurals>
+ 
+     <!-- Label for the button to bring the user to view the details of recent permission accesses [CHAR LIMIT=42] -->
+diff --git a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java
+index 15c8d3cffc9ee5cb166ea44d72eac2938430c104..bba384bb53db2e137acaae82f383a570f3add1e2 100644
+--- a/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java
++++ b/PermissionController/src/com/android/permissioncontroller/permission/ui/handheld/PermissionUsageV2ControlPreference.java
+@@ -74,21 +74,25 @@ public class PermissionUsageV2ControlPreference extends Preference {
+         mSessionId = sessionId;
+ 
+         CharSequence permGroupLabel = KotlinUtils.INSTANCE.getPermGroupLabel(mContext, mGroupName);
+         setTitle(permGroupLabel);
+         setIcon(KotlinUtils.INSTANCE.getPermGroupIcon(mContext, mGroupName));
+         setSummary(mContext.getResources().getQuantityString(
+                 R.plurals.permission_usage_preference_label, mCount, mCount));
+ 
+         if (mCount == 0) {
+             this.setEnabled(false);
+-            setSummary(R.string.permission_usage_preference_summary_not_used);
++            if (groupName.equals(Manifest.permission_group.NETWORK) || groupName.equals(Manifest.permission_group.OTHER_SENSORS)) {
++                setSummary(R.string.permission_usage_preference_summary_not_supported);
++            } else {
++                setSummary(R.string.permission_usage_preference_summary_not_used);
++            }
+         } else if (SENSOR_DATA_PERMISSIONS.contains(groupName)) {
+             setOnPreferenceClickListener((preference) -> {
+                 Intent intent = new Intent(Intent.ACTION_REVIEW_PERMISSION_HISTORY);
+                 intent.putExtra(Intent.EXTRA_PERMISSION_GROUP_NAME, mGroupName);
+                 intent.putExtra(ManagePermissionsActivity.EXTRA_SHOW_SYSTEM, mShowSystem);
+ 
+                 logSensorDataTimelineViewed(mGroupName);
+ 
+                 mContext.startActivity(intent);
+                 return true;
+
+commit 2ae6200e6c54634a8cf3223f0895c00440ff8401 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-10-19 08:17:55-0400
+
+    stop auto-granting location to system browsers
+---
+ .../role/model/BrowserRoleBehavior.java                 | 17 -----------------
+ 1 file changed, 17 deletions(-)
+
+diff --git a/PermissionController/src/com/android/permissioncontroller/role/model/BrowserRoleBehavior.java b/PermissionController/src/com/android/permissioncontroller/role/model/BrowserRoleBehavior.java
+index d359fc4aee0112f89bc5f29e10cfd5df5203b65e..9765432ea1a649a25b846a17fdb1461351786372 100644
+--- a/PermissionController/src/com/android/permissioncontroller/role/model/BrowserRoleBehavior.java
++++ b/PermissionController/src/com/android/permissioncontroller/role/model/BrowserRoleBehavior.java
+@@ -45,25 +45,20 @@ import java.util.List;
+  * @see com.android.settings.applications.defaultapps.DefaultBrowserPreferenceController
+  * @see com.android.settings.applications.defaultapps.DefaultBrowserPicker
+  * @see com.android.server.pm.PackageManagerService#resolveAllBrowserApps(int)
+  */
+ public class BrowserRoleBehavior implements RoleBehavior {
+     private static final Intent BROWSER_INTENT = new Intent()
+             .setAction(Intent.ACTION_VIEW)
+             .addCategory(Intent.CATEGORY_BROWSABLE)
+             .setData(Uri.fromParts("http", "", null));
+ 
+-    private static final List<String> SYSTEM_BROWSER_PERMISSIONS = Arrays.asList(
+-            android.Manifest.permission.ACCESS_COARSE_LOCATION,
+-            android.Manifest.permission.ACCESS_FINE_LOCATION
+-    );
+-
+     @Nullable
+     @Override
+     public String getFallbackHolder(@NonNull Role role, @NonNull Context context) {
+         UserHandle user = Process.myUserHandle();
+         List<String> qualifyingPackageNames = getQualifyingPackagesAsUserInternal(null, false, user,
+                 context);
+         if (qualifyingPackageNames.size() == 1) {
+             return qualifyingPackageNames.get(0);
+         }
+ 
+@@ -123,28 +118,16 @@ public class BrowserRoleBehavior implements RoleBehavior {
+             ResolveInfo resolveInfo = resolveInfos.get(i);
+ 
+             if (!resolveInfo.handleAllWebDataURI) {
+                 continue;
+             }
+             packageNames.add(resolveInfo.activityInfo.packageName);
+         }
+         return new ArrayList<>(packageNames);
+     }
+ 
+-    @Override
+-    public void grant(@NonNull Role role, @NonNull String packageName, @NonNull Context context) {
+-        // @see com.android.server.pm.permission.DefaultPermissionGrantPolicy
+-        //      #grantDefaultPermissionsToDefaultBrowser(java.lang.String, int)
+-        if (SdkLevel.isAtLeastS()) {
+-            if (PackageUtils.isSystemPackage(packageName, context)) {
+-                Permissions.grant(packageName, SYSTEM_BROWSER_PERMISSIONS, false, false, false,
+-                        true, false, context);
+-            }
+-        }
+-    }
+-
+     @Override
+     public boolean isVisibleAsUser(@NonNull Role role, @NonNull UserHandle user,
+             @NonNull Context context) {
+         return context.getResources().getBoolean(R.bool.config_showBrowserRole);
+     }
+ }

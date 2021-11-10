@@ -1,4 +1,4 @@
-commit e1764084fe43b87b051cb9a873fe8a2594d2754c (tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20)
+commit 77290c1afc139ec88dfea4f2419c573886563466
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-03-04 14:22:18-0500
 
@@ -8,7 +8,7 @@ Date:   Thu 2021-03-04 14:22:18-0500
  1 file changed, 1 deletion(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 1e78c72e6bbca0ca1d7f2a7b2109b116506176e5..d89535b922075851325380d6e206fab0c6b25bd1 100644
+index c9c5a04b7c8e4682390218c5c54d68b613182103..1f853a989edc73e91de8c6bdbd77447441c5d194 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -54,21 +54,20 @@
@@ -34,20 +34,20 @@ index 1e78c72e6bbca0ca1d7f2a7b2109b116506176e5..d89535b922075851325380d6e206fab0
              </intent-filter>
          </activity>
 
-commit 09bbdae8bae1fa56958db627f0e8f1d01b5f6eaa (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 6cc6edead754ca6dabd541686f31493e6433e74c (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-05-18 09:04:53-0400
 
     remove widget
 ---
- AndroidManifest.xml | 34 ----------------------------------
- 1 file changed, 34 deletions(-)
+ AndroidManifest.xml | 36 ------------------------------------
+ 1 file changed, 36 deletions(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index d89535b922075851325380d6e206fab0c6b25bd1..ceea83b0d1f45b5a3bcafffb1991b9677405f28f 100644
+index 1f853a989edc73e91de8c6bdbd77447441c5d194..c7830c477ec3b40a9e4d5591dcd5ec04c86aea37 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -171,49 +171,15 @@
+@@ -175,51 +175,15 @@
          </receiver>
  
          <service android:name=".alerts.AlertService" />
@@ -59,7 +59,8 @@ index d89535b922075851325380d6e206fab0c6b25bd1..ceea83b0d1f45b5a3bcafffb1991b967
          <service android:name=".alerts.InitAlarmsService" />
  
 -        <!-- Declarations for the widget -->
--        <receiver android:name=".widget.CalendarAppWidgetProvider" android:label="@string/gadget_title">
+-        <receiver android:name=".widget.CalendarAppWidgetProvider" android:label="@string/gadget_title"
+-            android:exported="true">
 -            <intent-filter>
 -                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 -                <action android:name="com.android.calendar.APPWIDGET_UPDATE" />
@@ -67,7 +68,8 @@ index d89535b922075851325380d6e206fab0c6b25bd1..ceea83b0d1f45b5a3bcafffb1991b967
 -            <meta-data android:name="android.appwidget.provider" android:resource="@xml/appwidget_info" />
 -        </receiver>
 -
--        <receiver android:name=".widget.CalendarAppWidgetService$CalendarFactory">
+-        <receiver android:name=".widget.CalendarAppWidgetService$CalendarFactory"
+-            android:exported="true">
 -            <intent-filter>
 -                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
 -                <action android:name="android.intent.action.DATE_CHANGED"/>

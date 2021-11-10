@@ -1,0 +1,328 @@
+commit 6620abc119eb72daf77a43798bb1af09843619c0
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:09:25-0700
+
+    gmscompat: Add WifiManager hooks for baseline compatibility
+    
+    This is part of GmsCompat's baseline compatibility for unprivileged
+    Google Play Services.
+    
+    Change-Id: I2f56a47a6a732d6a73531c7f80aca69065a88c38
+---
+ framework/java/android/net/wifi/WifiManager.java | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
+
+diff --git a/framework/java/android/net/wifi/WifiManager.java b/framework/java/android/net/wifi/WifiManager.java
+index da17f56320849a5f715eff03b46b0b6f6af15813..c7a99cedec1d5799c59f759bb30164ad2a8e64e6 100644
+--- a/framework/java/android/net/wifi/WifiManager.java
++++ b/framework/java/android/net/wifi/WifiManager.java
+@@ -25,20 +25,21 @@ import android.annotation.IntDef;
+ import android.annotation.IntRange;
+ import android.annotation.NonNull;
+ import android.annotation.Nullable;
+ import android.annotation.RequiresPermission;
+ import android.annotation.SdkConstant;
+ import android.annotation.SdkConstant.SdkConstantType;
+ import android.annotation.SuppressLint;
+ import android.annotation.SystemApi;
+ import android.annotation.SystemService;
+ import android.app.ActivityManager;
++import android.app.compat.gms.GmsCompat;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.Context;
+ import android.net.ConnectivityManager;
+ import android.net.ConnectivityManager.NetworkCallback;
+ import android.net.DhcpInfo;
+ import android.net.LinkProperties;
+ import android.net.MacAddress;
+ import android.net.Network;
+ import android.net.NetworkCapabilities;
+ import android.net.NetworkStack;
+@@ -1533,20 +1534,24 @@ public class WifiManager {
+      * @hide
+      */
+     @SystemApi
+     @RequiresPermission(anyOf = {
+             android.Manifest.permission.NETWORK_SETTINGS,
+             android.Manifest.permission.NETWORK_SETUP_WIZARD
+     })
+     @NonNull
+     public List<Pair<WifiConfiguration, Map<Integer, List<ScanResult>>>> getAllMatchingWifiConfigs(
+             @NonNull List<ScanResult> scanResults) {
++        if (GmsCompat.isEnabled()) {
++            return Collections.emptyList();
++        }
++
+         List<Pair<WifiConfiguration, Map<Integer, List<ScanResult>>>> configs = new ArrayList<>();
+         try {
+             Map<String, Map<Integer, List<ScanResult>>> results =
+                     mService.getAllMatchingPasspointProfilesForScanResults(scanResults);
+             if (results.isEmpty()) {
+                 return configs;
+             }
+             List<WifiConfiguration> wifiConfigurations =
+                     mService.getWifiConfigsForPasspointProfiles(
+                             new ArrayList<>(results.keySet()));
+@@ -1605,20 +1610,24 @@ public class WifiManager {
+      * @hide
+      */
+     @SystemApi
+     @RequiresPermission(anyOf = {
+             android.Manifest.permission.NETWORK_SETTINGS,
+             android.Manifest.permission.NETWORK_SETUP_WIZARD
+     })
+     @NonNull
+     public Map<OsuProvider, List<ScanResult>> getMatchingOsuProviders(
+             @Nullable List<ScanResult> scanResults) {
++        if (GmsCompat.isEnabled()) {
++            return Collections.emptyMap();
++        }
++
+         if (scanResults == null) {
+             return new HashMap<>();
+         }
+         try {
+             return mService.getMatchingOsuProviders(scanResults);
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+@@ -1635,20 +1644,24 @@ public class WifiManager {
+      * @hide
+      */
+     @SystemApi
+     @RequiresPermission(anyOf = {
+             android.Manifest.permission.NETWORK_SETTINGS,
+             android.Manifest.permission.NETWORK_SETUP_WIZARD
+     })
+     @NonNull
+     public Map<OsuProvider, PasspointConfiguration> getMatchingPasspointConfigsForOsuProviders(
+             @NonNull Set<OsuProvider> osuProviders) {
++        if (GmsCompat.isEnabled()) {
++            return Collections.emptyMap();
++        }
++
+         try {
+             return mService.getMatchingPasspointConfigsForOsuProviders(
+                     new ArrayList<>(osuProviders));
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+     /**
+      * Add a new network description to the set of configured networks.
+@@ -6153,20 +6166,24 @@ public class WifiManager {
+      * Get {@link Network} object of current wifi network, or null if not connected.
+      * @hide
+      */
+     @Nullable
+     @SystemApi
+     @RequiresPermission(anyOf = {
+             android.Manifest.permission.NETWORK_SETTINGS,
+             android.Manifest.permission.NETWORK_SETUP_WIZARD
+     })
+     public Network getCurrentNetwork() {
++        if (GmsCompat.isEnabled()) {
++            return null;
++        }
++
+         try {
+             return mService.getCurrentNetwork();
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+     /**
+      * Deprecated
+      * returns false
+
+commit b01add7a04f0b46d9bafd89b189fb05f3fda4a51 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: renlord <me@renlord.com>
+Date:   Fri 2021-10-15 19:28:34+0530
+
+    add option of always randomizing MAC addresses
+---
+ framework/api/system-current.txt                         |  1 +
+ framework/java/android/net/wifi/WifiConfiguration.java   | 16 ++++++++++++----
+ .../java/com/android/server/wifi/WifiConfigManager.java  |  7 ++++++-
+ .../com/android/server/wifi/WifiConfigurationUtil.java   |  2 +-
+ 4 files changed, 20 insertions(+), 6 deletions(-)
+
+diff --git a/framework/api/system-current.txt b/framework/api/system-current.txt
+index dda74810f0d96a5dd208d97f9dc613edce215ddc..855a5c53d1784910c35091b2ea0a86c9c9898746 100644
+--- a/framework/api/system-current.txt
++++ b/framework/api/system-current.txt
+@@ -373,20 +373,21 @@ package android.net.wifi {
+     method @Deprecated public boolean isEphemeral();
+     method @Deprecated public static boolean isMetered(@Nullable android.net.wifi.WifiConfiguration, @Nullable android.net.wifi.WifiInfo);
+     method @Deprecated public boolean isNoInternetAccessExpected();
+     method @Deprecated public void setDeletionPriority(int) throws java.lang.IllegalArgumentException;
+     method @Deprecated public void setIpConfiguration(@Nullable android.net.IpConfiguration);
+     method @Deprecated public void setNetworkSelectionStatus(@NonNull android.net.wifi.WifiConfiguration.NetworkSelectionStatus);
+     field @Deprecated public static final int INVALID_NETWORK_ID = -1; // 0xffffffff
+     field @Deprecated public static final int METERED_OVERRIDE_METERED = 1; // 0x1
+     field @Deprecated public static final int METERED_OVERRIDE_NONE = 0; // 0x0
+     field @Deprecated public static final int METERED_OVERRIDE_NOT_METERED = 2; // 0x2
++    field @Deprecated public static final int RANDOMIZATION_ALWAYS = 100; // 0x64
+     field @Deprecated public static final int RANDOMIZATION_AUTO = 3; // 0x3
+     field @Deprecated public static final int RANDOMIZATION_NONE = 0; // 0x0
+     field @Deprecated public static final int RANDOMIZATION_NON_PERSISTENT = 2; // 0x2
+     field @Deprecated public static final int RANDOMIZATION_PERSISTENT = 1; // 0x1
+     field @Deprecated public static final int RECENT_FAILURE_AP_UNABLE_TO_HANDLE_NEW_STA = 17; // 0x11
+     field @Deprecated public static final int RECENT_FAILURE_DISCONNECTION_AP_BUSY = 1004; // 0x3ec
+     field @Deprecated public static final int RECENT_FAILURE_MBO_ASSOC_DISALLOWED_AIR_INTERFACE_OVERLOADED = 1007; // 0x3ef
+     field @Deprecated public static final int RECENT_FAILURE_MBO_ASSOC_DISALLOWED_AUTH_SERVER_OVERLOADED = 1008; // 0x3f0
+     field @Deprecated public static final int RECENT_FAILURE_MBO_ASSOC_DISALLOWED_INSUFFICIENT_RSSI = 1009; // 0x3f1
+     field @Deprecated public static final int RECENT_FAILURE_MBO_ASSOC_DISALLOWED_MAX_NUM_STA_ASSOCIATED = 1006; // 0x3ee
+diff --git a/framework/java/android/net/wifi/WifiConfiguration.java b/framework/java/android/net/wifi/WifiConfiguration.java
+index 924cd33450820c72f25565658063f7892d53e6df..fa96b73c0f5648383b4dab5590717d1568c55313 100644
+--- a/framework/java/android/net/wifi/WifiConfiguration.java
++++ b/framework/java/android/net/wifi/WifiConfiguration.java
+@@ -1634,21 +1634,22 @@ public class WifiConfiguration implements Parcelable {
+      */
+     @SystemApi
+     public int numAssociation;
+ 
+     /** @hide */
+     @Retention(RetentionPolicy.SOURCE)
+     @IntDef(prefix = {"RANDOMIZATION_"}, value = {
+             RANDOMIZATION_NONE,
+             RANDOMIZATION_PERSISTENT,
+             RANDOMIZATION_NON_PERSISTENT,
+-            RANDOMIZATION_AUTO})
++            RANDOMIZATION_AUTO,
++            RANDOMIZATION_ALWAYS})
+     public @interface MacRandomizationSetting {}
+ 
+     /**
+      * Use factory MAC when connecting to this network
+      * @hide
+      */
+     @SystemApi
+     public static final int RANDOMIZATION_NONE = 0;
+     /**
+      * Generate a randomized MAC once and reuse it for all connections to this network
+@@ -1665,30 +1666,37 @@ public class WifiConfiguration implements Parcelable {
+     @SystemApi
+     public static final int RANDOMIZATION_NON_PERSISTENT = 2;
+ 
+     /**
+      * Let the wifi framework automatically decide the MAC randomization strategy.
+      * @hide
+      */
+     @SystemApi
+     public static final int RANDOMIZATION_AUTO = 3;
+ 
++    /**
++     * @hide
++     * Generate a randomize MAC always
++     */
++    @SystemApi
++    public static final int RANDOMIZATION_ALWAYS = 100;
++
+     /**
+      * Level of MAC randomization for this network.
+      * One of {@link #RANDOMIZATION_NONE}, {@link #RANDOMIZATION_AUTO},
+-     * {@link #RANDOMIZATION_PERSISTENT} or {@link #RANDOMIZATION_NON_PERSISTENT}.
+-     * By default this field is set to {@link #RANDOMIZATION_AUTO}.
++     * {@link #RANDOMIZATION_PERSISTENT} or {@link #RANDOMIZATION_NON_PERSISTENT} or RANDOMIZATION_ALWAYS.
++     * By default this field is set to RANDOMIZATION_ALWAYS in GrapheneOS.
+      * @hide
+      */
+     @SystemApi
+     @MacRandomizationSetting
+-    public int macRandomizationSetting = RANDOMIZATION_AUTO;
++    public int macRandomizationSetting = RANDOMIZATION_ALWAYS;
+ 
+     /**
+      * Randomized MAC address to use with this particular network
+      * @hide
+      */
+     @NonNull
+     private MacAddress mRandomizedMacAddress;
+ 
+     /**
+      * The wall clock time of when |mRandomizedMacAddress| should be re-randomized in enhanced
+diff --git a/service/java/com/android/server/wifi/WifiConfigManager.java b/service/java/com/android/server/wifi/WifiConfigManager.java
+index 1c87eb2fa7a4f7967dfee76485fd207e5fdc5069..9032bfb545f332455970114719830c16c9c9c0c5 100644
+--- a/service/java/com/android/server/wifi/WifiConfigManager.java
++++ b/service/java/com/android/server/wifi/WifiConfigManager.java
+@@ -424,20 +424,24 @@ public class WifiConfigManager {
+      * to the SSID or FQDN in the input WifiConfiguration.
+      * @param config
+      * @return
+      */
+     public boolean shouldUseEnhancedRandomization(WifiConfiguration config) {
+         if (!isMacRandomizationSupported()
+                 || config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_NONE) {
+             return false;
+         }
+ 
++        if (config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_ALWAYS) {
++            return true;
++        }
++
+         // Use enhanced randomization if it's forced on by dev option
+         if (mFrameworkFacade.getIntegerSetting(mContext,
+                 ENHANCED_MAC_RANDOMIZATION_FEATURE_FORCE_ENABLE_FLAG, 0) == 1) {
+             return true;
+         }
+ 
+         // use enhanced or persistent randomization if configured to do so.
+         if (config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_NON_PERSISTENT) {
+             return true;
+         }
+@@ -573,21 +577,22 @@ public class WifiConfigManager {
+ 
+     /**
+      * This method is called before connecting to a network that has "enhanced randomization"
+      * enabled, and will re-randomize the MAC address if needed.
+      * @param config the WifiConfiguration to make the update
+      * @return the updated MacAddress
+      */
+     private MacAddress updateRandomizedMacIfNeeded(WifiConfiguration config) {
+         boolean shouldUpdateMac = config.randomizedMacExpirationTimeMs
+                 < mClock.getWallClockMillis() || mClock.getWallClockMillis()
+-                - config.randomizedMacLastModifiedTimeMs >= ENHANCED_MAC_REFRESH_MS_MAX;
++                - config.randomizedMacLastModifiedTimeMs >= ENHANCED_MAC_REFRESH_MS_MAX ||
++                config.macRandomizationSetting == WifiConfiguration.RANDOMIZATION_ALWAYS;
+         if (!shouldUpdateMac) {
+             return config.getRandomizedMacAddress();
+         }
+         WifiConfiguration internalConfig = getInternalConfiguredNetwork(config.networkId);
+         setRandomizedMacAddress(internalConfig, MacAddressUtils.createRandomUnicastAddress());
+         return internalConfig.getRandomizedMacAddress();
+     }
+ 
+     /**
+      * Returns the randomized MAC address that should be used for this WifiConfiguration.
+diff --git a/service/java/com/android/server/wifi/WifiConfigurationUtil.java b/service/java/com/android/server/wifi/WifiConfigurationUtil.java
+index 5e0db72f68c13bddd47e352930bd721ee2ce10cf..f63ccb32d8a73c7d3be0d2f5b56ba101b6522a7b 100644
+--- a/service/java/com/android/server/wifi/WifiConfigurationUtil.java
++++ b/service/java/com/android/server/wifi/WifiConfigurationUtil.java
+@@ -218,21 +218,21 @@ public class WifiConfigurationUtil {
+      * Compare existing and new WifiConfiguration objects after a network update and return if
+      * MAC randomization setting has changed or not.
+      * @param existingConfig Existing WifiConfiguration object corresponding to the network.
+      * @param newConfig      New WifiConfiguration object corresponding to the network.
+      * @return true if MAC randomization setting setting changed or the existing confiuration is
+      * null and the newConfig is setting macRandomizationSetting to the default value.
+      */
+     public static boolean hasMacRandomizationSettingsChanged(WifiConfiguration existingConfig,
+             WifiConfiguration newConfig) {
+         if (existingConfig == null) {
+-            return newConfig.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_AUTO;
++            return newConfig.macRandomizationSetting != WifiConfiguration.RANDOMIZATION_ALWAYS;
+         }
+         return newConfig.macRandomizationSetting != existingConfig.macRandomizationSetting;
+     }
+ 
+     /**
+      * Compare existing and new WifiEnterpriseConfig objects after a network update and return if
+      * credential parameters have changed or not.
+      *
+      * @param existingEnterpriseConfig Existing WifiConfiguration object corresponding to the
+      *                                 network.

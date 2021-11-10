@@ -1,0 +1,341 @@
+commit c512a62bf7c262cd4b4c129846807dd4a2f38aed
+Author: Neha Jain <jainne@google.com>
+Date:   Wed 2021-09-22 23:26:16+0000
+
+    Update B9 SVN to 13
+    
+    Bug: 200859230
+    Change-Id: I46e0ed527aefde0b7273f436ab539f367da2712b
+    (cherry picked from commit 36d00399be16e99e6746333a355022ea557b5fce)
+---
+ device-barbet.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/device-barbet.mk b/device-barbet.mk
+index 44b49a327ffb0ac35b72f908a13c35038b9a42c9..19ac980e8a9572d016f5bd96fd0d66578d484de2 100644
+--- a/device-barbet.mk
++++ b/device-barbet.mk
+@@ -32,21 +32,21 @@ DEVICE_PACKAGE_OVERLAYS += device/google/barbet/barbet/overlay
+ 
+ PRODUCT_DEVICE_SVN_OVERRIDE := true
+ 
+ include build/make/target/product/iorap_large_memory_config.mk
+ include device/google/redbull/device-common.mk
+ 
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
+ 
+ # Increment the SVN for any official public releases
+ PRODUCT_PROPERTY_OVERRIDES += \
+-    ro.vendor.build.svn=12
++    ro.vendor.build.svn=13
+ 
+ # Enable watchdog timeout loop breaker.
+ PRODUCT_PROPERTY_OVERRIDES += \
+     framework_watchdog.fatal_window.second=600 \
+     framework_watchdog.fatal_count=3
+ 
+ # Enable zygote critical window.
+ PRODUCT_PROPERTY_OVERRIDES += \
+     zygote.critical_window.minute=10
+ 
+
+commit d39c147b0a67d773528aec37d98057557493e623
+Merge: fc6bfd1 c512a62
+Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
+Date:   Thu 2021-09-23 01:29:16+0000
+
+    Merge cherrypicks of [15891228, 15891079, 15891299, 15890644, 15891300, 15891043, 15891044, 15891045, 15891046, 15891354, 15891355] into sc-release
+    
+    Change-Id: Ib11d3c4927036878d8a29f7134552f798a848108
+
+commit 2be7eaf0f14767f568211b659941f4906e7270fc
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2021-08-28 17:42:40+0000
+
+    Set sane value for PRODUCT_MODEL
+---
+ aosp_barbet.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/aosp_barbet.mk b/aosp_barbet.mk
+index cf2c90eed900c30544d903e27d3a3b9b2001018c..e65646dbeeb4d7a021c48dee15d695466d95dd60 100644
+--- a/aosp_barbet.mk
++++ b/aosp_barbet.mk
+@@ -51,11 +51,11 @@ PRODUCT_BUILD_SUPER_PARTITION := false
+ # b/113232673 STOPSHIP deal with Qualcomm stuff later
+ # PRODUCT_RESTRICT_VENDOR_FILES := all
+ 
+ # b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
+ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+ 
+ PRODUCT_MANUFACTURER := Google
+ PRODUCT_BRAND := Android
+ PRODUCT_NAME := aosp_barbet
+ PRODUCT_DEVICE := barbet
+-PRODUCT_MODEL := AOSP on barbet
++PRODUCT_MODEL := Pixel 5a
+
+commit c5d7f0bac58c2fbfa718e294cec1e384556ee993
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-08-27 14:40:25+0000
+
+    set PRODUCT_BRAND to hardware brand
+---
+ aosp_barbet.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/aosp_barbet.mk b/aosp_barbet.mk
+index e65646dbeeb4d7a021c48dee15d695466d95dd60..cdff73414abd72081e88a063f01add42ee68d540 100644
+--- a/aosp_barbet.mk
++++ b/aosp_barbet.mk
+@@ -48,14 +48,14 @@ $(call inherit-product-if-exists, vendor/google_devices/barbet/prebuilts/device-
+ # Don't build super.img.
+ PRODUCT_BUILD_SUPER_PARTITION := false
+ 
+ # b/113232673 STOPSHIP deal with Qualcomm stuff later
+ # PRODUCT_RESTRICT_VENDOR_FILES := all
+ 
+ # b/189477034: Bypass build time check on uses_libs until vendor fixes all their apps
+ PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
+ 
+ PRODUCT_MANUFACTURER := Google
+-PRODUCT_BRAND := Android
++PRODUCT_BRAND := google
+ PRODUCT_NAME := aosp_barbet
+ PRODUCT_DEVICE := barbet
+ PRODUCT_MODEL := Pixel 5a
+
+commit c7799e213e6b7dbd786919eacc78b26dc1a9af5a
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-08-27 19:37:54+0000
+
+    remove aosp_ prefix from product name
+---
+ AndroidProducts.mk | 4 ++--
+ barbet.mk (new)    | 5 +++++
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/AndroidProducts.mk b/AndroidProducts.mk
+index 3b291cd207221c2285bf7f4b818e5f6664257785..9657d57c16a588079b7bc1aa88c95b7e8f537771 100644
+--- a/AndroidProducts.mk
++++ b/AndroidProducts.mk
+@@ -8,14 +8,14 @@
+ #      http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ 
+ PRODUCT_MAKEFILES := \
+-    $(LOCAL_DIR)/aosp_barbet.mk \
++    $(LOCAL_DIR)/barbet.mk \
+ 
+ COMMON_LUNCH_CHOICES := \
+-    aosp_barbet-userdebug \
++    barbet-userdebug \
+diff --git a/barbet.mk b/barbet.mk
+new file mode 100644
+index 0000000000000000000000000000000000000000..fd345f3bcb9e2430f9cfd340b2cdcf371f586127
+--- /dev/null
++++ b/barbet.mk
+@@ -0,0 +1,5 @@
++# Inherit AOSP product configuration
++$(call inherit-product, device/google/barbet/aosp_barbet.mk)
++
++# Remove AOSP prefix from product name
++PRODUCT_NAME := barbet
+
+commit a2675ef33672bfee105e231990f9308cf31ca6cc
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-08-27 19:38:06+0000
+
+    Move to monolithic kernel builds
+---
+ init.insmod.barbet.cfg | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/init.insmod.barbet.cfg b/init.insmod.barbet.cfg
+index f2728df28091a374ff6bfa6e4e50f3695420e722..3ea3d56fe191c4adfe5b62661987a17d4cbb4f95 100644
+--- a/init.insmod.barbet.cfg
++++ b/init.insmod.barbet.cfg
+@@ -1,19 +1,15 @@
+ #############################################
+ #           init.insmod.cfg                 #
+ # This file contains kernel modules to load #
+ # at init time by init.insmod.sh script     #
+ #############################################
+ 
+-# Load kernel modules
+-modprobe|-b *
+-modprobe|ftm5.ko
+-
+ # All modules loaded
+ setprop|vendor.all.modules.ready
+ 
+ # Boot devices
+ enable|/sys/kernel/boot_adsp/boot
+ enable|/sys/kernel/boot_cdsp/boot
+ 
+ # All devices enabled
+ setprop|vendor.all.devices.ready
+
+commit ebe5301daad8c7388073b6f6f911dc2ec7d3055b
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-08-27 19:38:42+0000
+
+    specify TARGET_PREBUILT_KERNEL
+---
+ device-barbet.mk | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/device-barbet.mk b/device-barbet.mk
+index 19ac980e8a9572d016f5bd96fd0d66578d484de2..0bbb44f216f7f8bb77548a0b7f49749d1c0a13a3 100644
+--- a/device-barbet.mk
++++ b/device-barbet.mk
+@@ -9,20 +9,21 @@
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ 
+ PRODUCT_HARDWARE := barbet
+ 
++TARGET_PREBUILT_KERNEL := device/google/barbet-kernel/Image.lz4
+ ifeq ($(TARGET_PREBUILT_KERNEL),)
+     ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+         LOCAL_KERNEL := device/google/barbet-kernel/Image.lz4
+     else
+         LOCAL_KERNEL := device/google/barbet-kernel/vintf/Image.lz4
+     endif
+ else
+     LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+ endif
+ 
+
+commit 08664aad3ab602a16e3239cdebef80fdb7eaff72
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Tue 2021-09-07 23:47:41+0000
+
+    Add the set of PIXEL_*_EXPERIENCE features for barbet
+---
+ device-barbet.mk            |  4 ++++
+ google_experience.xml (new) | 13 +++++++++++++
+ 2 files changed, 17 insertions(+)
+
+diff --git a/device-barbet.mk b/device-barbet.mk
+index 0bbb44f216f7f8bb77548a0b7f49749d1c0a13a3..88facd9464e8f67e2d27dc74a3815828f3574cba 100644
+--- a/device-barbet.mk
++++ b/device-barbet.mk
+@@ -201,10 +201,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
+ PRODUCT_PACKAGES += \
+     NoCutoutOverlay \
+     AvoidAppsInCutoutOverlay
+ 
+ PRODUCT_COPY_FILES += \
+     device/google/barbet/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml
+ 
+ # (b/183612348): Enable skia reduceOpsTaskSplitting
+ PRODUCT_PROPERTY_OVERRIDES += \
+     renderthread.skia.reduceopstasksplitting=true
++
++# Set of *_EXPERIENCE features for barbet
++PRODUCT_COPY_FILES += \
++    $(LOCAL_PATH)/google_experience.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google_experience.xml
+diff --git a/google_experience.xml b/google_experience.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..501f8b6dbdde9a5e913184df02ac6f52de6c58dc
+--- /dev/null
++++ b/google_experience.xml
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="utf-8"?>
++
++<config>
++    <feature name="com.google.android.feature.GOOGLE_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2017_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2018_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE" />
++</config>
+
+commit a7c45190967d2eb2aa5366c33032ec890d3399fc
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sun 2021-10-10 00:31:36+0100
+
+    Add vendor soong namespace
+---
+ aosp_barbet.mk | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/aosp_barbet.mk b/aosp_barbet.mk
+index cdff73414abd72081e88a063f01add42ee68d540..4020de5988a44de97e0eab298253ff40310ec344 100644
+--- a/aosp_barbet.mk
++++ b/aosp_barbet.mk
+@@ -7,20 +7,22 @@
+ #
+ #      http://www.apache.org/licenses/LICENSE-2.0
+ #
+ # Unless required by applicable law or agreed to in writing, software
+ # distributed under the License is distributed on an "AS IS" BASIS,
+ # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ #
+ 
++PRODUCT_SOONG_NAMESPACES += vendor/google_devices/barbet
++
+ #
+ # All components inherited here go to system image
+ #
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
+ 
+ # Enable mainline checking
+ PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := strict
+ 
+ #
+
+commit 0c11f3a6f148439c4e7aeaaadff47cdfdd063ab0 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Tue 2021-10-26 09:19:46-0400
+
+    temporarily disable broken AvoidAppsInCutoutOverlay
+---
+ device-barbet.mk | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/device-barbet.mk b/device-barbet.mk
+index 88facd9464e8f67e2d27dc74a3815828f3574cba..de1de39b0656eab3b9db1216d16e35a6ca2de214 100644
+--- a/device-barbet.mk
++++ b/device-barbet.mk
+@@ -193,21 +193,20 @@ PRODUCT_PACKAGES += \
+     SettingsOverlayG025H \
+     SettingsOverlayG4S1M \
+     SettingsOverlayG1F8F
+ 
+ # Set support hide display cutout feature
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.support_hide_display_cutout=true
+ 
+ PRODUCT_PACKAGES += \
+     NoCutoutOverlay \
+-    AvoidAppsInCutoutOverlay
+ 
+ PRODUCT_COPY_FILES += \
+     device/google/barbet/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml
+ 
+ # (b/183612348): Enable skia reduceOpsTaskSplitting
+ PRODUCT_PROPERTY_OVERRIDES += \
+     renderthread.skia.reduceopstasksplitting=true
+ 
+ # Set of *_EXPERIENCE features for barbet
+ PRODUCT_COPY_FILES += \

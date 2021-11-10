@@ -1,18 +1,91 @@
-commit 7c87660739544e1ab3bef757dae869894c01cb2e
+commit 2c00471cb204a9927570f48c92f058e3ae80a116
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2021-10-06 01:45:37+0100
+
+    Temporary workaround for jar files breaking build
+    
+    ninja: outputs should be files, not directories: out/target/product/redfin/vendor/firmware_mnt
+    [ 51% 11892/23028] Verifying uses-libraries: vendor/google_devices/redfin/vendor/framework/com.google.android.camera.experimental2020.jar
+    FAILED: out/target/common/obj/JAVA_LIBRARIES/com.google.android.camera.experimental2020_intermediates/enforce_uses_libraries.status
+    /bin/bash -c "(rm -f out/target/common/obj/JAVA_LIBRARIES/com.google.android.camera.experimental2020_intermediates/enforce_uses_libraries.status ) && (build/soong/scripts/manifest_check.py    --enforce-uses-libraries        --enforce-uses-libraries-status out/target/common/obj/JAVA_LIBRARIES/com.google.android.camera.experimental2020_intermediates/enforce_uses_libraries.status           --aapt out/host/linux-x86/bin/aapt                               --enforce-uses-libraries-relax         vendor/google_devices/redfin/vendor/framework/com.google.android.camera.experimental2020.jar )"
+    error: not well-formed (invalid token): line 1, column 2
+    
+    Change-Id: I819d2fabc0fa28ac217e322eabdf50f512d0ae5d
+---
+ scripts/manifest_check.py | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
+
+diff --git a/scripts/manifest_check.py b/scripts/manifest_check.py
+index 8168fbf6a01c624c78f2025298027b5e3d0fead6..829e998b3502bf13394a4f0ec8c1c06888ea7902 100755
+--- a/scripts/manifest_check.py
++++ b/scripts/manifest_check.py
+@@ -271,23 +271,26 @@ def translate_libnames(modules, module_to_libname):
+     libnames.append(name)
+ 
+   return libnames
+ 
+ 
+ def main():
+   """Program entry point."""
+   try:
+     args = parse_args()
+ 
++    safe_to_ignore_errors = False
+     # The input can be either an XML manifest or an APK, they are parsed and
+     # processed in different ways.
+     is_apk = args.input.endswith('.apk')
++    if args.input.endswith('.jar'):
++      safe_to_ignore_errors = True
+     if is_apk:
+       aapt = args.aapt if args.aapt != None else "aapt"
+       manifest = subprocess.check_output([aapt, "dump", "badging", args.input])
+     else:
+       manifest = minidom.parse(args.input)
+ 
+     if args.enforce_uses_libraries:
+       # Load dexpreopt.config files and build a mapping from module names to
+       # library names. This is necessary because build system addresses
+       # libraries by their module name (`uses_libs`, `optional_uses_libs`,
+@@ -323,15 +326,19 @@ def main():
+       # XML output is supposed to be written only when this script is invoked
+       # with XML input manifest, not with an APK.
+       if is_apk:
+         raise RuntimeError('cannot save APK manifest as XML')
+ 
+       with open(args.output, 'wb') as f:
+         write_xml(f, manifest)
+ 
+   # pylint: disable=broad-except
+   except Exception as err:
+-    print('error: ' + str(err), file=sys.stderr)
+-    sys.exit(-1)
++    if safe_to_ignore_errors == False:
++      print('error: ' + str(err), file=sys.stderr)
++      sys.exit(-1)
++    else:
++      print("jar files are currently erroring when checked by manifest_check.py. This needs to be fixed!")
++      print('error: ' + str(err))
+ 
+ if __name__ == '__main__':
+   main()
+
+commit 15c2933223b022cd8ca8d8413ad5ca5e56d72a18
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-08-23 20:28:03-0400
 
     use -fwrapv when signed overflow checking is off
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  cc/cc.go       |  2 ++
  cc/sanitize.go | 12 ++++++++++++
  2 files changed, 14 insertions(+)
 
 diff --git a/cc/cc.go b/cc/cc.go
-index 0f874f13c998e860c314dbd513f3d3b724c1dcdf..16b0258f34bd2b1ad8a70096014faa1369c59c7d 100644
+index c62fd6c8fffb1d0746f937bd7af672d976895133..c7b1422e752a36b08f8df29f73e17b44df636832 100644
 --- a/cc/cc.go
 +++ b/cc/cc.go
-@@ -1471,20 +1471,22 @@ func (c *Module) GenerateAndroidBuildActions(actx android.ModuleContext) {
+@@ -1703,20 +1703,22 @@ func (c *Module) GenerateAndroidBuildActions(actx android.ModuleContext) {
  		flags = c.compiler.compilerFlags(ctx, flags, deps)
  	}
  	if c.linker != nil {
@@ -36,10 +109,10 @@ index 0f874f13c998e860c314dbd513f3d3b724c1dcdf..16b0258f34bd2b1ad8a70096014faa13
  		flags = c.pgo.flags(ctx, flags)
  	}
 diff --git a/cc/sanitize.go b/cc/sanitize.go
-index 463a02ac2590c4fa71abe5989a52dfe28089cd5e..7c92b41dc69a092bc5535125ce47c56fa5d6640c 100644
+index 941a955e51dcb75765cb3b1e91691981186845f2..694a3659fd47af2cafca30af05eeb0e4acae7e39 100644
 --- a/cc/sanitize.go
 +++ b/cc/sanitize.go
-@@ -451,23 +451,35 @@ func (sanitize *sanitize) flags(ctx ModuleContext, flags Flags) Flags {
+@@ -549,23 +549,35 @@ func (sanitize *sanitize) flags(ctx ModuleContext, flags Flags) Flags {
  		flags.Local.LdFlags = append(flags.Local.LdFlags,
  			minimalRuntimePath,
  			"-Wl,--exclude-libs,"+minimalRuntimeLib)
@@ -74,13 +147,15 @@ index 463a02ac2590c4fa71abe5989a52dfe28089cd5e..7c92b41dc69a092bc5535125ce47c56f
  		flags.Local.CFlags = append(flags.Local.CFlags, asanCflags...)
  		flags.Local.LdFlags = append(flags.Local.LdFlags, asanLdflags...)
  
- 		if ctx.Host() {
+ 		if Bool(sanitize.Properties.Sanitize.Writeonly) {
 
-commit c6cabe5d59b0336012476df65e020b0f735e2564
+commit d5fd8d3749eaff67591aceca6a1f4e8067758696
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-04-23 16:34:04-0400
 
     use SCHED_BATCH for the build
+    
+    Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
  soong_ui.bash | 2 ++
  1 file changed, 2 insertions(+)
@@ -113,7 +188,7 @@ index c1c236b9d6f0bbbc95f7bed1f8c1889bd56ff73d..c2b21aaab1d7c478aad19383fe8140a3
      local TOPFILE=build/soong/root.bp
      if [ -n "${TOP-}" -a -f "${TOP-}/${TOPFILE}" ] ; then
 
-commit 4e6320c247b78f456a83a0393360e7be1105eb5a (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit 1eaeed54a3588bb03a9931c26c1e9907e8b34b6f
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sun 2020-09-13 09:35:41+0000
 
@@ -123,22 +198,21 @@ Date:   Sun 2020-09-13 09:35:41+0000
  1 file changed, 1 insertion(+)
 
 diff --git a/apex/apex.go b/apex/apex.go
-index 7da8e1cf2154a1c9c58c800629cf0847658135ec..66534426a12bbce85f85611106b1b35f874637b0 100644
+index 77854074b7d898b762e2cb4427bde6384d889c4e..d7ae35c3d4c46d038a758d2b35b3c3cb5d3b048d 100644
 --- a/apex/apex.go
 +++ b/apex/apex.go
-@@ -563,20 +563,21 @@ func makeApexAvailableBaseline() map[string][]string {
+@@ -2892,20 +2892,21 @@ func makeApexAvailableBaseline() map[string][]string {
+ 		"libc_static_dispatch",
+ 		"libc_syscalls",
  		"libc_tzcode",
  		"libc_unwind_static",
  		"libdebuggerd",
  		"libdebuggerd_common_headers",
  		"libdebuggerd_handler_core",
  		"libdebuggerd_handler_fallback",
- 		"libdexfile_external_headers",
- 		"libdexfile_support",
- 		"libdexfile_support_static",
  		"libdl_static",
-+		"libhardened_malloc",
  		"libjemalloc5",
++		"libhardened_malloc",
  		"liblinker_main",
  		"liblinker_malloc",
  		"liblz4",
@@ -148,3 +222,41 @@ index 7da8e1cf2154a1c9c58c800629cf0847658135ec..66534426a12bbce85f85611106b1b35f
  		"libscudo",
  		"libstdc++",
  		"libsystemproperties",
+ 		"libtombstoned_client_static",
+
+commit 86ee9cb1265172a76bea60ee5920e49ceb5dc825 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2021-10-13 19:54:06-0400
+
+    use speed compiler filter for dexpreopt by default
+---
+ dexpreopt/dexpreopt.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/dexpreopt/dexpreopt.go b/dexpreopt/dexpreopt.go
+index da015a389e5ead776d5769365ce0ac7d45a84b22..20517d71632f9df7b16557a0db9ec77a643a50e0 100644
+--- a/dexpreopt/dexpreopt.go
++++ b/dexpreopt/dexpreopt.go
+@@ -372,21 +372,21 @@ func dexpreoptCommand(ctx android.PathContext, globalSoong *GlobalSoongConfig, g
+ 		} else if contains(global.SpeedApps, module.Name) || contains(global.SystemServerApps, module.Name) {
+ 			// Apps loaded into system server, and apps the product default to being compiled with the
+ 			// 'speed' compiler filter.
+ 			compilerFilter = "speed"
+ 		} else if profile != nil {
+ 			// For non system server jars, use speed-profile when we have a profile.
+ 			compilerFilter = "speed-profile"
+ 		} else if global.DefaultCompilerFilter != "" {
+ 			compilerFilter = global.DefaultCompilerFilter
+ 		} else {
+-			compilerFilter = "quicken"
++			compilerFilter = "speed"
+ 		}
+ 		if module.EnforceUsesLibraries {
+ 			// If the verify_uses_libraries check failed (in this case status file contains a
+ 			// non-empty error message), then use "verify" compiler filter to avoid compiling any
+ 			// code (it would be rejected on device because of a class loader context mismatch).
+ 			cmd.Text("--compiler-filter=$(if test -s ").
+ 				Input(module.EnforceUsesLibrariesStatusFile).
+ 				Text(" ; then echo verify ; else echo " + compilerFilter + " ; fi)")
+ 		} else {
+ 			cmd.FlagWithArg("--compiler-filter=", compilerFilter)

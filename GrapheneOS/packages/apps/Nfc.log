@@ -1,4 +1,4 @@
-commit e9f2cf851e46eb1b79b9cf6b053f9b70fc7ba165
+commit 9d96296e05fa5527d1a18c105c84ec6841b0237a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-06-06 10:40:51-0400
 
@@ -8,16 +8,16 @@ Date:   Sat 2015-06-06 10:40:51-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/nfc/NfcService.java b/src/com/android/nfc/NfcService.java
-index 837940cf9e7593a4734d829fd87f111c7409c8c4..75c01791db81caa953b54e76b620d3b2b953d281 100644
+index 633b8f46473a7206dfce1928b85c3f8295b1301b..d21ef7fdb2c7dcee3cb35ce2409c4ca8ec883566 100644
 --- a/src/com/android/nfc/NfcService.java
 +++ b/src/com/android/nfc/NfcService.java
-@@ -116,21 +116,21 @@ import java.util.stream.Collectors;
- 
- public class NfcService implements DeviceHostListener {
+@@ -122,21 +122,21 @@ public class NfcService implements DeviceHostListener {
      static final boolean DBG = false;
      static final String TAG = "NfcService";
  
      public static final String SERVICE_NAME = "nfc";
+ 
+     private static final String SYSTEM_UI = "com.android.systemui";
  
      public static final String PREF = "NfcServicePrefs";
  
@@ -35,7 +35,7 @@ index 837940cf9e7593a4734d829fd87f111c7409c8c4..75c01791db81caa953b54e76b620d3b2
      static final boolean ANTENNA_BLOCKED_MESSAGE_SHOWN_DEFAULT = false;
  
 
-commit e41f1d7f8eee4f6af7ad1f9c0b6cbf1aef94f3cd
+commit 847229e9db8a62a650bc7fb981756c10b06c3d68 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 20:58:37-0400
 
@@ -50,7 +50,7 @@ Date:   Sun 2019-03-17 20:58:37-0400
  6 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/nci/jni/NativeLlcpConnectionlessSocket.cpp b/nci/jni/NativeLlcpConnectionlessSocket.cpp
-index e43dbff323184406099d3cd28b714bcfbb24e838..78e33285722d6fe1b60367153bab4f5b2a047149 100644
+index 7506d80e85cb6f75663bda2bc7a7915caff367d9..e1e547ecd74fe3aa396565c58abe414f64079641 100644
 --- a/nci/jni/NativeLlcpConnectionlessSocket.cpp
 +++ b/nci/jni/NativeLlcpConnectionlessSocket.cpp
 @@ -273,21 +273,21 @@ static jboolean nativeLlcpConnectionlessSocket_doClose(JNIEnv* e, jobject o) {
@@ -131,15 +131,15 @@ index 0ee0d2488da1c09ea621a154a340159f6bdd76be..fa49ec9488afa8aa077296c32905527e
      {"doGetRemoteSocketRw", "()I", (void*)nativeLlcpSocket_doGetRemoteSocketRW},
  };
 diff --git a/nci/jni/NativeNfcManager.cpp b/nci/jni/NativeNfcManager.cpp
-index 5048262c9750ad427ae6dc0cbc62414e8c1ed7c0..7d8d90a9464bc73dc986329cb29b981735181315 100644
+index 28ae464afed6b395138cef6debd00bbb72ef637c..6804497b80a8ab2dd873f0a10092e5e92b0c39cb 100644
 --- a/nci/jni/NativeNfcManager.cpp
 +++ b/nci/jni/NativeNfcManager.cpp
-@@ -1994,21 +1994,21 @@ static jboolean nfcManager_doSetNfcSecure(JNIEnv* e, jobject o,
- 
- static jstring nfcManager_doGetNfaStorageDir(JNIEnv* e, jobject o) {
-   string nfaStorageDir = NfcConfig::getString(NAME_NFA_STORAGE, "/data/nfc");
-   return e->NewStringUTF(nfaStorageDir.c_str());
+@@ -2142,21 +2142,21 @@ static void nfcManager_doSetNfceePowerAndLinkCtrl(JNIEnv* e, jobject o,
+   } else {
+     routingManager.eeSetPwrAndLinkCtrl(0);
+   }
  }
+ 
  /*****************************************************************************
  **
  ** JNI functions for android-4.0.1_r1
@@ -158,10 +158,10 @@ index 5048262c9750ad427ae6dc0cbc62414e8c1ed7c0..7d8d90a9464bc73dc986329cb29b9817
      {"sendRawFrame", "([B)Z", (void*)nfcManager_sendRawFrame},
  
 diff --git a/nci/jni/NativeNfcTag.cpp b/nci/jni/NativeNfcTag.cpp
-index ddae94e9003f0699c31839c751def603cbd94567..c51dc1383146dd903e4c1577cec7bca2a8a5bab9 100644
+index cc167e67288098a47affc9775286998b0a3f8a32..a53c14257091496c45306fc84179dce986e64ce4 100644
 --- a/nci/jni/NativeNfcTag.cpp
 +++ b/nci/jni/NativeNfcTag.cpp
-@@ -1843,21 +1843,21 @@ void nativeNfcTag_releaseRfInterfaceMutexLock() {
+@@ -1846,21 +1846,21 @@ void nativeNfcTag_releaseRfInterfaceMutexLock() {
    sRfInterfaceMutex.unlock();
    DLOG_IF(INFO, nfc_debug_enabled)
        << StringPrintf("%s: sRfInterfaceMutex unlock", __func__);
@@ -211,48 +211,3 @@ index 23f5db4132caf3c0af55e7fd1947a97ec95c49db..396c6d0cdb1924106b727dbc378f92a2
  /*******************************************************************************
  **
  ** Function:        register_com_android_nfc_NativeP2pDevice
-
-commit 36ae078f6d5041f217dbe43e8aff9a3e4ff27599 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
-Author: Maoliang Tang <tangmaoliang@xiaomi.com>
-Date:   Fri 2020-07-31 20:55:38+0800
-
-    Avoid NFC continuous crash
-    
-    Some apps with poor quality don't want to export their
-    acitvities used to read tag to external for security reasons,
-    In this case, NFC would enter a continuous crash due to SecurityException
-    when detects a tag and try to dispatch.
-    
-    Hence, We should resolve it by catch the SecurityException.
-    
-    Bug: 162643562
-    Test: manual test with com.chinamworld.main AP
-    
-    Signed-off-by: Maoliang Tang <tangmaoliang@xiaomi.com>
-    Change-Id: I9557a3730c741dcae65d88e10e5e944f06925e94
----
- src/com/android/nfc/NfcRootActivity.java | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/src/com/android/nfc/NfcRootActivity.java b/src/com/android/nfc/NfcRootActivity.java
-index cc216f2ea5efbd55ba50dc4cb51fc0199c5004b1..b0b340f54e3382aa2975d7229e8671c1d04a891d 100644
---- a/src/com/android/nfc/NfcRootActivity.java
-+++ b/src/com/android/nfc/NfcRootActivity.java
-@@ -30,16 +30,17 @@ public class NfcRootActivity extends Activity {
-     @Override
-     protected void onCreate(Bundle savedInstanceState) {
-         super.onCreate(savedInstanceState);
-         Intent intent = getIntent();
-         if (intent != null && intent.hasExtra(EXTRA_LAUNCH_INTENT)) {
-             final Intent launchIntent = intent.getParcelableExtra(EXTRA_LAUNCH_INTENT);
-             if (launchIntent != null) {
-                 try {
-                     startActivityAsUser(launchIntent, UserHandle.CURRENT);
-                 } catch (ActivityNotFoundException e) {
-+                } catch (SecurityException e) {
-                 }
-             }
-         }
-         finish();
-     }
- }

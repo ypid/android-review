@@ -1,4 +1,4 @@
-commit 8cfece6ef083e379eaa7b8d7b3f0db5cf9d1b110
+commit c692386319b4aafca15fad7eadb34e0267c7e492
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-09-14 00:03:16-0400
 
@@ -62,7 +62,7 @@ index 57018244ff0e0002495292e0442d7a376ca1d5fe..a2153df036141623765f548e9d8531b6
          mDoubleSpacePeriodTimeout = res.getInteger(R.integer.config_double_space_period_timeout);
          mHasHardwareKeyboard = Settings.readHasHardwareKeyboard(res.getConfiguration());
 
-commit 272de9aeb7ecf82a2c16d188b93d64f36d46c35b
+commit fcf2fd8488ac21acc7055d5c2106ed92f0bfb1a6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-12-15 03:37:17-0500
 
@@ -102,7 +102,7 @@ index f01909f373f4c9b4f5db30a36debe100b750cd54..55b9b102ec737ed81575ba9d0cac4a3e
          android:key="screen_advanced" />
  </PreferenceScreen>
 
-commit 95a1b354ea6b0ac7fbdce2fd485b730b5bb914f2
+commit 3a195da11d9044b4579dc4303e51780e84981b4c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 16:20:43-0500
 
@@ -161,7 +161,7 @@ index b90fbaea58acf4fd485503c4ded920396b0251e2..45ff0b1ffac3f0c1ba90d78e57ce09c0
      <bool name="config_use_fullscreen_mode">false</bool>
  </resources>
 
-commit 056b16b65c43331011123f6d6d0a9bbe4da98d4e (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 3704b94dd33602dcc4997e744d9d23bc111ea415 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-31 00:00:58-0400
 

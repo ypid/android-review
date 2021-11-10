@@ -1,0 +1,147 @@
+commit a55a2c11c3cdc48a8c6a7d8fd2f25e28d0fa16a5
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Thu 2019-02-14 21:47:18+0100
+
+    Don't build with platform certificate
+    
+    Change-Id: Iec6798c9139ab62e054efbf714aa07d154f93852
+---
+ Android.mk | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/Android.mk b/Android.mk
+index b2cd0b91841c247d8b12820a77eb62d671bae826..76d08035ccf8aa993dcab421fee79e3ea3f42aa6 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -63,22 +63,20 @@ LOCAL_PROGUARD_FLAG_FILES := proguard.flags
+ ifeq (eng,$(TARGET_BUILD_VARIANT))
+     LOCAL_PROGUARD_FLAG_FILES += proguard-test.flags
+ else
+     LOCAL_PROGUARD_FLAG_FILES += proguard-release.flags
+ endif
+ 
+ LOCAL_PACKAGE_NAME := messaging
+ LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0 SPDX-license-identifier-BSD SPDX-license-identifier-MIT
+ LOCAL_LICENSE_CONDITIONS := notice
+ 
+-LOCAL_CERTIFICATE := platform
+-
+ LOCAL_SDK_VERSION := current
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+ LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_APPS)
+ 
+ LOCAL_COMPATIBILITY_SUITE := general-tests
+ 
+ include $(BUILD_PACKAGE)
+ 
+
+commit dfd78e09f0936b36c0eb11f716c9cb2c027053c9
+Author: Michael Bestas <mkbestas@lineageos.org>
+Date:   Wed 2020-05-06 21:57:48+0300
+
+    Messaging: Add sysconfig whitelist xml
+    
+    Change-Id: I2665ac3be3bb63daeaa0e5c109b73ca6152b95ce
+---
+ Android.mk                                | 11 +++++++++++
+ com.android.messaging_whitelist.xml (new) | 19 +++++++++++++++++++
+ 2 files changed, 30 insertions(+)
+
+diff --git a/Android.mk b/Android.mk
+index 76d08035ccf8aa993dcab421fee79e3ea3f42aa6..43a66c096a0fe37ccc543b44f618012f0945b809 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -71,13 +71,24 @@ LOCAL_LICENSE_KINDS := SPDX-license-identifier-Apache-2.0 SPDX-license-identifie
+ LOCAL_LICENSE_CONDITIONS := notice
+ 
+ LOCAL_SDK_VERSION := current
+ 
+ LOCAL_PRODUCT_MODULE := true
+ 
+ LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_APPS)
+ 
+ LOCAL_COMPATIBILITY_SUITE := general-tests
+ 
++LOCAL_REQUIRED_MODULES += com.android.messaging_whitelist.xml
++
+ include $(BUILD_PACKAGE)
+ 
++include $(CLEAR_VARS)
++LOCAL_MODULE := com.android.messaging_whitelist.xml
++LOCAL_MODULE_CLASS := ETC
++LOCAL_MODULE_TAGS := optional
++LOCAL_MODULE_PATH := $(TARGET_OUT_PRODUCT_ETC)/sysconfig
++LOCAL_PRODUCT_MODULE := true
++LOCAL_SRC_FILES := $(LOCAL_MODULE)
++include $(BUILD_PREBUILT)
++
+ include $(call all-makefiles-under, $(LOCAL_PATH))
+diff --git a/com.android.messaging_whitelist.xml b/com.android.messaging_whitelist.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..6bc77a8c6fc3476289b4ad10eb493a9ce8885f5d
+--- /dev/null
++++ b/com.android.messaging_whitelist.xml
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!--
++     Copyright (C) 2019-2020 The LineageOS Project
++
++     Licensed under the Apache License, Version 2.0 (the "License");
++     you may not use this file except in compliance with the License.
++     You may obtain a copy of the License at
++
++          http://www.apache.org/licenses/LICENSE-2.0
++
++     Unless required by applicable law or agreed to in writing, software
++     distributed under the License is distributed on an "AS IS" BASIS,
++     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++     See the License for the specific language governing permissions and
++     limitations under the License.
++-->
++<config>
++    <allow-in-power-save package="com.android.messaging" />
++</config>
+
+commit 1409b166c38e405ba892a3306db8346ce62d6243 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: z3DD3r <z3dd3r@gmail.com>
+Date:   Fri 2021-04-23 22:54:52+0300
+
+    Messaging: Update cellbroadcast package name
+    
+    As part of mainline effort, AOSP cellbroadcast package name was changed
+    from com.android.cellbroadcast to com.android.cellbroadcast.module
+    
+    Change-Id: Ie1f27abb0f645dd53c26d164b03c5e93c3c13cdc
+---
+ src/com/android/messaging/ui/UIIntents.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/messaging/ui/UIIntents.java b/src/com/android/messaging/ui/UIIntents.java
+index bf5edd721ea3cbf02b0d1bc2a554d223f5325ddb..a5b4417a8551b9ab9a09aa243521ec78691cce64 100644
+--- a/src/com/android/messaging/ui/UIIntents.java
++++ b/src/com/android/messaging/ui/UIIntents.java
+@@ -65,21 +65,21 @@ public abstract class UIIntents {
+ 
+     // Indicates whether a conversation is launched with custom transition.
+     public static final String UI_INTENT_EXTRA_WITH_CUSTOM_TRANSITION = "with_custom_transition";
+ 
+     public static final String ACTION_RESET_NOTIFICATIONS =
+             "com.android.messaging.reset_notifications";
+ 
+     // Sending VCard uri to VCard detail activity
+     public static final String UI_INTENT_EXTRA_VCARD_URI = "vcard_uri";
+ 
+-    public static final String CMAS_COMPONENT = "com.android.cellbroadcastreceiver";
++    public static final String CMAS_COMPONENT = "com.android.cellbroadcastreceiver.module";
+ 
+     // Intent action for local broadcast receiver for conversation self id change.
+     public static final String CONVERSATION_SELF_ID_CHANGE_BROADCAST_ACTION =
+             "conversation_self_id_change";
+ 
+     // Conversation self id
+     public static final String UI_INTENT_EXTRA_CONVERSATION_SELF_ID = "conversation_self_id";
+ 
+     // For opening an APN editor on a particular row in the apn database.
+     public static final String UI_INTENT_EXTRA_APN_ROW_ID = "apn_row_id";

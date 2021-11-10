@@ -1,24 +1,24 @@
-commit bf85627a437d7d6381d60be46d9d0ecc81a02232 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
-Author: Marco Janotta <marcojntt@gmail.com>
-Date:   Wed 2021-01-13 10:51:15+0100
+commit 7eae932354b4b6a8ffbd7292a6aa2d82a772edaa
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Thu 2019-09-12 16:13:43+0200
 
-    Fix search panel background
+    SettingsIntelligence: Match Settings style
     
-    Instead of having a fixed value, the current primary color is applied as
-    the background of the search panel in Settings. This way there is no
-    unwanted border in the Dark theme, while it has no effect on the Light
-    theme.
+    * Also fixes dark style
     
-    Change-Id: I7610ff7262e3ae32510b26560cedba267698f6ae
+    Change-Id: I42041fbaf754b149a85f22ac46b84f50830d0504
 ---
- res/layout/search_panel.xml | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ res/layout/search_panel.xml       |  7 +++----
+ res/values-night/colors.xml (new) | 19 +++++++++++++++++++
+ res/values/colors.xml             |  2 +-
+ res/values/dimens.xml             |  4 ++--
+ 4 files changed, 25 insertions(+), 7 deletions(-)
 
 diff --git a/res/layout/search_panel.xml b/res/layout/search_panel.xml
-index 5f621cd493c6db11d5fecef7c6dae7f8d651fa5a..581a01a5f99d2f9949f4b0d06486bc89afd1838f 100644
+index 5f621cd493c6db11d5fecef7c6dae7f8d651fa5a..82b1e1102b3f45c9f9d23f7497083edd808d18f9 100644
 --- a/res/layout/search_panel.xml
 +++ b/res/layout/search_panel.xml
-@@ -18,21 +18,21 @@
+@@ -18,30 +18,29 @@
      xmlns:app="http://schemas.android.com/apk/res-auto"
      android:id="@+id/search_panel"
      android:layout_width="match_parent"
@@ -37,7 +37,234 @@ index 5f621cd493c6db11d5fecef7c6dae7f8d651fa5a..581a01a5f99d2f9949f4b0d06486bc89
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:layout_margin="@dimen/search_bar_margin"
-             app:cardCornerRadius="2dp"
-             app:cardBackgroundColor="?android:attr/colorBackground"
-             app:cardElevation="2dp">
+-            app:cardCornerRadius="2dp"
+-            app:cardBackgroundColor="?android:attr/colorBackground"
+-            app:cardElevation="2dp">
++            app:cardCornerRadius="@*android:dimen/config_dialogCornerRadius"
++            app:cardElevation="3dp">
              <Toolbar
+                 android:id="@+id/search_toolbar"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/search_bar_height"
+                 android:background="?android:attr/selectableItemBackground"
+                 android:contentInsetStart="0dp"
+                 android:contentInsetStartWithNavigation="0dp"
+                 android:theme="?android:attr/actionBarTheme">
+                 <SearchView
+                     android:id="@+id/search_view"
+diff --git a/res/values-night/colors.xml b/res/values-night/colors.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..399913a377de29c2b6f6008b18385d76f799ca39
+--- /dev/null
++++ b/res/values-night/colors.xml
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="utf-8"?>
++<!-- Copyright (C) 2018 The Android Open Source Project
++
++     Licensed under the Apache License, Version 2.0 (the "License");
++     you may not use this file except in compliance with the License.
++     You may obtain a copy of the License at
++
++          http://www.apache.org/licenses/LICENSE-2.0
++
++     Unless required by applicable law or agreed to in writing, software
++     distributed under the License is distributed on an "AS IS" BASIS,
++     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++     See the License for the specific language governing permissions and
++     limitations under the License.
++-->
++
++<resources>
++    <color name="search_panel_background">@*android:color/material_grey_800</color>
++</resources>
+diff --git a/res/values/colors.xml b/res/values/colors.xml
+index a2105f0339b47cc7028fd944e2015d3a0c829a3a..632c72d8cbc9e6511178bee1b99c3a9e0b531b09 100644
+--- a/res/values/colors.xml
++++ b/res/values/colors.xml
+@@ -11,12 +11,12 @@
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+ 
+ <resources>
+     <color name="launcher_background_color">#ff008577</color>
+ 
+-    <color name="search_panel_background">#f2f2f2</color>
++    <color name="search_panel_background">@android:color/white</color>
+ </resources>
+diff --git a/res/values/dimens.xml b/res/values/dimens.xml
+index 8a40eb60772ec0136f82b85a5dbac34dcb905ed0..94916501e3f52120d8d28136268feb4a17535d3c 100644
+--- a/res/values/dimens.xml
++++ b/res/values/dimens.xml
+@@ -19,22 +19,22 @@
+ 
+     <!-- Dashboard padding in its container -->
+     <dimen name="dashboard_padding_start">0dp</dimen>
+     <dimen name="dashboard_padding_end">0dp</dimen>
+     <dimen name="dashboard_padding_top">0dp</dimen>
+     <dimen name="dashboard_padding_bottom">0dp</dimen>
+ 
+     <!-- The following two margins need to match, with the caveat that
+      the second should be negative. The second one ensures that the icons and text
+      align despite the additional padding caused by the search bar's card background. -->
+-    <dimen name="search_bar_margin">8dp</dimen>
+-    <dimen name="search_bar_negative_margin">-8dp</dimen>
++    <dimen name="search_bar_margin">16dp</dimen>
++    <dimen name="search_bar_negative_margin">-16dp</dimen>
+ 
+     <dimen name="search_bar_height">48dp</dimen>
+     <dimen name="search_bar_text_size">16dp</dimen>
+ 
+     <!-- Dashboard image tile size -->
+     <dimen name="dashboard_tile_image_size">24dp</dimen>
+ 
+     <!-- Dashboard tile image margin start / end -->
+     <dimen name="dashboard_tile_image_margin">24dp</dimen>
+ </resources>
+\ No newline at end of file
+
+commit 0862eff394850de0af7e4fc5ba3863884250d5cf (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-10-05 19:17:46-0700
+
+    Style search bar to match new Settings UI
+    
+    - Rounded pill shape
+    - Surface background colors
+    - No shadow
+    - Font size
+    - Height
+    
+    Change-Id: I24d4725f3d759ea633768640995de16f9bdf2c55
+---
+ res/layout/search_panel.xml | 11 +++++------
+ res/values-night/colors.xml |  2 +-
+ res/values/colors.xml       |  2 +-
+ res/values/dimens.xml       |  7 ++++---
+ 4 files changed, 11 insertions(+), 11 deletions(-)
+
+diff --git a/res/layout/search_panel.xml b/res/layout/search_panel.xml
+index 82b1e1102b3f45c9f9d23f7497083edd808d18f9..18c48bf5f46239b4d18b8f58b85ee8942452f645 100644
+--- a/res/layout/search_panel.xml
++++ b/res/layout/search_panel.xml
+@@ -18,34 +18,33 @@
+     xmlns:app="http://schemas.android.com/apk/res-auto"
+     android:id="@+id/search_panel"
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical">
+ 
+     <FrameLayout
+         android:id="@+id/search_bar_container"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+-        android:background="?android:attr/colorPrimary"
+-        android:elevation="4dp">
++        android:background="?android:attr/colorPrimary">
+         <androidx.cardview.widget.CardView
+             android:id="@+id/search_bar"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_margin="@dimen/search_bar_margin"
+-            app:cardCornerRadius="@*android:dimen/config_dialogCornerRadius"
+-            app:cardElevation="3dp">
++            app:cardCornerRadius="@dimen/search_bar_corner_radius"
++            app:cardElevation="0dp">
+             <Toolbar
+                 android:id="@+id/search_toolbar"
+                 android:layout_width="match_parent"
+                 android:layout_height="@dimen/search_bar_height"
+-                android:background="?android:attr/selectableItemBackground"
++                android:background="@color/search_panel_background"
+                 android:contentInsetStart="0dp"
+                 android:contentInsetStartWithNavigation="0dp"
+                 android:theme="?android:attr/actionBarTheme">
+                 <SearchView
+                     android:id="@+id/search_view"
+                     android:layout_width="match_parent"
+                     android:layout_height="match_parent"
+                     android:iconifiedByDefault="false"
+                     android:imeOptions="actionSearch|flagNoExtractUi"
+                     android:searchIcon="@null"/>
+@@ -97,11 +96,11 @@
+                 android:textSize="18sp"
+                 android:text="@string/search_no_results"
+                 android:gravity="center"/>
+ 
+         </LinearLayout>
+ 
+     </FrameLayout>
+ 
+     <include layout="@layout/search_feedback"/>
+ 
+-</LinearLayout>
+\ No newline at end of file
++</LinearLayout>
+diff --git a/res/values-night/colors.xml b/res/values-night/colors.xml
+index 399913a377de29c2b6f6008b18385d76f799ca39..8c91c44255394c274abf9c78fdf5a1ced7d812e6 100644
+--- a/res/values-night/colors.xml
++++ b/res/values-night/colors.xml
+@@ -8,12 +8,12 @@
+           http://www.apache.org/licenses/LICENSE-2.0
+ 
+      Unless required by applicable law or agreed to in writing, software
+      distributed under the License is distributed on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+ <resources>
+-    <color name="search_panel_background">@*android:color/material_grey_800</color>
++     <color name="search_panel_background">@*android:color/surface_variant_dark</color>
+ </resources>
+diff --git a/res/values/colors.xml b/res/values/colors.xml
+index 632c72d8cbc9e6511178bee1b99c3a9e0b531b09..b2f02b815009687baad67d459a75e037cdf80246 100644
+--- a/res/values/colors.xml
++++ b/res/values/colors.xml
+@@ -11,12 +11,12 @@
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+ 
+ <resources>
+     <color name="launcher_background_color">#ff008577</color>
+ 
+-    <color name="search_panel_background">@android:color/white</color>
++    <color name="search_panel_background">@*android:color/surface_highlight_light</color>
+ </resources>
+diff --git a/res/values/dimens.xml b/res/values/dimens.xml
+index 94916501e3f52120d8d28136268feb4a17535d3c..0fa9e376366beedce5be7bf1a04204276a050a2c 100644
+--- a/res/values/dimens.xml
++++ b/res/values/dimens.xml
+@@ -22,19 +22,20 @@
+     <dimen name="dashboard_padding_end">0dp</dimen>
+     <dimen name="dashboard_padding_top">0dp</dimen>
+     <dimen name="dashboard_padding_bottom">0dp</dimen>
+ 
+     <!-- The following two margins need to match, with the caveat that
+      the second should be negative. The second one ensures that the icons and text
+      align despite the additional padding caused by the search bar's card background. -->
+     <dimen name="search_bar_margin">16dp</dimen>
+     <dimen name="search_bar_negative_margin">-16dp</dimen>
+ 
+-    <dimen name="search_bar_height">48dp</dimen>
+-    <dimen name="search_bar_text_size">16dp</dimen>
++    <dimen name="search_bar_height">52dp</dimen>
++    <dimen name="search_bar_text_size">20sp</dimen>
++    <dimen name="search_bar_corner_radius">28dp</dimen>
+ 
+     <!-- Dashboard image tile size -->
+     <dimen name="dashboard_tile_image_size">24dp</dimen>
+ 
+     <!-- Dashboard tile image margin start / end -->
+     <dimen name="dashboard_tile_image_margin">24dp</dimen>
+-</resources>
+\ No newline at end of file
++</resources>

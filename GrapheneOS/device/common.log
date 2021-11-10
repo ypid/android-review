@@ -1,4 +1,4 @@
-commit 4aa37473fc44bab8e9a67b2f2b39bf66938bacca
+commit 71f43cbbf74d9812a938ed62a5f22e7c2e14d8c6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-12-12 01:10:55-0500
 
@@ -124,7 +124,7 @@ index 55fa1704a94dd92d029b503209cd3f9d32aec87c..7e3fa1449ff68ae860edd5970ff2b873
  # Write flash-base.sh
  cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 
-commit 382417baddc10123f5543582b933d1e536d51d75
+commit 6a4e68863a819ac26d921784cc6bd2e4ddd3e874
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-03-16 12:54:05-0400
 
@@ -211,7 +211,7 @@ index a0e2a7d14896c21c63b182900a83b2949ab5b44b..27c95e74132b42ba633f0e420db38c18
  SUPL_HOST=supl.google.com
  SUPL_PORT=7276
 
-commit 83624bf330cd54f2b398e115916f6e229615d723
+commit 28d2f991c51eea8a356694bd6215586e0c5b788d
 Author: SatelliteSnyper <51929686+SatelliteSnyper@users.noreply.github.com>
 Date:   Mon 2019-06-17 20:12:05+0000
 
@@ -274,7 +274,7 @@ index 7e3fa1449ff68ae860edd5970ff2b873bd1d66bd..c476ee62494098bf1d28f88b3226101e
  #!/bin/sh
  
 
-commit 53f95105ee15043944589314469f693cf74a4714
+commit 3a8deb13f6600635dd10ccec2cfdcd1474ccfb00
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2020-05-01 15:52:26-0400
 
@@ -305,7 +305,7 @@ index c476ee62494098bf1d28f88b3226101ee2390ad2..b82c430c51a57de4e64e988146d32163
  # Clean up
  rm -rf tmp
 
-commit 4ef1b91b7b903c8d2483b2baa38bf971104438c3
+commit 011d498600387525d4bef783768496498ba5d1cb
 Author: JTL <jtl999@users.noreply.github.com>
 Date:   Mon 2020-06-01 10:45:25-0700
 
@@ -361,7 +361,7 @@ index b82c430c51a57de4e64e988146d32163566c2997..502c8650beae6a49e7c53200686f58d1
  then
  cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
-commit 0efdad26bec4bda1c61f08950237fa4f2f18112a
+commit 7bd69b41e84c1e1fb281cfe64d4d998a7393c24e
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Wed 2020-06-03 03:59:34+0530
 
@@ -425,7 +425,7 @@ index 502c8650beae6a49e7c53200686f58d164b8b280..7f2741d9776b7f8ca81e6f919463122c
  #!/bin/sh
  
 
-commit cc6f9ec67ef6a3941e337a28dea2d160b3d3584e (tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03)
+commit a3a78f35acb80ac6f5456ef8699a35114ff76023
 Author: Maxim Baz <git@maximbaz.com>
 Date:   Tue 2020-10-27 16:25:20+0100
 
@@ -514,7 +514,7 @@ index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f00
  fastboot flash xloader xloader-$DEVICE-$XLOADER.img
  EOF
 
-commit 8bba9d4150a095ea61d3cd281e0ebbfd9c9db07c (HEAD, tag: RQ3A.210905.001.2021090819, m/master)
+commit caf2d418c5e509230d59cc8b1a6a0315309c9946 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-07-13 18:24:44+0000
 

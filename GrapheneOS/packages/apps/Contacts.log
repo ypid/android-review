@@ -1,4 +1,4 @@
-commit 03c3415202548541f2c5f75ec8600c016813a92f
+commit 34c7434fd4ebe4fb8e86d48958b16cff4f660c9a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-27 17:26:39-0400
 
@@ -111,7 +111,7 @@ index 378948033ac42c95473a48016d3e2f765935a76d..721ab0460a31ba3c22b4a602c02c5140
          final Intent intent = new Intent();
          intent.setAction(Intent.ACTION_VIEW);
 
-commit 5330489aeb18f38747d72ac57ab85d22da557e68 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, m/master)
+commit e8937b77a1adabbfa886daf26947545c9151884e (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-08-22 02:51:36-0400
 
@@ -124,10 +124,10 @@ Date:   Tue 2017-08-22 02:51:36-0400
  4 files changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/res/values-en-rAU/strings.xml b/res/values-en-rAU/strings.xml
-index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e6840bbac9f2 100644
+index 3baa6d9479dc60585432476e4a04c3e8cf454dc4..06c139f5639b5b2b3311f289d39066222407de82 100644
 --- a/res/values-en-rAU/strings.xml
 +++ b/res/values-en-rAU/strings.xml
-@@ -179,21 +179,21 @@
+@@ -180,21 +180,21 @@
      <string name="clear_default" msgid="2055883863621491533">"Clear default"</string>
      <string name="toast_text_copied" msgid="845906090076228771">"Text copied"</string>
      <string name="cancel_confirmation_dialog_message" msgid="7486892574762212762">"Discard changes?"</string>
@@ -151,10 +151,10 @@ index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e684
      <string name="contact_editor_unlink_contacts" msgid="8399419729744305687">"Unlink"</string>
      <string name="add_account" msgid="3071396624500839020">"Add account"</string>
 diff --git a/res/values-en-rGB/strings.xml b/res/values-en-rGB/strings.xml
-index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e6840bbac9f2 100644
+index 3baa6d9479dc60585432476e4a04c3e8cf454dc4..06c139f5639b5b2b3311f289d39066222407de82 100644
 --- a/res/values-en-rGB/strings.xml
 +++ b/res/values-en-rGB/strings.xml
-@@ -179,21 +179,21 @@
+@@ -180,21 +180,21 @@
      <string name="clear_default" msgid="2055883863621491533">"Clear default"</string>
      <string name="toast_text_copied" msgid="845906090076228771">"Text copied"</string>
      <string name="cancel_confirmation_dialog_message" msgid="7486892574762212762">"Discard changes?"</string>
@@ -178,10 +178,10 @@ index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e684
      <string name="contact_editor_unlink_contacts" msgid="8399419729744305687">"Unlink"</string>
      <string name="add_account" msgid="3071396624500839020">"Add account"</string>
 diff --git a/res/values-en-rIN/strings.xml b/res/values-en-rIN/strings.xml
-index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e6840bbac9f2 100644
+index 3baa6d9479dc60585432476e4a04c3e8cf454dc4..06c139f5639b5b2b3311f289d39066222407de82 100644
 --- a/res/values-en-rIN/strings.xml
 +++ b/res/values-en-rIN/strings.xml
-@@ -179,21 +179,21 @@
+@@ -180,21 +180,21 @@
      <string name="clear_default" msgid="2055883863621491533">"Clear default"</string>
      <string name="toast_text_copied" msgid="845906090076228771">"Text copied"</string>
      <string name="cancel_confirmation_dialog_message" msgid="7486892574762212762">"Discard changes?"</string>
@@ -205,10 +205,10 @@ index ead8268c56968c45dd644dd5b8eca96b3e213d59..b57a122ae07a163cfce8e1ec31c9e684
      <string name="contact_editor_unlink_contacts" msgid="8399419729744305687">"Unlink"</string>
      <string name="add_account" msgid="3071396624500839020">"Add account"</string>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 56c4aaa03198dea61eb729e750e02ca1539e0d66..22f657ead8a6385706fbe1bef3cacd72c652c983 100644
+index faa1d96e130018c95cb3cb6d6953321155b75595..bc740d06de51d2dab06a986285595986acbf5467 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -525,21 +525,21 @@
+@@ -539,21 +539,21 @@
      <!-- Title of the edit label view in selection mode when contacts are being selected for removal.[CHAR LIMIT=40] -->
      <string name="title_edit_group">Remove contacts</string>
  

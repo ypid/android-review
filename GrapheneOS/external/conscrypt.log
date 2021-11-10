@@ -1,4 +1,4 @@
-commit dce2d0f64f68739fed38483948095621506ca244 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, m/master)
+commit f914ba29ec622a48dad4529ac781d22f7f6d96e4 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-11-18 14:28:24-0500
 
@@ -8,15 +8,15 @@ Date:   Wed 2020-11-18 14:28:24-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/common/src/jni/main/cpp/conscrypt/native_crypto.cc b/common/src/jni/main/cpp/conscrypt/native_crypto.cc
-index c739546ef7159751a686aa14d2ac4f93533b9b04..8325707e187075862f0f0061d7fe636966e086b5 100644
+index 5b0acf0d52d71826876c16fed577416a47b167c7..f8142151518eb9a164597d407a9f27fd73f9847a 100644
 --- a/common/src/jni/main/cpp/conscrypt/native_crypto.cc
 +++ b/common/src/jni/main/cpp/conscrypt/native_crypto.cc
-@@ -10071,21 +10071,21 @@ static jlong NativeCrypto_SSL_get1_session(JNIEnv* env, jclass, jlong ssl_addres
-     "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/NativeRef$EVP_CIPHER_CTX;"
+@@ -10347,21 +10347,21 @@ static jlong NativeCrypto_SSL_get1_session(JNIEnv* env, jclass, jlong ssl_addres
  #define REF_EVP_MD_CTX "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/NativeRef$EVP_MD_CTX;"
  #define REF_EVP_PKEY "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/NativeRef$EVP_PKEY;"
  #define REF_EVP_PKEY_CTX "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/NativeRef$EVP_PKEY_CTX;"
  #define REF_HMAC_CTX "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/NativeRef$HMAC_CTX;"
+ #define REF_CMAC_CTX "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/NativeRef$CMAC_CTX;"
  #define REF_BIO_IN_STREAM "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/OpenSSLBIOInputStream;"
  #define REF_X509 "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/OpenSSLX509Certificate;"
  #define REF_X509_CRL "L" TO_STRING(JNI_JARJAR_PREFIX) "org/conscrypt/OpenSSLX509CRL;"
@@ -25,12 +25,12 @@ index c739546ef7159751a686aa14d2ac4f93533b9b04..8325707e187075862f0f0061d7fe6369
 -static JNINativeMethod sNativeCryptoMethods[] = {
 +static const JNINativeMethod sNativeCryptoMethods[] = {
          CONSCRYPT_NATIVE_METHOD(clinit, "()V"),
+         CONSCRYPT_NATIVE_METHOD(CMAC_CTX_new, "()J"),
+         CONSCRYPT_NATIVE_METHOD(CMAC_CTX_free, "(J)V"),
+         CONSCRYPT_NATIVE_METHOD(CMAC_Init, "(" REF_CMAC_CTX "[B)V"),
+         CONSCRYPT_NATIVE_METHOD(CMAC_Update, "(" REF_CMAC_CTX "[BII)V"),
+         CONSCRYPT_NATIVE_METHOD(CMAC_UpdateDirect, "(" REF_CMAC_CTX "JI)V"),
+         CONSCRYPT_NATIVE_METHOD(CMAC_Final, "(" REF_CMAC_CTX ")[B"),
          CONSCRYPT_NATIVE_METHOD(EVP_PKEY_new_RSA, "([B[B[B[B[B[B[B[B)J"),
          CONSCRYPT_NATIVE_METHOD(EVP_PKEY_new_EC_KEY, "(" REF_EC_GROUP REF_EC_POINT "[B)J"),
          CONSCRYPT_NATIVE_METHOD(EVP_PKEY_type, "(" REF_EVP_PKEY ")I"),
-         CONSCRYPT_NATIVE_METHOD(EVP_PKEY_print_public, "(" REF_EVP_PKEY ")Ljava/lang/String;"),
-         CONSCRYPT_NATIVE_METHOD(EVP_PKEY_print_params, "(" REF_EVP_PKEY ")Ljava/lang/String;"),
-         CONSCRYPT_NATIVE_METHOD(EVP_PKEY_free, "(J)V"),
-         CONSCRYPT_NATIVE_METHOD(EVP_PKEY_cmp, "(" REF_EVP_PKEY REF_EVP_PKEY ")I"),
-         CONSCRYPT_NATIVE_METHOD(EVP_marshal_private_key, "(" REF_EVP_PKEY ")[B"),
-         CONSCRYPT_NATIVE_METHOD(EVP_parse_private_key, "([B)J"),

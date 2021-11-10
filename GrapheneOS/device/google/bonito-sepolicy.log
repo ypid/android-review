@@ -1,9 +1,8 @@
-commit 5f995938dc063f11fb894a2d8c897ec3db5d6fb4 (HEAD, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, m/master)
+commit ad5d0b125df02e4001d8253fe8ac810d8559f570 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-04-06 08:41:19-0400
 
     update for isolated_app split
-    b246b6eb5aa78348798794edef258ab7816742fb removed the need for one of the policy updates
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---

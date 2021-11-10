@@ -1,139 +1,29 @@
-commit e3a4d64f29c9a0cad11fe06af6ff378c9ea9dbea
+commit b2d9b44eedd7c1c615a62040b46d0a633e68298d
 Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2020-09-09 12:10:23-0400
+Date:   Sun 2021-10-10 18:47:54-0400
 
     constify JNINativeMethod tables
 ---
- .../main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp    | 8 ++++----
- luni/src/main/native/android_system_OsConstants.cpp               | 2 +-
- luni/src/main/native/java_lang_StringToReal.cpp                   | 2 +-
- luni/src/main/native/java_lang_invoke_MethodHandle.cpp            | 2 +-
- luni/src/main/native/java_lang_invoke_VarHandle.cpp               | 2 +-
- luni/src/main/native/java_math_NativeBN.cpp                       | 2 +-
- luni/src/main/native/libcore_icu_ICU.cpp                          | 2 +-
- luni/src/main/native/libcore_icu_TimeZoneNames.cpp                | 2 +-
- luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp      | 2 +-
- luni/src/main/native/libcore_io_Linux.cpp                         | 2 +-
- luni/src/main/native/libcore_io_Memory.cpp                        | 2 +-
- luni/src/main/native/libcore_util_NativeAllocationRegistry.cpp    | 2 +-
- luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp       | 4 ++--
- luni/src/main/native/sun_misc_Unsafe.cpp                          | 2 +-
- ojluni/src/main/native/Adler32.c                                  | 2 +-
- ojluni/src/main/native/CRC32.c                                    | 2 +-
- ojluni/src/main/native/Character.cpp                              | 2 +-
- ojluni/src/main/native/Console_md.c                               | 2 +-
- ojluni/src/main/native/DatagramChannelImpl.c                      | 2 +-
- ojluni/src/main/native/DatagramDispatcher.c                       | 2 +-
- ojluni/src/main/native/Deflater.c                                 | 2 +-
- ojluni/src/main/native/Double.c                                   | 2 +-
- ojluni/src/main/native/FileChannelImpl.c                          | 2 +-
- ojluni/src/main/native/FileDescriptor_md.c                        | 2 +-
- ojluni/src/main/native/FileDispatcherImpl.c                       | 2 +-
- ojluni/src/main/native/FileInputStream.c                          | 2 +-
- ojluni/src/main/native/FileKey.c                                  | 2 +-
- ojluni/src/main/native/FileSystemPreferences.c                    | 2 +-
- ojluni/src/main/native/Float.c                                    | 2 +-
- ojluni/src/main/native/IOUtil.c                                   | 2 +-
- ojluni/src/main/native/Inflater.c                                 | 2 +-
- ojluni/src/main/native/MappedByteBuffer.c                         | 2 +-
- ojluni/src/main/native/Math.c                                     | 2 +-
- ojluni/src/main/native/NativeThread.c                             | 2 +-
- ojluni/src/main/native/Net.c                                      | 2 +-
- ojluni/src/main/native/ObjectInputStream.c                        | 2 +-
- ojluni/src/main/native/ObjectOutputStream.c                       | 2 +-
- ojluni/src/main/native/ObjectStreamClass.c                        | 2 +-
- ojluni/src/main/native/ProcessEnvironment_md.c                    | 2 +-
- ojluni/src/main/native/Runtime.c                                  | 2 +-
- ojluni/src/main/native/ServerSocketChannelImpl.c                  | 2 +-
- ojluni/src/main/native/SocketChannelImpl.c                        | 2 +-
- ojluni/src/main/native/SocketInputStream.c                        | 2 +-
- ojluni/src/main/native/SocketOutputStream.c                       | 2 +-
- ojluni/src/main/native/StrictMath.c                               | 2 +-
- ojluni/src/main/native/System.c                                   | 2 +-
- ojluni/src/main/native/UNIXProcess_md.c                           | 2 +-
- ojluni/src/main/native/UnixFileSystem_md.c                        | 2 +-
- ojluni/src/main/native/ZipFile.c                                  | 4 ++--
- 49 files changed, 54 insertions(+), 54 deletions(-)
+ luni/src/main/native/android_system_OsConstants.cpp            | 2 +-
+ luni/src/main/native/java_lang_StringToReal.cpp                | 2 +-
+ luni/src/main/native/java_lang_invoke_MethodHandle.cpp         | 2 +-
+ luni/src/main/native/java_lang_invoke_VarHandle.cpp            | 2 +-
+ luni/src/main/native/libcore_icu_ICU.cpp                       | 2 +-
+ luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp   | 2 +-
+ luni/src/main/native/libcore_io_Linux.cpp                      | 2 +-
+ luni/src/main/native/libcore_io_Memory.cpp                     | 2 +-
+ luni/src/main/native/libcore_math_NativeBN.cpp                 | 2 +-
+ luni/src/main/native/libcore_util_NativeAllocationRegistry.cpp | 2 +-
+ luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp    | 4 ++--
+ luni/src/main/native/sun_misc_Unsafe.cpp                       | 2 +-
+ ojluni/src/main/native/Character.cpp                           | 2 +-
+ 13 files changed, 14 insertions(+), 14 deletions(-)
 
-diff --git a/dalvik/src/main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp b/dalvik/src/main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp
-index 9f2b429374d9bd57af6fab0ac6834acfc6e00006..06d05f3b71fa0825ace864971cddfc370fae9734 100644
---- a/dalvik/src/main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp
-+++ b/dalvik/src/main/native/org_apache_harmony_dalvik_NativeTestTarget.cpp
-@@ -17,65 +17,65 @@
- #define LOG_TAG "NativeTestTarget"
- 
- #include <nativehelper/JNIHelp.h>
- 
- #define NATIVE_METHOD(className, functionName, signature)               \
-     { #functionName, signature, reinterpret_cast<void*>(className ## _ ## functionName) }
- 
- static void NativeTestTarget_emptyJniStaticSynchronizedMethod0(JNIEnv*, jclass) { }
- static void NativeTestTarget_emptyJniSynchronizedMethod0(JNIEnv*, jclass) { }
- 
--static JNINativeMethod gMethods_NormalOnly[] = {
-+static const JNINativeMethod gMethods_NormalOnly[] = {
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticSynchronizedMethod0, "()V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniSynchronizedMethod0, "()V"),
- };
- 
- 
- static void NativeTestTarget_emptyJniMethod0(JNIEnv*, jobject) { }
- static void NativeTestTarget_emptyJniMethod6(JNIEnv*, jobject, int, int, int, int, int, int) { }
- static void NativeTestTarget_emptyJniMethod6L(JNIEnv*, jobject, jobject, jarray, jarray, jobject, jarray, jarray) { }
- static void NativeTestTarget_emptyJniStaticMethod6L(JNIEnv*, jclass, jobject, jarray, jarray, jobject, jarray, jarray) { }
- 
- static void NativeTestTarget_emptyJniStaticMethod0(JNIEnv*, jclass) { }
- static void NativeTestTarget_emptyJniStaticMethod6(JNIEnv*, jclass, int, int, int, int, int, int) { }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-     NATIVE_METHOD(NativeTestTarget, emptyJniMethod0, "()V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniMethod6, "(IIIIII)V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniMethod6L, "(Ljava/lang/String;[Ljava/lang/String;[[ILjava/lang/Object;[Ljava/lang/Object;[[[[Ljava/lang/Object;)V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod6L, "(Ljava/lang/String;[Ljava/lang/String;[[ILjava/lang/Object;[Ljava/lang/Object;[[[[Ljava/lang/Object;)V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod0, "()V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod6, "(IIIIII)V"),
- };
- 
- static void NativeTestTarget_emptyJniMethod0_Fast(JNIEnv*, jobject) { }
- static void NativeTestTarget_emptyJniMethod6_Fast(JNIEnv*, jobject, int, int, int, int, int, int) { }
- static void NativeTestTarget_emptyJniMethod6L_Fast(JNIEnv*, jobject, jobject, jarray, jarray, jobject, jarray, jarray) { }
- static void NativeTestTarget_emptyJniStaticMethod6L_Fast(JNIEnv*, jclass, jobject, jarray, jarray, jobject, jarray, jarray) { }
- 
- static void NativeTestTarget_emptyJniStaticMethod0_Fast(JNIEnv*, jclass) { }
- static void NativeTestTarget_emptyJniStaticMethod6_Fast(JNIEnv*, jclass, int, int, int, int, int, int) { }
- 
--static JNINativeMethod gMethods_Fast[] = {
-+static const JNINativeMethod gMethods_Fast[] = {
-     NATIVE_METHOD(NativeTestTarget, emptyJniMethod0_Fast, "()V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniMethod6_Fast, "(IIIIII)V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniMethod6L_Fast, "(Ljava/lang/String;[Ljava/lang/String;[[ILjava/lang/Object;[Ljava/lang/Object;[[[[Ljava/lang/Object;)V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod6L_Fast, "(Ljava/lang/String;[Ljava/lang/String;[[ILjava/lang/Object;[Ljava/lang/Object;[[[[Ljava/lang/Object;)V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod0_Fast, "()V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod6_Fast, "(IIIIII)V"),
- };
- 
- 
- static void NativeTestTarget_emptyJniStaticMethod0_Critical() { }
- static void NativeTestTarget_emptyJniStaticMethod6_Critical( int, int, int, int, int, int) { }
- 
--static JNINativeMethod gMethods_Critical[] = {
-+static const JNINativeMethod gMethods_Critical[] = {
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod0_Critical, "()V"),
-     NATIVE_METHOD(NativeTestTarget, emptyJniStaticMethod6_Critical, "(IIIIII)V"),
- };
- int register_org_apache_harmony_dalvik_NativeTestTarget(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "org/apache/harmony/dalvik/NativeTestTarget", gMethods_NormalOnly, NELEM(gMethods_NormalOnly));
-     jniRegisterNativeMethods(env, "org/apache/harmony/dalvik/NativeTestTarget", gMethods, NELEM(gMethods));
-     jniRegisterNativeMethods(env, "org/apache/harmony/dalvik/NativeTestTarget", gMethods_Fast, NELEM(gMethods_Fast));
-     jniRegisterNativeMethods(env, "org/apache/harmony/dalvik/NativeTestTarget", gMethods_Critical, NELEM(gMethods_Critical));
- 
-     return 0;
 diff --git a/luni/src/main/native/android_system_OsConstants.cpp b/luni/src/main/native/android_system_OsConstants.cpp
-index 6cf2c8b30b64cbfa93ceb93ccbfc2ff86a49ad64..f22e1cb1d135f3ec97eb20799b3d3ab642a7b0dd 100644
+index 50e3c104666014782d2537db11b4f34d2c7b3e20..8ad66d2742bb97d7761911b6862a8c9f3da1e55e 100644
 --- a/luni/src/main/native/android_system_OsConstants.cpp
 +++ b/luni/src/main/native/android_system_OsConstants.cpp
-@@ -701,16 +701,16 @@ static void OsConstants_initConstants(JNIEnv* env, jclass c) {
+@@ -715,16 +715,16 @@ static void OsConstants_initConstants(JNIEnv* env, jclass c) {
      initConstant(env, c, "_SC_XOPEN_ENH_I18N", _SC_XOPEN_ENH_I18N);
      initConstant(env, c, "_SC_XOPEN_LEGACY", _SC_XOPEN_LEGACY);
      initConstant(env, c, "_SC_XOPEN_REALTIME", _SC_XOPEN_REALTIME);
@@ -225,88 +115,39 @@ index e1cc1c7f8b5f61f046cabf2c6357a027b2d1d25c..9f5215a52049145709f98c646a9c38f2
    NATIVE_METHOD(VarHandle, getAndAddAcquire, "([Ljava/lang/Object;)Ljava/lang/Object;"),
    NATIVE_METHOD(VarHandle, getAndAddRelease, "([Ljava/lang/Object;)Ljava/lang/Object;"),
    NATIVE_METHOD(VarHandle, getAndBitwiseAnd, "([Ljava/lang/Object;)Ljava/lang/Object;"),
-diff --git a/luni/src/main/native/java_math_NativeBN.cpp b/luni/src/main/native/java_math_NativeBN.cpp
-index 5d085ec9ec8f1d40cd32fe1179d7617ff5f00d4d..b8c46e6681bb6fa1ddc80927ba1c7eebe22f1128 100644
---- a/luni/src/main/native/java_math_NativeBN.cpp
-+++ b/luni/src/main/native/java_math_NativeBN.cpp
-@@ -519,21 +519,21 @@ static jboolean NativeBN_BN_primality_test(JNIEnv* env, jclass, jlong candidate,
-   Unique_BN_CTX ctx(BN_CTX_new());
-   int is_probably_prime;
-   if (!BN_primality_test(&is_probably_prime, toBigNum(candidate), checks, ctx.get(),
-                          do_trial_decryption, NULL)) {
-     throwException(env);
-     return JNI_FALSE;
-   }
-   return is_probably_prime ? JNI_TRUE : JNI_FALSE;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-    NATIVE_METHOD(NativeBN, BN_add, "(JJJ)V"),
-    NATIVE_METHOD(NativeBN, BN_add_word, "(JI)V"),
-    NATIVE_METHOD(NativeBN, BN_bin2bn, "([BIZJ)V"),
-    NATIVE_METHOD(NativeBN, BN_bn2bin, "(J)[B"),
-    NATIVE_METHOD(NativeBN, BN_bn2dec, "(J)Ljava/lang/String;"),
-    NATIVE_METHOD(NativeBN, BN_bn2hex, "(J)Ljava/lang/String;"),
-    NATIVE_METHOD(NativeBN, BN_cmp, "(JJ)I"),
-    NATIVE_METHOD(NativeBN, BN_copy, "(JJ)V"),
-    NATIVE_METHOD(NativeBN, BN_dec2bn, "(JLjava/lang/String;)I"),
-    NATIVE_METHOD(NativeBN, BN_div, "(JJJJ)V"),
 diff --git a/luni/src/main/native/libcore_icu_ICU.cpp b/luni/src/main/native/libcore_icu_ICU.cpp
-index 9879761e806aaac4aa72d46ec2f6742c187fb0ca..e8cbe0ab6f65c665c7fde31746db4be9d7642908 100644
+index f9401d1edb742640202421ed819d987575627b01..1531ad1ca593d37be3586a42116edd5a4020ad91 100644
 --- a/luni/src/main/native/libcore_icu_ICU.cpp
 +++ b/luni/src/main/native/libcore_icu_ICU.cpp
-@@ -644,21 +644,21 @@ static void ICU_setDefaultLocale(JNIEnv* env, jclass, jstring javaLanguageTag) {
- 
-   UErrorCode status = U_ZERO_ERROR;
-   uloc_setDefault(icuLocale.locale(), &status);
-   maybeThrowIcuException(env, "uloc_setDefault", status);
+@@ -105,21 +105,21 @@ static jstring ICU_getIcuVersion(JNIEnv* env, jclass) {
+     u_getVersion(icuVersion);
+     return versionString(env, icuVersion);
  }
  
- static jstring ICU_getDefaultLocale(JNIEnv* env, jclass) {
-   return env->NewStringUTF(uloc_getDefault());
+ static jstring ICU_getUnicodeVersion(JNIEnv* env, jclass) {
+     UVersionInfo unicodeVersion;
+     u_getUnicodeVersion(unicodeVersion);
+     return versionString(env, unicodeVersion);
  }
  
 -static JNINativeMethod gMethods[] = {
 +static const JNINativeMethod gMethods[] = {
      NATIVE_METHOD(ICU, getAvailableLocalesNative, "()[Ljava/lang/String;"),
-     NATIVE_METHOD(ICU, getBestDateTimePatternNative, "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;"),
-     NATIVE_METHOD(ICU, getCurrencyCode, "(Ljava/lang/String;)Ljava/lang/String;"),
+     NATIVE_METHOD(ICU, getCldrVersion, "()Ljava/lang/String;"),
      NATIVE_METHOD(ICU, getDefaultLocale, "()Ljava/lang/String;"),
+     NATIVE_METHOD(ICU, getIcuVersion, "()Ljava/lang/String;"),
      NATIVE_METHOD(ICU, getISO3Country, "(Ljava/lang/String;)Ljava/lang/String;"),
      NATIVE_METHOD(ICU, getISO3Language, "(Ljava/lang/String;)Ljava/lang/String;"),
      NATIVE_METHOD(ICU, getISOCountriesNative, "()[Ljava/lang/String;"),
      NATIVE_METHOD(ICU, getISOLanguagesNative, "()[Ljava/lang/String;"),
      NATIVE_METHOD(ICU, getScript, "(Ljava/lang/String;)Ljava/lang/String;"),
-     NATIVE_METHOD(ICU, initLocaleDataNative, "(Ljava/lang/String;Llibcore/icu/LocaleData;)Z"),
-diff --git a/luni/src/main/native/libcore_icu_TimeZoneNames.cpp b/luni/src/main/native/libcore_icu_TimeZoneNames.cpp
-index db4c6f219fd634d3cda4eb5add0489079b1ca0e0..f51ae12cd1182e3753f4a695dfb09d7c424a5db1 100644
---- a/luni/src/main/native/libcore_icu_TimeZoneNames.cpp
-+++ b/luni/src/main/native/libcore_icu_TimeZoneNames.cpp
-@@ -90,16 +90,16 @@ static void TimeZoneNames_fillZoneStrings(JNIEnv* env, jclass, jstring javaLocal
-         setStringArrayElement(env, java_row.get(), 1, long_std) &&
-         setStringArrayElement(env, java_row.get(), 2, short_std) &&
-         setStringArrayElement(env, java_row.get(), 3, long_dst) &&
-         setStringArrayElement(env, java_row.get(), 4, short_dst);
-     if (!okay) {
-       return;
-     }
-   }
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(TimeZoneNames, fillZoneStrings, "(Ljava/lang/String;[[Ljava/lang/String;)V"),
- };
- void register_libcore_icu_TimeZoneNames(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "libcore/icu/TimeZoneNames", gMethods, NELEM(gMethods));
- }
+     NATIVE_METHOD(ICU, getUnicodeVersion, "()Ljava/lang/String;"),
 diff --git a/luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp b/luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp
-index 55803b8d8d4bf1c71e8b6d112190abc22558074f..5b2627140b34cead9c155d3ef91ea6bb0840c69e 100644
+index e99edd6c4f965f8babd443dadeb9b2b4468fc987..61b75bcd35809cb98d52f4fd68d9632d292c050b 100644
 --- a/luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp
 +++ b/luni/src/main/native/libcore_io_AsynchronousCloseMonitor.cpp
 @@ -19,17 +19,17 @@
- #include <nativehelper/JNIHelp.h>
+ #include <nativehelper/JNIPlatformHelp.h>
  #include <nativehelper/jni_macros.h>
  
  #include "AsynchronousCloseMonitor.h"
@@ -325,10 +166,10 @@ index 55803b8d8d4bf1c71e8b6d112190abc22558074f..5b2627140b34cead9c155d3ef91ea6bb
      jniRegisterNativeMethods(env, "libcore/io/AsynchronousCloseMonitor", gMethods, NELEM(gMethods));
  }
 diff --git a/luni/src/main/native/libcore_io_Linux.cpp b/luni/src/main/native/libcore_io_Linux.cpp
-index 9e44e63fe444677d2b8b54614525f2b489b07c49..8fb6b56ac8273e4f69939e31b78a208af665b559 100644
+index d7b6c22aa57993216a12f23ec6d7ffcf036a9bcc..996085b1423ca98db85a658f953696ba7bbdeb9e 100755
 --- a/luni/src/main/native/libcore_io_Linux.cpp
 +++ b/luni/src/main/native/libcore_io_Linux.cpp
-@@ -2559,21 +2559,21 @@ static jint Linux_writev(JNIEnv* env, jobject, jobject javaFd, jobjectArray buff
+@@ -2734,21 +2734,21 @@ static jint Linux_writev(JNIEnv* env, jobject, jobject javaFd, jobjectArray buff
      IoVec<ScopedBytesRO> ioVec(env, env->GetArrayLength(buffers));
      if (!ioVec.init(buffers, offsets, byteCounts)) {
          return -1;
@@ -352,10 +193,10 @@ index 9e44e63fe444677d2b8b54614525f2b489b07c49..8fb6b56ac8273e4f69939e31b78a208a
      NATIVE_METHOD_OVERLOAD(Linux, bind, "(Ljava/io/FileDescriptor;Ljava/net/SocketAddress;)V", SocketAddress),
      NATIVE_METHOD(Linux, capget,
 diff --git a/luni/src/main/native/libcore_io_Memory.cpp b/luni/src/main/native/libcore_io_Memory.cpp
-index a5b7b72a98c8df19eece5f79e76e441854f19677..8400c5462def24812fa1473940ab5061dcb93aff 100644
+index b8a8845000606d68749d44af6cddedeb5d845aeb..7dec85dab80a68a8170921c74c22af90c3acd04b 100644
 --- a/luni/src/main/native/libcore_io_Memory.cpp
 +++ b/luni/src/main/native/libcore_io_Memory.cpp
-@@ -282,21 +282,21 @@ static void Memory_unsafeBulkPut(JNIEnv* env, jclass, jbyteArray dstArray, jint
+@@ -283,21 +283,21 @@ static void Memory_unsafeBulkPut(JNIEnv* env, jclass, jbyteArray dstArray, jint
      jbyte* srcBytes = reinterpret_cast<jbyte*>(env->GetPrimitiveArrayCritical(srcArray, NULL));
      if (srcBytes == NULL) {
          return;
@@ -378,6 +219,33 @@ index a5b7b72a98c8df19eece5f79e76e441854f19677..8400c5462def24812fa1473940ab5061
      NATIVE_METHOD(Memory, peekIntArray, "(J[IIIZ)V"),
      FAST_NATIVE_METHOD(Memory, peekLongNative, "(J)J"),
      NATIVE_METHOD(Memory, peekLongArray, "(J[JIIZ)V"),
+diff --git a/luni/src/main/native/libcore_math_NativeBN.cpp b/luni/src/main/native/libcore_math_NativeBN.cpp
+index dc4b947358b2ed091e4e879c2809414e44ccd700..c6af376f6bc1448bf7605160b3844c4fd4dfc557 100644
+--- a/luni/src/main/native/libcore_math_NativeBN.cpp
++++ b/luni/src/main/native/libcore_math_NativeBN.cpp
+@@ -157,21 +157,21 @@ static void NativeBN_BN_div(JNIEnv* env, jclass, jlong q, jlong rem, jlong num,
+ }
+ 
+ static void NativeBN_BN_mod_exp(JNIEnv* env, jclass, jlong r, jlong a, jlong p, jlong m) {
+   Unique_BN_CTX ctx(BN_CTX_new());
+   BN_CTX* ctxp = ctx.get();
+   if (!ctxp || !BN_mod_exp(toBigNum(r), toBigNum(a), toBigNum(p), toBigNum(m), ctxp)) {
+     throwException(env);
+   }
+ }
+ 
+-static JNINativeMethod gMethods[] = {
++static const JNINativeMethod gMethods[] = {
+    NATIVE_METHOD(NativeBN, BN_div, "(JJJJ)V"),
+    NATIVE_METHOD(NativeBN, BN_free, "(J)V"),
+    NATIVE_METHOD(NativeBN, BN_mod_exp, "(JJJJ)V"),
+    NATIVE_METHOD(NativeBN, BN_mul, "(JJJ)V"),
+    NATIVE_METHOD(NativeBN, BN_new, "()J"),
+    NATIVE_METHOD(NativeBN, bn2litEndInts, "(J)[I"),
+    NATIVE_METHOD(NativeBN, litEndInts2bn, "([IIZJ)V"),
+ };
+ void register_libcore_math_NativeBN(JNIEnv* env) {
+     jniRegisterNativeMethods(env, "libcore/math/NativeBN", gMethods, NELEM(gMethods));
 diff --git a/luni/src/main/native/libcore_util_NativeAllocationRegistry.cpp b/luni/src/main/native/libcore_util_NativeAllocationRegistry.cpp
 index ded578a95800f4802ff985d3448c8843babb31f5..faaa5c7a7c462ca8b31b9cadaa21d158479cea2f 100644
 --- a/luni/src/main/native/libcore_util_NativeAllocationRegistry.cpp
@@ -403,10 +271,10 @@ index ded578a95800f4802ff985d3448c8843babb31f5..faaa5c7a7c462ca8b31b9cadaa21d158
          gMethods, NELEM(gMethods));
  }
 diff --git a/luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp b/luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp
-index 6df5bddf3bd4d1aa7182ddea3ca934aa2fd2ae31..68e19613b6c961aad5046d987de42a6c7db85b64 100644
+index fdabcf7159117840c97d2f65cb0f6c94d365ce82..62a2cd37b76ae95e50b5a8c45dbcda534d3f6451 100644
 --- a/luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp
 +++ b/luni/src/main/native/org_apache_harmony_xml_ExpatParser.cpp
-@@ -1358,35 +1358,35 @@ static void ExpatParser_staticInitialize(JNIEnv* env, jobject classObject, jstri
+@@ -1359,35 +1359,35 @@ static void ExpatParser_staticInitialize(JNIEnv* env, jobject classObject, jstri
              "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V");
      if (unparsedEntityDeclMethod == NULL) return;
  
@@ -466,61 +334,11 @@ index 49848a2db2b0a613e3ddb1884d533d558aa06fcb..87b2feac80743a5b3ba98e1d696a63f1
  void register_sun_misc_Unsafe(JNIEnv* env) {
    jniRegisterNativeMethods(env, "sun/misc/Unsafe", gMethods, NELEM(gMethods));
  }
-diff --git a/ojluni/src/main/native/Adler32.c b/ojluni/src/main/native/Adler32.c
-index 11ef08d4c98585045fd8356931915cf890b301e6..849df6106743c3f8d99aae7a04bcab00ce8f59ac 100644
---- a/ojluni/src/main/native/Adler32.c
-+++ b/ojluni/src/main/native/Adler32.c
-@@ -63,19 +63,19 @@ JNIEXPORT jint JNICALL
- Java_java_util_zip_Adler32_updateByteBuffer(JNIEnv *env, jclass cls, jint adler,
-                                             jlong address, jint off, jint len)
- {
-     Bytef *buf = (Bytef *)jlong_to_ptr(address);
-     if (buf) {
-         adler = adler32(adler, buf + off, len);
-     }
-     return adler;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Adler32, update, "(II)I"),
-   NATIVE_METHOD(Adler32, updateBytes, "(I[BII)I"),
-   NATIVE_METHOD(Adler32, updateByteBuffer, "(IJII)I"),
- };
- 
- void register_java_util_zip_Adler32(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/util/zip/Adler32", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/CRC32.c b/ojluni/src/main/native/CRC32.c
-index cec99de0eba59b7f19a2621efbd0eba05f80023e..cb17feec591bdbfd2116c53e79871358098e0a23 100644
---- a/ojluni/src/main/native/CRC32.c
-+++ b/ojluni/src/main/native/CRC32.c
-@@ -67,19 +67,19 @@ JNIEXPORT jint JNICALL
- CRC32_updateByteBuffer(JNIEnv *env, jclass cls, jint crc,
-                                           jlong address, jint off, jint len)
- {
-     Bytef *buf = (Bytef *)jlong_to_ptr(address);
-     if (buf) {
-         crc = crc32(crc, buf + off, len);
-     }
-     return crc;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(CRC32, update, "(II)I"),
-   NATIVE_METHOD(CRC32, updateBytes, "(I[BII)I"),
-   NATIVE_METHOD(CRC32, updateByteBuffer, "(IJII)I"),
- };
- 
- void register_java_util_zip_CRC32(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/util/zip/CRC32", gMethods, NELEM(gMethods));
- }
 diff --git a/ojluni/src/main/native/Character.cpp b/ojluni/src/main/native/Character.cpp
-index 9fb24c372c34c6ab9681fd1a22ca277af8c7a299..a12ae6bd177453efc7f3aedb77c4d330a73dccdf 100644
+index 3e27c674d2f6fcca4e95bd162e1784d469555596..719190c81aebb94b2ae478c006a818ec9a57ba6b 100644
 --- a/ojluni/src/main/native/Character.cpp
 +++ b/ojluni/src/main/native/Character.cpp
-@@ -152,21 +152,21 @@ Character_getNameImpl(JNIEnv* env, jclass, jint codePoint) {
+@@ -151,21 +151,21 @@ Character_getNameImpl(JNIEnv* env, jclass, jint codePoint) {
      // that aren't unassigned but that don't have names, and those strings aren't in the form
      // Java specifies.
      bool isControl = (codePoint <= 0x1f || (codePoint >= 0x7f && codePoint <= 0x9f));
@@ -543,1015 +361,8 @@ index 9fb24c372c34c6ab9681fd1a22ca277af8c7a299..a12ae6bd177453efc7f3aedb77c4d330
    FAST_NATIVE_METHOD(Character, isDigitImpl, "(I)Z"),
    FAST_NATIVE_METHOD(Character, isIdentifierIgnorableImpl, "(I)Z"),
    FAST_NATIVE_METHOD(Character, isIdeographicImpl, "(I)Z"),
-diff --git a/ojluni/src/main/native/Console_md.c b/ojluni/src/main/native/Console_md.c
-index 13437be314edd155a0a4d57401df124e1525e1b2..f87bd168b1a436ccf6c65c20bd429c794702393b 100644
---- a/ojluni/src/main/native/Console_md.c
-+++ b/ojluni/src/main/native/Console_md.c
-@@ -65,19 +65,19 @@ Java_java_io_Console_echo(JNIEnv *env,
-         tio.c_lflag |= ECHO;
-     } else {
-         tio.c_lflag &= ~ECHO;
-     }
-     if (tcsetattr(tty, TCSANOW, &tio) == -1) {
-         JNU_ThrowIOExceptionWithLastError(env, "tcsetattr failed");
-     }
-     return old;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-     NATIVE_METHOD(Console, istty, "()Z"),
-     NATIVE_METHOD(Console, encoding, "()Ljava/lang/String;"),
-     NATIVE_METHOD(Console, echo, "(Z)Z"),
- };
- 
- void register_java_io_Console(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/io/Console", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/DatagramChannelImpl.c b/ojluni/src/main/native/DatagramChannelImpl.c
-index 11d149ddcf9e0abef57fd7343879eb1b995eda1c..8a8444c8a2c01c624165da72383bca52946e0bd0 100644
---- a/ojluni/src/main/native/DatagramChannelImpl.c
-+++ b/ojluni/src/main/native/DatagramChannelImpl.c
-@@ -269,20 +269,20 @@ Java_sun_nio_ch_DatagramChannelImpl_send0(JNIEnv *env, jobject this,
-         }
-         if (errno == ECONNREFUSED) {
-             JNU_ThrowByName(env, JNU_JAVANETPKG "PortUnreachableException", 0);
-             return IOS_THROWN;
-         }
-         return handleSocketError(env, errno);
-     }
-     return n;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(DatagramChannelImpl, initIDs, "()V"),
-   NATIVE_METHOD(DatagramChannelImpl, disconnect0, "(Ljava/io/FileDescriptor;Z)V"),
-   NATIVE_METHOD(DatagramChannelImpl, receive0, "(Ljava/io/FileDescriptor;JIZ)I"),
-   NATIVE_METHOD(DatagramChannelImpl, send0, "(ZLjava/io/FileDescriptor;JILjava/net/InetAddress;I)I"),
- };
- 
- void register_sun_nio_ch_DatagramChannelImpl(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "sun/nio/ch/DatagramChannelImpl", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/DatagramDispatcher.c b/ojluni/src/main/native/DatagramDispatcher.c
-index 36cc6cf4bc1666dcdf9e122a6b9e694ac35af1ee..39ff92417919ca3221eb203018c6d762b80296ce 100644
---- a/ojluni/src/main/native/DatagramDispatcher.c
-+++ b/ojluni/src/main/native/DatagramDispatcher.c
-@@ -132,20 +132,20 @@ Java_sun_nio_ch_DatagramDispatcher_writev0(JNIEnv *env, jclass clazz,
-     m.msg_iovlen = len;
- 
-     result = sendmsg(fd, &m, 0);
-     if (result < 0 && errno == ECONNREFUSED) {
-         JNU_ThrowByName(env, JNU_JAVANETPKG "PortUnreachableException", 0);
-         return -2;
-     }
-     return convertLongReturnVal(env, (jlong)result, JNI_FALSE);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(DatagramDispatcher, read0, "(Ljava/io/FileDescriptor;JI)I"),
-   NATIVE_METHOD(DatagramDispatcher, readv0, "(Ljava/io/FileDescriptor;JI)J"),
-   NATIVE_METHOD(DatagramDispatcher, write0, "(Ljava/io/FileDescriptor;JI)I"),
-   NATIVE_METHOD(DatagramDispatcher, writev0, "(Ljava/io/FileDescriptor;JI)J"),
- };
- 
- void register_sun_nio_ch_DatagramDispatcher(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "sun/nio/ch/DatagramDispatcher", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/Deflater.c b/ojluni/src/main/native/Deflater.c
-index 9ee032619dd75694da53f7584ba5beee5458f729..2230f8c9519c156f958b8a88779602800225e120 100644
---- a/ojluni/src/main/native/Deflater.c
-+++ b/ojluni/src/main/native/Deflater.c
-@@ -233,21 +233,21 @@ Deflater_reset(JNIEnv *env, jclass cls, jlong addr)
- JNIEXPORT void JNICALL
- Deflater_end(JNIEnv *env, jclass cls, jlong addr)
- {
-     if (deflateEnd((z_stream *)jlong_to_ptr(addr)) == Z_STREAM_ERROR) {
-         JNU_ThrowInternalError(env, 0);
-     } else {
-         free((z_stream *)jlong_to_ptr(addr));
-     }
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Deflater, init, "(IIZ)J"),
-   NATIVE_METHOD(Deflater, setDictionary, "(J[BII)V"),
-   NATIVE_METHOD(Deflater, deflateBytes, "(J[BIII)I"),
-   NATIVE_METHOD(Deflater, getAdler, "(J)I"),
-   NATIVE_METHOD(Deflater, reset, "(J)V"),
-   NATIVE_METHOD(Deflater, end, "(J)V"),
- };
- 
- void register_java_util_zip_Deflater(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/util/zip/Deflater", gMethods, NELEM(gMethods));
-diff --git a/ojluni/src/main/native/Double.c b/ojluni/src/main/native/Double.c
-index 8382b889945410a1b07b1a0b88d959149cb6d0e7..2bcb97a653f2910bce7be790c76dd8f143f9ac61 100644
---- a/ojluni/src/main/native/Double.c
-+++ b/ojluni/src/main/native/Double.c
-@@ -56,18 +56,18 @@ JNIEXPORT jlong JNICALL
- Double_doubleToRawLongBits(JNIEnv *env, jclass unused, jdouble v)
- {
-     union {
-         jlong l;
-         double d;
-     } u;
-     jdouble_to_jlong_bits(&v);
-     u.d = (double)v;
-     return u.l;
- }
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Double, longBitsToDouble, "(J)D"),
-   NATIVE_METHOD(Double, doubleToRawLongBits, "(D)J"),
- };
- 
- void register_java_lang_Double(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/lang/Double", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/FileChannelImpl.c b/ojluni/src/main/native/FileChannelImpl.c
-index 51339dff9c11693bb7cb8160a91707dfd5734e5e..6d5c075e835b259b770d6efcec29fc1a61ae0a29 100644
---- a/ojluni/src/main/native/FileChannelImpl.c
-+++ b/ojluni/src/main/native/FileChannelImpl.c
-@@ -277,21 +277,21 @@ FileChannelImpl_transferTo0(JNIEnv *env, jobject this,
- 
-     if (sf_iobuf.bytes_sent > 0)
-         return (jlong)sf_iobuf.bytes_sent;
- 
-     return IOS_UNSUPPORTED_CASE;
- #else
-     return IOS_UNSUPPORTED_CASE;
- #endif
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(FileChannelImpl, initIDs, "()J"),
-   NATIVE_METHOD(FileChannelImpl, map0, "(IJJ)J"),
-   NATIVE_METHOD(FileChannelImpl, unmap0, "(JJ)I"),
-   NATIVE_METHOD(FileChannelImpl, position0, "(Ljava/io/FileDescriptor;J)J"),
-   NATIVE_METHOD(FileChannelImpl, transferTo0, "(Ljava/io/FileDescriptor;JJLjava/io/FileDescriptor;)J"),
- };
- 
- void register_sun_nio_ch_FileChannelImpl(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "sun/nio/ch/FileChannelImpl", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/FileDescriptor_md.c b/ojluni/src/main/native/FileDescriptor_md.c
-index 040426378762372de53eddbd12ea2db41aa373a1..a00d7990459b9025bb38b954177d0cfbf6bc5596 100644
---- a/ojluni/src/main/native/FileDescriptor_md.c
-+++ b/ojluni/src/main/native/FileDescriptor_md.c
-@@ -61,20 +61,20 @@ FileDescriptor_sync(JNIEnv *env, jobject this) {
-         JNU_ThrowByName(env, "java/io/SyncFailedException", "sync failed");
-     }
- }
- 
- JNIEXPORT jboolean JNICALL FileDescriptor_isSocket(JNIEnv *env, jclass ignored, jint fd) {
-     int error;
-     socklen_t error_length = sizeof(error);
-     return TEMP_FAILURE_RETRY(getsockopt(fd, SOL_SOCKET, SO_ERROR, &error, &error_length)) == 0;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(FileDescriptor, sync, "()V"),
-   NATIVE_METHOD(FileDescriptor, isSocket, "(I)Z"),
- };
- 
- void register_java_io_FileDescriptor(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/io/FileDescriptor", gMethods, NELEM(gMethods));
- 
-     FileDescriptor_initIDs(env);
- }
-diff --git a/ojluni/src/main/native/FileDispatcherImpl.c b/ojluni/src/main/native/FileDispatcherImpl.c
-index 3e8e4f3e0f2d445a2c9d0829a52492c79381e2a6..facede4cf1473ea072c59c82acdef4937bd5c27a 100644
---- a/ojluni/src/main/native/FileDispatcherImpl.c
-+++ b/ojluni/src/main/native/FileDispatcherImpl.c
-@@ -280,21 +280,21 @@ FileDispatcherImpl_preClose0(JNIEnv *env, jclass clazz, jobject fdo)
-     }
-     close(preCloseFD);
- }
- 
- JNIEXPORT void JNICALL
- FileDispatcherImpl_closeIntFD(JNIEnv *env, jclass clazz, jint fd)
- {
-     closeFileDescriptor(env, fd);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(FileDispatcherImpl, closeIntFD, "(I)V"),
-   NATIVE_METHOD(FileDispatcherImpl, preClose0, "(Ljava/io/FileDescriptor;)V"),
-   NATIVE_METHOD(FileDispatcherImpl, close0, "(Ljava/io/FileDescriptor;)V"),
-   NATIVE_METHOD(FileDispatcherImpl, release0, "(Ljava/io/FileDescriptor;JJ)V"),
-   NATIVE_METHOD(FileDispatcherImpl, lock0, "(Ljava/io/FileDescriptor;ZJJZ)I"),
-   NATIVE_METHOD(FileDispatcherImpl, size0, "(Ljava/io/FileDescriptor;)J"),
-   NATIVE_METHOD(FileDispatcherImpl, truncate0, "(Ljava/io/FileDescriptor;J)I"),
-   NATIVE_METHOD(FileDispatcherImpl, force0, "(Ljava/io/FileDescriptor;Z)I"),
-   NATIVE_METHOD(FileDispatcherImpl, writev0, "(Ljava/io/FileDescriptor;JI)J"),
-   NATIVE_METHOD(FileDispatcherImpl, pwrite0, "(Ljava/io/FileDescriptor;JIJ)I"),
-diff --git a/ojluni/src/main/native/FileInputStream.c b/ojluni/src/main/native/FileInputStream.c
-index 650cb6c9040930f1aa0dc9d2f679b1320f22ae35..bd2f64e68f0641e31558eb6855a0340c0b1cbec6 100644
---- a/ojluni/src/main/native/FileInputStream.c
-+++ b/ojluni/src/main/native/FileInputStream.c
-@@ -138,19 +138,19 @@ FileInputStream_available0(JNIEnv *env, jobject this) {
-     if (available(fd, &ret)) {
-         if (ret > INT_MAX) {
-             ret = (jlong) INT_MAX;
-         }
-         return jlong_to_jint(ret);
-     }
-     JNU_ThrowIOExceptionWithLastError(env, NULL);
-     return 0;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(FileInputStream, skip0, "(J)J"),
-   NATIVE_METHOD(FileInputStream, available0, "()I"),
- };
- 
- void register_java_io_FileInputStream(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/io/FileInputStream", gMethods, NELEM(gMethods));
-     FileInputStream_initIDs(env);
- }
-diff --git a/ojluni/src/main/native/FileKey.c b/ojluni/src/main/native/FileKey.c
-index c3b5d2a00fe8f01149caff4d8df42745f0c244c7..61d3c2ae896ad578d687c9a7e78a093768efb50e 100644
---- a/ojluni/src/main/native/FileKey.c
-+++ b/ojluni/src/main/native/FileKey.c
-@@ -61,18 +61,18 @@ FileKey_init(JNIEnv *env, jobject this, jobject fdo)
- 
-     RESTARTABLE(fstat64(fdval(env, fdo), &fbuf), res);
-     if (res < 0) {
-         JNU_ThrowIOExceptionWithLastError(env, "fstat64 failed");
-     } else {
-         (*env)->SetLongField(env, this, key_st_dev, (jlong)fbuf.st_dev);
-         (*env)->SetLongField(env, this, key_st_ino, (jlong)fbuf.st_ino);
-     }
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(FileKey, init, "(Ljava/io/FileDescriptor;)V"),
- };
- 
- void register_sun_nio_ch_FileKey(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "sun/nio/ch/FileKey", gMethods, NELEM(gMethods));
-     FileKey_initIDs(env);
- }
-diff --git a/ojluni/src/main/native/FileSystemPreferences.c b/ojluni/src/main/native/FileSystemPreferences.c
-index 9a73150428144db6238b0d4f0bfb7420bc9809e0..d49de07b618e28d32ed7541a3d8d81cc4937ce09 100644
---- a/ojluni/src/main/native/FileSystemPreferences.c
-+++ b/ojluni/src/main/native/FileSystemPreferences.c
-@@ -143,19 +143,19 @@ Java_java_util_prefs_FileSystemPreferences_unlockFile0(JNIEnv *env,
-         close(fd);
-         return (jint)errno;
-     }
-     rc = close(fd);
-     if (rc < 0) {
-         return (jint) errno;
-     }
-     return 0;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-     NATIVE_METHOD(FileSystemPreferences, lockFile0, "(Ljava/lang/String;IZ)[I"),
-     NATIVE_METHOD(FileSystemPreferences, unlockFile0, "(I)I"),
-     NATIVE_METHOD(FileSystemPreferences, chmod, "(Ljava/lang/String;I)I"),
- };
- 
- void register_java_util_prefs_FileSystemPreferences(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/util/prefs/FileSystemPreferences", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/Float.c b/ojluni/src/main/native/Float.c
-index 956048d6b8e123af8feabb0b4fa335bd10b1ce82..5bfdf58245db5b912b13b76ecc5e571b980ad4d1 100644
---- a/ojluni/src/main/native/Float.c
-+++ b/ojluni/src/main/native/Float.c
-@@ -52,18 +52,18 @@ Float_intBitsToFloat(JNIEnv *env, jclass unused, jint v)
- JNIEXPORT jint JNICALL
- Float_floatToRawIntBits(JNIEnv *env, jclass unused, jfloat v)
- {
-     union {
-         int i;
-         float f;
-     } u;
-     u.f = (float)v;
-     return (jint)u.i;
- }
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Float, intBitsToFloat, "(I)F"),
-   NATIVE_METHOD(Float, floatToRawIntBits, "(F)I"),
- };
- 
- void register_java_lang_Float(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/lang/Float", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/IOUtil.c b/ojluni/src/main/native/IOUtil.c
-index 05949dab164bf33114b9f13592aae0855d663e3e..2ccb8795e4aa33807caca0c66ca479e2edbd9f32 100644
---- a/ojluni/src/main/native/IOUtil.c
-+++ b/ojluni/src/main/native/IOUtil.c
-@@ -199,21 +199,21 @@ convertLongReturnVal(JNIEnv *env, jlong n, jboolean reading)
-         return IOS_THROWN;
-     }
- }
- 
- jint
- fdval(JNIEnv *env, jobject fdo)
- {
-     return (*env)->GetIntField(env, fdo, fd_fdID);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(IOUtil, iovMax, "()I"),
-   NATIVE_METHOD(IOUtil, fdLimit, "()I"),
-   NATIVE_METHOD(IOUtil, drain, "(I)Z"),
-   NATIVE_METHOD(IOUtil, makePipe, "(Z)J"),
-   NATIVE_METHOD(IOUtil, configureBlocking, "(Ljava/io/FileDescriptor;Z)V"),
-   NATIVE_METHOD(IOUtil, setfdVal, "(Ljava/io/FileDescriptor;I)V"),
-   NATIVE_METHOD(IOUtil, fdVal, "(Ljava/io/FileDescriptor;)I"),
-   NATIVE_METHOD(IOUtil, randomBytes, "([B)Z"),
- };
- 
-diff --git a/ojluni/src/main/native/Inflater.c b/ojluni/src/main/native/Inflater.c
-index c4c24f0fed13ad2c7fb0fc26eb9996f155d5b97d..23b107426db634c17b737a4c865200afa3c2497e 100644
---- a/ojluni/src/main/native/Inflater.c
-+++ b/ojluni/src/main/native/Inflater.c
-@@ -194,21 +194,21 @@ Inflater_reset(JNIEnv *env, jclass cls, jlong addr)
- JNIEXPORT void JNICALL
- Inflater_end(JNIEnv *env, jclass cls, jlong addr)
- {
-     if (inflateEnd(jlong_to_ptr(addr)) == Z_STREAM_ERROR) {
-         JNU_ThrowInternalError(env, 0);
-     } else {
-         free(jlong_to_ptr(addr));
-     }
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Inflater, init, "(Z)J"),
-   NATIVE_METHOD(Inflater, setDictionary, "(J[BII)V"),
-   NATIVE_METHOD(Inflater, inflateBytes, "(J[BII)I"),
-   NATIVE_METHOD(Inflater, getAdler, "(J)I"),
-   NATIVE_METHOD(Inflater, reset, "(J)V"),
-   NATIVE_METHOD(Inflater, end, "(J)V"),
- };
- 
- void register_java_util_zip_Inflater(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/util/zip/Inflater", gMethods, NELEM(gMethods));
-diff --git a/ojluni/src/main/native/MappedByteBuffer.c b/ojluni/src/main/native/MappedByteBuffer.c
-index 72e840a5c18f3b55c6f0ed270e99b00f33ee5752..24bf6973c3035f3ad30a2f55e4bff8d64298c3f2 100644
---- a/ojluni/src/main/native/MappedByteBuffer.c
-+++ b/ojluni/src/main/native/MappedByteBuffer.c
-@@ -97,19 +97,19 @@ Java_java_nio_MappedByteBuffer_force0(JNIEnv *env, jobject obj, jobject fdo,
-                                       jlong address, jlong len)
- {
-     void* a = (void *)jlong_to_ptr(address);
-     int result = msync(a, (size_t)len, MS_SYNC);
-     if (result == -1) {
-         JNU_ThrowIOExceptionWithLastError(env, "msync failed");
-     }
- }
- 
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(MappedByteBuffer, isLoaded0, "(JJI)Z"),
-   NATIVE_METHOD(MappedByteBuffer, load0, "(JJ)V"),
-   NATIVE_METHOD(MappedByteBuffer, force0, "(Ljava/io/FileDescriptor;JJ)V"),
- };
- 
- void register_java_nio_MappedByteBuffer(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/nio/MappedByteBuffer", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/Math.c b/ojluni/src/main/native/Math.c
-index 4bbcd1d0f1b8ab6ece506a4c26630ccf8821f469..f3423328d0d667abe6a5a5172dd64e5a8deeb0a5 100644
---- a/ojluni/src/main/native/Math.c
-+++ b/ojluni/src/main/native/Math.c
-@@ -134,21 +134,21 @@ Math_floor(jdouble d) {
- JNIEXPORT jdouble JNICALL
- Math_ceil(jdouble d) {
-     return ceil(d);
- }
- 
- JNIEXPORT jdouble JNICALL
- Math_rint(jdouble d) {
-     return rint(d);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   FAST_NATIVE_METHOD(Math, IEEEremainder, "(DD)D"),
-   FAST_NATIVE_METHOD(Math, acos, "(D)D"),
-   FAST_NATIVE_METHOD(Math, asin, "(D)D"),
-   FAST_NATIVE_METHOD(Math, atan, "(D)D"),
-   FAST_NATIVE_METHOD(Math, atan2, "(DD)D"),
-   FAST_NATIVE_METHOD(Math, cbrt, "(D)D"),
-   FAST_NATIVE_METHOD(Math, cos, "(D)D"),
-   FAST_NATIVE_METHOD(Math, ceil, "(D)D"),
-   FAST_NATIVE_METHOD(Math, cosh, "(D)D"),
-   FAST_NATIVE_METHOD(Math, exp, "(D)D"),
-diff --git a/ojluni/src/main/native/NativeThread.c b/ojluni/src/main/native/NativeThread.c
-index dc21e5dbc9005a40fa77a04c1942bdd70c7cdd03..312b160a993caa8bbe893ad2763634c1946be513 100644
---- a/ojluni/src/main/native/NativeThread.c
-+++ b/ojluni/src/main/native/NativeThread.c
-@@ -101,19 +101,19 @@ NativeThread_signal(JNIEnv *env, jclass cl, jlong thread)
-     int ret;
- #ifdef __solaris__
-     ret = thr_kill((thread_t)thread, INTERRUPT_SIGNAL);
- #else
-     ret = pthread_kill((pthread_t)thread, INTERRUPT_SIGNAL);
- #endif
-     if (ret != 0)
-         JNU_ThrowIOExceptionWithLastError(env, "Thread signal failed");
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(NativeThread, current, "()J"),
-   NATIVE_METHOD(NativeThread, signal, "(J)V"),
- };
- 
- void register_sun_nio_ch_NativeThread(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "sun/nio/ch/NativeThread", gMethods, NELEM(gMethods));
-   NativeThread_init(env);
- }
-diff --git a/ojluni/src/main/native/Net.c b/ojluni/src/main/native/Net.c
-index bcf984e957b0af4e37b6d6505aed3828715a3df5..9b43e521b7903c8826bdfbd8e6e8995effbaf1e4 100644
---- a/ojluni/src/main/native/Net.c
-+++ b/ojluni/src/main/native/Net.c
-@@ -861,21 +861,21 @@ handleSocketErrorWithDefault(JNIEnv *env, jint errorValue, const char *defaultEx
- 
- /* Declared in nio_util.h */
- 
- jint
- handleSocketError(JNIEnv *env, jint errorValue) {
-     return handleSocketErrorWithDefault(env, errorValue,
-                                         JNU_JAVANETPKG "SocketException");
- }
- 
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Net, isIPv6Available0, "()Z"),
-   NATIVE_METHOD(Net, isExclusiveBindAvailable, "()I"),
-   NATIVE_METHOD(Net, canIPv6SocketJoinIPv4Group0, "()Z"),
-   NATIVE_METHOD(Net, canJoin6WithIPv4Group0, "()Z"),
-   NATIVE_METHOD(Net, socket0, "(ZZZZ)I"),
-   NATIVE_METHOD(Net, bind0, "(Ljava/io/FileDescriptor;ZZLjava/net/InetAddress;I)V"),
-   NATIVE_METHOD(Net, listen, "(Ljava/io/FileDescriptor;I)V"),
-   NATIVE_METHOD(Net, connect0, "(ZLjava/io/FileDescriptor;Ljava/net/InetAddress;I)I"),
-   NATIVE_METHOD(Net, shutdown, "(Ljava/io/FileDescriptor;I)V"),
-   NATIVE_METHOD(Net, localPort, "(Ljava/io/FileDescriptor;)I"),
-diff --git a/ojluni/src/main/native/ObjectInputStream.c b/ojluni/src/main/native/ObjectInputStream.c
-index 6f65dca5a564f72c89085fca73082740f43d978a..6ba47e31dc1df565561e910fc79c372c87701a5e 100644
---- a/ojluni/src/main/native/ObjectInputStream.c
-+++ b/ojluni/src/main/native/ObjectInputStream.c
-@@ -168,18 +168,18 @@ Java_java_io_ObjectInputStream_bytesToDoubles(JNIEnv *env,
-         jlong_to_jdouble_bits(&lval);
-         u.l = lval;
-         doubles[dstpos] = (jdouble) u.d;
-         srcpos += 8;
-     }
- 
-     (*env)->ReleasePrimitiveArrayCritical(env, src, bytes, JNI_ABORT);
-     (*env)->ReleasePrimitiveArrayCritical(env, dst, doubles, 0);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-     NATIVE_METHOD(ObjectInputStream, bytesToFloats, "([BI[FII)V"),
-     NATIVE_METHOD(ObjectInputStream, bytesToDoubles, "([BI[DII)V"),
- };
- 
- void register_java_io_ObjectInputStream(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/io/ObjectInputStream", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/ObjectOutputStream.c b/ojluni/src/main/native/ObjectOutputStream.c
-index 169a83f3f8d5869f1746b959ca20458267347b6f..0e1479d6df97982daf7064d2ec4a57f58ad11798 100644
---- a/ojluni/src/main/native/ObjectOutputStream.c
-+++ b/ojluni/src/main/native/ObjectOutputStream.c
-@@ -177,18 +177,18 @@ Java_java_io_ObjectOutputStream_doublesToBytes(JNIEnv *env,
-         bytes[dstpos++] = (lval >> 24) & 0xFF;
-         bytes[dstpos++] = (lval >> 16) & 0xFF;
-         bytes[dstpos++] = (lval >> 8) & 0xFF;
-         bytes[dstpos++] = (lval >> 0) & 0xFF;
-     }
- 
-     (*env)->ReleasePrimitiveArrayCritical(env, src, doubles, JNI_ABORT);
-     (*env)->ReleasePrimitiveArrayCritical(env, dst, bytes, 0);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-     NATIVE_METHOD(ObjectOutputStream, floatsToBytes, "([FI[BII)V"),
-     NATIVE_METHOD(ObjectOutputStream, doublesToBytes, "([DI[BII)V"),
- };
- 
- void register_java_io_ObjectOutputStream(JNIEnv* env) {
-     jniRegisterNativeMethods(env, "java/io/ObjectOutputStream", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/ObjectStreamClass.c b/ojluni/src/main/native/ObjectStreamClass.c
-index 3d3fdefa3305ec8b97cba3c7d34789b472eefca9..84cfcc43d3f5c78d32790a2e588acc89a32cc346 100644
---- a/ojluni/src/main/native/ObjectStreamClass.c
-+++ b/ojluni/src/main/native/ObjectStreamClass.c
-@@ -103,18 +103,18 @@ ObjectStreamClass_hasStaticInitializer(JNIEnv *env, jclass this,
-         (*env)->ExceptionClear(env);    /* normal return */
-         if (!(*env)->IsInstanceOf(env, th, noSuchMethodErrCl)) {
-             (*env)->Throw(env, th);
-         }
-         return JNI_TRUE;
-     }
- 
-     return (clinitId != superClinitId);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(ObjectStreamClass, hasStaticInitializer, "(Ljava/lang/Class;Z)Z"),
- };
- 
- void register_java_io_ObjectStreamClass(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/io/ObjectStreamClass", gMethods, NELEM(gMethods));
-   ObjectStreamClass_initNative(env);
- }
-diff --git a/ojluni/src/main/native/ProcessEnvironment_md.c b/ojluni/src/main/native/ProcessEnvironment_md.c
-index a59410badc2acf11b7538bef21d2f5268965d9fa..a3f46a4d4fd4a15eead76f0050392aca8cd2a177 100644
---- a/ojluni/src/main/native/ProcessEnvironment_md.c
-+++ b/ojluni/src/main/native/ProcessEnvironment_md.c
-@@ -84,17 +84,17 @@ ProcessEnvironment_environ(JNIEnv *env, jclass ign)
-             (*env)->SetObjectArrayElement(env, result, 2*j+1, val);
-             (*env)->DeleteLocalRef(env, var);
-             (*env)->DeleteLocalRef(env, val);
-             j++;
-         }
-     }
- 
-     return result;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(ProcessEnvironment, environ, "()[[B"),
- };
- 
- void register_java_lang_ProcessEnvironment(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/lang/ProcessEnvironment", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/Runtime.c b/ojluni/src/main/native/Runtime.c
-index 749511eb080f805d5e760c8ac38d7b8865393759..5e8a2916f6ee2ec4bd4d2b358b6799e711e4573f 100644
---- a/ojluni/src/main/native/Runtime.c
-+++ b/ojluni/src/main/native/Runtime.c
-@@ -73,21 +73,21 @@ Runtime_nativeExit(JNIEnv *env, jclass this, jint status)
-     JVM_Exit(status);
- }
- 
- JNIEXPORT jstring JNICALL
- Runtime_nativeLoad(JNIEnv* env, jclass ignored, jstring javaFilename,
-                    jobject javaLoader, jclass caller)
- {
-     return JVM_NativeLoad(env, javaFilename, javaLoader, caller);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   FAST_NATIVE_METHOD(Runtime, freeMemory, "()J"),
-   FAST_NATIVE_METHOD(Runtime, totalMemory, "()J"),
-   FAST_NATIVE_METHOD(Runtime, maxMemory, "()J"),
-   NATIVE_METHOD(Runtime, nativeGc, "()V"),
-   NATIVE_METHOD(Runtime, nativeExit, "(I)V"),
-   NATIVE_METHOD(Runtime, nativeLoad,
-                 "(Ljava/lang/String;Ljava/lang/ClassLoader;Ljava/lang/Class;)"
-                     "Ljava/lang/String;"),
- };
- 
-diff --git a/ojluni/src/main/native/ServerSocketChannelImpl.c b/ojluni/src/main/native/ServerSocketChannelImpl.c
-index 679811f96ae640f3f7abcef75a4f74988ce3a5df..83a94f9b8e33ebf325258084a4f7e0b76b73c3d6 100644
---- a/ojluni/src/main/native/ServerSocketChannelImpl.c
-+++ b/ojluni/src/main/native/ServerSocketChannelImpl.c
-@@ -130,19 +130,19 @@ Java_sun_nio_ch_ServerSocketChannelImpl_accept0(JNIEnv *env, jobject this,
-     free((void *)sa);
-     CHECK_NULL_RETURN(remote_ia, IOS_THROWN);
-     isa = (*env)->NewObject(env, isa_class, isa_ctorID, remote_ia, remote_port);
-     CHECK_NULL_RETURN(isa, IOS_THROWN);
-     (*env)->SetObjectArrayElement(env, isaa, 0, isa);
-     return 1;
- }
- 
- 
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(Java_sun_nio_ch_ServerSocketChannelImpl, initIDs, "()V"),
-   NATIVE_METHOD(Java_sun_nio_ch_ServerSocketChannelImpl, accept0,
-                 "(Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;[Ljava/net/InetSocketAddress;)I"),
- };
- 
- void register_sun_nio_ch_ServerSocketChannelImpl(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "sun/nio/ch/ServerSocketChannelImpl", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/SocketChannelImpl.c b/ojluni/src/main/native/SocketChannelImpl.c
-index 94291659cf9de259675c7af723f21747be8def8a..9e5436905445f998c2c2f9f635dd320cf2d6b6af 100644
---- a/ojluni/src/main/native/SocketChannelImpl.c
-+++ b/ojluni/src/main/native/SocketChannelImpl.c
-@@ -89,18 +89,18 @@ Java_sun_nio_ch_SocketChannelImpl_checkConnect(JNIEnv *env, jobject this,
- }
- 
- JNIEXPORT jint JNICALL
- Java_sun_nio_ch_SocketChannelImpl_sendOutOfBandData(JNIEnv* env, jclass this,
-                                                     jobject fdo, jbyte b)
- {
-     int n = send(fdval(env, fdo), (const void*)&b, 1, MSG_OOB);
-     return convertReturnVal(env, n, JNI_FALSE);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(SocketChannelImpl, checkConnect, "(Ljava/io/FileDescriptor;ZZ)I"),
-   NATIVE_METHOD(SocketChannelImpl, sendOutOfBandData, "(Ljava/io/FileDescriptor;B)I"),
- };
- 
- void register_sun_nio_ch_SocketChannelImpl(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "sun/nio/ch/SocketChannelImpl", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/SocketInputStream.c b/ojluni/src/main/native/SocketInputStream.c
-index dcea334fd1f989b9cc28cb4fb6cf8f057da902f7..aa10f4e9c1aac94516853b3f29fcaf79c1ea9322 100644
---- a/ojluni/src/main/native/SocketInputStream.c
-+++ b/ojluni/src/main/native/SocketInputStream.c
-@@ -146,20 +146,20 @@ SocketInputStream_socketRead0(JNIEnv *env, jobject this,
-     } else {
-         (*env)->SetByteArrayRegion(env, data, off, nread, (jbyte *)bufP);
-     }
- 
-     if (bufP != BUF) {
-         free(bufP);
-     }
-     return nread;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(SocketInputStream, socketRead0, "(Ljava/io/FileDescriptor;[BIII)I"),
- };
- 
- void register_java_net_SocketInputStream(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/net/SocketInputStream", gMethods, NELEM(gMethods));
- 
-   // Init field ids
-   IO_fd_fdID = NET_GetFileDescriptorID(env);
- }
-diff --git a/ojluni/src/main/native/SocketOutputStream.c b/ojluni/src/main/native/SocketOutputStream.c
-index bc3522bee35790e23a808dfc5ca4341f5cd14917..d72fd1108baef4cb335f941e017b88c6cc529df5 100644
---- a/ojluni/src/main/native/SocketOutputStream.c
-+++ b/ojluni/src/main/native/SocketOutputStream.c
-@@ -121,20 +121,20 @@ SocketOutputStream_socketWrite0(JNIEnv *env, jobject this,
-         }
-         len -= chunkLen;
-         off += chunkLen;
-     }
- 
-     if (bufP != BUF) {
-         free(bufP);
-     }
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(SocketOutputStream, socketWrite0, "(Ljava/io/FileDescriptor;[BII)V"),
- };
- 
- void register_java_net_SocketOutputStream(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/net/SocketOutputStream", gMethods, NELEM(gMethods));
- 
-   // Init field ids
-   IO_fd_fdID = NET_GetFileDescriptorID(env);
- }
-diff --git a/ojluni/src/main/native/StrictMath.c b/ojluni/src/main/native/StrictMath.c
-index 7f9bbebcdf75476cb56fe57168ebc54c42cad56e..24b29228a461622837077a741289d558ece82b2b 100644
---- a/ojluni/src/main/native/StrictMath.c
-+++ b/ojluni/src/main/native/StrictMath.c
-@@ -149,21 +149,21 @@ StrictMath_log1p(JNIEnv *env, jclass unused, jdouble d)
- {
-     return (jdouble) ieee_log1p((double)d);
- }
- 
- JNIEXPORT jdouble JNICALL
- StrictMath_expm1(JNIEnv *env, jclass unused, jdouble d)
- {
-     return (jdouble) ieee_expm1((double)d);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(StrictMath, cos, "(D)D"),
-   NATIVE_METHOD(StrictMath, sin, "(D)D"),
-   NATIVE_METHOD(StrictMath, tan, "(D)D"),
-   NATIVE_METHOD(StrictMath, asin, "(D)D"),
-   NATIVE_METHOD(StrictMath, acos, "(D)D"),
-   NATIVE_METHOD(StrictMath, atan, "(D)D"),
-   NATIVE_METHOD(StrictMath, exp, "(D)D"),
-   NATIVE_METHOD(StrictMath, log, "(D)D"),
-   NATIVE_METHOD(StrictMath, log10, "(D)D"),
-   NATIVE_METHOD(StrictMath, sqrt, "(D)D"),
-diff --git a/ojluni/src/main/native/System.c b/ojluni/src/main/native/System.c
-index 39332ce5ed8fb1ce4088cd66f11520dc2c68a948..582e06d1e07c4a2772dc64d8227297d12b8f60e9 100644
---- a/ojluni/src/main/native/System.c
-+++ b/ojluni/src/main/native/System.c
-@@ -254,21 +254,21 @@ static void System_log(JNIEnv* env, jclass ignored, jchar type, jstring javaMess
- static jlong System_nanoTime() {
-   struct timespec now;
-   clock_gettime(CLOCK_MONOTONIC, &now);
-   return now.tv_sec * 1000000000LL + now.tv_nsec;
- }
- 
- static jlong System_currentTimeMillis() {
-   return JVM_CurrentTimeMillis(NULL, NULL);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(System, mapLibraryName, "(Ljava/lang/String;)Ljava/lang/String;"),
-   NATIVE_METHOD(System, setErr0, "(Ljava/io/PrintStream;)V"),
-   NATIVE_METHOD(System, setOut0, "(Ljava/io/PrintStream;)V"),
-   NATIVE_METHOD(System, setIn0, "(Ljava/io/InputStream;)V"),
-   NATIVE_METHOD(System, specialProperties, "()[Ljava/lang/String;"),
-   NATIVE_METHOD(System, log, "(CLjava/lang/String;Ljava/lang/Throwable;)V"),
-   CRITICAL_NATIVE_METHOD(System, currentTimeMillis, "()J"),
-   CRITICAL_NATIVE_METHOD(System, nanoTime, "()J"),
- };
- 
-diff --git a/ojluni/src/main/native/UNIXProcess_md.c b/ojluni/src/main/native/UNIXProcess_md.c
-index 40fdc18fb8aeb6d984239bfb2aaa0e7903919ffc..87ceaac4fe9aafd97b6205612fd0d191ab23ff95 100644
---- a/ojluni/src/main/native/UNIXProcess_md.c
-+++ b/ojluni/src/main/native/UNIXProcess_md.c
-@@ -984,20 +984,20 @@ UNIXProcess_forkAndExec(JNIEnv *env,
-     closeSafely(err[0]);
-     goto Finally;
- }
- 
- JNIEXPORT void JNICALL
- UNIXProcess_destroyProcess(JNIEnv *env, jobject junk, jint pid)
- {
-     kill(pid, SIGTERM);
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(UNIXProcess, destroyProcess, "(I)V"),
-   NATIVE_METHOD(UNIXProcess, forkAndExec, "([B[BI[BI[B[IZ)I"),
-   NATIVE_METHOD(UNIXProcess, waitForProcessExit, "(I)I"),
-   NATIVE_METHOD(UNIXProcess, initIDs, "()V"),
- };
- 
- void register_java_lang_UNIXProcess(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/lang/UNIXProcess", gMethods, NELEM(gMethods));
- }
-diff --git a/ojluni/src/main/native/UnixFileSystem_md.c b/ojluni/src/main/native/UnixFileSystem_md.c
-index 9c1ca050524bcfe81afda921e769481184eb660e..bc7ee22d57732c835e3d9a1b4c105bdf24f15f4e 100644
---- a/ojluni/src/main/native/UnixFileSystem_md.c
-+++ b/ojluni/src/main/native/UnixFileSystem_md.c
-@@ -490,21 +490,21 @@ Java_java_io_UnixFileSystem_getSpace0(JNIEnv *env, jobject this,
-                                long_to_jlong(fsstat.f_bavail));
-                 break;
-             default:
-                 assert(0);
-             }
-         }
-     } END_PLATFORM_STRING(env, path);
-     return rv;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-     NATIVE_METHOD(UnixFileSystem, initIDs, "()V"),
-     NATIVE_METHOD(UnixFileSystem, canonicalize0, "(Ljava/lang/String;)Ljava/lang/String;"),
-     NATIVE_METHOD(UnixFileSystem, getBooleanAttributes0, "(Ljava/lang/String;)I"),
-     NATIVE_METHOD(UnixFileSystem, setPermission0, "(Ljava/io/File;IZZ)Z"),
-     NATIVE_METHOD(UnixFileSystem, getLastModifiedTime0, "(Ljava/io/File;)J"),
-     NATIVE_METHOD(UnixFileSystem, createFileExclusively0, "(Ljava/lang/String;)Z"),
-     NATIVE_METHOD(UnixFileSystem, list0, "(Ljava/io/File;)[Ljava/lang/String;"),
-     NATIVE_METHOD(UnixFileSystem, createDirectory0, "(Ljava/io/File;)Z"),
-     NATIVE_METHOD(UnixFileSystem, setLastModifiedTime0, "(Ljava/io/File;J)Z"),
-     NATIVE_METHOD(UnixFileSystem, setReadOnly0, "(Ljava/io/File;)Z"),
-diff --git a/ojluni/src/main/native/ZipFile.c b/ojluni/src/main/native/ZipFile.c
-index daf5d8efffff19ac0c02a1296841b485d394a016..78b26fdfa57b49a992509b27559077fd940d2440 100644
---- a/ojluni/src/main/native/ZipFile.c
-+++ b/ojluni/src/main/native/ZipFile.c
-@@ -386,41 +386,41 @@ JarFile_getMetaInfEntryNames(JNIEnv *env, jobject obj)
-                     break;
-                 }
-                 (*env)->SetObjectArrayElement(env, result, i, str);
-                 (*env)->DeleteLocalRef(env, str);
-             }
-         }
-     }
-     return result;
- }
- 
--static JNINativeMethod gMethods[] = {
-+static const JNINativeMethod gMethods[] = {
-   NATIVE_METHOD(ZipFile, getFileDescriptor, "(J)I"),
-   NATIVE_METHOD(ZipFile, getEntry, "(J[BZ)J"),
-   NATIVE_METHOD(ZipFile, freeEntry, "(JJ)V"),
-   NATIVE_METHOD(ZipFile, getNextEntry, "(JI)J"),
-   NATIVE_METHOD(ZipFile, close, "(J)V"),
-   NATIVE_METHOD(ZipFile, open, "(Ljava/lang/String;IJZ)J"),
-   NATIVE_METHOD(ZipFile, getTotal, "(J)I"),
-   NATIVE_METHOD(ZipFile, startsWithLOC, "(J)Z"),
-   NATIVE_METHOD(ZipFile, read, "(JJJ[BII)I"),
-   NATIVE_METHOD(ZipFile, getEntryTime, "(J)J"),
-   NATIVE_METHOD(ZipFile, getEntryCrc, "(J)J"),
-   NATIVE_METHOD(ZipFile, getEntryCSize, "(J)J"),
-   NATIVE_METHOD(ZipFile, getEntrySize, "(J)J"),
-   NATIVE_METHOD(ZipFile, getEntryMethod, "(J)I"),
-   NATIVE_METHOD(ZipFile, getEntryFlag, "(J)I"),
-   NATIVE_METHOD(ZipFile, getCommentBytes, "(J)[B"),
-   NATIVE_METHOD(ZipFile, getEntryBytes, "(JI)[B"),
-   NATIVE_METHOD(ZipFile, getZipMessage, "(J)Ljava/lang/String;"),
- };
- 
--static JNINativeMethod gJarFileMethods[] = {
-+static const JNINativeMethod gJarFileMethods[] = {
-   NATIVE_METHOD(JarFile, getMetaInfEntryNames, "()[Ljava/lang/String;"),
- };
- 
- void register_java_util_zip_ZipFile(JNIEnv* env) {
-   jniRegisterNativeMethods(env, "java/util/zip/ZipFile", gMethods, NELEM(gMethods));
-   ZipFile_initIDs(env);
- 
-   jniRegisterNativeMethods(env, "java/util/jar/JarFile", gJarFileMethods, NELEM(gJarFileMethods));
- }
 
-commit 4c2635390c10512b0c79ee1f3658a25d6b671ca0
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2019-09-11 06:46:38-0400
-
-    add parameter for avoiding full preload with exec
----
- dalvik/src/main/java/dalvik/system/ZygoteHooks.java     | 4 ++--
- mmodules/core_platform_api/api/platform/current-api.txt | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
-
-diff --git a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
-index 7e8fe3651ecf94a94de6fdf8b9355446765fea11..de5a056143087bf21ece76fd0cfac06f783e5574 100644
---- a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
-+++ b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
-@@ -41,21 +41,21 @@ public final class ZygoteHooks {
-      * Called by the zygote when starting up. It marks the point when any thread
-      * start should be an error, as only internal daemon threads are allowed there.
-      */
-     @libcore.api.CorePlatformApi
-     public static native void startZygoteNoThreadCreation();
- 
-     /**
-      * Called when the zygote begins preloading classes and data.
-      */
-     @libcore.api.CorePlatformApi
--    public static void onBeginPreload() {
-+    public static void onBeginPreload(boolean fullPreload) {
-         // Pin ICU data in memory from this point that would normally be held by soft references.
-         // Without this, any references created immediately below or during class preloading
-         // would be collected when the Zygote GC runs in gcAndFinalize().
-         CacheValue.setStrength(CacheValue.Strength.STRONG);
- 
-         // Explicitly exercise code to cache data apps are likely to need.
-         ULocale[] localesToPin = { ULocale.ROOT, ULocale.US, ULocale.getDefault() };
-         for (ULocale uLocale : localesToPin) {
-             new DecimalFormatSymbols(uLocale);
-         }
-@@ -64,21 +64,21 @@ public final class ZygoteHooks {
-         // zone. Pre-loading the current time zone in ICU improves app startup time. b/150605074
-         // We're being explicit about the fully qualified name of the TimeZone class to avoid
-         // confusion with java.util.TimeZome.getDefault().
-         android.icu.util.TimeZone.getDefault();
-     }
- 
-     /**
-      * Called when the zygote has completed preloading classes and data.
-      */
-     @libcore.api.CorePlatformApi
--    public static void onEndPreload() {
-+    public static void onEndPreload(boolean fullPreload) {
-         // All cache references created by ICU from this point will be soft.
-         CacheValue.setStrength(CacheValue.Strength.SOFT);
- 
-         // Clone standard descriptors as originals closed / rebound during zygote post fork.
-         FileDescriptor.in.cloneForFork();
-         FileDescriptor.out.cloneForFork();
-         FileDescriptor.err.cloneForFork();
-     }
- 
-     /**
-diff --git a/mmodules/core_platform_api/api/platform/current-api.txt b/mmodules/core_platform_api/api/platform/current-api.txt
-index 15a0a48d8c5a54e063f92071f9266313ca27019b..ac810f45fafeaf1e1de504d754c0ea21c12e6091 100644
---- a/mmodules/core_platform_api/api/platform/current-api.txt
-+++ b/mmodules/core_platform_api/api/platform/current-api.txt
-@@ -738,22 +738,22 @@ package dalvik.system {
-     field public static final int ACCESS_METHOD_NONE = 0; // 0x0
-     field public static final int ACCESS_METHOD_REFLECTION = 1; // 0x1
-   }
- 
-   public final class VMStack {
-     method @dalvik.annotation.optimization.FastNative public static dalvik.system.AnnotatedStackTraceElement[] getAnnotatedThreadStackTrace(Thread);
-   }
- 
-   public final class ZygoteHooks {
-     method public static void gcAndFinalize();
--    method public static void onBeginPreload();
--    method public static void onEndPreload();
-+    method public static void onBeginPreload(boolean);
-+    method public static void onEndPreload(boolean);
-     method public static void postForkChild(int, boolean, boolean, String);
-     method public static void postForkCommon();
-     method public static void postForkSystemServer(int);
-     method public static void preFork();
-     method public static void startZygoteNoThreadCreation();
-     method public static void stopZygoteNoThreadCreation();
-   }
- 
- }
- 
-
-commit add34a4bc6aa69f21f012d62215b5af500bea551 (tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Wed 2019-09-11 06:47:11-0400
-
-    disable ICU cache pinning for exec spawning
----
- .../src/main/java/dalvik/system/ZygoteHooks.java   | 26 +++++++++++++---------
- 1 file changed, 15 insertions(+), 11 deletions(-)
-
-diff --git a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
-index de5a056143087bf21ece76fd0cfac06f783e5574..e77cec2517251e6afcf810885b003e1a2654ca65 100644
---- a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
-+++ b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
-@@ -42,45 +42,49 @@ public final class ZygoteHooks {
-      * start should be an error, as only internal daemon threads are allowed there.
-      */
-     @libcore.api.CorePlatformApi
-     public static native void startZygoteNoThreadCreation();
- 
-     /**
-      * Called when the zygote begins preloading classes and data.
-      */
-     @libcore.api.CorePlatformApi
-     public static void onBeginPreload(boolean fullPreload) {
--        // Pin ICU data in memory from this point that would normally be held by soft references.
--        // Without this, any references created immediately below or during class preloading
--        // would be collected when the Zygote GC runs in gcAndFinalize().
--        CacheValue.setStrength(CacheValue.Strength.STRONG);
--
--        // Explicitly exercise code to cache data apps are likely to need.
--        ULocale[] localesToPin = { ULocale.ROOT, ULocale.US, ULocale.getDefault() };
--        for (ULocale uLocale : localesToPin) {
--            new DecimalFormatSymbols(uLocale);
-+        if (fullPreload) {
-+            // Pin ICU data in memory from this point that would normally be held by soft references.
-+            // Without this, any references created immediately below or during class preloading
-+            // would be collected when the Zygote GC runs in gcAndFinalize().
-+            CacheValue.setStrength(CacheValue.Strength.STRONG);
-+
-+            // Explicitly exercise code to cache data apps are likely to need.
-+            ULocale[] localesToPin = { ULocale.ROOT, ULocale.US, ULocale.getDefault() };
-+            for (ULocale uLocale : localesToPin) {
-+                new DecimalFormatSymbols(uLocale);
-+            }
-         }
- 
-         // Framework's LocalLog is used during app start-up. It indirectly uses the current ICU time
-         // zone. Pre-loading the current time zone in ICU improves app startup time. b/150605074
-         // We're being explicit about the fully qualified name of the TimeZone class to avoid
-         // confusion with java.util.TimeZome.getDefault().
-         android.icu.util.TimeZone.getDefault();
-     }
- 
-     /**
-      * Called when the zygote has completed preloading classes and data.
-      */
-     @libcore.api.CorePlatformApi
-     public static void onEndPreload(boolean fullPreload) {
--        // All cache references created by ICU from this point will be soft.
--        CacheValue.setStrength(CacheValue.Strength.SOFT);
-+        if (fullPreload) {
-+            // All cache references created by ICU from this point will be soft.
-+            CacheValue.setStrength(CacheValue.Strength.SOFT);
-+        }
- 
-         // Clone standard descriptors as originals closed / rebound during zygote post fork.
-         FileDescriptor.in.cloneForFork();
-         FileDescriptor.out.cloneForFork();
-         FileDescriptor.err.cloneForFork();
-     }
- 
-     /**
-      * Runs several special GCs to try to clean up a few generations of
-      * softly- and final-reachable objects, along with any other garbage.
-
-commit da9c2d0f1b13469bc848f99b210a7da05ace4928
+commit 600e10e3dac6317b40301bc2d65b7a4bf40b7541
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-07-28 17:13:00-0700
 
@@ -1577,7 +388,7 @@ Date:   Wed 2021-07-28 17:13:00-0700
  1 file changed, 6 insertions(+), 1 deletion(-)
 
 diff --git a/ojluni/src/main/native/ZipFile.c b/ojluni/src/main/native/ZipFile.c
-index 78b26fdfa57b49a992509b27559077fd940d2440..18b0b2b56aa01f8937f9f44f45dc9f581441efef 100644
+index daf5d8efffff19ac0c02a1296841b485d394a016..a7dce3cf2882af5d8998e5a4c02e70eadb6bc649 100644
 --- a/ojluni/src/main/native/ZipFile.c
 +++ b/ojluni/src/main/native/ZipFile.c
 @@ -102,21 +102,26 @@ ZipFile_open(JNIEnv *env, jclass cls, jstring name,
@@ -1609,7 +420,7 @@ index 78b26fdfa57b49a992509b27559077fd940d2440..18b0b2b56aa01f8937f9f44f45dc9f58
          if (zip != 0) {
              result = ptr_to_jlong(zip);
 
-commit ec96acce4f535739635b7a154569d058cbeab564 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
+commit 5f1c3d1fb80f2847ad965cc4fd9acf83a6598845
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-31 01:48:58-0700
 
@@ -1626,21 +437,104 @@ Date:   Sat 2021-07-31 01:48:58-0700
     
     Change-Id: I49c7c2b2fe8b356137dbc90955a7b63684253457
 ---
- .../dalvik/system/DelegateLastClassLoader.java     | 17 +++++++++++++++-
- .../src/main/java/dalvik/system/DexPathList.java   | 23 ++++++++++++++++++++++
- .../core_platform_api/api/platform/current-api.txt |  9 +++++++++
- ojluni/src/main/java/java/io/File.java             | 17 ++++++++++++++++
- 4 files changed, 65 insertions(+), 1 deletion(-)
+ api/module-lib-current.txt                         | 19 +++++++++++++++
+ .../dalvik/system/DelegateLastClassLoader.java     | 18 ++++++++++++++-
+ .../src/main/java/dalvik/system/DexPathList.java   | 27 ++++++++++++++++++++++
+ ojluni/src/main/java/java/io/File.java             | 20 ++++++++++++++++
+ 4 files changed, 83 insertions(+), 1 deletion(-)
 
+diff --git a/api/module-lib-current.txt b/api/module-lib-current.txt
+index 15741a780574b6e8464aa507a8ce8ccd448e4b2d..acaaf62c767b4cc36f159bc07c0c327e6dd93dec 100644
+--- a/api/module-lib-current.txt
++++ b/api/module-lib-current.txt
+@@ -219,38 +219,53 @@ package dalvik.system {
+     method public void warnIfOpen();
+   }
+ 
+   public static interface CloseGuard.Reporter {
+     method public void report(String, Throwable);
+     method public default void report(String);
+   }
+ 
+   public final class DelegateLastClassLoader extends dalvik.system.PathClassLoader {
+     ctor public DelegateLastClassLoader(String, String, ClassLoader, ClassLoader[]);
++    field public static volatile java.util.function.Function<java.lang.String,java.lang.String> librarySearchPathHook;
+   }
+ 
+   @Deprecated public final class DexFile {
+     method @Deprecated @NonNull public static dalvik.system.DexFile.OptimizationInfo getDexFileOptimizationInfo(@NonNull String, @NonNull String) throws java.io.FileNotFoundException;
+     method @Deprecated @Nullable public static String[] getDexFileOutputPaths(@NonNull String, @NonNull String) throws java.io.FileNotFoundException;
+     method @Deprecated public static int getDexOptNeeded(@NonNull String, @NonNull String, @NonNull String, @Nullable String, boolean, boolean) throws java.io.FileNotFoundException, java.io.IOException;
+     method @Deprecated @NonNull public static String getSafeModeCompilerFilter(@NonNull String);
+     method @Deprecated public static boolean isProfileGuidedCompilerFilter(@NonNull String);
+     method @Deprecated public static boolean isValidCompilerFilter(@NonNull String);
+     field @Deprecated public static final int DEX2OAT_FOR_FILTER = 3; // 0x3
+     field @Deprecated public static final int NO_DEXOPT_NEEDED = 0; // 0x0
+   }
+ 
+   @Deprecated public static final class DexFile.OptimizationInfo {
+     method @Deprecated @NonNull public String getReason();
+     method @Deprecated @NonNull public String getStatus();
+   }
+ 
++  public final class DexPathList {
++    ctor public DexPathList(ClassLoader, String);
++    ctor public DexPathList(ClassLoader, String, String, java.io.File);
++    method public void addDexPath(String, java.io.File);
++    method public void addDexPath(String, java.io.File, boolean);
++    method public void addNativePath(java.util.Collection<java.lang.String>);
++    method public Class<?> findClass(String, java.util.List<java.lang.Throwable>);
++    method public String findLibrary(String);
++    method public java.net.URL findResource(String);
++    method public java.util.Enumeration<java.net.URL> findResources(String);
++    method public java.util.List<java.io.File> getNativeLibraryDirectories();
++    field public static volatile java.util.function.Function<dalvik.system.DexPathList,java.nio.ByteBuffer[]> postConstructorBufferHook;
++  }
++
+   public class PathClassLoader extends dalvik.system.BaseDexClassLoader {
+     ctor public PathClassLoader(@NonNull String, @Nullable String, @Nullable ClassLoader, @Nullable ClassLoader[]);
+   }
+ 
+   public final class RuntimeHooks {
+     method public static void setTimeZoneIdSupplier(@NonNull java.util.function.Supplier<java.lang.String>);
+     method public static void setUncaughtExceptionPreHandler(@Nullable java.lang.Thread.UncaughtExceptionHandler);
+   }
+ 
+   public abstract class SocketTagger {
+@@ -373,20 +388,24 @@ package dalvik.system {
+     method public static void postForkSystemServer(int);
+     method public static void preFork();
+     method public static void startZygoteNoThreadCreation();
+     method public static void stopZygoteNoThreadCreation();
+   }
+ 
+ }
+ 
+ package java.io {
+ 
++  public class File implements java.lang.Comparable<java.io.File> java.io.Serializable {
++    field public static volatile java.util.function.Function<java.io.File,java.lang.Long> lastModifiedHook;
++  }
++
+   public final class FileDescriptor {
+     method public int getInt$();
+     method public void setInt$(int);
+   }
+ 
+   public class FileInputStream extends java.io.InputStream {
+     ctor public FileInputStream(java.io.FileDescriptor, boolean);
+   }
+ 
+ }
 diff --git a/dalvik/src/main/java/dalvik/system/DelegateLastClassLoader.java b/dalvik/src/main/java/dalvik/system/DelegateLastClassLoader.java
-index 9481e3f940586b248b860f9a604c89697c2c3913..7076760345303072e98047c8380759e8f7b10651 100644
+index 5966139a3b5c08c6373ad429a60968c8b22bdc55..0231d9ed231af1150f3194926d618c475dd9f8b3 100644
 --- a/dalvik/src/main/java/dalvik/system/DelegateLastClassLoader.java
 +++ b/dalvik/src/main/java/dalvik/system/DelegateLastClassLoader.java
-@@ -14,38 +14,47 @@
-  * limitations under the License
-  */
+@@ -18,38 +18,48 @@ package dalvik.system;
  
- package dalvik.system;
+ import static android.annotation.SystemApi.Client.MODULE_LIBRARIES;
+ 
+ import android.annotation.SystemApi;
  
  import sun.misc.CompoundEnumeration;
  
@@ -1671,7 +565,8 @@ index 9481e3f940586b248b860f9a604c89697c2c3913..7076760345303072e98047c8380759e8
 +     * Pre-constructor librarySearchPath hook for GmsCompat
 +     * @hide
 +     */
-+    @CorePlatformApi
++    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
++    @CorePlatformApi(status = CorePlatformApi.Status.STABLE)
 +    public static volatile Function<String, String> librarySearchPathHook;
 +
      /**
@@ -1684,7 +579,7 @@ index 9481e3f940586b248b860f9a604c89697c2c3913..7076760345303072e98047c8380759e8
       * with {@code librarySearchPath = null, delegateResourceLoading = true}.
       */
      public DelegateLastClassLoader(String dexPath, ClassLoader parent) {
-@@ -92,36 +101,42 @@ public final class DelegateLastClassLoader extends PathClassLoader {
+@@ -96,21 +106,21 @@ public final class DelegateLastClassLoader extends PathClassLoader {
       * @param librarySearchPath the list of directories containing native libraries, delimited
       *                          by {@code File.pathSeparator}; may be {@code null}.
       * @param parent the parent class loader. May be {@code null} for the boot classloader.
@@ -1701,9 +596,15 @@ index 9481e3f940586b248b860f9a604c89697c2c3913..7076760345303072e98047c8380759e8
      }
  
      /**
-      * @hide
-      */
-     @libcore.api.CorePlatformApi
+      * Creates a {@code DelegateLastClassLoader} that operates on a given {@code dexPath}
+      * and a {@code librarySearchPath}.
+      *
+      * The {@code dexPath} should consist of one or more of the following, separated by
+      * {@code File.pathSeparator}, which is {@code ":"} on Android.
+      *
+@@ -135,20 +145,26 @@ public final class DelegateLastClassLoader extends PathClassLoader {
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+     @SystemApi(client = MODULE_LIBRARIES)
      public DelegateLastClassLoader(
              String dexPath, String librarySearchPath, ClassLoader parent,
              ClassLoader[] sharedLibraryLoaders) {
@@ -1729,10 +630,28 @@ index 9481e3f940586b248b860f9a604c89697c2c3913..7076760345303072e98047c8380759e8
  
          // Next, check whether the class in question is present in the boot classpath.
 diff --git a/dalvik/src/main/java/dalvik/system/DexPathList.java b/dalvik/src/main/java/dalvik/system/DexPathList.java
-index 798166c5721396e5aff776a06af82a0d7ab3ef01..d81f217884a4555f1a7f01f127bf0fc585f87471 100644
+index acf5e6635e7a4f28316dd021e6bc02416fdf55af..ee2bf10d473e82b3589aea02d35060d18424d675 100644
 --- a/dalvik/src/main/java/dalvik/system/DexPathList.java
 +++ b/dalvik/src/main/java/dalvik/system/DexPathList.java
-@@ -26,20 +26,23 @@ import java.lang.reflect.Array;
+@@ -9,37 +9,41 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package dalvik.system;
+ 
++import android.annotation.SystemApi;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.system.ErrnoException;
+ import android.system.StructStat;
+ 
+ import java.io.File;
+ import java.io.IOException;
+ import java.lang.reflect.Array;
  import java.net.MalformedURLException;
  import java.net.URL;
  import java.nio.ByteBuffer;
@@ -1756,7 +675,7 @@ index 798166c5721396e5aff776a06af82a0d7ab3ef01..d81f217884a4555f1a7f01f127bf0fc5
   * A pair of lists of entries, associated with a {@code ClassLoader}.
   * One of the lists is a dex/resource path &mdash; typically referred
   * to as a "class path" &mdash; list, and the other names directories
-@@ -47,24 +50,32 @@ import static android.system.OsConstants.S_ISDIR;
+@@ -47,24 +51,34 @@ import static android.system.OsConstants.S_ISDIR;
   * a {@code .jar} or {@code .zip} file containing an optional
   * top-level {@code classes.dex} file as well as arbitrary resources,
   * or a plain {@code .dex} file (with no possibility of associated
@@ -1767,7 +686,8 @@ index 798166c5721396e5aff776a06af82a0d7ab3ef01..d81f217884a4555f1a7f01f127bf0fc5
   *
   * @hide
   */
-+@CorePlatformApi
++@SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
++@CorePlatformApi(status = CorePlatformApi.Status.STABLE)
  public final class DexPathList {
      private static final String DEX_SUFFIX = ".dex";
      private static final String zipSeparator = "!/";
@@ -1776,7 +696,8 @@ index 798166c5721396e5aff776a06af82a0d7ab3ef01..d81f217884a4555f1a7f01f127bf0fc5
 +     * Post-constructor hook for GmsCompat
 +     * @hide
 +     */
-+    @CorePlatformApi
++    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
++    @CorePlatformApi(status = CorePlatformApi.Status.STABLE)
 +    public static volatile Function<DexPathList, ByteBuffer[]> postConstructorBufferHook;
 +
      /** class definition context */
@@ -1789,7 +710,7 @@ index 798166c5721396e5aff776a06af82a0d7ab3ef01..d81f217884a4555f1a7f01f127bf0fc5
       * to modify 'dexElements' (http://b/7726934).
       */
      @UnsupportedAppUsage
-@@ -180,20 +191,32 @@ public final class DexPathList {
+@@ -180,20 +194,32 @@ public final class DexPathList {
          this.systemNativeLibraryDirectories =
                  splitPaths(System.getProperty("java.library.path"), true);
          this.nativeLibraryPathElements = makePathElements(getAllNativeLibraryDirectories());
@@ -1822,87 +743,33 @@ index 798166c5721396e5aff776a06af82a0d7ab3ef01..d81f217884a4555f1a7f01f127bf0fc5
  
      /**
       * For BaseDexClassLoader.getLdLibraryPath.
-diff --git a/mmodules/core_platform_api/api/platform/current-api.txt b/mmodules/core_platform_api/api/platform/current-api.txt
-index ac810f45fafeaf1e1de504d754c0ea21c12e6091..6148cf4415b24cc63abdb50ab90b1feef287ec85 100644
---- a/mmodules/core_platform_api/api/platform/current-api.txt
-+++ b/mmodules/core_platform_api/api/platform/current-api.txt
-@@ -578,20 +578,21 @@ package dalvik.system {
-   public interface DalvikLogHandler {
-     method public void publish(java.util.logging.Logger, String, java.util.logging.Level, String);
-   }
+@@ -325,20 +351,21 @@ public final class DexPathList {
+                     }
+                 }
+                 result.add(new File(path));
+             }
+         }
  
-   public final class DalvikLogging {
-     method public static String loggerNameToTag(String);
-   }
+         return result;
+     }
  
-   public final class DelegateLastClassLoader extends dalvik.system.PathClassLoader {
-     ctor public DelegateLastClassLoader(String, String, ClassLoader, ClassLoader[]);
-+    field public static volatile java.util.function.Function<java.lang.String,java.lang.String> librarySearchPathHook;
-   }
- 
-   @Deprecated public final class DexFile {
-     ctor @Deprecated public DexFile(java.io.File) throws java.io.IOException;
-     ctor @Deprecated public DexFile(String) throws java.io.IOException;
-     method @Deprecated public void close() throws java.io.IOException;
-     method @Deprecated public java.util.Enumeration<java.lang.String> entries();
-     method @Deprecated public static dalvik.system.DexFile.OptimizationInfo getDexFileOptimizationInfo(String, String) throws java.io.FileNotFoundException;
-     method @Deprecated public static String[] getDexFileOutputPaths(String, String) throws java.io.FileNotFoundException;
-     method @Deprecated public static int getDexOptNeeded(String, String, String, String, boolean, boolean) throws java.io.FileNotFoundException, java.io.IOException;
-@@ -604,20 +605,24 @@ package dalvik.system {
-     method @Deprecated public static dalvik.system.DexFile loadDex(String, String, int) throws java.io.IOException;
-     field @Deprecated public static final int DEX2OAT_FOR_FILTER = 3; // 0x3
-     field @Deprecated public static final int NO_DEXOPT_NEEDED = 0; // 0x0
-   }
- 
-   @Deprecated public static final class DexFile.OptimizationInfo {
-     method @Deprecated public String getReason();
-     method @Deprecated public String getStatus();
-   }
- 
-+  public final class DexPathList {
-+    field public static volatile java.util.function.Function<dalvik.system.DexPathList,java.nio.ByteBuffer[]> postConstructorBufferHook;
-+  }
-+
-   public class PathClassLoader extends dalvik.system.BaseDexClassLoader {
-     ctor public PathClassLoader(String, String, ClassLoader, ClassLoader[]);
-   }
- 
-   public final class RuntimeHooks {
-     method @Nullable public static dalvik.system.ThreadPrioritySetter getThreadPrioritySetter();
-     method public static void setThreadPrioritySetter(@NonNull dalvik.system.ThreadPrioritySetter);
-     method public static void setTimeZoneIdSupplier(java.util.function.Supplier<java.lang.String>);
-     method public static void setUncaughtExceptionPreHandler(java.lang.Thread.UncaughtExceptionHandler);
-   }
-@@ -752,20 +757,24 @@ package dalvik.system {
-     method public static void postForkSystemServer(int);
-     method public static void preFork();
-     method public static void startZygoteNoThreadCreation();
-     method public static void stopZygoteNoThreadCreation();
-   }
- 
- }
- 
- package java.io {
- 
-+  public class File implements java.lang.Comparable<java.io.File> java.io.Serializable {
-+    field public static volatile java.util.function.Function<java.io.File,java.lang.Long> lastModifiedHook;
-+  }
-+
-   public final class FileDescriptor {
-     method public int getInt$();
-     method public void setInt$(int);
-   }
- 
-   public class FileInputStream extends java.io.InputStream {
-     ctor public FileInputStream(java.io.FileDescriptor, boolean);
-   }
- 
- }
+     // This method is not used anymore. Kept around only because there are many legacy users of it.
++    /** @hide */
+     @SuppressWarnings("unused")
+     @UnsupportedAppUsage
+     public static Element[] makeInMemoryDexElements(ByteBuffer[] dexFiles,
+             List<IOException> suppressedExceptions) {
+         Element[] elements = new Element[dexFiles.length];
+         int elementPos = 0;
+         for (ByteBuffer buf : dexFiles) {
+             try {
+                 DexFile dex = new DexFile(new ByteBuffer[] { buf }, /* classLoader */ null,
+                         /* dexElements */ null);
 diff --git a/ojluni/src/main/java/java/io/File.java b/ojluni/src/main/java/java/io/File.java
-index 98956caf87c41a2e612277ec4fcfe269d5a1333a..8e99e6ea6102d55d944ce776ac38afca8e44d1ca 100644
+index 003753411843534fb1d4521722f2e435c229a73b..06cd18c6bc867004cdd31d401bdc7a9fd712e713 100644
 --- a/ojluni/src/main/java/java/io/File.java
 +++ b/ojluni/src/main/java/java/io/File.java
-@@ -19,29 +19,33 @@
+@@ -19,29 +19,35 @@
   * 2 along with this work; if not, write to the Free Software Foundation,
   * Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA.
   *
@@ -1913,6 +780,8 @@ index 98956caf87c41a2e612277ec4fcfe269d5a1333a..8e99e6ea6102d55d944ce776ac38afca
  
  package java.io;
  
++import android.annotation.SystemApi;
++
 +import libcore.api.CorePlatformApi;
 +
  import java.net.URI;
@@ -1936,7 +805,7 @@ index 98956caf87c41a2e612277ec4fcfe269d5a1333a..8e99e6ea6102d55d944ce776ac38afca
   * strings</em> to name files and directories.  This class presents an
   * abstract, system-independent view of hierarchical pathnames.  An
   * <em>abstract pathname</em> has two components:
-@@ -154,20 +158,27 @@ import sun.security.action.GetPropertyAction;
+@@ -154,20 +160,28 @@ import sun.security.action.GetPropertyAction;
  
  public class File
      implements Serializable, Comparable<File>
@@ -1951,7 +820,8 @@ index 98956caf87c41a2e612277ec4fcfe269d5a1333a..8e99e6ea6102d55d944ce776ac38afca
 +     * File#lastModified() hook for GmsCompat
 +     * @hide
 +     */
-+    @CorePlatformApi
++    @SystemApi(client = SystemApi.Client.MODULE_LIBRARIES)
++    @CorePlatformApi(status = CorePlatformApi.Status.STABLE)
 +    public static volatile Function<File, Long> lastModifiedHook;
 +
      /**
@@ -1964,7 +834,7 @@ index 98956caf87c41a2e612277ec4fcfe269d5a1333a..8e99e6ea6102d55d944ce776ac38afca
      private final String path;
  
      /**
-@@ -929,20 +940,26 @@ public class File
+@@ -927,20 +941,26 @@ public class File
       *          method denies read access to the file
       */
      public long lastModified() {
@@ -1991,3 +861,251 @@ index 98956caf87c41a2e612277ec4fcfe269d5a1333a..8e99e6ea6102d55d944ce776ac38afca
       * <p> Where it is required to distinguish an I/O exception from the case
       * that {@code 0L} is returned, or where several attributes of the same file
       * are required at the same time, then the {@link
+
+commit 85735e990a8aaf4d424dc2e2f3892dd8565c4784
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Wed 2019-09-11 06:46:38-0400
+
+    add parameter for avoiding full preload with exec
+---
+ api/module-lib-current.txt                         |  2 ++
+ .../src/main/java/dalvik/system/ZygoteHooks.java   | 26 ++++++++++++++++++++--
+ .../api/legacy_platform/current.txt                |  2 ++
+ .../api/stable_platform/current.txt                |  2 ++
+ 4 files changed, 30 insertions(+), 2 deletions(-)
+
+diff --git a/api/module-lib-current.txt b/api/module-lib-current.txt
+index acaaf62c767b4cc36f159bc07c0c327e6dd93dec..ff55992acc6007812c94aafac9a9371e647fe8a0 100644
+--- a/api/module-lib-current.txt
++++ b/api/module-lib-current.txt
+@@ -374,21 +374,23 @@ package dalvik.system {
+     field public static final int ACCESS_METHOD_REFLECTION = 1; // 0x1
+   }
+ 
+   public final class VMStack {
+     method @Nullable @dalvik.annotation.optimization.FastNative public static dalvik.system.AnnotatedStackTraceElement[] getAnnotatedThreadStackTrace(Thread);
+   }
+ 
+   public final class ZygoteHooks {
+     method public static void gcAndFinalize();
+     method public static boolean isIndefiniteThreadSuspensionSafe();
++    method public static void onBeginPreload(boolean);
+     method public static void onBeginPreload();
++    method public static void onEndPreload(boolean);
+     method public static void onEndPreload();
+     method public static void postForkChild(int, boolean, boolean, String);
+     method public static void postForkCommon();
+     method public static void postForkSystemServer(int);
+     method public static void preFork();
+     method public static void startZygoteNoThreadCreation();
+     method public static void stopZygoteNoThreadCreation();
+   }
+ 
+ }
+diff --git a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
+index a17a2574f7bcdde75ff66eac63b11782d56010d8..763511d21870e7b0058eda5f52474286b57167f2 100644
+--- a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
++++ b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
+@@ -55,55 +55,77 @@ public final class ZygoteHooks {
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+     public static native void startZygoteNoThreadCreation();
+ 
+     /**
+      * Called when the zygote begins preloading classes and data.
+      *
+      * @hide
+      */
+     @SystemApi(client = MODULE_LIBRARIES)
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+-    public static void onBeginPreload() {
++    public static void onBeginPreload(boolean fullPreload) {
+         com.android.i18n.system.ZygoteHooks.onBeginPreload();
+ 
+         ICU.initializeCacheInZygote();
+ 
+         // Look up JaCoCo on the boot classpath, if it exists. This will be used later for enabling
+         // memory-mapped Java coverage.
+         try {
+           Class<?> jacocoOfflineClass = Class.forName("org.jacoco.agent.rt.internal.Offline");
+           enableMemoryMappedDataMethod = jacocoOfflineClass.getMethod("enableMemoryMappedData");
+         } catch (ClassNotFoundException e) {
+           // JaCoCo was not on the boot classpath, so this is not a coverage build.
+         } catch (NoSuchMethodException e) {
+           // Method was not found in the JaCoCo Offline class. The version of JaCoCo is not
+           // compatible with memory-mapped coverage.
+           throw new RuntimeException(e);
+         }
+     }
+ 
++    /**
++     * Called when the zygote begins preloading classes and data.
++     *
++     * @hide
++     */
++    @SystemApi(client = MODULE_LIBRARIES)
++    @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
++    public static void onBeginPreload() {
++        onBeginPreload(true);
++    }
++
+     /**
+      * Called when the zygote has completed preloading classes and data.
+      *
+      * @hide
+      */
+     @SystemApi(client = MODULE_LIBRARIES)
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+-    public static void onEndPreload() {
++    public static void onEndPreload(boolean fullPreload) {
+         com.android.i18n.system.ZygoteHooks.onEndPreload();
+ 
+         // Clone standard descriptors as originals closed / rebound during zygote post fork.
+         FileDescriptor.in.cloneForFork();
+         FileDescriptor.out.cloneForFork();
+         FileDescriptor.err.cloneForFork();
+     }
+ 
++    /**
++     * Called when the zygote has completed preloading classes and data.
++     *
++     * @hide
++     */
++    @SystemApi(client = MODULE_LIBRARIES)
++    @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
++    public static void onEndPreload() {
++        onEndPreload(true);
++    }
++
+     /**
+      * Runs several special GCs to try to clean up a few generations of
+      * softly- and final-reachable objects, along with any other garbage.
+      * This is only useful just before a fork().
+      *
+      * @hide
+      */
+     @SystemApi(client = MODULE_LIBRARIES)
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+     public static void gcAndFinalize() {
+diff --git a/mmodules/core_platform_api/api/legacy_platform/current.txt b/mmodules/core_platform_api/api/legacy_platform/current.txt
+index 15741a780574b6e8464aa507a8ce8ccd448e4b2d..e554dd77cb84cd647b38ddf40fad63f8adba4e8d 100644
+--- a/mmodules/core_platform_api/api/legacy_platform/current.txt
++++ b/mmodules/core_platform_api/api/legacy_platform/current.txt
+@@ -359,21 +359,23 @@ package dalvik.system {
+     field public static final int ACCESS_METHOD_REFLECTION = 1; // 0x1
+   }
+ 
+   public final class VMStack {
+     method @Nullable @dalvik.annotation.optimization.FastNative public static dalvik.system.AnnotatedStackTraceElement[] getAnnotatedThreadStackTrace(Thread);
+   }
+ 
+   public final class ZygoteHooks {
+     method public static void gcAndFinalize();
+     method public static boolean isIndefiniteThreadSuspensionSafe();
++    method public static void onBeginPreload(boolean);
+     method public static void onBeginPreload();
++    method public static void onEndPreload(boolean);
+     method public static void onEndPreload();
+     method public static void postForkChild(int, boolean, boolean, String);
+     method public static void postForkCommon();
+     method public static void postForkSystemServer(int);
+     method public static void preFork();
+     method public static void startZygoteNoThreadCreation();
+     method public static void stopZygoteNoThreadCreation();
+   }
+ 
+ }
+diff --git a/mmodules/core_platform_api/api/stable_platform/current.txt b/mmodules/core_platform_api/api/stable_platform/current.txt
+index 15741a780574b6e8464aa507a8ce8ccd448e4b2d..e554dd77cb84cd647b38ddf40fad63f8adba4e8d 100644
+--- a/mmodules/core_platform_api/api/stable_platform/current.txt
++++ b/mmodules/core_platform_api/api/stable_platform/current.txt
+@@ -359,21 +359,23 @@ package dalvik.system {
+     field public static final int ACCESS_METHOD_REFLECTION = 1; // 0x1
+   }
+ 
+   public final class VMStack {
+     method @Nullable @dalvik.annotation.optimization.FastNative public static dalvik.system.AnnotatedStackTraceElement[] getAnnotatedThreadStackTrace(Thread);
+   }
+ 
+   public final class ZygoteHooks {
+     method public static void gcAndFinalize();
+     method public static boolean isIndefiniteThreadSuspensionSafe();
++    method public static void onBeginPreload(boolean);
+     method public static void onBeginPreload();
++    method public static void onEndPreload(boolean);
+     method public static void onEndPreload();
+     method public static void postForkChild(int, boolean, boolean, String);
+     method public static void postForkCommon();
+     method public static void postForkSystemServer(int);
+     method public static void preFork();
+     method public static void startZygoteNoThreadCreation();
+     method public static void stopZygoteNoThreadCreation();
+   }
+ 
+ }
+
+commit 39ab728c9ebe734d8b836fde7b634615cb84402e (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2021-10-14 17:00:10-0400
+
+    disable ICU cache pinning for exec spawning
+---
+ dalvik/src/main/java/dalvik/system/ZygoteHooks.java | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+diff --git a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
+index 763511d21870e7b0058eda5f52474286b57167f2..179c19ac8d5a54f92acf444e82e5727ea1db77a5 100644
+--- a/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
++++ b/dalvik/src/main/java/dalvik/system/ZygoteHooks.java
+@@ -56,23 +56,25 @@ public final class ZygoteHooks {
+     public static native void startZygoteNoThreadCreation();
+ 
+     /**
+      * Called when the zygote begins preloading classes and data.
+      *
+      * @hide
+      */
+     @SystemApi(client = MODULE_LIBRARIES)
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+     public static void onBeginPreload(boolean fullPreload) {
+-        com.android.i18n.system.ZygoteHooks.onBeginPreload();
++        if (fullPreload) {
++            com.android.i18n.system.ZygoteHooks.onBeginPreload();
+ 
+-        ICU.initializeCacheInZygote();
++            ICU.initializeCacheInZygote();
++        }
+ 
+         // Look up JaCoCo on the boot classpath, if it exists. This will be used later for enabling
+         // memory-mapped Java coverage.
+         try {
+           Class<?> jacocoOfflineClass = Class.forName("org.jacoco.agent.rt.internal.Offline");
+           enableMemoryMappedDataMethod = jacocoOfflineClass.getMethod("enableMemoryMappedData");
+         } catch (ClassNotFoundException e) {
+           // JaCoCo was not on the boot classpath, so this is not a coverage build.
+         } catch (NoSuchMethodException e) {
+           // Method was not found in the JaCoCo Offline class. The version of JaCoCo is not
+@@ -93,21 +95,23 @@ public final class ZygoteHooks {
+     }
+ 
+     /**
+      * Called when the zygote has completed preloading classes and data.
+      *
+      * @hide
+      */
+     @SystemApi(client = MODULE_LIBRARIES)
+     @libcore.api.CorePlatformApi(status = libcore.api.CorePlatformApi.Status.STABLE)
+     public static void onEndPreload(boolean fullPreload) {
+-        com.android.i18n.system.ZygoteHooks.onEndPreload();
++        if (fullPreload) {
++            com.android.i18n.system.ZygoteHooks.onEndPreload();
++        }
+ 
+         // Clone standard descriptors as originals closed / rebound during zygote post fork.
+         FileDescriptor.in.cloneForFork();
+         FileDescriptor.out.cloneForFork();
+         FileDescriptor.err.cloneForFork();
+     }
+ 
+     /**
+      * Called when the zygote has completed preloading classes and data.
+      *

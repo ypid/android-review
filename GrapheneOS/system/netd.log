@@ -1,4 +1,4 @@
-commit b8bfd373c5102770bdebf2019a6b19007b359f6f (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, m/master)
+commit 285feb3faafb47d45dcbd625abe3b44fd8800364 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Thu 2021-08-12 00:15:25+0530
 
@@ -10,11 +10,11 @@ Date:   Thu 2021-08-12 00:15:25+0530
  1 file changed, 2 insertions(+), 8 deletions(-)
 
 diff --git a/bpf_progs/netd.c b/bpf_progs/netd.c
-index f3470280035e9c043354914ef4bb2e6f01617df0..96651e67f4a0d929439969f7f7390bd8d9a9a43c 100644
+index e9e1477ff1e08695b54bdeb0386b1273f5ad2e0b..df60a59f8efcf5d0a5c3150fd988e54b60201506 100644
 --- a/bpf_progs/netd.c
 +++ b/bpf_progs/netd.c
-@@ -339,28 +339,22 @@ DEFINE_BPF_PROG("skfilter/blacklist/xtbpf", AID_ROOT, AID_NET_ADMIN, xt_bpf_blac
-     if (blacklistMatch) return blacklistMatch->rule & PENALTY_BOX_MATCH ? BPF_MATCH : BPF_NOMATCH;
+@@ -342,28 +342,22 @@ DEFINE_BPF_PROG("skfilter/denylist/xtbpf", AID_ROOT, AID_NET_ADMIN, xt_bpf_denyl
+     if (denylistMatch) return denylistMatch->rule & PENALTY_BOX_MATCH ? BPF_MATCH : BPF_NOMATCH;
      return BPF_NOMATCH;
  }
  

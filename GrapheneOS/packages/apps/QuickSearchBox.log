@@ -1,17 +1,17 @@
-commit afe7d0cfa6a153c3fe8d52a24cc499a39f1ee37d
+commit 87873f4f0e1b9b8509e253cf5d3373857f15a492
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-12-10 23:32:38-0500
 
     disable launcher icon
 ---
- AndroidManifest.xml | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ AndroidManifest.xml | 5 -----
+ 1 file changed, 5 deletions(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index de561cb7b71120434d039033c53da5e25dd84ca3..af5afd43451a34768166062c9d72ecda870f7ead 100644
+index 8b83023671c9ad9d9d43f6888b8c77702037e80e..a697c88be760f00b11f867d3a2903f4fb866834a 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -39,24 +39,24 @@
+@@ -39,25 +39,20 @@
                   android:name=".QsbApplicationWrapper"
                   android:theme="@style/Theme.QuickSearchBox"
                   android:hardwareAccelerated="true">
@@ -20,16 +20,13 @@ index de561cb7b71120434d039033c53da5e25dd84ca3..af5afd43451a34768166062c9d72ecda
          <activity android:name=".SearchActivity"
                    android:label="@string/app_name"
                    android:launchMode="singleTask"
+                   android:exported="true"
                    android:theme="@style/Theme.QuickSearchBox.Search">
-             <!-- Show app icon in Launcher. -->
+-            <!-- Show app icon in Launcher. -->
 -            <intent-filter>
 -                <action android:name="android.intent.action.MAIN" />
 -                <category android:name="android.intent.category.LAUNCHER" />
 -            </intent-filter>
-+            <!--<intent-filter>-->
-+                <!--<action android:name="android.intent.action.MAIN" />-->
-+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-+            <!--</intent-filter>-->
              <!-- Handle global search. -->
              <intent-filter>
                  <action android:name="android.search.action.GLOBAL_SEARCH" />
@@ -41,20 +38,20 @@ index de561cb7b71120434d039033c53da5e25dd84ca3..af5afd43451a34768166062c9d72ecda
              </intent-filter>
              <meta-data android:name="com.android.launcher.toolbar_icon" android:resource="@drawable/ic_google_logo_normal" />
 
-commit 97656345492b840bb43a1cd965408c1c85167f34 (HEAD, tag: RQ3A.211001.001.2021100502, tag: RQ3A.210905.001.2021090819, tag: RQ3A.210805.001.A1.2021.08.03.03, tag: RQ3A.210705.001.2021.07.07.19, tag: RQ3A.210605.005.2021.06.08.06, tag: RQ2A.210505.002.2021.05.04.01, tag: RQ2A.210405.005.2021.04.05.20, tag: RQ2A.210305.006.2021.03.02.10, tag: RQ1A.210205.004.2021.02.02.09, tag: RQ1A.210105.002.2021.01.05.03, m/master)
+commit 1f0b1ad47ded6dc33cfc46b773067cdceaceb6ef (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-12-22 08:20:57-0500
 
     disable widget
 ---
- AndroidManifest.xml | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+ AndroidManifest.xml | 9 ---------
+ 1 file changed, 9 deletions(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index af5afd43451a34768166062c9d72ecda870f7ead..92be54b2af023bfc1654b4e2960c66cfe003576f 100644
+index a697c88be760f00b11f867d3a2903f4fb866834a..3589b78db39a8fa3af1f970e8771c312afab0105 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -55,27 +55,27 @@
+@@ -51,29 +51,20 @@
                  <action android:name="android.search.action.GLOBAL_SEARCH" />
                  <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
@@ -66,24 +63,19 @@ index af5afd43451a34768166062c9d72ecda870f7ead..92be54b2af023bfc1654b4e2960c66cf
          </activity>
  
 -        <receiver android:name=".SearchWidgetProvider"
+-                  android:exported="true"
 -                  android:label="@string/app_name">
 -            <intent-filter>
 -                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
 -            </intent-filter>
 -            <meta-data android:name="android.appwidget.provider" android:resource="@xml/search_widget_info" />
 -        </receiver>
-+        <!--<receiver android:name=".SearchWidgetProvider"-->
-+                  <!--android:label="@string/app_name">-->
-+            <!--<intent-filter>-->
-+                <!--<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />-->
-+            <!--</intent-filter>-->
-+            <!--<meta-data android:name="android.appwidget.provider" android:resource="@xml/search_widget_info" />-->
-+        <!--</receiver>-->
- 
+-
          <activity android:name=".google.GoogleSearch"
                  android:label="@string/google_search_label"
                  android:icon="@mipmap/google_icon"
                  android:theme="@android:style/Theme.NoDisplay"
+                 android:exported="true"
                  android:excludeFromRecents="true">
              <intent-filter>
                  <action android:name="android.intent.action.WEB_SEARCH" />
