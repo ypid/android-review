@@ -1,4 +1,4 @@
-commit 75c029671e943f7bbbaf44d14f0b216c7fc929eb (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 313287708320702572586fb687d81061fbfcb71b (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-10 16:45:59-0400
 
@@ -143,10 +143,10 @@ index 842590408d9290aaef6c3cbbb2541889c2053a89..8283f30995bd45f78e12ee828e142dec
    FAST_NATIVE_METHOD(VMRuntime, isNativeDebuggable, "()Z"),
    NATIVE_METHOD(VMRuntime, isJavaDebuggable, "()Z"),
 diff --git a/runtime/native/dalvik_system_VMStack.cc b/runtime/native/dalvik_system_VMStack.cc
-index 9d2dfac069a6d26124289d93c64819487a318bd3..a695c1823a290476452fd8d37a4223276a076955 100644
+index e88516e248645441c2ac06c2037bc3d85cff1450..58e40f6e8a9ab939c6a141029e4686a390ff9158 100644
 --- a/runtime/native/dalvik_system_VMStack.cc
 +++ b/runtime/native/dalvik_system_VMStack.cc
-@@ -162,21 +162,21 @@ static jobjectArray VMStack_getThreadStackTrace(JNIEnv* env, jclass, jobject jav
+@@ -161,21 +161,21 @@ static jobjectArray VMStack_getThreadStackTrace(JNIEnv* env, jclass, jobject jav
  
  static jobjectArray VMStack_getAnnotatedThreadStackTrace(JNIEnv* env, jclass, jobject javaThread) {
    ScopedFastNativeObjectAccess soa(env);
@@ -332,10 +332,10 @@ index 63cbd2c81587003f7b5607f5fdc7ff88873361fb..e7b3894aad3e9ba2c0bceffe9fa31ca1
    FAST_NATIVE_METHOD(System, arraycopyBooleanUnchecked, "([ZI[ZII)V"),
  };
 diff --git a/runtime/native/java_lang_Thread.cc b/runtime/native/java_lang_Thread.cc
-index 37b3fe642eae3c537ec3b1a6305ff3c5cf806f4c..5f3f54a85fe92592b81c290a0dbf77b12f70d6e7 100644
+index c3b4fe09ded7e944cafd15a80c2df8e823a4c98b..8ff4e02605f2ca7053910942438e27db11b41700 100644
 --- a/runtime/native/java_lang_Thread.cc
 +++ b/runtime/native/java_lang_Thread.cc
-@@ -187,21 +187,21 @@ static void Thread_sleep(JNIEnv* env, jclass, jobject java_lock, jlong ms, jint
+@@ -186,21 +186,21 @@ static void Thread_sleep(JNIEnv* env, jclass, jobject java_lock, jlong ms, jint
  /*
   * Causes the thread to temporarily pause and allow other threads to execute.
   *

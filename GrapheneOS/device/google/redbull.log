@@ -1,104 +1,4 @@
-commit cddfe3e82ba06d7f5710cac11c00c7558d0db4cc
-Author: Neha Jain <jainne@google.com>
-Date:   Wed 2021-09-22 23:36:56+0000
-
-    Update Redbull SVN to 38
-    
-    Bug: 200859230
-    Change-Id: Ic8e53bf23714b1f8c9c8c3e0aab0178a2fc91e4c
-    (cherry picked from commit f476233c0addd3ac21e6fe05171f133f26ad429e)
----
- device-common.mk | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/device-common.mk b/device-common.mk
-index 46f1aac610d367192f01d332d9b9c143f20ebab3..6e9329933fcc48d3b0dbc74cfd5bca23362d7d2b 100644
---- a/device-common.mk
-+++ b/device-common.mk
-@@ -828,21 +828,21 @@ PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
- 
- HIDL_WRAPPER := qti-telephony-hidl-wrapper
- HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
- HIDL_WRAPPER += qti-telephony-hidl-wrapper-prd
- HIDL_WRAPPER += qti_telephony_hidl_wrapper_prd.xml
- PRODUCT_PACKAGES += $(HIDL_WRAPPER)
- 
- # Increment the SVN for any official public releases
- ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
- PRODUCT_PROPERTY_OVERRIDES += \
--	ro.vendor.build.svn=37
-+	ro.vendor.build.svn=38
- endif
- 
- # Enable iwlan service logging for debug
- ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-     PRODUCT_PROPERTY_OVERRIDES += persist.vendor.iwlan.logging.logcat=true
- endif
- 
- PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
- 
-
-commit 022973c4509897bdfbdcbd830105cad3c00de6db
-Merge: 3de6a72 cddfe3e
-Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
-Date:   Thu 2021-09-23 01:29:22+0000
-
-    Merge cherrypicks of [15891228, 15891079, 15891299, 15890644, 15891300, 15891043, 15891044, 15891045, 15891046, 15891354, 15891355] into sc-release
-    
-    Change-Id: Id407069a70514d9f63f93c0ccb7d10fdbcb98387
-
-commit 2a58538fdf131cd1978529d65e8e1b505a7335d3
-Author: Steve Berbary <sberbary@google.com>
-Date:   Fri 2021-10-08 18:09:59+0000
-
-    Update Redbull SVN to 39
-    Bug: 202436544
-    
-    Change-Id: Ic12fb2075643ca2b463b0c0138d248ee95973059
-    (cherry picked from commit f88d4a81f329e5c7172910ce7043240c56f02feb)
----
- device-common.mk | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/device-common.mk b/device-common.mk
-index 6e9329933fcc48d3b0dbc74cfd5bca23362d7d2b..ca96da3657f6253af29e0dea2a8a7d8fe9affb36 100644
---- a/device-common.mk
-+++ b/device-common.mk
-@@ -828,21 +828,21 @@ PRODUCT_PACKAGES += $(QTI_TELEPHONY_UTILS)
- 
- HIDL_WRAPPER := qti-telephony-hidl-wrapper
- HIDL_WRAPPER += qti_telephony_hidl_wrapper.xml
- HIDL_WRAPPER += qti-telephony-hidl-wrapper-prd
- HIDL_WRAPPER += qti_telephony_hidl_wrapper_prd.xml
- PRODUCT_PACKAGES += $(HIDL_WRAPPER)
- 
- # Increment the SVN for any official public releases
- ifeq ($(PRODUCT_DEVICE_SVN_OVERRIDE),)
- PRODUCT_PROPERTY_OVERRIDES += \
--	ro.vendor.build.svn=38
-+	ro.vendor.build.svn=39
- endif
- 
- # Enable iwlan service logging for debug
- ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
-     PRODUCT_PROPERTY_OVERRIDES += persist.vendor.iwlan.logging.logcat=true
- endif
- 
- PRODUCT_COPY_FILES += \
-     $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
- 
-
-commit f9e78d7c74aeeb0e6f3449778a58c49e9f1d0869
-Merge: 022973c 2a58538
-Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
-Date:   Wed 2021-10-20 20:28:29+0000
-
-    Merge cherrypicks of [16017878] into sc-release.
-    
-    Change-Id: Idcce168ffc62efeacad27e73f7299264c058ce0e
-
-commit f08c6098d18b85953f3bb07afb61edaccac69c16
+commit ab072a38fc708f9ecac0e0781cf976f7fc6495c2
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:32:37+0000
 
@@ -486,7 +386,7 @@ index 693d733be66024a561ff8bffb84d21f893b58adf..81ea1a9bb9bad85f1abc897667049f75
  # Testing related defines
  BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b5r3-setup.sh
 
-commit d833c909d06713388623081f5bcb4c6e3ad45451
+commit 9986d4c7bb4490b7000b4a651217df14bdc3ab27
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:48:10-0500
 
@@ -527,7 +427,7 @@ index 81ea1a9bb9bad85f1abc897667049f75d0d35f26..7367b4cc8c852ac7b1dcc30e1c006f3c
  
  BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
 
-commit a7234bbf8549dd5165df0bc766ad38a156cc1c16
+commit 4401c6c60638b7d4798f3a92a7ea545c9db686ad
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:12-0400
 
@@ -537,7 +437,7 @@ Date:   Wed 2020-10-14 19:16:12-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index ca96da3657f6253af29e0dea2a8a7d8fe9affb36..31727fd610d6a392ad0cffd8c995df73751f1c67 100644
+index b4304fffbe4769b58e49d3eac1ea4c12324d8f9c..372a82bbf89a30c3d7df47dcdbf931865e97f741 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -133,44 +133,40 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -586,7 +486,7 @@ index ca96da3657f6253af29e0dea2a8a7d8fe9affb36..31727fd610d6a392ad0cffd8c995df73
  
  PRODUCT_PACKAGES_DEBUG += \
 
-commit f3ea5023a08071408c0e670bc20b354ce97b549d
+commit 0192ec0dc711a2fd7c12d0a41e3a79120c3fd982
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:59-0400
 
@@ -597,10 +497,10 @@ Date:   Wed 2020-10-14 19:16:59-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 31727fd610d6a392ad0cffd8c995df73751f1c67..b462d75656d111e3e3dc10809fa134dad8c33a94 100644
+index 372a82bbf89a30c3d7df47dcdbf931865e97f741..645939df424086e09d7feb3fe33636088d366c38 100644
 --- a/device-common.mk
 +++ b/device-common.mk
-@@ -750,21 +750,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
+@@ -754,21 +754,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
  
  # Enable tcpdump_logger on userdebug and eng
  ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -651,7 +551,7 @@ index ea46820150f4cb83a6d65525c9c75da527c86a7d..1ab6df86faac622ac426ddf239c677d9
      <bool name="config_pinnerCameraApp">true</bool>
  
 
-commit b679fd6325366f642e25d3252887d721b30af832
+commit 9deb218817c8ec7a2c06aad5885f56a0bfc965d0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:25-0400
 
@@ -688,7 +588,7 @@ index 1ab6df86faac622ac426ddf239c677d957da6f0b..99fa2f8a623cfb31647560cb5bab30d7
          <item>"usb\\d"</item>
          <item>"rndis\\d"</item>
 
-commit c92071ba51e4610bda4c0241398d86caeb2821ce
+commit 6a17fdada9dc7929ba7df0d15b465fef9346c028
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:50-0400
 
@@ -698,7 +598,7 @@ Date:   Wed 2020-10-14 19:17:50-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index b462d75656d111e3e3dc10809fa134dad8c33a94..50d0b1ad5f6ad6487d005cbdaf74ca2727814794 100644
+index 645939df424086e09d7feb3fe33636088d366c38..84f9fc260643cdd7e072b9c945fc8644cf20a947 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -88,23 +88,20 @@ PRODUCT_COPY_FILES += \
@@ -726,7 +626,7 @@ index b462d75656d111e3e3dc10809fa134dad8c33a94..50d0b1ad5f6ad6487d005cbdaf74ca27
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
 
-commit 58ef4cdf4db71dab3171fa2972aca7bd8505adb1
+commit 87618dda8949950b6dd45b9ce8830b76c8152e48
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Wed 2020-07-22 18:40:15+0000
 
@@ -767,7 +667,7 @@ index cc808edd3fd4aaa324e0cfa4b37c3fb55d1cd92c..678fb9a10733c1da5b32d550e8370920
      mkdir /data/vendor/sensors 0770
      chown system system /data/vendor/sensors
 
-commit 0e6af2871fc8b358dae0bd9469382bc0666da4b7
+commit 95d87b7add0a2be85c84332eb3906c4adaabc78e
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sat 2020-11-14 02:09:38+0000
 
@@ -878,7 +778,7 @@ index d27d483bdd519620efa0f58c2da2a92108332b14..e6d6cbe0d83817969f2b904a57afe12a
  /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
  /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
 
-commit 8ad40ac1305e30019ff89505bacff1208c1e94f7
+commit 801f25179f15d9332a541b7eb6caed640f4b0a41
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-02-11 22:30:29-0500
 
@@ -888,10 +788,10 @@ Date:   Thu 2021-02-11 22:30:29-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/device-common.mk b/device-common.mk
-index 50d0b1ad5f6ad6487d005cbdaf74ca2727814794..45402377d5ccdb901e499943346151bae6503696 100644
+index 84f9fc260643cdd7e072b9c945fc8644cf20a947..fa75e087f4876314a62b7825ebe106c6f5ab373d 100644
 --- a/device-common.mk
 +++ b/device-common.mk
-@@ -838,20 +838,22 @@ endif
+@@ -842,20 +842,22 @@ endif
  
  PRODUCT_COPY_FILES += \
      $(LOCAL_PATH)/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
@@ -915,7 +815,7 @@ index 50d0b1ad5f6ad6487d005cbdaf74ca2727814794..45402377d5ccdb901e499943346151ba
  PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
  # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
 
-commit 880aa6bc6999966c395bcb456a20497da537faa1
+commit 077d853f1a8e002e2eec2f1908aa735c9c7ec153
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -973,7 +873,7 @@ index 0000000000000000000000000000000000000000..333bb3248d690c8fdeef553d5dbb801c
 +    </integer-array>
 +</resources>
 
-commit 24b484a13b252e69b9ce61e4266a2349f066dc77
+commit 4c735a714ddf66badedb5dac48c2578d5f0e66fd
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 02:35:39+0100
 
@@ -983,10 +883,10 @@ Date:   Sun 2021-10-10 02:35:39+0100
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 45402377d5ccdb901e499943346151bae6503696..39c4bd301bfd2ef0aa8b1ad704970a4e43ae7948 100644
+index fa75e087f4876314a62b7825ebe106c6f5ab373d..b02d89426cc4f80b2fd61dafb35aaeebb372e1d1 100644
 --- a/device-common.mk
 +++ b/device-common.mk
-@@ -943,23 +943,20 @@ endif
+@@ -947,23 +947,20 @@ endif
  # Disable Rescue Party on userdebug & eng build
  ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
  PRODUCT_PRODUCT_PROPERTIES += \
@@ -1011,7 +911,7 @@ index 45402377d5ccdb901e499943346151bae6503696..39c4bd301bfd2ef0aa8b1ad704970a4e
  
  # Set system properties identifying the chipset
 
-commit b974ff9497971fbaa5f5e9795c42f185e874febf
+commit ba76f54509f1b6a19da50655a8f75ad66893acad
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 19:12:42-0700
 
@@ -1047,23 +947,20 @@ index 99fa2f8a623cfb31647560cb5bab30d7c2205412..7642a8919c0d52d003adc7144cbc2194
 +    <bool name="config_supportsCamToggle">true</bool>
  </resources>
 
-commit 0bba177464f92deb70d140e15f69955ae011689e
+commit a77df09a451b741bf2202de79eefbebdeacdfb7e (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-11 17:56:30-0400
 
-    Declare support for ARMv8.2 extensions
-    
-    This allows clang and ART to make use of ARMv8.2 extensions for better
-    performance.
+    use more modern target CPU configuration
 ---
- BoardConfig-common.mk | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ BoardConfig-common.mk | 10 ++++------
+ 1 file changed, 4 insertions(+), 6 deletions(-)
 
 diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
-index f7d1f95f671a1da497d140fbb163d539f63a5c6a..d5c8bb90ba06940790f71910327e855f85aabe3f 100644
+index f7d1f95f671a1da497d140fbb163d539f63a5c6a..cde1cbced48d2eb90451ff30942222b3a37bad12 100644
 --- a/BoardConfig-common.mk
 +++ b/BoardConfig-common.mk
-@@ -14,29 +14,29 @@
+@@ -14,33 +14,31 @@
  # limitations under the License.
  #
  
@@ -1078,58 +975,14 @@ index f7d1f95f671a1da497d140fbb163d539f63a5c6a..d5c8bb90ba06940790f71910327e855f
 +TARGET_ARCH_VARIANT := armv8-2a-dotprod
  TARGET_CPU_ABI := arm64-v8a
  TARGET_CPU_ABI2 :=
- TARGET_CPU_VARIANT := generic
- TARGET_CPU_VARIANT_RUNTIME := cortex-a76
- 
- ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
- TARGET_2ND_ARCH := arm
--TARGET_2ND_ARCH_VARIANT := armv8-a
-+TARGET_2ND_ARCH_VARIANT := armv8-2a
- TARGET_2ND_CPU_ABI := armeabi-v7a
- TARGET_2ND_CPU_ABI2 := armeabi
- TARGET_2ND_CPU_VARIANT := generic
- TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
- endif
- 
- BUILD_BROKEN_DUP_RULES := true
- BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200n8 androidboot.console=ttyMSM0 printk.devkmsg=on
- BOARD_KERNEL_CMDLINE += msm_rtb.filter=0x237
- BOARD_KERNEL_CMDLINE += ehci-hcd.park=3
-
-commit 6d57f0a4b78626af40c67c508308b6f5c0e5e188 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2021-10-11 17:57:02-0400
-
-    Optimize native executables for Cortex-A76 CPU
-    
-    Allow the compiler to take advantage of ARMv8.2 extensions to improve
-    performance in native executables, not just Java code compiled by ART.
----
- BoardConfig-common.mk | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/BoardConfig-common.mk b/BoardConfig-common.mk
-index d5c8bb90ba06940790f71910327e855f85aabe3f..cde1cbced48d2eb90451ff30942222b3a37bad12 100644
---- a/BoardConfig-common.mk
-+++ b/BoardConfig-common.mk
-@@ -17,30 +17,28 @@
- include build/make/target/board/BoardConfigMainlineCommon.mk
- include build/make/target/board/BoardConfigPixelCommon.mk
- 
- TARGET_BOARD_PLATFORM := lito
- USES_DEVICE_GOOGLE_REDBULL := true
- 
- TARGET_ARCH := arm64
- TARGET_ARCH_VARIANT := armv8-2a-dotprod
- TARGET_CPU_ABI := arm64-v8a
- TARGET_CPU_ABI2 :=
 -TARGET_CPU_VARIANT := generic
 -TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 +TARGET_CPU_VARIANT := cortex-a76
  
  ifeq (,$(filter %_64,$(TARGET_PRODUCT)))
  TARGET_2ND_ARCH := arm
- TARGET_2ND_ARCH_VARIANT := armv8-2a
+-TARGET_2ND_ARCH_VARIANT := armv8-a
++TARGET_2ND_ARCH_VARIANT := armv8-2a
  TARGET_2ND_CPU_ABI := armeabi-v7a
  TARGET_2ND_CPU_ABI2 := armeabi
 -TARGET_2ND_CPU_VARIANT := generic

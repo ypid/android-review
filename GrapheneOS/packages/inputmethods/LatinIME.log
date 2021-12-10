@@ -1,4 +1,4 @@
-commit c692386319b4aafca15fad7eadb34e0267c7e492
+commit 7e1a5037d38bc12c9a64d8e96630edf3dc2900a4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-09-14 00:03:16-0400
 
@@ -62,7 +62,7 @@ index 57018244ff0e0002495292e0442d7a376ca1d5fe..a2153df036141623765f548e9d8531b6
          mDoubleSpacePeriodTimeout = res.getInteger(R.integer.config_double_space_period_timeout);
          mHasHardwareKeyboard = Settings.readHasHardwareKeyboard(res.getConfiguration());
 
-commit fcf2fd8488ac21acc7055d5c2106ed92f0bfb1a6
+commit fd78189edae6d82dff7d15a22f3db09604fd909b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-12-15 03:37:17-0500
 
@@ -102,7 +102,7 @@ index f01909f373f4c9b4f5db30a36debe100b750cd54..55b9b102ec737ed81575ba9d0cac4a3e
          android:key="screen_advanced" />
  </PreferenceScreen>
 
-commit 3a195da11d9044b4579dc4303e51780e84981b4c
+commit 7d9d07c82895e490109eacbe98d606de5aaa7489
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 16:20:43-0500
 
@@ -161,7 +161,7 @@ index b90fbaea58acf4fd485503c4ded920396b0251e2..45ff0b1ffac3f0c1ba90d78e57ce09c0
      <bool name="config_use_fullscreen_mode">false</bool>
  </resources>
 
-commit 3704b94dd33602dcc4997e744d9d23bc111ea415 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit f2c854914f469bc38a93c8e1fd2b69ccceb3a848 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-31 00:00:58-0400
 

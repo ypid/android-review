@@ -1,4 +1,4 @@
-commit 04232c6b6fb3db17b765538d21d61637ee957723 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 861b94e0fe66200c31816bf2b5560b74b21c73fa (HEAD, m/master, grapheneos/12)
 Author: renlord <me@renlord.com>
 Date:   Fri 2021-10-15 19:11:18+0530
 
@@ -10,12 +10,12 @@ Date:   Fri 2021-10-15 19:11:18+0530
     
     based on https://github.com/GrapheneOS/platform_frameworks_opt_net_wifi/commit/a0d9bda06b71694f38fe02bbe24628ee21a7d270
 ---
- .../android/wifitrackerlib/StandardWifiEntry.java  | 31 ++++++++++++++++------
+ .../android/wifitrackerlib/StandardWifiEntry.java  | 32 ++++++++++++++++------
  .../src/com/android/wifitrackerlib/WifiEntry.java  |  1 +
- 2 files changed, 24 insertions(+), 8 deletions(-)
+ 2 files changed, 25 insertions(+), 8 deletions(-)
 
 diff --git a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
-index 994331a69543c3252fae69e89fba22a60d27019f..002617727cd8baff8060ea70d4036eb1cf850526 100644
+index 994331a69543c3252fae69e89fba22a60d27019f..56e81099c42f4b9aacd7921f37f0eb29a099b743 100644
 --- a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
 +++ b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
 @@ -247,21 +247,21 @@ public class StandardWifiEntry extends WifiEntry {
@@ -41,7 +41,7 @@ index 994331a69543c3252fae69e89fba22a60d27019f..002617727cd8baff8060ea70d4036eb1
      }
  
      @Override
-@@ -501,40 +501,55 @@ public class StandardWifiEntry extends WifiEntry {
+@@ -501,40 +501,56 @@ public class StandardWifiEntry extends WifiEntry {
      }
  
      @Override
@@ -57,13 +57,14 @@ index 994331a69543c3252fae69e89fba22a60d27019f..002617727cd8baff8060ea70d4036eb1
 -                == WifiConfiguration.RANDOMIZATION_NONE) {
 -            return PRIVACY_DEVICE_MAC;
 +        if (mTargetWifiConfig != null) {
-+            switch(mTargetWifiConfig.macRandomizationSetting) {
++            switch (mTargetWifiConfig.macRandomizationSetting) {
 +                case WifiConfiguration.RANDOMIZATION_NONE:
 +                    return PRIVACY_DEVICE_MAC;
-+                case WifiConfiguration.RANDOMIZATION_PERSISTENT:
-+                    return PRIVACY_RANDOMIZED_MAC;
-+                default:
++                case WifiConfiguration.RANDOMIZATION_ALWAYS:
 +                    return PRIVACY_RANDOMIZATION_ALWAYS;
++                default:
++                    // WifiConfiguration.RANDOMIZATION_AUTO and WifiConfiguration.RANDOMIZATION_PERSISTENT
++                    return PRIVACY_RANDOMIZED_MAC;
 +            }
          } else {
 -            return PRIVACY_RANDOMIZED_MAC;
@@ -83,8 +84,8 @@ index 994331a69543c3252fae69e89fba22a60d27019f..002617727cd8baff8060ea70d4036eb1
          mWifiManager.save(mTargetWifiConfig, null /* listener */);
      }
  
-+    private static int translatePrivacyToWifiConfigurationValues(int privacy_value) {
-+        switch(privacy_value) {
++    private static int translatePrivacyToWifiConfigurationValues(int privacyValue) {
++        switch (privacyValue) {
 +            case PRIVACY_RANDOMIZED_MAC:
 +                return WifiConfiguration.RANDOMIZATION_PERSISTENT;
 +            case PRIVACY_DEVICE_MAC:
@@ -105,7 +106,7 @@ index 994331a69543c3252fae69e89fba22a60d27019f..002617727cd8baff8060ea70d4036eb1
  
      @Override
 diff --git a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java
-index 6ec5d8ba3348e08240e3b973c3fedd09164a1f83..f7e1dcb19bedcd2e7395d25e0c648703eb9093e5 100644
+index 15edf8a1888e162014bb7d5ab844698a78302493..e3bc3a45ba63bc8188ea9e562b776f31fc2ab192 100644
 --- a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java
 +++ b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/WifiEntry.java
 @@ -149,20 +149,21 @@ public class WifiEntry implements Comparable<WifiEntry> {

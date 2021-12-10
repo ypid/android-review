@@ -1,4 +1,4 @@
-commit 2b27f0088e8a79c8e8fdf5f3a1894c9fa4225701
+commit a717a041b24c8d0df694b2b74798d21069bf6b0d
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2021-02-11 05:33:06+0530
 
@@ -27,7 +27,7 @@ index 11d4684e6bc4a140d3dfc84311768bc98ac1a857..2a95c5bac70325a8697f5cbd36aa565f
 -PRODUCT_MODEL := AOSP on bramble
 +PRODUCT_MODEL := Pixel 4a (5G)
 
-commit 4a706e5a1013fdf93e1f260cf04a01eb876f35c2
+commit 099acfebfb52efb4dc5d3564070b091ea301a555
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 23:54:30-0400
 
@@ -57,7 +57,7 @@ index 2a95c5bac70325a8697f5cbd36aa565f0fdd2c9b..c0661c30613d3ee2c0c488a818394c58
  PRODUCT_DEVICE := bramble
  PRODUCT_MODEL := Pixel 4a (5G)
 
-commit cdf91be6639a463ac28f4802cbc9fbd51265d26b
+commit 470c303d96716299ae49119ecadde08f11abfe24
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 23:55:09-0400
 
@@ -102,7 +102,7 @@ index 0000000000000000000000000000000000000000..6ea6cb636f50335528ea8c4b24b16acb
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := bramble
 
-commit 4b37f787904cf02a64d48e1577c20e6e588aec76
+commit d4f3aa05080dc04c6c633584c3cac98b63e72341
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2021-02-11 09:24:39+0530
 
@@ -140,7 +140,7 @@ index 0dce4eecf19eea0ac3bfd0331bfdde6f951c933f..7e936c71f25a66b793a5c8caee895f9c
  endif
  
 
-commit 094c6fb6b9753e428ebdf3671bb0d7ca2ae51fc0
+commit cddf5b5b360071671d33a74916a229cd33182211
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2021-02-11 09:25:27+0530
 
@@ -176,7 +176,7 @@ index f2728df28091a374ff6bfa6e4e50f3695420e722..2d0aabd674c2b8ccd2b3f754a5cf16a2
  # All devices enabled
  setprop|vendor.all.devices.ready
 
-commit 40a3c98aadf68c9389bfdb767b445dcc128ef9d6
+commit 8462dd125b5deb46742a89dade776fc7dc9ad9c2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:57:21-0500
 
@@ -213,7 +213,7 @@ index 7e936c71f25a66b793a5c8caee895f9c019c9792..e830d0dddcfd28af47ee01d50ec310f0
  
  PRODUCT_SOONG_NAMESPACES += \
 
-commit 7090faf0cd75af5a3e50dec036d08f719f92019c
+commit f2e38262212e81e5827570ec40f647d96a2a7b76
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:30:00+0200
 
@@ -261,7 +261,7 @@ index 0000000000000000000000000000000000000000..5d0182c7f8816207afc386c031c52b12
 +    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
 +</config>
 
-commit 8a8d1d2eea5a0389b021ba8fe8c76854c80e7fed
+commit 11bc4b5f358fb317fb662280bbe25aecf999a2bb
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 01:00:50+0100
 
@@ -298,7 +298,7 @@ index c0661c30613d3ee2c0c488a818394c584b6f6d5e..7ef7e0f1da911d2d1817c1515cb09601
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit 6b699d00df26b3d919b572d97a89739fcfecfaf1 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 53fe4c0bbd8775a025daea95b952543920bd2e00 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:16:18-0400
 

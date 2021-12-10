@@ -1,4 +1,4 @@
-commit 9d96296e05fa5527d1a18c105c84ec6841b0237a
+commit 81403fffdeaf5346886eebecdedf49de4a585d20
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-06-06 10:40:51-0400
 
@@ -8,7 +8,7 @@ Date:   Sat 2015-06-06 10:40:51-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/nfc/NfcService.java b/src/com/android/nfc/NfcService.java
-index 633b8f46473a7206dfce1928b85c3f8295b1301b..d21ef7fdb2c7dcee3cb35ce2409c4ca8ec883566 100644
+index c4791a83e167b47bfc9becdc6f1643df20689862..c2be1dfacb66fdd0aff117f4729f6f2bd462bb86 100644
 --- a/src/com/android/nfc/NfcService.java
 +++ b/src/com/android/nfc/NfcService.java
 @@ -122,21 +122,21 @@ public class NfcService implements DeviceHostListener {
@@ -35,7 +35,7 @@ index 633b8f46473a7206dfce1928b85c3f8295b1301b..d21ef7fdb2c7dcee3cb35ce2409c4ca8
      static final boolean ANTENNA_BLOCKED_MESSAGE_SHOWN_DEFAULT = false;
  
 
-commit 847229e9db8a62a650bc7fb981756c10b06c3d68 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 64db0fcf16dcd560f6a3896191946475f659cbc3 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 20:58:37-0400
 

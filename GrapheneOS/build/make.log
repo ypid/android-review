@@ -1,62 +1,4 @@
-commit 659e044b986c7207297cd2b92a660b91394ce037
-Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
-Date:   Thu 2021-09-23 01:29:27+0000
-
-    Version bump to SP1A.211105.003 [core/build_id.mk]
-    
-    Change-Id: If3c90060e117372b9590550813fafb7b1d9dd4b8
----
- core/build_id.mk | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/core/build_id.mk b/core/build_id.mk
-index c4aa6999eae4a7f995309264aa5501ea4fd0a625..91ac0e268dbb1308a5deba0ff28fe2c410ecd197 100644
---- a/core/build_id.mk
-+++ b/core/build_id.mk
-@@ -11,11 +11,11 @@
- # distributed under the License is distributed on an "AS IS" BASIS,
- # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- # See the License for the specific language governing permissions and
- # limitations under the License.
- #
- # BUILD_ID is usually used to specify the branch name
- # (like "MAIN") or a branch name and a release candidate
- # (like "CRB01").  It must be a single word, and is
- # capitalized by convention.
- 
--BUILD_ID=SP1A.211105.002
-+BUILD_ID=SP1A.211105.003
-
-commit 53d8aa9e906bf1ac5e7ca942a8965cbc48550960
-Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
-Date:   Wed 2021-10-20 20:28:37+0000
-
-    Version bump to SP1A.211105.004 [core/build_id.mk]
-    
-    Change-Id: I5efdc7bbff1a82c3827d35649eab32d288828c06
----
- core/build_id.mk | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/core/build_id.mk b/core/build_id.mk
-index 91ac0e268dbb1308a5deba0ff28fe2c410ecd197..fe2823a4abec7a1b16e947ac1b7acd80131c5dc5 100644
---- a/core/build_id.mk
-+++ b/core/build_id.mk
-@@ -11,11 +11,11 @@
- # distributed under the License is distributed on an "AS IS" BASIS,
- # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- # See the License for the specific language governing permissions and
- # limitations under the License.
- #
- # BUILD_ID is usually used to specify the branch name
- # (like "MAIN") or a branch name and a release candidate
- # (like "CRB01").  It must be a single word, and is
- # capitalized by convention.
- 
--BUILD_ID=SP1A.211105.003
-+BUILD_ID=SP1A.211105.004
-
-commit c3c6512e5f91e37ad50f459fa3f4a27a36836c49
+commit fc06e23491474a68153b83ac245b8b96bc896d27
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-10-06 04:08:11+0100
 
@@ -86,7 +28,7 @@ index a970fec1ecf83bd1d2a55cf2a247fb445dd2b139..67c3a2b62d17c3b2b3f36c05bfe5972e
 +# temporary hack for APV
 +BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-commit 6e94781ea9e3134eddaf148aeca463b1a6c45ac4
+commit 97403577bf475269399dd5bc1fcf05278e9dde44
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 18:05:27-0400
 
@@ -126,7 +68,7 @@ index 2d56edb9eee5f1591b9597b0fab09f1cf70de4cb..1a72716ae28194fd178de7676252d294
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit 13cee460773dcdc8c946fb5af8368f5793ec7496
+commit 49155bbda1f2f1b10aa1aef6b9fe3e49be569470
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-10-15 00:58:53-0400
 
@@ -170,7 +112,7 @@ index 1a72716ae28194fd178de7676252d294835aeb3a..a7153704c87f9c0280d7be6104f47517
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit 5bcbfb4cdd9c59e8df05fb171d8e85fc557711a0
+commit 7b3b73b5b3c1c4b26fcdb0b6d3078f910e240651
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-11-23 04:27:20-0500
 
@@ -208,7 +150,7 @@ index c10a3cc5412a69c593488fd6196e3c581a17eab5..dd74da5b465e53ef162b35286ca9ee48
    else
      # Disable debugging in plain user builds.
 
-commit a84abaae3696c95dbecee925fcf45cc7b2b95866
+commit 582bb176d54d80e7e107c1bd64f807f2e28e1449
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:24:59-0400
 
@@ -249,7 +191,7 @@ index 30a8621b1565c61fe0154d5486e81103ea77e1f4..52329852398cf298b062f82b2bbea674
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 0d48daabf18fca638ac38dca79458268f939b134
+commit 7310c78c281bfa7a49cf8c59b3e99bb5c3655428
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:59:56-0400
 
@@ -279,7 +221,7 @@ index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c808
 +    messaging \
 +    Stk
 
-commit cd3e45371e618071bfa0eebc5ca7298e636caf00
+commit c794a130846c68b6b301864106d111d977597483
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:28:11-0400
 
@@ -401,7 +343,7 @@ index 51238a36ca10cecc8192b9157d4d792566acae91..9d261453f4cd07cd666202b60281c272
  $(strip \
    $(eval _prop := $(patsubst $(1)=%,%,$(filter $(1)=%,$(PRODUCT_VENDOR_PROPERTIES))))\
 
-commit 1a9e67830cbade36383cd654199fab09725d8d5e
+commit aa01cac7c161e330b1b6ff3c39a7e164bb5402d1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2016-08-28 14:14:10-0400
 
@@ -442,7 +384,7 @@ index b511aa6b94b940679026e1f51be52b6d54469e53..031e7b827f37a3213cbae3f1a484ce51
  # On eng builds, make "boot" reasons only extract for faster turnaround.
  ifeq (eng,$(TARGET_BUILD_VARIANT))
 
-commit ee54d101132b3655eecc8c13775e7eff7e238e0f
+commit d41a13b4da3aa8426c0607706845c492717e8f53
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-09-07 23:27:07-0400
 
@@ -501,7 +443,7 @@ index 031e7b827f37a3213cbae3f1a484ce51683f0e5c..ec0f89b81eb694c59007d379f8e96193
  # Enable resolution of startup const strings.
  PRODUCT_SYSTEM_PROPERTIES += \
 
-commit 9a9f39f1b650b0a336422575f21170eecc155a8a
+commit f16cb69b8f347e224e044c44dcca5512e5b7bbad
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-09-29 01:02:28-0400
 
@@ -582,7 +524,7 @@ index ec0f89b81eb694c59007d379f8e9619303c49d0e..2916e4b2e7fcbcfb2ee6c2cc8b54b311
  
  # Specify default block size of 512K to enable parallel image decompression.
 
-commit aea4482edf196261dc1894f836d6565595228cf4
+commit 768b0b337d242ee657c2b3d1547036e276c656b9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:42:53-0400
 
@@ -620,7 +562,7 @@ index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e27
      OneTimeInitializer \
      preinstalled-packages-platform-handheld-product.xml \
 
-commit 179bffcf8da5ac57bfed5bc4bf67d5cb8f875245
+commit 31831a477cf63eaa11e32de4f5a52799a140618d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:43:04-0400
 
@@ -655,7 +597,7 @@ index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 8a2c7924d1057891f35541e9e40d1c47ba0bb883
+commit 1d971c18bd46e891b3a4669185c249d043267f24
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-06-17 07:13:49-0400
 
@@ -693,7 +635,7 @@ index dd74da5b465e53ef162b35286ca9ee4896dbe70b..12e961d25fe17f5ba665e9fb94796f6e
    else
      # Disable debugging in plain user builds.
 
-commit 3bd926a75648fccc04e37b0986a82c6ade16beb1
+commit 5fc67fe1b847b3eaab01b2bfabccb3c0e78802c1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-09-13 22:05:56-0400
 
@@ -726,7 +668,7 @@ index 46f7f2477b620acd5f539c2c140d52e38e539a77..017aa238225c4a30981f68c28c175225
 +  endif
 +endif
 
-commit 2cf0c4de7668b1023a7a0ef9754743e60921fe0c
+commit 1a6988347bcf034b85d6dd9c276a991b851267c3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:18:49-0400
 
@@ -764,7 +706,7 @@ index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00
      frameworks-base-overlays
  
 
-commit 880d95bad1016d367cf982e3e3a515efa64a682c
+commit f33ffd197acc3089c4e6ab969e0652783bb81094
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-09-21 08:44:23-0400
 
@@ -804,7 +746,7 @@ index f13c9db4d1f98a7dee642a52de659a6227d8c7ce..d930957dfb181dad61bfea434e215757
      Stk \
      Tag \
 
-commit 20dd3f41c53ac3b4d31da98b3919b550a5dcd98b
+commit 4d93c485cefae0a342dc698c0207c6c550735922
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:21:18-0500
 
@@ -850,7 +792,7 @@ index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff40
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 97e831cafdab0d482c556f2a520c14fbcad21ab8
+commit b403002d53b76a2afab9dcaf3f7e06941d790a8c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:23:07-0500
 
@@ -879,7 +821,7 @@ index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49
 -    webview \
 +    TrichromeWebView \
 
-commit 66c1f4eb8760c5df75be5985b4abdb6e16957405
+commit 7eaf98ba398abdc4f98826da8c4fb7e2607d6cc4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 00:55:25-0400
 
@@ -918,7 +860,7 @@ index 52329852398cf298b062f82b2bbea674639963c0..a835c2c016743d3c790f80b0c253e1c6
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit a800bba0154c7c5e59558a9139a696e791623206
+commit 67ac46155f4080ea65d55a0086059c99a2505864
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-03-11 18:08:31+1100
 
@@ -949,7 +891,7 @@ index d935fbfddfce5d511c3d0e5f20bd73630a553efd..0e2a48fcf5cc9ae9335da7597489b844
      SystemUI \
      WallpaperCropper \
 
-commit 844c73d492cde1582e4839d9350eda2462a29367
+commit 4207754ff40785f1352ffd4990b66b198820ea59
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-03-16 18:01:18-0400
 
@@ -998,7 +940,7 @@ index 00f6e5b0ac56d846a4958e845ff3b1225945e533..cac3c22950564a444241fdf439979d48
  BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  
 
-commit ebe1c8f7076f7d4b0240fcf7a96fbf086fd3cfa6
+commit 4e099471fec262e11b5293763c64f187c8c63dab
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-05-12 21:02:49-0400
 
@@ -1038,7 +980,7 @@ index 12e961d25fe17f5ba665e9fb94796f6efa7c2af5..d29afefed80d9c64b4195fa7e518590c
    FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
  endif
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index 4c832277786ceddee4877f2c4b6d0728d969e1b3..a47d7f4e15c0ff035f44d0174037360265382551 100644
+index f429d7c72cb3040081b5a98a363aec6fa27010dc..4c022386d869f3d1bdc647c9ee14799ab21012f7 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -268,21 +268,21 @@ ifndef BUILD_ID
@@ -1065,7 +1007,7 @@ index 4c832277786ceddee4877f2c4b6d0728d969e1b3..a47d7f4e15c0ff035f44d01740373602
  ifndef BUILD_NUMBER
    # BUILD_NUMBER should be set to the source control value that
 
-commit f13ef094a9aa616c058380ed678cacebfe854c7e
+commit 801c4d2303109d2f38c4bb35a5c61f3bd4be5d17
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-05-16 19:44:32-0400
 
@@ -1091,7 +1033,7 @@ Date:   Sat 2020-05-16 19:44:32-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index a47d7f4e15c0ff035f44d0174037360265382551..f195e1ab9ede0dd486c7a674e159cc6f64549628 100644
+index 4c022386d869f3d1bdc647c9ee14799ab21012f7..019b8bbd233dea83c400795439be82f784c54495 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
@@ -1110,13 +1052,13 @@ index a47d7f4e15c0ff035f44d0174037360265382551..f195e1ab9ede0dd486c7a674e159cc6f
  endif
  .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
 
-commit 35d683b7fe97590a0248bbf57add57536401644b
+commit 2b2e62e15e144cd7f4038c8a22213f06cc99f055
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-09-17 10:53:00-0400
 
     disable enforce RRO for mainline devices
     
-    RROs are currently incompatible with exec-based spawning. This also
+    This is currently incompatible with exec-based spawning. This also
     impacts the wrapper spawning model for the stock OS which is available
     by default, making it an upstream bug rather than a missing feature for
     exec-based spawning in GrapheneOS.
@@ -1154,7 +1096,7 @@ index d930957dfb181dad61bfea434e21575720a9a06a..f0a9400b869483eed2a80d7233b495fe
  PRODUCT_SYSTEM_MANUFACTURER := Android
  PRODUCT_SYSTEM_MODEL := mainline
 
-commit e284aa2ea4ce750ad1b9a36270a50981ad6cd96a
+commit 131e52bf68efaeb4c7f4ab62b7733b4b913398fe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-09 23:48:11-0500
 
@@ -1192,7 +1134,7 @@ index b7a2d0dad0aa52bc47d70b23291ff32782527900..c0e3fa15fd187e60a56031091fd07f96
  
  PRODUCT_SYSTEM_SERVER_APPS += \
 
-commit 27e405c0e796f6ac65c5013aedda4dc513ecae07
+commit 1165547c00f2f681fb65a6f3267691f03fcc7b55
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:05:40-0400
 
@@ -1230,7 +1172,7 @@ index d29afefed80d9c64b4195fa7e518590c2171d2f2..a8c331b7484eeb8481bd6c2ebfcdcd54
    else
      # Disable debugging in plain user builds.
 
-commit 4fbce1e40e56c963ff8a417680c40283f6a5c2c9
+commit d26c67db91d8721c3a44c91aabdd6e6f97cfb71b
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 23:43:06-0800
 
@@ -1266,7 +1208,7 @@ index e396ad11ff2f62edd1262e1400c3ef3243b90366..8e194ca959cd10aa90bdf0a11845a581
  PRODUCT_COPY_FILES += \
      device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 
-commit 61cfc9e869bc11b5223923e3724ac02b5db92f9c
+commit 25edaef8288ffce6b35e074225b2d7a94c3263c6
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Fri 2021-04-30 18:42:13+0000
 
@@ -1296,7 +1238,7 @@ index f504f61874b48910ccbf294e7bfaff402030b08b..a1796547a83e5b1435ceb2cb7ffb22bc
 +# Build in theming functionality
 +$(call inherit-product-if-exists, themes/main.mk)
 
-commit fba32f18981ed5127a06078bcf7985b4c255d96b
+commit 1ee28fead0ad8c843da56473eb0025da8925c282
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-09-29 04:29:05+0100
 
@@ -1355,14 +1297,16 @@ index d8a54cd7f3de9348a8960efdae8530c28b99172f..a2353e9857f6baf096542e160c7c1721
  $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
-commit 2ab5c1db704cffb0dfa5d955c5853523971dabc3
+commit d3a62997ef9bde69d9be524449406ce1b7ef483f
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 03:09:35+0100
 
-    Pixel devices use OEM APNs
+    default to OEM_APNS being true to work around it not working
 ---
  target/board/BoardConfigPixelCommon.mk | 3 +++
- 1 file changed, 3 insertions(+)
+ target/product/aosp_product.mk         | 1 +
+ target/product/full_base_telephony.mk  | 1 +
+ 3 files changed, 5 insertions(+)
 
 diff --git a/target/board/BoardConfigPixelCommon.mk b/target/board/BoardConfigPixelCommon.mk
 index 67c3a2b62d17c3b2b3f36c05bfe5972e5a88f369..6cbd2da67bd8cbcf06110af6731ef304575bc6ef 100644
@@ -1382,8 +1326,51 @@ index 67c3a2b62d17c3b2b3f36c05bfe5972e5a88f369..6cbd2da67bd8cbcf06110af6731ef304
 +
 +# Pixel devices ship with OEM APNs, so do not bundle the sample AOSP APNs
 +OEM_APNS := true
+diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
+index 129ec68fa94d02f7cada32b6b6121689943c7e55..6e991f4a8a55b4da37dadbccdbed3b6f0437da86 100644
+--- a/target/product/aosp_product.mk
++++ b/target/product/aosp_product.mk
+@@ -28,14 +28,15 @@ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.com.android.dataroaming?=true \
+ 
+ # More AOSP packages
+ PRODUCT_PACKAGES += \
+     messaging \
+     PhotoTable \
+     preinstalled-packages-platform-aosp-product.xml \
+ 
+ # Telephony:
+ #   Provide a APN configuration to GSI product
++OEM_APNS ?= true
+ ifneq ($(OEM_APNS),true)
+ PRODUCT_COPY_FILES += \
+     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
+ endif
+diff --git a/target/product/full_base_telephony.mk b/target/product/full_base_telephony.mk
+index a2353e9857f6baf096542e160c7c17215796cc03..9ba0593751e22af3aa2a18d625add2eb17862e03 100644
+--- a/target/product/full_base_telephony.mk
++++ b/target/product/full_base_telephony.mk
+@@ -19,17 +19,18 @@
+ # build quite specifically for the emulator, and might not be
+ # entirely appropriate to inherit from for on-device configurations.
+ 
+ PRODUCT_VENDOR_PROPERTIES := \
+     keyguard.no_require_sim?=true \
+     ro.com.android.dataroaming?=true
+ 
+ PRODUCT_COPY_FILES := \
+     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
+ 
++OEM_APNS ?= true
+ ifneq ($(OEM_APNS),true)
+ PRODUCT_COPY_FILES += \
+     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
+ endif
+ 
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
-commit a80b7fa8a9ff5341cebe9ba97a61117f909b822a
+commit 8da11678f56a2a5b0df894f9f8a316a83b949e52
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-12 08:19:39-0400
 
@@ -1420,61 +1407,7 @@ index 11c19444bee868f99d2eb0d48ddff705182dadd3..44cc99a946e13bc9e0cac8071f2ef685
      TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT := armv8-2a
    else ifneq (armv8-2a,$(TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT))
 
-commit ead0b5af05e0770774f4a5c193e791a06beca4a2
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Thu 2021-10-21 23:38:39-0400
-
-    work around OEM_APNS issue
----
- target/product/aosp_product.mk        | 1 +
- target/product/full_base_telephony.mk | 1 +
- 2 files changed, 2 insertions(+)
-
-diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
-index 129ec68fa94d02f7cada32b6b6121689943c7e55..f583463091a2586fc79ad707bb6d3857adb1f86c 100644
---- a/target/product/aosp_product.mk
-+++ b/target/product/aosp_product.mk
-@@ -28,14 +28,15 @@ PRODUCT_PRODUCT_PROPERTIES += \
-     ro.com.android.dataroaming?=true \
- 
- # More AOSP packages
- PRODUCT_PACKAGES += \
-     messaging \
-     PhotoTable \
-     preinstalled-packages-platform-aosp-product.xml \
- 
- # Telephony:
- #   Provide a APN configuration to GSI product
-+OEM_APNS := true
- ifneq ($(OEM_APNS),true)
- PRODUCT_COPY_FILES += \
-     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
- endif
-diff --git a/target/product/full_base_telephony.mk b/target/product/full_base_telephony.mk
-index a2353e9857f6baf096542e160c7c17215796cc03..2e8ea7cf9d50406c09340308c0e5632867041667 100644
---- a/target/product/full_base_telephony.mk
-+++ b/target/product/full_base_telephony.mk
-@@ -19,17 +19,18 @@
- # build quite specifically for the emulator, and might not be
- # entirely appropriate to inherit from for on-device configurations.
- 
- PRODUCT_VENDOR_PROPERTIES := \
-     keyguard.no_require_sim?=true \
-     ro.com.android.dataroaming?=true
- 
- PRODUCT_COPY_FILES := \
-     frameworks/native/data/etc/handheld_core_hardware.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/handheld_core_hardware.xml
- 
-+OEM_APNS := true
- ifneq ($(OEM_APNS),true)
- PRODUCT_COPY_FILES += \
-     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
- endif
- 
- $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
- $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
-
-commit a821d81d6027172cdf28395a19deda96f61f1838
+commit d2de78e95a0a59fd341bdb20e4b70998dd7e3ab7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-24 23:02:07-0400
 
@@ -1490,7 +1423,7 @@ Date:   Sun 2021-10-24 23:02:07-0400
  1 file changed, 1 insertion(+)
 
 diff --git a/target/product/aosp_product.mk b/target/product/aosp_product.mk
-index f583463091a2586fc79ad707bb6d3857adb1f86c..21888c801426bb7adff094a76f44b5b94ca4471a 100644
+index 6e991f4a8a55b4da37dadbccdbed3b6f0437da86..63a532a45db7021cd1da6765e1d05196c8028986 100644
 --- a/target/product/aosp_product.mk
 +++ b/target/product/aosp_product.mk
 @@ -19,20 +19,21 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/handheld_product.mk)
@@ -1514,9 +1447,9 @@ index f583463091a2586fc79ad707bb6d3857adb1f86c..21888c801426bb7adff094a76f44b5b9
  
  # Telephony:
  #   Provide a APN configuration to GSI product
- OEM_APNS := true
+ OEM_APNS ?= true
 
-commit 9a3cd9775e3fbbab83407a7209b74a7d123d190f
+commit 4e133b0c1c0f5024de7f49284b4553cf05613c7f (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-30 09:20:51-0400
 
@@ -1552,36 +1485,3 @@ index a1796547a83e5b1435ceb2cb7ffb22bcb4ccd791..580e742ea1e58995c2b41a1786215e1a
      PdfViewer \
      preinstalled-packages-platform-handheld-product.xml \
      QuickSearchBox \
-
-commit 4e532f414872fc199099cef09710167c2c8b3cf3 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Mon 2021-11-01 17:29:44-0400
-
-    set device specific build ids
----
- core/build_id.mk | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/core/build_id.mk b/core/build_id.mk
-index fe2823a4abec7a1b16e947ac1b7acd80131c5dc5..d82beb2453d7646164b837e69bc1a43e8ad0b777 100644
---- a/core/build_id.mk
-+++ b/core/build_id.mk
-@@ -11,11 +11,17 @@
- # distributed under the License is distributed on an "AS IS" BASIS,
- # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- # See the License for the specific language governing permissions and
- # limitations under the License.
- #
- # BUILD_ID is usually used to specify the branch name
- # (like "MAIN") or a branch name and a release candidate
- # (like "CRB01").  It must be a single word, and is
- # capitalized by convention.
- 
--BUILD_ID=SP1A.211105.004
-+ifneq (,$(filter bonito sargo,$(TARGET_PRODUCT)))
-+    BUILD_ID=SP1A.211105.002
-+else ifneq (,$(filter barbet,$(TARGET_PRODUCT)))
-+    BUILD_ID=SP1A.211105.003
-+else
-+    BUILD_ID=SP1A.211105.004
-+endif

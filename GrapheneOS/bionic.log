@@ -1,4 +1,4 @@
-commit bad0d51459591c1b66d4282815d431ec3cfef2a5
+commit 7496a041eb659890406bc19adf4d9b255c39d017
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2016-09-19 07:57:43-0400
 
@@ -40,7 +40,7 @@ index 3260231cf0a32361a08df81e883cfb16550e5334..00c2a4a45257acc99b1acb2bdd74c407
  #define CPU_ISSET(cpu, set)    CPU_ISSET_S(cpu, sizeof(cpu_set_t), set)
  #define CPU_COUNT(set)         CPU_COUNT_S(sizeof(cpu_set_t), set)
 
-commit ec3f38a6b26cfe140f58629f41ecaa917f27c41a
+commit 53bc89dd066ec753001bc62515470afa5361261f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-07-16 23:55:16-0400
 
@@ -110,7 +110,7 @@ index fd97712982204cd680b9190bbfa28a53331cfc69..acd9b76814f046df3a12ec78ffe0105d
    if (trace_marker_fd == -1) {
      return;
 
-commit 8eaa595a9023a992ba2f3da77901faec59d2ec1d
+commit 2e4892c3fb96e83c04e38c93665a1896de0c32f8
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Wed 2021-10-13 15:00:25+0530
 
@@ -256,7 +256,7 @@ index 6c21c5b4985a7f63755671d38e922301a19389e6..49d98c3d23b1700b2062e55a5933e620
  
  __LIBC_HIDDEN__ extern char* __findenv(const char*, int, int*);
 
-commit 921ebc654fd3a693ef7fd56a534536db8cfd2227
+commit 21a2160f565df6bed68a6965297e208120b83b9b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-12-05 01:51:56-0500
 
@@ -505,7 +505,7 @@ index 4afcc4a8d5f3ceb1df0e0126de0a976c6cbb8f53..cca9e52021fe88bd5ba19e707999fc56
    return atomic_load_explicit(&__libc_globals->current_dispatch_table, memory_order_acquire);
  }
 
-commit 025ca9b8641b99075e3c6f5530145975b1dbba8f
+commit 171ac9862a3c0b6e344d94bd6c4018948d1c96ea
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2015-02-08 01:18:54-0500
 
@@ -590,7 +590,7 @@ index 566c33a7a6d3fc6d0b9331ee450946bbc5d5bb28..ef93055139b1a1bbf75ae12b7ee877df
 +  return reinterpret_cast<void*>(-1);
  }
 
-commit dd3c855e23175280ad97dc2a714d89ef5cf313e4
+commit c9f68f0836ac3f4cb0f346526eb910a83e25a944
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-06-27 19:27:12-0400
 
@@ -633,7 +633,7 @@ index 071a5bcb31514ad7bded18fc06ab92a5b8498f36..42dcbaa721e13a9580a2423de9be6460
      get_cached_pid(&old_value);
      set_cached_pid(0);
 
-commit e585f3abd15dfad3b08b9b3561b818727d3e792c
+commit de13b3576b77e06dc4e61545794c82a3a0969edc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2019-03-04 04:26:04-0500
 
@@ -706,7 +706,7 @@ index 9c93e713b71f58c899152c468b2017de86972e2a..c9438ad2b3eedb26db12bef0ada2f551
    return 0;
  }
 
-commit ea2aa97032916c8eeb0e7b56e0f394700c203bdb
+commit 099551ec6abc8bb4769cdb999e02b6187534b5e9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-11-19 09:56:14-0500
 
@@ -770,7 +770,7 @@ index 9aad0b3156096da250e490279f642ae28e9afa28..6bf0ecfd16378207c58b971f6b28f213
    return mmap64(addr, size, prot, flags, fd, static_cast<off64_t>(offset));
  }
 
-commit 51534ec5b097d7f4d9d9d5e821111f81da0019de
+commit 5333d94782a603c55f775e7c5345690905c6c2bb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-07-17 21:32:05-0400
 
@@ -812,7 +812,7 @@ index 42dcbaa721e13a9580a2423de9be646023cfc342..a8fda3212b20e93566d141ba56b09a93
  
  extern "C" bool android_run_on_all_threads(bool (*func)(void*), void* arg);
 
-commit b5c49b73523395e22325c9122e5611cf23a2a674
+commit 3bf95c0d636dd498fd5cf982a8869f79506c27c0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2015-12-02 23:37:28-0500
 
@@ -947,7 +947,7 @@ index 0dcabdfb2de0584d98321237aab2f19a3e982da9..6306052ee3b95cb11c53aa93a1f968d5
    pthread_mutex_lock(&g_atfork_list_mutex);
    g_atfork_list.remove_if([&](const atfork_t* entry) {
 
-commit bb6405410f5f00361819346c2eff59963b228186
+commit e389a249eae1d70ff2aa9f7ef0c15f993ac2e75a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2015-12-03 12:58:31-0500
 
@@ -1070,7 +1070,7 @@ index 6306052ee3b95cb11c53aa93a1f968d5f2afc4d3..d59f3ae54bc39930a304b6790da87459
    pthread_mutex_unlock(&g_atfork_list_mutex);
  }
 
-commit 769cddfa13828f06c745cbe6af45bff8d48b303b
+commit d4e08847ad0242b662eddee131504a9915b85833
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-01-27 18:02:15-0500
 
@@ -1226,7 +1226,7 @@ index e105c18d93d49f71a08d5bf67aa59d09e10fb518..ce05936b032a8c51f432148c088adc1a
    // cannot be modified after that. If the pointer changes in the future,
    // the old pointer must always stay valid.
 
-commit 453685ac060856797275b4f99e36196c5236444e
+commit 8c661cdb9c728e8e2692f53198a91a517b2e7432
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-01-29 20:20:09-0500
 
@@ -1267,7 +1267,7 @@ index 89aa289667f93fd3a2bd1f61e3a76cefc18e4860..08e237f9fa90ddde2540997bfaa9f2ed
    } else if (flag == PTHREAD_INHERIT_SCHED) {
      attr->flags |= PTHREAD_ATTR_FLAG_INHERIT;
 
-commit cf3d513f39bdb5bb04c0162852404f421e61ec95
+commit 366d34a128a1285ec8bda2b6840f1a05b9500c1f
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-09-12 14:51:51+1000
 
@@ -1364,7 +1364,7 @@ index 121b26f82f8c154192c0a83cff348c742e23f689..31c553e25ac8da4925da41d6be1fc7ae
    if (attr->stack_base == nullptr) {
      // The caller didn't provide a stack, so allocate one.
 
-commit a75021c026cb816c515c8842d0e480bda063d7c3
+commit cb158255e82722fbe9a2494fae0bb1a83c472631
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-10-10 22:52:49-0400
 
@@ -1466,7 +1466,7 @@ index 31c553e25ac8da4925da41d6be1fc7ae527d8d72..627fbb25b9243967699d053108234ca1
    auto tcb = reinterpret_cast<bionic_tcb*>(mapping.static_tls + layout.offset_bionic_tcb());
    auto tls = reinterpret_cast<bionic_tls*>(mapping.static_tls + layout.offset_bionic_tls());
 
-commit b161b36575b1148748f37ebbcf2b1eaa88d79d95
+commit 1ba94baad5e695d368bf72a346bf34c083ee1d32
 Author: Renlord <me@renlord.com>
 Date:   Sun 2019-10-20 08:17:11+1100
 
@@ -1632,7 +1632,7 @@ index 2556d118345a56290f91b78d47b89021a1a646aa..1863bb70f322354bee0743f42542fd0c
  
  #define	__P(protos)	protos		/* full-blown ANSI C */
 
-commit b0ca79a0d9c10999c9d64406165eb44d09e2c368
+commit 81dc4cb8a304fbfca991a62318198a8b77f6c011
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-01 05:11:44-0400
 
@@ -1721,7 +1721,7 @@ index 95f46e9fadae69bc83fe0f03fd6348f9b76551b7..7e1e7cbcb4d0c19a3101e3d6e1f0e495
    // Tell the kernel to clear our tid field when we exit, so we're like any other pthread.
    // For threads created by pthread_create, this setup happens during the clone syscall (i.e.
 
-commit 8f1f92e174f75f219e93799988823067ed006892
+commit 7024d880b51f03a796ff8832f1298f2f1531fd7b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-03-12 17:49:13-0400
 
@@ -1792,7 +1792,7 @@ index 7e1e7cbcb4d0c19a3101e3d6e1f0e495a4178adf..5bdf61d2c6511c35f2a79de3730ebd5f
  extern "C" void __libc_init_main_thread_late() {
    __init_bionic_tls_ptrs(__get_bionic_tcb(), __allocate_temp_bionic_tls());
 
-commit 97a25542fcc57989336bd20da4294fa3bb87a39d (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 6f5b334b606b3bc80f262280e9ace8afdb12cc61 (HEAD, m/master, grapheneos/12)
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Thu 2021-07-22 16:12:55-0700
 

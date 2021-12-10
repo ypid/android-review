@@ -1,4 +1,4 @@
-commit 014826e77ccc2628dc7a595cb81cc928ceb065c5
+commit 54a5760f716a2af32770f05d3c2d08d5b9369063
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 21:01:17-0700
 
@@ -54,7 +54,7 @@ index 4ae0fc4ae6ed93db604db863cbd93b0e10d1f30c..48da31b90eed16a3f534151178a6d10c
            <axis tag="wght" stylevalue="600" />
          </font>
 
-commit de77c48fd31bae1d1ac03800869965130a5315c4
+commit 3dcf5a3719d239a47b1780c20fe3a09037d57760
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -64,7 +64,7 @@ Date:   Sat 2016-10-15 20:09:49-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index db43b5b31e7edc2507f575938a068bc5468b31e1..bdd1c3c552fc4035f1fa4d738b8021b96472f44d 100644
+index 0abeff91e511fdb68bea997b083648436c833ceb..bdd9cd3231c5b5c8dc53a8fc9f6bec3516bcf5c6 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -242,21 +242,21 @@
@@ -91,7 +91,7 @@ index db43b5b31e7edc2507f575938a068bc5468b31e1..bdd1c3c552fc4035f1fa4d738b8021b9
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit 09acc98f83b49cdf04a08c0838a1a54ec204d7c5
+commit 08fce1d6fa9a100f7bed0e9f30dab29eef0c6317
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -159,7 +159,7 @@ index 6bf394dc347b5fd2b0e7f0ed069eeea81b99c3b6..c4f5fa37977d30649f9194a66e9e74ea
  
          private final String mName;
 
-commit 752a181fad4195909be1db9b23e8c842aa3ac1a2
+commit 6004bc702d4b89f119c8c0313116f775878eff08
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Fri 2021-07-16 02:00:19+0000
 
@@ -178,7 +178,7 @@ Date:   Fri 2021-07-16 02:00:19+0000
  1 file changed, 22 insertions(+), 1 deletion(-)
 
 diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
-index 953e6e24236fa50f57206c1a933eabc0369664e2..d20400d16f7700a4e66035e9f0f4d092d54b772c 100644
+index c78d5d538f8dc5ebbcf25abc1aca782f60ac477a..e3e23964eed6cf3e1e25a6954811d69872079b74 100644
 --- a/services/core/java/com/android/server/am/ActivityManagerService.java
 +++ b/services/core/java/com/android/server/am/ActivityManagerService.java
 @@ -396,40 +396,42 @@ import com.android.server.wm.ActivityTaskManagerService;
@@ -268,7 +268,7 @@ index 953e6e24236fa50f57206c1a933eabc0369664e2..d20400d16f7700a4e66035e9f0f4d092
                          .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
                          .setWhen(0)
 
-commit cdfa73b0e8a25189495a58e5cde7fca397dc305d
+commit f576f32ffb656995f58e592faf9674e758d91096
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -280,10 +280,10 @@ Date:   Fri 2018-03-09 20:23:12-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index bdd1c3c552fc4035f1fa4d738b8021b96472f44d..d0f016ec03336bb39da56652d5759c480647f922 100644
+index bdd9cd3231c5b5c8dc53a8fc9f6bec3516bcf5c6..9e42e922105f468b43fda82e011fc65a53514520 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3658,21 +3658,21 @@
+@@ -3672,21 +3672,21 @@
      <bool name="config_pinnerHomeApp">false</bool>
  
      <!-- True if assistant app should be pinned via Pinner Service -->
@@ -306,7 +306,7 @@ index bdd1c3c552fc4035f1fa4d738b8021b96472f44d..d0f016ec03336bb39da56652d5759c48
  
      <!-- emergency call number for the emergency affordance -->
      <string name="config_emergency_call_number" translatable="false">112</string>
-@@ -3755,21 +3755,21 @@
+@@ -3769,21 +3769,21 @@
           1.0 corresponds to 1x animator scale, 0 means that there will be no transition
           animations. Note that this is only a default and will be overridden by a
           user-set value if toggled by settings so the "Transition animation scale" setting
@@ -330,7 +330,7 @@ index bdd1c3c552fc4035f1fa4d738b8021b96472f44d..d0f016ec03336bb39da56652d5759c48
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit f4f4c91a71898461f02e2ac01a97d0fb8b29f6aa
+commit 6a011cb17ff80422ac168ac679f3d01a8159e922
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -340,10 +340,10 @@ Date:   Wed 2018-11-28 01:08:00-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index d0f016ec03336bb39da56652d5759c480647f922..966a5f61ab447f70515d6d2da35aa261b224bd2d 100644
+index 9e42e922105f468b43fda82e011fc65a53514520..5cdf92b05d5a51578ed81f7c151e32b0519628e9 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3427,21 +3427,21 @@
+@@ -3441,21 +3441,21 @@
           1 - Nav bar is always translucent when the freeform stack is visible, otherwise always
               opaque.
           2 - Nav bar is never forced opaque.
@@ -367,7 +367,7 @@ index d0f016ec03336bb39da56652d5759c480647f922..966a5f61ab447f70515d6d2da35aa261
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 57c7c9c7c1e1831a41df1db4f33805d6dffb66d8
+commit 98492978e30b138495f8557404031956516210f8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 00:54:03-0400
 
@@ -377,10 +377,10 @@ Date:   Sat 2021-10-09 00:54:03-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 966a5f61ab447f70515d6d2da35aa261b224bd2d..025d5056a6c8a89cdd28153f8fffcdcee81b30d4 100644
+index 5cdf92b05d5a51578ed81f7c151e32b0519628e9..3071bd79ac6171a8bc25bbfb879bf8b8578fa3c8 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -948,39 +948,39 @@
+@@ -948,21 +948,21 @@
      <integer name="config_attentiveWarningDuration">30000</integer>
  
      <!-- Control the behavior when the user long presses the power button.
@@ -394,12 +394,16 @@ index 966a5f61ab447f70515d6d2da35aa261b224bd2d..025d5056a6c8a89cdd28153f8fffcdce
 -    <integer name="config_longPressOnPowerBehavior">5</integer>
 +    <integer name="config_longPressOnPowerBehavior">1</integer>
  
-     <!-- Whether the setting to change long press on power behaviour from default to assistant (5)
-          is available in Settings.
-      -->
-     <bool name="config_longPressOnPowerForAssistantSettingAvailable">true</bool>
+     <!-- The time in milliseconds after which a press on power button is considered "long". -->
+     <integer name="config_longPressOnPowerDurationMs">500</integer>
  
-     <!-- Control the behavior when the user long presses the power button for a long time.
+     <!-- The possible UI options to be surfaced for configuring long press power on duration
+          action. Value set in config_longPressOnPowerDurationMs should be one of the available
+          options to allow users to restore default. -->
+     <integer-array name="config_longPressOnPowerDurationSettings">
+         <item>250</item>
+         <item>350</item>
+@@ -980,21 +980,21 @@
              0 - Nothing
              1 - Global actions menu
      -->
@@ -423,7 +427,7 @@ index 966a5f61ab447f70515d6d2da35aa261b224bd2d..025d5056a6c8a89cdd28153f8fffcdce
      <!-- Allows activities to be launched on a long press on power during device setup. -->
      <bool name="config_allowStartActivityForLongPressOnPowerInSetup">false</bool>
 
-commit 89b68c2c8d438edc0cab00bfe8354bc82009b727
+commit 04eb764bb5a4e64b466f0590a8a9cb8a985b8674
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -433,10 +437,10 @@ Date:   Wed 2018-11-28 01:14:54-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 025d5056a6c8a89cdd28153f8fffcdcee81b30d4..e0fabe062be4d2a991a35480ec9514a0a81b4187 100644
+index 3071bd79ac6171a8bc25bbfb879bf8b8578fa3c8..f4b2e512591a8fa273d22385484b523dd3cee42e 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2490,21 +2490,21 @@
+@@ -2504,21 +2504,21 @@
            - to enable feature (fully enforced) for a complete allowlist: 1
            - to enable feature for an incomplete allowlist (so use implicit allowlist mode): 5
            - to enable feature but implicitly allowlist for SYSTEM user to ease local development: 9
@@ -460,7 +464,7 @@ index 025d5056a6c8a89cdd28153f8fffcdcee81b30d4..e0fabe062be4d2a991a35480ec9514a0
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 3eaa6ae4af7039d9f85fea0c3603e34ddd579f1a
+commit 99566f9f0abbfb28a4bc4113c389be25c8bbe0c2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -470,10 +474,10 @@ Date:   Wed 2018-11-28 01:16:09-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index e0fabe062be4d2a991a35480ec9514a0a81b4187..d607bb37d1b3359173239551024374755cf01a37 100644
+index f4b2e512591a8fa273d22385484b523dd3cee42e..5cab160c58c06e11e17b7ad8a29bbcab24477873 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2456,21 +2456,21 @@
+@@ -2470,21 +2470,21 @@
      <integer-array translatable="false" name="config_oemUsbModeOverride">
      </integer-array>
  
@@ -497,7 +501,7 @@ index e0fabe062be4d2a991a35480ec9514a0a81b4187..d607bb37d1b335917323955102437475
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit b7839363e1ac94fc2ae1cc3c22eea21179cfc262
+commit 5314fd5602004f7adf6134bbf58eb9e79402b204
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -534,7 +538,7 @@ index 8e6e251ff3f25ce4240f894c652a3c2adcd86f76..53324ba4d9664dc170a81c39dcf77d1a
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit ceaa4eb3f263736f84e74502720e0743df60c257
+commit 147399949f47e9434a455be9e327d4fbdb967ea4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -544,7 +548,7 @@ Date:   Thu 2017-06-29 10:16:52-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/java/android/app/admin/DevicePolicyManager.java b/core/java/android/app/admin/DevicePolicyManager.java
-index 0e04ad3768c7c0a9c0cb566e00a48b252943b7fb..ce093b3ee24aa16f589d25ef96d1f6103cbbfa9b 100644
+index 0fe80c45ad2a6e8943fffee2a9f6e944c5f8f60d..d7ace96010d9a35940462c1f3e23176e52daeeed 100644
 --- a/core/java/android/app/admin/DevicePolicyManager.java
 +++ b/core/java/android/app/admin/DevicePolicyManager.java
 @@ -2784,21 +2784,21 @@ public class DevicePolicyManager {
@@ -571,7 +575,7 @@ index 0e04ad3768c7c0a9c0cb566e00a48b252943b7fb..ce093b3ee24aa16f589d25ef96d1f610
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit 9b484769536cb781b61a6c96c918c03f07d79066
+commit 15b3ed7f0826e3eeeeee675bae5253c4bf43fb06
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -610,7 +614,7 @@ index dc5dace98825d97a848af0bb9902e0651080d9fe..2f745264422743eecd18be72fe61992d
                  final int user = intent.getIntExtra(KEY_LOCKOUT_RESET_USER, 0);
                  resetFailedAttemptsForUser(false /* clearAttemptCounter */, user);
 
-commit bb45e1808d6cda0272f8afaf3016cbe964dd70cc
+commit 586087549fc48b4a4124cb1f5e7b0be6152a9e22
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -631,7 +635,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit f9f23b45282102c99a5b43e0f0451476505a62ad
+commit 30bcc9529ccc7b49abbd538536fa5bd3e9abe2cf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 03:22:39-0400
 
@@ -644,10 +648,10 @@ Date:   Sat 2021-10-09 03:22:39-0400
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index d607bb37d1b3359173239551024374755cf01a37..1c99aaffb2a83e395617ac7423686b33f72787ed 100644
+index 5cab160c58c06e11e17b7ad8a29bbcab24477873..e2edb28e13b58d1d2af1e1a6181be468ad956372 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -4090,27 +4090,27 @@
+@@ -4104,27 +4104,27 @@
      <string translatable="false" name="config_deviceSpecificAudioService"></string>
  
      <!-- Class name of the device specific implementation of DisplayAreaPolicy.Provider
@@ -680,10 +684,10 @@ index d607bb37d1b3359173239551024374755cf01a37..1c99aaffb2a83e395617ac7423686b33
  
      <!-- Size of icon shown beside a preference locked by admin -->
 diff --git a/core/res/res/values/dimens.xml b/core/res/res/values/dimens.xml
-index de7a1175b4a305f3f6f579b455fc5b211cf2d062..ddc8f5c9507cf26c1f4ce7f29ee89041c33c9c6e 100644
+index a666a5b4b7960b2369a2304a8b2db19b17178c6d..5addc5271cf05bb3cc37a7e06819a0349c0e1df6 100644
 --- a/core/res/res/values/dimens.xml
 +++ b/core/res/res/values/dimens.xml
-@@ -926,21 +926,21 @@
+@@ -932,21 +932,21 @@
      <dimen name="waterfall_display_right_edge_size">0px</dimen>
      <dimen name="waterfall_display_bottom_edge_size">0px</dimen>
  
@@ -708,7 +712,7 @@ index de7a1175b4a305f3f6f579b455fc5b211cf2d062..ddc8f5c9507cf26c1f4ce7f29ee89041
      <dimen name="starting_surface_default_icon_size">108dp</dimen>
  </resources>
 
-commit d3f51258ceb5d52183bee1f5aa8ef5802b279327
+commit 00e28425bae4c7d7bab947851e2807451d897b59
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -737,7 +741,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit cbd40f35dc430bb9678b37fa96c65c44b4c192cc
+commit 048b3990944d99031a527afa4f8509919d04d9a8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -773,7 +777,7 @@ index 928892c60e47ae5b7fa247c02c1320569c58c0ec..a6bb258bccb0d907557854d710ab90a1
  include $(CLEAR_VARS)
  
 
-commit 9223679c875876a4e52fe9ba0901db413223710b
+commit 38bd1787b8aa5562ffc8f0c53b55af9534effdb3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -786,7 +790,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit 583c6b10bc7a842ebb4b8c53dc6dce41b371fe10
+commit 289c2b8fc566d7ad53da7d5e04292d184e2f9873
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -799,7 +803,7 @@ Date:   Wed 2017-09-06 21:40:48-0400
  1 file changed, 1 insertion(+), 6 deletions(-)
 
 diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
-index d20400d16f7700a4e66035e9f0f4d092d54b772c..ab4a20da727ab060c9eb832ca8a24a22a1fb3109 100644
+index e3e23964eed6cf3e1e25a6954811d69872079b74..6a84b3ae42a85d0dfa8357e189e92de0716a1f72 100644
 --- a/services/core/java/com/android/server/am/ActivityManagerService.java
 +++ b/services/core/java/com/android/server/am/ActivityManagerService.java
 @@ -4447,26 +4447,21 @@ public class ActivityManagerService extends IActivityManager.Stub
@@ -831,7 +835,7 @@ index d20400d16f7700a4e66035e9f0f4d092d54b772c..ab4a20da727ab060c9eb832ca8a24a22
                              app.info.packageName, app.info.longVersionCode, app.userId);
                  }
 
-commit 38d13b88dd22b657b4d9df0af14b9442ff68ebc0
+commit efe0fc4744585b712bfb7bcc68c9f812a60806f8
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 21:01:09-0700
 
@@ -918,13 +922,13 @@ Date:   Tue 2021-10-05 21:01:09-0700
  .../android/systemui/qs/tiles/BluetoothTile.java   | 14 ++++--
  .../android/systemui/qs/tiles/CellularTile.java    | 14 ++++--
  .../android/systemui/qs/tiles/DataSaverTile.java   | 14 ++++--
- .../com/android/systemui/qs/tiles/HotspotTile.java | 14 ++++--
+ .../com/android/systemui/qs/tiles/HotspotTile.java | 15 ++++--
  .../src/com/android/systemui/qs/tiles/NfcTile.java | 14 ++++--
  .../systemui/qs/tiles/RotationLockTile.java        | 14 ++++--
  .../systemui/qs/tiles/SecureQSTile.kt (new)        | 58 ++++++++++++++++++++++
  .../com/android/systemui/qs/tiles/WifiTile.java    | 14 ++++--
  .../android/systemui/qs/tiles/WorkModeTile.java    | 14 ++++--
- 11 files changed, 158 insertions(+), 40 deletions(-)
+ 11 files changed, 158 insertions(+), 41 deletions(-)
 
 diff --git a/packages/SystemUI/src/com/android/systemui/qs/tiles/AirplaneModeTile.java b/packages/SystemUI/src/com/android/systemui/qs/tiles/AirplaneModeTile.java
 index 22cd6f86b16529d2a6a7aff7766c744d658797f4..f76966030528fd08427eeab7c82756d5966ee746 100644
@@ -1337,10 +1341,10 @@ index 5a11ff83ff9e74b9d59a3c696deea847cf217fe5..a1030b05aa01b9ae044a650887eadd6d
          dialog.setTitle(com.android.internal.R.string.data_saver_enable_title);
          dialog.setMessage(com.android.internal.R.string.data_saver_description);
 diff --git a/packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java b/packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java
-index 34f2b6331678554bc8b07cb7114d370666fa05bb..7b7b922a4f1ca9adbe1412bc94aaccb74f1a6f93 100644
+index 87edc2cf8bac0c2f3942c3f8a9d279d3031d4cfb..fbf0255c60be7c1ba9cf3615d7f496aa690ef70f 100644
 --- a/packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java
 +++ b/packages/SystemUI/src/com/android/systemui/qs/tiles/HotspotTile.java
-@@ -35,48 +35,50 @@ import com.android.systemui.dagger.qualifiers.Background;
+@@ -35,49 +35,50 @@ import com.android.systemui.dagger.qualifiers.Background;
  import com.android.systemui.dagger.qualifiers.Main;
  import com.android.systemui.plugins.ActivityStarter;
  import com.android.systemui.plugins.FalsingManager;
@@ -1357,6 +1361,7 @@ index 34f2b6331678554bc8b07cb7114d370666fa05bb..7b7b922a4f1ca9adbe1412bc94aaccb7
  
  /** Quick settings tile: Hotspot **/
 -public class HotspotTile extends QSTileImpl<BooleanState> {
+-
 +public class HotspotTile extends SecureQSTile<BooleanState> {
      private final Icon mEnabledStatic = ResourceIcon.get(R.drawable.ic_hotspot);
  
@@ -1394,9 +1399,9 @@ index 34f2b6331678554bc8b07cb7114d370666fa05bb..7b7b922a4f1ca9adbe1412bc94aaccb7
      public boolean isAvailable() {
          return mHotspotController.isHotspotSupported();
      }
-@@ -100,21 +102,25 @@ public class HotspotTile extends QSTileImpl<BooleanState> {
+@@ -101,21 +102,25 @@ public class HotspotTile extends QSTileImpl<BooleanState> {
      public Intent getLongClickIntent() {
-         return new Intent(Settings.ACTION_TETHER_SETTINGS);
+         return new Intent(Settings.ACTION_WIFI_TETHER_SETTING);
      }
  
      @Override
@@ -1507,36 +1512,41 @@ index cd2e27a41f1e75eb974c16878a9692b225aa9c54..590215101fb368eec81536fd4f19e1e5
      }
  
 diff --git a/packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java b/packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java
-index 0bbb5bdd851aeaa2a66a9f3c1d878486d7ca4854..c28d09f80f742f7289be9164b556b97bb18acbcb 100644
+index 4e936b8137affc1a90b7a20c0dff427288788f1d..9f44717df160bee0b9f3718c33be46cb226fd0d3 100644
 --- a/packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java
 +++ b/packages/SystemUI/src/com/android/systemui/qs/tiles/RotationLockTile.java
-@@ -33,61 +33,67 @@ import com.android.internal.logging.nano.MetricsProto.MetricsEvent;
- import com.android.systemui.R;
- import com.android.systemui.dagger.qualifiers.Background;
+@@ -42,28 +42,29 @@ import com.android.systemui.dagger.qualifiers.Background;
  import com.android.systemui.dagger.qualifiers.Main;
  import com.android.systemui.plugins.ActivityStarter;
  import com.android.systemui.plugins.FalsingManager;
  import com.android.systemui.plugins.qs.QSTile.BooleanState;
  import com.android.systemui.plugins.statusbar.StatusBarStateController;
  import com.android.systemui.qs.QSHost;
+ import com.android.systemui.qs.SecureSetting;
  import com.android.systemui.qs.logging.QSLogger;
  import com.android.systemui.qs.tileimpl.QSTileImpl;
+ import com.android.systemui.statusbar.policy.BatteryController;
 +import com.android.systemui.statusbar.policy.KeyguardStateController;
  import com.android.systemui.statusbar.policy.RotationLockController;
  import com.android.systemui.statusbar.policy.RotationLockController.RotationLockControllerCallback;
+ import com.android.systemui.util.settings.SecureSettings;
  
  import javax.inject.Inject;
  
  /** Quick settings tile: Rotation **/
--public class RotationLockTile extends QSTileImpl<BooleanState> {
-+public class RotationLockTile extends SecureQSTile<BooleanState> {
+-public class RotationLockTile extends QSTileImpl<BooleanState> implements
++public class RotationLockTile extends SecureQSTile<BooleanState> implements
+         BatteryController.BatteryStateChangeCallback {
  
      private final Icon mIcon = ResourceIcon.get(com.android.internal.R.drawable.ic_qs_auto_rotate);
      private final RotationLockController mController;
+     private final SensorPrivacyManager mPrivacyManager;
+     private final BatteryController mBatteryController;
+     private final SecureSetting mSetting;
  
      @Inject
      public RotationLockTile(
-             QSHost host,
+@@ -71,24 +72,25 @@ public class RotationLockTile extends QSTileImpl<BooleanState> implements
              @Background Looper backgroundLooper,
              @Main Handler mainHandler,
              FalsingManager falsingManager,
@@ -1544,8 +1554,11 @@ index 0bbb5bdd851aeaa2a66a9f3c1d878486d7ca4854..c28d09f80f742f7289be9164b556b97b
              StatusBarStateController statusBarStateController,
              ActivityStarter activityStarter,
              QSLogger qsLogger,
--            RotationLockController rotationLockController
-+            RotationLockController rotationLockController,
+             RotationLockController rotationLockController,
+             SensorPrivacyManager privacyManager,
+             BatteryController batteryController,
+-            SecureSettings secureSettings
++            SecureSettings secureSettings,
 +            KeyguardStateController keyguardStateController
      ) {
          super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
@@ -1553,9 +1566,15 @@ index 0bbb5bdd851aeaa2a66a9f3c1d878486d7ca4854..c28d09f80f742f7289be9164b556b97b
 +                statusBarStateController, activityStarter, qsLogger, keyguardStateController);
          mController = rotationLockController;
          mController.observe(this, mCallback);
-     }
- 
-     @Override
+         mPrivacyManager = privacyManager;
+         mBatteryController = batteryController;
+         mPrivacyManager
+                 .addSensorPrivacyListener(CAMERA, (sensor, enabled) -> refreshState());
+         int currentUser = host.getUserContext().getUserId();
+         mSetting = new SecureSetting(
+                 secureSettings,
+                 mHandler,
+@@ -113,21 +115,25 @@ public class RotationLockTile extends QSTileImpl<BooleanState> implements
      public BooleanState newTileState() {
          return new BooleanState();
      }
@@ -1817,7 +1836,7 @@ index 8df8c63702c3671a7c5e2bfb2edc2efb2388c17d..7fc1726632eaa8cba0eedd25840a4f08
      @Override
      public void onManagedProfileChanged() {
 
-commit 28748cb95fac36095b41936ae7e812330af48409
+commit 0fb71d62bd5dc16cead31b65da6a3e39d6f6f7ed
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -1827,10 +1846,10 @@ Date:   Sun 2019-03-17 19:54:30-0400
  1 file changed, 13 deletions(-)
 
 diff --git a/services/core/java/com/android/server/pm/permission/DefaultPermissionGrantPolicy.java b/services/core/java/com/android/server/pm/permission/DefaultPermissionGrantPolicy.java
-index dab980a9e4b281f176198ac327a586b92818b92e..98e84426c326c49be83653fc0d57ef3bfee84721 100644
+index 301914615562e148f103e51ce377b3fde1d000de..91ab884b4c12bf01764adc779ed55930c3fa46ee 100644
 --- a/services/core/java/com/android/server/pm/permission/DefaultPermissionGrantPolicy.java
 +++ b/services/core/java/com/android/server/pm/permission/DefaultPermissionGrantPolicy.java
-@@ -695,33 +695,20 @@ final class DefaultPermissionGrantPolicy {
+@@ -698,33 +698,20 @@ final class DefaultPermissionGrantPolicy {
                  getDefaultSystemHandlerActivityPackage(pm,
                          DevicePolicyManager.ACTION_PROVISION_MANAGED_DEVICE, userId),
                  userId, CONTACTS_PERMISSIONS);
@@ -1865,7 +1884,7 @@ index dab980a9e4b281f176198ac327a586b92818b92e..98e84426c326c49be83653fc0d57ef3b
          }
  
 
-commit c4cd42cf9703d2b4eff72fa6b61b1e570e33d6db
+commit 0d70bb45a06c154a02cfb23203a1fd0b9eb1f50c
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -1888,10 +1907,10 @@ Date:   Sat 2020-09-12 12:28:34-0700
  1 file changed, 20 insertions(+), 5 deletions(-)
 
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae870197eabf52 100644
+index 54a6c678e0da97a90a6c0ef4f0cbbb9150a99c9a..41b43e3c38bde52f111be3ef8e733af0a6fe0460 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -1507,21 +1507,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1518,21 +1518,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              if (!(uidState.hasPermissionState(permName)
                      || pkg.getRequestedPermissions().contains(permName))) {
                  throw new SecurityException("Package " + pkg.getPackageName()
@@ -1915,7 +1934,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
                  return;
              }
              if (!overridePolicy && (flags & PackageManager.FLAG_PERMISSION_POLICY_FIXED) != 0) {
-@@ -1550,21 +1551,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1561,21 +1562,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                  //  per-user. It isn't documented behavior and relatively rarely used anyway.
                  if (!uidState.grantPermission(bp)) {
                      return;
@@ -1939,7 +1958,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
              }
          }
  
-@@ -1675,21 +1677,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1686,21 +1688,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              if (!(uidState.hasPermissionState(permName)
                      || pkg.getRequestedPermissions().contains(permName))) {
                  throw new SecurityException("Package " + pkg.getPackageName()
@@ -1963,7 +1982,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
                  throw new SecurityException("Non-System UID cannot revoke system fixed permission "
                          + permName + " for package " + packageName);
              }
-@@ -1880,21 +1883,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -1891,21 +1894,22 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                  continue;
              }
  
@@ -1987,7 +2006,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
              } else if ((flags & FLAG_PERMISSION_REVIEW_REQUIRED) == 0
                      && !isPermissionSplitFromNonRuntime(permName, targetSdk)) {
                  // Otherwise, reset the permission.
-@@ -2569,20 +2573,24 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2580,20 +2584,24 @@ public class PermissionManagerService extends IPermissionManager.Stub {
      private int[] getPermissionGidsInternal(@NonNull String permissionName, @UserIdInt int userId) {
          synchronized (mLock) {
              Permission permission = mRegistry.getPermission(permissionName);
@@ -2012,7 +2031,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
       *
       * @param pkg the package the permissions belong to
       * @param replace if the package is getting replaced (this might change the requested
-@@ -2948,20 +2956,27 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2959,20 +2967,27 @@ public class PermissionManagerService extends IPermissionManager.Stub {
                              // Hard restricted permissions cannot be held.
                              } else if (!permissionPolicyInitialized
                                      || (!hardRestricted || restrictionExempt)) {
@@ -2040,7 +2059,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
                                                  | FLAG_PERMISSION_REVOKED_COMPAT;
                                          wasChanged = true;
                                      }
-@@ -3785,21 +3800,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -3796,21 +3811,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
              synchronized (mLock) {
                  final Permission bp = mRegistry.getPermission(permission);
                  shouldGrantPermission = bp != null && (bp.isRuntime() || bp.isDevelopment())
@@ -2064,7 +2083,7 @@ index 7b12709e4efd37a32397305b2314b56835e72bbd..bd1881c06c38a8d08dc1e96925ae8701
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(pkg.getPackageName(), permission, compatFlags,
 
-commit f825279a95d5a404f4e8c3b96ef53ac37302dc48
+commit bbd8f3d700683708a357c2ddcf1f09cfe24a8842
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -2077,10 +2096,10 @@ Date:   Sun 2019-03-17 11:59:15-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index bad79eb137492be0f419c155515d5d4a19f8919f..d236341e892934729c74e42cf75ba540b8dc2018 100644
+index cd6af189a04acdf968815b5a36adf1cfde19d44a..9fa38e3d35f7d38a9273a691d302b27f23319664 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1712,21 +1712,21 @@
+@@ -1715,21 +1715,21 @@
      <!-- Permissions for accessing networks -->
      <!-- ======================================= -->
      <eat-comment />
@@ -2104,10 +2123,10 @@ index bad79eb137492be0f419c155515d5d4a19f8919f..d236341e892934729c74e42cf75ba540
  
      <!-- Allows applications to access information about Wi-Fi networks.
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index bd1881c06c38a8d08dc1e96925ae870197eabf52..28297d6d9389b27ec5b66cc77adddd31c6c23f75 100644
+index 41b43e3c38bde52f111be3ef8e733af0a6fe0460..22d3fd41ea64b152a1fe56c333b8cd5d0c503542 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -2574,21 +2574,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2585,21 +2585,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
          synchronized (mLock) {
              Permission permission = mRegistry.getPermission(permissionName);
              if (permission == null) {
@@ -2131,7 +2150,7 @@ index bd1881c06c38a8d08dc1e96925ae870197eabf52..28297d6d9389b27ec5b66cc77adddd31
       * </ul>
       *
 
-commit 07a826b4b207ffb93f022acc2d3e356411646a75
+commit 3d6b349a843d4a68cfaa406839969b51d0effb5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -2177,10 +2196,10 @@ index 1de47b548a5c81c95e636b5ea4d1d7aee2edb7b9..b4ef39a9e5571f3e281e719246d96016
    }
  
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index d236341e892934729c74e42cf75ba540b8dc2018..523b8ce75f7d2c4280f679db14157fe9a499c537 100644
+index 9fa38e3d35f7d38a9273a691d302b27f23319664..5b7bcf7e9b35116d38242be91da9b87e6b8aedd0 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1706,24 +1706,32 @@
+@@ -1709,24 +1709,32 @@
           @hide
      -->
      <permission android:name="android.permission.ACCESS_MOCK_LOCATION"
@@ -2214,7 +2233,7 @@ index d236341e892934729c74e42cf75ba540b8dc2018..523b8ce75f7d2c4280f679db14157fe9
          android:description="@string/permdesc_accessNetworkState"
          android:label="@string/permlab_accessNetworkState"
 diff --git a/core/res/res/values/strings.xml b/core/res/res/values/strings.xml
-index a99a22009e3bb731a0efe56e0995bc69cc59b436..13f3df325aab667c0ed602f67f93b0661259f690 100644
+index b58638cc3adedb0672c75a066be21311aba35468..d3d97ee9286f63b1b4a6b79f9891562d04c6cc39 100644
 --- a/core/res/res/values/strings.xml
 +++ b/core/res/res/values/strings.xml
 @@ -830,20 +830,25 @@
@@ -2244,7 +2263,7 @@ index a99a22009e3bb731a0efe56e0995bc69cc59b436..13f3df325aab667c0ed602f67f93b066
      <!-- Description for the capability of an accessibility service to request touch exploration. -->
      <string name="capability_desc_canRequestTouchExploration">Tapped items will be spoken aloud
 
-commit 2dcf64df4cf3c4b30f0c890682af2271b61b4009
+commit 7681d5d003c404b5f41f0ed588abeb1284a0fbad
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -2321,10 +2340,10 @@ index 4ff26242dab2beae2e6e77964c7bf1172c75b685..bd273f3001f9bfb7f19e7fe4606297e6
       */
      @Deprecated
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index 523b8ce75f7d2c4280f679db14157fe9a499c537..d370a124db9926ea2981c17cf3af8933577cb93b 100644
+index 5b7bcf7e9b35116d38242be91da9b87e6b8aedd0..1910909d1617dd3b9f4db0e93274649a9a391fdb 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -1475,20 +1475,32 @@
+@@ -1478,20 +1478,32 @@
  
      <!-- Allows an app to use device supported biometric modalities.
           <p>Protection level: normal
@@ -2358,7 +2377,7 @@ index 523b8ce75f7d2c4280f679db14157fe9a499c537..d370a124db9926ea2981c17cf3af8933
  
      <!-- @hide We need to keep this around for backwards compatibility -->
 diff --git a/core/res/res/values/strings.xml b/core/res/res/values/strings.xml
-index 13f3df325aab667c0ed602f67f93b0661259f690..f1c3db67e7c3bfbbad58cb62a618f62ed85de3c1 100644
+index d3d97ee9286f63b1b4a6b79f9891562d04c6cc39..b27df17e19109575e61c169e414d6df33ba6308a 100644
 --- a/core/res/res/values/strings.xml
 +++ b/core/res/res/values/strings.xml
 @@ -830,20 +830,25 @@
@@ -2416,10 +2435,10 @@ index 13f3df325aab667c0ed602f67f93b0661259f690..f1c3db67e7c3bfbbad58cb62a618f62e
  
      <!-- Title of an application permission, listed so the user can choose whether they want to allow the application to do this. -->
 diff --git a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-index 28297d6d9389b27ec5b66cc77adddd31c6c23f75..8e662c9e0b9fe60f0dd7b48bdb3cbded5d5ed590 100644
+index 22d3fd41ea64b152a1fe56c333b8cd5d0c503542..60dc0a0277254b6cf1cd2539e1cca36c58305499 100644
 --- a/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
 +++ b/services/core/java/com/android/server/pm/permission/PermissionManagerService.java
-@@ -2574,21 +2574,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
+@@ -2585,21 +2585,21 @@ public class PermissionManagerService extends IPermissionManager.Stub {
          synchronized (mLock) {
              Permission permission = mRegistry.getPermission(permissionName);
              if (permission == null) {
@@ -2443,7 +2462,7 @@ index 28297d6d9389b27ec5b66cc77adddd31c6c23f75..8e662c9e0b9fe60f0dd7b48bdb3cbded
       * </ul>
       *
 
-commit d3e78e70795c9753bf51a7e95717425f5fceb8ea
+commit dd9bedffb547d80923f48bf71cdcc00ba551af50
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 16:27:43-0700
 
@@ -2539,7 +2558,7 @@ index 84be7f5809e60524b3da88b80f9d58a726f1bb56..4d2f2f876a32c757e1dd7613f4916116
          }
  
 
-commit 27262885d9a2e9053909693757fc84397545905f
+commit 11c81683a2cb57a943091b9af0f720624a2c4dc0
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sun 2021-10-10 22:20:11-0700
 
@@ -2653,7 +2672,7 @@ index e48a1da7b6a7e1aadf492309927a7b32d84e88b4..c04ec72ba9f7c5b1b83f520e189a5c12
  package android.content {
  
 diff --git a/core/java/android/app/ActivityManager.java b/core/java/android/app/ActivityManager.java
-index 4376d225e676d99f978bc1e38127064dc6d1c18e..74d16f2a12297e1acb9fed96bafb3f1ae8a90066 100644
+index f53c5b6c974824d2a6152457de586ec748b22605..30f1cc88affc57f3136ab23fe19534e05eb82914 100644
 --- a/core/java/android/app/ActivityManager.java
 +++ b/core/java/android/app/ActivityManager.java
 @@ -25,20 +25,21 @@ import android.Manifest;
@@ -2700,7 +2719,7 @@ index 4376d225e676d99f978bc1e38127064dc6d1c18e..74d16f2a12297e1acb9fed96bafb3f1a
  import java.io.FileDescriptor;
  import java.io.FileOutputStream;
  import java.io.IOException;
-@@ -4025,20 +4027,24 @@ public class ActivityManager {
+@@ -4030,20 +4032,24 @@ public class ActivityManager {
      /**
       * Gets the userId of the current foreground user. Requires system permissions.
       * @hide
@@ -2726,7 +2745,7 @@ index 4376d225e676d99f978bc1e38127064dc6d1c18e..74d16f2a12297e1acb9fed96bafb3f1a
       * @param userid the user's id. Zero indicates the default user.
       * @hide
 diff --git a/core/java/android/app/ActivityThread.java b/core/java/android/app/ActivityThread.java
-index de0fef0e74a227e7b7e89ffd6a79149ac6907bcd..8339714f9c643a06866bcebcc6f9519df1df2d3f 100644
+index fc4bb1a00da5fd9d41dd97e248abe4a2a904923d..29f1c906c5db315cd3b88dfd295f04d42fb42b7c 100644
 --- a/core/java/android/app/ActivityThread.java
 +++ b/core/java/android/app/ActivityThread.java
 @@ -181,20 +181,21 @@ import android.view.translation.TranslationSpec;
@@ -3043,7 +3062,7 @@ index cd2c12cb4b6f221872ffdcf78dc70f9f957ba636..4dabe78f2f737c12314bd4697a839b9f
      @UnsupportedAppUsage
      static void configurationChanged() {
 diff --git a/core/java/android/app/ContextImpl.java b/core/java/android/app/ContextImpl.java
-index 4db1f71e82561cec87c08260c47376013559db57..110fda94616badddd42e5eb3b0d7cdebca77db37 100644
+index 1397f5ea10dc7caa4dbd815b23841e128e58bf45..e4115456d1d852a556980e19035c53a29cac1d38 100644
 --- a/core/java/android/app/ContextImpl.java
 +++ b/core/java/android/app/ContextImpl.java
 @@ -18,20 +18,21 @@ package android.app;
@@ -3426,7 +3445,7 @@ index 32ea41b2c75f553bb7546e290a3b386d8db93aae..5cc2f5e63393aedf859049501475abcb
                          return b == null ? null : new AppHibernationManager(ctx);
                      }});
 diff --git a/core/java/android/app/admin/DevicePolicyManager.java b/core/java/android/app/admin/DevicePolicyManager.java
-index ce093b3ee24aa16f589d25ef96d1f6103cbbfa9b..7b8ad1e0e9a98e29f86dc2b783b0061179c6420a 100644
+index d7ace96010d9a35940462c1f3e23176e52daeeed..c972c372e1066cae827b450ce9539d6fa9d40e5c 100644
 --- a/core/java/android/app/admin/DevicePolicyManager.java
 +++ b/core/java/android/app/admin/DevicePolicyManager.java
 @@ -33,20 +33,21 @@ import android.annotation.SuppressLint;
@@ -3526,7 +3545,7 @@ index ce093b3ee24aa16f589d25ef96d1f6103cbbfa9b..7b8ad1e0e9a98e29f86dc2b783b00611
          }
          return null;
      }
-@@ -11970,20 +11983,24 @@ public class DevicePolicyManager {
+@@ -11991,20 +12004,24 @@ public class DevicePolicyManager {
      /**
       * Returns whether the device has been provisioned.
       *
@@ -4605,7 +4624,7 @@ index 8709f071f222d59fca2e398ea77e8bb969810874..d1f0d12e039a98fc7430b5c1869245e5
       * Returns a userId on this device for a given user serial number. User handles can be
       * recycled when deleting and creating users, but serial numbers are not reused until the device
 diff --git a/core/java/android/provider/DeviceConfig.java b/core/java/android/provider/DeviceConfig.java
-index 431bf4c54b4b65e4fa9778204ab7c442dd6265b2..7f15ba639eb44fc7f097b24d7c28819c25050f84 100644
+index 217e17ddd7b426c62cffd54b630297b359a23098..7680d117c9d97ec7e260d771e6af437051df0e38 100644
 --- a/core/java/android/provider/DeviceConfig.java
 +++ b/core/java/android/provider/DeviceConfig.java
 @@ -19,20 +19,21 @@ package android.provider;
@@ -4630,7 +4649,7 @@ index 431bf4c54b4b65e4fa9778204ab7c442dd6265b2..7f15ba639eb44fc7f097b24d7c28819c
  import android.util.ArrayMap;
  import android.util.Log;
  import android.util.Pair;
-@@ -782,20 +783,24 @@ public final class DeviceConfig {
+@@ -789,20 +790,24 @@ public final class DeviceConfig {
       * @param value       The value to store for the property.
       * @param makeDefault Whether to make the new value the default one.
       * @return True if the value was set, false if the storage implementation throws errors.
@@ -4655,7 +4674,7 @@ index 431bf4c54b4b65e4fa9778204ab7c442dd6265b2..7f15ba639eb44fc7f097b24d7c28819c
       * namespace which are not part of the provided {@link Properties} object will be deleted from
       * the namespace. These changes are all applied atomically, such that no calls to read or reset
       * these properties can happen in the middle of this update.
-@@ -804,20 +809,24 @@ public final class DeviceConfig {
+@@ -811,20 +816,24 @@ public final class DeviceConfig {
       * none or all of this update is picked up, but never only part of it.
       *
       * @param properties the complete set of properties to set for a specific namespace.
@@ -4680,7 +4699,7 @@ index 431bf4c54b4b65e4fa9778204ab7c442dd6265b2..7f15ba639eb44fc7f097b24d7c28819c
       * <p>
       * The method accepts an optional namespace parameter. If provided, only properties set within
       * that namespace will be reset. Otherwise, all properties will be reset.
-@@ -837,20 +846,24 @@ public final class DeviceConfig {
+@@ -844,20 +853,24 @@ public final class DeviceConfig {
       * to using {@link #setProperties(Properties)} as outlined above.
       *
       * @param resetMode The reset mode to use.
@@ -4706,7 +4725,7 @@ index 431bf4c54b4b65e4fa9778204ab7c442dd6265b2..7f15ba639eb44fc7f097b24d7c28819c
       *
       * @param syncDisabledMode the mode to use, see {@link Settings.Config#SYNC_DISABLED_MODE_NONE},
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index ac520e8b3dec6dd7cfdfb15b42233cc99c7c0999..4b510e2c2a86f07b6bb26a2d6a4b0ac9274d3f91 100644
+index 00abc759278f7ee361c4e3902d1c143072630606..0247c54e42c025e4bebbb473b03b62430d78103e 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
 @@ -29,20 +29,21 @@ import android.annotation.SystemApi;
@@ -4731,7 +4750,7 @@ index ac520e8b3dec6dd7cfdfb15b42233cc99c7c0999..4b510e2c2a86f07b6bb26a2d6a4b0ac9
  import android.content.pm.ActivityInfo;
  import android.content.pm.ApplicationInfo;
  import android.content.pm.PackageManager;
-@@ -2796,20 +2797,24 @@ public final class Settings {
+@@ -2811,20 +2812,24 @@ public final class Settings {
              mReadableFields = new ArraySet<>();
              mAllFields = new ArraySet<>();
              mReadableFieldsWithMaxTargetSdk = new ArrayMap<>();
@@ -5706,10 +5725,10 @@ index 0000000000000000000000000000000000000000..15e5c4195715e9cf93bf6bf89023063c
 +    long getLastModified(String path);
 +}
 diff --git a/core/res/AndroidManifest.xml b/core/res/AndroidManifest.xml
-index d370a124db9926ea2981c17cf3af8933577cb93b..a4c40009856f8d1386bb4378364273238a569ca1 100644
+index 1910909d1617dd3b9f4db0e93274649a9a391fdb..362d707083f8f74418c1126837fa3949462e4e37 100644
 --- a/core/res/AndroidManifest.xml
 +++ b/core/res/AndroidManifest.xml
-@@ -5769,21 +5769,21 @@
+@@ -5772,21 +5772,21 @@
  
      <!-- @hide @SystemApi Allows an application to retrieve whether shortcut is backed by a
           Conversation.
@@ -5733,7 +5752,7 @@ index d370a124db9926ea2981c17cf3af8933577cb93b..a4c40009856f8d1386bb437836427323
           clipboard.
           @hide -->
 diff --git a/core/res/res/values/strings.xml b/core/res/res/values/strings.xml
-index f1c3db67e7c3bfbbad58cb62a618f62ed85de3c1..76e6aa4d75a3212f83b877cc5dd6402f10bb32ee 100644
+index b27df17e19109575e61c169e414d6df33ba6308a..43cba7b85e2cfd5c510f9fed50dbd3b2639e7a9b 100644
 --- a/core/res/res/values/strings.xml
 +++ b/core/res/res/values/strings.xml
 @@ -757,20 +757,34 @@
@@ -5772,10 +5791,10 @@ index f1c3db67e7c3bfbbad58cb62a618f62ed85de3c1..76e6aa4d75a3212f83b877cc5dd6402f
  
      <!-- "Switch" is a verb; it means to change user profile by tapping another user profile name. -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index adb046e76c889325f14ef1886ad01b7405fc07fd..09552ecf3308f4ff31ea6ae89d78e6d5624145de 100644
+index 0a98601969af2ffc56955090034d69192e660e9c..df167a8ee71e5bf3083ea02649fe9bfb9a7ca466 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
-@@ -3608,20 +3608,25 @@
+@@ -3615,20 +3615,25 @@
    <java-symbol type="string" name="config_defaultSystemCaptionsManagerService" />
    <java-symbol type="string" name="config_retailDemoPackage" />
    <java-symbol type="string" name="config_retailDemoPackageSignature" />
@@ -5853,7 +5872,7 @@ index 526b84e85e383d2e17097f831f0a41baf6d7502c..c427a9dec87c4ededfd6f37e9305a43c
       * Returns whether extra location controller package is currently enabled on the device.
       *
 diff --git a/services/core/java/com/android/server/am/ActivityManagerService.java b/services/core/java/com/android/server/am/ActivityManagerService.java
-index ab4a20da727ab060c9eb832ca8a24a22a1fb3109..6bf1d9052b17b040baa6c29f8201684b62e17eef 100644
+index 6a84b3ae42a85d0dfa8357e189e92de0716a1f72..732c4447117970652c92f3de51c8e3daa9be2113 100644
 --- a/services/core/java/com/android/server/am/ActivityManagerService.java
 +++ b/services/core/java/com/android/server/am/ActivityManagerService.java
 @@ -180,20 +180,21 @@ import android.app.Notification;
@@ -5878,7 +5897,7 @@ index ab4a20da727ab060c9eb832ca8a24a22a1fb3109..6bf1d9052b17b040baa6c29f8201684b
  import android.content.AttributionSource;
  import android.content.AutofillOptions;
  import android.content.BroadcastReceiver;
-@@ -11919,20 +11920,24 @@ public class ActivityManagerService extends IActivityManager.Stub
+@@ -11930,20 +11931,24 @@ public class ActivityManagerService extends IActivityManager.Stub
  
      @Override
      public int handleIncomingUser(int callingPid, int callingUid, int userId, boolean allowAll,
@@ -6011,7 +6030,7 @@ index ed9b539c05df239ff5d0a6bd1e7fd69775122a36..7d1d1224348d6647298ae5604837e9dd
          }
  
 diff --git a/telephony/java/android/telephony/TelephonyManager.java b/telephony/java/android/telephony/TelephonyManager.java
-index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c1045e839 100644
+index 989663406a6b347e8784dae5f7d8f615cbf6a08d..7b3d281eefe30bab8edaeaa1b5deed0c73097398 100644
 --- a/telephony/java/android/telephony/TelephonyManager.java
 +++ b/telephony/java/android/telephony/TelephonyManager.java
 @@ -34,20 +34,21 @@ import android.annotation.RequiresPermission;
@@ -6161,7 +6180,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
                  return NETWORK_TYPE_UNKNOWN;
              }
          } catch (RemoteException ex) {
-@@ -3823,20 +3844,24 @@ public class TelephonyManager {
+@@ -3824,20 +3845,24 @@ public class TelephonyManager {
       *     the READ_PHONE_STATE permission, or if the calling app is targeting API level 29 or
       *     higher, then a SecurityException is thrown.</li>
       * </ul>
@@ -6186,7 +6205,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
              return null;
          } catch (NullPointerException ex) {
              // This could happen before phone restarts due to crashing
-@@ -3952,20 +3977,24 @@ public class TelephonyManager {
+@@ -3953,20 +3978,24 @@ public class TelephonyManager {
       * Gets all the UICC slots. The objects in the array can be null if the slot info is not
       * available, which is possible between phone process starting and getting slot info from modem.
       *
@@ -6211,7 +6230,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
              return null;
          }
      }
-@@ -4091,20 +4120,24 @@ public class TelephonyManager {
+@@ -4092,20 +4121,24 @@ public class TelephonyManager {
       *
       * See {@link #getSubscriberId()} for details on the required permissions and behavior
       * when the caller does not hold sufficient permissions.
@@ -6236,7 +6255,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
              return null;
          } catch (NullPointerException ex) {
              // This could happen before phone restarts due to crashing
-@@ -4705,20 +4738,28 @@ public class TelephonyManager {
+@@ -4706,20 +4739,28 @@ public class TelephonyManager {
      @UnsupportedAppUsage
      public String getLine1Number(int subId) {
          String number = null;
@@ -6265,7 +6284,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
                  return null;
              return info.getLine1NumberForSubscriber(subId, mContext.getOpPackageName(),
                      mContext.getAttributionTag());
-@@ -6375,20 +6416,26 @@ public class TelephonyManager {
+@@ -6376,20 +6417,26 @@ public class TelephonyManager {
       * @param workSource the requestor to whom the power consumption for this should be attributed.
       * @param executor the executor on which callback will be invoked.
       * @param callback a callback to receive CellInfo.
@@ -6292,7 +6311,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
                  }
              }
  
-@@ -14480,20 +14527,24 @@ public class TelephonyManager {
+@@ -14578,20 +14625,24 @@ public class TelephonyManager {
       * <p>Requires Permission:
       * {@link android.Manifest.permission#READ_PRIVILEGED_PHONE_STATE READ_PRIVILEGED_PHONE_STATE}
       * or that the calling app has carrier privileges (see {@link #hasCarrierPrivileges}).
@@ -6318,7 +6337,7 @@ index 255a61266ebfedb90f2ac741d1366ba79e729d26..b50b50cf276e9240b1237f0a47a7592c
              Log.e(TAG, "isIccLockEnabled RemoteException", e);
              e.rethrowFromSystemServer();
 
-commit a1975d43980cb98047e8c273bf1d153cd2b64183
+commit 7693fdea691f53079477d92b29634b7912450127
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:54:57-0400
 
@@ -6328,7 +6347,7 @@ Date:   Tue 2021-03-16 02:54:57-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/services/core/java/com/android/server/am/CachedAppOptimizer.java b/services/core/java/com/android/server/am/CachedAppOptimizer.java
-index f32aa2295cb88fee6d3b3e6f1d68da5d49d685f5..7e25c80441b9c543542b6f36ddee6647126b85e4 100644
+index 9da6d528a9670fbd77a11524bfde98e7a67a9df4..8c74158ac4891f55df96121174a8818181e668e7 100644
 --- a/services/core/java/com/android/server/am/CachedAppOptimizer.java
 +++ b/services/core/java/com/android/server/am/CachedAppOptimizer.java
 @@ -93,21 +93,21 @@ public final class CachedAppOptimizer {
@@ -6355,7 +6374,7 @@ index f32aa2295cb88fee6d3b3e6f1d68da5d49d685f5..7e25c80441b9c543542b6f36ddee6647
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_MIN_OOM_ADJ =
 
-commit 435fc933b8c20e1e5ea1c3b6026c9154252e5184
+commit fc34f773cd23b63da198617a91bf1129923275ac
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 15:03:59-0700
 
@@ -6440,7 +6459,7 @@ index e072b4a3646c992ebe5da076ed96e2885cb1d0f7..f7bf1c3af7a24b720299e01597ecaa5c
 \ No newline at end of file
 +}
 
-commit 195fa43d4d2383b6714ef124116e6e01b999cdd7
+commit 7755ab6e320ba3cd5d8428d78da942ac8b5e881e
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 15:04:50-0700
 
@@ -6482,7 +6501,7 @@ index b9cc992b438eea501fbb6934e1e9f2a9e6619ccf..8de515d4d3e522e13b10ebf775f701cd
  
      private static final String TAG_HISTORY = "h";
 
-commit 7d6a30fee0ef3d28fcbd2c4f6f3b33cf0442d209
+commit e4c7c02f3cfe00a366193c46cee97990b6600b09
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 15:15:40-0700
 
@@ -6630,7 +6649,7 @@ index 8de515d4d3e522e13b10ebf775f701cd545f1aeb..49fbc1cc1181938c01d767b4a4b49ee7
      private static int sDiscreteFlags;
  
 
-commit 11fe9c55db8d0b730b07ff71e6f56159b3c3eb7f
+commit 0ff885faa9b829ea99a11101e8266f8e10131d29
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-14 22:10:58-0400
 
@@ -6669,7 +6688,7 @@ index 53324ba4d9664dc170a81c39dcf77d1affe7812a..93efe5060a2f642841b4d662225d3093
      <bool name="def_mount_ums_notify_enabled">true</bool>
  
 
-commit b8d144ca55a56505329dcefe1200d49cdfc9f685
+commit 94e93f2b8726f23b27543b168b6e61db72a4f5be
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-10-15 17:18:57-0700
 
@@ -6681,10 +6700,10 @@ Date:   Fri 2021-10-15 17:18:57-0700
  1 file changed, 4 insertions(+)
 
 diff --git a/core/java/android/provider/DeviceConfig.java b/core/java/android/provider/DeviceConfig.java
-index 7f15ba639eb44fc7f097b24d7c28819c25050f84..1da350129a80a776debdd08b69e9b797fa2ac308 100644
+index 7680d117c9d97ec7e260d771e6af437051df0e38..04195fac2b44c421ced786a3a855139473d4eb57 100644
 --- a/core/java/android/provider/DeviceConfig.java
 +++ b/core/java/android/provider/DeviceConfig.java
-@@ -614,20 +614,24 @@ public final class DeviceConfig {
+@@ -621,20 +621,24 @@ public final class DeviceConfig {
       * Look up the value of a property for a particular namespace.
       *
       * @param namespace The namespace containing the property to look up.
@@ -6710,7 +6729,7 @@ index 7f15ba639eb44fc7f097b24d7c28819c25050f84..1da350129a80a776debdd08b69e9b797
       * such that the values of these properties cannot change between the time when the first is
       * fetched and the time when the last is fetched.
 
-commit 2721233d89203b0f100805cf7e678950105b677d
+commit 1ee907c3310f4550ebf8ece4c671b147c9667b88
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-10-15 17:55:04-0700
 
@@ -6777,7 +6796,7 @@ index 9c0c3657bff33c5d8209c309fd4e6afd57a61fa0..f1483d23f9824d78e0c44cca5034ee60
       *
       * @param operation IntentSender which matches a previously added
 
-commit 9018cc81d803f97e31ec26e1a43223f20d1a995d
+commit 0563acb8ed2bf5083b3a5916f02879f7b2e68d4c
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-10-20 16:06:40-0700
 
@@ -6871,7 +6890,7 @@ index f1483d23f9824d78e0c44cca5034ee60852d80f5..d6f3f42d10ab488b1c947a694e9d76a7
       *
       * @param operation IntentSender which matches a previously added
 
-commit 1b83fd4fe7631d35a950587931248954fd97703a
+commit 5527c12d1564c7c864964740b2254232bb06e8c1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -7108,7 +7127,7 @@ index 993e4e7b4b3d0bb39f0afe8e60947fd3d03baded..756547706f60812a32f2057f6c3b4a34
      }
  
 
-commit 7ce78c86b5f4fd5d090b012e78c9c41e04ecb6ef
+commit 6c6b093e5a3fa5d5786cbfe749ae9e8d0132f829
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -7149,7 +7168,7 @@ index 756547706f60812a32f2057f6c3b4a3406ec7c37..27518dd4cdce45c6b54f3deb5d018a67
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit a220ad70c20391348e786d88e6f384330f6a4f3e
+commit a51dc3d24af7b7ddcdb0731a654e5101a0d81137
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -7239,7 +7258,7 @@ index 0f26f57e21559d9efbf650587842680ddd480f0f..809ac8b4dfd497443fdd7da3af824724
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit f1d3655c183f15ae4ecbbd40835c28b1f4c3912a
+commit d4661d94a9f1fa5fd85f88ef04c305dbc6fa5866
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -7328,7 +7347,7 @@ index 809ac8b4dfd497443fdd7da3af824724255a1caf..e8e35ab70cbe91698aa8d97cab57163b
          System.loadLibrary("jnigraphics");
      }
 
-commit ab2af0a75e38bfaf04d8a73bf4b6de97ee09b170
+commit 428707ee76036f933e9f6e87af6874287880c00a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -7371,7 +7390,7 @@ index e8e35ab70cbe91698aa8d97cab57163b6e8f4d5c..cdd14501e8ac528b650a14bf5be2a0eb
  
          sPreloadComplete = true;
 
-commit bb80597795ff80472de11a134b38577661a7e708
+commit 8f8d28bbb44f3e15720e69a704d5dc5727be42a9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 18:41:25-0400
 
@@ -7416,7 +7435,7 @@ index cdd14501e8ac528b650a14bf5be2a0eb9f6f409b..e8e35ab70cbe91698aa8d97cab57163b
  
          sPreloadComplete = true;
 
-commit 34a8acefae05c35b96ee8d89d4b81b0c19828363
+commit 092a71ef3cca2f7c528dfe0216637d06d45ca951
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -7459,7 +7478,7 @@ index e8e35ab70cbe91698aa8d97cab57163b6e8f4d5c..4742522bcaf447c22092758302308298
          // Ask the WebViewFactory to do any initialization that must run in the zygote process,
          // for memory sharing purposes.
 
-commit 572cb4932bf6f206df545957ae608843f0c8efe3
+commit df5fabadacfa25da9b78065ac232459545737a8c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -7502,7 +7521,7 @@ index 4742522bcaf447c2209275830230829850a9630b..af243c44c829dd03965aee5b8dde985f
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit 57e0c22aecc5a1cf3eaafe96f96859dc5703e098
+commit bc81a705a8e17aff112fc0d16f91d765977508e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -7545,7 +7564,7 @@ index af243c44c829dd03965aee5b8dde985f1b4093fa..d98f14b414a5825d0372f574f185480e
          preload(bootTimingsTraceLog, true);
      }
 
-commit f8950410de575c4bd1cc0bf907ed8ff73b0aae18
+commit b5544391680cc91600b8f34b4191b214a87ee2b2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -7633,7 +7652,7 @@ index d98f14b414a5825d0372f574f185480e39b6b769..145b52f2c143fc97d44fc6823fc70d6a
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit 1d9dc652eaf5ee4adbb0585f1fd6177ecd4542b0
+commit 82d6d167abde7052d0fea92af45545093c3eee30
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -7676,7 +7695,7 @@ index 145b52f2c143fc97d44fc6823fc70d6a7f588458..0fb0d4a97d826f1bd62bf252e01cebad
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
          maybePreloadGraphicsDriver();
 
-commit 04ac2d429634c7a53423a039ad8b6bfb7f3571f6
+commit 99e6d0dd4e225db13bc147cda95146f55cc625ec
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -7719,7 +7738,7 @@ index 0fb0d4a97d826f1bd62bf252e01cebad3e3b0979..ea199914b11e17586cadd9bdadf5694c
              WebViewFactory.prepareWebViewInZygote();
          }
 
-commit 2d6e71b35822c445e64fb5bcda804eead726fb3d
+commit 3a6d43feeaaacfe866f1f51291adb9ea7c88d3c4
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -8075,7 +8094,7 @@ index bed0aae074a4c274bea18d4491322cd77d22639f..69f615a8e0f4d680279e456d4dcab413
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit 6de4d85141065909305539b0a15d38b3a3cfc5cf
+commit e1232193344c9e198a8d9050287ee0a47d29ac8b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -8093,10 +8112,10 @@ Date:   Sun 2017-01-15 18:18:09-0500
  3 files changed, 57 insertions(+), 9 deletions(-)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index 4b510e2c2a86f07b6bb26a2d6a4b0ac9274d3f91..1018f81ddbf5933b1ae0850bf48f102eb322ec93 100644
+index 0247c54e42c025e4bebbb473b03b62430d78103e..38b2db67b0fb809a9c385ca56a4c8584402d073d 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -4171,20 +4171,27 @@ public final class Settings {
+@@ -4186,20 +4186,27 @@ public final class Settings {
  
          /**
           * @deprecated Use
@@ -8297,7 +8316,7 @@ index 232c6fc9906818a2b7aba07075bc999a1d839cf1..07715f8ad9c25bc735f6a42564aa4ac9
       * Reload colors from resources.
       **/
 
-commit 976ecd38b5559bb441f29d451621b009b4286d8f
+commit 7606b43a94614adea7b3a7ebcb82a69cdb664ccd
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -8312,10 +8331,10 @@ Date:   Tue 2020-03-03 22:55:39+1100
  3 files changed, 14 insertions(+), 11 deletions(-)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index 1018f81ddbf5933b1ae0850bf48f102eb322ec93..7093fdc3702db9039b183b5de30b18794ac096df 100644
+index 38b2db67b0fb809a9c385ca56a4c8584402d073d..048b6e937495846238b3eae803e13e8d26f8c8a2 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -4171,27 +4171,20 @@ public final class Settings {
+@@ -4186,27 +4186,20 @@ public final class Settings {
  
          /**
           * @deprecated Use
@@ -8343,7 +8362,7 @@ index 1018f81ddbf5933b1ae0850bf48f102eb322ec93..7093fdc3702db9039b183b5de30b1879
          @Readable
          public static final String NEXT_ALARM_FORMATTED = "next_alarm_formatted";
  
-@@ -9887,20 +9880,27 @@ public final class Settings {
+@@ -9902,20 +9895,27 @@ public final class Settings {
          @Readable
          public static final String TAP_GESTURE = "tap_gesture";
  
@@ -8475,7 +8494,7 @@ index 07715f8ad9c25bc735f6a42564aa4ac947410c44..c388b4de30ca87bfbd1e4a5a195d8c81
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit 703ee81ec7caf20a1316a1f9e8ebe94bd15a7fce
+commit 099be049bd50cf324a2bde4d5567dc518d4b689e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 19:44:59-0400
 
@@ -8891,7 +8910,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit d2a45ff2c6ae06ca99678599ff5f1a4fc3e451be
+commit abb0d53682a9431d252421a5bac9fd4f9f8787f2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 22:32:37-0400
 
@@ -8901,16 +8920,16 @@ Date:   Sat 2021-10-16 22:32:37-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 1c99aaffb2a83e395617ac7423686b33f72787ed..672c8754e3e7f01092d66cb6825d221ffd544e36 100644
+index e2edb28e13b58d1d2af1e1a6181be468ad956372..e165ee97c50c096ffb74cd5fdfcb95748644235b 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -953,21 +953,21 @@
-             2 - Power off (with confirmation)
-             3 - Power off (without confirmation)
-             4 - Go to voice assist
-             5 - Go to assistant (Settings.Secure.ASSISTANT)
-     -->
-     <integer name="config_longPressOnPowerBehavior">1</integer>
+@@ -967,21 +967,21 @@
+         <item>250</item>
+         <item>350</item>
+         <item>500</item>
+         <item>650</item>
+         <item>750</item>
+     </integer-array>
  
      <!-- Whether the setting to change long press on power behaviour from default to assistant (5)
           is available in Settings.
@@ -8928,7 +8947,7 @@ index 1c99aaffb2a83e395617ac7423686b33f72787ed..672c8754e3e7f01092d66cb6825d221f
              0 - Nothing
              1 - Mute toggle
 
-commit 736b6546ed411ba6621a87d865f8f1a21548e95e
+commit c34b211fef9bb60ec7b06f971cd39327e009a029
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -9406,10 +9425,10 @@ index f6852e6814393efe4312ced89bc89a3969d6ca46..3eec5adfa628f3ec516d60b7b0ca2424
          }
          if ((stratum == NTP_STRATUM_DEATH) || (stratum > NTP_STRATUM_MAX)) {
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index 7093fdc3702db9039b183b5de30b18794ac096df..efd51f4eb6486782935ea531d2650eb359a16b84 100644
+index 048b6e937495846238b3eae803e13e8d26f8c8a2..2f9796b21ca8f400f78d993bce330d27d629ed37 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -11245,20 +11245,24 @@ public final class Settings {
+@@ -11260,20 +11260,24 @@ public final class Settings {
          */
          @Readable
          public static final String NITZ_UPDATE_SPACING = "nitz_update_spacing";
@@ -9571,10 +9590,10 @@ index 4ac3178ecb4cf7e2d55ad63aea4daeeec8d7cd4b..9ebc9f4cea0b832d7f09131cae583945
      }
  }
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 672c8754e3e7f01092d66cb6825d221ffd544e36..719cefd73855795a01f7b34b71b5fc1844eac696 100644
+index e165ee97c50c096ffb74cd5fdfcb95748644235b..155b4eff86f4d87748a174f1b78aa6d2f7954503 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2194,22 +2194,27 @@
+@@ -2208,22 +2208,27 @@
  
      <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
           autodetected from the Configuration. -->
@@ -9603,10 +9622,10 @@ index 672c8754e3e7f01092d66cb6825d221ffd544e36..719cefd73855795a01f7b34b71b5fc18
      <integer name="config_ntpTimeout">5000</integer>
  
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index 09552ecf3308f4ff31ea6ae89d78e6d5624145de..d8e64bd7286b86ad42186d7467724fac5f47e301 100644
+index df167a8ee71e5bf3083ea02649fe9bfb9a7ca466..f582b8a61158eb2b507220b282b44e4d8fbd397b 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
-@@ -700,20 +700,22 @@
+@@ -702,20 +702,22 @@
    <java-symbol type="array" name="config_companionDevicePackages" />
    <java-symbol type="array" name="config_companionDeviceCerts" />
    <java-symbol type="string" name="config_default_dns_server" />
@@ -9630,7 +9649,7 @@ index 09552ecf3308f4ff31ea6ae89d78e6d5624145de..d8e64bd7286b86ad42186d7467724fac
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 522962b40b37d15e431e16dd5ed0ca6108d3c8e4
+commit 4247de522dcc5052fcd9f1a9ad8ba5a24c38b0b0
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -9646,10 +9665,10 @@ Date:   Tue 2020-09-29 10:58:40+1000
  4 files changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 719cefd73855795a01f7b34b71b5fc1844eac696..17bd55b7dbc5d3b549210890c8f8b3853bceabce 100644
+index 155b4eff86f4d87748a174f1b78aa6d2f7954503..4ff333e6f27e6d4bed73836ea230899f4fc9efe9 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2205,20 +2205,22 @@
+@@ -2219,20 +2219,22 @@
           Supports "ntp" or "https" only now -->
      <string translatable="false" name="config_ntpMode">https</string>
      <!-- Remote server that can provide NTP responses. -->
@@ -9673,10 +9692,10 @@ index 719cefd73855795a01f7b34b71b5fc1844eac696..17bd55b7dbc5d3b549210890c8f8b385
  
      <!-- Set and Unsets WiMAX -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index d8e64bd7286b86ad42186d7467724fac5f47e301..60da46ae52174dfabc598862dd2fdde1c76a6b2d 100644
+index f582b8a61158eb2b507220b282b44e4d8fbd397b..f65dbc469e4a2f5cbcda553e4dcee8c81457e256 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
-@@ -446,20 +446,21 @@
+@@ -448,20 +448,21 @@
    <java-symbol type="bool" name="config_allowStartActivityForLongPressOnPowerInSetup" />
    <java-symbol type="integer" name="config_keyChordPowerVolumeUp" />
    <java-symbol type="integer" name="config_wakeUpToLastStateTimeoutMillis" />
@@ -9899,7 +9918,7 @@ index 357c232226582f6d0a85f152b4fe3697a74307c7..5c95d02a34de3b810fa9e4ad4d0019ac
                  NetworkTimeSuggestion networkSuggestion = findLatestValidNetworkSuggestion();
                  if (networkSuggestion != null) {
 
-commit c431c18eb70c44a84d8e7b3037841d4bfb8bc279
+commit c2288fc68f7289db24e5b69a3462ab2d2af574ea
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -9945,7 +9964,7 @@ index 9ebc9f4cea0b832d7f09131cae5839458362b183..be78084b7ea9c98d8b4c98976a6d7127
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 8d0cc547f6f7d98cf6e1475bb1284ff5ce61aecc
+commit 239d85b20af7fd32839013a91404831fabf99ad1
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-10-18 04:05:40+0530
 
@@ -9961,10 +9980,10 @@ Date:   Mon 2021-10-18 04:05:40+0530
  4 files changed, 46 insertions(+)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index efd51f4eb6486782935ea531d2650eb359a16b84..5bad800f9286d5981823fe87a85e8cae9d673a1c 100644
+index 2f9796b21ca8f400f78d993bce330d27d629ed37..6c8d8aa379a84173f32eb4487ee6f98490fb1f5c 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -16167,20 +16167,27 @@ public final class Settings {
+@@ -16191,20 +16191,27 @@ public final class Settings {
          /**
           * Used to enable / disable the Restricted Networking Mode in which network access is
           * restricted to apps holding the CONNECTIVITY_USE_RESTRICTED_NETWORKS permission.
@@ -10047,7 +10066,7 @@ index 9de1c5ea1a3d4c68b67d4a1c39e993e25bc44c31..e508469086c9b43501b29a0f4dff3f08
          android:backupAgent=".backup.BackupHelper"
          android:killAfterRestore="false"
 diff --git a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
-index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb847c824b 100644
+index 1a8af3bb650b7da81b30f893f244316bc40e0fb8..45dbc12c7c166adf5a2df6d2a21e8e4cc2b1d2a0 100644
 --- a/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
 +++ b/packages/SystemUI/src/com/android/systemui/keyguard/KeyguardViewMediator.java
 @@ -173,20 +173,22 @@ import dagger.Lazy;
@@ -10099,7 +10118,7 @@ index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb
  
      // the properties of the keyguard
  
-@@ -891,20 +898,21 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
+@@ -892,20 +899,21 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
          mShowKeyguardWakeLock = mPM.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "show keyguard");
          mShowKeyguardWakeLock.setReferenceCounted(false);
  
@@ -10121,7 +10140,7 @@ index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb
          // Assume keyguard is showing (unless it's disabled) until we know for sure, unless Keyguard
          // is disabled.
          if (isKeyguardServiceEnabled()) {
-@@ -1189,37 +1197,53 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
+@@ -1190,37 +1198,53 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
                      lockIntent.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);
                      PendingIntent lockSender = PendingIntent.getBroadcast(
                              mContext, 0, lockIntent, PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_MUTABLE_UNAUDITED);
@@ -10175,7 +10194,7 @@ index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb
          synchronized (this) {
              mDeviceInteractive = true;
              if (mPendingLock && !cameraGestureTriggered) {
-@@ -1568,20 +1592,24 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
+@@ -1569,20 +1593,24 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
                  if (DEBUG) Log.d(TAG, "Not showing lock screen since just decrypted");
                  // Without this, settings is not enabled until the lock screen first appears
                  setShowingLocked(false);
@@ -10200,7 +10219,7 @@ index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb
          return !mUpdateMonitor.isDeviceProvisioned() && !isSecure();
      }
  
-@@ -1752,20 +1780,26 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
+@@ -1753,20 +1781,26 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
              } else if (DELAYED_LOCK_PROFILE_ACTION.equals(intent.getAction())) {
                  final int sequence = intent.getIntExtra("seq", 0);
                  int userId = intent.getIntExtra(Intent.EXTRA_USER_ID, 0);
@@ -10227,7 +10246,7 @@ index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb
              if (Intent.ACTION_SHUTDOWN.equals(intent.getAction())) {
                  synchronized (KeyguardViewMediator.this){
                      mShuttingDown = true;
-@@ -2337,20 +2371,21 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
+@@ -2339,20 +2373,21 @@ public class KeyguardViewMediator extends SystemUI implements Dumpable,
              playSounds(false);
          }
  
@@ -10250,7 +10269,7 @@ index ee3d40edc2eb4757348246babce40f058457a6f9..8e0e52463f72995eaacc2a7a77e096bb
      /**
       * Whether we're currently animating between the keyguard and the app/launcher surface behind
 
-commit 26ddc423ac2b42d1c5b17fe27ef229e828dcf545
+commit 20063ed4d2e2d8464150fce8744a47fe74899fd0
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-09-28 15:25:03+0100
 
@@ -10260,10 +10279,10 @@ Date:   Tue 2021-09-28 15:25:03+0100
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/telephony/java/android/telephony/CarrierConfigManager.java b/telephony/java/android/telephony/CarrierConfigManager.java
-index 72ad23b8edb1819b93d567682207ab7ec2009863..1b35fe483eb41d5a5df0966e53802b6dfaf2c6f7 100644
+index 45fd7a3467c407854acbad440303f6f7f9078ad6..92d6d9868da6c6252c01912a2cb66c527184ec75 100644
 --- a/telephony/java/android/telephony/CarrierConfigManager.java
 +++ b/telephony/java/android/telephony/CarrierConfigManager.java
-@@ -5147,21 +5147,21 @@ public class CarrierConfigManager {
+@@ -5276,21 +5276,21 @@ public class CarrierConfigManager {
          sDefaults.putBoolean(KEY_CALL_FORWARDING_WHEN_UNREACHABLE_SUPPORTED_BOOL, true);
          sDefaults.putBoolean(KEY_CALL_FORWARDING_WHEN_UNANSWERED_SUPPORTED_BOOL, true);
          sDefaults.putBoolean(KEY_CALL_FORWARDING_WHEN_BUSY_SUPPORTED_BOOL, true);
@@ -10287,7 +10306,7 @@ index 72ad23b8edb1819b93d567682207ab7ec2009863..1b35fe483eb41d5a5df0966e53802b6d
          sDefaults.putBoolean(KEY_EDITABLE_VOICEMAIL_NUMBER_SETTING_BOOL, true);
          sDefaults.putBoolean(KEY_EDITABLE_VOICEMAIL_NUMBER_BOOL, false);
 
-commit 989c0a96e1ea6a3fa638b837d71fdf74e7ab5435
+commit 99f1d4e21136dc942bc479f115cfb005b934ce5c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -10348,7 +10367,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit 74405eac1e7a1211ac81bc19f29ad27a826d03b3
+commit 8afba165c79c1e9a44eaeea3d1c0c08921163b49
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -10361,7 +10380,7 @@ Date:   Tue 2017-07-25 11:22:33-0400
  2 files changed, 11 insertions(+), 1 deletion(-)
 
 diff --git a/packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java b/packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java
-index 0a4e59c0391e6617f26a049ebfa51c0d61b1ed0d..0cca35173b184a12bab6c5781e1ce01176de0b3d 100644
+index 4701d8b32ee639802e1e5d0c300e813ade636ce2..868edc404b7f63ccce975da3ad5c5379385f8fb6 100644
 --- a/packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java
 +++ b/packages/SystemUI/src/com/android/systemui/statusbar/phone/KeyguardBottomAreaView.java
 @@ -43,20 +43,21 @@ import android.content.pm.PackageManager;
@@ -10386,7 +10405,7 @@ index 0a4e59c0391e6617f26a049ebfa51c0d61b1ed0d..0cca35173b184a12bab6c5781e1ce011
  import android.text.TextUtils;
  import android.util.AttributeSet;
  import android.util.Log;
-@@ -955,21 +956,22 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
+@@ -957,21 +958,22 @@ public class KeyguardBottomAreaView extends FrameLayout implements View.OnClickL
      private class DefaultRightButton implements IntentButton {
  
          private IconState mIconState = new IconState();
@@ -10465,7 +10484,7 @@ index d04698cb5aeb6d70d7457f2c691d30e348dd40a9..0ba4f550c5f400d1c04e8f48f594640b
              }
              if (DBG) {
 
-commit a79456adf606bdc4c37546fae403f170fdc85e72
+commit 6c471abd6f42efdd5f0e2bc61aea1bfd308ea1f9
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Sun 2021-05-02 00:36:30+0000
 
@@ -10602,7 +10621,7 @@ index 38275f7cd34838b14f1e07999ff82ed2d56dcc06..1014f5dab3e723e37be43c3bcaaf94e7
      }
  
 
-commit 9d21536fa79af53e75141317b5ac154daf671903
+commit 031b85368fb9baeb7fe5833ddc1e930255dd0e3f
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -10623,10 +10642,10 @@ Date:   Wed 2020-04-22 18:28:33+0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 17bd55b7dbc5d3b549210890c8f8b3853bceabce..30df7b916908fd026eb25bc12ecddff15bff8dca 100644
+index 4ff333e6f27e6d4bed73836ea230899f4fc9efe9..52574384051bb3c741af75820c6b2089b1476216 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2590,21 +2590,21 @@
+@@ -2604,21 +2604,21 @@
               0 - COLOR_MODE_DEFAULT
               7 - COLOR_MODE_SRGB
      -->
@@ -10650,7 +10669,7 @@ index 17bd55b7dbc5d3b549210890c8f8b3853bceabce..30df7b916908fd026eb25bc12ecddff1
  
           If this flag is false, we advise applications not to use protected
 
-commit 4b37e6939bf763e2436f9704b70d24bbc03c77de
+commit 7cd64a347d75bd7ba6ee43e3e4177a3b0fd7861c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -10687,7 +10706,7 @@ index d274c917c26df7869942c3d5af95aa57ebd26e30..8bd036b70d5f92ea5ea64cf4302dc875
      </string>
  
 
-commit f801a259aac6078e2b9dfb8b4e68c43f714d17b9
+commit 1729ecd7f10acf0164ef63f141eed6228412270e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -10724,7 +10743,7 @@ index 93efe5060a2f642841b4d662225d30935e9b48b7..26ae277751730765f7ecdd688b9d824b
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit e9f63b48642ef699ae122f3f168e6fb720c5efe8
+commit c7d89e9835bbfe2505343a7b17f1b6eac45446d8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -10781,7 +10800,7 @@ index 268603fa8b0d71d87aca4527ecd807fef82bae59..537090b83e94b58fa35e28d795b9b933
              if (stmt != null) stmt.close();
          }
 
-commit 923741e476319aaef25bb8f8357b7116a65b29c1
+commit 9698e11c2288cb91fc5c851ca52278e85b6bdcf2
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -10853,7 +10872,7 @@ index 590215101fb368eec81536fd4f19e1e5bb8287e0..1bd913ea9496b0b08274c338583bbc74
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 9735c60b425ef574bfa91e0b20d8aa98854a86c6
+commit 0d7a596fa75e04011d6c6e25de3d79b50b10a1b5
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-10-15 17:07:13+0100
 
@@ -10893,10 +10912,10 @@ index 37a84f3698c13d880cbdd37e9486a54633c3d856..0ae88276ebda6b13e890a219cfa9067e
  
      static class TrustAgentInfo {
 diff --git a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-index 193d92a3b2ff93337155c6be15937188f892f056..2b836f8b09863b870a08bf4cf7c9dea5637c7e96 100644
+index d48c9ea4831c78c0686a4bbeded829e47cd49928..f77df5c81f577f4ea1005c2210a49a5c08f01527 100644
 --- a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
 +++ b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-@@ -15482,25 +15482,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
+@@ -15533,25 +15533,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
                  return;
              }
              deviceOwner.isLogoutEnabled = enabled;
@@ -10925,7 +10944,7 @@ index 193d92a3b2ff93337155c6be15937188f892f056..2b836f8b09863b870a08bf4cf7c9dea5
  
          return new ArrayList<>(
 
-commit e4a16f8d66b211a4f451c8d6f37f4bd1dd16d02a
+commit 71684f370781e7a31bb2a47a364bbb620fd838f8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -10962,7 +10981,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit 0a10b2952720515799d616244ea34e604e4e9b56
+commit d00c372e34f5a88bb4f381c3ecc05ebcff75408a
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2021-05-06 20:42:26-0700
 
@@ -10972,10 +10991,10 @@ Date:   Thu 2021-05-06 20:42:26-0700
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-index 0a28b47923dac9434e5a6a7371296f81fd3832b6..c3f75d7f6ac8010fe7320b6a31728d987aa46b65 100644
+index eacdab6e537da03add1f2c5567619d1b95569dfb..873987deaa0794a7846c644be34041be3b78b6c7 100644
 --- a/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
 +++ b/packages/SystemUI/src/com/android/systemui/media/MediaDataManager.kt
-@@ -535,21 +535,22 @@ class MediaDataManager(
+@@ -540,21 +540,22 @@ class MediaDataManager(
          } else {
              Icon.createWithBitmap(artworkBitmap)
          }
@@ -11000,7 +11019,7 @@ index 0a28b47923dac9434e5a6a7371296f81fd3832b6..c3f75d7f6ac8010fe7320b6a31728d98
              }
          }
 
-commit f16ac6e6e84dc8d1cb4008adbb0e1a4c8fd80acb
+commit df6c3b06db535f6c2d61c40835e1d6b7d886a52a
 Author: pratyush <codelab@pratyush.dev>
 Date:   Thu 2021-07-01 12:26:49+0530
 
@@ -11011,10 +11030,10 @@ Date:   Thu 2021-07-01 12:26:49+0530
  2 files changed, 82 insertions(+)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index 5bad800f9286d5981823fe87a85e8cae9d673a1c..9ccb2f60f8eeb733eacb1a7bb0a34019ebe7e631 100644
+index 6c8d8aa379a84173f32eb4487ee6f98490fb1f5c..30b39c6e6bb61a7f4902cba948101957c23f7391 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -16174,20 +16174,26 @@ public final class Settings {
+@@ -16198,20 +16198,26 @@ public final class Settings {
           * @hide
           */
          public static final String RESTRICTED_NETWORKING_MODE = "restricted_networking_mode";
@@ -11042,7 +11061,7 @@ index 5bad800f9286d5981823fe87a85e8cae9d673a1c..9ccb2f60f8eeb733eacb1a7bb0a34019
       */
      public static final class Config extends NameValueTable {
 diff --git a/services/core/java/com/android/server/BluetoothManagerService.java b/services/core/java/com/android/server/BluetoothManagerService.java
-index b7c61a0d25cfbac222aa2800b9761786bda72df3..78c5c6d354d20cd217f395060027f5034a729af7 100644
+index 51066dd837e2692b8e8d99470c6189bf21034611..76fb570ddf71d53707d9b8b5d50e7602c6cdcd41 100644
 --- a/services/core/java/com/android/server/BluetoothManagerService.java
 +++ b/services/core/java/com/android/server/BluetoothManagerService.java
 @@ -22,20 +22,21 @@ import static android.content.PermissionChecker.PID_UNKNOWN;
@@ -11052,9 +11071,9 @@ index b7c61a0d25cfbac222aa2800b9761786bda72df3..78c5c6d354d20cd217f395060027f503
  import static android.os.UserHandle.USER_SYSTEM;
  
  import android.Manifest;
+ import android.annotation.NonNull;
  import android.annotation.RequiresPermission;
  import android.annotation.SuppressLint;
- import android.annotation.NonNull;
  import android.app.ActivityManager;
 +import android.app.AlarmManager;
  import android.app.AppGlobals;
@@ -11067,7 +11086,7 @@ index b7c61a0d25cfbac222aa2800b9761786bda72df3..78c5c6d354d20cd217f395060027f503
  import android.bluetooth.BluetoothProtoEnums;
  import android.bluetooth.IBluetooth;
  import android.bluetooth.IBluetoothCallback;
-@@ -548,20 +549,95 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
+@@ -546,20 +547,95 @@ class BluetoothManagerService extends IBluetoothManager.Stub {
              systemUiUid = pm.getPackageUid(pm.getSystemUiServiceComponent().getPackageName(),
                      MATCH_SYSTEM_ONLY, USER_SYSTEM);
          }
@@ -11164,7 +11183,7 @@ index b7c61a0d25cfbac222aa2800b9761786bda72df3..78c5c6d354d20cd217f395060027f503
      }
  
 
-commit 22cd35d3d04fa295a9ade9e92ee8acc6c305e3b7
+commit 48b44d9d517b96bae23778f9120861d9ccef7720
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -11177,10 +11196,10 @@ Date:   Mon 2018-04-02 12:59:51-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 30df7b916908fd026eb25bc12ecddff15bff8dca..1b88d749a0f2507bc5273e53d120abec8ce36213 100644
+index 52574384051bb3c741af75820c6b2089b1476216..4f792cf2fc911096a1a7d17c3b3f6474ec1ec044 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -1990,21 +1990,21 @@
+@@ -2004,21 +2004,21 @@
      <string name="config_systemTelevisionRemoteService" translatable="false">@string/config_tvRemoteServicePackage</string>
  
      <!-- The name of the package that will be allowed to change its components' label/icon. -->
@@ -11204,7 +11223,7 @@ index 30df7b916908fd026eb25bc12ecddff15bff8dca..1b88d749a0f2507bc5273e53d120abec
  
      <!-- The default character set for GsmAlphabet -->
 
-commit efd36a8cf5c866bf5b2e7c21b3b5b37d6f775a24
+commit 823de121e46ef160a016e5dc0db91e98e0b33aa5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -11247,7 +11266,7 @@ index 6b840bd7901d382522c82678f550a5cc2938d6a0..b5006f34c628d1f960b286f6da063d62
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 8e47336f76406b4f458fe42392045f8c7b6993f1
+commit 3c63c4e393fdbedb07b086f76daa9d617295310d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -11257,10 +11276,10 @@ Date:   Thu 2019-05-16 11:47:02-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 1b88d749a0f2507bc5273e53d120abec8ce36213..c5560882caa7df4ec785536d5907c9f7987d0069 100644
+index 4f792cf2fc911096a1a7d17c3b3f6474ec1ec044..4347621f8f150b3824d8965122778ce7582a9dbd 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2463,21 +2463,21 @@
+@@ -2477,21 +2477,21 @@
      <integer-array translatable="false" name="config_oemUsbModeOverride">
      </integer-array>
  
@@ -11284,7 +11303,7 @@ index 1b88d749a0f2507bc5273e53d120abec8ce36213..c5560882caa7df4ec785536d5907c9f7
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 13ebfebefd14ef7155bfc05b8e45c1affcf1a10f
+commit 7ec8419401294b009294b253fda22065b8cabea1
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Tue 2021-07-06 18:18:06+0530
 
@@ -11295,10 +11314,10 @@ Date:   Tue 2021-07-06 18:18:06+0530
  2 files changed, 75 insertions(+)
 
 diff --git a/core/java/android/provider/Settings.java b/core/java/android/provider/Settings.java
-index 9ccb2f60f8eeb733eacb1a7bb0a34019ebe7e631..bd28b2599a827eb856ce479a9740d670970a65f0 100644
+index 30b39c6e6bb61a7f4902cba948101957c23f7391..fd85557031bafcbc25a65b41f17826090503a74d 100644
 --- a/core/java/android/provider/Settings.java
 +++ b/core/java/android/provider/Settings.java
-@@ -16168,20 +16168,26 @@ public final class Settings {
+@@ -16192,20 +16192,26 @@ public final class Settings {
           * Used to enable / disable the Restricted Networking Mode in which network access is
           * restricted to apps holding the CONNECTIVITY_USE_RESTRICTED_NETWORKS permission.
           *
@@ -11457,7 +11476,7 @@ index 097b0711eff7813448ef7ae872421f8d6179e51d..0a4fca3ec09d53199397713d9e8c437f
          /**
           * Create a HandlerThread to use in NetworkStatsService.
 
-commit fd70968c1afb426f2a95df50ca0f5a8411e32975
+commit 3977ccbc35fb763f1475f932430a6629b557f9f3
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-10-19 00:46:21+0100
 
@@ -11504,7 +11523,7 @@ index db301f698753620069438202df3f160cd0ac89dd..c3b1612907bb2bc2a4a7aee07890a3d4
                              + currentVersion +
                              " instead; this is probably a bug. Did you update SETTINGS_VERSION?",
 
-commit 475a6ee0d9e6c13135bf96b4cbab7c9efddb90f2
+commit b12b347a03088a17e9beeeb5691a1cd1a0a35295
 Author: randomhydrosol <randomhydrosol@glassrom.org>
 Date:   Tue 2021-10-19 01:31:34+0100
 
@@ -11541,7 +11560,7 @@ index 5c95d02a34de3b810fa9e4ad4d0019ac134af1eb..0508789251927ebca9e6780531814d27
                  ExternalTimeSuggestion externalTimeSuggestion = findLatestValidExternalSuggestion();
                  if (externalTimeSuggestion != null) {
 
-commit 6d08beb0acb3cfc2ddd7716e18afb77e5dff925e
+commit 91f3f988317748984b1b084a4c7e6c7bbb9b8f94
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-19 08:05:17-0400
 
@@ -11587,7 +11606,7 @@ index 8bd036b70d5f92ea5ea64cf4302dc8756b58d7bd..d3d047df8a3714576341a83089d669a0
      </string>
  
 
-commit 20bc1b28e8b20fe6ef97621f426ce36e6e407a55
+commit f31cc69fd72d69c65ca6b3821f5c6e922acb0c28
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 23:57:54-0400
 
@@ -11597,10 +11616,10 @@ Date:   Mon 2021-03-15 23:57:54-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index c5560882caa7df4ec785536d5907c9f7987d0069..8788d1f151ee197f785f3b97936ebc0d50021aa2 100644
+index 4347621f8f150b3824d8965122778ce7582a9dbd..32bfbdffae12cc688f06a0dfc26c629dd3eb2098 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3785,21 +3785,21 @@
+@@ -3799,21 +3799,21 @@
           and followed the pertinent sections of the escrow tokens section of the CDD <link>-->
      <!-- TODO(b/35230407) complete the link field -->
      <bool name="config_allowEscrowTokenForTrustAgent">false</bool>
@@ -11624,7 +11643,7 @@ index c5560882caa7df4ec785536d5907c9f7987d0069..8788d1f151ee197f785f3b97936ebc0d
  
      <!-- The component name, flattened to a string, for the default autofill service
 
-commit 25a9e166b9dd519c626ee47766abe89972f88d50
+commit 9e69600f5a105cf9716ea0f3d331ea3877b6ea94
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 01:31:20-0400
 
@@ -11678,7 +11697,7 @@ index a6bb258bccb0d907557854d710ab90a18264d3ee..a93b3c72b50b240cd28855014f21d8cf
  LOCAL_NOTICE_FILE := $(LOCAL_PATH)/../../NOTICE
  
 
-commit 45fb8b2c1bcd504462bafad3bcb7c1ffc975a484
+commit 6528d4f82cfba1631b6642845b964f45459f34f7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-21 14:41:10-0400
 
@@ -11715,7 +11734,7 @@ index d3d047df8a3714576341a83089d669a0dac595bf..4cce2285a60ae5baf0bddbd928f479a7
      </string>
  
 
-commit d26e9976711060817b7bbfcb89088f2bc0420069
+commit 969a226b92a087f767535e49d7aac154ab32d5b3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-10-22 20:51:50-0400
 
@@ -11754,7 +11773,7 @@ index 4cce2285a60ae5baf0bddbd928f479a7db24cff2..d3d047df8a3714576341a83089d669a0
      </string>
  
 
-commit 8ea8bf1e1805d396fabbbec4b4c5e6d0a05fe944
+commit 3c4f80d637fd485f5063d021055517b304a803f8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-10-20 19:40:42-0400
 
@@ -11769,10 +11788,10 @@ Date:   Wed 2021-10-20 19:40:42-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 8788d1f151ee197f785f3b97936ebc0d50021aa2..1185924cd9471bc9d6883edaf7e7d8b4f9f2368a 100644
+index 32bfbdffae12cc688f06a0dfc26c629dd3eb2098..9ec03a2d5bda65db35a9a9adffd84df6a618fbeb 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3523,21 +3523,21 @@
+@@ -3537,21 +3537,21 @@
               2 - 1 snap target: 1:1
      -->
      <integer name="config_dockedStackDividerSnapMode">0</integer>
@@ -11796,7 +11815,7 @@ index 8788d1f151ee197f785f3b97936ebc0d50021aa2..1185924cd9471bc9d6883edaf7e7d8b4
      <bool name="config_jobSchedulerRestrictBackgroundUser">false</bool>
      <!-- The length of grace period after user becomes background user -->
 
-commit 6842d42fa12017cccd4c048a587a7b40dfd8f212
+commit 63cbb07e1d4dda441f1a8515a1eb751df48f91de
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:15:42-0400
 
@@ -11832,7 +11851,7 @@ index a93b3c72b50b240cd28855014f21d8cfd529b991..c7a3d40ccf36d04ca971009ebd418856
  	NavigationBarMode3ButtonOverlay \
  	NavigationBarMode2ButtonOverlay \
 
-commit 8cd0c1edc0ec8da9375f880abb41136b3af6d771 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 72f31490950e49dead1cf2f7ca6b595d720d3765
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-11-01 20:41:05-0700
 
@@ -12120,3 +12139,1644 @@ index b191584345ef32bb459b0cb811334eb0e2cf9f06..13a4f7738cbac3676b82aedd72bfff93
      <color name="accessibility_daltonizer_background">#00BCD4</color>
      <color name="accessibility_color_inversion_background">#546E7A</color>
  </resources>
+
+commit 61be0d8f599a1198b862365455d9915e894abcac
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Sat 2021-11-13 18:38:39-0500
+
+    gmscompat: use new API for long-running AppOps
+    
+    Android 12 added startProxyOpNoThrow and finishProxyOp so we no longer
+    need to use noteProxyOpNoThrow as an approximation.
+---
+ core/java/android/app/AppOpsManager.java | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/core/java/android/app/AppOpsManager.java b/core/java/android/app/AppOpsManager.java
+index f0b749c40a5ff65cf14e394795cd3fea4d1723b8..968af357a46252aba32b22eaf4b95d9a47001f95 100644
+--- a/core/java/android/app/AppOpsManager.java
++++ b/core/java/android/app/AppOpsManager.java
+@@ -8775,21 +8775,21 @@ public class AppOpsManager {
+ 
+     /**
+      * @see #startOpNoThrow(String, int, String, String, String)
+      *
+      * @hide
+      */
+     public int startOpNoThrow(@NonNull IBinder token, int op, int uid, @NonNull String packageName,
+             boolean startIfModeDefault, @Nullable String attributionTag, @Nullable String message,
+             @AttributionFlags int attributionFlags, int attributionChainId) {
+         if (GmsCompat.isEnabled() && uid != Process.myUid()) {
+-            return noteProxyOpNoThrow(op, packageName, uid, attributionTag, message);
++            return startProxyOpNoThrow(opToPublicName(op), uid, packageName, attributionTag, message);
+         }
+ 
+         try {
+             collectNoteOpCallsForValidation(op);
+             int collectionMode = getNotedOpCollectionMode(uid, packageName, op);
+             boolean shouldCollectMessage = Process.myUid() == Process.SYSTEM_UID;
+             if (collectionMode == COLLECT_ASYNC) {
+                 if (message == null) {
+                     // Set stack trace as default message
+                     message = getFormattedStackTrace();
+@@ -9002,20 +9002,21 @@ public class AppOpsManager {
+     }
+ 
+     /**
+      * @see #finishOp(String, int, String, String)
+      *
+      * @hide
+      */
+     public void finishOp(IBinder token, int op, int uid, @NonNull String packageName,
+             @Nullable String attributionTag) {
+         if (GmsCompat.isEnabled() && uid != Process.myUid()) {
++            finishProxyOp(opToPublicName(op), uid, packageName, attributionTag);
+             return;
+         }
+ 
+         try {
+             mService.finishOperation(token, op, uid, packageName, attributionTag);
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+
+commit 4575fe46db851663d72ccac1f456357bbd17e521
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Tue 2021-11-16 18:54:30+0200
+
+    gmscompat: improve Play Store compatibility
+    
+    Implements package (un)installation confirmation handling and
+    enables unattended app updates.
+---
+ .../android/app/ApplicationPackageManager.java     |   5 +
+ core/java/android/app/LoadedApk.java               |   4 -
+ core/java/android/app/compat/gms/GmsCompat.java    |  18 +-
+ core/java/android/content/pm/PackageInstaller.java |  12 ++
+ core/java/android/content/pm/PackageParser.java    |   4 +
+ .../com/android/internal/gmscompat/GmsHooks.java   | 101 ++++------
+ .../internal/gmscompat/PlayStoreHooks.java (new)   | 217 +++++++++++++++++++++
+ core/res/res/values/strings.xml                    |   6 +-
+ core/res/res/values/symbols.xml                    |   3 +-
+ 9 files changed, 298 insertions(+), 72 deletions(-)
+
+diff --git a/core/java/android/app/ApplicationPackageManager.java b/core/java/android/app/ApplicationPackageManager.java
+index 4dabe78f2f737c12314bd4697a839b9f44f39d7b..0f1d8dfc023006f17d6a21b3f06d9d344ff03f6c 100644
+--- a/core/java/android/app/ApplicationPackageManager.java
++++ b/core/java/android/app/ApplicationPackageManager.java
+@@ -115,20 +115,21 @@ import android.system.StructStat;
+ import android.text.TextUtils;
+ import android.util.ArrayMap;
+ import android.util.ArraySet;
+ import android.util.LauncherIcons;
+ import android.util.Log;
+ 
+ import com.android.internal.annotations.GuardedBy;
+ import com.android.internal.annotations.Immutable;
+ import com.android.internal.annotations.VisibleForTesting;
+ import com.android.internal.gmscompat.GmsHooks;
++import com.android.internal.gmscompat.PlayStoreHooks;
+ import com.android.internal.os.SomeArgs;
+ import com.android.internal.util.UserIcons;
+ 
+ import dalvik.system.VMRuntime;
+ 
+ import libcore.util.EmptyArray;
+ 
+ import java.io.File;
+ import java.lang.ref.WeakReference;
+ import java.security.cert.Certificate;
+@@ -2506,20 +2507,24 @@ public class ApplicationPackageManager extends PackageManager {
+             return false;
+         }
+ 
+         // We can move to any private volume
+         return (vol.getType() == VolumeInfo.TYPE_PRIVATE);
+     }
+ 
+     @Override
+     @UnsupportedAppUsage
+     public void deletePackage(String packageName, IPackageDeleteObserver observer, int flags) {
++        if (GmsCompat.isPlayStore()) {
++            PlayStoreHooks.deletePackage(mContext, this, packageName, observer, flags);
++            return;
++        }
+         deletePackageAsUser(packageName, observer, flags, getUserId());
+     }
+ 
+     @Override
+     public void deletePackageAsUser(String packageName, IPackageDeleteObserver observer,
+             int flags, int userId) {
+         try {
+             mPM.deletePackageAsUser(packageName, VERSION_CODE_HIGHEST,
+                     observer, userId, flags);
+         } catch (RemoteException e) {
+diff --git a/core/java/android/app/LoadedApk.java b/core/java/android/app/LoadedApk.java
+index 5a2533115b46e5d04d66346b48c682dad39a2ff9..e6b1bd7fb767bdb518f2cad7f46216c9c7ae8a19 100644
+--- a/core/java/android/app/LoadedApk.java
++++ b/core/java/android/app/LoadedApk.java
+@@ -1566,24 +1566,20 @@ public final class LoadedApk {
+             final LoadedApk.ReceiverDispatcher mStrongRef;
+ 
+             InnerReceiver(LoadedApk.ReceiverDispatcher rd, boolean strong) {
+                 mDispatcher = new WeakReference<LoadedApk.ReceiverDispatcher>(rd);
+                 mStrongRef = strong ? rd : null;
+             }
+ 
+             @Override
+             public void performReceive(Intent intent, int resultCode, String data,
+                     Bundle extras, boolean ordered, boolean sticky, int sendingUser) {
+-                if (GmsHooks.performReceive(intent)) {
+-                    return;
+-                }
+-
+                 final LoadedApk.ReceiverDispatcher rd;
+                 if (intent == null) {
+                     Log.wtf(TAG, "Null intent received");
+                     rd = null;
+                 } else {
+                     rd = mDispatcher.get();
+                 }
+                 if (ActivityThread.DEBUG_BROADCAST) {
+                     int seq = intent.getIntExtra("seq", -1);
+                     Slog.i(ActivityThread.TAG, "Receiving broadcast " + intent.getAction()
+diff --git a/core/java/android/app/compat/gms/GmsCompat.java b/core/java/android/app/compat/gms/GmsCompat.java
+index 15ee23822299bee53065b4e2267a9db8df8819d2..524a6f3a09bf67d83aa4acfd4aed45e5f8b5602d 100644
+--- a/core/java/android/app/compat/gms/GmsCompat.java
++++ b/core/java/android/app/compat/gms/GmsCompat.java
+@@ -11,20 +11,21 @@
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package android.app.compat.gms;
+ 
+ import android.annotation.SystemApi;
+ import android.app.ActivityThread;
++import android.app.Application;
+ import android.compat.Compatibility;
+ import android.compat.annotation.ChangeId;
+ import android.compat.annotation.Disabled;
+ import android.content.pm.ApplicationInfo;
+ import android.content.pm.IPackageManager;
+ import android.content.pm.PackageInfo;
+ import android.content.pm.PackageManager;
+ import android.content.pm.Signature;
+ import android.os.Binder;
+ import android.os.Process;
+@@ -69,35 +70,42 @@ public final class GmsCompat {
+ 
+     /**
+      * Whether to enable hooks for this app to load Dynamite modules from unprivileged GMS.
+      * This is for CLIENT apps, not GMS itself.
+      */
+     @ChangeId
+     @Disabled // Overridden as a special case in CompatChange
+     private static final long GMS_UNPRIVILEGED_DYNAMITE_CLIENT = 7528921493777479941L;
+ 
+     // Some hooks are in (potentially) hot paths, so cache the change enable states.
+-    private static volatile boolean isGmsCompatEnabled = false;
+-    private static volatile boolean isDynamiteClientEnabled = false;
++    // no need to declare these fields as volatile, they are written when app has only the main thread
++    private static boolean isGmsCompatEnabled;
++    private static boolean isDynamiteClientEnabled;
++    private static boolean isPlayStore;
+ 
+     // Static only
+     private GmsCompat() { }
+ 
+     public static boolean isEnabled() {
+         return isGmsCompatEnabled;
+     }
+ 
+     /** @hide */
+     public static boolean isDynamiteClient() {
+         return isDynamiteClientEnabled;
+     }
+ 
++    /** @hide */
++    public static boolean isPlayStore() {
++        return isPlayStore;
++    }
++
+     private static void logEnabled(String changeName, boolean enabled) {
+         if (!DEBUG_VERBOSE) {
+             return;
+         }
+ 
+         String pkg = ActivityThread.currentPackageName();
+         if (pkg == null) {
+             pkg = (Process.myUid() == Process.SYSTEM_UID) ? "system_server" : "[unknown]";
+         }
+ 
+@@ -116,23 +124,27 @@ public final class GmsCompat {
+ 
+         logEnabled(changeName, enabled);
+         return enabled;
+     }
+ 
+     /**
+      * Must be called to initialize the compatibility change enable states before any hooks run.
+      *
+      * @hide
+      */
+-    public static void initChangeEnableStates() {
++    public static void initChangeEnableStates(Application app) {
+         isGmsCompatEnabled = isChangeEnabled("GMS_UNPRIVILEGED_COMPAT", GMS_UNPRIVILEGED_COMPAT);
+         isDynamiteClientEnabled = isChangeEnabled("GMS_UNPRIVILEGED_DYNAMITE_CLIENT", GMS_UNPRIVILEGED_DYNAMITE_CLIENT);
++        if (isGmsCompatEnabled) {
++            // certificate is already checked if isGmsCompatEnabled is set
++            isPlayStore = GmsInfo.PACKAGE_PLAY_STORE.equals(app.getPackageName());
++        }
+     }
+ 
+     private static boolean validateCerts(Signature[] signatures) {
+         for (Signature signature : signatures) {
+             if (signature.toCharsString().equals(GmsInfo.SIGNING_CERT)) {
+                 return true;
+             }
+         }
+ 
+         return false;
+diff --git a/core/java/android/content/pm/PackageInstaller.java b/core/java/android/content/pm/PackageInstaller.java
+index 3f8aedb31ea9c99c3737b6e174442ae0675ef155..6071d4e5a98c698b4e5c2a1053c12a4291d5890e 100644
+--- a/core/java/android/content/pm/PackageInstaller.java
++++ b/core/java/android/content/pm/PackageInstaller.java
+@@ -25,20 +25,21 @@ import android.annotation.CurrentTimeMillisLong;
+ import android.annotation.IntDef;
+ import android.annotation.NonNull;
+ import android.annotation.Nullable;
+ import android.annotation.RequiresPermission;
+ import android.annotation.SdkConstant;
+ import android.annotation.SdkConstant.SdkConstantType;
+ import android.annotation.SystemApi;
+ import android.annotation.TestApi;
+ import android.app.ActivityManager;
+ import android.app.AppGlobals;
++import android.app.compat.gms.GmsCompat;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.Intent;
+ import android.content.IntentSender;
+ import android.content.pm.PackageManager.DeleteFlags;
+ import android.content.pm.PackageManager.InstallReason;
+ import android.content.pm.PackageManager.InstallScenario;
+ import android.graphics.Bitmap;
+ import android.net.Uri;
+ import android.os.Build;
+ import android.os.FileBridge;
+@@ -50,20 +51,21 @@ import android.os.Parcelable;
+ import android.os.ParcelableException;
+ import android.os.RemoteException;
+ import android.os.SystemProperties;
+ import android.os.UserHandle;
+ import android.system.ErrnoException;
+ import android.system.Os;
+ import android.text.TextUtils;
+ import android.util.ArraySet;
+ import android.util.ExceptionUtils;
+ 
++import com.android.internal.gmscompat.PlayStoreHooks;
+ import com.android.internal.util.IndentingPrintWriter;
+ import com.android.internal.util.Preconditions;
+ import com.android.internal.util.function.pooled.PooledLambda;
+ 
+ import java.io.Closeable;
+ import java.io.IOException;
+ import java.io.InputStream;
+ import java.io.OutputStream;
+ import java.lang.annotation.Retention;
+ import java.lang.annotation.RetentionPolicy;
+@@ -683,20 +685,23 @@ public class PackageInstaller {
+      * @param statusReceiver Where to deliver the result.
+      *
+      * @hide
+      */
+     @RequiresPermission(anyOf = {
+             Manifest.permission.DELETE_PACKAGES,
+             Manifest.permission.REQUEST_DELETE_PACKAGES})
+     public void uninstall(@NonNull VersionedPackage versionedPackage, @DeleteFlags int flags,
+             @NonNull IntentSender statusReceiver) {
+         Objects.requireNonNull(versionedPackage, "versionedPackage cannot be null");
++        if (GmsCompat.isPlayStore()) {
++            statusReceiver = PlayStoreHooks.wrapPackageInstallerStatusReceiver(statusReceiver);
++        }
+         try {
+             mInstaller.uninstall(versionedPackage, mInstallerPackageName,
+                     flags, statusReceiver, mUserId);
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+     /**
+      * Install the given package, which already exists on the device, for the user for which this
+@@ -1302,20 +1307,23 @@ public class PackageInstaller {
+          * @param statusReceiver Called when the state of the session changes. Intents
+          *                       sent to this receiver contain {@link #EXTRA_STATUS}. Refer to the
+          *                       individual status codes on how to handle them.
+          *
+          * @throws SecurityException if streams opened through
+          *             {@link #openWrite(String, long, long)} are still open.
+          *
+          * @see android.app.admin.DevicePolicyManager
+          */
+         public void commit(@NonNull IntentSender statusReceiver) {
++            if (GmsCompat.isPlayStore()) {
++                statusReceiver = PlayStoreHooks.wrapPackageInstallerStatusReceiver(statusReceiver);
++            }
+             try {
+                 mSession.commit(statusReceiver, false);
+             } catch (RemoteException e) {
+                 throw e.rethrowFromSystemServer();
+             }
+         }
+ 
+         /**
+          * Attempt to commit a session that has been {@link #transfer(String) transferred}.
+          *
+@@ -1624,20 +1632,24 @@ public class PackageInstaller {
+ 
+         /**
+          * Construct parameters for a new package install session.
+          *
+          * @param mode one of {@link #MODE_FULL_INSTALL} or
+          *            {@link #MODE_INHERIT_EXISTING} describing how the session
+          *            should interact with an existing app.
+          */
+         public SessionParams(int mode) {
+             this.mode = mode;
++            if (GmsCompat.isPlayStore()) {
++                // called here instead of in createSession() to give Play Store a chance to override
++                setRequireUserAction(USER_ACTION_NOT_REQUIRED);
++            }
+         }
+ 
+         /** {@hide} */
+         public SessionParams(Parcel source) {
+             mode = source.readInt();
+             installFlags = source.readInt();
+             installLocation = source.readInt();
+             installReason = source.readInt();
+             installScenario = source.readInt();
+             sizeBytes = source.readLong();
+diff --git a/core/java/android/content/pm/PackageParser.java b/core/java/android/content/pm/PackageParser.java
+index 1eca93ab2886f534afb2a294df4c6a97f2210818..de6804e72ef0a9ac4c800b84c3c0e78241377715 100644
+--- a/core/java/android/content/pm/PackageParser.java
++++ b/core/java/android/content/pm/PackageParser.java
+@@ -283,20 +283,24 @@ public class PackageParser {
+      * If sdkVersion is 0, then this is not a permission that we want to
+      * automatically add to older apps, but we do want to allow it to be
+      * granted during a platform update.
+      * @hide
+      */
+     @UnsupportedAppUsage
+     public static final PackageParser.NewPermissionInfo NEW_PERMISSIONS[] =
+         new PackageParser.NewPermissionInfo[] {
+             new PackageParser.NewPermissionInfo(android.Manifest.permission.REQUEST_INSTALL_PACKAGES,
+                     android.os.Build.VERSION_CODES.CUR_DEVELOPMENT + 1, 0, GmsInfo.PACKAGE_PLAY_STORE),
++            new PackageParser.NewPermissionInfo(android.Manifest.permission.REQUEST_DELETE_PACKAGES,
++                    android.os.Build.VERSION_CODES.CUR_DEVELOPMENT + 1, 0, GmsInfo.PACKAGE_PLAY_STORE),
++            new PackageParser.NewPermissionInfo(android.Manifest.permission.UPDATE_PACKAGES_WITHOUT_USER_ACTION,
++                    android.os.Build.VERSION_CODES.CUR_DEVELOPMENT + 1, 0, GmsInfo.PACKAGE_PLAY_STORE),
+             new PackageParser.NewPermissionInfo(android.Manifest.permission.OTHER_SENSORS,
+                     android.os.Build.VERSION_CODES.CUR_DEVELOPMENT + 1, 0),
+             new PackageParser.NewPermissionInfo(android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                     android.os.Build.VERSION_CODES.DONUT, 0),
+             new PackageParser.NewPermissionInfo(android.Manifest.permission.READ_PHONE_STATE,
+                     android.os.Build.VERSION_CODES.DONUT, 0)
+     };
+ 
+     /**
+      * @deprecated callers should move to explicitly passing around source path.
+diff --git a/core/java/com/android/internal/gmscompat/GmsHooks.java b/core/java/com/android/internal/gmscompat/GmsHooks.java
+index 620bb7e46fa0a065692dbf6082ae1c6af02578a0..9150bdf03d3571d75dd777d7a27befff017832c5 100644
+--- a/core/java/com/android/internal/gmscompat/GmsHooks.java
++++ b/core/java/com/android/internal/gmscompat/GmsHooks.java
+@@ -36,114 +36,126 @@ import android.os.Build;
+ import android.os.Process;
+ import android.os.UserHandle;
+ import android.os.UserManager;
+ import android.provider.Settings;
+ import android.util.Log;
+ import android.webkit.WebView;
+ 
+ import com.android.internal.R;
+ import com.android.internal.gmscompat.dynamite.GmsDynamiteHooks;
+ 
++import java.util.ArrayList;
+ import java.util.Collections;
+ import java.util.List;
+ 
+ /**
+  * API shims for Google Play Services compatibility. Hooks that are more complicated than a simple
+  * constant return value should be delegated to this class for easier maintenance.
+  *
+  * @hide
+  */
+ public final class GmsHooks {
+     private static final String TAG = "GmsCompat/Hooks";
+ 
+     // Foreground service notifications
+-    private static final String FGS_GROUP_ID = "gmscompat_fgs_group";
++    // id was chosen when fgs was the only channel
++    static final String COMPAT_GROUP_ID = "gmscompat_fgs_group";
+     private static final String FGS_CHANNEL_ID = "gmscompat_fgs_channel";
+     private static final int FGS_NOTIFICATION_ID = 529977835;
+-    private static boolean fgsChannelCreated = false;
++    private static boolean notificationChannelsCreated;
+ 
+     // Static only
+     private GmsHooks() { }
+ 
+ 
+     /*
+      * Foreground service notifications to keep GMS services alive
+      */
+ 
+     // Make all services foreground to keep them alive
+     // ContextImpl#startService(Intent)
+     public static ComponentName startService(Context context, Intent service) {
+         return context.startForegroundService(service);
+     }
+ 
+-    private static void createFgsChannel(Context context) {
+-        if (fgsChannelCreated) {
+-            return;
++    static Notification.Builder obtainNotificationBuilder(Context context, String channelId) {
++        if (!notificationChannelsCreated) {
++            createNotificationChannels(context);
++            notificationChannelsCreated = true;
+         }
++        return new Notification.Builder(context, channelId);
++    }
+ 
+-        NotificationManager notificationManager = (NotificationManager)
+-                context.getSystemService(Context.NOTIFICATION_SERVICE);
+-
+-        NotificationChannelGroup group = new NotificationChannelGroup(FGS_GROUP_ID,
+-                context.getText(R.string.foreground_service_gmscompat_group));
+-        notificationManager.createNotificationChannelGroup(group);
++    private static void createNotificationChannels(Context context) {
++        NotificationManager manager = context.getSystemService(NotificationManager.class);
++        NotificationChannelGroup group = new NotificationChannelGroup(COMPAT_GROUP_ID,
++                context.getText(R.string.gmscompat_channel_group));
++        manager.createNotificationChannelGroup(group);
++
++        ArrayList<NotificationChannel> channels = new ArrayList<>(7);
++        {
++            CharSequence name = context.getText(R.string.foreground_service_gmscompat_channel);
++            NotificationChannel c = new NotificationChannel(FGS_CHANNEL_ID, name,
++                    NotificationManager.IMPORTANCE_LOW);
++            c.setDescription(context.getString(R.string.foreground_service_gmscompat_channel_desc));
++            c.setShowBadge(false);
++            channels.add(c);
++        }
++        if (GmsCompat.isPlayStore()) {
++            PlayStoreHooks.createNotificationChannel(context, channels);
++        }
+ 
+-        CharSequence name = context.getText(R.string.foreground_service_gmscompat_channel);
+-        NotificationChannel channel = new NotificationChannel(FGS_CHANNEL_ID, name,
+-                NotificationManager.IMPORTANCE_LOW);
+-        channel.setGroup(FGS_GROUP_ID);
+-        channel.setDescription(context.getString(R.string.foreground_service_gmscompat_channel_desc));
+-        channel.setShowBadge(false);
+-        notificationManager.createNotificationChannel(channel);
++        for (int i = 0; i < channels.size(); ++i) {
++            channels.get(i).setGroup(COMPAT_GROUP_ID);
++        }
+ 
+-        fgsChannelCreated = true;
++        manager.createNotificationChannels(channels);
+     }
+ 
+     // Post notification on foreground service start
+     // ActivityThread#handleCreateService(CreateServiceData)
+     public static void attachService(Service service) {
+         // Isolated processes (e.g. WebView) don't have access to NotificationManager. They don't
+         // need a foreground notification anyway, so bail out early.
+         if (!GmsCompat.isEnabled() || Process.isIsolated()) {
+             return;
+         }
+ 
+-        // Channel
+-        createFgsChannel(service);
+-
+         // Intent: notification channel settings
+         Intent intent = new Intent(Settings.ACTION_CHANNEL_NOTIFICATION_SETTINGS);
+         intent.putExtra(Settings.EXTRA_APP_PACKAGE, service.getPackageName());
+         intent.putExtra(Settings.EXTRA_CHANNEL_ID, FGS_CHANNEL_ID);
+         PendingIntent pi = PendingIntent.getActivity(service, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+ 
+         // Notification
+         CharSequence appName = service.getApplicationInfo().loadLabel(service.getPackageManager());
+-        Notification notification = new Notification.Builder(service, FGS_CHANNEL_ID)
++        Notification notification = obtainNotificationBuilder(service, FGS_CHANNEL_ID)
+                 .setSmallIcon(service.getApplicationInfo().icon)
+                 .setContentTitle(service.getString(R.string.app_running_notification_title, appName))
+                 .setContentText(service.getText(R.string.foreground_service_gmscompat_notif_desc))
+                 .setContentIntent(pi)
+                 .build();
+ 
+         Log.d(TAG, "Posting notification for service: " + service.getClass().getName());
+         service.startForeground(FGS_NOTIFICATION_ID, notification);
+     }
+ 
+     // GMS tries to clean up its own notification channels periodically.
+-    // Don't let it delete the FGS shim channel because that throws an exception and crashes GMS.
++    // Don't let it delete any of compat channels because that throws an exception and crashes GMS.
+     // NotificationManager#deleteNotificationChannel(String)
+     public static boolean skipDeleteNotificationChannel(String channelId) {
+-        return GmsCompat.isEnabled() && FGS_CHANNEL_ID.equals(channelId);
++        if (! GmsCompat.isEnabled()) {
++            return false;
++        }
++        return FGS_CHANNEL_ID.equals(channelId) || PlayStoreHooks.PUA_CHANNEL_ID.equals(channelId);
+     }
+ 
+-
+     /**
+      * API shims
+      */
+ 
+     // Report a single user on the system
+     // UserManager#getSerialNumbersOfUsers(boolean)
+     public static long[] getSerialNumbersOfUsers(UserManager userManager) {
+         return new long[] { userManager.getSerialNumberForUser(Process.myUserHandle()) };
+     }
+ 
+@@ -191,66 +203,31 @@ public final class GmsHooks {
+         }
+ 
+         // Remove MATCH_ANY_USER flag to avoid permission denial
+         return flags & ~PackageManager.MATCH_ANY_USER;
+     }
+ 
+     // Fix RuntimeException: Using WebView from more than one process at once with the same data
+     // directory is not supported. https://crbug.com/558377
+     // Instrumentation#newApplication(ClassLoader, String, Context)
+     public static void initApplicationBeforeOnCreate(Application app) {
+-        GmsCompat.initChangeEnableStates();
++        GmsCompat.initChangeEnableStates(app);
+ 
+         if (GmsCompat.isEnabled()) {
+             String processName = Application.getProcessName();
+             if (!app.getPackageName().equals(processName)) {
+                 WebView.setDataDirectorySuffix("process-shim--" + processName);
+             }
+ 
+             GmsDynamiteHooks.initGmsServerApp(app);
+         } else if (GmsCompat.isDynamiteClient()) {
+             GmsDynamiteHooks.initClientApp();
+         }
+     }
+ 
+-    // Request user action for package install sessions
+-    // LoadedApk.ReceiverDispatcher.InnerReceiver#performReceive(Intent, int, String, Bundle, boolean, boolean, int)
+-    public static boolean performReceive(Intent intent) {
+-        if (!GmsCompat.isEnabled()) {
+-            return false;
+-        }
+-
+-        // Validate - we only want to handle user action requests
+-        if (!(intent.hasExtra(PackageInstaller.EXTRA_SESSION_ID) &&
+-                intent.hasExtra(PackageInstaller.EXTRA_STATUS) &&
+-                intent.hasExtra(Intent.EXTRA_INTENT))) {
+-            return false;
+-        }
+-        if (intent.getIntExtra(PackageInstaller.EXTRA_STATUS, 0) !=
+-                PackageInstaller.STATUS_PENDING_USER_ACTION) {
+-            return false;
+-        }
+-
+-        Application app = ActivityThread.currentApplication();
+-        if (app == null) {
+-            return false;
+-        }
+-
+-        // Use the intent
+-        Log.i(TAG, "Requesting user confirmation for package install session");
+-        Intent confirmIntent = intent.getParcelableExtra(Intent.EXTRA_INTENT);
+-        // Make it work with the Application context
+-        confirmIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+-        // TODO: post notification if app is in the background
+-        app.startActivity(confirmIntent);
+-
+-        // Don't dispatch it, otherwise Play Store abandons the session
+-        return true;
+-    }
+-
+     // Redirect cross-user interactions to current user
+     // ContextImpl#sendOrderedBroadcastAsUser
+     // ContextImpl#sendBroadcastAsUser
+     public static UserHandle getUserHandle(UserHandle user) {
+         return GmsCompat.isEnabled() ? Process.myUserHandle() : user;
+     }
+ }
+diff --git a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..85f14b531bac25056088b3d6caec6635a0c099fb
+--- /dev/null
++++ b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+@@ -0,0 +1,217 @@
++/*
++ * Copyright (C) 2021 The Android Open Source Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.internal.gmscompat;
++
++import android.app.ActivityManager;
++import android.app.ActivityThread;
++import android.app.IActivityManager;
++import android.app.Notification;
++import android.app.NotificationChannel;
++import android.app.NotificationManager;
++import android.app.PendingIntent;
++import android.content.BroadcastReceiver;
++import android.content.Context;
++import android.content.Intent;
++import android.content.IntentFilter;
++import android.content.IntentSender;
++import android.content.pm.IPackageDeleteObserver;
++import android.content.pm.PackageInstaller;
++import android.content.pm.PackageManager;
++import android.os.Process;
++import android.os.RemoteException;
++
++import com.android.internal.R;
++
++import java.util.ArrayList;
++import java.util.List;
++import java.util.Objects;
++import java.util.concurrent.atomic.AtomicLong;
++
++import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
++
++public final class PlayStoreHooks {
++
++    private static final String TAG = "GmsCompat/PlayStore";
++
++    // Pending user action notifications
++    static final String PUA_CHANNEL_ID = "gmscompat_playstore_pua_channel";
++    private static final int PUA_NOTIFICATION_ID = 429825706;
++
++    private PlayStoreHooks() {}
++
++    static void createNotificationChannel(Context context, ArrayList<NotificationChannel> dest) {
++        CharSequence name = context.getText(R.string.gmscompat_notif_channel_action_required);
++        NotificationChannel c = new NotificationChannel(PUA_CHANNEL_ID, name,
++                NotificationManager.IMPORTANCE_LOW);
++        c.setShowBadge(false);
++
++        dest.add(c);
++    }
++
++    // Play Store doesn't handle PENDING_USER_ACTION status from PackageInstaller
++    // PackageInstaller.Session#commit(IntentSender)
++    // PackageInstaller#uninstall(VersionedPackage, int, IntentSender)
++    public static IntentSender wrapPackageInstallerStatusReceiver(IntentSender statusReceiver) {
++        Context context = ActivityThread.currentApplication();
++        Objects.requireNonNull(context);
++        return PackageInstallerStatusForwarder.wrap(context, statusReceiver).getIntentSender();
++    }
++
++    static class PackageInstallerStatusForwarder extends BroadcastReceiver {
++        private Context context;
++        private IntentSender target;
++
++        private static final AtomicLong lastId = new AtomicLong();
++
++        static PendingIntent wrap(Context context, IntentSender target) {
++            PackageInstallerStatusForwarder sf = new PackageInstallerStatusForwarder();
++            sf.context = context;
++            sf.target = target;
++
++            String intentAction = context.getPackageName()
++                + "." + PackageInstallerStatusForwarder.class.getName() + "."
++                + lastId.getAndIncrement();
++            context.registerReceiver(sf, new IntentFilter(intentAction));
++
++            return PendingIntent.getBroadcast(context, 0, new Intent(intentAction),
++                    PendingIntent.FLAG_CANCEL_CURRENT |
++                        PendingIntent.FLAG_MUTABLE);
++        }
++
++        public void onReceive(Context br_context, Intent intent) {
++            String statusKey = PackageInstaller.EXTRA_STATUS;
++            if (! intent.hasExtra(statusKey)) {
++                throw new IllegalStateException("no EXTRA_STATUS in intent " + intent);
++            }
++            int status = intent.getIntExtra(statusKey, 0);
++
++            if (status == PackageInstaller.STATUS_PENDING_USER_ACTION) {
++                Intent confirmationIntent = intent.getParcelableExtra(Intent.EXTRA_INTENT);
++                confirmationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
++
++                boolean foreground = isForeground(Process.myUid(), Process.myPid());
++
++                if (foreground) {
++                    context.startActivity(confirmationIntent);
++                } else {
++                    // allow multiple PUA notifications
++                    int id = PUA_NOTIFICATION_ID + (((int) lastId.get()) & 0xffff);
++
++                    PendingIntent pi = PendingIntent.getActivity(context, id, confirmationIntent,
++                        PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT);
++
++                    Notification notification =
++                        GmsHooks.obtainNotificationBuilder(context, PUA_CHANNEL_ID)
++                        // TODO better icon
++                        .setSmallIcon(context.getApplicationInfo().icon)
++                        .setContentTitle(context.getText(R.string.gmscompat_notif_channel_action_required))
++                        .setContentIntent(pi)
++                        .setAutoCancel(true)
++                        .build();
++
++                    NotificationManager nm = context.getSystemService(NotificationManager.class);
++                    nm.notify(id, notification);
++                }
++                // confirmationIntent has a PendingIntent to this instance, don't unregister yet
++                return;
++            }
++
++            context.unregisterReceiver(this);
++
++            try {
++                target.sendIntent(context, 0, intent, null, null);
++            } catch (IntentSender.SendIntentException e) {
++                e.printStackTrace();
++            }
++        }
++    }
++
++    static boolean isForeground(int uid, int pid) {
++        final List<ActivityManager.RunningAppProcessInfo> procs;
++        try {
++            // returns only processes that belong to the current app
++            procs = ActivityManager.getService().getRunningAppProcesses();
++            Objects.requireNonNull(procs);
++        } catch (RemoteException e) {
++            throw e.rethrowAsRuntimeException();
++        }
++        for (int i = 0; i < procs.size(); i++) {
++            ActivityManager.RunningAppProcessInfo proc = procs.get(i);
++            if (proc.pid == pid && proc.uid == uid
++                    && proc.importance == IMPORTANCE_FOREGROUND) {
++                return true;
++            }
++        }
++        return false;
++    }
++
++    // Request user action to uninstall a package
++    // ApplicationPackageManager#deletePackage(String, IPackageDeleteObserver, int)
++    public static void deletePackage(Context context, PackageManager pm, String packageName, IPackageDeleteObserver observer, int flags) {
++        if (flags != 0) {
++            throw new IllegalStateException("unexpected flags: " + flags);
++        }
++        PendingIntent pi = UninstallStatusForwarder.getPendingIntent(context, packageName, observer);
++        // will call PackageInstallerStatusForwarder,
++        // no need to handle confirmation in UninstallStatusForwarder
++        pm.getPackageInstaller().uninstall(packageName, pi.getIntentSender());
++    }
++
++    static class UninstallStatusForwarder extends BroadcastReceiver {
++        private Context context;
++        private String packageName;
++        private IPackageDeleteObserver target;
++
++        private static final AtomicLong lastId = new AtomicLong();
++
++        static PendingIntent getPendingIntent(Context context, String packageName, IPackageDeleteObserver target) {
++            UninstallStatusForwarder sf = new UninstallStatusForwarder();
++            sf.context = context;
++            sf.packageName = packageName;
++            sf.target = target;
++
++            String intentAction = context.getPackageName()
++                + "." + UninstallStatusForwarder.class.getName() + "."
++                + lastId.getAndIncrement();
++
++            context.registerReceiver(sf, new IntentFilter(intentAction));
++
++            return PendingIntent.getBroadcast(context, 0, new Intent(intentAction),
++                    PendingIntent.FLAG_CANCEL_CURRENT |
++                        PendingIntent.FLAG_ONE_SHOT |
++                        PendingIntent.FLAG_MUTABLE);
++        }
++
++        public void onReceive(Context br_context, Intent intent) {
++            context.unregisterReceiver(this);
++
++            // EXTRA_STATUS returns PackageInstaller constant,
++            // EXTRA_LEGACY_STATUS returns PackageManager constant
++            String statusKey = PackageInstaller.EXTRA_LEGACY_STATUS;
++            if (!intent.hasExtra(statusKey)) {
++                throw new IllegalStateException("no EXTRA_LEGACY_STATUS in intent " + intent);
++            }
++
++            int status = intent.getIntExtra(statusKey, 0);
++            try {
++                target.packageDeleted(packageName, status);
++            } catch (RemoteException e) {
++                throw e.rethrowAsRuntimeException();
++            }
++        }
++    }
++}
+diff --git a/core/res/res/values/strings.xml b/core/res/res/values/strings.xml
+index 43cba7b85e2cfd5c510f9fed50dbd3b2639e7a9b..a07307392f6a626803e5c38e4c93ce639668cf10 100644
+--- a/core/res/res/values/strings.xml
++++ b/core/res/res/values/strings.xml
+@@ -757,34 +757,36 @@
+         data usage</string>
+ 
+     <!-- Separator for foreground service notification content listing all apps when there
+         are multiple apps running.  The left and right side may both already be compound
+         (constructed using this separator).  Should be kept as short as possible, this is
+         for summary text in the notification where there is not a lot of space.
+         [CHAR LIMIT=NONE] -->
+     <string name="foreground_service_multiple_separator"><xliff:g id="left_side">%1$s</xliff:g>,
+         <xliff:g id="right_side">%2$s</xliff:g></string>
+ 
+-    <!-- Name for foreground service notification channel group created by GmsCompat  -->
+-    <string name="foreground_service_gmscompat_group">Compatibility</string>
++    <!-- Name for GmsCompat notification channel group -->
++    <string name="gmscompat_channel_group">Compatibility</string>
+ 
+     <!-- Name for foreground service notification channel created by GmsCompat  -->
+     <string name="foreground_service_gmscompat_channel">Services</string>
+ 
+     <!-- Description for foreground service notification channel created by GmsCompat  -->
+     <string name="foreground_service_gmscompat_channel_desc">These notifications are created by the
+         Google Play Services compatibility layer in order to keep services running in the
+         background.\n\nDisable this category to hide the unnecessary notifications.</string>
+ 
+     <!-- Description for foreground service notifications created by GmsCompat  -->
+     <string name="foreground_service_gmscompat_notif_desc">Tap to hide</string>
+ 
++    <string name="gmscompat_notif_channel_action_required">Action required</string>
++
+     <!-- Displayed to the user to tell them that they have started up the phone in "safe mode" -->
+     <string name="safeMode">Safe mode</string>
+ 
+     <!-- Label for the Android system components when they are shown to the user. -->
+     <string name="android_system_label">Android System</string>
+ 
+     <!-- "Switch" is a verb; it means to change user profile by tapping another user profile name. -->
+     <string name="user_owner_label">Switch to personal profile</string>
+ 
+     <!-- "Switch" is a verb; it means to change user profile by tapping another user profile name. -->
+diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
+index f65dbc469e4a2f5cbcda553e4dcee8c81457e256..9a59dc450c0d008c0001384cfaab0b9dee5d9b6a 100644
+--- a/core/res/res/values/symbols.xml
++++ b/core/res/res/values/symbols.xml
+@@ -3618,24 +3618,25 @@
+   <java-symbol type="string" name="config_defaultSystemCaptionsManagerService" />
+   <java-symbol type="string" name="config_retailDemoPackage" />
+   <java-symbol type="string" name="config_retailDemoPackageSignature" />
+ 
+   <java-symbol type="string" name="notification_channel_foreground_service" />
+   <java-symbol type="string" name="foreground_service_app_in_background" />
+   <java-symbol type="string" name="foreground_service_apps_in_background" />
+   <java-symbol type="string" name="foreground_service_tap_for_details" />
+   <java-symbol type="string" name="foreground_service_multiple_separator" />
+ 
+-  <java-symbol type="string" name="foreground_service_gmscompat_group" />
++  <java-symbol type="string" name="gmscompat_channel_group" />
+   <java-symbol type="string" name="foreground_service_gmscompat_channel" />
+   <java-symbol type="string" name="foreground_service_gmscompat_channel_desc" />
+   <java-symbol type="string" name="foreground_service_gmscompat_notif_desc" />
++  <java-symbol type="string" name="gmscompat_notif_channel_action_required" />
+ 
+   <java-symbol type="bool" name="config_enableCredentialFactoryResetProtection" />
+ 
+   <!-- ETWS primary messages -->
+   <java-symbol type="string" name="etws_primary_default_message_earthquake" />
+   <java-symbol type="string" name="etws_primary_default_message_tsunami" />
+   <java-symbol type="string" name="etws_primary_default_message_earthquake_and_tsunami" />
+   <java-symbol type="string" name="etws_primary_default_message_test" />
+   <java-symbol type="string" name="etws_primary_default_message_others" />
+ 
+
+commit d66787984b786eff3571673ac54db973ac2f4edd
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2021-11-18 12:04:59-0500
+
+    minor style fix
+---
+ core/java/com/android/internal/gmscompat/GmsHooks.java       | 2 +-
+ core/java/com/android/internal/gmscompat/PlayStoreHooks.java | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/core/java/com/android/internal/gmscompat/GmsHooks.java b/core/java/com/android/internal/gmscompat/GmsHooks.java
+index 9150bdf03d3571d75dd777d7a27befff017832c5..345a8b1619e68b62b8d17464d3f711b3421d8dd6 100644
+--- a/core/java/com/android/internal/gmscompat/GmsHooks.java
++++ b/core/java/com/android/internal/gmscompat/GmsHooks.java
+@@ -136,21 +136,21 @@ public final class GmsHooks {
+                 .build();
+ 
+         Log.d(TAG, "Posting notification for service: " + service.getClass().getName());
+         service.startForeground(FGS_NOTIFICATION_ID, notification);
+     }
+ 
+     // GMS tries to clean up its own notification channels periodically.
+     // Don't let it delete any of compat channels because that throws an exception and crashes GMS.
+     // NotificationManager#deleteNotificationChannel(String)
+     public static boolean skipDeleteNotificationChannel(String channelId) {
+-        if (! GmsCompat.isEnabled()) {
++        if (!GmsCompat.isEnabled()) {
+             return false;
+         }
+         return FGS_CHANNEL_ID.equals(channelId) || PlayStoreHooks.PUA_CHANNEL_ID.equals(channelId);
+     }
+ 
+     /**
+      * API shims
+      */
+ 
+     // Report a single user on the system
+diff --git a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+index 85f14b531bac25056088b3d6caec6635a0c099fb..938cb4c67291039ae46517b5a977d49b0b137389 100644
+--- a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
++++ b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+@@ -87,21 +87,21 @@ public final class PlayStoreHooks {
+                 + lastId.getAndIncrement();
+             context.registerReceiver(sf, new IntentFilter(intentAction));
+ 
+             return PendingIntent.getBroadcast(context, 0, new Intent(intentAction),
+                     PendingIntent.FLAG_CANCEL_CURRENT |
+                         PendingIntent.FLAG_MUTABLE);
+         }
+ 
+         public void onReceive(Context br_context, Intent intent) {
+             String statusKey = PackageInstaller.EXTRA_STATUS;
+-            if (! intent.hasExtra(statusKey)) {
++            if (!intent.hasExtra(statusKey)) {
+                 throw new IllegalStateException("no EXTRA_STATUS in intent " + intent);
+             }
+             int status = intent.getIntExtra(statusKey, 0);
+ 
+             if (status == PackageInstaller.STATUS_PENDING_USER_ACTION) {
+                 Intent confirmationIntent = intent.getParcelableExtra(Intent.EXTRA_INTENT);
+                 confirmationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+ 
+                 boolean foreground = isForeground(Process.myUid(), Process.myPid());
+ 
+
+commit 2196f8bd38bce27f129c9fa2508d2a76a99740ae
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Fri 2021-11-19 13:48:41+0200
+
+    gmscompat: compatibility with Play Store self-update
+---
+ .../android/app/ApplicationPackageManager.java     |  4 ++
+ core/java/android/content/ContentResolver.java     |  5 +++
+ .../android/internal/gmscompat/PlayStoreHooks.java | 47 ++++++++++++++++++++++
+ 3 files changed, 56 insertions(+)
+
+diff --git a/core/java/android/app/ApplicationPackageManager.java b/core/java/android/app/ApplicationPackageManager.java
+index 0f1d8dfc023006f17d6a21b3f06d9d344ff03f6c..1dff532256e8a361b7fe6fdeacbc2d40cac28076 100644
+--- a/core/java/android/app/ApplicationPackageManager.java
++++ b/core/java/android/app/ApplicationPackageManager.java
+@@ -2557,20 +2557,24 @@ public class ApplicationPackageManager extends PackageManager {
+         try {
+             mPM.deleteApplicationCacheFilesAsUser(packageName, userId, observer);
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+     @Override
+     public void freeStorageAndNotify(String volumeUuid, long idealStorageSize,
+             IPackageDataObserver observer) {
++        if (GmsCompat.isPlayStore()) {
++            PlayStoreHooks.freeStorageAndNotify(mContext, volumeUuid, idealStorageSize, observer);
++            return;
++        }
+         try {
+             mPM.freeStorageAndNotify(volumeUuid, idealStorageSize, 0, observer);
+         } catch (RemoteException e) {
+             throw e.rethrowFromSystemServer();
+         }
+     }
+ 
+     @Override
+     public void freeStorage(String volumeUuid, long freeStorageSize, IntentSender pi) {
+         try {
+diff --git a/core/java/android/content/ContentResolver.java b/core/java/android/content/ContentResolver.java
+index 265ff331ffa06398b7e68f396cbf86c238303f54..65e8f48a3c6eb8d748e3d693df38c2fd3aceef7a 100644
+--- a/core/java/android/content/ContentResolver.java
++++ b/core/java/android/content/ContentResolver.java
+@@ -24,20 +24,21 @@ import android.annotation.NonNull;
+ import android.annotation.Nullable;
+ import android.annotation.RequiresPermission;
+ import android.annotation.SuppressLint;
+ import android.annotation.SystemApi;
+ import android.annotation.TestApi;
+ import android.annotation.UserIdInt;
+ import android.app.ActivityManager;
+ import android.app.ActivityThread;
+ import android.app.AppGlobals;
+ import android.app.UriGrantsManager;
++import android.app.compat.gms.GmsCompat;
+ import android.compat.annotation.UnsupportedAppUsage;
+ import android.content.pm.PackageManager;
+ import android.content.pm.PackageManager.NameNotFoundException;
+ import android.content.res.AssetFileDescriptor;
+ import android.content.res.Resources;
+ import android.database.ContentObserver;
+ import android.database.CrossProcessCursorWrapper;
+ import android.database.Cursor;
+ import android.database.IContentObserver;
+ import android.graphics.Bitmap;
+@@ -64,20 +65,21 @@ import android.os.ServiceManager;
+ import android.os.SystemClock;
+ import android.os.UserHandle;
+ import android.system.Int64Ref;
+ import android.text.TextUtils;
+ import android.util.EventLog;
+ import android.util.Log;
+ import android.util.Size;
+ import android.util.SparseArray;
+ 
+ import com.android.internal.annotations.GuardedBy;
++import com.android.internal.gmscompat.PlayStoreHooks;
+ import com.android.internal.util.MimeIconUtils;
+ 
+ import dalvik.system.CloseGuard;
+ 
+ import java.io.File;
+ import java.io.FileInputStream;
+ import java.io.FileNotFoundException;
+ import java.io.IOException;
+ import java.io.InputStream;
+ import java.io.OutputStream;
+@@ -2170,20 +2172,23 @@ public abstract class ContentResolver implements ContentInterface {
+      *            which arguments they support.
+      * @return the URL of the newly created row. May return <code>null</code> if the underlying
+      *         content provider returns <code>null</code>, or if it crashes.
+      * @throws IllegalArgumentException if the provider doesn't support one of
+      *             the requested Bundle arguments.
+      */
+     @Override
+     public final @Nullable Uri insert(@RequiresPermission.Write @NonNull Uri url,
+             @Nullable ContentValues values, @Nullable Bundle extras) {
+         Objects.requireNonNull(url, "url");
++        if (GmsCompat.isPlayStore()) {
++            PlayStoreHooks.filterContentValues(url, values);
++        }
+ 
+         try {
+             if (mWrapped != null) return mWrapped.insert(url, values, extras);
+         } catch (RemoteException e) {
+             return null;
+         }
+ 
+         IContentProvider provider = acquireProvider(url);
+         if (provider == null) {
+             throw new IllegalArgumentException("Unknown URL " + url);
+diff --git a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+index 938cb4c67291039ae46517b5a977d49b0b137389..f197ee2da3e14c25dc91e84cd431fdd82e137c0f 100644
+--- a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
++++ b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+@@ -17,32 +17,38 @@
+ package com.android.internal.gmscompat;
+ 
+ import android.app.ActivityManager;
+ import android.app.ActivityThread;
+ import android.app.IActivityManager;
+ import android.app.Notification;
+ import android.app.NotificationChannel;
+ import android.app.NotificationManager;
+ import android.app.PendingIntent;
+ import android.content.BroadcastReceiver;
++import android.content.ContentValues;
+ import android.content.Context;
+ import android.content.Intent;
+ import android.content.IntentFilter;
+ import android.content.IntentSender;
++import android.content.pm.IPackageDataObserver;
+ import android.content.pm.IPackageDeleteObserver;
+ import android.content.pm.PackageInstaller;
+ import android.content.pm.PackageManager;
++import android.net.Uri;
+ import android.os.Process;
+ import android.os.RemoteException;
++import android.os.storage.StorageManager;
++import android.provider.Downloads;
+ 
+ import com.android.internal.R;
+ 
++import java.io.IOException;
+ import java.util.ArrayList;
+ import java.util.List;
+ import java.util.Objects;
+ import java.util.concurrent.atomic.AtomicLong;
+ 
+ import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
+ 
+ public final class PlayStoreHooks {
+ 
+     private static final String TAG = "GmsCompat/PlayStore";
+@@ -207,11 +213,52 @@ public final class PlayStoreHooks {
+             }
+ 
+             int status = intent.getIntExtra(statusKey, 0);
+             try {
+                 target.packageDeleted(packageName, status);
+             } catch (RemoteException e) {
+                 throw e.rethrowAsRuntimeException();
+             }
+         }
+     }
++
++    // Called during self-update sequence because PackageManager requires
++    // the restricted CLEAR_APP_CACHE permission
++    // ApplicationPackageManager#freeStorageAndNotify(String, long, IPackageDataObserver)
++    public static void freeStorageAndNotify(Context context, String volumeUuid, long idealStorageSize,
++            IPackageDataObserver observer) {
++        if (volumeUuid != null) {
++            throw new IllegalStateException("unexpected volumeUuid " + volumeUuid);
++        }
++        StorageManager sm = context.getSystemService(StorageManager.class);
++        boolean success = false;
++        try {
++            sm.allocateBytes(StorageManager.UUID_DEFAULT, idealStorageSize);
++            success = true;
++        } catch (IOException e) {
++            e.printStackTrace();
++        }
++        try {
++            // same behavior as PackageManagerService#freeStorageAndNotify()
++            String packageName = null;
++            observer.onRemoveCompleted(packageName, success);
++        } catch (RemoteException e) {
++            throw e.rethrowAsRuntimeException();
++        }
++    }
++
++    // Called during self-update sequence
++    // ContentResolver#insert(Uri, ContentValues, Bundle)
++    public static void filterContentValues(Uri url, ContentValues values) {
++        if (values != null && "content://downloads/my_downloads".equals(url.toString())) {
++            // gated by the restricted ACCESS_DOWNLOAD_MANAGER_ADVANCED permission
++            String otherUid = Downloads.Impl.COLUMN_OTHER_UID;
++            if (values.containsKey(otherUid)) {
++                int v = values.getAsInteger(otherUid).intValue();
++                if (v != 1000) {
++                    throw new IllegalStateException("unexpected COLUMN_OTHER_UID " + v);
++                }
++                values.remove(otherUid);
++            }
++        }
++    }
+ }
+
+commit f1f7a3a5d80ea1e27607572ef5b4c5e23277709d
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Mon 2021-11-22 17:56:16+0200
+
+    gmscompat: mark confirmation notification from Play Store as ongoing
+    
+    Play Store will wait for confirmation indefinitely if notification is dismissed.
+    Ongoing notifications can't be dismissed (swiped away) by the user.
+---
+ core/java/com/android/internal/gmscompat/PlayStoreHooks.java | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+index f197ee2da3e14c25dc91e84cd431fdd82e137c0f..659a5a0c40503b909cb78f5f94338dd6492aca9b 100644
+--- a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
++++ b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+@@ -119,20 +119,21 @@ public final class PlayStoreHooks {
+ 
+                     PendingIntent pi = PendingIntent.getActivity(context, id, confirmationIntent,
+                         PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT);
+ 
+                     Notification notification =
+                         GmsHooks.obtainNotificationBuilder(context, PUA_CHANNEL_ID)
+                         // TODO better icon
+                         .setSmallIcon(context.getApplicationInfo().icon)
+                         .setContentTitle(context.getText(R.string.gmscompat_notif_channel_action_required))
+                         .setContentIntent(pi)
++                        .setOngoing(true)
+                         .setAutoCancel(true)
+                         .build();
+ 
+                     NotificationManager nm = context.getSystemService(NotificationManager.class);
+                     nm.notify(id, notification);
+                 }
+                 // confirmationIntent has a PendingIntent to this instance, don't unregister yet
+                 return;
+             }
+ 
+
+commit bc2bd20d17578fecff5da9eec46bc5b2a80ed485
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Tue 2021-11-23 21:02:26+0200
+
+    gmscompat: fix push notifications in secondary user profiles
+    
+    UserManager.isUserUnlocked(userId) returns whether a user exited the Direct Boot mode.
+    This method requires a restricted permission if userId parameter differs from the current userId.
+    GMS called this method with userId 0 in both primary (userId == 0) and secondary (userId != 0)
+    profiles. userId was always 0 likely because of the stubbed out
+    UserManager.getUserSerialNumber(userId),
+    which always returned 0 as a workaround to a different issue.
+---
+ core/java/android/os/UserManager.java | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/core/java/android/os/UserManager.java b/core/java/android/os/UserManager.java
+index d1f0d12e039a98fc7430b5c1869245e58ce8c710..b8179c8c3dc5b1161b00c981c3bfd2d6e0725df6 100644
+--- a/core/java/android/os/UserManager.java
++++ b/core/java/android/os/UserManager.java
+@@ -2520,20 +2520,23 @@ public class UserManager {
+                         throw re.rethrowFromSystemServer();
+                     }
+                 }
+             };
+ 
+     /** {@hide} */
+     @UnsupportedAppUsage
+     @RequiresPermission(anyOf = {Manifest.permission.MANAGE_USERS,
+             Manifest.permission.INTERACT_ACROSS_USERS}, conditional = true)
+     public boolean isUserUnlocked(@UserIdInt int userId) {
++        if (GmsCompat.isEnabled()) {
++            return mIsUserUnlockedCache.query(mUserId);
++        }
+         return mIsUserUnlockedCache.query(userId);
+     }
+ 
+     /** {@hide} */
+     public void disableIsUserUnlockedCache() {
+         mIsUserUnlockedCache.disableLocal();
+         mIsUserUnlockingOrUnlockedCache.disableLocal();
+     }
+ 
+     /** {@hide} */
+
+commit 408cb5210cafe0e798d59766d122f2a8bfd201e8
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Thu 2021-11-25 21:46:42+0200
+
+    gmscompat: make sure PackageInstaller UI returns a result
+---
+ .../android/packageinstaller/PackageInstallerActivity.java   | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+diff --git a/packages/PackageInstaller/src/com/android/packageinstaller/PackageInstallerActivity.java b/packages/PackageInstaller/src/com/android/packageinstaller/PackageInstallerActivity.java
+index 9c6113ce4b47935d36ae29430e91d943ddf82df5..9f4fb4cabf3a467e31685ac44988d4bd6ace4289 100644
+--- a/packages/PackageInstaller/src/com/android/packageinstaller/PackageInstallerActivity.java
++++ b/packages/PackageInstaller/src/com/android/packageinstaller/PackageInstallerActivity.java
+@@ -122,20 +122,21 @@ public class PackageInstallerActivity extends AlertActivity {
+     private static final int DLG_ANONYMOUS_SOURCE = DLG_BASE + 6;
+     private static final int DLG_NOT_SUPPORTED_ON_WEAR = DLG_BASE + 7;
+     private static final int DLG_EXTERNAL_SOURCE_BLOCKED = DLG_BASE + 8;
+     private static final int DLG_INSTALL_APPS_RESTRICTED_FOR_USER = DLG_BASE + 9;
+ 
+     // If unknown sources are temporary allowed
+     private boolean mAllowUnknownSources;
+ 
+     // Would the mOk button be enabled if this activity would be resumed
+     private boolean mEnableOk = false;
++    private boolean mPermissionResultWasSet;
+ 
+     private void startInstallConfirm() {
+         View viewToEnable;
+ 
+         if (mAppInfo != null) {
+             viewToEnable = requireViewById(R.id.install_confirm_question_update);
+             mOk.setText(R.string.update);
+         } else {
+             // This is a new application with no permissions.
+             viewToEnable = requireViewById(R.id.install_confirm_question);
+@@ -291,20 +292,21 @@ public class PackageInstallerActivity extends AlertActivity {
+         Intent result = new Intent();
+         result.putExtra(Intent.EXTRA_INSTALL_RESULT, pmResult);
+         setResult(pmResult == PackageManager.INSTALL_SUCCEEDED
+                 ? RESULT_OK : RESULT_FIRST_USER, result);
+     }
+ 
+     @Override
+     protected void onCreate(Bundle icicle) {
+         if (mLocalLOGV) Log.i(TAG, "creating for user " + getUserId());
+         getWindow().addSystemFlags(SYSTEM_FLAG_HIDE_NON_SYSTEM_OVERLAY_WINDOWS);
++        getWindow().setCloseOnTouchOutside(false);
+ 
+         super.onCreate(null);
+ 
+         if (icicle != null) {
+             mAllowUnknownSources = icicle.getBoolean(ALLOW_UNKNOWN_SOURCES_KEY);
+         }
+ 
+         mPm = getPackageManager();
+         mIpm = AppGlobals.getPackageManager();
+         mAppOpsManager = (AppOpsManager) getSystemService(Context.APP_OPS_SERVICE);
+@@ -383,20 +385,27 @@ public class PackageInstallerActivity extends AlertActivity {
+     }
+ 
+     @Override
+     protected void onPause() {
+         super.onPause();
+ 
+         if (mOk != null) {
+             // Don't allow the install button to be clicked as there might be overlays
+             mOk.setEnabled(false);
+         }
++        // sometimes this activity becomes hidden after onPause(),
++        // and the user is unable to bring it back
++        if (!mPermissionResultWasSet && mSessionId != -1) {
++            mInstaller.setPermissionsResult(mSessionId, false);
++            mPermissionResultWasSet = true;
++            finish();
++        }
+     }
+ 
+     @Override
+     protected void onSaveInstanceState(Bundle outState) {
+         super.onSaveInstanceState(outState);
+ 
+         outState.putBoolean(ALLOW_UNKNOWN_SOURCES_KEY, mAllowUnknownSources);
+     }
+ 
+     @Override
+@@ -409,32 +418,34 @@ public class PackageInstallerActivity extends AlertActivity {
+ 
+     private void bindUi() {
+         mAlert.setIcon(mAppSnippet.icon);
+         mAlert.setTitle(mAppSnippet.label);
+         mAlert.setView(R.layout.install_content_view);
+         mAlert.setButton(DialogInterface.BUTTON_POSITIVE, getString(R.string.install),
+                 (ignored, ignored2) -> {
+                     if (mOk.isEnabled()) {
+                         if (mSessionId != -1) {
+                             mInstaller.setPermissionsResult(mSessionId, true);
++                            mPermissionResultWasSet = true;
+                             finish();
+                         } else {
+                             startInstall();
+                         }
+                     }
+                 }, null);
+         mAlert.setButton(DialogInterface.BUTTON_NEGATIVE, getString(R.string.cancel),
+                 (ignored, ignored2) -> {
+                     // Cancel and finish
+                     setResult(RESULT_CANCELED);
+                     if (mSessionId != -1) {
+                         mInstaller.setPermissionsResult(mSessionId, false);
++                        mPermissionResultWasSet = true;
+                     }
+                     finish();
+                 }, null);
+         setupAlert();
+ 
+         mOk = mAlert.getButton(DialogInterface.BUTTON_POSITIVE);
+         mOk.setEnabled(false);
+ 
+         if (!mOk.isInTouchMode()) {
+             mAlert.getButton(DialogInterface.BUTTON_NEGATIVE).requestFocus();
+@@ -592,20 +603,21 @@ public class PackageInstallerActivity extends AlertActivity {
+             }
+         }
+ 
+         return true;
+     }
+ 
+     @Override
+     public void onBackPressed() {
+         if (mSessionId != -1) {
+             mInstaller.setPermissionsResult(mSessionId, false);
++            mPermissionResultWasSet = true;
+         }
+         super.onBackPressed();
+     }
+ 
+     private void startInstall() {
+         // Start subactivity to actually install the application
+         Intent newIntent = new Intent();
+         newIntent.putExtra(PackageUtil.INTENT_ATTR_APPLICATION_INFO,
+                 mPkgInfo.applicationInfo);
+         newIntent.setData(mPackageURI);
+
+commit b0b56c44cefe612a98136418fa2515b5c69e814c
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Thu 2021-11-25 21:53:44+0200
+
+    gmscompat: use a reliable "is app foreground" check
+    
+    Previous check returned a false positive shortly after activity was paused,
+    which led to startActivity() silently failing.
+---
+ core/java/android/app/ActivityThread.java          | 11 ++++++++
+ .../android/internal/gmscompat/PlayStoreHooks.java | 29 +++-------------------
+ 2 files changed, 14 insertions(+), 26 deletions(-)
+
+diff --git a/core/java/android/app/ActivityThread.java b/core/java/android/app/ActivityThread.java
+index 29f1c906c5db315cd3b88dfd295f04d42fb42b7c..f8f23fb0dff91ec60f63d23d451521b54b34ab70 100644
+--- a/core/java/android/app/ActivityThread.java
++++ b/core/java/android/app/ActivityThread.java
+@@ -7927,11 +7927,22 @@ public final class ActivityThread extends ClientTransactionHandler
+ 
+     @Override
+     public boolean hasImeComponent() {
+         return mHasImeComponent;
+     }
+ 
+     // ------------------ Regular JNI ------------------------
+     private native void nPurgePendingResources();
+     private native void nDumpGraphicsInfo(FileDescriptor fd);
+     private native void nInitZygoteChildHeapProfiling();
++
++    public boolean hasAtLeastOneResumedActivity() {
++        synchronized (mResourcesManager) {
++            for (int i = 0; i < mActivities.size(); ++i) {
++                if (mActivities.valueAt(i).getLifecycleState() == ActivityLifecycleItem.ON_RESUME) {
++                    return true;
++                }
++            }
++        }
++        return false;
++    }
+ }
+diff --git a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+index 659a5a0c40503b909cb78f5f94338dd6492aca9b..34832a6ee6f6c94174fd0f9c59a3b03959e53dcb 100644
+--- a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
++++ b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+@@ -9,21 +9,20 @@
+  *
+  * Unless required by applicable law or agreed to in writing, software
+  * distributed under the License is distributed on an "AS IS" BASIS,
+  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  * See the License for the specific language governing permissions and
+  * limitations under the License.
+  */
+ 
+ package com.android.internal.gmscompat;
+ 
+-import android.app.ActivityManager;
+ import android.app.ActivityThread;
+ import android.app.IActivityManager;
+ import android.app.Notification;
+ import android.app.NotificationChannel;
+ import android.app.NotificationManager;
+ import android.app.PendingIntent;
+ import android.content.BroadcastReceiver;
+ import android.content.ContentValues;
+ import android.content.Context;
+ import android.content.Intent;
+@@ -36,26 +35,23 @@ import android.content.pm.PackageManager;
+ import android.net.Uri;
+ import android.os.Process;
+ import android.os.RemoteException;
+ import android.os.storage.StorageManager;
+ import android.provider.Downloads;
+ 
+ import com.android.internal.R;
+ 
+ import java.io.IOException;
+ import java.util.ArrayList;
+-import java.util.List;
+ import java.util.Objects;
+ import java.util.concurrent.atomic.AtomicLong;
+ 
+-import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
+-
+ public final class PlayStoreHooks {
+ 
+     private static final String TAG = "GmsCompat/PlayStore";
+ 
+     // Pending user action notifications
+     static final String PUA_CHANNEL_ID = "gmscompat_playstore_pua_channel";
+     private static final int PUA_NOTIFICATION_ID = 429825706;
+ 
+     private PlayStoreHooks() {}
+ 
+@@ -102,23 +98,23 @@ public final class PlayStoreHooks {
+             String statusKey = PackageInstaller.EXTRA_STATUS;
+             if (!intent.hasExtra(statusKey)) {
+                 throw new IllegalStateException("no EXTRA_STATUS in intent " + intent);
+             }
+             int status = intent.getIntExtra(statusKey, 0);
+ 
+             if (status == PackageInstaller.STATUS_PENDING_USER_ACTION) {
+                 Intent confirmationIntent = intent.getParcelableExtra(Intent.EXTRA_INTENT);
+                 confirmationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+ 
+-                boolean foreground = isForeground(Process.myUid(), Process.myPid());
+-
+-                if (foreground) {
++                // there is no public API that I'm aware of (as of API 31)
++                // that would allow to *reliably* find this out
++                if (ActivityThread.currentActivityThread().hasAtLeastOneResumedActivity()) {
+                     context.startActivity(confirmationIntent);
+                 } else {
+                     // allow multiple PUA notifications
+                     int id = PUA_NOTIFICATION_ID + (((int) lastId.get()) & 0xffff);
+ 
+                     PendingIntent pi = PendingIntent.getActivity(context, id, confirmationIntent,
+                         PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_CANCEL_CURRENT);
+ 
+                     Notification notification =
+                         GmsHooks.obtainNotificationBuilder(context, PUA_CHANNEL_ID)
+@@ -140,39 +136,20 @@ public final class PlayStoreHooks {
+             context.unregisterReceiver(this);
+ 
+             try {
+                 target.sendIntent(context, 0, intent, null, null);
+             } catch (IntentSender.SendIntentException e) {
+                 e.printStackTrace();
+             }
+         }
+     }
+ 
+-    static boolean isForeground(int uid, int pid) {
+-        final List<ActivityManager.RunningAppProcessInfo> procs;
+-        try {
+-            // returns only processes that belong to the current app
+-            procs = ActivityManager.getService().getRunningAppProcesses();
+-            Objects.requireNonNull(procs);
+-        } catch (RemoteException e) {
+-            throw e.rethrowAsRuntimeException();
+-        }
+-        for (int i = 0; i < procs.size(); i++) {
+-            ActivityManager.RunningAppProcessInfo proc = procs.get(i);
+-            if (proc.pid == pid && proc.uid == uid
+-                    && proc.importance == IMPORTANCE_FOREGROUND) {
+-                return true;
+-            }
+-        }
+-        return false;
+-    }
+-
+     // Request user action to uninstall a package
+     // ApplicationPackageManager#deletePackage(String, IPackageDeleteObserver, int)
+     public static void deletePackage(Context context, PackageManager pm, String packageName, IPackageDeleteObserver observer, int flags) {
+         if (flags != 0) {
+             throw new IllegalStateException("unexpected flags: " + flags);
+         }
+         PendingIntent pi = UninstallStatusForwarder.getPendingIntent(context, packageName, observer);
+         // will call PackageInstallerStatusForwarder,
+         // no need to handle confirmation in UninstallStatusForwarder
+         pm.getPackageInstaller().uninstall(packageName, pi.getIntentSender());
+
+commit 62754dfc34e15ba11bca87f009e84f1e0caba28d (HEAD, m/master, grapheneos/12)
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Thu 2021-11-25 21:56:12+0200
+
+    gmscompat: System.exit(1) if package uninstallation is declined
+---
+ core/java/com/android/internal/gmscompat/PlayStoreHooks.java | 9 +++++++++
+ 1 file changed, 9 insertions(+)
+
+diff --git a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+index 34832a6ee6f6c94174fd0f9c59a3b03959e53dcb..b854ac439b1e6c84aff516f56a8bd7e4883967d1 100644
+--- a/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
++++ b/core/java/com/android/internal/gmscompat/PlayStoreHooks.java
+@@ -184,20 +184,29 @@ public final class PlayStoreHooks {
+             context.unregisterReceiver(this);
+ 
+             // EXTRA_STATUS returns PackageInstaller constant,
+             // EXTRA_LEGACY_STATUS returns PackageManager constant
+             String statusKey = PackageInstaller.EXTRA_LEGACY_STATUS;
+             if (!intent.hasExtra(statusKey)) {
+                 throw new IllegalStateException("no EXTRA_LEGACY_STATUS in intent " + intent);
+             }
+ 
+             int status = intent.getIntExtra(statusKey, 0);
++            if (status != PackageManager.DELETE_SUCCEEDED) {
++                // Play Store doesn't expect uninstallation to fail and ends up in an inconsistent UI state,
++                // which requires user-initiated "Force stop" as a workaround
++                // Most likely cause of a failure is accidental rejection of the second confirmation prompt:
++                // Play Store shows its own confirmation UI before PackageInstaller confirmation UI
++                // is shown. It is unlikely that the user deliberately accepted the first prompt and
++                // rejected the second one
++                System.exit(1);
++            }
+             try {
+                 target.packageDeleted(packageName, status);
+             } catch (RemoteException e) {
+                 throw e.rethrowAsRuntimeException();
+             }
+         }
+     }
+ 
+     // Called during self-update sequence because PackageManager requires
+     // the restricted CLEAR_APP_CACHE permission

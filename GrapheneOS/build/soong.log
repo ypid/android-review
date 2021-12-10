@@ -1,4 +1,4 @@
-commit 2c00471cb204a9927570f48c92f058e3ae80a116
+commit 0e85382565013c414c54f7d3b8edbe16de97b2ee
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-10-06 01:45:37+0100
 
@@ -69,7 +69,7 @@ index 8168fbf6a01c624c78f2025298027b5e3d0fead6..829e998b3502bf13394a4f0ec8c1c068
  if __name__ == '__main__':
    main()
 
-commit 15c2933223b022cd8ca8d8413ad5ca5e56d72a18
+commit 7160a0802897e070ea7513f9694c6821ba0af645
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-08-23 20:28:03-0400
 
@@ -149,7 +149,7 @@ index 941a955e51dcb75765cb3b1e91691981186845f2..694a3659fd47af2cafca30af05eeb0e4
  
  		if Bool(sanitize.Properties.Sanitize.Writeonly) {
 
-commit d5fd8d3749eaff67591aceca6a1f4e8067758696
+commit 86e3a68827e33b7e2abe5d27f7f2895c6b2b0ed5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-04-23 16:34:04-0400
 
@@ -188,7 +188,7 @@ index c1c236b9d6f0bbbc95f7bed1f8c1889bd56ff73d..c2b21aaab1d7c478aad19383fe8140a3
      local TOPFILE=build/soong/root.bp
      if [ -n "${TOP-}" -a -f "${TOP-}/${TOPFILE}" ] ; then
 
-commit 1eaeed54a3588bb03a9931c26c1e9907e8b34b6f
+commit fbea1cca6a52cec73b54743b3167562018431536
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sun 2020-09-13 09:35:41+0000
 
@@ -224,7 +224,7 @@ index 77854074b7d898b762e2cb4427bde6384d889c4e..d7ae35c3d4c46d038a758d2b35b3c3cb
  		"libsystemproperties",
  		"libtombstoned_client_static",
 
-commit 86ee9cb1265172a76bea60ee5920e49ceb5dc825 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit b7e56363cab0430ece5d95a23a08320c2a1b076e (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-10-13 19:54:06-0400
 

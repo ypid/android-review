@@ -1,4 +1,4 @@
-commit 82f1563818c22b8b3986466a0cc56e175036e43f
+commit ff9b89310dc23b5a4b4d17aa2749e14ea0939992
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 17:05:49-0700
 
@@ -129,7 +129,7 @@ index 50ec78120fbea72f3a152edd1c9d94be303b6ff4..2d09c042291a6398ae0cf0892e39d353
 +    void onPackagePermissionChanged(int uid);
  }
 diff --git a/service/src/com/android/server/ConnectivityService.java b/service/src/com/android/server/ConnectivityService.java
-index e34c0640c25e42123971f95920c549e0e3e94af7..05a1a9ec57f3054c8752cfea4bc8deaaab828d9c 100644
+index 418e9e33b8d62a33cc11f436451c86d7bdcc8b68..d4da9a42a65810e6707edb09b0ab9517e988661e 100644
 --- a/service/src/com/android/server/ConnectivityService.java
 +++ b/service/src/com/android/server/ConnectivityService.java
 @@ -86,20 +86,21 @@ import static android.net.shared.NetworkMonitorUtils.isPrivateDnsValidationRequi
@@ -154,7 +154,7 @@ index e34c0640c25e42123971f95920c549e0e3e94af7..05a1a9ec57f3054c8752cfea4bc8deaa
  import android.content.Context;
  import android.content.Intent;
  import android.content.IntentFilter;
-@@ -10318,11 +10319,16 @@ public class ConnectivityService extends IConnectivityManager.Stub
+@@ -10339,11 +10340,16 @@ public class ConnectivityService extends IConnectivityManager.Stub
              return netcap;
          }
  
@@ -223,7 +223,7 @@ index a49c0a6e8e0c414158d7751f9543a139663068c8..a43ee18b395d87b5c4b0485cc82eafea
          for (int uid : uids) {
              mUidsAllowedOnRestrictedNetworks.add(UserHandle.getAppId(uid));
 
-commit 2767af0551780e030d45a64ca46eafff57be47ec
+commit 657bb6596908df581117b89a4613eeca52945853
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 18:42:40-0700
 
@@ -289,7 +289,7 @@ index fd37a9746a79b8ab003cae83f6a552c4b16e8a73..60e6c3d46d4ab361efcf713958a4034c
       */
      @SystemApi
 
-commit 40f981c24c79d5a2337eb50ae5ee4c618c577653
+commit 8a6837c22fcd5f89debf2c1f1e6d632133f5f3c8
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Wed 2021-10-13 22:20:53+0530
 
@@ -770,7 +770,7 @@ index a43ee18b395d87b5c4b0485cc82eafea3f8b88f5..8625f3c8035814fa6e80b2ee04b5ef65
              pw.println("Interface: " + vpn.getKey());
              pw.println("UIDs: " + vpn.getValue().toString());
 
-commit 75405c4cf0d20728d929bf46bedafddcf2a04b6f
+commit 6d46f71e67f64f69a42db42ee4bfa82a29266975
 Author: Dave Daynard <nardholio@gmail.com>
 Date:   Fri 2021-10-15 18:02:03+0100
 
@@ -851,7 +851,7 @@ index b6240c456186e50d5b0c8102c98863c82c0ec6df..727317c555feb7d28b63a1deae15281b
      }
  
 
-commit 9f84b841ab239c1a8b302f4d3596f051f076a0a4
+commit 507b06f3ad7cb2e8ee53ef555f81ef07c8a41847
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-17 23:27:09+0100
 
@@ -958,7 +958,7 @@ index 2e51be39bfae397eb293a6fb9c56a4df7572de52..9aa754ea36a7ff80b8f5df42f83bc26f
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit f088aa6bc79d06444e2424b73f9e16c6947107fa (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 126428c9bd70ebcec4fde73b38f5abd398d8e110 (HEAD, m/master, grapheneos/12)
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-17 23:31:28+0100
 
@@ -968,7 +968,7 @@ Date:   Sun 2021-10-17 23:31:28+0100
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/service/src/com/android/server/ConnectivityService.java b/service/src/com/android/server/ConnectivityService.java
-index 05a1a9ec57f3054c8752cfea4bc8deaaab828d9c..2831dc3b15d574cfbe5cae0760c9dbbb3f65fc0c 100644
+index d4da9a42a65810e6707edb09b0ab9517e988661e..8d23e2c896590539d9f2480ed47a38b4420a16b7 100644
 --- a/service/src/com/android/server/ConnectivityService.java
 +++ b/service/src/com/android/server/ConnectivityService.java
 @@ -298,21 +298,21 @@ public class ConnectivityService extends IConnectivityManager.Stub

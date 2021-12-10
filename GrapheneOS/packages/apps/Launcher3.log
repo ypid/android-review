@@ -1,50 +1,4 @@
-commit 63808f61a5c20d92372e449851aa8f45786bd6d0
-Author: Steven Ng <stevenckng@google.com>
-Date:   Wed 2021-08-11 22:40:06+0100
-
-    Fix pending restore widget touch issue
-    
-    After http://ag/14980850, we block updateAppWidget until app widget
-    is restored. However, PendingAppWidgetHostView constructor relies
-    on updateAppWidget(null) to trigger set listener in getDefaultView().
-    We should call super.updateAppWidget(null) in the constructor instead.
-    
-    Test: manual
-    Bug: 14980850
-    Change-Id: I30af9778a636af2ad822e7abc152b6f0bfdea1bf
----
- src/com/android/launcher3/widget/PendingAppWidgetHostView.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/com/android/launcher3/widget/PendingAppWidgetHostView.java b/src/com/android/launcher3/widget/PendingAppWidgetHostView.java
-index d3a019001d201e428dee809bb4fa89bbf092c6e2..57a6d3fb07a8b47dd376ea3ba21290468b1f42b4 100644
---- a/src/com/android/launcher3/widget/PendingAppWidgetHostView.java
-+++ b/src/com/android/launcher3/widget/PendingAppWidgetHostView.java
-@@ -78,21 +78,21 @@ public class PendingAppWidgetHostView extends LauncherAppWidgetHostView
-         mStartState = info.restoreStatus;
-         mDisabledForSafeMode = disabledForSafeMode;
- 
-         mPaint = new TextPaint();
-         mPaint.setColor(Themes.getAttrColor(getContext(), android.R.attr.textColorPrimary));
-         mPaint.setTextSize(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PX,
-                 mLauncher.getDeviceProfile().iconTextSizePx, getResources().getDisplayMetrics()));
-         setBackgroundResource(R.drawable.pending_widget_bg);
-         setWillNotDraw(false);
- 
--        updateAppWidget(null);
-+        super.updateAppWidget(null);
-         setOnClickListener(ItemClickHandler.INSTANCE);
- 
-         if (info.pendingItemInfo == null) {
-             info.pendingItemInfo = new PackageItemInfo(info.providerName.getPackageName());
-             info.pendingItemInfo.user = info.user;
-             cache.updateIconInBackground(this, info.pendingItemInfo);
-         } else {
-             reapplyItemInfo(info.pendingItemInfo);
-         }
-     }
-
-commit ca69681b23998eb10ca8eadf608bc31d8e7f9a3c
+commit f5f04221cda1c1a5dd41eaae81ca6229bdfcafe5
 Author: Damian Patel <damianpatel@google.com>
 Date:   Wed 2021-07-28 14:38:39+0000
 
@@ -120,7 +74,7 @@ index a7eef13a3d36f9b63101177159610618162c36c0..0622d877643c356e00fca2265eeb2394
              minifyEnabled false
          }
 
-commit 145cdda8063c896a6b6608f2212b43ab5c98a120
+commit 685ac608649e821954eabd6c056a827fa331d40f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-11-14 07:32:46-0500
 
@@ -157,7 +111,7 @@ index 4aee2a9ccb3469f14f846343b618169c2d465d68..03439cc4aa9f09ac6bdf4fde237465c8
      <string name="recents_empty_message">No recent items</string>
  
 
-commit 8473d80da29bbbdad28c063cb5a8b6cc3d3cd11a
+commit 4b7625fc9943f028662249827b0de5c8c789393c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 05:04:58-0400
 
@@ -167,10 +121,10 @@ Date:   Sat 2021-10-09 05:04:58-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index 04c359ede36ce449bc0da9760c368752b5cbbfab..aeec3275242d9604093c1fdb1630089dfa9865a5 100644
+index 72959b2d5c39e71b439932edbf732e5e296fb3ed..924e0ae7a5e3a0547645465d647dbe0f5396eee4 100644
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
-@@ -76,21 +76,21 @@
+@@ -79,21 +79,21 @@
      <!-- View IDs to store item highlight information -->
      <item type="id" name="view_unhighlight_background" />
  
@@ -194,7 +148,7 @@ index 04c359ede36ce449bc0da9760c368752b5cbbfab..aeec3275242d9604093c1fdb1630089d
      <item type="id" name="action_move_to_workspace" />
      <item type="id" name="action_move_screen_backwards" />
 
-commit 38337afe138db269b2397091ec7d2b250b6cea93
+commit c5531c1e0461e84effbdcf19364da114ae0b3831
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-12-06 22:05:39-0500
 
@@ -204,7 +158,7 @@ Date:   Tue 2016-12-06 22:05:39-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index f066dc1e02098f445e26915fa1b31fd96b53e76d..9f274870a4fb60af049be822cb622f8ad0f40ebd 100644
+index e0769dbfb5e028423f994544aea3b1f1b25ab576..0ba9dfae0b3ebca8d02532d9f5f06e43dc56b5e0 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -45,21 +45,21 @@ public final class FeatureFlags {
@@ -231,7 +185,7 @@ index f066dc1e02098f445e26915fa1b31fd96b53e76d..9f274870a4fb60af049be822cb622f8a
       *    and set a default value for the flag. This will be the default value on Debug builds.
       */
 
-commit c0085b41e33e462dd53dafdc7da15770570dffb4
+commit 6953082ba505fbd7e7feb8bf6e48b1710c564063
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 20:48:24-0700
 
@@ -243,7 +197,7 @@ Date:   Mon 2021-10-11 20:48:24-0700
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index 9f274870a4fb60af049be822cb622f8ad0f40ebd..d4fb2eb70a5323d285c4fdfa6df1bade13e7744c 100644
+index 0ba9dfae0b3ebca8d02532d9f5f06e43dc56b5e0..de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -224,38 +224,38 @@ public final class FeatureFlags {
@@ -282,13 +236,13 @@ index 9f274870a4fb60af049be822cb622f8ad0f40ebd..d4fb2eb70a5323d285c4fdfa6df1bade
              "ENABLE_WALLPAPER_SCRIM", false,
              "Enables scrim over wallpaper for text protection.");
  
+     public static final BooleanFlag WIDGETS_IN_LAUNCHER_PREVIEW = getDebugFlag(
+             "WIDGETS_IN_LAUNCHER_PREVIEW", true,
+             "Enables widgets in Launcher preview for the Wallpaper app.");
+ 
      public static void initialize(Context context) {
-         synchronized (sDebugFlags) {
-             for (DebugFlag flag : sDebugFlags) {
-                 flag.initialize(context);
-             }
 
-commit 909443705318a424238f62d835bb7c2791afd8f8
+commit 5d354b80704a03976109123693fb6b53f543ca9b
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 20:48:31-0700
 
@@ -300,7 +254,7 @@ Date:   Mon 2021-10-11 20:48:31-0700
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index d4fb2eb70a5323d285c4fdfa6df1bade13e7744c..f89dfa12bf187e6d3a7f3f91b168938b94e27d8d 100644
+index de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80..c29a21e46783fbefad13e4ed65e4aebca36d35d6 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -204,21 +204,21 @@ public final class FeatureFlags {
@@ -327,7 +281,7 @@ index d4fb2eb70a5323d285c4fdfa6df1bade13e7744c..f89dfa12bf187e6d3a7f3f91b168938b
              "ENABLE_TASKBAR", false, "Allows a system Taskbar to be shown on larger devices.");
  
 
-commit adae3e812f1f1d60d3905320539d7fc84fa5c12f
+commit 5a341d7d8129ac3eb5adef759ffbdff7970777c1
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 20:48:38-0700
 
@@ -339,7 +293,7 @@ Date:   Mon 2021-10-11 20:48:38-0700
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index f89dfa12bf187e6d3a7f3f91b168938b94e27d8d..a3dc71b01cd2115c9f405e7ae07b79f0c5b2956d 100644
+index c29a21e46783fbefad13e4ed65e4aebca36d35d6..aa9352ca47bb550dbd161f5092de65705636d87f 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -75,21 +75,21 @@ public final class FeatureFlags {
@@ -366,7 +320,7 @@ index f89dfa12bf187e6d3a7f3f91b168938b94e27d8d..a3dc71b01cd2115c9f405e7ae07b79f0
              "ENABLE_QUICKSTEP_WIDGET_APP_START", true,
              "Enable Quickstep animation when launching activities from an app widget");
 
-commit 3c604e1318d647aea94526f6346f920ed8a8709b
+commit 306ff933ea98e06e3a16f49f26dbe3a2f3013990
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:59+0100
 
@@ -378,7 +332,7 @@ Date:   Fri 2019-11-01 23:17:59+0100
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest-common.xml b/AndroidManifest-common.xml
-index d725a16f80a71f16a98a177311679cc39e49799f..73afe4a7d11184ee8e63b05a5939aef87ce4411a 100644
+index 4eecf29d67f5b06a5758fe340ee934f371713d74..e7ca83882c3888c3ef7289500801ecbf53a349ca 100644
 --- a/AndroidManifest-common.xml
 +++ b/AndroidManifest-common.xml
 @@ -129,21 +129,23 @@
@@ -403,11 +357,11 @@ index d725a16f80a71f16a98a177311679cc39e49799f..73afe4a7d11184ee8e63b05a5939aef8
          <activity
              android:name="com.android.launcher3.settings.SettingsActivity"
              android:label="@string/settings_button_text"
-             android:theme="@style/HomeSettingsTheme"
+             android:theme="@style/HomeSettings.Theme"
              android:exported="true"
              android:autoRemoveFromRecents="true">
 
-commit 9711bf81573ed74f50484f59f997ee686b5f91d9
+commit 2c56a33a5096eff1842612ceb53c7314db51c2b0
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:46:39-0800
 
@@ -470,7 +424,7 @@ index ccdde2ca8004de83895446d6fe1e38e103dc6aef..223ad38e91a9aa5bbeb48e003b80c84c
              launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_BROWSER;end" />
          <favorite launcher:uri="http://www.example.com/" />
 
-commit cd0b6fa16ca21b2fcaac38ee877090d5feb5f9ae
+commit f3b6b33b91d36bd8e549e74f1e99d7a712062461
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:47:19-0800
 
@@ -619,7 +573,7 @@ index 256999cd7f4835340f7aa378a2eb517bf6b37fa6..34e0f569e358679b175dfb30feacee89
 \ No newline at end of file
 +</profiles>
 
-commit c43d1932dd7d7b08dfd740dc565ec1e86c623fc6
+commit 037650aa095439d5a46ee25e693c2ea85fede6cd
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2020-12-12 19:05:59-0800
 
@@ -793,7 +747,7 @@ index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977b
  
  </profiles>
 
-commit ee7667a9cbdeb5d89d0909c7840042fa535bb0f6
+commit 1e083a21e6e64e68c023e674151460e036038126
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 22:39:21-0700
 
@@ -840,7 +794,7 @@ index 68680d3f38c7676da905eab6cc385e700add2420..b652252ce1bd6281efe05c77bd85ef9d
              style="@style/OverviewActionButton"
              android:layout_width="wrap_content"
 
-commit 875712153dd2793c81adc28cf7830b2f4a0f3510
+commit 8bb7da30ae7b9818c2ebd75f46642290b02405f1
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-10-06 22:31:24-0700
 
@@ -880,7 +834,7 @@ index b6a8b909ee9a39f017e252bc8fe22338ffc2f660..bfd8d9e012ae63b263ba7a9ab5b5713c
 +     </item>
 +</ripple>
 
-commit 13ab360cd304eb17d63348b151d2e84c770a0e60
+commit d61dd4d0026b799e4f6b89761514d1c91b935569
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-10-06 22:45:33-0700
 
@@ -892,7 +846,7 @@ Date:   Wed 2021-10-06 22:45:33-0700
  1 file changed, 1 insertion(+)
 
 diff --git a/res/values/styles.xml b/res/values/styles.xml
-index d30b80c813c5a78872ed2a4440c70586a23321ca..4694881af5c5c4fd7232f53a3084010deff70a47 100644
+index b7661b9798d2e6feff924877a63255a3c50ce868..ff68581d4bc0740498d1e047740f84afe33f5fac 100644
 --- a/res/values/styles.xml
 +++ b/res/values/styles.xml
 @@ -90,20 +90,21 @@
@@ -918,7 +872,7 @@ index d30b80c813c5a78872ed2a4440c70586a23321ca..4694881af5c5c4fd7232f53a3084010d
          <item name="popupShadeThird">@color/popup_shade_third_dark</item>
          <item name="widgetsTheme">@style/WidgetContainerTheme.Dark</item>
 
-commit 742a99d7dd9af6d8c121d0f0359d355776bc4012
+commit 69759a21ec1aacc2bb81149d5985bad8545a7b06
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sun 2021-10-10 03:38:23-0700
 
@@ -1003,226 +957,7 @@ index c3520a7ab59b8119e9d09a1bc0450d073aa8f30e..d133a31a2d271361a88160302bf01e58
 +    <item android:color="?android:textColorSecondary"/>
 +</selector>
 
-commit ae2a55fc3b5fdd7f684003a47f41cd3d9db0737d
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Sun 2021-10-10 03:40:52-0700
-
-    Improve search bar UI in All Apps
-    
-    This is similar to, but not exactly the same as, Pixel stock:
-    
-    - Background color with contrast in light mode
-    - Round, flat search bar surface with color matching the header
-      background
-    - Solid rounded background when positioned at the beginning of the list
-    - Subtle placeholder text (medium weight) without icon
-    - Same font size as Settings search bar
-    
-    Change-Id: Ifa9fabe3a8236513fad8030c0bd8ed4d27ebd549
----
- res/drawable/all_apps_search_hint.xml                              | 4 ++--
- res/drawable/bg_all_apps_searchbox.xml                             | 6 +++---
- res/layout/search_container_all_apps.xml                           | 6 +++---
- res/layout/secondary_launcher.xml                                  | 7 +++----
- res/values-v31/colors.xml                                          | 2 +-
- src/com/android/launcher3/allapps/AllAppsContainerView.java        | 2 +-
- .../launcher3/allapps/search/AppsSearchContainerLayout.java        | 1 -
- 7 files changed, 13 insertions(+), 15 deletions(-)
-
-diff --git a/res/drawable/all_apps_search_hint.xml b/res/drawable/all_apps_search_hint.xml
-index b2ff7a428e63371a988c91be1a882d8fc850536d..c0e6811bb9e2ca3bcc5286564ecc0cf66661ba44 100644
---- a/res/drawable/all_apps_search_hint.xml
-+++ b/res/drawable/all_apps_search_hint.xml
-@@ -9,12 +9,12 @@
-           http://www.apache.org/licenses/LICENSE-2.0
- 
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
- -->
- <selector xmlns:android="http://schemas.android.com/apk/res/android">
-     <item android:color="@android:color/transparent" android:state_focused="true" />
--    <item android:color="?android:attr/colorAccent"/>
--</selector>
-\ No newline at end of file
-+    <item android:color="?android:attr/textColorSecondary" android:alpha="?android:attr/disabledAlpha" />
-+</selector>
-diff --git a/res/drawable/bg_all_apps_searchbox.xml b/res/drawable/bg_all_apps_searchbox.xml
-index c3249279af2eed16519197d2f289d73366d54dcf..2d02238f1b9a2eca360297e548b7a655cf85d027 100644
---- a/res/drawable/bg_all_apps_searchbox.xml
-+++ b/res/drawable/bg_all_apps_searchbox.xml
-@@ -7,13 +7,13 @@
- 
-           http://www.apache.org/licenses/LICENSE-2.0
- 
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
- -->
- <shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
--    <solid android:color="?attr/popupColorPrimary" />
--    <corners android:radius="2dp" />
--</shape>
-\ No newline at end of file
-+     <solid android:color="?attr/allappsHeaderProtectionColor" />
-+     <corners android:radius="58dp" />
-+</shape>
-diff --git a/res/layout/search_container_all_apps.xml b/res/layout/search_container_all_apps.xml
-index e1646ba43e04ae291d30146597b2be72c37ea1d9..5ebf9c8cf88221e8be0a0e4d28db437e3b826b81 100644
---- a/res/layout/search_container_all_apps.xml
-+++ b/res/layout/search_container_all_apps.xml
-@@ -14,24 +14,24 @@
-      limitations under the License.
- -->
- <com.android.launcher3.allapps.search.AppsSearchContainerLayout
-     xmlns:android="http://schemas.android.com/apk/res/android"
-     android:id="@id/search_container_all_apps"
-     android:layout_width="match_parent"
-     android:layout_height="@dimen/all_apps_search_bar_field_height"
-     android:layout_centerHorizontal="true"
-     android:layout_gravity="top|center_horizontal"
-     android:background="@drawable/bg_all_apps_searchbox"
--    android:elevation="1dp"
-+    android:elevation="0dp"
-     android:focusableInTouchMode="true"
--    android:gravity="center"
-     android:hint="@string/all_apps_search_bar_hint"
-     android:imeOptions="actionSearch|flagNoExtractUi"
-     android:inputType="text|textNoSuggestions|textCapWords"
-     android:maxLines="1"
-     android:padding="8dp"
-+    android:paddingStart="16dp"
-     android:saveEnabled="false"
-     android:scrollHorizontally="true"
-     android:singleLine="true"
-     android:textColor="?android:attr/textColorSecondary"
-     android:textColorHint="@drawable/all_apps_search_hint"
--    android:textSize="16sp" />
-\ No newline at end of file
-+    android:textSize="20sp" />
-diff --git a/res/layout/secondary_launcher.xml b/res/layout/secondary_launcher.xml
-index b15a320bba7c60488a3d2504b8b393add4624dfd..131de0011d791a422fab7331c9001007f87fda44 100644
---- a/res/layout/secondary_launcher.xml
-+++ b/res/layout/secondary_launcher.xml
-@@ -98,28 +98,27 @@
-             </com.android.launcher3.workprofile.PersonalWorkSlidingTabStrip>
-         </com.android.launcher3.allapps.FloatingHeaderView>
- 
-         <com.android.launcher3.allapps.search.AppsSearchContainerLayout
-             android:id="@id/search_container_all_apps"
-             android:layout_width="match_parent"
-             android:layout_height="@dimen/all_apps_search_bar_field_height"
-             android:layout_centerHorizontal="true"
-             android:layout_gravity="top|center_horizontal"
-             android:background="@drawable/bg_all_apps_searchbox"
--            android:elevation="1dp"
-+            android:elevation="0dp"
-             android:focusableInTouchMode="true"
--            android:gravity="center"
-             android:hint="@string/all_apps_search_bar_hint"
-             android:imeOptions="actionSearch|flagNoExtractUi"
-             android:inputType="text|textNoSuggestions|textCapWords"
-             android:maxLines="1"
-             android:padding="8dp"
-             android:saveEnabled="false"
-             android:scrollHorizontally="true"
-             android:singleLine="true"
-             android:textColor="?android:attr/textColorSecondary"
-             android:textColorHint="@drawable/all_apps_search_hint"
--            android:textSize="16sp" />
-+            android:textSize="20sp" />
- 
-         <include layout="@layout/all_apps_fast_scroller" />
-     </com.android.launcher3.allapps.AllAppsContainerView>
--</com.android.launcher3.secondarydisplay.SecondaryDragLayer>
-\ No newline at end of file
-+</com.android.launcher3.secondarydisplay.SecondaryDragLayer>
-diff --git a/res/values-v31/colors.xml b/res/values-v31/colors.xml
-index d73ee570807ede6450b0143eaf18c694f88b1ae7..5dae30736eb25ab885beb6ca55eb7d4644a73b34 100644
---- a/res/values-v31/colors.xml
-+++ b/res/values-v31/colors.xml
-@@ -12,21 +12,21 @@
- ** Unless required by applicable law or agreed to in writing, software
- ** distributed under the License is distributed on an "AS IS" BASIS,
- ** WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- ** See the License for the specific language governing permissions and
- ** limitations under the License.
- */
- -->
- <resources  xmlns:android="http://schemas.android.com/apk/res/android">
-     <color name="popup_color_primary_light">@android:color/system_accent2_50</color>
-     <color name="popup_color_secondary_light">@android:color/system_neutral2_100</color>
--    <color name="popup_color_tertiary_light">@android:color/system_neutral2_300</color>
-+    <color name="popup_color_tertiary_light">@android:color/system_neutral2_100</color>
-     <color name="popup_color_neutral_dark">@android:color/system_neutral1_1000</color>
-     <color name="popup_color_primary_dark">@android:color/system_neutral2_800</color>
-     <color name="popup_color_secondary_dark">@android:color/system_neutral1_900</color>
-     <color name="popup_color_tertiary_dark">@android:color/system_neutral2_700</color>
- 
-     <color name="popup_notification_dot_light">@android:color/system_accent1_100</color>
-     <color name="popup_notification_dot_dark">@android:color/system_accent2_600</color>
- 
-     <color name="workspace_text_color_light">@android:color/system_neutral1_0</color>
-     <color name="workspace_text_color_dark">@android:color/system_neutral1_1000</color>
-diff --git a/src/com/android/launcher3/allapps/AllAppsContainerView.java b/src/com/android/launcher3/allapps/AllAppsContainerView.java
-index d2c71b2afee6c68b6e8ce924f32611e2b23cf289..b5bc3e4287dc8afd8c3972df1bd37065e41b6915 100644
---- a/src/com/android/launcher3/allapps/AllAppsContainerView.java
-+++ b/src/com/android/launcher3/allapps/AllAppsContainerView.java
-@@ -791,21 +791,21 @@ public class AllAppsContainerView extends SpringRelativeLayout implements DragSo
-     }
- 
- 
-     protected void updateHeaderScroll(int scrolledOffset) {
-         float prog = Math.max(0, Math.min(1, (float) scrolledOffset / mHeaderThreshold));
-         int viewBG = ColorUtils.blendARGB(mScrimColor, mHeaderProtectionColor, prog);
-         int headerColor = ColorUtils.setAlphaComponent(viewBG,
-                 (int) (getSearchView().getAlpha() * 255));
-         if (headerColor != mHeaderColor) {
-             mHeaderColor = headerColor;
--            getSearchView().setBackgroundColor(viewBG);
-+            getSearchView().setBackgroundResource(R.drawable.bg_all_apps_searchbox);
-             getFloatingHeaderView().setHeaderColor(viewBG);
-             invalidateHeader();
-             if (scrolledOffset == 0 && mSearchUiManager.getEditText() != null) {
-                 mSearchUiManager.getEditText().show();
-             }
-         }
-     }
- 
-     /**
-      * redraws header protection
-diff --git a/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java b/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java
-index 24912173ff79622087858341bd029796a9db3316..0b64f24aadf90df57493c395b9b2e61db61c73db 100644
---- a/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java
-+++ b/src/com/android/launcher3/allapps/search/AppsSearchContainerLayout.java
-@@ -72,21 +72,20 @@ public class AppsSearchContainerLayout extends ExtendedEditText
-     }
- 
-     public AppsSearchContainerLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-         super(context, attrs, defStyleAttr);
- 
-         mLauncher = BaseDraggingActivity.fromContext(context);
-         mSearchBarController = new AllAppsSearchBarController();
- 
-         mSearchQueryBuilder = new SpannableStringBuilder();
-         Selection.setSelection(mSearchQueryBuilder, 0);
--        setHint(prefixTextWithIcon(getContext(), R.drawable.ic_allapps_search, getHint()));
- 
-         mContentOverlap =
-                 getResources().getDimensionPixelSize(R.dimen.all_apps_search_bar_field_height) / 2;
-     }
- 
-     @Override
-     protected void onAttachedToWindow() {
-         super.onAttachedToWindow();
-         mAppsView.getAppsStore().addUpdateListener(this);
-     }
-
-commit 6a331a015d9384184f0ae921ff144a1607e08060
+commit eb1d837f81bef8950b835e2b0a6cabdd36eaaf16
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-24 23:25:26-0400
 
@@ -1234,7 +969,7 @@ Date:   Sun 2021-10-24 23:25:26-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index a3dc71b01cd2115c9f405e7ae07b79f0c5b2956d..f89dfa12bf187e6d3a7f3f91b168938b94e27d8d 100644
+index aa9352ca47bb550dbd161f5092de65705636d87f..c29a21e46783fbefad13e4ed65e4aebca36d35d6 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -75,21 +75,21 @@ public final class FeatureFlags {
@@ -1261,7 +996,7 @@ index a3dc71b01cd2115c9f405e7ae07b79f0c5b2956d..f89dfa12bf187e6d3a7f3f91b168938b
              "ENABLE_QUICKSTEP_WIDGET_APP_START", true,
              "Enable Quickstep animation when launching activities from an app widget");
 
-commit 1f15c9f3e2217ec8df3b993024a8d6b30dfdde42
+commit 7b83c1ab14146aa70a136f3be725939821bc7d02
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-24 23:25:17-0400
 
@@ -1273,7 +1008,7 @@ Date:   Sun 2021-10-24 23:25:17-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index f89dfa12bf187e6d3a7f3f91b168938b94e27d8d..d4fb2eb70a5323d285c4fdfa6df1bade13e7744c 100644
+index c29a21e46783fbefad13e4ed65e4aebca36d35d6..de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -204,21 +204,21 @@ public final class FeatureFlags {
@@ -1300,7 +1035,7 @@ index f89dfa12bf187e6d3a7f3f91b168938b94e27d8d..d4fb2eb70a5323d285c4fdfa6df1bade
              "ENABLE_TASKBAR", false, "Allows a system Taskbar to be shown on larger devices.");
  
 
-commit 3734b3ab79463cb923980a003f989f5739bc87dc (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit a9c889caa9ef8d674d277cc56d78f29683871a96 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-24 23:43:00-0400
 
@@ -1312,7 +1047,7 @@ Date:   Sun 2021-10-24 23:43:00-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index d4fb2eb70a5323d285c4fdfa6df1bade13e7744c..9f274870a4fb60af049be822cb622f8ad0f40ebd 100644
+index de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80..0ba9dfae0b3ebca8d02532d9f5f06e43dc56b5e0 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -224,38 +224,38 @@ public final class FeatureFlags {
@@ -1351,8 +1086,8 @@ index d4fb2eb70a5323d285c4fdfa6df1bade13e7744c..9f274870a4fb60af049be822cb622f8a
              "ENABLE_WALLPAPER_SCRIM", false,
              "Enables scrim over wallpaper for text protection.");
  
+     public static final BooleanFlag WIDGETS_IN_LAUNCHER_PREVIEW = getDebugFlag(
+             "WIDGETS_IN_LAUNCHER_PREVIEW", true,
+             "Enables widgets in Launcher preview for the Wallpaper app.");
+ 
      public static void initialize(Context context) {
-         synchronized (sDebugFlags) {
-             for (DebugFlag flag : sDebugFlags) {
-                 flag.initialize(context);
-             }

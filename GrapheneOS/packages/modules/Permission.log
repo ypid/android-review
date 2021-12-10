@@ -1,4 +1,4 @@
-commit 54a1f607f0cb5f995a4e9bef0b8ab0eb60301bbe
+commit c54bce4541c08ccdfd83f54f467574e588879656
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-07-22 21:43:50-0400
 
@@ -132,7 +132,7 @@ index 49381db2b7eca0c37cb3344913c74776ee3af5f2..3af5241af1fdc82eddd3a52353e40872
      }
  
 
-commit b33f0dbc46322fc239d8bcee5801591d97622c8c
+commit ae8a9afe7e298799ca1b9d528189fdb0d3b3b7d7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 10:29:15-0400
 
@@ -193,7 +193,7 @@ index 68e31e5b2bfc16dae364b7c4fbeb107441e596b7..79ff02e48abad4c991a60060ab4f0f59
              if (permissionsOfThisGroup == null) {
                  permissionsOfThisGroup = new ArrayList<>();
 
-commit a48ad848fda3eb0971b44aea4e26e8485ccb0d73
+commit 0f6b208f69ee89df4e3a771cd124cc2555fa6cf6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:55:58-0400
 
@@ -283,7 +283,7 @@ index 3af5241af1fdc82eddd3a52353e408729eadecb2..f65b75a9ca7de9501225025994d974ce
      }
  
 
-commit b958afe33d183d57ee834a18289ae93d7f3c41b4
+commit 759c962d366d1bfbdca35a5294dd70f26d7e1c10
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:56:35-0400
 
@@ -343,7 +343,7 @@ index 79ff02e48abad4c991a60060ab4f0f595091713b..fdd04c8c94572c41a38339b60e48ff7c
                      permissionGroup);
              if (permissionsOfThisGroup == null) {
 
-commit 3a993052fb17717bd61fd16c482a6e369219f1b0
+commit f890ca87b329409414184d258f3c763871deab11
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 15:40:58-0700
 
@@ -566,7 +566,7 @@ index fdd04c8c94572c41a38339b60e48ff7c20411071..5a309a7def6d70de109452764f69dd25
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
 
-commit 224e195815629c2c9ce1d2816696d04a9ee0a024
+commit f4cd2da08b9950047f25f94f31265e0eeb467d34
 Author: inthewaves <inthewaves@pm.me>
 Date:   Wed 2020-09-16 17:30:37-0700
 
@@ -697,7 +697,7 @@ index 5a309a7def6d70de109452764f69dd25dafcca45..3df07ff43373c55f94f904af66ff288e
       */
      public static boolean shouldShowPermission(Context context, AppPermissionGroup group) {
 
-commit 7f72319f45da80f967778ceaa795aad4b8db2aab
+commit 293ec188e81d78a1b39c099e7db95175903834d1
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 19:18:57-0700
 
@@ -772,7 +772,7 @@ index 794c760d123c2010fa6b520cdb0b3ae89c1940f3..15c8d3cffc9ee5cb166ea44d72eac293
          if (SdkLevel.isAtLeastS()) {
              TextView titleView = (TextView) view.findViewById(android.R.id.title);
 
-commit 0a72897bdf712bc90455efc4dada80ace9bcc47a
+commit b6ff6d73a5802a8321542d325e79473dbbd251a1
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 19:40:50-0700
 
@@ -837,7 +837,7 @@ index 05e7292fade42b173bc77e6e13eb5b55e61c42ae..3b9772b65e8d23045b4999a8a229c467
          }
  
 
-commit 5f8444311b71aabb297f95d719f09380d34bbe94
+commit 0b5f4890921b17fb0871c019380f96ab241929ce
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Fri 2021-10-15 08:55:52+0530
 
@@ -897,7 +897,7 @@ index da93d4f7821a6e565b8f3501f772515a22171e32..96f6e356f30a97142fc7e684d5e3f573
                  app.packageManager.revokeRuntimePermission(group.packageInfo.packageName,
                      perm.name, user)
 
-commit 7cbf7effc67cbd627c4ccc59bae6c91059b24222
+commit 92c5989dd0e8b792a31014f04d981063d3251cf4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-17 22:53:22-0400
 
@@ -938,7 +938,7 @@ index 29fa50ae3e8f8cb13c112b5f55da58c9a9ce0a00..72cb2eb2f56629c7db41fe9e1d776c73
  }
  
 
-commit 85a96d3126f2ef87495665a13c8fe3b9b5d16650
+commit 7a23615112e17b3d1c51f33595006d39f81993c1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-18 03:23:42-0400
 
@@ -1008,7 +1008,7 @@ index 15c8d3cffc9ee5cb166ea44d72eac2938430c104..bba384bb53db2e137acaae82f383a570
                  mContext.startActivity(intent);
                  return true;
 
-commit 2ae6200e6c54634a8cf3223f0895c00440ff8401 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit d02222d6ad032a12d0431de632bcf16fedd97cd0 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-19 08:17:55-0400
 

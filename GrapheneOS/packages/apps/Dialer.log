@@ -1,4 +1,4 @@
-commit 645fb5419e10fad09071b7ee67d7267433610617
+commit 9b04bf4f50e27c2531ca520504ff4d63b1b77c78
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-01-05 19:56:45-0800
 
@@ -430,7 +430,7 @@ index dd142ec9e83cace4669e61ddc25879f8fcc77443..673c049ef14013deb3a2c80564eb8b28
 +  </pbundle_as_map>
  </list>
 
-commit 29bfc03176332143edea49b825d17f1439f69898
+commit cdae171a436d44e67951ac61152f0b628e49cc03
 Author: Adrian DC <radian.dc@gmail.com>
 Date:   Sat 2017-12-09 11:38:00-0600
 
@@ -487,7 +487,7 @@ index a21073d6551f3712555b07f9ba98f765f9ef386e..7abea5481e42c7d380086c6220355edd
  
    private void fling(float velocity, @FlingTarget int target, boolean centerBecauseOfFalsing) {
 
-commit 039137799016776aaaba866cb38bf46f931ba63e
+commit e079519365dbaaa4c0a0bed0d77967ab2076a8b7
 Author: codeworkx <daniel.hillenbrand@codeworkx.de>
 Date:   Sat 2019-05-11 08:33:47+0200
 
@@ -525,7 +525,7 @@ index 6bdd23968eb229e93238c136a9bc1717a66278ae..17c8f998096d22222872d102ba11f063
        return CallAudioState.ROUTE_BLUETOOTH;
      }
 
-commit 87303b8c17e9de7afbc04bff8467150b375e662e
+commit 277c51230dcf7d3612eb525eaf5d02e42c330ebc
 Author: Jesse Chan <jc@lineageos.org>
 Date:   Mon 2020-05-18 14:14:56+0800
 
@@ -564,7 +564,7 @@ index db06df4bd2d47b19d562712678f385afa109a76b..3533cf92c3192b9ae42190efdc183528
      <item name="android:textColorSecondaryInverse">@color/google_grey_400</item>
      <item name="android:textColorHint">@color/google_grey_600</item>
 
-commit bea4ac346d4d62ce8fde7a6f64a346c8332089fc
+commit a3e9a180a1edfcaa2078b5ca065369d42be3deef
 Author: Scott Warner <Tortel1210@gmail.com>
 Date:   Wed 2020-06-24 15:38:56-0400
 
@@ -688,7 +688,7 @@ index 25f247e15c7cb175b50833884ac89a0feaf4294a..139b8b2490c55a34d62eee1b5ebf7084
      <!-- TODO(a bug): Check to see if we can remove this after NewVoicemailFragment launches -->
      <item name="actionModeStyle">@style/MainActionModeStyle</item>
 
-commit d8b9cbd1699fdcdee0716f9771787fdcf2d2c68d
+commit 4a76c6c6b188fdf4063e619c7d0510fd6db1bebb
 Author: Timi <timi.rautamaki@gmail.com>
 Date:   Mon 2021-05-10 16:41:09+0200
 
@@ -776,7 +776,7 @@ index 4794b88236897c8de60c394bfa4e3067414ebcf1..4cba2a4709c44113fbb9ffe92027f5fd
  
    void setNotificationCount(int count) {
 
-commit eb9abac3d4be2ef0c5cb7cee909219c244008150
+commit 2b3facdc697a74d05f57f2abada2bbb3aa624612
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Thu 2021-07-08 19:20:03+0200
 
@@ -820,7 +820,7 @@ index e5b72f2333a8fa6b78c501d0437505510839f236..a7b3aebd235961218fc7283cf01c7a11
        android:background="?attr/selectableItemBackgroundBorderless"
        android:contentDescription="@string/action_menu_back_from_search"
 
-commit d65fd07b261e92e20a329ae2ec687e16021b7cff
+commit a6b84f97f9660efbc5047529c133ec8cf3cd9d1b
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 13:34:21+0200
 
@@ -866,7 +866,7 @@ index 0000000000000000000000000000000000000000..369656f445c90da1a32e2dde732f088b
 +  <color name="dialer_secondary_color">#5195EA</color>
 +</resources>
 
-commit f2b2900a13a50f0ac74f8e4b05f460fa4921fe8b
+commit ac15e9b8dc2e5bfeeeb44418fa8ad85242e4f1a5
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 13:38:50+0200
 
@@ -951,7 +951,7 @@ index 988aad78fd2df4b1225c8eda1f6c5b818137b2bc..e688ee1495f017cf1940c878e4ab846f
 +  <color name="dialer_ripple_color">#1f000000</color>
  </resources>
 
-commit a9ef3db2ab17c69a535f3d432fa6d5680ed521e3
+commit e5788c8083923317ca46ad4cfccf8a7876c6044b
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 19:56:07+0200
 
@@ -1126,7 +1126,7 @@ index e688ee1495f017cf1940c878e4ab846fecf8129c..4aa0b121c799dcc9725dfddd00147746
 +  <color name="settings_primary_dark">#1C3AA9</color>
  </resources>
 
-commit 2f136576e296a21dd144b7ba80719a619d08b862
+commit fc1c6e4f14514b3dbda0848aa1877c7a740f60d9
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 20:40:27+0200
 
@@ -1386,7 +1386,7 @@ index 4aa0b121c799dcc9725dfddd001477461bd756e8..e4d1e29aafe202add75235eac423009e
    <color name="settings_primary_dark">#1C3AA9</color>
  </resources>
 
-commit ce742829b1e5c61f39bf4522f7b0ffba098c6873
+commit 94354b4a4b5bcd4533f45b9580eb351275ac5927
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-10-22 18:18:48+0100
 
@@ -2215,7 +2215,7 @@ index 673c049ef14013deb3a2c80564eb8b2847982b6d..4f332317ab7240cbfb617883a8ae3a3d
 +    </pbundle_as_map>
  </list>
 
-commit edb99d0b49d93859bee3f02760333deb5cd96391 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 5616bfb4b2dcc9cacad721da43e8a5f9f8a8cbf7 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-25 05:51:21-0400
 

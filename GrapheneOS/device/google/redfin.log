@@ -1,4 +1,4 @@
-commit 0f5aec4c828b5ade28ec337699c5dda21ebddd05
+commit d0b31c66421d7619b23b15098b28d63733b110e3
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:18:01+0000
 
@@ -28,7 +28,7 @@ index 10b4b21a6a769d2eef94be807d430779f7b33c07..a5ccad1b0eec37d8d9877a6cdc66da8b
 -PRODUCT_MODEL := AOSP on redfin
 +PRODUCT_MODEL := Pixel 5
 
-commit 886634288bfa1714b4af3c8e4537a8075debe729
+commit 746a5d698774c4badc708eb38e57525e2cdee18a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 20:12:44-0400
 
@@ -58,7 +58,7 @@ index a5ccad1b0eec37d8d9877a6cdc66da8b05fa60dd..deda1b4899488e78f68959dab46f6008
  PRODUCT_DEVICE := redfin
  PRODUCT_MODEL := Pixel 5
 
-commit 37267fb5a9ee124e90e2b84b702359759fefbbe8
+commit 50f8431372f2aa8e232087b60a46ab033b6adfa5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 23:55:44-0400
 
@@ -105,7 +105,7 @@ index 0000000000000000000000000000000000000000..c4b2b589da33f1e4ba07b4d6d63c1f2d
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := redfin
 
-commit 77c04939f9ad3d2b0c886d9ebee0d49e3fcafe66
+commit 87a69238d56b579cac8340a4352d7addf26013ee
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:50:44+0000
 
@@ -142,7 +142,7 @@ index 4f65487b378783fcb0a31aecdb58091be5c604fc..3ea3d56fe191c4adfe5b62661987a17d
  # All devices enabled
  setprop|vendor.all.devices.ready
 
-commit 42f2e539748eca7d769d1a2419ed765e8e7982aa
+commit 48b0bdd9a43d356ea3a298ec3ad5c6b7cb48afb0
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2021-01-15 17:14:54+0530
 
@@ -181,7 +181,7 @@ index 6d6d43a223bdc62c88d0a68b7225182659dad2fd..ad44faae3fc3af38dd19337664a8d402
  endif
  
 
-commit 9258615262d3dc8818a374efd73edca6deb049ae
+commit 84c93bbfcea2954b21e284cafd483a3d02b75dba
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 19:43:49-0800
 
@@ -224,7 +224,7 @@ index 0000000000000000000000000000000000000000..283ff25ff50d03d6e7d8c1651a74e66d
 +    <bool name="config_show_smooth_display">true</bool>
 +</resources>
 
-commit 858649e659b24315e6e98be3c989f07e99149e1c
+commit 4ba4468b7771734fd8c21b26ba1f25aed8480ca0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:58:23-0500
 
@@ -261,7 +261,7 @@ index ad44faae3fc3af38dd19337664a8d4029e749687..47598577489f7afb0a184ca8e2da7e3b
  
  PRODUCT_SOONG_NAMESPACES += \
 
-commit e158b4c8774f76faf528002b5f5f3246ede81279
+commit 6d0068135a63e7c5b4609a99265c207d2d20cdfb
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:32:51+0200
 
@@ -309,7 +309,7 @@ index 0000000000000000000000000000000000000000..5d0182c7f8816207afc386c031c52b12
 +    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
 +</config>
 
-commit 8b723a854cc215c0486219c83628316fb055d482
+commit 7285001d09088d42c63ad651713ce7be2e93da5d
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 02:42:23+0100
 
@@ -346,7 +346,7 @@ index deda1b4899488e78f68959dab46f6008fbb76555..71986ef4f38ea934604e0b4b21e9dd6f
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit 29bd13a655bbaeb23461bbdb5985917beaec2929 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 152c25840c280006807c4588474c7c0c1d2655dc (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:16:47-0400
 

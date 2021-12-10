@@ -1,4 +1,4 @@
-commit a55a2c11c3cdc48a8c6a7d8fd2f25e28d0fa16a5
+commit a40d5adb89278ee8372c6e101d48ae3b5f160666
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Thu 2019-02-14 21:47:18+0100
 
@@ -37,7 +37,7 @@ index b2cd0b91841c247d8b12820a77eb62d671bae826..76d08035ccf8aa993dcab421fee79e3e
  include $(BUILD_PACKAGE)
  
 
-commit dfd78e09f0936b36c0eb11f716c9cb2c027053c9
+commit 549373900cfb1b0b5625c17b411d3d991aa02fed
 Author: Michael Bestas <mkbestas@lineageos.org>
 Date:   Wed 2020-05-06 21:57:48+0300
 
@@ -104,7 +104,7 @@ index 0000000000000000000000000000000000000000..6bc77a8c6fc3476289b4ad10eb493a9c
 +    <allow-in-power-save package="com.android.messaging" />
 +</config>
 
-commit 1409b166c38e405ba892a3306db8346ce62d6243 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit e6d4e16542bc7484ec24fe229b25412b59f695ad (HEAD, m/master, grapheneos/12)
 Author: z3DD3r <z3dd3r@gmail.com>
 Date:   Fri 2021-04-23 22:54:52+0300
 

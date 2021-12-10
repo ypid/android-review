@@ -1,4 +1,4 @@
-commit 77290c1afc139ec88dfea4f2419c573886563466
+commit e30c68e75315b6ece2f36b0736148036344a5f3c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-03-04 14:22:18-0500
 
@@ -34,7 +34,7 @@ index c9c5a04b7c8e4682390218c5c54d68b613182103..1f853a989edc73e91de8c6bdbd774474
              </intent-filter>
          </activity>
 
-commit 6cc6edead754ca6dabd541686f31493e6433e74c (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 35e15417854281acfe5ecbc3514f1bae8fefa230 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-05-18 09:04:53-0400
 

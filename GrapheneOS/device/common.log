@@ -1,4 +1,4 @@
-commit 71f43cbbf74d9812a938ed62a5f22e7c2e14d8c6
+commit 2548f1c385b4afd22f6cb2e760645efadfa6f616
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-12-12 01:10:55-0500
 
@@ -35,7 +35,7 @@ index dc508e120fbe4df2c58985dd318f7a5123831916..799f6c4cca21821925bd09a088422b8e
  unset PRODUCT
  unset RADIO
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 55fa1704a94dd92d029b503209cd3f9d32aec87c..7e3fa1449ff68ae860edd5970ff2b873bd1d66bd 100644
+index 95f4e35c846810c99d6d46388061d6ef94618116..5628a25578fcbdff23542f68979de40043e87feb 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -75,20 +75,24 @@ then
@@ -124,7 +124,7 @@ index 55fa1704a94dd92d029b503209cd3f9d32aec87c..7e3fa1449ff68ae860edd5970ff2b873
  # Write flash-base.sh
  cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 
-commit 6a4e68863a819ac26d921784cc6bd2e4ddd3e874
+commit 73db6ef243d1f41d42295fbd3bfb5cc1ac31f480
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-03-16 12:54:05-0400
 
@@ -211,7 +211,7 @@ index a0e2a7d14896c21c63b182900a83b2949ab5b44b..27c95e74132b42ba633f0e420db38c18
  SUPL_HOST=supl.google.com
  SUPL_PORT=7276
 
-commit 28d2f991c51eea8a356694bd6215586e0c5b788d
+commit a2f3ef6352f729cd59c24586dd1b9204f4da2357
 Author: SatelliteSnyper <51929686+SatelliteSnyper@users.noreply.github.com>
 Date:   Mon 2019-06-17 20:12:05+0000
 
@@ -224,7 +224,7 @@ Date:   Mon 2019-06-17 20:12:05+0000
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 7e3fa1449ff68ae860edd5970ff2b873bd1d66bd..c476ee62494098bf1d28f88b3226101ee2390ad2 100644
+index 5628a25578fcbdff23542f68979de40043e87feb..a138551047a88c13807a0a61f48e38c9c8fc3074 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -164,21 +164,21 @@ fi
@@ -274,7 +274,7 @@ index 7e3fa1449ff68ae860edd5970ff2b873bd1d66bd..c476ee62494098bf1d28f88b3226101e
  #!/bin/sh
  
 
-commit 3a8deb13f6600635dd10ccec2cfdcd1474ccfb00
+commit 77ace111ea900b41c86adcae2c0e77655362055f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2020-05-01 15:52:26-0400
 
@@ -284,7 +284,7 @@ Date:   Fri 2020-05-01 15:52:26-0400
  1 file changed, 1 insertion(+), 2 deletions(-)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index c476ee62494098bf1d28f88b3226101ee2390ad2..b82c430c51a57de4e64e988146d32163566c2997 100644
+index a138551047a88c13807a0a61f48e38c9c8fc3074..9a318e598fe13c46b6f9ff2ecd01f48563a7b75e 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -316,15 +316,14 @@ if test "$CDMARADIO" != ""
@@ -305,7 +305,7 @@ index c476ee62494098bf1d28f88b3226101ee2390ad2..b82c430c51a57de4e64e988146d32163
  # Clean up
  rm -rf tmp
 
-commit 011d498600387525d4bef783768496498ba5d1cb
+commit bd535e3ce30d4cdc7d98c9fb6508b615e4e8ab1f
 Author: JTL <jtl999@users.noreply.github.com>
 Date:   Mon 2020-06-01 10:45:25-0700
 
@@ -315,7 +315,7 @@ Date:   Mon 2020-06-01 10:45:25-0700
  1 file changed, 21 insertions(+)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index b82c430c51a57de4e64e988146d32163566c2997..502c8650beae6a49e7c53200686f58d164b8b280 100644
+index 9a318e598fe13c46b6f9ff2ecd01f48563a7b75e..197a70dfff797e20dcdb41743d64f55ccf3f3720 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -186,20 +186,41 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -338,7 +338,7 @@ index b82c430c51a57de4e64e988146d32163566c2997..502c8650beae6a49e7c53200686f58d1
 +try { ^
 +    \$verNum = \$version[0].substring(17, 6); ^
 +    \$verNum = \$verNum.replace('.', ''); ^
-+    if ((-Not (\$verNum -gt 2802)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
++    if ((-Not (\$verNum -gt 3103)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
 +        Exit 1 ^
 +    } ^
 +} catch { ^
@@ -361,7 +361,7 @@ index b82c430c51a57de4e64e988146d32163566c2997..502c8650beae6a49e7c53200686f58d1
  then
  cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
-commit 7bd69b41e84c1e1fb281cfe64d4d998a7393c24e
+commit 84f0258f90e5f05d0c45e174b3c571b1c468c6fd
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Wed 2020-06-03 03:59:34+0530
 
@@ -375,7 +375,7 @@ Date:   Wed 2020-06-03 03:59:34+0530
  1 file changed, 4 insertions(+)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 502c8650beae6a49e7c53200686f58d164b8b280..7f2741d9776b7f8ca81e6f919463122ce0f04c34 100644
+index 197a70dfff797e20dcdb41743d64f55ccf3f3720..3083f747c4ce6f54c891e53a96c0c03133973dee 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -165,20 +165,22 @@ if test "$AVB_PKMD" != ""
@@ -425,7 +425,7 @@ index 502c8650beae6a49e7c53200686f58d164b8b280..7f2741d9776b7f8ca81e6f919463122c
  #!/bin/sh
  
 
-commit a3a78f35acb80ac6f5456ef8699a35114ff76023
+commit e1fde05707766cd0baaaf1becb3465c5ebdb9762
 Author: Maxim Baz <git@maximbaz.com>
 Date:   Tue 2020-10-27 16:25:20+0100
 
@@ -435,7 +435,7 @@ Date:   Tue 2020-10-27 16:25:20+0100
  1 file changed, 12 insertions(+)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f002ca514ba 100644
+index 3083f747c4ce6f54c891e53a96c0c03133973dee..1c13bc9d109ea3c6979083779878ce2190b02b49 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -98,20 +98,25 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -454,7 +454,7 @@ index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f00
 +  exit 1
 +fi
 +
- if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 2802 ]; then
+ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 3103 ]; then
    echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
    exit 1
  fi
@@ -482,7 +482,7 @@ index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f00
  try { ^
      \$verNum = \$version[0].substring(17, 6); ^
      \$verNum = \$verNum.replace('.', ''); ^
-     if ((-Not (\$verNum -gt 2802)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
+     if ((-Not (\$verNum -gt 3103)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
          Exit 1 ^
      } ^
  } catch { ^
@@ -503,7 +503,7 @@ index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f00
 +  exit 1
 +fi
 +
- if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 2802 ]; then
+ if ! [ \$(\$(which fastboot) --version | grep "version" | cut -c18-23 | sed 's/\.//g' ) -ge 3103 ]; then
    echo "fastboot too old; please download the latest version at https://developer.android.com/studio/releases/platform-tools.html"
    exit 1
  fi
@@ -514,7 +514,7 @@ index 7f2741d9776b7f8ca81e6f919463122ce0f04c34..c2c044ae77dd5a2eaef2fd4ed72f6f00
  fastboot flash xloader xloader-$DEVICE-$XLOADER.img
  EOF
 
-commit caf2d418c5e509230d59cc8b1a6a0315309c9946 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit dbf9de67ae0fd8600536e63664cb13418b28c8f0 (HEAD, m/master, grapheneos/12)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-07-13 18:24:44+0000
 
@@ -551,7 +551,7 @@ index 799f6c4cca21821925bd09a088422b8eb771d0ce..cb5895c930041e70f236933826df59c6
  unset UNLOCKBOOTLOADER
  unset VERSION
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index c2c044ae77dd5a2eaef2fd4ed72f6f002ca514ba..42f14359e053fdf8ac8a0a0650921ce94095d6bf 100644
+index 1c13bc9d109ea3c6979083779878ce2190b02b49..e18661ccab767d6eeab3672af108dfcbb76180ee 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -168,20 +168,26 @@ EOF

@@ -1,4 +1,4 @@
-commit b2d9b44eedd7c1c615a62040b46d0a633e68298d
+commit 1f172cc0ab9f8e218a21debe576afbe21a7b401b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-10 18:47:54-0400
 
@@ -362,7 +362,7 @@ index 3e27c674d2f6fcca4e95bd162e1784d469555596..719190c81aebb94b2ae478c006a818ec
    FAST_NATIVE_METHOD(Character, isIdentifierIgnorableImpl, "(I)Z"),
    FAST_NATIVE_METHOD(Character, isIdeographicImpl, "(I)Z"),
 
-commit 600e10e3dac6317b40301bc2d65b7a4bf40b7541
+commit d9a7eb555490d40b83a2c51f8a2a59386d4e9e48
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-07-28 17:13:00-0700
 
@@ -420,7 +420,7 @@ index daf5d8efffff19ac0c02a1296841b485d394a016..a7dce3cf2882af5d8998e5a4c02e70ea
          if (zip != 0) {
              result = ptr_to_jlong(zip);
 
-commit 5f1c3d1fb80f2847ad965cc4fd9acf83a6598845
+commit 7fe2eb0fe63aa08e3a78289604c06eb256e4bcf3
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-31 01:48:58-0700
 
@@ -862,7 +862,7 @@ index 003753411843534fb1d4521722f2e435c229a73b..06cd18c6bc867004cdd31d401bdc7a9f
       * that {@code 0L} is returned, or where several attributes of the same file
       * are required at the same time, then the {@link
 
-commit 85735e990a8aaf4d424dc2e2f3892dd8565c4784
+commit f97cbc543dfa12d8f125243d16a9a5acfc6e2968
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:46:38-0400
 
@@ -1043,7 +1043,7 @@ index 15741a780574b6e8464aa507a8ce8ccd448e4b2d..e554dd77cb84cd647b38ddf40fad63f8
  
  }
 
-commit 39ab728c9ebe734d8b836fde7b634615cb84402e (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit f60a66c6a82d16cdc804cf775218fbcf7e3d1731 (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-14 17:00:10-0400
 

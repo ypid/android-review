@@ -1,54 +1,4 @@
-commit d87618859668e62c8d562c1b8615162c8768685a
-Author: Neha Jain <jainne@google.com>
-Date:   Wed 2021-09-22 23:30:15+0000
-
-    Update B4/S4 SVN to 50
-    
-    Bug: 200859230
-    Change-Id: If0c3acc05e20e677ec0df94983f9a765a10c569a
-    (cherry picked from commit d87b64e9525d40bdca1abd06fbace6a6b539729b)
----
- device.mk | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/device.mk b/device.mk
-index 0aa30237367f09d63a4c6906f8e9048e8912d4de..81cccf3753d1b53750198caa8a4ed387ff223e07 100644
---- a/device.mk
-+++ b/device.mk
-@@ -872,21 +872,21 @@ PRODUCT_PACKAGES += \
- # fastbootd
- PRODUCT_PACKAGES += \
-     fastbootd
- 
- # GTS ACSA(Agreement for Carrier Service Application) verification
- PRODUCT_PRODUCT_PROPERTIES += \
-     ro.com.google.acsa=true
- 
- # Increment the SVN for any official public releases
- PRODUCT_PROPERTY_OVERRIDES += \
--	ro.vendor.build.svn=49
-+	ro.vendor.build.svn=50
- 
- # Vendor verbose logging default property
- ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
- PRODUCT_PROPERTY_OVERRIDES += \
-     persist.vendor.verbose_logging_enabled=true
- else
- PRODUCT_PROPERTY_OVERRIDES += \
-     persist.vendor.verbose_logging_enabled=false
- endif
- 
-
-commit ea9d96f2cb8d4e5b085edbfac73bf9f7b56e53bc
-Merge: 60f274eb d8761885
-Author: Android Build Coastguard Worker <android-build-coastguard-worker@google.com>
-Date:   Thu 2021-09-23 01:29:17+0000
-
-    Merge cherrypicks of [15891228, 15891079, 15891299, 15890644, 15891300, 15891043, 15891044, 15891045, 15891046, 15891354, 15891355] into sc-release
-    
-    Change-Id: I2fd7411ef8b3f7eb779fcd9f92ade66ae35559ae
-
-commit d45ae08dcbd6aafb59384040191a0135302d8674
+commit df4210a8dd531674f3b7950663e138de7d29be73
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 16:42:55-0400
 
@@ -93,7 +43,7 @@ index 976af6608424794a24da7b3052e3b25be7494069..a37776f85d05173e92415dec60fc9de2
 -PRODUCT_MODEL := AOSP on sargo
 +PRODUCT_MODEL := Pixel 3a
 
-commit 8c3bef1d1f61912a493c11e41f7d67caa75baad1
+commit f0c195768cc7f089a0c9262f72c48662b299e59c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 21:06:38-0400
 
@@ -144,7 +94,7 @@ index a37776f85d05173e92415dec60fc9de2fe566e64..208d1352d0cd5ac7a496e83b59ba9818
  PRODUCT_DEVICE := sargo
  PRODUCT_MODEL := Pixel 3a
 
-commit a6345dd0b1351e7353ce016e408c9fb8fe2e10d8
+commit c2cfd39bbb941ae7fe198e4d88202367deea3461
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 20:31:53-0400
 
@@ -205,7 +155,7 @@ index 0000000000000000000000000000000000000000..32d8cdd9c9446ee75d3baa9607890dc3
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := sargo
 
-commit 6fbf353873b1f4bd84d8d08e380e55fabee603ab
+commit 4ee143f1a6450435d1b8990a3f65c1f8ff137dbf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:48:08-0400
 
@@ -215,7 +165,7 @@ Date:   Thu 2019-06-20 12:48:08-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 81cccf3753d1b53750198caa8a4ed387ff223e07..2ba8a2897455d5b940008155506cbb420aa5231d 100644
+index bcb9efbff0dcec131b69a819587f50c6917af6de..83345b5d99dc1d7953b385a59d53d1f73b57b094 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -131,35 +131,31 @@ PRODUCT_COPY_FILES += \
@@ -255,7 +205,7 @@ index 81cccf3753d1b53750198caa8a4ed387ff223e07..2ba8a2897455d5b940008155506cbb42
      POSTINSTALL_OPTIONAL_system=true
  
 
-commit c865fc5f3a8abd67a106ab8b8c17a64b20140c63
+commit 8e9eb7d2f3f8bb5ae54ce90d8e285163c2f51df8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:50:53-0400
 
@@ -380,7 +330,7 @@ index 885c3e28c3960e1ff2cf72dd645e5ad8e0cfe00e..c6992bc817f15bff1772c143a7f81c75
 -insmod /vendor/lib/modules/machine_dlkm.ko
 -
 
-commit 86d1c5824f057940c9abb1029a95cf39c3ea14ce
+commit c78a84574286d9e8c2fc22f6d54c14b569d5d674
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:19:03-0400
 
@@ -391,7 +341,7 @@ Date:   Thu 2019-06-13 15:19:03-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 2ba8a2897455d5b940008155506cbb420aa5231d..6306450515dbee6c4bc5bb132a6b5d55491c35b7 100644
+index 83345b5d99dc1d7953b385a59d53d1f73b57b094..a1fc388bc567eb1f504de9e3c57be90cd8e29725 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -819,21 +819,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -445,7 +395,7 @@ index 57993b0b31fcc336ed6768dc4cfefef9bad1a3b9..892a0929cf016e4642eae918fbacec77
  
      <!-- Enable system navigation keys. -->
 
-commit 2055c3f97164615adfdbc73de1cb45308a292450
+commit 2e1426beecb4bd0f386cb85c5bc6f7e682911079
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-06-14 22:08:05-0400
 
@@ -482,7 +432,7 @@ index 892a0929cf016e4642eae918fbacec77845b43d0..a0a876e6d98e1bee86b1aa13eb8d4db5
  
      <!-- List of regexpressions describing the interface (if any) that represent tetherable
 
-commit 3add0f62b0e0d6ca49b439bc4f6eae54a5c9e8ab
+commit 1cc32fb68e85278d983dd20f8066d3e709f3a0d2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-18 10:48:18-0400
 
@@ -492,7 +442,7 @@ Date:   Wed 2019-09-18 10:48:18-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 6306450515dbee6c4bc5bb132a6b5d55491c35b7..f544bb01f97a01dde2d395b70d267b4a947e5186 100644
+index a1fc388bc567eb1f504de9e3c57be90cd8e29725..11b465208d03215810599d25f2ad97e814888257 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -64,23 +64,20 @@ PRODUCT_PACKAGES += \
@@ -520,7 +470,7 @@ index 6306450515dbee6c4bc5bb132a6b5d55491c35b7..f544bb01f97a01dde2d395b70d267b4a
  endif
  
 
-commit 12dd5160300c30c0fdaa0f3f46a682750828fa8e
+commit dd22ce50457901dc5c4978ec8e247efc6fae831c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 02:29:31-0400
 
@@ -558,7 +508,7 @@ index f16c2abda2d821c98a383ddcc653047cdf76b7e0..f4f4d023c85e382ae942ba13a6765396
  
  # Set c2 codec in default
 
-commit 08472b7aee990744fb4658ef3baaa0fdf3e07505
+commit 4f8ce2da8597372a4ae052c351cfd80bdf969059
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-11-14 03:11:59-0500
 
@@ -627,7 +577,7 @@ index 208d1352d0cd5ac7a496e83b59ba9818270ef4f5..a0402611e9506aab9b367f0c8036d18d
  # PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
  
 
-commit 6f9f67decb9c70f999e19ae1b5d132f92669b770
+commit 51710949cba5a7bb0b1b5ec0dae2269693e671e3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 11:41:36-0500
 
@@ -665,7 +615,7 @@ index 0d88b17d97b9fb498e72ba74c19c2eb83970aa72..a16227f3118e5a6865156580cf7551c9
      write /sys/module/msm_poweroff/parameters/warm_reset 1
  
 
-commit 145583ab45e120b52e957b9e8b67decd504c5c81
+commit 916f713af112b28e797666c7321abd3755996e9f
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -724,7 +674,7 @@ index 0000000000000000000000000000000000000000..29691515b16f20c5b6ba81489c14fc7b
 +    </integer-array>
 +</resources>
 
-commit f1aeedd34fddccc7b64606a8615772b43a11d2e8
+commit 85a1979c6feb23020f78be30c7afa7953aec1d36
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:26:56+0200
 
@@ -789,7 +739,7 @@ index 0000000000000000000000000000000000000000..6ad44f13ccb58340803b1a9c7006a5d3
 +    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
 +</config>
 
-commit 3a695f8a748716f82a3a7beeed7163822cd1af15
+commit 7ceb0cb1e21517be9ee1411ff7fe80fd9608b19b
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 00:44:51+0100
 
@@ -854,7 +804,7 @@ index a0402611e9506aab9b367f0c8036d18d17dfa82b..a673ee7e53defb5f957d416c3344cb36
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit b05c95eb66297afe57d34a9d99faf135a63e9494 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit afc7984ba1c9e7a469e21f8fe6321713342e5faf (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-11 18:08:28-0400
 

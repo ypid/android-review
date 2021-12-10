@@ -1,4 +1,4 @@
-commit f1f207c0c33661516315f1ddb157521b5e799541 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 1b0b7c24bac9a569ffafad2d62383aa1e9d6b56c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-08-06 08:19:36-0400
 
@@ -33,3 +33,46 @@ index 43cf258edf1ff16e4ccb440848431adb5383ecb5..dfce071d93e3fa522b9a768d035b44e0
      <permission android:name="android.permission.ACCESS_ALL_DOWNLOADS"
          android:label="@string/permlab_accessAllDownloads"
          android:description="@string/permdesc_accessAllDownloads"
+
+commit a7125548f51fb4b2020f2eae6a467aca4b8be8f6 (HEAD, m/master, grapheneos/12)
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Fri 2021-11-19 13:30:32+0200
+
+    gmscompat: allow harmless COLUMN_NOTIFICATION_CLASS
+---
+ src/com/android/providers/downloads/DownloadProvider.java | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/src/com/android/providers/downloads/DownloadProvider.java b/src/com/android/providers/downloads/DownloadProvider.java
+index a9e023771aa4539dd62b83fcafe2ffaf6c6bdfb1..edb73db6894c3d62ec19bf4bbebb40706fb46009 100644
+--- a/src/com/android/providers/downloads/DownloadProvider.java
++++ b/src/com/android/providers/downloads/DownloadProvider.java
+@@ -1222,20 +1222,28 @@ public final class DownloadProvider extends ContentProvider {
+                     Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
+         }
+ 
+         // remove the rest of the columns that are allowed (with any value)
+         values.remove(Downloads.Impl.COLUMN_URI);
+         values.remove(Downloads.Impl.COLUMN_TITLE);
+         values.remove(Downloads.Impl.COLUMN_DESCRIPTION);
+         values.remove(Downloads.Impl.COLUMN_MIME_TYPE);
+         values.remove(Downloads.Impl.COLUMN_FILE_NAME_HINT); // checked later in insert()
+         values.remove(Downloads.Impl.COLUMN_NOTIFICATION_PACKAGE); // checked later in insert()
++        // GmsCompat: Play Store uses COLUMN_NOTIFICATION_CLASS as selectionArg
++        // in ContentResolver#query() during self-update.
++        // Allowing this column is harmless
++        // (used only for Intent.setClassName(packageName, className)) and
++        // it doesn't even get used anyway, because DownloadProvider always checks whether
++        // COLUMN_IS_PUBLIC_API is "false" (it is enforced to be "true" above) before
++        // using COLUMN_NOTIFICATION_CLASS
++        values.remove(Downloads.Impl.COLUMN_NOTIFICATION_CLASS);
+         values.remove(Downloads.Impl.COLUMN_ALLOWED_NETWORK_TYPES);
+         values.remove(Downloads.Impl.COLUMN_ALLOW_ROAMING);
+         values.remove(Downloads.Impl.COLUMN_ALLOW_METERED);
+         values.remove(Downloads.Impl.COLUMN_FLAGS);
+         values.remove(Downloads.Impl.COLUMN_IS_VISIBLE_IN_DOWNLOADS_UI);
+         values.remove(Downloads.Impl.COLUMN_MEDIA_SCANNED);
+         values.remove(Downloads.Impl.COLUMN_ALLOW_WRITE);
+         Iterator<Map.Entry<String, Object>> iterator = values.valueSet().iterator();
+         while (iterator.hasNext()) {
+             String key = iterator.next().getKey();

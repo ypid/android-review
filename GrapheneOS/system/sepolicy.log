@@ -1,4 +1,4 @@
-commit c4daa8c4f59eddff6eaa4d8a5a1c92270ed72800
+commit d2f15161ded2a5728da804cc4a7cad07b8bf880d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-09-14 23:59:13-0400
 
@@ -61,7 +61,7 @@ index 1d38fd926c250e12f250f5359d82293862398c17..a7ed61f782b086fe8a3778dc2df68752
  user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit df1ee099f15ae53d246aee2f03e416ee5437ae8c
+commit d80a74207f401bf1fa069d314a69ff657dd2d4e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-17 18:14:24-0500
 
@@ -72,7 +72,7 @@ Date:   Fri 2017-02-17 18:14:24-0500
  2 files changed, 2 insertions(+)
 
 diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index 4cec7348de9ea733247a7d22549b84237e5ae91b..de05685ab1616fc382ecfe08987414f768d8270c 100644
+index a51fa3a07f7beb02e52d78c47c9320db668dfd68..73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae 100644
 --- a/prebuilts/api/31.0/private/property_contexts
 +++ b/prebuilts/api/31.0/private/property_contexts
 @@ -39,20 +39,21 @@ init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
@@ -98,7 +98,7 @@ index 4cec7348de9ea733247a7d22549b84237e5ae91b..de05685ab1616fc382ecfe08987414f7
  logd.                   u:object_r:logd_prop:s0
  persist.logd.           u:object_r:logd_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index 4cec7348de9ea733247a7d22549b84237e5ae91b..de05685ab1616fc382ecfe08987414f768d8270c 100644
+index a51fa3a07f7beb02e52d78c47c9320db668dfd68..73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -39,20 +39,21 @@ init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
@@ -124,7 +124,7 @@ index 4cec7348de9ea733247a7d22549b84237e5ae91b..de05685ab1616fc382ecfe08987414f7
  logd.                   u:object_r:logd_prop:s0
  persist.logd.           u:object_r:logd_prop:s0
 
-commit de862107db60b32d96166d27cb5aacf05ba87c18
+commit 58fe8dee39dee0641bb3467f96c66f34fe58e18d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 00:08:40-0400
 
@@ -471,7 +471,7 @@ index 0000000000000000000000000000000000000000..97a850ba19008bf220eb55c09bacf86f
 +
 +type updater_app, domain;
 
-commit ca61098bdff9e55890b7f95e2c44d5ecf9d11626
+commit 186e8e8cb501a92d8341e6b58bd71682c56d2582
 Author: aeonsolution@protonmail.com <theaeonsolution@protonmail.com>
 Date:   Mon 2020-09-14 23:37:37-0500
 
@@ -536,7 +536,7 @@ index f746f1cc400505810dc68c9749228a2954866d45..8bff85d77a5479a811a6c648b7d3f938
  
  # Allow platform apps to log via statsd.
 
-commit d8399b380d470662ed834ccb0de9458406f685c1
+commit ab8c62ef5700c5dcedf800f393cc2f3c2cae54a0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-07-18 21:21:40-0400
 
@@ -607,7 +607,7 @@ index 13bfb46e1c5f76074f0d214ec851a0531e31de7c..30f3496e6ceccc92d2780d6636250276
  genfscon proc /sys/kernel/hotplug u:object_r:usermodehelper:s0
  genfscon proc /sys/kernel/hung_task_ u:object_r:proc_hung_task:s0
 
-commit 609bea4f580ebae3f858a1ee130141f3ecb86304
+commit 30d70fe6ab627442ae64b9d8f964d245a71a0fbd
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2021-10-11 02:16:39+0100
 
@@ -618,7 +618,7 @@ Date:   Mon 2021-10-11 02:16:39+0100
  2 files changed, 2 insertions(+)
 
 diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index de05685ab1616fc382ecfe08987414f768d8270c..d15d9b822fa6edf93a9d487e9e5bd14967fcb9ce 100644
+index 73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae..b6c347f6d388c489c1021df4f38600e3e28ef4ee 100644
 --- a/prebuilts/api/31.0/private/property_contexts
 +++ b/prebuilts/api/31.0/private/property_contexts
 @@ -48,20 +48,21 @@ security.lower_kptr_restrict u:object_r:lower_kptr_restrict_prop:s0
@@ -644,7 +644,7 @@ index de05685ab1616fc382ecfe08987414f768d8270c..d15d9b822fa6edf93a9d487e9e5bd149
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index de05685ab1616fc382ecfe08987414f768d8270c..d15d9b822fa6edf93a9d487e9e5bd14967fcb9ce 100644
+index 73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae..b6c347f6d388c489c1021df4f38600e3e28ef4ee 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -48,20 +48,21 @@ security.lower_kptr_restrict u:object_r:lower_kptr_restrict_prop:s0
@@ -670,7 +670,7 @@ index de05685ab1616fc382ecfe08987414f768d8270c..d15d9b822fa6edf93a9d487e9e5bd149
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 
-commit 8ff5c67e6aa23cd7e2de34df9506607a3a531222
+commit 95fc23148160e0e5db682f0b02bb271e86785048
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Mon 2021-10-11 02:33:31+0100
 
@@ -845,7 +845,7 @@ index ea5a9793d1042b5732672aa6f58ac3814d77f922..49b23ee6182110fedf14eac7dbe785d1
  # declarations.
  allow init {
 
-commit 443340c94cc04fd46c4f35089107b2267030ddf9
+commit 4f19a00b1426f9fd97254f8b419b82bf5849d0b3
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Mon 2021-10-11 02:35:13+0100
 
@@ -856,7 +856,7 @@ Date:   Mon 2021-10-11 02:35:13+0100
  2 files changed, 2 insertions(+)
 
 diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index d15d9b822fa6edf93a9d487e9e5bd14967fcb9ce..dabfba65a0372c7ab9f0538a7f86242972c39c0b 100644
+index b6c347f6d388c489c1021df4f38600e3e28ef4ee..4816516cd303441a8d7cc69007828cb0eb102893 100644
 --- a/prebuilts/api/31.0/private/property_contexts
 +++ b/prebuilts/api/31.0/private/property_contexts
 @@ -49,20 +49,21 @@ service.adb.root        u:object_r:shell_prop:s0
@@ -882,7 +882,7 @@ index d15d9b822fa6edf93a9d487e9e5bd14967fcb9ce..dabfba65a0372c7ab9f0538a7f862429
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index d15d9b822fa6edf93a9d487e9e5bd14967fcb9ce..dabfba65a0372c7ab9f0538a7f86242972c39c0b 100644
+index b6c347f6d388c489c1021df4f38600e3e28ef4ee..4816516cd303441a8d7cc69007828cb0eb102893 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -49,20 +49,21 @@ service.adb.root        u:object_r:shell_prop:s0
@@ -908,7 +908,7 @@ index d15d9b822fa6edf93a9d487e9e5bd14967fcb9ce..dabfba65a0372c7ab9f0538a7f862429
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 
-commit 5407c5a13fd8034ba1dbfd6d4e71f58f28574e7a
+commit 279d7027232ad17f70b9f4773a9ef4f297240103
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-11 03:15:01+0100
 
@@ -1349,7 +1349,7 @@ index 5c3332f1a888bc702ffccf9c76d5fb6fdc185d68..7f9cf4cfa0def9c24b437b2b8342299d
  genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
  genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
 diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index dabfba65a0372c7ab9f0538a7f86242972c39c0b..b374e39db6fc3a57fe33d3fe234d1be240d7b6a3 100644
+index 4816516cd303441a8d7cc69007828cb0eb102893..6701dba6c775c39546749b92e6044358c439f732 100644
 --- a/prebuilts/api/31.0/private/property_contexts
 +++ b/prebuilts/api/31.0/private/property_contexts
 @@ -91,20 +91,21 @@ ro.serialno             u:object_r:serialno_prop:s0
@@ -1649,7 +1649,7 @@ index 5c3332f1a888bc702ffccf9c76d5fb6fdc185d68..7f9cf4cfa0def9c24b437b2b8342299d
  genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
  genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index dabfba65a0372c7ab9f0538a7f86242972c39c0b..b374e39db6fc3a57fe33d3fe234d1be240d7b6a3 100644
+index 4816516cd303441a8d7cc69007828cb0eb102893..6701dba6c775c39546749b92e6044358c439f732 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -91,20 +91,21 @@ ro.serialno             u:object_r:serialno_prop:s0
@@ -1727,7 +1727,7 @@ index 49b23ee6182110fedf14eac7dbe785d19bd97ebc..4c28cc08aee244f92ef7ab7e519ec290
    proc_panic
    proc_page_cluster
 
-commit c3f5fad3f72b97dde1ef93bb074b40f062e7f646
+commit 364201100b121ba88ad29c37f14d7319a936a218
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-13 22:56:27-0400
 
@@ -1842,7 +1842,7 @@ index ba54b70acad2b89a5cbe4e0610d585ce7154555f..00000000000000000000000000000000
 -# is wiped, but preloads_copy.sh still runs.
 -dontaudit preloads_copy postinstall_mnt_dir:dir search;
 
-commit f128edf79be6f68057e6cd52799b57c49dc4619c
+commit 767d7da4363e5257043511c2742b54f20bff86b5
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:14:26-0400
 
@@ -1927,7 +1927,7 @@ index 3ceb7a3058be3664788660e6d2a2ab126caec27d..180f97d9ef11c691c690f91f123ce552
  allow priv_app system_api_service:service_manager find;
  
 
-commit c275406bd1e7eba14f3bcf65590fb52db90c391d
+commit 41815cb348df13b89ded942c65310dfe0d0ef5cf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:17:31-0400
 
@@ -1974,7 +1974,7 @@ index 05acb84a023cfb1f05172e2066341a6fc318725c..1d42fb5be76a1817274c0bf2ab9f6227
 -allow healthd ashmem_device:chr_file execute;
  allow healthd proc_sysrq:file rw_file_perms;
 
-commit 5a9ab68e3514d758c724b04cf90887626f9f92d0
+commit df4d005976a2dbbd4dd04e588bfc4fe38d67aa2f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:20:43-0400
 
@@ -2041,7 +2041,7 @@ index 5527f9994137d506b4e265ac6631087677ddbd0e..11bc5a1ef47462ddfbdc96a264ced0ac
  
  # gdbserver for ndk-gdb reads the zygote.
 
-commit 7821b837565a5d79da19b656182088bf65c489ec
+commit 07447dad4ba7efc6153c74a18ada852c0f7e9e95
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:21:01-0400
 
@@ -2108,7 +2108,7 @@ index 11bc5a1ef47462ddfbdc96a264ced0ac40e53183..8dd14179257e92b396bb32b333edf88a
  # valgrind needs mmap exec for zygote
  allow appdomain zygote_exec:file rx_file_perms;
 
-commit f74f3104a8ea508e32117051e528d94884162d44
+commit ef1be724d18a8f8e05cc758f911faae2cb8ce96a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-10-22 23:39:34-0400
 
@@ -2287,7 +2287,7 @@ index e11e144b6a5db1e0edb8d52eb78bb41aec17c006..59f4e745b75836741482b499da35aa70
 +user=_app seinfo=base fromRunAs=true domain=runas_app levelFrom=user
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit 2c1b635d903ab074752a5b729528614381fea238
+commit a221d896bcafacff07a49065f9958153648ca1b8
 Author: Renlord <me@renlord.com>
 Date:   Sat 2020-02-22 02:04:41+1100
 
@@ -3536,7 +3536,7 @@ index 0000000000000000000000000000000000000000..f6b7aa8ea60c9172cc4bbf55eefcce30
 +
 +type untrusted_base_app_29, domain;
 
-commit 6a3988911e1aa352dd985f682e9bc81aa2c987c8
+commit b7cc4374d4f26114934e6c613b5f52d2ad2c0b40
 Author: Renlord <me@renlord.com>
 Date:   Sun 2020-02-23 22:41:07+1100
 
@@ -5749,7 +5749,7 @@ index 0000000000000000000000000000000000000000..86740d042480b7f0c165b0e6f41cd0f1
 +
 +type isolated_base_app, domain;
 
-commit d95f81bc1ffd635d50a38921e62cab23fc0bdb12
+commit af85abbd519cfa7978ed6efac911be98496155e9
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:12:12+1100
 
@@ -5880,7 +5880,7 @@ index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d
  userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
  
 
-commit bfaae0bb0c46540e50fe916dcc73fed3fa9b92ea
+commit 05c94fe7a61b631d688834f712db16e71a81a967
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:17:45+1100
 
@@ -6267,7 +6267,7 @@ index 561ddba08d4e0e79106581285fe1733ed563d025..531547bef528d98b31c9b52eba949107
  
  # gdbserver for ndk-gdb reads the zygote.
 
-commit b08a3efc8a18b37172e98bdf55a4856c259dbbf6
+commit 4f29515e3ba545f625599eaada0cbb1d13811275
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 20:12:32-0500
 
@@ -6404,7 +6404,7 @@ index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf421
  auditallow untrusted_base_app_27 ashmem_device:chr_file open;
  
 
-commit 532bc5789ca2f3ff225cb3bcaf728624e54e65e8
+commit 097e2360196d80a099edeafefa35db54cad174fb
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:30:48+1100
 
@@ -6709,7 +6709,7 @@ index 6064c1453994c2db28211905267017167a607f9c..14d881d00615a837a45ba1a89a5cb1b7
  allow untrusted_app_all app_data_file:{ lnk_file sock_file fifo_file } create_file_perms;
  
 
-commit 61a9ce37f3674ed826c1d21abea5fef963e627f9
+commit 3de4263e67093727e397022a95ed647690174eb7
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-02-26 10:23:23+1100
 
@@ -7046,7 +7046,7 @@ index 531547bef528d98b31c9b52eba949107132be43c..ef39e7acfa3467141545c6a7e84edab4
  allow appdomain zygote_exec:file rx_file_perms;
  
 
-commit e74983fdfcd6f2a78c2c8ac8c4f6a021eb32ecb3
+commit d8fab5133680ce087feb6c805d9fceebbc30a9dc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:14:36-0400
 
@@ -7109,7 +7109,7 @@ index 7dc5062c55759c26c6be52188022c809b63b5410..e20cced1587ccc197cbc13c18161a11d
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit a334a8e8d15bef75eb32d557a1cab7e7243f6102
+commit 83437ae72f108bf51ce20d9fed35e381df45eff0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:34:49-0400
 
@@ -7444,7 +7444,7 @@ index e20cced1587ccc197cbc13c18161a11d2daa2598..ca7f61d7cd2c5c732e7783db72316b67
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit bca7abacd7b27be1a1dfce46517da2a7b594ddca
+commit e8c95986b5b13d98445b309cdd9e42b2426ab39b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-02-29 11:03:35-0500
 
@@ -7516,7 +7516,7 @@ index ef39e7acfa3467141545c6a7e84edab4467deb4f..21650e1ae868a2980b94def4f27da95e
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit 293b7aa28381ab612b508fb858c19d28cd17ef1e
+commit aa97aae18ff5f317f33c17ba9c6d704b41a2fb04
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-02-27 20:37:55+1100
 
@@ -7853,7 +7853,7 @@ index 21650e1ae868a2980b94def4f27da95e6a9133a3..d5fb12604fa44e5504d382836f5a0fa3
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit 9c812c0852947beb36766dba8ac7eccb3164bed5
+commit 150dbbe13a82ea641e5d420651491be24cf193fe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 06:41:22-0500
 
@@ -8036,7 +8036,7 @@ index 090e1214221363e2329eab22512e093e58abc141..7e9d2317ea8aff7ea8693a2dde6ec8b9
  
  # Allow apps access to /vendor/overlay
 
-commit a525dfc5494012f062f0118a8683b8ad736d77df
+commit 5ce711d7de5d4914c32380a873e9233f76fc1994
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 18:29:13-0500
 
@@ -8177,7 +8177,7 @@ index 81a1c2aa659aafd4b369c41d203d7c8003ced854..61594080a219149da2845e75051e4715
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit 6e025ecb2056ff8abcde91b4e12b79f59116629d (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit a62e37fa8a629d923c61632ae084a128335d940e (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 
@@ -8254,10 +8254,10 @@ index 5fb26d566243ab7c6edc96e607c3454ee3450c77..58dad901c79228d905f1f4546725787a
  user=radio seinfo=platform domain=radio type=radio_data_file
  user=shared_relro seinfo=base domain=shared_relro levelFrom=all
 diff --git a/prebuilts/api/31.0/private/system_server.te b/prebuilts/api/31.0/private/system_server.te
-index 73301c1e9fb12d0f7dbd9e3ef177b451aeec9f59..61a9887ce0b04f14f1d8f0ba9e759392b6f76f2c 100644
+index 82b2a1f0669eb59e455478f09ac31efba171f9fa..4d34d9d3629d66959256d1ff59dff69360fdc99f 100644
 --- a/prebuilts/api/31.0/private/system_server.te
 +++ b/prebuilts/api/31.0/private/system_server.te
-@@ -1246,25 +1246,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
+@@ -1248,25 +1248,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
  # rendering via SwiftShader, which requires JIT support. These builds are
  # never shipped to users.
  ifelse(target_requires_insecure_execmem_for_swiftshader, `true',
@@ -8422,10 +8422,10 @@ index 5fb26d566243ab7c6edc96e607c3454ee3450c77..58dad901c79228d905f1f4546725787a
  user=radio seinfo=platform domain=radio type=radio_data_file
  user=shared_relro seinfo=base domain=shared_relro levelFrom=all
 diff --git a/private/system_server.te b/private/system_server.te
-index 73301c1e9fb12d0f7dbd9e3ef177b451aeec9f59..61a9887ce0b04f14f1d8f0ba9e759392b6f76f2c 100644
+index 82b2a1f0669eb59e455478f09ac31efba171f9fa..4d34d9d3629d66959256d1ff59dff69360fdc99f 100644
 --- a/private/system_server.te
 +++ b/private/system_server.te
-@@ -1246,25 +1246,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
+@@ -1248,25 +1248,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
  # rendering via SwiftShader, which requires JIT support. These builds are
  # never shipped to users.
  ifelse(target_requires_insecure_execmem_for_swiftshader, `true',

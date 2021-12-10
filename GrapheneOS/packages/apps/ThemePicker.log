@@ -1,4 +1,4 @@
-commit 0b9bbac807e16d7a48cd0ba30d3d1e33e3fc0c04
+commit 3e6984fb3bdf7d67bb088632c2cc31114cd6d257
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 21:14:29+0100
 
@@ -68,7 +68,7 @@ index 0000000000000000000000000000000000000000..e3f3b658dfb1e90752dbac2b97b04e6e
 +    </privapp-permissions>
 +</permissions>
 
-commit 1b852a759b49c6c8876625be9cdedee0776e46b2
+commit 28655e4d24547326c090c229db4f38c39105f91b
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 19:00:36-0700
 
@@ -106,7 +106,7 @@ index c82aa4b15d5b65b98809f1513a3eee01399e0b71..fcedfdfe85a1b8c57eb32c91920dc861
      sub_dir: "permissions",
  }
 
-commit 4651a95448373c2ba6f9e4ea30c5bf83a3176d04
+commit 0381ab7725d4c8eecab4202a35a7d94607936dcb
 Author: LuK1337 <priv.luk@gmail.com>
 Date:   Tue 2020-09-15 03:27:19+0200
 
@@ -201,7 +201,7 @@ index 0000000000000000000000000000000000000000..41b23ce171fce5bc63a38aed0c4570ce
 +    </exception>
 +</exceptions>
 
-commit 3c5cf62f489d5ca4eac2704afc0fa6981ed2df34
+commit d23a2bcae765f2f09994d7889992ef77cc0b5cd0
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:08+0100
 
@@ -213,10 +213,10 @@ Date:   Fri 2019-11-01 23:17:08+0100
  1 file changed, 3 insertions(+)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 90e05cb1b08d9e9ec2e03c01a666780a7bdec44e..391f06b8d9b5630ba110027774e8fde012835037 100755
+index ccadc1243c472efa18e4314cad6c3bac935855ba..4aa6f07d8ae67c933f45f5440ae740353180d02f 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -29,20 +29,23 @@
+@@ -30,20 +30,23 @@
          <!-- Intent filter with action WallpaperService (live wallpaper interface) -->
          <intent>
              <action android:name="android.service.wallpaper.WallpaperService" />
@@ -241,7 +241,7 @@ index 90e05cb1b08d9e9ec2e03c01a666780a7bdec44e..391f06b8d9b5630ba110027774e8fde0
          android:supportsRtl="true"
          android:name="com.android.customization.picker.CustomizationPickerApplication"
 
-commit ca891a7cfd778a0b0ad7eecf499a6279e74fd388
+commit e8534e141d70c22438c439485ee83adf6622769c
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 19:12:40-0700
 
@@ -257,11 +257,11 @@ Date:   Tue 2021-10-05 19:12:40-0700
  1 file changed, 5 insertions(+)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 391f06b8d9b5630ba110027774e8fde012835037..9529b60e428107c3b2cb06bb341e209750a6d7d1 100755
+index 4aa6f07d8ae67c933f45f5440ae740353180d02f..0bbfeb7e1f349a2186a0f4c06f7f6ee60532491b 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -27,20 +27,25 @@
-             <action android:name="android.intent.action.VIEW" />
+@@ -28,20 +28,25 @@
+             <data android:scheme="http" />
          </intent>
          <!-- Intent filter with action WallpaperService (live wallpaper interface) -->
          <intent>
@@ -287,7 +287,7 @@ index 391f06b8d9b5630ba110027774e8fde012835037..9529b60e428107c3b2cb06bb341e2097
          android:hardwareAccelerated="true"
          android:icon="@drawable/ic_home"
 
-commit f4ccba9422c69117442dbd858f7a9fcea5a6bb7e
+commit 086cd51fd987efc692b2d0e8017764fbf1fe6e6d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 22:40:58-0700
 
@@ -300,7 +300,7 @@ Date:   Tue 2021-10-05 22:40:58-0700
  2 files changed, 2 insertions(+)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 9529b60e428107c3b2cb06bb341e209750a6d7d1..d8cb91ecdbe62c0dfbc886f6747154823677d626 100755
+index 0bbfeb7e1f349a2186a0f4c06f7f6ee60532491b..2a8e070b1023ad3eb0e13d181a8b1aef20bf6146 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -1,20 +1,21 @@
@@ -347,7 +347,7 @@ index e3f3b658dfb1e90752dbac2b97b04e6eaa52126d..5dee99b0b9153e49fa55a1f1d81dab3c
      </privapp-permissions>
  </permissions>
 
-commit e21451b745c959db2bc40aa3610e66f4e1646aae
+commit e3555d2e7d738d267ac4bf0579fa44c2e3ae6d74
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sat 2021-04-17 15:28:59+0100
 
@@ -388,7 +388,7 @@ index a070dbec1a8ae45b6f5dacadd5e4bed37ac69d2b..42bc4cff144ddc31f75f2843bd39a749
      </array>
  </resources>
 
-commit 445a8f9b194db27ceea0f63bd522197f93ba8b56 (HEAD, tag: SP1A.211105.002.2021110617, m/master, grapheneos/12)
+commit 466a82c52d9ef46de46b52248dbd2e206392527b (HEAD, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 16:50:31-0400
 
