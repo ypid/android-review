@@ -8177,7 +8177,7 @@ index 81a1c2aa659aafd4b369c41d203d7c8003ced854..61594080a219149da2845e75051e4715
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit a62e37fa8a629d923c61632ae084a128335d940e (HEAD, m/master, grapheneos/12)
+commit a62e37fa8a629d923c61632ae084a128335d940e (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 

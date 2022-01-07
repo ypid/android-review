@@ -1,4 +1,4 @@
-commit 54a5760f716a2af32770f05d3c2d08d5b9369063
+commit 4b74bdac81a994fc2bd65f57243f78a95ad843eb
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 21:01:17-0700
 
@@ -54,7 +54,7 @@ index 4ae0fc4ae6ed93db604db863cbd93b0e10d1f30c..48da31b90eed16a3f534151178a6d10c
            <axis tag="wght" stylevalue="600" />
          </font>
 
-commit 3dcf5a3719d239a47b1780c20fe3a09037d57760
+commit c57f2ea4ab7c66fa31608289df53fdbe3da541a3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-10-15 20:09:49-0400
 
@@ -64,7 +64,7 @@ Date:   Sat 2016-10-15 20:09:49-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 0abeff91e511fdb68bea997b083648436c833ceb..bdd9cd3231c5b5c8dc53a8fc9f6bec3516bcf5c6 100644
+index fbc14c7e2e1752954a4f52d28e7bcb20db64ae19..b2b5a253273fc8429bd945fe60c93f53cca83818 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -242,21 +242,21 @@
@@ -91,7 +91,7 @@ index 0abeff91e511fdb68bea997b083648436c833ceb..bdd9cd3231c5b5c8dc53a8fc9f6bec35
      <integer name="config_autoPowerModeThresholdAngle">200</integer>
  
 
-commit 08fce1d6fa9a100f7bed0e9f30dab29eef0c6317
+commit 6f30f9e945532534b4f733103a47978cdb5fe61f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-15 19:35:32-0400
 
@@ -159,7 +159,7 @@ index 6bf394dc347b5fd2b0e7f0ed069eeea81b99c3b6..c4f5fa37977d30649f9194a66e9e74ea
  
          private final String mName;
 
-commit 6004bc702d4b89f119c8c0313116f775878eff08
+commit 73ff436852d93837618fe1b754935180be97ee68
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Fri 2021-07-16 02:00:19+0000
 
@@ -268,7 +268,7 @@ index c78d5d538f8dc5ebbcf25abc1aca782f60ac477a..e3e23964eed6cf3e1e25a6954811d698
                          .setSmallIcon(com.android.internal.R.drawable.stat_sys_adb)
                          .setWhen(0)
 
-commit f576f32ffb656995f58e592faf9674e758d91096
+commit 162536c4f11f5b76f6959924e421006c8555018d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-03-09 20:23:12-0500
 
@@ -280,10 +280,10 @@ Date:   Fri 2018-03-09 20:23:12-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index bdd9cd3231c5b5c8dc53a8fc9f6bec3516bcf5c6..9e42e922105f468b43fda82e011fc65a53514520 100644
+index b2b5a253273fc8429bd945fe60c93f53cca83818..b8f8a6ff80dd17cac6e0d0a39f108ad71557c9a9 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3672,21 +3672,21 @@
+@@ -3673,21 +3673,21 @@
      <bool name="config_pinnerHomeApp">false</bool>
  
      <!-- True if assistant app should be pinned via Pinner Service -->
@@ -306,7 +306,7 @@ index bdd9cd3231c5b5c8dc53a8fc9f6bec3516bcf5c6..9e42e922105f468b43fda82e011fc65a
  
      <!-- emergency call number for the emergency affordance -->
      <string name="config_emergency_call_number" translatable="false">112</string>
-@@ -3769,21 +3769,21 @@
+@@ -3770,21 +3770,21 @@
           1.0 corresponds to 1x animator scale, 0 means that there will be no transition
           animations. Note that this is only a default and will be overridden by a
           user-set value if toggled by settings so the "Transition animation scale" setting
@@ -330,7 +330,7 @@ index bdd9cd3231c5b5c8dc53a8fc9f6bec3516bcf5c6..9e42e922105f468b43fda82e011fc65a
      <!-- Warning: This API can be dangerous when not implemented properly. In particular,
           escrow token must NOT be retrievable from device storage. In other words, either
 
-commit 6a011cb17ff80422ac168ac679f3d01a8159e922
+commit c10fdbe4e916fb1598306e67301fc7be0fd4e7cc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:08:00-0500
 
@@ -340,10 +340,10 @@ Date:   Wed 2018-11-28 01:08:00-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 9e42e922105f468b43fda82e011fc65a53514520..5cdf92b05d5a51578ed81f7c151e32b0519628e9 100644
+index b8f8a6ff80dd17cac6e0d0a39f108ad71557c9a9..6c3dd7a3bdbb739e1e3b9df9900c905222ee7fce 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3441,21 +3441,21 @@
+@@ -3442,21 +3442,21 @@
           1 - Nav bar is always translucent when the freeform stack is visible, otherwise always
               opaque.
           2 - Nav bar is never forced opaque.
@@ -367,7 +367,7 @@ index 9e42e922105f468b43fda82e011fc65a53514520..5cdf92b05d5a51578ed81f7c151e32b0
      <!-- Controls whether the side edge gestures can always trigger the transient nav bar to
           show. -->
 
-commit 98492978e30b138495f8557404031956516210f8
+commit 30e271d87094cad08f5e233076d41fad3ecbb31a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 00:54:03-0400
 
@@ -377,7 +377,7 @@ Date:   Sat 2021-10-09 00:54:03-0400
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 5cdf92b05d5a51578ed81f7c151e32b0519628e9..3071bd79ac6171a8bc25bbfb879bf8b8578fa3c8 100644
+index 6c3dd7a3bdbb739e1e3b9df9900c905222ee7fce..9a8430d141bb306cc2058f3a00bc1deefe1bb0e4 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -948,21 +948,21 @@
@@ -427,7 +427,7 @@ index 5cdf92b05d5a51578ed81f7c151e32b0519628e9..3071bd79ac6171a8bc25bbfb879bf8b8
      <!-- Allows activities to be launched on a long press on power during device setup. -->
      <bool name="config_allowStartActivityForLongPressOnPowerInSetup">false</bool>
 
-commit 04eb764bb5a4e64b466f0590a8a9cb8a985b8674
+commit 1ccb86829698a4b48ce14c91b07df4ac743b91f4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:14:54-0500
 
@@ -437,10 +437,10 @@ Date:   Wed 2018-11-28 01:14:54-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 3071bd79ac6171a8bc25bbfb879bf8b8578fa3c8..f4b2e512591a8fa273d22385484b523dd3cee42e 100644
+index 9a8430d141bb306cc2058f3a00bc1deefe1bb0e4..fb702e7bf3ba7af9eba4510a4c1ec9af85b2e3df 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2504,21 +2504,21 @@
+@@ -2505,21 +2505,21 @@
            - to enable feature (fully enforced) for a complete allowlist: 1
            - to enable feature for an incomplete allowlist (so use implicit allowlist mode): 5
            - to enable feature but implicitly allowlist for SYSTEM user to ease local development: 9
@@ -464,7 +464,7 @@ index 3071bd79ac6171a8bc25bbfb879bf8b8578fa3c8..f4b2e512591a8fa273d22385484b523d
      <!-- Activity to handle Usb Device connection in USB Host side. Keeping it to null value will
           lead into handling it inside system using Intent resolution. Non-null contents will have
 
-commit 99566f9f0abbfb28a4bc4113c389be25c8bbe0c2
+commit d32b25c4efad47b0fee637dd0806c7c3a226ea52
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-11-28 01:16:09-0500
 
@@ -474,10 +474,10 @@ Date:   Wed 2018-11-28 01:16:09-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index f4b2e512591a8fa273d22385484b523dd3cee42e..5cab160c58c06e11e17b7ad8a29bbcab24477873 100644
+index fb702e7bf3ba7af9eba4510a4c1ec9af85b2e3df..c7ad8357786197e469b7f492d4bab97f5f8b7e28 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2470,21 +2470,21 @@
+@@ -2471,21 +2471,21 @@
      <integer-array translatable="false" name="config_oemUsbModeOverride">
      </integer-array>
  
@@ -501,7 +501,7 @@ index f4b2e512591a8fa273d22385484b523dd3cee42e..5cab160c58c06e11e17b7ad8a29bbcab
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 5314fd5602004f7adf6134bbf58eb9e79402b204
+commit 7044a0de0041dccce3239f1ae33fd77323a6c238
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2018-12-04 00:34:24-0500
 
@@ -538,7 +538,7 @@ index 8e6e251ff3f25ce4240f894c652a3c2adcd86f76..53324ba4d9664dc170a81c39dcf77d1a
      <!-- 0 == never, 1 == only when plugged in, 2 == always -->
      <integer name="def_wifi_sleep_policy">2</integer>
 
-commit 147399949f47e9434a455be9e327d4fbdb967ea4
+commit 97e0e5add903fda70d2fd522577f45af78752ffa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-06-29 10:16:52-0400
 
@@ -575,7 +575,7 @@ index 0fe80c45ad2a6e8943fffee2a9f6e944c5f8f60d..d7ace96010d9a35940462c1f3e23176e
              "android.app.action.BIND_SECONDARY_LOCKSCREEN_SERVICE";
  
 
-commit 15b3ed7f0826e3eeeeee675bae5253c4bf43fb06
+commit 0ad5abf42ed54299b0eb43958d821204be86f807
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-09-12 01:52:11-0400
 
@@ -614,7 +614,7 @@ index dc5dace98825d97a848af0bb9902e0651080d9fe..2f745264422743eecd18be72fe61992d
                  final int user = intent.getIntExtra(KEY_LOCKOUT_RESET_USER, 0);
                  resetFailedAttemptsForUser(false /* clearAttemptCounter */, user);
 
-commit 586087549fc48b4a4124cb1f5e7b0be6152a9e22
+commit fc3797ff5f6acd63d262fd293eedb1cbbd89ac9f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 09:24:21-0500
 
@@ -635,7 +635,7 @@ diff --git a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png b/core/re
 index cb00d82a826fa820787239bfaae22ea28e211f62..68e63312cfa8371060748249e09fe19ee3da9d7a 100644
 Binary files a/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png and b/core/res/res/drawable-sw720dp-nodpi/default_wallpaper.png differ
 
-commit 30bcc9529ccc7b49abbd538536fa5bd3e9abe2cf
+commit 6fac1f3d0566b9d1e7ab8e5acac19b5fa795f9a3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 03:22:39-0400
 
@@ -648,10 +648,10 @@ Date:   Sat 2021-10-09 03:22:39-0400
  2 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 5cab160c58c06e11e17b7ad8a29bbcab24477873..e2edb28e13b58d1d2af1e1a6181be468ad956372 100644
+index c7ad8357786197e469b7f492d4bab97f5f8b7e28..c223f4f61da39bf83d963fd2e7e5f43ce5f7571f 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -4104,27 +4104,27 @@
+@@ -4105,27 +4105,27 @@
      <string translatable="false" name="config_deviceSpecificAudioService"></string>
  
      <!-- Class name of the device specific implementation of DisplayAreaPolicy.Provider
@@ -712,7 +712,7 @@ index a666a5b4b7960b2369a2304a8b2db19b17178c6d..5addc5271cf05bb3cc37a7e06819a034
      <dimen name="starting_surface_default_icon_size">108dp</dimen>
  </resources>
 
-commit 00e28425bae4c7d7bab947851e2807451d897b59
+commit 5de64571cc70a8b9ebed2875aaad7eee133782fb
 Author: inthewaves <inthewaves@pm.me>
 Date:   Tue 2020-10-06 16:02:25-0700
 
@@ -741,7 +741,7 @@ index f062b59a008c900260a691e55b6328a5ca6692c2..1db99d8bc404e5b496541ca44e962d61
      </webviewprovider>
  </webviewproviders>
 
-commit 048b3990944d99031a527afa4f8509919d04d9a8
+commit 719531f7f294aead5b125d9aa9ac847c4ef6c6e1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-09-27 17:37:28-0400
 
@@ -777,7 +777,7 @@ index 928892c60e47ae5b7fa247c02c1320569c58c0ec..a6bb258bccb0d907557854d710ab90a1
  include $(CLEAR_VARS)
  
 
-commit 38bd1787b8aa5562ffc8f0c53b55af9534effdb3
+commit b927a67526be5557ca0e541114282b4601345f95
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-05-11 15:47:05-0400
 
@@ -790,7 +790,7 @@ diff --git a/core/res/assets/images/android-logo-mask.png b/core/res/assets/imag
 index 5512c0ad8a83b8df0b5d396fb2dac9487a240a4d..fae0c03f594e4bd23e843afb3bc8a1e09653dfb5 100644
 Binary files a/core/res/assets/images/android-logo-mask.png and b/core/res/assets/images/android-logo-mask.png differ
 
-commit 289c2b8fc566d7ad53da7d5e04292d184e2f9873
+commit 214fc0d2a26dafdb59074123127594d934551e52
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2017-09-06 21:40:48-0400
 
@@ -835,7 +835,7 @@ index e3e23964eed6cf3e1e25a6954811d69872079b74..6a84b3ae42a85d0dfa8357e189e92de0
                              app.info.packageName, app.info.longVersionCode, app.userId);
                  }
 
-commit efe0fc4744585b712bfb7bcc68c9f812a60806f8
+commit ab08ec5c095993924db391a7860a4e2463b69991
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 21:01:09-0700
 
@@ -1836,7 +1836,7 @@ index 8df8c63702c3671a7c5e2bfb2edc2efb2388c17d..7fc1726632eaa8cba0eedd25840a4f08
      @Override
      public void onManagedProfileChanged() {
 
-commit 0fb71d62bd5dc16cead31b65da6a3e39d6f6f7ed
+commit 09dc8f0a3c39561060244c4e11b968b98a498d63
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:54:30-0400
 
@@ -1884,7 +1884,7 @@ index 301914615562e148f103e51ce377b3fde1d000de..91ab884b4c12bf01764adc779ed55930
          }
  
 
-commit 0d70bb45a06c154a02cfb23203a1fd0b9eb1f50c
+commit 3b04e4cd863ef2cca7b0a29370cbb94367f16b30
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sat 2020-09-12 12:28:34-0700
 
@@ -2083,7 +2083,7 @@ index 54a6c678e0da97a90a6c0ef4f0cbbb9150a99c9a..41b43e3c38bde52f111be3ef8e733af0
                      if ((flags & compatFlags) != 0) {
                          updatePermissionFlagsInternal(pkg.getPackageName(), permission, compatFlags,
 
-commit bbd8f3d700683708a357c2ddcf1f09cfe24a8842
+commit db1b3067ebf8f8ccdef73cb4346698acd9b60051
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 11:59:15-0400
 
@@ -2150,7 +2150,7 @@ index 41b43e3c38bde52f111be3ef8e733af0a6fe0460..22d3fd41ea64b152a1fe56c333b8cd5d
       * </ul>
       *
 
-commit 3d6b349a843d4a68cfaa406839969b51d0effb5a
+commit 0b0e88d34bfbf40289218542406ce301a9cff49d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-07-21 11:23:07-0400
 
@@ -2263,7 +2263,7 @@ index b58638cc3adedb0672c75a066be21311aba35468..d3d97ee9286f63b1b4a6b79f9891562d
      <!-- Description for the capability of an accessibility service to request touch exploration. -->
      <string name="capability_desc_canRequestTouchExploration">Tapped items will be spoken aloud
 
-commit 7681d5d003c404b5f41f0ed588abeb1284a0fbad
+commit b8e10b824c0966b2f70efea59701c2c7702a8e23
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2017-10-07 15:54:42-0400
 
@@ -2462,7 +2462,7 @@ index 22d3fd41ea64b152a1fe56c333b8cd5d0c503542..60dc0a0277254b6cf1cd2539e1cca36c
       * </ul>
       *
 
-commit dd9bedffb547d80923f48bf71cdcc00ba551af50
+commit 8574a3f79677ca4d5440bc979e54f6467d7428d0
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 16:27:43-0700
 
@@ -2558,7 +2558,7 @@ index 84be7f5809e60524b3da88b80f9d58a726f1bb56..4d2f2f876a32c757e1dd7613f4916116
          }
  
 
-commit 11c81683a2cb57a943091b9af0f720624a2c4dc0
+commit d305b451f5dd9910306b4df827baf9e791ed4c57
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sun 2021-10-10 22:20:11-0700
 
@@ -5791,7 +5791,7 @@ index b27df17e19109575e61c169e414d6df33ba6308a..43cba7b85e2cfd5c510f9fed50dbd3b2
  
      <!-- "Switch" is a verb; it means to change user profile by tapping another user profile name. -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index 0a98601969af2ffc56955090034d69192e660e9c..df167a8ee71e5bf3083ea02649fe9bfb9a7ca466 100644
+index 53b505e93020ccbe3a5a6f74058c4cdb4344c20d..d6c5002f4a84759c810056085132b85a7dd9b5a7 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -3615,20 +3615,25 @@
@@ -6337,7 +6337,7 @@ index 989663406a6b347e8784dae5f7d8f615cbf6a08d..7b3d281eefe30bab8edaeaa1b5deed0c
              Log.e(TAG, "isIccLockEnabled RemoteException", e);
              e.rethrowFromSystemServer();
 
-commit 7693fdea691f53079477d92b29634b7912450127
+commit 0ac4bfbe720f7e0a4c47610390564f67add200ca
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:54:57-0400
 
@@ -6374,7 +6374,7 @@ index 9da6d528a9670fbd77a11524bfde98e7a67a9df4..8c74158ac4891f55df96121174a88181
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_6 = 10 * 60 * 1000;
      @VisibleForTesting static final long DEFAULT_COMPACT_THROTTLE_MIN_OOM_ADJ =
 
-commit fc34f773cd23b63da198617a91bf1129923275ac
+commit b50a19de1dc19216fd17da9416e5dd72c4f6966b
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 15:03:59-0700
 
@@ -6459,7 +6459,7 @@ index e072b4a3646c992ebe5da076ed96e2885cb1d0f7..f7bf1c3af7a24b720299e01597ecaa5c
 \ No newline at end of file
 +}
 
-commit 7755ab6e320ba3cd5d8428d78da942ac8b5e881e
+commit 2f4ce7b32dd3c8263ffc1b68f524688132ecb1c8
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 15:04:50-0700
 
@@ -6501,7 +6501,7 @@ index b9cc992b438eea501fbb6934e1e9f2a9e6619ccf..8de515d4d3e522e13b10ebf775f701cd
  
      private static final String TAG_HISTORY = "h";
 
-commit e4c7c02f3cfe00a366193c46cee97990b6600b09
+commit aba0521407b826d5860ecf214ee64a46e27c55d9
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-10-11 15:15:40-0700
 
@@ -6649,7 +6649,7 @@ index 8de515d4d3e522e13b10ebf775f701cd545f1aeb..49fbc1cc1181938c01d767b4a4b49ee7
      private static int sDiscreteFlags;
  
 
-commit 0ff885faa9b829ea99a11101e8266f8e10131d29
+commit ba7fd78117d1a732049f40a35bf53081910ec600
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-14 22:10:58-0400
 
@@ -6688,7 +6688,7 @@ index 53324ba4d9664dc170a81c39dcf77d1affe7812a..93efe5060a2f642841b4d662225d3093
      <bool name="def_mount_ums_notify_enabled">true</bool>
  
 
-commit 94e93f2b8726f23b27543b168b6e61db72a4f5be
+commit 7d28eab52bba8c049f2e8ce2c86ea4856afb31bd
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-10-15 17:18:57-0700
 
@@ -6729,7 +6729,7 @@ index 7680d117c9d97ec7e260d771e6af437051df0e38..04195fac2b44c421ced786a3a8551394
       * such that the values of these properties cannot change between the time when the first is
       * fetched and the time when the last is fetched.
 
-commit 1ee907c3310f4550ebf8ece4c671b147c9667b88
+commit f3889f0a60b444f6cb87d21b3a652a6b22a9ebfc
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Fri 2021-10-15 17:55:04-0700
 
@@ -6796,7 +6796,7 @@ index 9c0c3657bff33c5d8209c309fd4e6afd57a61fa0..f1483d23f9824d78e0c44cca5034ee60
       *
       * @param operation IntentSender which matches a previously added
 
-commit 0563acb8ed2bf5083b3a5916f02879f7b2e68d4c
+commit fdd1e4a778d7831a3cbb7010a497e6332089c3f5
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-10-20 16:06:40-0700
 
@@ -6890,7 +6890,7 @@ index f1483d23f9824d78e0c44cca5034ee60852d80f5..d6f3f42d10ab488b1c947a694e9d76a7
       *
       * @param operation IntentSender which matches a previously added
 
-commit 5527c12d1564c7c864964740b2254232bb06e8c1
+commit 175da32179e370cf8accb5966c2a6909d667d25c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2015-03-14 18:10:20-0400
 
@@ -7127,7 +7127,7 @@ index 993e4e7b4b3d0bb39f0afe8e60947fd3d03baded..756547706f60812a32f2057f6c3b4a34
      }
  
 
-commit 6c6b093e5a3fa5d5786cbfe749ae9e8d0132f829
+commit 7e13795c60cd85168690e64c7fa39c80ab019226
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-21 23:54:20-0400
 
@@ -7168,7 +7168,7 @@ index 756547706f60812a32f2057f6c3b4a3406ec7c37..27518dd4cdce45c6b54f3deb5d018a67
                          parsedArgs.mRemainingArgs, null /* classLoader */);
              } else {
 
-commit a51dc3d24af7b7ddcdb0731a654e5101a0d81137
+commit 0bb1fe000755d0bee345e8beb27ff2dfa7781c9a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:24:21-0400
 
@@ -7258,7 +7258,7 @@ index 0f26f57e21559d9efbf650587842680ddd480f0f..809ac8b4dfd497443fdd7da3af824724
          Log.i(TAG, "Calling ZygoteHooks.beginPreload()");
  
 
-commit d4661d94a9f1fa5fd85f88ef04c305dbc6fa5866
+commit 3d7f1c8b609ccc4fc157175e93e8d1048ed42685
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:43:55-0400
 
@@ -7347,7 +7347,7 @@ index 809ac8b4dfd497443fdd7da3af824724255a1caf..e8e35ab70cbe91698aa8d97cab57163b
          System.loadLibrary("jnigraphics");
      }
 
-commit 428707ee76036f933e9f6e87af6874287880c00a
+commit ea186deb9332751126b3750e1bffb21fdacb9818
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:27-0400
 
@@ -7390,7 +7390,7 @@ index e8e35ab70cbe91698aa8d97cab57163b6e8f4d5c..cdd14501e8ac528b650a14bf5be2a0eb
  
          sPreloadComplete = true;
 
-commit 8f8d28bbb44f3e15720e69a704d5dc5727be42a9
+commit ffccb099decbe745760db3cb01743286006ce692
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 18:41:25-0400
 
@@ -7435,7 +7435,7 @@ index cdd14501e8ac528b650a14bf5be2a0eb9f6f409b..e8e35ab70cbe91698aa8d97cab57163b
  
          sPreloadComplete = true;
 
-commit 092a71ef3cca2f7c528dfe0216637d06d45ca951
+commit d982411556074b47496e3bc008e7d7a874f1bd11
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:28:52-0400
 
@@ -7478,7 +7478,7 @@ index e8e35ab70cbe91698aa8d97cab57163b6e8f4d5c..4742522bcaf447c22092758302308298
          // Ask the WebViewFactory to do any initialization that must run in the zygote process,
          // for memory sharing purposes.
 
-commit df5fabadacfa25da9b78065ac232459545737a8c
+commit efca0bec8f020b5c0a6cdee84062a42d4b587787
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:30:59-0400
 
@@ -7521,7 +7521,7 @@ index 4742522bcaf447c2209275830230829850a9630b..af243c44c829dd03965aee5b8dde985f
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadAppProcessHALs");
          nativePreloadAppProcessHALs();
 
-commit bc81a705a8e17aff112fc0d16f91d765977508e0
+commit 3a991739b4cf56c860d567a5f68b1b90bba33985
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:31:29-0400
 
@@ -7564,7 +7564,7 @@ index af243c44c829dd03965aee5b8dde985f1b4093fa..d98f14b414a5825d0372f574f185480e
          preload(bootTimingsTraceLog, true);
      }
 
-commit b5544391680cc91600b8f34b4191b214a87ee2b2
+commit 0c91b7b47ee8e4941252dab7de3421885a94eb36
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-05-14 14:34:32-0400
 
@@ -7652,7 +7652,7 @@ index d98f14b414a5825d0372f574f185480e39b6b769..145b52f2c143fc97d44fc6823fc70d6a
      private static void preloadClasses() {
          final VMRuntime runtime = VMRuntime.getRuntime();
 
-commit 82d6d167abde7052d0fea92af45545093c3eee30
+commit bbd6855ffd301226ebcbd40f260fa2a831ba1d99
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:57:24-0400
 
@@ -7695,7 +7695,7 @@ index 145b52f2c143fc97d44fc6823fc70d6a7f588458..0fb0d4a97d826f1bd62bf252e01cebad
          Trace.traceBegin(Trace.TRACE_TAG_DALVIK, "PreloadGraphicsDriver");
          maybePreloadGraphicsDriver();
 
-commit 99e6d0dd4e225db13bc147cda95146f55cc625ec
+commit 92104c3aeb29f37c393bb1d2305ac251e1dbce14
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:58:51-0400
 
@@ -7738,7 +7738,7 @@ index 0fb0d4a97d826f1bd62bf252e01cebad3e3b0979..ea199914b11e17586cadd9bdadf5694c
              WebViewFactory.prepareWebViewInZygote();
          }
 
-commit 3a6d43feeaaacfe866f1f51291adb9ea7c88d3c4
+commit e2c4d1c0d0ee1bfcd7d9c4d7f955b4f93685b5ae
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2020-10-30 22:26:09+0000
 
@@ -8094,7 +8094,7 @@ index bed0aae074a4c274bea18d4491322cd77d22639f..69f615a8e0f4d680279e456d4dcab413
                                                     "(IZZLjava/lang/String;)V");
  
 
-commit e1232193344c9e198a8d9050287ee0a47d29ac8b
+commit 62726852c4f9174a8ac468427253d4211d65bbc6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-01-15 18:18:09-0500
 
@@ -8316,7 +8316,7 @@ index 232c6fc9906818a2b7aba07075bc999a1d839cf1..07715f8ad9c25bc735f6a42564aa4ac9
       * Reload colors from resources.
       **/
 
-commit 7606b43a94614adea7b3a7ebcb82a69cdb664ccd
+commit 8021a8cd280eb9722ca3d6e13a82929cb1e5bd18
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-03-03 22:55:39+1100
 
@@ -8494,7 +8494,7 @@ index 07715f8ad9c25bc735f6a42564aa4ac947410c44..c388b4de30ca87bfbd1e4a5a195d8c81
                  if (len > 0 || scramblePin) {
                      mKlondikeText.setText(klondike);
 
-commit 099be049bd50cf324a2bde4d5567dc518d4b689e
+commit d6f5681782c980c98eb83fcd5e32375e3057a232
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 19:44:59-0400
 
@@ -8910,7 +8910,7 @@ index 99deab4fd652cf45e02889a096aa66b1cf3a3a46..2cb1aaef13fa141816f90d53dea985a7
          {"nativeSendGamepadKey", "(JIZ)V", (void*)nativeSendGamepadKey},
          {"nativeSendGamepadAxisValue", "(JIF)V", (void*)nativeSendGamepadAxisValue},
 
-commit abb0d53682a9431d252421a5bac9fd4f9f8787f2
+commit 64cac9cb46b24629ab9895e68c0bd87db9a529a6
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 22:32:37-0400
 
@@ -8920,7 +8920,7 @@ Date:   Sat 2021-10-16 22:32:37-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index e2edb28e13b58d1d2af1e1a6181be468ad956372..e165ee97c50c096ffb74cd5fdfcb95748644235b 100644
+index c223f4f61da39bf83d963fd2e7e5f43ce5f7571f..571c19990dfd41ea66daf1efc1e2de19f1665909 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
 @@ -967,21 +967,21 @@
@@ -8947,7 +8947,7 @@ index e2edb28e13b58d1d2af1e1a6181be468ad956372..e165ee97c50c096ffb74cd5fdfcb9574
              0 - Nothing
              1 - Mute toggle
 
-commit c34b211fef9bb60ec7b06f971cd39327e009a029
+commit 20a944c2fa1cec1e55a56f51694974f06ce4d44f
 Author: Renlord <me@renlord.com>
 Date:   Thu 2019-11-14 23:13:15+1100
 
@@ -9590,10 +9590,10 @@ index 4ac3178ecb4cf7e2d55ad63aea4daeeec8d7cd4b..9ebc9f4cea0b832d7f09131cae583945
      }
  }
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index e165ee97c50c096ffb74cd5fdfcb95748644235b..155b4eff86f4d87748a174f1b78aa6d2f7954503 100644
+index 571c19990dfd41ea66daf1efc1e2de19f1665909..b7cbb9d8aa4b5117e26a7d89a5e37011d10f1cb6 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2208,22 +2208,27 @@
+@@ -2209,22 +2209,27 @@
  
      <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
           autodetected from the Configuration. -->
@@ -9622,7 +9622,7 @@ index e165ee97c50c096ffb74cd5fdfcb95748644235b..155b4eff86f4d87748a174f1b78aa6d2
      <integer name="config_ntpTimeout">5000</integer>
  
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index df167a8ee71e5bf3083ea02649fe9bfb9a7ca466..f582b8a61158eb2b507220b282b44e4d8fbd397b 100644
+index d6c5002f4a84759c810056085132b85a7dd9b5a7..7a2031b3de94999e50e1ffe18a7b10cda75285b1 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -702,20 +702,22 @@
@@ -9649,7 +9649,7 @@ index df167a8ee71e5bf3083ea02649fe9bfb9a7ca466..f582b8a61158eb2b507220b282b44e4d
    <java-symbol type="string" name="date_picker_decrement_month_button" />
    <java-symbol type="string" name="date_picker_decrement_year_button" />
 
-commit 4247de522dcc5052fcd9f1a9ad8ba5a24c38b0b0
+commit 5275a84d61242b04978d2dadade8f04a0d123704
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-29 10:58:40+1000
 
@@ -9665,10 +9665,10 @@ Date:   Tue 2020-09-29 10:58:40+1000
  4 files changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 155b4eff86f4d87748a174f1b78aa6d2f7954503..4ff333e6f27e6d4bed73836ea230899f4fc9efe9 100644
+index b7cbb9d8aa4b5117e26a7d89a5e37011d10f1cb6..700aedecce88f3de5889ba3d97d00efccf64a8d8 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2219,20 +2219,22 @@
+@@ -2220,20 +2220,22 @@
           Supports "ntp" or "https" only now -->
      <string translatable="false" name="config_ntpMode">https</string>
      <!-- Remote server that can provide NTP responses. -->
@@ -9692,7 +9692,7 @@ index 155b4eff86f4d87748a174f1b78aa6d2f7954503..4ff333e6f27e6d4bed73836ea230899f
  
      <!-- Set and Unsets WiMAX -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index f582b8a61158eb2b507220b282b44e4d8fbd397b..f65dbc469e4a2f5cbcda553e4dcee8c81457e256 100644
+index 7a2031b3de94999e50e1ffe18a7b10cda75285b1..a2310aa2588f3bae68d9d4a80fa2ffe9b2845c38 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -448,20 +448,21 @@
@@ -9918,7 +9918,7 @@ index 357c232226582f6d0a85f152b4fe3697a74307c7..5c95d02a34de3b810fa9e4ad4d0019ac
                  NetworkTimeSuggestion networkSuggestion = findLatestValidNetworkSuggestion();
                  if (networkSuggestion != null) {
 
-commit c2288fc68f7289db24e5b69a3462ab2d2af574ea
+commit 433e91259624bd28712ceec0a4b2b4e44a6d1f5f
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-06-30 11:52:43+1000
 
@@ -9964,7 +9964,7 @@ index 9ebc9f4cea0b832d7f09131cae5839458362b183..be78084b7ea9c98d8b4c98976a6d7127
              if (connectivityManager == null) {
                  if (LOGD) Log.d(TAG, "forceRefresh: no ConnectivityManager");
 
-commit 239d85b20af7fd32839013a91404831fabf99ad1
+commit 9443c9806cd889bc371e2a2e675d6395ebdb7c85
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Mon 2021-10-18 04:05:40+0530
 
@@ -10269,7 +10269,7 @@ index 1a8af3bb650b7da81b30f893f244316bc40e0fb8..45dbc12c7c166adf5a2df6d2a21e8e4c
      /**
       * Whether we're currently animating between the keyguard and the app/launcher surface behind
 
-commit 20063ed4d2e2d8464150fce8744a47fe74899fd0
+commit 7a6ec6e34c3864bd8c4aa94e63ff4c0a9966bd50
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-09-28 15:25:03+0100
 
@@ -10306,7 +10306,7 @@ index 45fd7a3467c407854acbad440303f6f7f9078ad6..92d6d9868da6c6252c01912a2cb66c52
          sDefaults.putBoolean(KEY_EDITABLE_VOICEMAIL_NUMBER_SETTING_BOOL, true);
          sDefaults.putBoolean(KEY_EDITABLE_VOICEMAIL_NUMBER_BOOL, false);
 
-commit 99f1d4e21136dc942bc479f115cfb005b934ce5c
+commit 3bae36fe10e4b4614a9b0b6cf17e7e43ccfcfc57
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-06-16 01:19:53-0400
 
@@ -10367,7 +10367,7 @@ index add0b01f18799dc33079a30dd6eec9fe1ae4a752..1d68c37577e825f1c43a55dbbf64cd0e
          mCurrentUserId = userId;
      }
 
-commit 8afba165c79c1e9a44eaeea3d1c0c08921163b49
+commit 185d23536eef786f3f28bb28d393b11ec816a3a1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-07-25 11:22:33-0400
 
@@ -10484,7 +10484,7 @@ index d04698cb5aeb6d70d7457f2c691d30e348dd40a9..0ba4f550c5f400d1c04e8f48f594640b
              }
              if (DBG) {
 
-commit 6c471abd6f42efdd5f0e2bc61aea1bfd308ea1f9
+commit ff0e8c0db45156a2f4853c985c2fb421265a6c9d
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Sun 2021-05-02 00:36:30+0000
 
@@ -10621,7 +10621,7 @@ index 38275f7cd34838b14f1e07999ff82ed2d56dcc06..1014f5dab3e723e37be43c3bcaaf94e7
      }
  
 
-commit 031b85368fb9baeb7fe5833ddc1e930255dd0e3f
+commit 211c60c7232ec99fd9b4d480c456e76e84a82836
 Author: Rusty Bird <rustybird@net-c.com>
 Date:   Wed 2020-04-22 18:28:33+0000
 
@@ -10642,10 +10642,10 @@ Date:   Wed 2020-04-22 18:28:33+0000
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 4ff333e6f27e6d4bed73836ea230899f4fc9efe9..52574384051bb3c741af75820c6b2089b1476216 100644
+index 700aedecce88f3de5889ba3d97d00efccf64a8d8..93926d5cd5743d626916b8fae374bc60f4a4cf11 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2604,21 +2604,21 @@
+@@ -2605,21 +2605,21 @@
               0 - COLOR_MODE_DEFAULT
               7 - COLOR_MODE_SRGB
      -->
@@ -10669,7 +10669,7 @@ index 4ff333e6f27e6d4bed73836ea230899f4fc9efe9..52574384051bb3c741af75820c6b2089
  
           If this flag is false, we advise applications not to use protected
 
-commit 7cd64a347d75bd7ba6ee43e3e4177a3b0fd7861c
+commit 369707b018ed21370ae31119d5fc58f22f865fb0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 19:11:12-0400
 
@@ -10706,7 +10706,7 @@ index d274c917c26df7869942c3d5af95aa57ebd26e30..8bd036b70d5f92ea5ea64cf4302dc875
      </string>
  
 
-commit 1729ecd7f10acf0164ef63f141eed6228412270e
+commit af4ac3eebf7ad6086b05899df6a4ae51bdc0fef2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2017-01-02 18:51:57-0500
 
@@ -10743,7 +10743,7 @@ index 93efe5060a2f642841b4d662225d30935e9b48b7..26ae277751730765f7ecdd688b9d824b
      <string name="def_device_name_simple">%1$s</string>
  
 
-commit c7d89e9835bbfe2505343a7b17f1b6eac45446d8
+commit 258fb8a6603a2ede9588ac4ef839584f87934b5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-03 06:53:00-0500
 
@@ -10800,7 +10800,7 @@ index 268603fa8b0d71d87aca4527ecd807fef82bae59..537090b83e94b58fa35e28d795b9b933
              if (stmt != null) stmt.close();
          }
 
-commit 9698e11c2288cb91fc5c851ca52278e85b6bdcf2
+commit 3948a5878e800786712ffe59caf84edfc946d153
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 14:59:10-0700
 
@@ -10872,7 +10872,7 @@ index 590215101fb368eec81536fd4f19e1e5bb8287e0..1bd913ea9496b0b08274c338583bbc74
          @Override
          public void onReceive(Context context, Intent intent) {
 
-commit 0d7a596fa75e04011d6c6e25de3d79b50b10a1b5
+commit 6c681266f4b52fa7e5366628e5a13b9947cb90a6
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-10-15 17:07:13+0100
 
@@ -10912,10 +10912,10 @@ index 37a84f3698c13d880cbdd37e9486a54633c3d856..0ae88276ebda6b13e890a219cfa9067e
  
      static class TrustAgentInfo {
 diff --git a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-index d48c9ea4831c78c0686a4bbeded829e47cd49928..f77df5c81f577f4ea1005c2210a49a5c08f01527 100644
+index 99e28d101496dbb5ad0a5ecb93b2110d9c0fd9e6..83412179aa0b685ea584ece758f48324ecc2b79a 100644
 --- a/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
 +++ b/services/devicepolicy/java/com/android/server/devicepolicy/DevicePolicyManagerService.java
-@@ -15533,25 +15533,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
+@@ -15540,25 +15540,25 @@ public class DevicePolicyManagerService extends BaseIDevicePolicyManager {
                  return;
              }
              deviceOwner.isLogoutEnabled = enabled;
@@ -10944,7 +10944,7 @@ index d48c9ea4831c78c0686a4bbeded829e47cd49928..f77df5c81f577f4ea1005c2210a49a5c
  
          return new ArrayList<>(
 
-commit 71684f370781e7a31bb2a47a364bbb620fd838f8
+commit 99738ac25cd52b813d71683b7030d536b6b688a2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2020-12-20 15:53:52-0500
 
@@ -10981,7 +10981,7 @@ index a8aea7c1eb599bcf8d66f0ef25099691c32eb8a2..3697b9494949d93a83c6fe1136140f46
                  if (engineName.equals(value.substring(0, delimiter))) {
                      return value.substring(delimiter + 1);
 
-commit d00c372e34f5a88bb4f381c3ecc05ebcff75408a
+commit 32a81915ab1a11a00d5b627f8ca98f3f3f9b85c6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Thu 2021-05-06 20:42:26-0700
 
@@ -11019,7 +11019,7 @@ index eacdab6e537da03add1f2c5567619d1b95569dfb..873987deaa0794a7846c644be34041be
              }
          }
 
-commit df6c3b06db535f6c2d61c40835e1d6b7d886a52a
+commit 8550273df2eb03ded4ac85ca5075cfa222b3213a
 Author: pratyush <codelab@pratyush.dev>
 Date:   Thu 2021-07-01 12:26:49+0530
 
@@ -11183,7 +11183,7 @@ index 51066dd837e2692b8e8d99470c6189bf21034611..76fb570ddf71d53707d9b8b5d50e7602
      }
  
 
-commit 48b44d9d517b96bae23778f9120861d9ccef7720
+commit 2d4487d054834b6cf8813fffa8e797ff54b5a031
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 12:59:51-0400
 
@@ -11196,10 +11196,10 @@ Date:   Mon 2018-04-02 12:59:51-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 52574384051bb3c741af75820c6b2089b1476216..4f792cf2fc911096a1a7d17c3b3f6474ec1ec044 100644
+index 93926d5cd5743d626916b8fae374bc60f4a4cf11..b15f745aab4d31befe33d1d928b5d8dfa6dffdb1 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2004,21 +2004,21 @@
+@@ -2005,21 +2005,21 @@
      <string name="config_systemTelevisionRemoteService" translatable="false">@string/config_tvRemoteServicePackage</string>
  
      <!-- The name of the package that will be allowed to change its components' label/icon. -->
@@ -11223,7 +11223,7 @@ index 52574384051bb3c741af75820c6b2089b1476216..4f792cf2fc911096a1a7d17c3b3f6474
  
      <!-- The default character set for GsmAlphabet -->
 
-commit 823de121e46ef160a016e5dc0db91e98e0b33aa5
+commit 8fa5cd283a829f58dcc38fda408b96b09a143f6f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2018-04-02 10:37:46-0400
 
@@ -11266,7 +11266,7 @@ index 6b840bd7901d382522c82678f550a5cc2938d6a0..b5006f34c628d1f960b286f6da063d62
      <!-- HTTP proxy settings. The hint text for proxy exclusion list. -->
      <string name="proxy_exclusionlist_hint" translatable="false">example.com,mycomp.test.com,localhost</string>
 
-commit 3c63c4e393fdbedb07b086f76daa9d617295310d
+commit e5e7c1e29a32f2113d7673f9b59fa54448c14a2e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-05-16 11:47:02-0400
 
@@ -11276,10 +11276,10 @@ Date:   Thu 2019-05-16 11:47:02-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 4f792cf2fc911096a1a7d17c3b3f6474ec1ec044..4347621f8f150b3824d8965122778ce7582a9dbd 100644
+index b15f745aab4d31befe33d1d928b5d8dfa6dffdb1..908a058351a67dbcc8ca103c6ff2cf69ddf95941 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -2477,21 +2477,21 @@
+@@ -2478,21 +2478,21 @@
      <integer-array translatable="false" name="config_oemUsbModeOverride">
      </integer-array>
  
@@ -11303,7 +11303,7 @@ index 4f792cf2fc911096a1a7d17c3b3f6474ec1ec044..4347621f8f150b3824d8965122778ce7
           If true, user switched out from user switching will always be stopped but its user data
           is not locked. Total number of unlocked users will be limited by
 
-commit 7ec8419401294b009294b253fda22065b8cabea1
+commit e8757e8eb7480f5ffcc8aeb72866c88d6af23438
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Tue 2021-07-06 18:18:06+0530
 
@@ -11476,7 +11476,7 @@ index 097b0711eff7813448ef7ae872421f8d6179e51d..0a4fca3ec09d53199397713d9e8c437f
          /**
           * Create a HandlerThread to use in NetworkStatsService.
 
-commit 3977ccbc35fb763f1475f932430a6629b557f9f3
+commit db02d6699b37cb5bc35e1c259be612426b45c1b4
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-10-19 00:46:21+0100
 
@@ -11523,7 +11523,7 @@ index db301f698753620069438202df3f160cd0ac89dd..c3b1612907bb2bc2a4a7aee07890a3d4
                              + currentVersion +
                              " instead; this is probably a bug. Did you update SETTINGS_VERSION?",
 
-commit b12b347a03088a17e9beeeb5691a1cd1a0a35295
+commit 21881327950ed468507de92574d7902124fb08d2
 Author: randomhydrosol <randomhydrosol@glassrom.org>
 Date:   Tue 2021-10-19 01:31:34+0100
 
@@ -11560,7 +11560,7 @@ index 5c95d02a34de3b810fa9e4ad4d0019ac134af1eb..0508789251927ebca9e6780531814d27
                  ExternalTimeSuggestion externalTimeSuggestion = findLatestValidExternalSuggestion();
                  if (externalTimeSuggestion != null) {
 
-commit 91f3f988317748984b1b084a4c7e6c7bbb9b8f94
+commit 0d03bf2f34e61924517a2ccee2de806665d1f170
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-19 08:05:17-0400
 
@@ -11606,7 +11606,7 @@ index 8bd036b70d5f92ea5ea64cf4302dc8756b58d7bd..d3d047df8a3714576341a83089d669a0
      </string>
  
 
-commit f31cc69fd72d69c65ca6b3821f5c6e922acb0c28
+commit 588705ed3ed0f7e6643cb6fcb2af039eb54bebfb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 23:57:54-0400
 
@@ -11616,10 +11616,10 @@ Date:   Mon 2021-03-15 23:57:54-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 4347621f8f150b3824d8965122778ce7582a9dbd..32bfbdffae12cc688f06a0dfc26c629dd3eb2098 100644
+index 908a058351a67dbcc8ca103c6ff2cf69ddf95941..74ed99edfbf67d85745b4c69830799b96754e6ca 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3799,21 +3799,21 @@
+@@ -3800,21 +3800,21 @@
           and followed the pertinent sections of the escrow tokens section of the CDD <link>-->
      <!-- TODO(b/35230407) complete the link field -->
      <bool name="config_allowEscrowTokenForTrustAgent">false</bool>
@@ -11643,7 +11643,7 @@ index 4347621f8f150b3824d8965122778ce7582a9dbd..32bfbdffae12cc688f06a0dfc26c629d
  
      <!-- The component name, flattened to a string, for the default autofill service
 
-commit 9e69600f5a105cf9716ea0f3d331ea3877b6ea94
+commit 9537d73a2695ebaf350eeb9c61e0453dbae3f39c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 01:31:20-0400
 
@@ -11697,7 +11697,7 @@ index a6bb258bccb0d907557854d710ab90a18264d3ee..a93b3c72b50b240cd28855014f21d8cf
  LOCAL_NOTICE_FILE := $(LOCAL_PATH)/../../NOTICE
  
 
-commit 6528d4f82cfba1631b6642845b964f45459f34f7
+commit 9b0ed0502430b2dfa2da5455ffef7cc74c3b5b5a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-21 14:41:10-0400
 
@@ -11734,7 +11734,7 @@ index d3d047df8a3714576341a83089d669a0dac595bf..4cce2285a60ae5baf0bddbd928f479a7
      </string>
  
 
-commit 969a226b92a087f767535e49d7aac154ab32d5b3
+commit ad23885763f7af20e28edd657f39fd4c08ff317b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-10-22 20:51:50-0400
 
@@ -11773,7 +11773,7 @@ index 4cce2285a60ae5baf0bddbd928f479a7db24cff2..d3d047df8a3714576341a83089d669a0
      </string>
  
 
-commit 3c4f80d637fd485f5063d021055517b304a803f8
+commit 43b2b913f21d5375b99b6300045899a9f9eb0d96
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-10-20 19:40:42-0400
 
@@ -11788,10 +11788,10 @@ Date:   Wed 2021-10-20 19:40:42-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
-index 32bfbdffae12cc688f06a0dfc26c629dd3eb2098..9ec03a2d5bda65db35a9a9adffd84df6a618fbeb 100644
+index 74ed99edfbf67d85745b4c69830799b96754e6ca..ba1b6ea24dde5b087f9b39a4de6640a443c83e5a 100644
 --- a/core/res/res/values/config.xml
 +++ b/core/res/res/values/config.xml
-@@ -3537,21 +3537,21 @@
+@@ -3538,21 +3538,21 @@
               2 - 1 snap target: 1:1
      -->
      <integer name="config_dockedStackDividerSnapMode">0</integer>
@@ -11815,7 +11815,7 @@ index 32bfbdffae12cc688f06a0dfc26c629dd3eb2098..9ec03a2d5bda65db35a9a9adffd84df6
      <bool name="config_jobSchedulerRestrictBackgroundUser">false</bool>
      <!-- The length of grace period after user becomes background user -->
 
-commit 63cbb07e1d4dda441f1a8515a1eb751df48f91de
+commit 05a2f9185f2a853e2e358650793d73917f31da0a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:15:42-0400
 
@@ -11851,7 +11851,7 @@ index a93b3c72b50b240cd28855014f21d8cfd529b991..c7a3d40ccf36d04ca971009ebd418856
  	NavigationBarMode3ButtonOverlay \
  	NavigationBarMode2ButtonOverlay \
 
-commit 72f31490950e49dead1cf2f7ca6b595d720d3765
+commit a410958e6f0028c12588b9d0c0c86f5c9a664837
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2021-11-01 20:41:05-0700
 
@@ -12140,7 +12140,7 @@ index b191584345ef32bb459b0cb811334eb0e2cf9f06..13a4f7738cbac3676b82aedd72bfff93
      <color name="accessibility_color_inversion_background">#546E7A</color>
  </resources>
 
-commit 61be0d8f599a1198b862365455d9915e894abcac
+commit da67bc9921a28d745966528c5f8396d1a48f5c32
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-11-13 18:38:39-0500
 
@@ -12202,7 +12202,7 @@ index f0b749c40a5ff65cf14e394795cd3fea4d1723b8..968af357a46252aba32b22eaf4b95d9a
      }
  
 
-commit 4575fe46db851663d72ccac1f456357bbd17e521
+commit b7c504bfc5a1b62b1a5d0adef58e37f79d14ad92
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Tue 2021-11-16 18:54:30+0200
 
@@ -13044,7 +13044,7 @@ index 43cba7b85e2cfd5c510f9fed50dbd3b2639e7a9b..a07307392f6a626803e5c38e4c93ce63
  
      <!-- "Switch" is a verb; it means to change user profile by tapping another user profile name. -->
 diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
-index f65dbc469e4a2f5cbcda553e4dcee8c81457e256..9a59dc450c0d008c0001384cfaab0b9dee5d9b6a 100644
+index a2310aa2588f3bae68d9d4a80fa2ffe9b2845c38..31d1ef60877eaa9a6e829c1c3c3eba1eeee4bf55 100644
 --- a/core/res/res/values/symbols.xml
 +++ b/core/res/res/values/symbols.xml
 @@ -3618,24 +3618,25 @@
@@ -13075,7 +13075,7 @@ index f65dbc469e4a2f5cbcda553e4dcee8c81457e256..9a59dc450c0d008c0001384cfaab0b9d
    <java-symbol type="string" name="etws_primary_default_message_others" />
  
 
-commit d66787984b786eff3571673ac54db973ac2f4edd
+commit 0524e3c82bd50683d6d809132e8a46effc47e7b8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-11-18 12:04:59-0500
 
@@ -13140,7 +13140,7 @@ index 85f14b531bac25056088b3d6caec6635a0c099fb..938cb4c67291039ae46517b5a977d49b
                  boolean foreground = isForeground(Process.myUid(), Process.myPid());
  
 
-commit 2196f8bd38bce27f129c9fa2508d2a76a99740ae
+commit eb677d7cdc63f7ae5bbb0bccdeaf99ea7666169f
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Fri 2021-11-19 13:48:41+0200
 
@@ -13349,7 +13349,7 @@ index 938cb4c67291039ae46517b5a977d49b0b137389..f197ee2da3e14c25dc91e84cd431fdd8
 +    }
  }
 
-commit f1f7a3a5d80ea1e27607572ef5b4c5e23277709d
+commit 32c921b60009f31f10aa47d828062e9e425bb312
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Mon 2021-11-22 17:56:16+0200
 
@@ -13388,7 +13388,7 @@ index f197ee2da3e14c25dc91e84cd431fdd82e137c0f..659a5a0c40503b909cb78f5f94338dd6
              }
  
 
-commit bc2bd20d17578fecff5da9eec46bc5b2a80ed485
+commit fed6468c5f112235a8e099b0758fa6efbb8e781b
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Tue 2021-11-23 21:02:26+0200
 
@@ -13433,7 +13433,7 @@ index d1f0d12e039a98fc7430b5c1869245e58ce8c710..b8179c8c3dc5b1161b00c981c3bfd2d6
  
      /** {@hide} */
 
-commit 408cb5210cafe0e798d59766d122f2a8bfd201e8
+commit 11e3682d008fe4d32fa8f0fc85e1f879e3b0e3c6
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Thu 2021-11-25 21:46:42+0200
 
@@ -13576,7 +13576,7 @@ index 9c6113ce4b47935d36ae29430e91d943ddf82df5..9f4fb4cabf3a467e31685ac44988d4bd
                  mPkgInfo.applicationInfo);
          newIntent.setData(mPackageURI);
 
-commit b0b56c44cefe612a98136418fa2515b5c69e814c
+commit 0c6927c05e3bd1e63b4dc01d869c371312c70cdb
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Thu 2021-11-25 21:53:44+0200
 
@@ -13737,7 +13737,7 @@ index 659a5a0c40503b909cb78f5f94338dd6492aca9b..34832a6ee6f6c94174fd0f9c59a3b039
          // no need to handle confirmation in UninstallStatusForwarder
          pm.getPackageInstaller().uninstall(packageName, pi.getIntentSender());
 
-commit 62754dfc34e15ba11bca87f009e84f1e0caba28d (HEAD, m/master, grapheneos/12)
+commit 80161463f138b1cd712c10d3da9b9d1280008bbd
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Thu 2021-11-25 21:56:12+0200
 
@@ -13780,3 +13780,245 @@ index 34832a6ee6f6c94174fd0f9c59a3b03959e53dcb..b854ac439b1e6c84aff516f56a8bd7e4
  
      // Called during self-update sequence because PackageManager requires
      // the restricted CLEAR_APP_CACHE permission
+
+commit 9cf906e235fe0c5c0a1bbd89ef97013773a41985
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Thu 2021-12-09 16:24:47+0000
+
+    SystemUI: Require unlocking to use Internet quick tile
+---
+ .../src/com/android/systemui/qs/tiles/InternetTile.java     | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
+
+diff --git a/packages/SystemUI/src/com/android/systemui/qs/tiles/InternetTile.java b/packages/SystemUI/src/com/android/systemui/qs/tiles/InternetTile.java
+index cc9e7485dcffad01356abdd97093fb6dcac4e4ca..2b5388c75a125859d91aadd461d0d0ad930b8e82 100644
+--- a/packages/SystemUI/src/com/android/systemui/qs/tiles/InternetTile.java
++++ b/packages/SystemUI/src/com/android/systemui/qs/tiles/InternetTile.java
+@@ -45,35 +45,36 @@ import com.android.systemui.dagger.qualifiers.Main;
+ import com.android.systemui.plugins.ActivityStarter;
+ import com.android.systemui.plugins.FalsingManager;
+ import com.android.systemui.plugins.qs.QSIconView;
+ import com.android.systemui.plugins.qs.QSTile.SignalState;
+ import com.android.systemui.plugins.statusbar.StatusBarStateController;
+ import com.android.systemui.qs.AlphaControlledSignalTileView;
+ import com.android.systemui.qs.QSHost;
+ import com.android.systemui.qs.logging.QSLogger;
+ import com.android.systemui.qs.tileimpl.QSTileImpl;
+ import com.android.systemui.qs.tiles.dialog.InternetDialogFactory;
++import com.android.systemui.statusbar.policy.KeyguardStateController;
+ import com.android.systemui.statusbar.policy.NetworkController;
+ import com.android.systemui.statusbar.policy.NetworkController.AccessPointController;
+ import com.android.systemui.statusbar.policy.NetworkController.IconState;
+ import com.android.systemui.statusbar.policy.NetworkController.MobileDataIndicators;
+ import com.android.systemui.statusbar.policy.NetworkController.SignalCallback;
+ import com.android.systemui.statusbar.policy.NetworkController.WifiIndicators;
+ import com.android.systemui.statusbar.policy.WifiIcons;
+ 
+ import java.io.FileDescriptor;
+ import java.io.PrintWriter;
+ 
+ import javax.inject.Inject;
+ 
+ /** Quick settings tile: Internet **/
+-public class InternetTile extends QSTileImpl<SignalState> {
++public class InternetTile extends SecureQSTile<SignalState> {
+     private static final Intent WIFI_SETTINGS = new Intent(Settings.ACTION_WIFI_SETTINGS);
+ 
+     protected final NetworkController mController;
+     private final AccessPointController mAccessPointController;
+     private final DataUsageController mDataController;
+     // The last updated tile state, 0: mobile, 1: wifi, 2: ethernet.
+     private int mLastTileState = -1;
+ 
+     protected final InternetSignalCallback mSignalCallback = new InternetSignalCallback();
+     private final InternetDialogFactory mInternetDialogFactory;
+@@ -84,24 +85,25 @@ public class InternetTile extends QSTileImpl<SignalState> {
+             QSHost host,
+             @Background Looper backgroundLooper,
+             @Main Handler mainHandler,
+             FalsingManager falsingManager,
+             MetricsLogger metricsLogger,
+             StatusBarStateController statusBarStateController,
+             ActivityStarter activityStarter,
+             QSLogger qsLogger,
+             NetworkController networkController,
+             AccessPointController accessPointController,
+-            InternetDialogFactory internetDialogFactory
++            InternetDialogFactory internetDialogFactory,
++            KeyguardStateController keyguardStateController
+     ) {
+         super(host, backgroundLooper, mainHandler, falsingManager, metricsLogger,
+-                statusBarStateController, activityStarter, qsLogger);
++                statusBarStateController, activityStarter, qsLogger, keyguardStateController);
+         mInternetDialogFactory = internetDialogFactory;
+         mHandler = mainHandler;
+         mController = networkController;
+         mAccessPointController = accessPointController;
+         mDataController = mController.getMobileDataController();
+         mController.observe(getLifecycle(), mSignalCallback);
+     }
+ 
+     @Override
+     public SignalState newTileState() {
+@@ -114,21 +116,24 @@ public class InternetTile extends QSTileImpl<SignalState> {
+     public QSIconView createTileView(Context context) {
+         return new AlphaControlledSignalTileView(context);
+     }
+ 
+     @Override
+     public Intent getLongClickIntent() {
+         return WIFI_SETTINGS;
+     }
+ 
+     @Override
+-    protected void handleClick(@Nullable View view) {
++    protected void handleClick(@Nullable View view, boolean keyguardShowing) {
++        if (checkKeyguard(view, keyguardShowing)) {
++            return;
++        }
+         mHandler.post(() -> mInternetDialogFactory.create(true,
+                 mAccessPointController.canConfigMobileData(),
+                 mAccessPointController.canConfigWifi()));
+     }
+ 
+     @Override
+     public CharSequence getTileLabel() {
+         return mContext.getString(R.string.quick_settings_internet_label);
+     }
+ 
+
+commit 844663a70a0235ae323c7ffa0447bcc70bd58bcd
+Author: Diab Neiroukh <lazerl0rd@thezest.dev>
+Date:   Wed 2021-06-30 09:57:06+0100
+
+    Add a config to state whether a device supports increased touch sensitivity. (#2)
+    
+    This is the partner commit to the addition of an option in Settings for
+    the same feature. This config can be enabled by an overlay for devices
+    that support increased touch sensitivity (otherwise known as "Glove
+    Mode") via the persist.vendor.touch_sensitivity_mode system property.
+    
+    Signed-off-by: Diab Neiroukh <lazerl0rd@thezest.dev>
+---
+ core/res/res/values/config.xml  | 3 +++
+ core/res/res/values/symbols.xml | 1 +
+ 2 files changed, 4 insertions(+)
+
+diff --git a/core/res/res/values/config.xml b/core/res/res/values/config.xml
+index ba1b6ea24dde5b087f9b39a4de6640a443c83e5a..75be49f7ab7dcfd9275a1fc359002d2f51158845 100644
+--- a/core/res/res/values/config.xml
++++ b/core/res/res/values/config.xml
+@@ -3299,20 +3299,23 @@
+     <!-- This config is used to force VoiceInteractionService to start on certain low ram devices.
+          It declares the package name of VoiceInteractionService that should be started. -->
+     <string translatable="false" name="config_forceVoiceInteractionServicePackage"></string>
+ 
+     <!-- This config is ued to determine whether animations are allowed in low power mode. -->
+     <bool name="config_allowAnimationsInLowPowerMode">false</bool>
+ 
+     <!-- Whether device supports double tap to wake -->
+     <bool name="config_supportDoubleTapWake">false</bool>
+ 
++    <!-- Whether device supports increased touch sensitvity -->
++    <bool name="config_supportGloveMode">false</bool>
++
+     <!-- The RadioAccessFamilies supported by the device.
+          Empty is viewed as "all".  Only used on devices which
+          don't support RIL_REQUEST_GET_RADIO_CAPABILITY
+          format is UMTS|LTE|... -->
+     <string translatable="false" name="config_radio_access_family"></string>
+ 
+     <!-- Whether the main built-in display is round. This will affect
+          Configuration.screenLayout's SCREENLAYOUT_ROUND_MASK flags for Configurations on the
+          main built-in display. Change this in device-specific overlays.
+          Defaults to the older, deprecated config_windowIsRound already used in
+diff --git a/core/res/res/values/symbols.xml b/core/res/res/values/symbols.xml
+index 31d1ef60877eaa9a6e829c1c3c3eba1eeee4bf55..628f97889c64cd7ad69b772fb88d397c285629ac 100644
+--- a/core/res/res/values/symbols.xml
++++ b/core/res/res/values/symbols.xml
+@@ -2864,20 +2864,21 @@
+   <java-symbol type="layout" name="resolve_grid_item" />
+   <java-symbol type="id" name="day_picker_view_pager" />
+   <java-symbol type="layout" name="day_picker_content_material" />
+   <java-symbol type="drawable" name="scroll_indicator_material" />
+ 
+   <java-symbol type="layout" name="chooser_row" />
+   <java-symbol type="layout" name="chooser_profile_row" />
+   <java-symbol type="color" name="chooser_row_divider" />
+   <java-symbol type="layout" name="chooser_row_direct_share" />
+   <java-symbol type="bool" name="config_supportDoubleTapWake" />
++  <java-symbol type="bool" name="config_supportGloveMode" />
+   <java-symbol type="drawable" name="ic_perm_device_info" />
+   <java-symbol type="string" name="config_radio_access_family" />
+   <java-symbol type="string" name="notification_inbox_ellipsis" />
+   <java-symbol type="bool" name="config_mainBuiltInDisplayIsRound" />
+ 
+   <java-symbol type="id" name="actions_container" />
+   <java-symbol type="id" name="actions_container_layout" />
+   <java-symbol type="id" name="smart_reply_container" />
+   <java-symbol type="id" name="remote_input_tag" />
+   <java-symbol type="id" name="pending_intent_tag" />
+
+commit 8ec949adf42a16360f23e2986c05316dbf99bf16 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Wed 2021-12-08 19:54:15+0200
+
+    gmscompat: set foregroundServiceType of location services
+    
+    Without it, location access gets throttled after a few minutes.
+---
+ .../android/content/pm/parsing/component/ParsedServiceUtils.java    | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/core/java/android/content/pm/parsing/component/ParsedServiceUtils.java b/core/java/android/content/pm/parsing/component/ParsedServiceUtils.java
+index ae107ce65bf8aa5936580929bfe0d4c06757d7c3..df6b2dd8d28edf71f42aad03e4e46c6b36909541 100644
+--- a/core/java/android/content/pm/parsing/component/ParsedServiceUtils.java
++++ b/core/java/android/content/pm/parsing/component/ParsedServiceUtils.java
+@@ -25,20 +25,21 @@ import android.content.pm.parsing.ParsingPackage;
+ import android.content.pm.parsing.ParsingUtils;
+ import android.content.pm.parsing.result.ParseInput;
+ import android.content.pm.parsing.result.ParseInput.DeferredError;
+ import android.content.pm.parsing.result.ParseResult;
+ import android.content.res.Resources;
+ import android.content.res.TypedArray;
+ import android.content.res.XmlResourceParser;
+ import android.os.Build;
+ 
+ import com.android.internal.R;
++import com.android.internal.gmscompat.GmsInfo;
+ 
+ import org.xmlpull.v1.XmlPullParser;
+ import org.xmlpull.v1.XmlPullParserException;
+ 
+ import java.io.IOException;
+ import java.util.Objects;
+ 
+ /** @hide */
+ public class ParsedServiceUtils {
+ 
+@@ -83,20 +84,25 @@ public class ParsedServiceUtils {
+             }
+ 
+             String permission = sa.getNonConfigurationString(
+                     R.styleable.AndroidManifestService_permission, 0);
+             service.setPermission(permission != null ? permission : pkg.getPermission());
+ 
+             service.foregroundServiceType = sa.getInt(
+                     R.styleable.AndroidManifestService_foregroundServiceType,
+                     ServiceInfo.FOREGROUND_SERVICE_TYPE_NONE);
+ 
++            if (GmsInfo.PACKAGE_GMS.equals(packageName)) {
++                if (service.getName().startsWith("com.google.android.location")) {
++                    service.foregroundServiceType |= ServiceInfo.FOREGROUND_SERVICE_TYPE_LOCATION;
++                }
++            }
+             service.flags |= flag(ServiceInfo.FLAG_STOP_WITH_TASK,
+                     R.styleable.AndroidManifestService_stopWithTask, sa)
+                     | flag(ServiceInfo.FLAG_ISOLATED_PROCESS,
+                     R.styleable.AndroidManifestService_isolatedProcess, sa)
+                     | flag(ServiceInfo.FLAG_EXTERNAL_SERVICE,
+                     R.styleable.AndroidManifestService_externalService, sa)
+                     | flag(ServiceInfo.FLAG_USE_APP_ZYGOTE,
+                     R.styleable.AndroidManifestService_useAppZygote, sa)
+                     | flag(ServiceInfo.FLAG_SINGLE_USER,
+                     R.styleable.AndroidManifestService_singleUser, sa);

@@ -1,4 +1,4 @@
-commit c93e34dfed2cbc24c0e9f5b5536ab4fd243ce3c3
+commit 03787165fc535ef7d6d1a11fae1d28424c6510ca
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sat 2021-08-28 17:42:40+0000
 
@@ -25,7 +25,7 @@ index cf2c90eed900c30544d903e27d3a3b9b2001018c..e65646dbeeb4d7a021c48dee15d69546
 -PRODUCT_MODEL := AOSP on barbet
 +PRODUCT_MODEL := Pixel 5a
 
-commit 7aa9698a93e5ddcd39c8fa5f181eb004c3c30c06
+commit e6bb546c7e48f9457f59b31ee49e23be9c292881
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 14:40:25+0000
 
@@ -55,7 +55,7 @@ index e65646dbeeb4d7a021c48dee15d695466d95dd60..cdff73414abd72081e88a063f01add42
  PRODUCT_DEVICE := barbet
  PRODUCT_MODEL := Pixel 5a
 
-commit 814716ec9fa5af81a23afe9cec577f7d8fa9b3ac
+commit 3f4113b06674cdaf5a8e7fd38825d2324b33b3fd
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 19:37:54+0000
 
@@ -98,7 +98,7 @@ index 0000000000000000000000000000000000000000..fd345f3bcb9e2430f9cfd340b2cdcf37
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := barbet
 
-commit 02c1a2ce7b8a5adae0529ecfac06a609b0ca3bf6
+commit bc540aa3aeccabef6cb67d7da7f0008b0224dfaa
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 19:38:06+0000
 
@@ -132,7 +132,7 @@ index f2728df28091a374ff6bfa6e4e50f3695420e722..3ea3d56fe191c4adfe5b62661987a17d
  # All devices enabled
  setprop|vendor.all.devices.ready
 
-commit f0e7dce58c799af1c1be9f1458e14fc71dff4764
+commit 88b7f57d421e72e5183eef1ca304f0461714420c
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 19:38:42+0000
 
@@ -142,7 +142,7 @@ Date:   Fri 2021-08-27 19:38:42+0000
  1 file changed, 1 insertion(+)
 
 diff --git a/device-barbet.mk b/device-barbet.mk
-index 14fa0bebbbf3fd219b2a56ca0f1b552342252505..1c5f777405e5f0178b5542e6f907702b692bdf0d 100644
+index 79765baf0aaa222e746899d84068005e96ca5d7e..ee3218a8c9b72d1879608ef35fdcf9b57c2e3085 100644
 --- a/device-barbet.mk
 +++ b/device-barbet.mk
 @@ -9,20 +9,21 @@
@@ -168,7 +168,7 @@ index 14fa0bebbbf3fd219b2a56ca0f1b552342252505..1c5f777405e5f0178b5542e6f907702b
  endif
  
 
-commit 0485284d60c2c514879eea5340c2e5c5c69d10d0
+commit 3517b88553bbe37fd4a03a782f483b7f9fcfcafa
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-09-07 23:47:41+0000
 
@@ -179,7 +179,7 @@ Date:   Tue 2021-09-07 23:47:41+0000
  2 files changed, 17 insertions(+)
 
 diff --git a/device-barbet.mk b/device-barbet.mk
-index 1c5f777405e5f0178b5542e6f907702b692bdf0d..1b0d3f5391d2b504154e0e00f393d11ed75923e8 100644
+index ee3218a8c9b72d1879608ef35fdcf9b57c2e3085..0601984a910b7154e40359037a0081c648cee934 100644
 --- a/device-barbet.mk
 +++ b/device-barbet.mk
 @@ -201,10 +201,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
@@ -217,7 +217,7 @@ index 0000000000000000000000000000000000000000..501f8b6dbdde9a5e913184df02ac6f52
 +    <feature name="com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE" />
 +</config>
 
-commit fa6f9d1a68fb1d22a48eea4924eed9ddda91afa8
+commit 8cf6426b17f89cdaf0dbd8f043e9f1f9c6eb08d3
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 00:31:36+0100
 
@@ -254,7 +254,7 @@ index cdff73414abd72081e88a063f01add42ee68d540..4020de5988a44de97e0eab298253ff40
  
  #
 
-commit 36ebaf2734a3172474a1b81b794a7080581e695d (HEAD, m/master, grapheneos/12)
+commit b800906fb8345325125758868d8b04f2a454efda (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:19:46-0400
 
@@ -264,7 +264,7 @@ Date:   Tue 2021-10-26 09:19:46-0400
  1 file changed, 1 deletion(-)
 
 diff --git a/device-barbet.mk b/device-barbet.mk
-index 1b0d3f5391d2b504154e0e00f393d11ed75923e8..823cdde20a6bcdeb64fedfda515c82c8bc34ddb3 100644
+index 0601984a910b7154e40359037a0081c648cee934..65792ba51b56606a074cf6b50452da9735aa4d46 100644
 --- a/device-barbet.mk
 +++ b/device-barbet.mk
 @@ -193,21 +193,20 @@ PRODUCT_PACKAGES += \

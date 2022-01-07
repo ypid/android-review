@@ -1043,7 +1043,7 @@ index 15741a780574b6e8464aa507a8ce8ccd448e4b2d..e554dd77cb84cd647b38ddf40fad63f8
  
  }
 
-commit f60a66c6a82d16cdc804cf775218fbcf7e3d1731 (HEAD, m/master, grapheneos/12)
+commit f60a66c6a82d16cdc804cf775218fbcf7e3d1731
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-14 17:00:10-0400
 
@@ -1109,3 +1109,49 @@ index 763511d21870e7b0058eda5f52474286b57167f2..179c19ac8d5a54f92acf444e82e5727e
      /**
       * Called when the zygote has completed preloading classes and data.
       *
+
+commit 41b92898ee5ba84314fa149493a9887d2b76af8f (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Tue 2021-12-14 21:10:51+0200
+
+    don't throw SecurityException when INTERNET permission is revoked
+---
+ ojluni/src/main/java/java/net/Inet6AddressImpl.java | 11 +----------
+ 1 file changed, 1 insertion(+), 10 deletions(-)
+
+diff --git a/ojluni/src/main/java/java/net/Inet6AddressImpl.java b/ojluni/src/main/java/java/net/Inet6AddressImpl.java
+index 84bcf17edae69ba5d467b08eccae795c4cddb48e..fda9674e08eac060357be617ea54ef3344f73af7 100644
+--- a/ojluni/src/main/java/java/net/Inet6AddressImpl.java
++++ b/ojluni/src/main/java/java/net/Inet6AddressImpl.java
+@@ -134,30 +134,21 @@ class Inet6AddressImpl implements InetAddressImpl {
+             hints.ai_socktype = SOCK_STREAM;
+             InetAddress[] addresses = Libcore.os.android_getaddrinfo(host, hints, netId);
+             // TODO: should getaddrinfo set the hostname of the InetAddresses it returns?
+             for (InetAddress address : addresses) {
+                 address.holder().hostName = host;
+                 address.holder().originalHostName = host;
+             }
+             addressCache.put(host, netId, addresses);
+             return addresses;
+         } catch (GaiException gaiException) {
+-            // If the failure appears to have been a lack of INTERNET permission, throw a clear
+-            // SecurityException to aid in debugging this common mistake.
+-            // http://code.google.com/p/android/issues/detail?id=15722
+-            if (gaiException.getCause() instanceof ErrnoException) {
+-                int errno = ((ErrnoException) gaiException.getCause()).errno;
+-                if (errno == EACCES || errno == EPERM) {
+-                    throw new SecurityException("Permission denied (missing INTERNET permission?)", gaiException);
+-                }
+-            }
+-            // Otherwise, throw an UnknownHostException.
++            // Throw an UnknownHostException.
+             String detailMessage = "Unable to resolve host \"" + host + "\": " + Libcore.os.gai_strerror(gaiException.error);
+             addressCache.putUnknownHost(host, netId, detailMessage);
+             throw gaiException.rethrowAsUnknownHostException(detailMessage);
+         }
+     }
+ 
+     @Override
+     public String getHostByAddr(byte[] addr) throws UnknownHostException {
+         BlockGuard.getThreadPolicy().onNetwork();
+ 

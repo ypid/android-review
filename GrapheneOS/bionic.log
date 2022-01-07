@@ -1792,7 +1792,7 @@ index 7e1e7cbcb4d0c19a3101e3d6e1f0e495a4178adf..5bdf61d2c6511c35f2a79de3730ebd5f
  extern "C" void __libc_init_main_thread_late() {
    __init_bionic_tls_ptrs(__get_bionic_tcb(), __allocate_temp_bionic_tls());
 
-commit 6f5b334b606b3bc80f262280e9ace8afdb12cc61 (HEAD, m/master, grapheneos/12)
+commit 6f5b334b606b3bc80f262280e9ace8afdb12cc61 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Thu 2021-07-22 16:12:55-0700
 

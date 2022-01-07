@@ -305,7 +305,7 @@ index a138551047a88c13807a0a61f48e38c9c8fc3074..9a318e598fe13c46b6f9ff2ecd01f485
  # Clean up
  rm -rf tmp
 
-commit bd535e3ce30d4cdc7d98c9fb6508b615e4e8ab1f
+commit b1c8199dace947bf063ebcf00a1c41fdd9756531
 Author: JTL <jtl999@users.noreply.github.com>
 Date:   Mon 2020-06-01 10:45:25-0700
 
@@ -315,7 +315,7 @@ Date:   Mon 2020-06-01 10:45:25-0700
  1 file changed, 21 insertions(+)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 9a318e598fe13c46b6f9ff2ecd01f48563a7b75e..197a70dfff797e20dcdb41743d64f55ccf3f3720 100644
+index 9a318e598fe13c46b6f9ff2ecd01f48563a7b75e..df1b2759a30123f2b78010252a0daea57cbe77f7 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -186,20 +186,41 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
@@ -338,7 +338,7 @@ index 9a318e598fe13c46b6f9ff2ecd01f48563a7b75e..197a70dfff797e20dcdb41743d64f55c
 +try { ^
 +    \$verNum = \$version[0].substring(17, 6); ^
 +    \$verNum = \$verNum.replace('.', ''); ^
-+    if ((-Not (\$verNum -gt 3103)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
++    if ((-Not (\$verNum -ge 3103)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
 +        Exit 1 ^
 +    } ^
 +} catch { ^
@@ -361,7 +361,7 @@ index 9a318e598fe13c46b6f9ff2ecd01f48563a7b75e..197a70dfff797e20dcdb41743d64f55c
  then
  cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
-commit 84f0258f90e5f05d0c45e174b3c571b1c468c6fd
+commit 6a5e2f8ece0384e50c59091caccdc3de4b44878c
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Wed 2020-06-03 03:59:34+0530
 
@@ -375,7 +375,7 @@ Date:   Wed 2020-06-03 03:59:34+0530
  1 file changed, 4 insertions(+)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 197a70dfff797e20dcdb41743d64f55ccf3f3720..3083f747c4ce6f54c891e53a96c0c03133973dee 100644
+index df1b2759a30123f2b78010252a0daea57cbe77f7..f1f2ebc96f27912a15b7e5c61d02dc7dff7754a9 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -165,20 +165,22 @@ if test "$AVB_PKMD" != ""
@@ -425,7 +425,7 @@ index 197a70dfff797e20dcdb41743d64f55ccf3f3720..3083f747c4ce6f54c891e53a96c0c031
  #!/bin/sh
  
 
-commit e1fde05707766cd0baaaf1becb3465c5ebdb9762
+commit d5619d84eddc924356e8c1445dfe1c51051b2fb5
 Author: Maxim Baz <git@maximbaz.com>
 Date:   Tue 2020-10-27 16:25:20+0100
 
@@ -435,7 +435,7 @@ Date:   Tue 2020-10-27 16:25:20+0100
  1 file changed, 12 insertions(+)
 
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 3083f747c4ce6f54c891e53a96c0c03133973dee..1c13bc9d109ea3c6979083779878ce2190b02b49 100644
+index f1f2ebc96f27912a15b7e5c61d02dc7dff7754a9..0efff882b077839cf7c80e4067e395d4501176bd 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -98,20 +98,25 @@ cat > tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
@@ -482,7 +482,7 @@ index 3083f747c4ce6f54c891e53a96c0c03133973dee..1c13bc9d109ea3c6979083779878ce21
  try { ^
      \$verNum = \$version[0].substring(17, 6); ^
      \$verNum = \$verNum.replace('.', ''); ^
-     if ((-Not (\$verNum -gt 3103)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
+     if ((-Not (\$verNum -ge 3103)) -Or (-Not (\$verNum -match '^[\d.]+$'))) { ^
          Exit 1 ^
      } ^
  } catch { ^
@@ -514,7 +514,7 @@ index 3083f747c4ce6f54c891e53a96c0c03133973dee..1c13bc9d109ea3c6979083779878ce21
  fastboot flash xloader xloader-$DEVICE-$XLOADER.img
  EOF
 
-commit dbf9de67ae0fd8600536e63664cb13418b28c8f0 (HEAD, m/master, grapheneos/12)
+commit fca95a923e3d34a80a657ebef74845d34aebb4d5
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-07-13 18:24:44+0000
 
@@ -551,7 +551,7 @@ index 799f6c4cca21821925bd09a088422b8eb771d0ce..cb5895c930041e70f236933826df59c6
  unset UNLOCKBOOTLOADER
  unset VERSION
 diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
-index 1c13bc9d109ea3c6979083779878ce2190b02b49..e18661ccab767d6eeab3672af108dfcbb76180ee 100644
+index 0efff882b077839cf7c80e4067e395d4501176bd..ee1b1aded7f6e526007cdd57f49c0ad8e5d22ba9 100644
 --- a/generate-factory-images-common.sh
 +++ b/generate-factory-images-common.sh
 @@ -168,20 +168,26 @@ EOF
@@ -596,6 +596,295 @@ index 1c13bc9d109ea3c6979083779878ce2190b02b49..e18661ccab767d6eeab3672af108dfcb
 +then
 +cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 +fastboot oem uart disable
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+
+commit 1942d94a17949ee12f23c7d82342b70c492192f8
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Thu 2021-12-16 23:06:29+0000
+
+    Add support for erasing apdp
+---
+ clear-factory-images-variables.sh |  1 +
+ generate-factory-images-common.sh | 14 ++++++++++++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/clear-factory-images-variables.sh b/clear-factory-images-variables.sh
+index cb5895c930041e70f236933826df59c63993b056..c7be106128f5041ca4a053142734eb1b3d259e85 100644
+--- a/clear-factory-images-variables.sh
++++ b/clear-factory-images-variables.sh
+@@ -15,20 +15,21 @@
+ unset AVB_PKMD
+ unset BOOTLOADER
+ unset BOOTLOADERFILE
+ unset BOOTLOADERSRC
+ unset BUILD
+ unset CDMARADIO
+ unset CDMARADIOFILE
+ unset DEVICE
+ unset DISABLE_UART
+ unset ERASE
++unset ERASE_APDP
+ unset PRODUCT
+ unset RADIO
+ unset RADIOFILE
+ unset RADIOSRC
+ unset RADIOFILE
+ unset SLEEPDURATION
+ unset SRCPREFIX
+ unset UNLOCKBOOTLOADER
+ unset VERSION
+ unset TWINBOOTLOADERS
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index ee1b1aded7f6e526007cdd57f49c0ad8e5d22ba9..8bfe8a97c7564da31b0d92734d573c55620b8df9 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -174,20 +174,27 @@ fastboot flash avb_custom_key avb_pkmd.bin
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ fi
+ if test "$DISABLE_UART" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot oem uart disable
+ EOF
+ fi
++if test "$ERASE_APDP" = "true"
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
++fastboot erase apdp_a
++fastboot erase apdp_b
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+@@ -289,20 +296,27 @@ fastboot flash avb_custom_key avb_pkmd.bin
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ EOF
+ fi
+ if test "$DISABLE_UART" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot oem uart disable
+ EOF
+ fi
++if test "$ERASE_APDP" = "true"
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
++fastboot erase apdp_a
++fastboot erase apdp_b
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+
+commit f448c3da4ddd000e3b374aece11f4b90bc2b1b9c
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-12-17 22:10:43+0000
+
+    Add support for erasing msadp
+---
+ clear-factory-images-variables.sh |  1 +
+ generate-factory-images-common.sh | 14 ++++++++++++++
+ 2 files changed, 15 insertions(+)
+
+diff --git a/clear-factory-images-variables.sh b/clear-factory-images-variables.sh
+index c7be106128f5041ca4a053142734eb1b3d259e85..71f4c5dbf1834f78ba0b049f60cc01aa7129062e 100644
+--- a/clear-factory-images-variables.sh
++++ b/clear-factory-images-variables.sh
+@@ -16,20 +16,21 @@ unset AVB_PKMD
+ unset BOOTLOADER
+ unset BOOTLOADERFILE
+ unset BOOTLOADERSRC
+ unset BUILD
+ unset CDMARADIO
+ unset CDMARADIOFILE
+ unset DEVICE
+ unset DISABLE_UART
+ unset ERASE
+ unset ERASE_APDP
++unset ERASE_MSADP
+ unset PRODUCT
+ unset RADIO
+ unset RADIOFILE
+ unset RADIOSRC
+ unset RADIOFILE
+ unset SLEEPDURATION
+ unset SRCPREFIX
+ unset UNLOCKBOOTLOADER
+ unset VERSION
+ unset TWINBOOTLOADERS
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 8bfe8a97c7564da31b0d92734d573c55620b8df9..72cf063212c72a1792a4710f6030384990f68529 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -181,20 +181,27 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot oem uart disable
+ EOF
+ fi
+ if test "$ERASE_APDP" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot erase apdp_a
+ fastboot erase apdp_b
+ EOF
+ fi
++if test "$ERASE_MSADP" = "true"
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
++fastboot erase msadp_a
++fastboot erase msadp_b
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+@@ -303,20 +310,27 @@ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot oem uart disable
+ EOF
+ fi
+ if test "$ERASE_APDP" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot erase apdp_a
+ fastboot erase apdp_b
+ EOF
+ fi
++if test "$ERASE_MSADP" = "true"
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
++fastboot erase msadp_a
++fastboot erase msadp_b
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+
+commit 0dd4b7b2def89cbb0fa2a470bda02fc22bd407bf (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2021-12-17 22:35:42+0000
+
+    Add support for disabling FIPS
+---
+ clear-factory-images-variables.sh |  1 +
+ generate-factory-images-common.sh | 12 ++++++++++++
+ 2 files changed, 13 insertions(+)
+
+diff --git a/clear-factory-images-variables.sh b/clear-factory-images-variables.sh
+index 71f4c5dbf1834f78ba0b049f60cc01aa7129062e..38b6a596546aab8e954ece7afebfacb89de88238 100644
+--- a/clear-factory-images-variables.sh
++++ b/clear-factory-images-variables.sh
+@@ -13,20 +13,21 @@
+ # limitations under the License.
+ 
+ unset AVB_PKMD
+ unset BOOTLOADER
+ unset BOOTLOADERFILE
+ unset BOOTLOADERSRC
+ unset BUILD
+ unset CDMARADIO
+ unset CDMARADIOFILE
+ unset DEVICE
++unset DISABLE_FIPS
+ unset DISABLE_UART
+ unset ERASE
+ unset ERASE_APDP
+ unset ERASE_MSADP
+ unset PRODUCT
+ unset RADIO
+ unset RADIOFILE
+ unset RADIOSRC
+ unset RADIOFILE
+ unset SLEEPDURATION
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 72cf063212c72a1792a4710f6030384990f68529..2278effab2898bae0d7fe9de782b31916ae07e54 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -188,20 +188,26 @@ fastboot erase apdp_a
+ fastboot erase apdp_b
+ EOF
+ fi
+ if test "$ERASE_MSADP" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot erase msadp_a
+ fastboot erase msadp_b
+ EOF
+ fi
++if test "$DISABLE_FIPS" = "true"
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
++fastboot erase fips
++EOF
++fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+@@ -317,20 +323,26 @@ fastboot erase apdp_a
+ fastboot erase apdp_b
+ EOF
+ fi
+ if test "$ERASE_MSADP" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot erase msadp_a
+ fastboot erase msadp_b
+ EOF
+ fi
++if test "$DISABLE_FIPS" = "true"
++then
++cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
++fastboot erase fips
 +EOF
 +fi
  cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF

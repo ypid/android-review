@@ -111,7 +111,7 @@ index 378948033ac42c95473a48016d3e2f765935a76d..721ab0460a31ba3c22b4a602c02c5140
          final Intent intent = new Intent();
          intent.setAction(Intent.ACTION_VIEW);
 
-commit d2d77b363d28451b8df6ccca4195192bc253c174 (HEAD, m/master, grapheneos/12)
+commit d2d77b363d28451b8df6ccca4195192bc253c174 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-08-22 02:51:36-0400
 

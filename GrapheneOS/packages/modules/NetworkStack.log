@@ -144,7 +144,7 @@ index 81d0c08be30d7914bdbade6d0cdaec9315395acd..9405aede15360e27e0e7e469b116fd32
      public static final String DHCP_INIT_REBOOT_ENABLED = "dhcp_init_reboot_enabled";
  
 
-commit 2b6df7a78e759094d03f1bb1a12182ebcae50b6a (HEAD, m/master, grapheneos/12)
+commit 2b6df7a78e759094d03f1bb1a12182ebcae50b6a (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Pratyush <39559233+empratyush@users.noreply.github.com>
 Date:   Thu 2021-05-20 13:21:31+0530
 

@@ -1,4 +1,4 @@
-commit fc06e23491474a68153b83ac245b8b96bc896d27
+commit 5694fd1514bfab0847b42710cea77179faa7df58
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-10-06 04:08:11+0100
 
@@ -28,7 +28,7 @@ index a970fec1ecf83bd1d2a55cf2a247fb445dd2b139..67c3a2b62d17c3b2b3f36c05bfe5972e
 +# temporary hack for APV
 +BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
-commit 97403577bf475269399dd5bc1fcf05278e9dde44
+commit b745fd2285accc62433199485b91e81a47a1693c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 18:05:27-0400
 
@@ -68,7 +68,7 @@ index 2d56edb9eee5f1591b9597b0fab09f1cf70de4cb..1a72716ae28194fd178de7676252d294
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit 49155bbda1f2f1b10aa1aef6b9fe3e49be569470
+commit 2e69782e21db51294a1190a30bb017bc444c65dc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2021-10-15 00:58:53-0400
 
@@ -112,7 +112,7 @@ index 1a72716ae28194fd178de7676252d294835aeb3a..a7153704c87f9c0280d7be6104f47517
  $(BUILT_OTATOOLS_PACKAGE): $(INTERNAL_OTATOOLS_PACKAGE_FILES) $(INTERNAL_OTATOOLS_RELEASETOOLS)
  $(BUILT_OTATOOLS_PACKAGE): $(SOONG_ZIP) $(ZIP2ZIP)
 
-commit 7b3b73b5b3c1c4b26fcdb0b6d3078f910e240651
+commit 1b0157257387513353319167c7485726d86d2008
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2018-11-23 04:27:20-0500
 
@@ -150,7 +150,7 @@ index c10a3cc5412a69c593488fd6196e3c581a17eab5..dd74da5b465e53ef162b35286ca9ee48
    else
      # Disable debugging in plain user builds.
 
-commit 582bb176d54d80e7e107c1bd64f807f2e28e1449
+commit a64870d98fb02f8e53058dbdc0bccdc1e6a71065
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:24:59-0400
 
@@ -191,7 +191,7 @@ index 30a8621b1565c61fe0154d5486e81103ea77e1f4..52329852398cf298b062f82b2bbea674
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 7310c78c281bfa7a49cf8c59b3e99bb5c3655428
+commit 3473ec91711478fbdc0f3cc1f445f0d3097f1e71
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:59:56-0400
 
@@ -221,7 +221,7 @@ index 0d4e3335613d0f1c86a193836fb63d3176ac04d6..4667e38562967cdd5d8223b8b660c808
 +    messaging \
 +    Stk
 
-commit c794a130846c68b6b301864106d111d977597483
+commit fbfbec64365c571c598d8dbc7adf83892192b5cc
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:28:11-0400
 
@@ -343,7 +343,7 @@ index 51238a36ca10cecc8192b9157d4d792566acae91..9d261453f4cd07cd666202b60281c272
  $(strip \
    $(eval _prop := $(patsubst $(1)=%,%,$(filter $(1)=%,$(PRODUCT_VENDOR_PROPERTIES))))\
 
-commit aa01cac7c161e330b1b6ff3c39a7e164bb5402d1
+commit 70d81e8dc3c7b42ee5ee4a366555a03bf565c6e0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2016-08-28 14:14:10-0400
 
@@ -384,7 +384,7 @@ index b511aa6b94b940679026e1f51be52b6d54469e53..031e7b827f37a3213cbae3f1a484ce51
  # On eng builds, make "boot" reasons only extract for faster turnaround.
  ifeq (eng,$(TARGET_BUILD_VARIANT))
 
-commit d41a13b4da3aa8426c0607706845c492717e8f53
+commit 73607eb373e997a0cce2250f6ff1165ca9a74e55
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-09-07 23:27:07-0400
 
@@ -443,7 +443,7 @@ index 031e7b827f37a3213cbae3f1a484ce51683f0e5c..ec0f89b81eb694c59007d379f8e96193
  # Enable resolution of startup const strings.
  PRODUCT_SYSTEM_PROPERTIES += \
 
-commit f16cb69b8f347e224e044c44dcca5512e5b7bbad
+commit ce758020d2761fe1645758895b2d3674272c8509
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-09-29 01:02:28-0400
 
@@ -524,7 +524,7 @@ index ec0f89b81eb694c59007d379f8e9619303c49d0e..2916e4b2e7fcbcfb2ee6c2cc8b54b311
  
  # Specify default block size of 512K to enable parallel image decompression.
 
-commit 768b0b337d242ee657c2b3d1547036e276c656b9
+commit beefc126392f9e27312d93d2ba1cb5c5cbf19167
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:42:53-0400
 
@@ -562,7 +562,7 @@ index 2199c570a01a0cf7face4e111a28ebe18617726e..8b30ce6d33b5edb70b7534bd08e21e27
      OneTimeInitializer \
      preinstalled-packages-platform-handheld-product.xml \
 
-commit 31831a477cf63eaa11e32de4f5a52799a140618d
+commit 6a212490b58e26a8c2b59981f5a590e3e775f967
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 07:43:04-0400
 
@@ -597,7 +597,7 @@ index 8b30ce6d33b5edb70b7534bd08e21e274dc77e5d..72fcc6c3b5a24c11dde7fa41a5404512
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit 1d971c18bd46e891b3a4669185c249d043267f24
+commit a35fd50aee8eb92a444074271eb38ba1fe7de0ca
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2016-06-17 07:13:49-0400
 
@@ -635,7 +635,7 @@ index dd74da5b465e53ef162b35286ca9ee4896dbe70b..12e961d25fe17f5ba665e9fb94796f6e
    else
      # Disable debugging in plain user builds.
 
-commit 5fc67fe1b847b3eaab01b2bfabccb3c0e78802c1
+commit 4fea017efc581a041edef719b7733d24daa431ed
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-09-13 22:05:56-0400
 
@@ -668,7 +668,7 @@ index 46f7f2477b620acd5f539c2c140d52e38e539a77..017aa238225c4a30981f68c28c175225
 +  endif
 +endif
 
-commit 1a6988347bcf034b85d6dd9c276a991b851267c3
+commit 799a8773f4f8d9ad76d5c7b873d87843c59a01eb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-06 08:18:49-0400
 
@@ -706,7 +706,7 @@ index 72fcc6c3b5a24c11dde7fa41a5404512715f1a99..2052cf94a598c60d96419433a62c6b00
      frameworks-base-overlays
  
 
-commit f33ffd197acc3089c4e6ab969e0652783bb81094
+commit 4d141bd8831ceb74c9768ac424cbcfa082e5f87a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-09-21 08:44:23-0400
 
@@ -746,7 +746,7 @@ index f13c9db4d1f98a7dee642a52de659a6227d8c7ce..d930957dfb181dad61bfea434e215757
      Stk \
      Tag \
 
-commit 4d93c485cefae0a342dc698c0207c6c550735922
+commit 7cf3a391c0d0a272262f34c00367dae4ca82ff9e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:21:18-0500
 
@@ -792,7 +792,7 @@ index 2052cf94a598c60d96419433a62c6b00cb08eb2a..f504f61874b48910ccbf294e7bfaff40
  PRODUCT_PACKAGES_DEBUG += \
      frameworks-base-overlays-debug
 
-commit b403002d53b76a2afab9dcaf3f7e06941d790a8c
+commit d074a0c0aa557d7910333a061ae6fabd6345caa8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-02-17 04:23:07-0500
 
@@ -821,7 +821,7 @@ index 76cb311b603ab46d5021af12f75b0a552bb50efc..74dd1fe011a335cb2cba124f8eb68e49
 -    webview \
 +    TrichromeWebView \
 
-commit 7eaf98ba398abdc4f98826da8c4fb7e2607d6cc4
+commit 76b2235da0d67258b10c36bbfbcbada75368af62
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-09-16 00:55:25-0400
 
@@ -860,7 +860,7 @@ index 52329852398cf298b062f82b2bbea674639963c0..a835c2c016743d3c790f80b0c253e1c6
      frameworks/native/data/etc/android.software.preview_sdk.xml:system/etc/permissions/android.software.preview_sdk.xml
  endif
 
-commit 67ac46155f4080ea65d55a0086059c99a2505864
+commit a82ba4950a214579396bd035ff2125a0d26031ee
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-03-11 18:08:31+1100
 
@@ -891,7 +891,7 @@ index d935fbfddfce5d511c3d0e5f20bd73630a553efd..0e2a48fcf5cc9ae9335da7597489b844
      SystemUI \
      WallpaperCropper \
 
-commit 4207754ff40785f1352ffd4990b66b198820ea59
+commit 91db3a75081cf7b20acf88ae017d6a7bbe5bab65
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-03-16 18:01:18-0400
 
@@ -940,7 +940,7 @@ index 00f6e5b0ac56d846a4958e845ff3b1225945e533..cac3c22950564a444241fdf439979d48
  BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
  
 
-commit 4e099471fec262e11b5293763c64f187c8c63dab
+commit 9b759219716104125536f501cfa8df55f6b88368
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-05-12 21:02:49-0400
 
@@ -980,7 +980,7 @@ index 12e961d25fe17f5ba665e9fb94796f6efa7c2af5..d29afefed80d9c64b4195fa7e518590c
    FILE_NAME_TAG := $(file <$(BUILD_NUMBER_FILE))
  endif
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index f429d7c72cb3040081b5a98a363aec6fa27010dc..4c022386d869f3d1bdc647c9ee14799ab21012f7 100644
+index 47bb92c142aaa8c33ebd70dc9b768ffc04a1f461..55fd9d159a97ac4691a39af691c2fd454e89cc77 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -268,21 +268,21 @@ ifndef BUILD_ID
@@ -1007,7 +1007,7 @@ index f429d7c72cb3040081b5a98a363aec6fa27010dc..4c022386d869f3d1bdc647c9ee14799a
  ifndef BUILD_NUMBER
    # BUILD_NUMBER should be set to the source control value that
 
-commit 801c4d2303109d2f38c4bb35a5c61f3bd4be5d17
+commit 6a141a6210699da6dcf6fa21c0b983140b58a0fd
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-05-16 19:44:32-0400
 
@@ -1033,7 +1033,7 @@ Date:   Sat 2020-05-16 19:44:32-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/core/version_defaults.mk b/core/version_defaults.mk
-index 4c022386d869f3d1bdc647c9ee14799ab21012f7..019b8bbd233dea83c400795439be82f784c54495 100644
+index 55fd9d159a97ac4691a39af691c2fd454e89cc77..be95398286001e9a22b09881c733f997230dfb0c 100644
 --- a/core/version_defaults.mk
 +++ b/core/version_defaults.mk
 @@ -296,13 +296,13 @@ ifndef BUILD_NUMBER
@@ -1052,7 +1052,7 @@ index 4c022386d869f3d1bdc647c9ee14799ab21012f7..019b8bbd233dea83c400795439be82f7
  endif
  .KATI_READONLY := PLATFORM_MIN_SUPPORTED_TARGET_SDK_VERSION
 
-commit 2b2e62e15e144cd7f4038c8a22213f06cc99f055
+commit 988298deb950f084ac716f0743243ab721c48fca
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-09-17 10:53:00-0400
 
@@ -1096,7 +1096,7 @@ index d930957dfb181dad61bfea434e21575720a9a06a..f0a9400b869483eed2a80d7233b495fe
  PRODUCT_SYSTEM_MANUFACTURER := Android
  PRODUCT_SYSTEM_MODEL := mainline
 
-commit 131e52bf68efaeb4c7f4ab62b7733b4b913398fe
+commit a31fa0faf3785313cc2aef0fa70889b3927c0556
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-09 23:48:11-0500
 
@@ -1134,7 +1134,7 @@ index b7a2d0dad0aa52bc47d70b23291ff32782527900..c0e3fa15fd187e60a56031091fd07f96
  
  PRODUCT_SYSTEM_SERVER_APPS += \
 
-commit 1165547c00f2f681fb65a6f3267691f03fcc7b55
+commit aa64ae467c0a0ef1e3dcfcaaaa74c42bc1dbfe86
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-16 02:05:40-0400
 
@@ -1172,7 +1172,7 @@ index d29afefed80d9c64b4195fa7e518590c2171d2f2..a8c331b7484eeb8481bd6c2ebfcdcd54
    else
      # Disable debugging in plain user builds.
 
-commit d26c67db91d8721c3a44c91aabdd6e6f97cfb71b
+commit b343017e6408cb2d48596b908334b0f7a72bf1ca
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 23:43:06-0800
 
@@ -1208,7 +1208,7 @@ index e396ad11ff2f62edd1262e1400c3ef3243b90366..8e194ca959cd10aa90bdf0a11845a581
  PRODUCT_COPY_FILES += \
      device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 
-commit 25edaef8288ffce6b35e074225b2d7a94c3263c6
+commit a3711a5b06149fd71e32e2a815cb312c38c5eec6
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Fri 2021-04-30 18:42:13+0000
 
@@ -1238,7 +1238,7 @@ index f504f61874b48910ccbf294e7bfaff402030b08b..a1796547a83e5b1435ceb2cb7ffb22bc
 +# Build in theming functionality
 +$(call inherit-product-if-exists, themes/main.mk)
 
-commit 1ee28fead0ad8c843da56473eb0025da8925c282
+commit 9f7354f4fe37737cead4c10e27485a6999e3f15e
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-09-29 04:29:05+0100
 
@@ -1297,7 +1297,7 @@ index d8a54cd7f3de9348a8960efdae8530c28b99172f..a2353e9857f6baf096542e160c7c1721
  $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
-commit d3a62997ef9bde69d9be524449406ce1b7ef483f
+commit ce776daac82e0e935e8d0a75f554ab34c390b5d4
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 03:09:35+0100
 
@@ -1370,7 +1370,7 @@ index a2353e9857f6baf096542e160c7c17215796cc03..9ba0593751e22af3aa2a18d625add2eb
  $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base.mk)
  $(call inherit-product, $(SRC_TARGET_DIR)/product/telephony.mk)
 
-commit 8da11678f56a2a5b0df894f9f8a316a83b949e52
+commit 9e977165f0a8a2b7c7297174c728a20ad4598b2d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-12 08:19:39-0400
 
@@ -1407,7 +1407,7 @@ index 11c19444bee868f99d2eb0d48ddff705182dadd3..44cc99a946e13bc9e0cac8071f2ef685
      TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT := armv8-2a
    else ifneq (armv8-2a,$(TARGET_$(combo_2nd_arch_prefix)ARCH_VARIANT))
 
-commit d2de78e95a0a59fd341bdb20e4b70998dd7e3ab7
+commit 56f84065932ac734541429664708bee582ce8993
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-24 23:02:07-0400
 
@@ -1449,7 +1449,7 @@ index 6e991f4a8a55b4da37dadbccdbed3b6f0437da86..63a532a45db7021cd1da6765e1d05196
  #   Provide a APN configuration to GSI product
  OEM_APNS ?= true
 
-commit 4e133b0c1c0f5024de7f49284b4553cf05613c7f (HEAD, m/master, grapheneos/12)
+commit 6e6e952030bb2265c6aa426dae14994789290783 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-30 09:20:51-0400
 

@@ -35,7 +35,7 @@ index c4791a83e167b47bfc9becdc6f1643df20689862..c2be1dfacb66fdd0aff117f4729f6f2b
      static final boolean ANTENNA_BLOCKED_MESSAGE_SHOWN_DEFAULT = false;
  
 
-commit 64db0fcf16dcd560f6a3896191946475f659cbc3 (HEAD, m/master, grapheneos/12)
+commit 64db0fcf16dcd560f6a3896191946475f659cbc3 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 20:58:37-0400
 

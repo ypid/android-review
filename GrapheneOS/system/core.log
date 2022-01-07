@@ -221,7 +221,7 @@ index abe986d08d82ebccf26a2995d9704644fd0f6ca7..3b36489f7e1763cb79c8081554818747
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 029945a5403b49236b7c3e891aa2971f2fbc6311 (HEAD, m/master, grapheneos/12)
+commit 029945a5403b49236b7c3e891aa2971f2fbc6311 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 03:02:51+0100
 

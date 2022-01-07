@@ -38,7 +38,7 @@ index 8b83023671c9ad9d9d43f6888b8c77702037e80e..a697c88be760f00b11f867d3a2903f4f
              </intent-filter>
              <meta-data android:name="com.android.launcher.toolbar_icon" android:resource="@drawable/ic_google_logo_normal" />
 
-commit 6c2850403027d5ebcd8ea820877156226bde7968 (HEAD, m/master, grapheneos/12)
+commit 6c2850403027d5ebcd8ea820877156226bde7968 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-12-22 08:20:57-0500
 

@@ -104,7 +104,7 @@ index 0000000000000000000000000000000000000000..6bc77a8c6fc3476289b4ad10eb493a9c
 +    <allow-in-power-save package="com.android.messaging" />
 +</config>
 
-commit e6d4e16542bc7484ec24fe229b25412b59f695ad (HEAD, m/master, grapheneos/12)
+commit e6d4e16542bc7484ec24fe229b25412b59f695ad (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: z3DD3r <z3dd3r@gmail.com>
 Date:   Fri 2021-04-23 22:54:52+0300
 

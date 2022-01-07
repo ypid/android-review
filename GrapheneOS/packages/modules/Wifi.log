@@ -139,7 +139,7 @@ index da17f56320849a5f715eff03b46b0b6f6af15813..c7a99cedec1d5799c59f759bb30164ad
       * Deprecated
       * returns false
 
-commit a1bfce68c0749f68b49e31fe9042eee5ff613704 (HEAD, m/master, grapheneos/12)
+commit a1bfce68c0749f68b49e31fe9042eee5ff613704 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: renlord <me@renlord.com>
 Date:   Fri 2021-10-15 19:28:34+0530
 

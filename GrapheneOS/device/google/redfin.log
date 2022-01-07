@@ -346,7 +346,7 @@ index deda1b4899488e78f68959dab46f6008fbb76555..71986ef4f38ea934604e0b4b21e9dd6f
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit 152c25840c280006807c4588474c7c0c1d2655dc (HEAD, m/master, grapheneos/12)
+commit 152c25840c280006807c4588474c7c0c1d2655dc (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:16:47-0400
 

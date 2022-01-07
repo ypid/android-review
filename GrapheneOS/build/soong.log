@@ -224,7 +224,7 @@ index 77854074b7d898b762e2cb4427bde6384d889c4e..d7ae35c3d4c46d038a758d2b35b3c3cb
  		"libsystemproperties",
  		"libtombstoned_client_static",
 
-commit b7e56363cab0430ece5d95a23a08320c2a1b076e (HEAD, m/master, grapheneos/12)
+commit b7e56363cab0430ece5d95a23a08320c2a1b076e (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-10-13 19:54:06-0400
 
