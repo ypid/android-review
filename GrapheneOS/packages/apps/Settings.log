@@ -1,4 +1,4 @@
-commit 06707b7c57f125f6ec0051c7cc512b4c10712590
+commit 352d8a21f7cbb3a7891e5b9f6930f63068c9c911
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-03-10 00:45:12-0500
 
@@ -34,7 +34,7 @@ index 9ed7536e5f75db5f366ee9a7bbf7ea3f7874858c..15c35eaefa71dc26526d05e4adda725a
      </string-array>
  
 
-commit c95507eb6869f31c9aee093f9672ec3ffcaa4b8b
+commit 370310baffcb396a50386928bb31e3fcef575569
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 17:11:23-0400
 
@@ -71,7 +71,7 @@ index 15c35eaefa71dc26526d05e4adda725ac7331a9f..93f9006b5d43e3fe59106d90dfb7db64
      </string-array>
  
 
-commit 6ef2f8aea67b00acf991457217594339ca670caf
+commit 0d6854efc985e96c75f9d17aecf3de80eb428ed3
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-01-15 01:03:39-0800
 
@@ -123,7 +123,7 @@ index 97c6a546379a702033a2fc51c9d9a8b3c839b53f..153f02b76e4bffcb10789a7339bbbb77
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index c4609fb1f5cf634dabc4e039ea47c5a4ff44ee52..3b28ea61d3a84f1ca9ed8c0faa3487a0b10d1442 100644
+index 133b98392be9375a13c401b8d65a68d49379e14e..625d5e6fde7ec521fd582b36c1757b0f6df0e0e2 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13596,11 +13596,14 @@
@@ -300,7 +300,7 @@ index be123f2339720d57ad2325e2bbd3565a6ee4a2d0..a68dc4d6bb19f9dac3b436fa66c5160b
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 85207c8431d4905e9292e03f7275337f1efe838a
+commit 6bcd61430e9f9a3212142c26a38c6163f95cafe8
 Author: renlord <me@renlord.com>
 Date:   Fri 2021-10-15 20:02:51+0530
 
@@ -552,7 +552,7 @@ index c4849225641d3dba7e3cee98741e4ef14abba1a0..d0b98b6086ef14ea593ea310c3227c74
      }
  }
 
-commit 25d90b25a1ae7536025532341d20fbca3af6aabb
+commit 65a7cfcb5f987e3c11d5396d6dd5766535074715
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2020-09-20 17:57:30-0700
 
@@ -684,7 +684,7 @@ index ee0021ec951afedbff5a55cd63b4087971656fe7..f16dd378db52cddc1847a023eb6ba780
 +    }
  }
 
-commit 48456a5c21b25c0bc9ff41a102b5cb5390fe3a8f
+commit 4137f593b88a18939ba4016079eb5be126f9c697
 Author: maxwen <max.weninger@gmail.com>
 Date:   Thu 2021-04-08 18:43:53+0200
 
@@ -740,7 +740,7 @@ index 72b67de1ddde3ec2c97f062dc99f5225b0da9795..e2aadefc42dd8eabae68923ef729dc33
      }
  }
 
-commit d12c1a1bcb15e391ad9e5db8c6a584d60e67b822
+commit a45d6ad8d9bf48e180bdf909447a371d184d5757
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-10-08 08:11:55-0400
 
@@ -777,7 +777,7 @@ index 93f9006b5d43e3fe59106d90dfb7db64509182fb..55b76496bff41a7b873b737db436ea51
      <bool name="config_show_branded_account_in_device_info">true</bool>
  
 
-commit 29ce06c9e55eb30f9152ce656731cf25f1094cfa
+commit a6eb24915e6e9d44f70b31b5f3f7bc5f38151e1f
 Author: Renlord <renlord.yang@gmail.com>
 Date:   Sat 2020-04-11 20:04:51+1000
 
@@ -815,7 +815,7 @@ index 1b949e97e26b7a574bc9247071a5f8a917150e8d..4a14d9338fef52dd60a69ca9f48cfd0f
          settings:controller="com.android.settings.network.TopLevelNetworkEntryPreferenceController"/>
  
 
-commit 54bf18d4c3aafcdd2c87c39fa25656f3595b37fa
+commit 6445d6fc4167d297d36baf73c981b30979b68ed4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-02-16 02:22:41-0500
 
@@ -852,7 +852,7 @@ index 55b76496bff41a7b873b737db436ea517ee5aa8a..5f733aee2a0f737def7331f9d23dd4ee
      <bool name="config_show_system_update_settings">true</bool>
  
 
-commit dc5f1d37878009a223e4e857de16d4d7de0890be
+commit 866dd0a1995c20a63eae0dd41f3fb9b9297c3d40
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Sun 2021-05-16 00:51:15+0100
 
@@ -895,7 +895,7 @@ index 41f7733cfb2bf33e2e3ac859789dca1ca63a26ae..edc910b36cfd1c5254bff5d04dd2b40a
  
      <!-- Kernel -->
 
-commit 83f43fbb92427aef4e4a492bed8a2f1e47ae7805
+commit 36314b6ab7eaa047a3207457c6d4fa58b832d23a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2017-07-20 06:40:20-0400
 
@@ -932,7 +932,7 @@ index 5f733aee2a0f737def7331f9d23dd4ee8154ebbd..97a2aeb89b89de3d55eab02dad5f19fb
      <bool name="config_showOperatorNameInStatusBar">false</bool>
  
 
-commit bfda52e9961c68c6cf5ef0b5bc93bd46da2e7cd1
+commit a1a4a5b71890f3aa8a4759f8ea882c5124ab355b
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-04-17 15:15:51+0100
 
@@ -978,7 +978,7 @@ index 97a2aeb89b89de3d55eab02dad5f19fb2f5fa730..760674b08538c45ea48218a094e2f85d
  
      <!-- Double twist sensor type and vendor used by gesture setting -->
 
-commit d6c67eed82f38225bd44cb87ab76823bac92a8ff
+commit 4194f23896f91c5ff2d28262eb950ec49be63791
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-03-17 18:55:25-0400
 
@@ -1020,7 +1020,7 @@ index 1b270d63b4dd3e30a7935dc1f142cea5d4cdd81a..3b6b048752c54aa628aed5f73c79d1e0
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 0125f380454887c5d934a5d6ffc48d376866f345
+commit ee909014edd8d1d4868b1b82b89ac5c0ebc22298
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:11:39+0100
 
@@ -1058,7 +1058,7 @@ index 3b6b048752c54aa628aed5f73c79d1e025f7f49f..51ae93459f75d42eccc56b7c7d9fc8a9
                      .contains(mAppEntry.info.packageName);
          } else {
 
-commit 7cd63775e6dd3f8cdd1919340442714bb5642c1d
+commit d2577153a851497efad35770a7ec58bd63376bd6
 Author: inthewaves <inthewaves@pm.me>
 Date:   Sun 2021-10-17 00:29:28+0100
 
@@ -1124,7 +1124,7 @@ index 0420ad15edd9e149075ad70e28ec8443c1d8dd8a..0df29bcb3d3f9aab2da9bb7466cc26d7
          <item>LTE/TDSCDMA/GSM/WCDMA</item>
          <item>TDSCDMA/CDMA/EVDO/GSM/WCDMA </item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 3b28ea61d3a84f1ca9ed8c0faa3487a0b10d1442..a234dd85c4b00e121863ea9bec3f97dfe5978657 100644
+index 625d5e6fde7ec521fd582b36c1757b0f6df0e0e2..7ed4b225e57842f18b5a81b127a2d915a2d5fb7c 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -12538,20 +12538,22 @@
@@ -1452,7 +1452,7 @@ index 24197795fa20fcbdc291566ce3d2a3c56e75cc32..0202163bbae3a56836c8109fbced3a40
              case TelephonyManagerConstants.NETWORK_MODE_TDSCDMA_ONLY:
                  return R.string.preferred_network_mode_tdscdma_summary;
 
-commit 7f34c4985b593ae45ba9635660ae349d2d100e6f
+commit aa1616e4088c268b0977660c91d3f7b4513bbe95
 Author: lsfxz <lsfxz@users.noreply.github.com>
 Date:   Sun 2019-12-08 14:58:24-0800
 
@@ -1509,7 +1509,7 @@ index 0df29bcb3d3f9aab2da9bb7466cc26d76651bf34..27034bd492230d8105d01371d7eaadd4
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index a234dd85c4b00e121863ea9bec3f97dfe5978657..08a9a8704e9a6634db9a210ae87f31a350d6b306 100644
+index 7ed4b225e57842f18b5a81b127a2d915a2d5fb7c..0a8689d7148056d8fe1053e562349f755e9140b1 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13605,11 +13605,13 @@
@@ -1695,7 +1695,7 @@ index a68dc4d6bb19f9dac3b436fa66c5160b9945d421..bfc1830a76e9655ac68f1569c5fc67a8
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 9df0d0885f364e0ce72b84b7660021068ecc92d9
+commit 0793f631339ab024bda36d8a8cd989e7aa281730
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-09-15 22:40:56-0700
 
@@ -1710,7 +1710,7 @@ Date:   Tue 2020-09-15 22:40:56-0700
  4 files changed, 106 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 08a9a8704e9a6634db9a210ae87f31a350d6b306..6ffa1a7c74940038428899f38a3eb61c6c3bcf42 100644
+index 0a8689d7148056d8fe1053e562349f755e9140b1..8ae12b051746f218a0df6e34514c52d74ecc796f 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13607,11 +13607,13 @@
@@ -1888,7 +1888,7 @@ index bfc1830a76e9655ac68f1569c5fc67a8ab120377..8944f6055c840942c98d7a37f148b62a
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit a788918f89741a2254fda4daaef9dd11e07c0877
+commit 2a86ababeae69ae0988034d284c7a5ca4ab82e76
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:15:32+0100
 
@@ -1901,7 +1901,7 @@ Date:   Tue 2021-04-06 01:15:32+0100
  4 files changed, 115 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 6ffa1a7c74940038428899f38a3eb61c6c3bcf42..e233ea11a4a0414355701deb9f5bd42316d47cdf 100644
+index 8ae12b051746f218a0df6e34514c52d74ecc796f..d1291886326ab9cec3bab099c07895350c2d0dd6 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13609,11 +13609,13 @@
@@ -2088,7 +2088,7 @@ index 8944f6055c840942c98d7a37f148b62a879d318c..7db358f63d02ef0346cbc01fe991d333
          profileSecurityControllers.add(new VisiblePatternProfilePreferenceController(
                  context, lifecycle));
 
-commit 3f7d5cc122d323a427aed817704c07d102f02165
+commit 5b64e58a94634fbc7f7be1b3c0ccf787e7425b1b
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-04-06 01:13:36+0100
 
@@ -2100,7 +2100,7 @@ Date:   Tue 2021-04-06 01:13:36+0100
  3 files changed, 39 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index e233ea11a4a0414355701deb9f5bd42316d47cdf..7cd4af520f45ba89a768b08e7f30bb58a1914630 100644
+index d1291886326ab9cec3bab099c07895350c2d0dd6..8e80631df2d97d514220abab64ab34c8a9227ab7 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3366,20 +3366,22 @@
@@ -2195,7 +2195,7 @@ index 0000000000000000000000000000000000000000..32b1cb64de05bb3414088028c0d48d1e
 +    }
 +}
 
-commit 2992fc89664a8f58b070738d49d887f2e19a5200
+commit 4a7b3ed433cb5042e3e1ecb18f257c6d3bb1ef49
 Author: pratyush <codelab@pratyush.dev>
 Date:   Mon 2021-06-07 22:15:59+0100
 
@@ -2265,7 +2265,7 @@ index 27034bd492230d8105d01371d7eaadd4ec2f44b6..b9ba336b5e47d4fafac98a8cfd1500f5
          <!-- Do not translate. -->
          <item>enabled</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 7cd4af520f45ba89a768b08e7f30bb58a1914630..058acfe50b280318b4f9fe5e85b79ceca0e58dea 100644
+index 8e80631df2d97d514220abab64ab34c8a9227ab7..c87e738dc6b4fb18b136f444dc21e80923a3d237 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13608,16 +13608,18 @@
@@ -2435,7 +2435,7 @@ index 7db358f63d02ef0346cbc01fe991d333e67a9542..24fc7c62b18267ec4a57707c262b0a0f
          profileSecurityControllers.add(new ChangeProfileScreenLockPreferenceController(
                  context, host));
 
-commit 7420c061affbcac6749c2c471a3b3ab11f77d050
+commit 1c6f3469d7803729fd748f06f4b0107db606bab2
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Fri 2020-10-02 12:37:30-0400
 
@@ -2517,7 +2517,7 @@ index b9ba336b5e47d4fafac98a8cfd1500f594350daa..fbe77310e175109a007a6dbc8c0294c0
          <item>30 minutes</item>
      </string-array>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 058acfe50b280318b4f9fe5e85b79ceca0e58dea..846d3b25cf7d324b2f49f3d61f78975aaae9b7b4 100644
+index c87e738dc6b4fb18b136f444dc21e80923a3d237..7fc619b4ff38c310390bbc4676e21057734fcfe1 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -20,20 +20,39 @@
@@ -2715,7 +2715,7 @@ index 0000000000000000000000000000000000000000..244147948aa50873a9cb372b7566ce79
 +    }
 +}
 
-commit 0cc673eee1fb98f8855a8f5baf33e1348525f6f9
+commit ad39d040e1b9373daab74e3b24d8ca5078ac2ef2
 Author: Wonderfall <wonderfall@protonmail.com>
 Date:   Mon 2021-07-19 01:31:27+0200
 
@@ -2754,7 +2754,7 @@ index cd9eb2fd44dc94ee9a5799439a81b761e19ffdeb..48dc2094d5026da3385ff19b95a549f9
      /**
       * Whether screen lock with {@code type} should be enabled assuming all relevant password
 
-commit 1bdb0622d656423e3c1c8d668c71332c7a572e17
+commit 56b25b57073c30ccb151d2468f42f425625a8560
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-07-25 14:44:48-0400
 
@@ -2791,7 +2791,7 @@ index 760674b08538c45ea48218a094e2f85d9763cd0c..cabe947d7cd62af301da91b693860008
      <string-array name="config_skip_reset_apps_package_name" translatable="false">
          <item>android</item>
 
-commit b9daad7f6ac433fa76424b081dbfa201dd273203
+commit 8fac3390bc143f8ec2e508873c5b7ad6579a6cba
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Wed 2021-09-01 20:36:10+0000
 
@@ -2803,7 +2803,7 @@ Date:   Wed 2021-09-01 20:36:10+0000
  3 files changed, 45 insertions(+), 5 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 846d3b25cf7d324b2f49f3d61f78975aaae9b7b4..cf6e2e46bb7fe99ed7408f2029f59bf2032fe560 100644
+index 7fc619b4ff38c310390bbc4676e21057734fcfe1..fe4202b93b25137f94319c7cff19d70087b87f5c 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -7682,20 +7682,22 @@
@@ -3040,7 +3040,7 @@ index ce186f2134a6507ef3408780aaf8704c88678d41..3b4f984ca964c497771ed4d35bcdd5d5
  
          Context context = getActivity();
 
-commit 3196aaa192e6f0eae54a5663670734964d137c41
+commit 55af1b0083267f2089b25aa6295d814fecacb534
 Author: Oliver Scott <olivercscott@gmail.com>
 Date:   Thu 2021-02-25 11:31:14-0500
 
@@ -3122,7 +3122,7 @@ index fbe77310e175109a007a6dbc8c0294c074257a60..d865796219adc5290c8a8ab4b8b0ed8c
          <item>30 minutes</item>
      </string-array>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index cf6e2e46bb7fe99ed7408f2029f59bf2032fe560..436798e9b4d14684729339dc6111e4f87d4736d4 100644
+index fe4202b93b25137f94319c7cff19d70087b87f5c..e7ea570cdd50cf7366efeeb520f616b23e381f49 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -39,20 +39,39 @@
@@ -3320,7 +3320,7 @@ index 0000000000000000000000000000000000000000..7116c9051904dd0a5109bafc7bec0420
 +    }
 +}
 
-commit a47d5ecc6cd4ce1b30dcffd88a2c032d9863e7f3
+commit 91bc003156ad2194e2e8e4ee54f87149499aebd0
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Mon 2021-10-18 23:15:06+0100
 
@@ -3334,7 +3334,7 @@ Date:   Mon 2021-10-18 23:15:06+0100
  3 files changed, 46 insertions(+), 3 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 436798e9b4d14684729339dc6111e4f87d4736d4..e959a6a69d5d2a0119a567f0bd6d4d89154f1883 100644
+index e7ea570cdd50cf7366efeeb520f616b23e381f49..c3d0a5c29e9027bb56aa39ba1c9a478716730658 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13655,11 +13655,14 @@
@@ -3548,7 +3548,7 @@ index 87a29b2209421666fd9338b1e296119150a741bc..aa6daa4ae964ed9f0bcefec963f64447
              return R.string.help_url_fingerprint;
          }
 
-commit b259cda4dfee8d20ced923fdb3e1c3892516a405
+commit 4a9716b332c453c0b554cd72629d94537b4fe695
 Author: Your Name <you@example.com>
 Date:   Mon 2021-10-18 02:17:56+0000
 
@@ -3583,7 +3583,7 @@ index 5bd5e300eae34389bd41987567756ec27da2a99d..eefecc242a4c514298c1bf360ad55d70
        android:pathData="M17,11.5l-1.41,-1.41l-2.59,2.58l0,-8.67l-2,0l0,8.67l-2.59,-2.58l-1.41,1.41l5,5z"/>
  </vector>
 
-commit a2804660094fc0ac4e031e9acdc5b5bda4875023
+commit 8a3138072651ef8aeb993aa392bb2698c6b6df00
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Wed 2021-10-20 05:40:11+0530
 
@@ -3645,7 +3645,7 @@ index d865796219adc5290c8a8ab4b8b0ed8ceda45cd7..8840ed20a60ddca8ccac53275cc172e3
          <!-- Do not translate. -->
          <item>30000</item>
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index e959a6a69d5d2a0119a567f0bd6d4d89154f1883..9a9fc06a71c6e767d7f81e86a9adc9446775919d 100644
+index c3d0a5c29e9027bb56aa39ba1c9a478716730658..c173fd0cfa14a62c79ade88c212f2df3c2700386 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -13658,11 +13658,13 @@
@@ -3900,7 +3900,7 @@ index c53b4f652ad42e61a0c87162c31bed6bad5fd525..57b2f0fda53905e73e58132465fbfd5b
      @Override
      public Dialog onCreateDialog(int dialogId) {
 
-commit 988d5e80c7788ade166e0bd9e7eda2e8b5ba2f6c
+commit 062db9a93d77e29a8215f48a62b6dbd948540ed8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-11-17 07:48:17-0500
 
@@ -3910,7 +3910,7 @@ Date:   Thu 2016-11-17 07:48:17-0500
  1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 9a9fc06a71c6e767d7f81e86a9adc9446775919d..0d56542fed1c03c21dece8a5418dca514b4cc786 100644
+index c173fd0cfa14a62c79ade88c212f2df3c2700386..a0c8834380fe4c3b4f0d21cb202927a8c0e61f59 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -4033,23 +4033,23 @@
@@ -3940,7 +3940,7 @@ index 9a9fc06a71c6e767d7f81e86a9adc9446775919d..0d56542fed1c03c21dece8a5418dca51
      <!-- SD card & phone storage settings screen, notification if there are eSIM (embedded SIM) profiles present that the user's mobile service plan will not be canceled [CHAR LIMIT=NONE] -->
      <string name="main_clear_desc_no_cancel_mobile_plan">"\n\nThis will not cancel your mobile service plan.</string>
 
-commit ae3abcb8daf1d06610d00eee66fa2b8bbf354a24 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit d4f79271f8e3687d61629532256c3b4bfeedfadb
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-07-07 03:02:05-0700
 
@@ -3966,7 +3966,7 @@ Date:   Wed 2021-07-07 03:02:05-0700
  3 files changed, 65 insertions(+)
 
 diff --git a/res/values/strings.xml b/res/values/strings.xml
-index 0d56542fed1c03c21dece8a5418dca514b4cc786..a2c933b334c05f200612e1810fd20dac85d5e32a 100644
+index a0c8834380fe4c3b4f0d21cb202927a8c0e61f59..33ba335979dc4735be9a42c59f1347e7b901bc07 100644
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
 @@ -3121,20 +3121,24 @@
@@ -4086,3 +4086,309 @@ index 0000000000000000000000000000000000000000..d660cb8abe171cfb497503e21f47443f
 +        return Settings.Secure.getInt(mContext.getContentResolver(), SETTINGS_KEY, 0) == 1;
 +    }
 +}
+
+commit 1ab10f78255db9d03bb61c4c85294b4b21b25d75
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Fri 2022-01-21 22:05:44+0200
+
+    add link to Sandboxed Google Play settings
+---
+ res/values/strings.xml | 2 ++
+ res/xml/apps.xml       | 9 +++++++++
+ 2 files changed, 11 insertions(+)
+
+diff --git a/res/values/strings.xml b/res/values/strings.xml
+index 33ba335979dc4735be9a42c59f1347e7b901bc07..0dbbd86a8aba44d004b16d066f7b2fa2485592ec 100644
+--- a/res/values/strings.xml
++++ b/res/values/strings.xml
+@@ -13664,11 +13664,13 @@
+     <string name="deny_new_usb_summary">Control support for USB peripherals such as input (mice, keyboards, joysticks) and storage devices.</string>
+     <string name="keyguard_camera_title">Screen lock camera access</string>
+     <string name="keyguard_camera_summary">Allow camera access when the device is locked</string>
+     <string name="native_debug_title">Enable native code debugging</string>
+     <string name="native_debug_summary">Generate useful logs / bug reports from crashes and permit debugging native code.</string>
+     <string name="security_settings_fingerprint_settings_screen_lock_category">Screen lock</string>
+     <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_title">Allow fingerprint unlocking</string>
+     <string name="security_settings_fingerprint_settings_use_fingerprint_unlock_phone_summary">Allow fingerprints to unlock the screen lock. If this is disabled, fingerprints can still be used in apps.</string>
+     <string name="connectivity_check_title">Internet connectivity check</string>
+     <string name="connectivity_check_summary">HTTP endpoints to use for performing internet connectivity checks.</string>
++
++    <string name="sandboxed_google_play">Sandboxed Google Play</string>
+ </resources>
+diff --git a/res/xml/apps.xml b/res/xml/apps.xml
+index e6314dab28ad2ba41632453fc2f0ac86a3ae8a3e..8e86a10c5ea2f8cb7f06aabec20f00cab9e0141a 100644
+--- a/res/xml/apps.xml
++++ b/res/xml/apps.xml
+@@ -84,11 +84,20 @@
+         <intent android:action="android.intent.action.MANAGE_UNUSED_APPS"/>
+     </Preference>
+ 
+     <Preference
+         android:key="special_access"
+         android:fragment="com.android.settings.applications.specialaccess.SpecialAccessSettings"
+         android:title="@string/special_access"
+         android:order="20"
+         settings:controller="com.android.settings.applications.SpecialAppAccessPreferenceController"/>
+ 
++    <Preference
++        android:title="@string/sandboxed_google_play"
++        android:order="-995">
++        <intent
++            android:action="app.grapheneos.gmscompat.SETTINGS_LINK"
++            android:targetPackage="app.grapheneos.gmscompat"
++        />
++    </Preference>
++
+ </PreferenceScreen>
+
+commit b68278fd4cb3f40356d59223207313dce7cd0574
+Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
+Date:   Thu 2022-02-03 16:49:25+0200
+
+    do not allow disabling GmsCompat app
+    
+    Apps will break if it's disabled, handling this case in code increases
+    complexity unnecessarily.
+---
+ .../settings/applications/appinfo/AppButtonsPreferenceController.java    | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/com/android/settings/applications/appinfo/AppButtonsPreferenceController.java b/src/com/android/settings/applications/appinfo/AppButtonsPreferenceController.java
+index 51ae93459f75d42eccc56b7c7d9fc8a9d3c129b7..232e424083da913af5e4ecda267a4bfd7a4e4b01 100644
+--- a/src/com/android/settings/applications/appinfo/AppButtonsPreferenceController.java
++++ b/src/com/android/settings/applications/appinfo/AppButtonsPreferenceController.java
+@@ -582,20 +582,21 @@ public class AppButtonsPreferenceController extends BasePreferenceController imp
+ 
+     @VisibleForTesting
+     boolean handleDisableable() {
+         boolean disableable = false;
+         // Try to prevent the user from bricking their phone
+         // by not allowing disabling of apps signed with the
+         // system cert and any launcher app in the system.
+         if (mHomePackages.contains(mAppEntry.info.packageName)
+                 || mAppEntry.info.packageName.equals("com.android.inputmethod.latin")
+                 || mAppEntry.info.packageName.equals("app.vanadium.webview")
++                || mAppEntry.info.packageName.equals("app.grapheneos.gmscompat")
+                 || isSystemPackage(mActivity.getResources(), mPm, mPackageInfo)) {
+             // Disable button for core system applications.
+             mButtonsPref.setButton2Text(R.string.disable_text)
+                     .setButton2Icon(R.drawable.ic_settings_disable);
+         } else if (mAppEntry.info.enabled && !isDisabledUntilUsed()) {
+             mButtonsPref.setButton2Text(R.string.disable_text)
+                     .setButton2Icon(R.drawable.ic_settings_disable);
+             disableable = !mApplicationFeatureProvider.getKeepEnabledPackages()
+                     .contains(mAppEntry.info.packageName);
+         } else {
+
+commit 1ca8891aab6e1cc841ed8a3036ea56a0b6b6ab4a
+Author: Luca Stefani <luca.stefani.ge1@gmail.com>
+Date:   Tue 2018-01-23 22:27:43+0100
+
+    Add package name to installed app details
+    
+    Change-Id: I8ce737ec5150f37e61240d8053403046ca9317fb
+---
+ res/xml/app_info_settings.xml                      |  9 ++++++-
+ .../appinfo/AppInfoDashboardFragment.java          |  1 +
+ .../AppPackageNamePreferenceController.java (new)  | 31 ++++++++++++++++++++++
+ 3 files changed, 40 insertions(+), 1 deletion(-)
+
+diff --git a/res/xml/app_info_settings.xml b/res/xml/app_info_settings.xml
+index 14429607ec2735c79bca9334e83c70041ecc0720..49962f98a349890d8802c30b25906cbf29006b1c 100644
+--- a/res/xml/app_info_settings.xml
++++ b/res/xml/app_info_settings.xml
+@@ -193,16 +193,23 @@
+         <Preference
+             android:key="app_info_store"
+             android:title="@string/app_install_details_title"
+             settings:controller="com.android.settings.applications.appinfo.AppInstallerInfoPreferenceController" />
+ 
+     </PreferenceCategory>
+ 
+     <Preference
+         android:key="app_version"
+         android:selectable="false"
+-        android:order="9999"
++        android:order="9998"
+         settings:controller="com.android.settings.applications.appinfo.AppVersionPreferenceController"
+         settings:allowDividerAbove="true"
+         settings:enableCopying="true"/>
+ 
++    <Preference
++        android:key="app_package_name"
++        android:selectable="false"
++        android:order="9999"
++        settings:controller="com.android.settings.applications.appinfo.AppPackageNamePreferenceController"
++        settings:enableCopying="true"/>
++
+ </PreferenceScreen>
+diff --git a/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java b/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java
+index e1ea8e47afa32b0b7dfe4a2099004ee0ec04a160..ed82166036af18ee53a0e529414288190d99b8eb 100755
+--- a/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java
++++ b/src/com/android/settings/applications/appinfo/AppInfoDashboardFragment.java
+@@ -157,20 +157,21 @@ public class AppInfoDashboardFragment extends DashboardFragment
+                 .setPackageName(packageName)
+                 .setParentFragment(this);
+ 
+         use(AppPermissionPreferenceController.class).setParentFragment(this);
+         use(AppPermissionPreferenceController.class).setPackageName(packageName);
+         use(AppSettingPreferenceController.class)
+                 .setPackageName(packageName)
+                 .setParentFragment(this);
+         use(AppStoragePreferenceController.class).setParentFragment(this);
+         use(AppVersionPreferenceController.class).setParentFragment(this);
++        use(AppPackageNamePreferenceController.class).setParentFragment(this);
+         use(InstantAppDomainsPreferenceController.class).setParentFragment(this);
+         use(ExtraAppInfoPreferenceController.class).setPackageName(packageName);
+ 
+         final HibernationSwitchPreferenceController appHibernationSettings =
+                 use(HibernationSwitchPreferenceController.class);
+         appHibernationSettings.setParentFragment(this);
+         appHibernationSettings.setPackage(packageName);
+         use(AppHibernationPreferenceCategoryController.class).setChildren(
+                 Arrays.asList(appHibernationSettings));
+ 
+diff --git a/src/com/android/settings/applications/appinfo/AppPackageNamePreferenceController.java b/src/com/android/settings/applications/appinfo/AppPackageNamePreferenceController.java
+new file mode 100644
+index 0000000000000000000000000000000000000000..bd4f12f508811a073c296b83464ea76b3636d371
+--- /dev/null
++++ b/src/com/android/settings/applications/appinfo/AppPackageNamePreferenceController.java
+@@ -0,0 +1,31 @@
++/*
++ * Copyright (C) 2018 The LineageOS Project
++ *
++ * Licensed under the Apache License, Version 2.0 (the "License");
++ * you may not use this file except in compliance with the License.
++ * You may obtain a copy of the License at
++ *
++ *      http://www.apache.org/licenses/LICENSE-2.0
++ *
++ * Unless required by applicable law or agreed to in writing, software
++ * distributed under the License is distributed on an "AS IS" BASIS,
++ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++ * See the License for the specific language governing permissions and
++ * limitations under the License.
++ */
++
++package com.android.settings.applications.appinfo;
++
++import android.content.Context;
++
++public class AppPackageNamePreferenceController extends AppInfoPreferenceControllerBase {
++
++    public AppPackageNamePreferenceController(Context context, String key) {
++        super(context, key);
++    }
++
++    @Override
++    public CharSequence getSummary() {
++        return mParent.getPackageInfo().packageName;
++    }
++}
+
+commit b96cb4593c9a181eb955753dad7425a34c105b05 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2022-02-05 17:42:07+0000
+
+    add GrapheneOS icon
+---
+ AndroidManifest.xml                           |  3 ++-
+ res/drawable/ic_launcher_foreground.xml (new) | 27 +++++++++++++++++++++++++++
+ res/mipmap-anydpi/ic_launcher.xml (new)       |  5 +++++
+ res/mipmap-anydpi/ic_launcher_round.xml (new) |  5 +++++
+ res/values/ic_launcher_background.xml (new)   |  4 ++++
+ 5 files changed, 43 insertions(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index de85af307d0ca80ce48f56d1856cf75eb378a2eb..bc25bf51ddcd07ffce0882928af789253cd4f24f 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -102,21 +102,22 @@
+     <uses-permission android:name="android.permission.CAMERA" />
+     <uses-permission android:name="android.permission.MEDIA_CONTENT_CONTROL" />
+     <uses-permission android:name="android.permission.INSTALL_DYNAMIC_SYSTEM" />
+     <uses-permission android:name="android.permission.BIND_CELL_BROADCAST_SERVICE" />
+     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+     <uses-permission android:name="android.permission.READ_DREAM_STATE" />
+     <uses-permission android:name="android.permission.READ_DREAM_SUPPRESSION" />
+     <uses-permission android:name="android.permission.MANAGE_APP_HIBERNATION" />
+ 
+     <application android:label="@string/settings_label"
+-            android:icon="@drawable/ic_launcher_settings"
++            android:icon="@mipmap/ic_launcher"
++            android:roundIcon="@mipmap/ic_launcher_round"
+             android:theme="@style/Theme.Settings"
+             android:hardwareAccelerated="true"
+             android:requiredForAllUsers="true"
+             android:supportsRtl="true"
+             android:backupAgent="com.android.settings.backup.SettingsBackupHelper"
+             android:usesCleartextTraffic="true"
+             android:defaultToDeviceProtectedStorage="true"
+             android:directBootAware="true"
+             android:appComponentFactory="androidx.core.app.CoreComponentFactory">
+ 
+diff --git a/res/drawable/ic_launcher_foreground.xml b/res/drawable/ic_launcher_foreground.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..43a50071e0cb897b0dfb4cd8e1e4eaa1c4a07d87
+--- /dev/null
++++ b/res/drawable/ic_launcher_foreground.xml
+@@ -0,0 +1,27 @@
++<!--
++  Copyright (C) 2021 Google Inc.
++  Licensed under the Apache License, Version 2.0 (the "License");
++  you may not use this file except in compliance with the License.
++  You may obtain a copy of the License at
++    http://www.apache.org/licenses/LICENSE-2.0
++  Unless required by applicable law or agreed to in writing, software
++  distributed under the License is distributed on an "AS IS" BASIS,
++  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  See the License for the specific language governing permissions and
++  limitations under the License.
++  -->
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++  android:width="108dp"
++  android:height="108dp"
++  android:viewportWidth="108"
++  android:viewportHeight="108"
++  android:tint="?attr/colorControlNormal">
++<group android:scaleX="2.25"
++    android:scaleY="2.25"
++    android:translateX="27"
++    android:translateY="27">
++  <path
++      android:fillColor="@android:color/black"
++      android:pathData="M19.44,12.99l-0.01,0.02c0.04,-0.33 0.08,-0.67 0.08,-1.01 0,-0.34 -0.03,-0.66 -0.07,-0.99l0.01,0.02 2.44,-1.92 -2.43,-4.22 -2.87,1.16 0.01,0.01c-0.52,-0.4 -1.09,-0.74 -1.71,-1h0.01L14.44,2H9.57l-0.44,3.07h0.01c-0.62,0.26 -1.19,0.6 -1.71,1l0.01,-0.01 -2.88,-1.17 -2.44,4.22 2.44,1.92 0.01,-0.02c-0.04,0.33 -0.07,0.65 -0.07,0.99 0,0.34 0.03,0.68 0.08,1.01l-0.01,-0.02 -2.1,1.65 -0.33,0.26 2.43,4.2 2.88,-1.15 -0.02,-0.04c0.53,0.41 1.1,0.75 1.73,1.01h-0.03L9.58,22h4.85s0.03,-0.18 0.06,-0.42l0.38,-2.65h-0.01c0.62,-0.26 1.2,-0.6 1.73,-1.01l-0.02,0.04 2.88,1.15 2.43,-4.2s-0.14,-0.12 -0.33,-0.26l-2.11,-1.66zM12,15.5c-1.93,0 -3.5,-1.57 -3.5,-3.5s1.57,-3.5 3.5,-3.5 3.5,1.57 3.5,3.5 -1.57,3.5 -3.5,3.5z"/>
++</group>
++</vector>
+diff --git a/res/mipmap-anydpi/ic_launcher.xml b/res/mipmap-anydpi/ic_launcher.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8a8fa5518fcdb2db0385028800968b2667af71e
+--- /dev/null
++++ b/res/mipmap-anydpi/ic_launcher.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+diff --git a/res/mipmap-anydpi/ic_launcher_round.xml b/res/mipmap-anydpi/ic_launcher_round.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8a8fa5518fcdb2db0385028800968b2667af71e
+--- /dev/null
++++ b/res/mipmap-anydpi/ic_launcher_round.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+diff --git a/res/values/ic_launcher_background.xml b/res/values/ic_launcher_background.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..f42ada656ee26e30d170aaa67989f0f15c1a300b
+--- /dev/null
++++ b/res/values/ic_launcher_background.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="ic_launcher_background">#FFFFFF</color>
++</resources>

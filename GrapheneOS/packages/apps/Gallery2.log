@@ -1,4 +1,4 @@
-commit 6841b0a3062759c00870128bc90fc26277f49717 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 6841b0a3062759c00870128bc90fc26277f49717 (tag: SQ1A.220105.002.2022010500)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-11-02 11:14:05-0500
 
@@ -49,3 +49,186 @@ index afff64ce1b85115276f80d389621dcf92436fe07..4214944ab3d3d15d76faff4a94302cd5
          LOGE("RegisterNatives failed for '%s'", className);
          return JNI_FALSE;
      }
+
+commit f02f0278daded0b414f0a30b991f440d79ca4b7a
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2022-02-05 17:06:29+0000
+
+    Add GrapheneOS icon
+---
+ AndroidManifest.xml                           |  5 ++++-
+ res/drawable/ic_launcher_foreground.xml (new) | 26 ++++++++++++++++++++++++++
+ res/mipmap-anydpi/ic_launcher.xml (new)       |  5 +++++
+ res/mipmap-anydpi/ic_launcher_round.xml (new) |  5 +++++
+ res/values/ic_launcher_background.xml (new)   |  4 ++++
+ 5 files changed, 44 insertions(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index a99c80bb3c83400bda445f73deff6d58ef6da687..bf431bd96112e51b0072b1541d3bb45b299bc38c 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -29,21 +29,24 @@
+     <uses-permission android:name="android.permission.WAKE_LOCK" />
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+     <uses-permission android:name="android.permission.WRITE_SYNC_SETTINGS" />
+     <uses-permission android:name="com.android.gallery3d.permission.GALLERY_PROVIDER" />
+ 
+     <supports-screens android:smallScreens="false"
+             android:normalScreens="true" android:largeScreens="true"
+             android:anyDensity="true" />
+ 
+-    <application android:icon="@mipmap/ic_launcher_gallery" android:label="@string/app_name"
++    <application 
++            android:icon="@mipmap/ic_launcher"
++            android:roundIcon="@mipmap/ic_launcher_round"
++            android:label="@string/app_name"
+             android:name="com.android.gallery3d.app.GalleryAppImpl"
+             android:theme="@style/Theme.Gallery"
+             android:logo="@mipmap/ic_launcher_gallery"
+             android:hardwareAccelerated="true"
+             android:largeHeap="true"
+             android:restoreAnyVersion="true"
+             android:supportsRtl="true"
+             android:requestLegacyExternalStorage="true"
+             usesCleartextHttp="true">
+         <uses-library android:name="com.google.android.media.effects" android:required="false" />
+diff --git a/res/drawable/ic_launcher_foreground.xml b/res/drawable/ic_launcher_foreground.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..84af4de7deb212e511ce0820efdf44861fc09565
+--- /dev/null
++++ b/res/drawable/ic_launcher_foreground.xml
+@@ -0,0 +1,26 @@
++<!--
++  Copyright (C) 2021 Google Inc.
++  Licensed under the Apache License, Version 2.0 (the "License");
++  you may not use this file except in compliance with the License.
++  You may obtain a copy of the License at
++    http://www.apache.org/licenses/LICENSE-2.0
++  Unless required by applicable law or agreed to in writing, software
++  distributed under the License is distributed on an "AS IS" BASIS,
++  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  See the License for the specific language governing permissions and
++  limitations under the License.
++  -->
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++  <group android:scaleX="2.25"
++      android:scaleY="2.25"
++      android:translateX="27"
++      android:translateY="27">
++    <path
++        android:fillColor="@android:color/black"
++        android:pathData="M22,18L22,2L6,2v16h16zM11,12l2.03,2.71L16,11l4,5L8,16l3,-4zM2,6v16h16v-2L4,20L4,6L2,6z"/>
++  </group>
++</vector>
+diff --git a/res/mipmap-anydpi/ic_launcher.xml b/res/mipmap-anydpi/ic_launcher.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8a8fa5518fcdb2db0385028800968b2667af71e
+--- /dev/null
++++ b/res/mipmap-anydpi/ic_launcher.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+diff --git a/res/mipmap-anydpi/ic_launcher_round.xml b/res/mipmap-anydpi/ic_launcher_round.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8a8fa5518fcdb2db0385028800968b2667af71e
+--- /dev/null
++++ b/res/mipmap-anydpi/ic_launcher_round.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+diff --git a/res/values/ic_launcher_background.xml b/res/values/ic_launcher_background.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..f42ada656ee26e30d170aaa67989f0f15c1a300b
+--- /dev/null
++++ b/res/values/ic_launcher_background.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="ic_launcher_background">#FFFFFF</color>
++</resources>
+
+commit 788e694d8bb32791afd552e1d88763697e630508
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2022-02-05 17:06:43+0000
+
+    Bump minSdkVersion to 29
+---
+ AndroidManifest.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index bf431bd96112e51b0072b1541d3bb45b299bc38c..48395772b9ca44f2c2d46fd82862d4bd5e3bfb3d 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -1,20 +1,20 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ 
+ <manifest android:versionCode="40030"
+         android:versionName="1.1.40030"
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         package="com.android.gallery3d">
+ 
+     <original-package android:name="com.android.gallery3d" />
+ 
+-    <uses-sdk android:minSdkVersion="14" android:targetSdkVersion="29" />
++    <uses-sdk android:minSdkVersion="29" android:targetSdkVersion="29" />
+ 
+     <permission android:name="com.android.gallery3d.permission.GALLERY_PROVIDER"
+             android:protectionLevel="signatureOrSystem" />
+ 
+     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.CAMERA" />
+     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+     <uses-permission android:name="android.permission.INTERNET" />
+
+commit 60d262be2761ac829ac4a7ecb75803d71cdc9df7 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+Author: Joey <joey@lineageos.org>
+Date:   Thu 2018-01-25 12:20:24+0100
+
+    Gallery: define app category
+    
+    Change-Id: I04a4650a55bf45cfeb103d5fedc0cf7ff67197e5
+    Signed-off-by: Joey <joey@lineageos.org>
+---
+ AndroidManifest.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 48395772b9ca44f2c2d46fd82862d4bd5e3bfb3d..610f6338949597be31f54c7f56a3437d373a59f7 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -38,20 +38,21 @@
+ 
+     <application 
+             android:icon="@mipmap/ic_launcher"
+             android:roundIcon="@mipmap/ic_launcher_round"
+             android:label="@string/app_name"
+             android:name="com.android.gallery3d.app.GalleryAppImpl"
+             android:theme="@style/Theme.Gallery"
+             android:logo="@mipmap/ic_launcher_gallery"
+             android:hardwareAccelerated="true"
+             android:largeHeap="true"
++            android:appCategory="image"
+             android:restoreAnyVersion="true"
+             android:supportsRtl="true"
+             android:requestLegacyExternalStorage="true"
+             usesCleartextHttp="true">
+         <uses-library android:name="com.google.android.media.effects" android:required="false" />
+         <uses-library android:name="org.apache.http.legacy" android:required="false" />
+         <activity android:name="com.android.gallery3d.app.MovieActivity"
+                 android:label="@string/movie_view_label"
+                 android:exported="true"
+                 android:configChanges="orientation|keyboardHidden|screenSize">

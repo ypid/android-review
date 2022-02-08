@@ -34,7 +34,7 @@ index 43cf258edf1ff16e4ccb440848431adb5383ecb5..dfce071d93e3fa522b9a768d035b44e0
          android:label="@string/permlab_accessAllDownloads"
          android:description="@string/permdesc_accessAllDownloads"
 
-commit a7125548f51fb4b2020f2eae6a467aca4b8be8f6 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit a7125548f51fb4b2020f2eae6a467aca4b8be8f6 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Fri 2021-11-19 13:30:32+0200
 

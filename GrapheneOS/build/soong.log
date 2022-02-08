@@ -224,7 +224,7 @@ index 77854074b7d898b762e2cb4427bde6384d889c4e..d7ae35c3d4c46d038a758d2b35b3c3cb
  		"libsystemproperties",
  		"libtombstoned_client_static",
 
-commit b7e56363cab0430ece5d95a23a08320c2a1b076e (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit b7e56363cab0430ece5d95a23a08320c2a1b076e (tag: SQ1A.220105.002.2022010500)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2021-10-13 19:54:06-0400
 
@@ -260,3 +260,46 @@ index da015a389e5ead776d5769365ce0ac7d45a84b22..20517d71632f9df7b16557a0db9ec77a
  				Text(" ; then echo verify ; else echo " + compilerFilter + " ; fi)")
  		} else {
  			cmd.FlagWithArg("--compiler-filter=", compilerFilter)
+
+commit 5f073d9554533e6d52b8f2c23258afe7934925de (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Mon 2021-03-01 23:11:06-0800
+
+    Disable clang-tidy
+    
+    Running clang-tidy on all the AOSP code is of little use for us, but it
+    takes a substantial amount of build time. Disable it to reduce build
+    times for native code.
+    
+    Change-Id: Idc3d97bf0a08db31e66ab6ad018749575906ca1e
+---
+ cc/tidy.go | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/cc/tidy.go b/cc/tidy.go
+index 616cf8ab4b79f75e05b2dafb0c31612f2a41dc31..16dde3f4742764b80477f0f3bb8b854ac8eb75fb 100644
+--- a/cc/tidy.go
++++ b/cc/tidy.go
+@@ -75,21 +75,21 @@ func (tidy *tidyFeature) flags(ctx ModuleContext, flags Flags) Flags {
+ 	// Check if tidy is explicitly disabled for this module
+ 	if tidy.Properties.Tidy != nil && !*tidy.Properties.Tidy {
+ 		return flags
+ 	}
+ 
+ 	// If not explicitly set, check the global tidy flag
+ 	if tidy.Properties.Tidy == nil && !ctx.Config().ClangTidy() {
+ 		return flags
+ 	}
+ 
+-	flags.Tidy = true
++	flags.Tidy = false
+ 
+ 	// Add global WITH_TIDY_FLAGS and local tidy_flags.
+ 	withTidyFlags := ctx.Config().Getenv("WITH_TIDY_FLAGS")
+ 	if len(withTidyFlags) > 0 {
+ 		flags.TidyFlags = append(flags.TidyFlags, withTidyFlags)
+ 	}
+ 	esc := checkNinjaAndShellEscapeList
+ 	flags.TidyFlags = append(flags.TidyFlags, esc(ctx, "tidy_flags", tidy.Properties.Tidy_flags)...)
+ 	// If TidyFlags does not contain -header-filter, add default header filter.
+ 	// Find the substring because the flag could also appear as --header-filter=...

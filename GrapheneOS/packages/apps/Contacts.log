@@ -111,7 +111,7 @@ index 378948033ac42c95473a48016d3e2f765935a76d..721ab0460a31ba3c22b4a602c02c5140
          final Intent intent = new Intent();
          intent.setAction(Intent.ACTION_VIEW);
 
-commit d2d77b363d28451b8df6ccca4195192bc253c174 (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit d2d77b363d28451b8df6ccca4195192bc253c174 (tag: SQ1A.220105.002.2022010500)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2017-08-22 02:51:36-0400
 
@@ -231,3 +231,186 @@ index faa1d96e130018c95cb3cb6d6953321155b75595..bc740d06de51d2dab06a986285595986
      <!-- Title of the editor activity when creating a new contact. The char
           limit is short and cannot be increased, since this needs to be displayed in a single line
           at a pre-determined text size. [CHAR LIMIT=20] -->
+
+commit 1f8ff875fc58769db84363461b6a5940bd8c3889
+Author: Joey <joey@lineageos.org>
+Date:   Thu 2018-01-25 12:23:13+0100
+
+    Contacts: define app category
+    
+    Change-Id: I54fd9b2bc0d1beb4885d5dd5cb59c93a34f4bb7d
+    Signed-off-by: Joey <joey@lineageos.org>
+---
+ AndroidManifest.xml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index 32d6644a7190c09c551eb093279cf6df1e971bd5..f72a4461009960518c26f758d202eec47667a027 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -57,20 +57,21 @@
+ 
+     <uses-feature
+         android:name="android.hardware.telephony"
+         android:required="false"/>
+ 
+     <application
+         android:name="com.android.contacts.ContactsApplication"
+         android:hardwareAccelerated="true"
+         android:icon="@mipmap/ic_contacts_launcher"
+         android:label="@string/applicationLabel"
++        android:appCategory="social"
+         android:supportsRtl="true"
+         android:taskAffinity="android.task.contacts"
+         android:usesCleartextTraffic="false">
+         <!-- The main Contacts activity with the contact list, favorites, and groups. -->
+         <activity
+             android:name=".activities.PeopleActivity"
+             android:alwaysRetainTaskState="true"
+             android:launchMode="singleTop"
+             android:resizeableActivity="true"
+             android:theme="@style/LaunchScreenTheme"
+
+commit c85725483bc013139529e4b758318d45448584ab
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2022-02-04 22:12:10+0000
+
+    Raise minSdkVersion to 30
+---
+ AndroidManifest.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index f72a4461009960518c26f758d202eec47667a027..dfccc43ce830f488063f25bb0c523177a2afcfe6 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -13,21 +13,21 @@
+      See the License for the specific language governing permissions and
+      limitations under the License.
+ -->
+ 
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+           package="com.android.contacts"
+           android:versionCode="10733"
+           android:versionName="1.7.33">
+ 
+     <uses-sdk
+-        android:minSdkVersion="21"
++        android:minSdkVersion="30"
+         android:targetSdkVersion="30"/>
+ 
+     <original-package android:name="com.android.contacts"/>
+ 
+     <!-- Contacts permission listed first because order determines
+          order that permissions are requested with some OEMs -->
+     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+     <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+     <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
+     <uses-permission android:name="android.permission.GET_ACCOUNTS_PRIVILEGED"/>
+
+commit e416e9daa116bda53bd17b5d6072db593d706759 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2022-02-05 16:37:24+0000
+
+    Add GrapheneOS icon
+---
+ AndroidManifest.xml                           |  3 ++-
+ res/drawable/ic_launcher_foreground.xml (new) | 27 +++++++++++++++++++++++++++
+ res/mipmap-anydpi/ic_launcher.xml (new)       |  5 +++++
+ res/mipmap-anydpi/ic_launcher_round.xml (new) |  5 +++++
+ res/values/ic_launcher_background.xml (new)   |  4 ++++
+ 5 files changed, 43 insertions(+), 1 deletion(-)
+
+diff --git a/AndroidManifest.xml b/AndroidManifest.xml
+index dfccc43ce830f488063f25bb0c523177a2afcfe6..9f1cf50033a4f54576ff7d2ebe5523766e6432b7 100644
+--- a/AndroidManifest.xml
++++ b/AndroidManifest.xml
+@@ -55,21 +55,22 @@
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+     <uses-permission android:name="android.permission.HIDE_NON_SYSTEM_OVERLAY_WINDOWS" />
+ 
+     <uses-feature
+         android:name="android.hardware.telephony"
+         android:required="false"/>
+ 
+     <application
+         android:name="com.android.contacts.ContactsApplication"
+         android:hardwareAccelerated="true"
+-        android:icon="@mipmap/ic_contacts_launcher"
++        android:icon="@mipmap/ic_launcher"
++        android:roundIcon="@mipmap/ic_launcher_round"
+         android:label="@string/applicationLabel"
+         android:appCategory="social"
+         android:supportsRtl="true"
+         android:taskAffinity="android.task.contacts"
+         android:usesCleartextTraffic="false">
+         <!-- The main Contacts activity with the contact list, favorites, and groups. -->
+         <activity
+             android:name=".activities.PeopleActivity"
+             android:alwaysRetainTaskState="true"
+             android:launchMode="singleTop"
+diff --git a/res/drawable/ic_launcher_foreground.xml b/res/drawable/ic_launcher_foreground.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..2d27b83fc7792128838301c62b14ddd3fc4b4993
+--- /dev/null
++++ b/res/drawable/ic_launcher_foreground.xml
+@@ -0,0 +1,27 @@
++<!--
++  Copyright (C) 2021 Google Inc.
++  Licensed under the Apache License, Version 2.0 (the "License");
++  you may not use this file except in compliance with the License.
++  You may obtain a copy of the License at
++    http://www.apache.org/licenses/LICENSE-2.0
++  Unless required by applicable law or agreed to in writing, software
++  distributed under the License is distributed on an "AS IS" BASIS,
++  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++  See the License for the specific language governing permissions and
++  limitations under the License.
++  -->
++  <vector xmlns:android="http://schemas.android.com/apk/res/android"
++  android:width="108dp"
++  android:height="108dp"
++  android:viewportWidth="108"
++  android:viewportHeight="108"
++  android:tint="?attr/colorControlNormal">
++<group android:scaleX="2.25"
++    android:scaleY="2.25"
++    android:translateX="27"
++    android:translateY="27">
++  <path
++      android:fillColor="@android:color/black"
++      android:pathData="M20,0H4v2h16V0zM4,24h16v-2H4v2zM22,4H2v16h20V4zM12,6.75c1.24,0 2.25,1.01 2.25,2.25s-1.01,2.25 -2.25,2.25S9.75,10.24 9.75,9 10.76,6.75 12,6.75zM17,17H7v-1.5c0,-1.67 3.33,-2.5 5,-2.5s5,0.83 5,2.5V17z"/>
++</group>
++</vector>
+diff --git a/res/mipmap-anydpi/ic_launcher.xml b/res/mipmap-anydpi/ic_launcher.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8a8fa5518fcdb2db0385028800968b2667af71e
+--- /dev/null
++++ b/res/mipmap-anydpi/ic_launcher.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+diff --git a/res/mipmap-anydpi/ic_launcher_round.xml b/res/mipmap-anydpi/ic_launcher_round.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..a8a8fa5518fcdb2db0385028800968b2667af71e
+--- /dev/null
++++ b/res/mipmap-anydpi/ic_launcher_round.xml
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<adaptive-icon xmlns:android="http://schemas.android.com/apk/res/android">
++    <background android:drawable="@color/ic_launcher_background" />
++    <foreground android:drawable="@drawable/ic_launcher_foreground" />
++</adaptive-icon>
+diff --git a/res/values/ic_launcher_background.xml b/res/values/ic_launcher_background.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..f42ada656ee26e30d170aaa67989f0f15c1a300b
+--- /dev/null
++++ b/res/values/ic_launcher_background.xml
+@@ -0,0 +1,4 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <color name="ic_launcher_background">#FFFFFF</color>
++</resources>

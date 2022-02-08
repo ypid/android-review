@@ -99,7 +99,7 @@ index 36924fbdf430413622e80d2c450f6e0573f19d79..018b2f0ad1da4ea2e07c5bb417d334f9
    }
    printf("\n\n");
 
-commit 8ad4efe769bfc1775da85ea971ad5a1dade279bf (HEAD, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 8ad4efe769bfc1775da85ea971ad5a1dade279bf (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-08-19 09:31:04-0400
 
