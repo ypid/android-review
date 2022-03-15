@@ -1,4 +1,4 @@
-commit ce12ad48966be019396f96109781f02e512b1e34
+commit bc743e95b4e76dae9220ff19115fb9577a478ab2
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sat 2021-08-28 17:42:40+0000
 
@@ -25,7 +25,7 @@ index cf2c90eed900c30544d903e27d3a3b9b2001018c..e65646dbeeb4d7a021c48dee15d69546
 -PRODUCT_MODEL := AOSP on barbet
 +PRODUCT_MODEL := Pixel 5a
 
-commit bb6d3d282655c221957fe4fea5230acc9e2b6221
+commit 593e6c572c412236e589625a0ec50402e568e8b0
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 14:40:25+0000
 
@@ -55,7 +55,7 @@ index e65646dbeeb4d7a021c48dee15d695466d95dd60..cdff73414abd72081e88a063f01add42
  PRODUCT_DEVICE := barbet
  PRODUCT_MODEL := Pixel 5a
 
-commit e1f552f3645988213aeaea9d6b6081b2aa29e0b9
+commit d8a2f3196c876ce54c339628e70da1785cb44959
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 19:37:54+0000
 
@@ -98,7 +98,7 @@ index 0000000000000000000000000000000000000000..fd345f3bcb9e2430f9cfd340b2cdcf37
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := barbet
 
-commit fc0c4f1dbe5351ff98231f278849c2574d7cd2a4
+commit 07957776378deff17885619ea716d7905633e94e
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 19:38:06+0000
 
@@ -132,7 +132,7 @@ index f2728df28091a374ff6bfa6e4e50f3695420e722..3ea3d56fe191c4adfe5b62661987a17d
  # All devices enabled
  setprop|vendor.all.devices.ready
 
-commit f0aec2ef5fc897f415c4f68f972dc66266c3f8ae
+commit 9643a72a827736fe136602e7f1290ae1beb5b095
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-08-27 19:38:42+0000
 
@@ -142,7 +142,7 @@ Date:   Fri 2021-08-27 19:38:42+0000
  1 file changed, 1 insertion(+)
 
 diff --git a/device-barbet.mk b/device-barbet.mk
-index 9df346def39c392b5f9117ebb11c2379085b54cc..7460564b51edb380ddb2cb12cf2ce1a06bf14022 100644
+index 941bd0f229db58c6e147b086ad3a5d4a51ac093e..59db3102617fc1ecf4605602ba6db6c5e9ec6255 100644
 --- a/device-barbet.mk
 +++ b/device-barbet.mk
 @@ -9,20 +9,21 @@
@@ -168,31 +168,35 @@ index 9df346def39c392b5f9117ebb11c2379085b54cc..7460564b51edb380ddb2cb12cf2ce1a0
  endif
  
 
-commit 1da11ba55fbeb83077523d7994c25fcc33231016
+commit 67555e04ca9ef4ae08b2eb0cb3eb91f0343ac6d2
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Tue 2021-09-07 23:47:41+0000
 
     Add the set of PIXEL_*_EXPERIENCE features for barbet
 ---
- device-barbet.mk            |  4 ++++
+ device-barbet.mk            |  8 ++++++++
  google_experience.xml (new) | 13 +++++++++++++
- 2 files changed, 17 insertions(+)
+ 2 files changed, 21 insertions(+)
 
 diff --git a/device-barbet.mk b/device-barbet.mk
-index 7460564b51edb380ddb2cb12cf2ce1a06bf14022..8efcf64321f98333d48031bf48a67c1355848fed 100644
+index 59db3102617fc1ecf4605602ba6db6c5e9ec6255..7abfc4d13095011aa32911531f228c6d59e642ee 100644
 --- a/device-barbet.mk
 +++ b/device-barbet.mk
-@@ -201,10 +201,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
+@@ -197,10 +197,18 @@ PRODUCT_PACKAGES += \
+ # Set support hide display cutout feature
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.support_hide_display_cutout=true
+ 
  PRODUCT_PACKAGES += \
      NoCutoutOverlay \
      AvoidAppsInCutoutOverlay
  
  PRODUCT_COPY_FILES += \
      device/google/barbet/default-permissions.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/default-permissions/default-permissions.xml
- 
- # (b/183612348): Enable skia reduceOpsTaskSplitting
- PRODUCT_PROPERTY_OVERRIDES += \
-     renderthread.skia.reduceopstasksplitting=true
++
++# (b/183612348): Enable skia reduceOpsTaskSplitting
++PRODUCT_PROPERTY_OVERRIDES += \
++    renderthread.skia.reduceopstasksplitting=true
 +
 +# Set of *_EXPERIENCE features for barbet
 +PRODUCT_COPY_FILES += \
@@ -217,7 +221,7 @@ index 0000000000000000000000000000000000000000..501f8b6dbdde9a5e913184df02ac6f52
 +    <feature name="com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE" />
 +</config>
 
-commit 33f0cc586e357a26fdfe010b83a111383bcf3d19
+commit 2dc2d942a7c8dd1e2794fa083177505bed4b2045
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 00:31:36+0100
 
@@ -254,17 +258,17 @@ index cdff73414abd72081e88a063f01add42ee68d540..4020de5988a44de97e0eab298253ff40
  
  #
 
-commit cdf26547546efa51d5d1fa7ba26e8ae8d8614064 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit 353b3289d13af81a2d2cbab7704c7e2511e18e61 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:19:46-0400
 
-    temporarily disable broken AvoidAppsInCutoutOverlay
+    [temporary] disable broken AvoidAppsInCutoutOverlay
 ---
  device-barbet.mk | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/device-barbet.mk b/device-barbet.mk
-index 8efcf64321f98333d48031bf48a67c1355848fed..4897b5c48f825b65dee2a55d7bcbfaebaeffead7 100644
+index 7abfc4d13095011aa32911531f228c6d59e642ee..2bec96023d8d139894dd5f2c3c131eeb1a2e91cb 100644
 --- a/device-barbet.mk
 +++ b/device-barbet.mk
 @@ -193,21 +193,20 @@ PRODUCT_PACKAGES += \

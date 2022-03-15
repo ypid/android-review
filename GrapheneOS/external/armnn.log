@@ -1,0 +1,39 @@
+commit 61836a4e3acb02a3a491e78da20d01a6e4f1f471 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: Danny Lin <danny@kdrag0n.dev>
+Date:   Tue 2021-12-07 20:02:24-0800
+
+    Link to libOpenCL unconditionally when building OpenCL backend
+    
+    We only build the OpenCL backend if libOpenCL has been extracted as a
+    prebuilt library in vendor/google_devices, so relax the check and
+    assume that libOpenCL is available for linking.
+    
+    Change-Id: I68cd756fabbc87f5e030a68cf7981a2a53ccb54d
+---
+ Android.mk | 4 ----
+ 1 file changed, 4 deletions(-)
+
+diff --git a/Android.mk b/Android.mk
+index 7ca307c5aa06537d5af02a716d87a1a7be60b18c..c4dc9976719c8203a168f2441624b432d3a8f5b8 100644
+--- a/Android.mk
++++ b/Android.mk
+@@ -449,19 +449,15 @@ LOCAL_SHARED_LIBRARIES := \
+         libhidlbase \
+         libhidltransport \
+         libhidlmemory \
+         liblog \
+         libutils \
+         android.hardware.neuralnetworks@1.0 \
+         android.hidl.allocator@1.0 \
+         android.hidl.memory@1.0
+ 
+ ifeq ($(ARMNN_COMPUTE_CL_ENABLED),1)
+-ifeq (,$(realpath $(TOPDIR)vendor/arm/mali/valhall/Android.bp))
+-    LOCAL_SHARED_LIBRARIES += libGLES_mali
+-else
+     LOCAL_SHARED_LIBRARIES += libOpenCL
+ endif
+-endif
+ 
+ include $(BUILD_EXECUTABLE)
+ endif

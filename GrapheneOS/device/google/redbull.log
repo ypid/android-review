@@ -1,4 +1,4 @@
-commit f5e8d7b91da41aaeeff647d82fd9db556e43e650
+commit e7b241900f5c1bd49ea0a4a762d71acab2a9953e
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:32:37+0000
 
@@ -386,7 +386,7 @@ index 693d733be66024a561ff8bffb84d21f893b58adf..81ea1a9bb9bad85f1abc897667049f75
  # Testing related defines
  BOARD_PERFSETUP_SCRIPT := platform_testing/scripts/perf-setup/b5r3-setup.sh
 
-commit a574e97441619ca3f0253d7a324f5d6152bdd756
+commit 25c83964f715d59406d0ef5d629f22f83fe4da8e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:48:10-0500
 
@@ -427,7 +427,7 @@ index 81ea1a9bb9bad85f1abc897667049f75d0d35f26..7367b4cc8c852ac7b1dcc30e1c006f3c
  
  BOARD_BUILD_VENDOR_RAMDISK_IMAGE := true
 
-commit 1cc98a7ccb923f4778834a252ff8b2c5a6c8a602
+commit 5b26bc9438d9c372e829f0e229582c2c68e9a134
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:12-0400
 
@@ -437,7 +437,7 @@ Date:   Wed 2020-10-14 19:16:12-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 2307988da37859945f0649f2704af9eac5fc1ccd..caa3df7367c93b76d08516b62885841e3d9ddb85 100644
+index e6ca6f3836b7d5731c39ae023fce3d8a492e6f74..f2836bcd42da4fc49585bb1bb1f5b49e9a6b0412 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -133,44 +133,40 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
@@ -486,7 +486,7 @@ index 2307988da37859945f0649f2704af9eac5fc1ccd..caa3df7367c93b76d08516b62885841e
  
  PRODUCT_PACKAGES_DEBUG += \
 
-commit e0a0723d5cf8884763f5134524818bf0bd8c1ffa
+commit e520ac892f108de606cf427c99f5c5dca99af9e2
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:16:59-0400
 
@@ -497,7 +497,7 @@ Date:   Wed 2020-10-14 19:16:59-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index caa3df7367c93b76d08516b62885841e3d9ddb85..e3621f7c21b8ecb82a303c8f9f02367b1cd11caa 100644
+index f2836bcd42da4fc49585bb1bb1f5b49e9a6b0412..b157fb09f7f35c7ac17f5c855d543fda6229b1ad 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -754,21 +754,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -551,7 +551,7 @@ index ea46820150f4cb83a6d65525c9c75da527c86a7d..1ab6df86faac622ac426ddf239c677d9
      <bool name="config_pinnerCameraApp">true</bool>
  
 
-commit a64c71eeffcc27f818e8acbd4786323c6c665455
+commit 51ca7b738f5204e4e9c101175bad5516548bad05
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:25-0400
 
@@ -588,7 +588,7 @@ index 1ab6df86faac622ac426ddf239c677d957da6f0b..99fa2f8a623cfb31647560cb5bab30d7
          <item>"usb\\d"</item>
          <item>"rndis\\d"</item>
 
-commit 5be369e74c7ed7cf57429902b3841dcb7e7585c9
+commit 4e5d419fbac72de0cab2cb12ee54f778cc0bdd93
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:17:50-0400
 
@@ -598,7 +598,7 @@ Date:   Wed 2020-10-14 19:17:50-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index e3621f7c21b8ecb82a303c8f9f02367b1cd11caa..32da229e14965ce80e7315ff2a4ae75ef7c4c488 100644
+index b157fb09f7f35c7ac17f5c855d543fda6229b1ad..521ddda5beae3e0464287e000d5bc855bc3869c6 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -88,23 +88,20 @@ PRODUCT_COPY_FILES += \
@@ -626,7 +626,7 @@ index e3621f7c21b8ecb82a303c8f9f02367b1cd11caa..32da229e14965ce80e7315ff2a4ae75e
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.$(PRODUCT_PLATFORM) \
      $(LOCAL_PATH)/fstab.hardware:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.$(PRODUCT_PLATFORM) \
 
-commit 0c6a1deb026e46fe0ae2b332c5e21ac3dfa8d45c
+commit dc73e361386c05e2b3cb2c7c5fecd4a43bd48365
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Wed 2020-07-22 18:40:15+0000
 
@@ -639,10 +639,10 @@ Date:   Wed 2020-07-22 18:40:15+0000
  1 file changed, 3 insertions(+)
 
 diff --git a/init.hardware.rc b/init.hardware.rc
-index cc808edd3fd4aaa324e0cfa4b37c3fb55d1cd92c..678fb9a10733c1da5b32d550e83709203b8e23db 100644
+index 3db11d9a28bfed5286441cc99630f668fd7750a2..3cea138d08e07c8a213d3e8bf42b10145e7fd26f 100644
 --- a/init.hardware.rc
 +++ b/init.hardware.rc
-@@ -347,20 +347,23 @@ on zygote-start
+@@ -350,20 +350,23 @@ on zygote-start
      mkdir /data/vendor/location/mq 0770 gps gps
      mkdir /data/vendor/location/xtwifi 0770 gps gps
      mkdir /dev/socket/location 0770 gps gps
@@ -667,7 +667,7 @@ index cc808edd3fd4aaa324e0cfa4b37c3fb55d1cd92c..678fb9a10733c1da5b32d550e8370920
      mkdir /data/vendor/sensors 0770
      chown system system /data/vendor/sensors
 
-commit b073c294f67a7d660d19db326c10fd5b79038526
+commit 955dfc2d1b9737e231d4ad5fe30477fa5f52c198
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Sat 2020-11-14 02:09:38+0000
 
@@ -778,7 +778,7 @@ index d27d483bdd519620efa0f58c2da2a92108332b14..e6d6cbe0d83817969f2b904a57afe12a
  /devices/platform/soc/a600000.ssusb/a600000.dwc3*       auto                   vfat    defaults                                             voldmanaged=usb:auto
  /dev/block/zram0                                        none                   swap    defaults                                             zramsize=2147483648,max_comp_streams=8,zram_backingdev_size=512M
 
-commit 5155b987701116ce315bb130a0c3efb7c078892e
+commit 10d6be13b3dc41d449d82aaa58265210dc1f199d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-02-11 22:30:29-0500
 
@@ -788,7 +788,7 @@ Date:   Thu 2021-02-11 22:30:29-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/device-common.mk b/device-common.mk
-index 32da229e14965ce80e7315ff2a4ae75ef7c4c488..003b2c63e194392f234c1cfbf6b9336d93876f1e 100644
+index 521ddda5beae3e0464287e000d5bc855bc3869c6..772bc021ec99e8f23e189507bc7d67fb3462b5bc 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -842,20 +842,22 @@ endif
@@ -815,7 +815,7 @@ index 32da229e14965ce80e7315ff2a4ae75ef7c4c488..003b2c63e194392f234c1cfbf6b9336d
  PRODUCT_PROPERTY_OVERRIDES += aaudio.mmap_policy=2
  # 1 is AAUDIO_POLICY_NEVER  means only use SHARED mode
 
-commit aa1f18dcdbab44f8e80ecef7b4852374060c374b
+commit 35128d9cb03c4496986a5223a11d95c640229722
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -873,7 +873,7 @@ index 0000000000000000000000000000000000000000..333bb3248d690c8fdeef553d5dbb801c
 +    </integer-array>
 +</resources>
 
-commit 1bc3964323cfa407d39d677ea0edced3c9187e32
+commit 0e9bd4311ff1d1036892a15bf9de7adb7376a1fb
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 02:35:39+0100
 
@@ -883,7 +883,7 @@ Date:   Sun 2021-10-10 02:35:39+0100
  1 file changed, 3 deletions(-)
 
 diff --git a/device-common.mk b/device-common.mk
-index 003b2c63e194392f234c1cfbf6b9336d93876f1e..f0fe2426d44fa0b64c6a9c575329b7cdede52104 100644
+index 772bc021ec99e8f23e189507bc7d67fb3462b5bc..bc6eb9e4b033e9512b1da6bcad129189cc358fc3 100644
 --- a/device-common.mk
 +++ b/device-common.mk
 @@ -947,23 +947,20 @@ endif
@@ -911,7 +911,7 @@ index 003b2c63e194392f234c1cfbf6b9336d93876f1e..f0fe2426d44fa0b64c6a9c575329b7cd
  
  # Set system properties identifying the chipset
 
-commit da1a5b3b164febe76b431148ad56fe3fa1709754
+commit 6f19253ab105c2e33cdcfadef8b1916a6d78c2e6
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 19:12:42-0700
 
@@ -947,7 +947,7 @@ index 99fa2f8a623cfb31647560cb5bab30d7c2205412..7642a8919c0d52d003adc7144cbc2194
 +    <bool name="config_supportsCamToggle">true</bool>
  </resources>
 
-commit 4d1a9e8353f4fd530005b108d90f3694c5f6e8ed
+commit c4179a9c12c64c13a2213e66e973a5e6442c8fa0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-11 17:56:30-0400
 
@@ -999,7 +999,7 @@ index f7d1f95f671a1da497d140fbb163d539f63a5c6a..cde1cbced48d2eb90451ff30942222b3
  BOARD_KERNEL_CMDLINE += lpm_levels.sleep_disabled=1 # STOPSHIP b/113233473
  BOARD_KERNEL_CMDLINE += usbcore.autosuspend=7
 
-commit 1c618400fd0e1c817e7d1e37580b072cf3751cfb (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit f62634f694d5b22e2e2ed27376166afccbcbe889
 Author: Diab Neiroukh <lazerl0rd@thezest.dev>
 Date:   Thu 2021-06-10 15:33:53+0100
 
@@ -1031,3 +1031,80 @@ index 7642a8919c0d52d003adc7144cbc2194557b2614..33b8e1cf90e14dc19376799c823721a5
 +    <!-- Whether device supports increased touch sensitvity -->
 +    <bool name="config_supportGloveMode">true</bool>
  </resources>
+
+commit c22dc86ef57bc4b8f7495c6cb95179e5a4445cff
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2022-03-05 21:52:20+0000
+
+    Revert "Do not set ro.incremental.enable via kernel module"
+    
+    This reverts commit 1bc3964323cfa407d39d677ea0edced3c9187e32.
+---
+ device-common.mk | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/device-common.mk b/device-common.mk
+index bc6eb9e4b033e9512b1da6bcad129189cc358fc3..772bc021ec99e8f23e189507bc7d67fb3462b5bc 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -947,20 +947,23 @@ endif
+ # Disable Rescue Party on userdebug & eng build
+ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ PRODUCT_PRODUCT_PROPERTIES += \
+     persist.sys.disable_rescue=true
+ endif
+ 
+ # Set support one-handed mode
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.support_one_handed_mode=true
+ 
++# Enable Incremental on the device via kernel module
++PRODUCT_PROPERTY_OVERRIDES += \
++        ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
+ 
+ # Enforce generic ramdisk allow list
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+ 
+ # Enable watchdog timeout loop breaker.
+ PRODUCT_PROPERTY_OVERRIDES += \
+     framework_watchdog.fatal_window.second=600 \
+     framework_watchdog.fatal_count=3
+ 
+ # Set system properties identifying the chipset
+
+commit 45419beaa78fc1edb2deba22eec01bcec1f93cc6 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Sat 2022-03-05 21:53:01+0000
+
+    Enable Incremental support with inline kernel modules
+---
+ device-common.mk | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/device-common.mk b/device-common.mk
+index 772bc021ec99e8f23e189507bc7d67fb3462b5bc..a6a19c2d801806c9dbd89e486fed4c7d1df3df82 100644
+--- a/device-common.mk
++++ b/device-common.mk
+@@ -949,21 +949,21 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+ PRODUCT_PRODUCT_PROPERTIES += \
+     persist.sys.disable_rescue=true
+ endif
+ 
+ # Set support one-handed mode
+ PRODUCT_PRODUCT_PROPERTIES += \
+     ro.support_one_handed_mode=true
+ 
+ # Enable Incremental on the device via kernel module
+ PRODUCT_PROPERTY_OVERRIDES += \
+-        ro.incremental.enable=module:/vendor/lib/modules/incrementalfs.ko
++        ro.incremental.enable=yes
+ 
+ # Enforce generic ramdisk allow list
+ $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_ramdisk.mk)
+ 
+ # Enable watchdog timeout loop breaker.
+ PRODUCT_PROPERTY_OVERRIDES += \
+     framework_watchdog.fatal_window.second=600 \
+     framework_watchdog.fatal_count=3
+ 
+ # Set system properties identifying the chipset

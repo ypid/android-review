@@ -3029,7 +3029,7 @@ index 0000000000000000000000000000000000000000..634e624ffec75e0600caa67b03c45aaa
 +    <allow-in-power-save package="com.android.deskclock" />
 +</config>
 
-commit d5ceb23e490b1aba148beee45c035bc0feeab02c (tag: SQ1A.220105.002.2022010500, tag: SP1A.211105.002.2021110617)
+commit d5ceb23e490b1aba148beee45c035bc0feeab02c
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-12-07 18:49:09-0500
 
@@ -3169,7 +3169,7 @@ index ce1e43709407b456fe374798685b957454c04518..9273a351a2b61782773bba2adcff97d6
  
      <!-- WRITE_SETTINGS is required to record the upcoming alarm prior to L -->
 
-commit 852355c7ff8c91c4f9dd49edcb887ca2facf2819 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12-raviole, grapheneos/12)
+commit 852355c7ff8c91c4f9dd49edcb887ca2facf2819
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sat 2022-02-05 16:32:10+0000
 
@@ -3278,3 +3278,98 @@ index 0000000000000000000000000000000000000000..f42ada656ee26e30d170aaa67989f0f1
 +<resources>
 +    <color name="ic_launcher_background">#FFFFFF</color>
 +</resources>
+
+commit 08ed287d93411b3fa6fc8ca9dadfdf570605b5e3
+Author: smdyv <88971341+smdyv@users.noreply.github.com>
+Date:   Wed 2022-02-09 11:25:30+0100
+
+    Replace launcher icon
+---
+ res/drawable/ic_launcher_foreground.xml | 28 ++++++++++++++--------------
+ 1 file changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/res/drawable/ic_launcher_foreground.xml b/res/drawable/ic_launcher_foreground.xml
+index 9d82da76847a89fca1a3a3ecc156e88fcf54df29..247aab7b79b410b200bf5c30de2905688bf64ea2 100644
+--- a/res/drawable/ic_launcher_foreground.xml
++++ b/res/drawable/ic_launcher_foreground.xml
+@@ -6,25 +6,25 @@
+   You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+-  <vector xmlns:android="http://schemas.android.com/apk/res/android"
+-  android:width="108dp"
+-  android:height="108dp"
+-  android:viewportWidth="108"
+-  android:viewportHeight="108"
+-  android:tint="?attr/colorControlNormal">
+-<group android:scaleX="2.25"
+-    android:scaleY="2.25"
+-    android:translateX="27"
+-    android:translateY="27">
+-  <path
+-      android:fillColor="@android:color/black"
+-      android:pathData="M12.5,8L11,8v6l4.75,2.85 0.75,-1.23 -4,-2.37zM17.337,1.81l4.607,3.845 -1.28,1.535 -4.61,-3.843zM6.663,1.81l1.282,1.536L3.337,7.19l-1.28,-1.536zM12,4c-4.97,0 -9,4.03 -9,9s4.03,9 9,9 9,-4.03 9,-9 -4.03,-9 -9,-9zM12,20c-3.86,0 -7,-3.14 -7,-7s3.14,-7 7,-7 7,3.14 7,7 -3.14,7 -7,7z"/>
+-</group>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <group
++        android:scaleX="1.9688764"
++        android:scaleY="1.9688764"
++        android:translateX="30.373484"
++        android:translateY="30.154718">
++        <path
++            android:fillColor="#000000"
++            android:pathData="M15.87,15.25l-3.37,-2L12.5,8.72c0,-0.4 -0.32,-0.72 -0.72,-0.72h-0.06c-0.4,0 -0.72,0.32 -0.72,0.72v4.72c0,0.35 0.18,0.68 0.49,0.86l3.65,2.19c0.34,0.2 0.78,0.1 0.98,-0.24 0.21,-0.35 0.1,-0.8 -0.25,-1zM21.18,5.01L18.1,2.45c-0.42,-0.35 -1.05,-0.3 -1.41,0.13 -0.35,0.42 -0.29,1.05 0.13,1.41l3.07,2.56c0.42,0.35 1.05,0.3 1.41,-0.13 0.36,-0.42 0.3,-1.05 -0.12,-1.41zM4.1,6.55l3.07,-2.56c0.43,-0.36 0.49,-0.99 0.13,-1.41 -0.35,-0.43 -0.98,-0.48 -1.4,-0.13L2.82,5.01c-0.42,0.36 -0.48,0.99 -0.12,1.41 0.35,0.43 0.98,0.48 1.4,0.13zM12,4c-4.97,0 -9,4.03 -9,9s4.03,9 9,9 9,-4.03 9,-9 -4.03,-9 -9,-9zM12,20c-3.86,0 -7,-3.14 -7,-7s3.14,-7 7,-7 7,3.14 7,7 -3.14,7 -7,7z" />
++    </group>
+ </vector>
+
+commit 602b278dc33821b3831b093600c13579ec35fa7b (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: smdyv <88971341+smdyv@users.noreply.github.com>
+Date:   Thu 2022-02-17 18:06:04+0100
+
+    Use clock icon instead of alarm clock icon
+---
+ res/drawable/ic_launcher_foreground.xml | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/res/drawable/ic_launcher_foreground.xml b/res/drawable/ic_launcher_foreground.xml
+index 247aab7b79b410b200bf5c30de2905688bf64ea2..20f90940738a49f35aefd47dac1a867d65064c9f 100644
+--- a/res/drawable/ic_launcher_foreground.xml
++++ b/res/drawable/ic_launcher_foreground.xml
+@@ -12,19 +12,19 @@
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+ <vector xmlns:android="http://schemas.android.com/apk/res/android"
+     android:width="108dp"
+     android:height="108dp"
+     android:viewportWidth="108"
+     android:viewportHeight="108">
+     <group
+-        android:scaleX="1.9688764"
+-        android:scaleY="1.9688764"
+-        android:translateX="30.373484"
+-        android:translateY="30.154718">
++        android:scaleX="2.31"
++        android:scaleY="2.31"
++        android:translateX="26.28"
++        android:translateY="26.28">
+         <path
+             android:fillColor="#000000"
+-            android:pathData="M15.87,15.25l-3.37,-2L12.5,8.72c0,-0.4 -0.32,-0.72 -0.72,-0.72h-0.06c-0.4,0 -0.72,0.32 -0.72,0.72v4.72c0,0.35 0.18,0.68 0.49,0.86l3.65,2.19c0.34,0.2 0.78,0.1 0.98,-0.24 0.21,-0.35 0.1,-0.8 -0.25,-1zM21.18,5.01L18.1,2.45c-0.42,-0.35 -1.05,-0.3 -1.41,0.13 -0.35,0.42 -0.29,1.05 0.13,1.41l3.07,2.56c0.42,0.35 1.05,0.3 1.41,-0.13 0.36,-0.42 0.3,-1.05 -0.12,-1.41zM4.1,6.55l3.07,-2.56c0.43,-0.36 0.49,-0.99 0.13,-1.41 -0.35,-0.43 -0.98,-0.48 -1.4,-0.13L2.82,5.01c-0.42,0.36 -0.48,0.99 -0.12,1.41 0.35,0.43 0.98,0.48 1.4,0.13zM12,4c-4.97,0 -9,4.03 -9,9s4.03,9 9,9 9,-4.03 9,-9 -4.03,-9 -9,-9zM12,20c-3.86,0 -7,-3.14 -7,-7s3.14,-7 7,-7 7,3.14 7,7 -3.14,7 -7,7z" />
++            android:pathData="M11.99,2C6.47,2 2,6.48 2,12s4.47,10 9.99,10C17.52,22 22,17.52 22,12S17.52,2 11.99,2zM12,20c-4.42,0 -8,-3.58 -8,-8s3.58,-8 8,-8 8,3.58 8,8 -3.58,8 -8,8zM11.78,7h-0.06c-0.4,0 -0.72,0.32 -0.72,0.72v4.72c0,0.35 0.18,0.68 0.49,0.86l4.15,2.49c0.34,0.2 0.78,0.1 0.98,-0.24 0.21,-0.34 0.1,-0.79 -0.25,-0.99l-3.87,-2.3L12.5,7.72c0,-0.4 -0.32,-0.72 -0.72,-0.72z" />
+     </group>
+-</vector>
++</vector>
+\ No newline at end of file

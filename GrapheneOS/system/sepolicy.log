@@ -1,17 +1,17 @@
-commit d2f15161ded2a5728da804cc4a7cad07b8bf880d
+commit 20aae851740df7bdfb30b7758c25d4d29354043b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-09-14 23:59:13-0400
 
     disable unused gmscore_app domain
 ---
- prebuilts/api/31.0/private/seapp_contexts | 4 ----
+ prebuilts/api/32.0/private/seapp_contexts | 4 ----
  private/seapp_contexts                    | 4 ----
  2 files changed, 8 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/seapp_contexts b/prebuilts/api/31.0/private/seapp_contexts
+diff --git a/prebuilts/api/32.0/private/seapp_contexts b/prebuilts/api/32.0/private/seapp_contexts
 index 1d38fd926c250e12f250f5359d82293862398c17..a7ed61f782b086fe8a3778dc2df68752ff268a47 100644
---- a/prebuilts/api/31.0/private/seapp_contexts
-+++ b/prebuilts/api/31.0/private/seapp_contexts
+--- a/prebuilts/api/32.0/private/seapp_contexts
++++ b/prebuilts/api/32.0/private/seapp_contexts
 @@ -157,21 +157,17 @@ user=_isolated domain=isolated_app levelFrom=user
  user=_app seinfo=app_zygote domain=app_zygote levelFrom=user
  user=_app seinfo=media domain=mediaprovider type=app_data_file levelFrom=user
@@ -61,20 +61,20 @@ index 1d38fd926c250e12f250f5359d82293862398c17..a7ed61f782b086fe8a3778dc2df68752
  user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit d80a74207f401bf1fa069d314a69ff657dd2d4e0
+commit b8e016e7b3bc6f8202d41daa6ebd837002f43158
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2017-02-17 18:14:24-0500
 
     expose sys.update. to adb shell
 ---
- prebuilts/api/31.0/private/property_contexts | 1 +
+ prebuilts/api/32.0/private/property_contexts | 1 +
  private/property_contexts                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index a51fa3a07f7beb02e52d78c47c9320db668dfd68..73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae 100644
---- a/prebuilts/api/31.0/private/property_contexts
-+++ b/prebuilts/api/31.0/private/property_contexts
+diff --git a/prebuilts/api/32.0/private/property_contexts b/prebuilts/api/32.0/private/property_contexts
+index f235b35b710fcc4dfd04c070146554f6dfcb92d8..7ba633b447e7a91c3e5ebaa005a13f16a73bf804 100644
+--- a/prebuilts/api/32.0/private/property_contexts
++++ b/prebuilts/api/32.0/private/property_contexts
 @@ -39,20 +39,21 @@ init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
  llk.                    u:object_r:llkd_prop:s0
  khungtask.              u:object_r:llkd_prop:s0
@@ -98,7 +98,7 @@ index a51fa3a07f7beb02e52d78c47c9320db668dfd68..73962ef01a11deb1482da2e0c7e3bd17
  logd.                   u:object_r:logd_prop:s0
  persist.logd.           u:object_r:logd_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index a51fa3a07f7beb02e52d78c47c9320db668dfd68..73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae 100644
+index f235b35b710fcc4dfd04c070146554f6dfcb92d8..7ba633b447e7a91c3e5ebaa005a13f16a73bf804 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -39,20 +39,21 @@ init.svc_debug_pid.     u:object_r:init_svc_debug_prop:s0
@@ -124,32 +124,34 @@ index a51fa3a07f7beb02e52d78c47c9320db668dfd68..73962ef01a11deb1482da2e0c7e3bd17
  logd.                   u:object_r:logd_prop:s0
  persist.logd.           u:object_r:logd_prop:s0
 
-commit 58fe8dee39dee0641bb3467f96c66f34fe58e18d
+commit 839a095029161aeeb93fa95cbfbbecad7bb710fa
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 00:08:40-0400
 
     add SELinux domain for Updater app
 ---
- prebuilts/api/31.0/private/app_neverallows.te          |  2 +-
- prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil |  1 +
- prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil |  1 +
- prebuilts/api/31.0/private/seapp_contexts              |  1 +
- prebuilts/api/31.0/private/updater_app.te (new)        | 17 +++++++++++++++++
- prebuilts/api/31.0/public/update_engine.te             |  1 +
- prebuilts/api/31.0/public/updater_app.te (new)         |  5 +++++
+ prebuilts/api/32.0/private/app_neverallows.te          |  2 +-
+ prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil |  1 +
+ prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil |  1 +
+ prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil |  1 +
+ prebuilts/api/32.0/private/seapp_contexts              |  1 +
+ prebuilts/api/32.0/private/updater_app.te (new)        | 17 +++++++++++++++++
+ prebuilts/api/32.0/public/update_engine.te             |  1 +
+ prebuilts/api/32.0/public/updater_app.te (new)         |  5 +++++
  private/app_neverallows.te                             |  2 +-
  private/compat/29.0/29.0.ignore.cil                    |  1 +
  private/compat/30.0/30.0.ignore.cil                    |  1 +
+ private/compat/31.0/31.0.ignore.cil                    |  1 +
  private/seapp_contexts                                 |  1 +
  private/updater_app.te (new)                           | 17 +++++++++++++++++
  public/update_engine.te                                |  1 +
  public/updater_app.te (new)                            |  5 +++++
- 14 files changed, 54 insertions(+), 2 deletions(-)
+ 16 files changed, 56 insertions(+), 2 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/app_neverallows.te b/prebuilts/api/31.0/private/app_neverallows.te
+diff --git a/prebuilts/api/32.0/private/app_neverallows.te b/prebuilts/api/32.0/private/app_neverallows.te
 index c7fa4e8c5081986b7cabd525b5803412a0ad069e..82713420ca2e80103c630ee6398afd478ac8b3bd 100644
---- a/prebuilts/api/31.0/private/app_neverallows.te
-+++ b/prebuilts/api/31.0/private/app_neverallows.te
+--- a/prebuilts/api/32.0/private/app_neverallows.te
++++ b/prebuilts/api/32.0/private/app_neverallows.te
 @@ -129,21 +129,21 @@ neverallow {
  
  # Do not allow untrusted apps access to /cache
@@ -173,10 +175,10 @@ index c7fa4e8c5081986b7cabd525b5803412a0ad069e..82713420ca2e80103c630ee6398afd47
                              # leave artfacts here after uninstall.
    -user_profile_data_file   # Access to profile files
    userdebug_or_eng(`
-diff --git a/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
 index 10790468f16ced385ff7d8a87a6e765788b1a12d..b47eb81b867c9e38093dc21d4d490707c7d85fcc 100644
---- a/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
 @@ -106,20 +106,21 @@
      system_group_file
      system_jvmti_agent_prop
@@ -199,11 +201,11 @@ index 10790468f16ced385ff7d8a87a6e765788b1a12d..b47eb81b867c9e38093dc21d4d490707
      vendor_apex_file
      vendor_boringssl_self_test
      vendor_install_recovery
-diff --git a/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil b/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-index 0c36aed13958ef17837a9f7f2635a05a9c6202d2..c5feb2de245de96952d480c4dbeb9aab07e27ffe 100644
---- a/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-@@ -130,20 +130,21 @@
+diff --git a/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil b/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
+index e4acfe8a4a05cd510e7c45a665600f14c6751b40..a8d7421a2cb067cff6dcb6db86c7f3627c9e4357 100644
+--- a/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
+@@ -131,20 +131,21 @@
      sysfs_devices_cs_etm
      sysfs_dma_heap
      sysfs_dmabuf_stats
@@ -225,10 +227,25 @@ index 0c36aed13958ef17837a9f7f2635a05a9c6202d2..c5feb2de245de96952d480c4dbeb9aab
      vibrator_manager_service
      virtualization_service
      vpn_management_service
-diff --git a/prebuilts/api/31.0/private/seapp_contexts b/prebuilts/api/31.0/private/seapp_contexts
+diff --git a/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil b/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
+index 4e95cc6e485e6c8f4fbda9c838d9b6cbbd59b1ca..45e8322ebc8a0249de9d58d7a3df855c8d46ab5b 100644
+--- a/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
+@@ -1,9 +1,10 @@
+ ;; new_objects - a collection of types that have been introduced that have no
+ ;;   analogue in older policy.  Thus, we do not need to map these types to
+ ;;   previous ones.  Add here to pass checkapi tests.
+ (type new_objects)
+ (typeattribute new_objects)
+ (typeattributeset new_objects
+   ( new_objects
+     hypervisor_prop
++    updater_app
+   ))
+diff --git a/prebuilts/api/32.0/private/seapp_contexts b/prebuilts/api/32.0/private/seapp_contexts
 index a7ed61f782b086fe8a3778dc2df68752ff268a47..e11e144b6a5db1e0edb8d52eb78bb41aec17c006 100644
---- a/prebuilts/api/31.0/private/seapp_contexts
-+++ b/prebuilts/api/31.0/private/seapp_contexts
+--- a/prebuilts/api/32.0/private/seapp_contexts
++++ b/prebuilts/api/32.0/private/seapp_contexts
 @@ -157,17 +157,18 @@ user=_isolated domain=isolated_app levelFrom=user
  user=_app seinfo=app_zygote domain=app_zygote levelFrom=user
  user=_app seinfo=media domain=mediaprovider type=app_data_file levelFrom=user
@@ -248,11 +265,11 @@ index a7ed61f782b086fe8a3778dc2df68752ff268a47..e11e144b6a5db1e0edb8d52eb78bb41a
  user=_app domain=untrusted_app_25 type=app_data_file levelFrom=user
  user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
  user=_app fromRunAs=true domain=runas_app levelFrom=user
-diff --git a/prebuilts/api/31.0/private/updater_app.te b/prebuilts/api/31.0/private/updater_app.te
+diff --git a/prebuilts/api/32.0/private/updater_app.te b/prebuilts/api/32.0/private/updater_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..0ce047b97a01f2c1c30e723cd2b9ccb827993892
 --- /dev/null
-+++ b/prebuilts/api/31.0/private/updater_app.te
++++ b/prebuilts/api/32.0/private/updater_app.te
 @@ -0,0 +1,17 @@
 +###
 +### Updater app
@@ -271,10 +288,10 @@ index 0000000000000000000000000000000000000000..0ce047b97a01f2c1c30e723cd2b9ccb8
 +# Allow Updater to communicate with update_engine for A/B update.
 +binder_call(updater_app, update_engine)
 +allow updater_app update_engine_service:service_manager find;
-diff --git a/prebuilts/api/31.0/public/update_engine.te b/prebuilts/api/31.0/public/update_engine.te
+diff --git a/prebuilts/api/32.0/public/update_engine.te b/prebuilts/api/32.0/public/update_engine.te
 index ab7090bbc6b793d664809eaa615b17f8a7f13f00..5523ff22e33904f6c2a7f4b528e4e0770f28792e 100644
---- a/prebuilts/api/31.0/public/update_engine.te
-+++ b/prebuilts/api/31.0/public/update_engine.te
+--- a/prebuilts/api/32.0/public/update_engine.te
++++ b/prebuilts/api/32.0/public/update_engine.te
 @@ -40,20 +40,21 @@ add_service(update_engine, update_engine_stable_service)
  # Allow update_engine to call the callback function provided by priv_app/GMS core.
  binder_call(update_engine, priv_app)
@@ -297,11 +314,11 @@ index ab7090bbc6b793d664809eaa615b17f8a7f13f00..5523ff22e33904f6c2a7f4b528e4e077
  
  # Use Boot Control HAL
  hal_client_domain(update_engine, hal_bootctl)
-diff --git a/prebuilts/api/31.0/public/updater_app.te b/prebuilts/api/31.0/public/updater_app.te
+diff --git a/prebuilts/api/32.0/public/updater_app.te b/prebuilts/api/32.0/public/updater_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..97a850ba19008bf220eb55c09bacf86f11f01e37
 --- /dev/null
-+++ b/prebuilts/api/31.0/public/updater_app.te
++++ b/prebuilts/api/32.0/public/updater_app.te
 @@ -0,0 +1,5 @@
 +###
 +### Updater app
@@ -362,10 +379,10 @@ index 10790468f16ced385ff7d8a87a6e765788b1a12d..b47eb81b867c9e38093dc21d4d490707
      vendor_boringssl_self_test
      vendor_install_recovery
 diff --git a/private/compat/30.0/30.0.ignore.cil b/private/compat/30.0/30.0.ignore.cil
-index 0c36aed13958ef17837a9f7f2635a05a9c6202d2..c5feb2de245de96952d480c4dbeb9aab07e27ffe 100644
+index e4acfe8a4a05cd510e7c45a665600f14c6751b40..a8d7421a2cb067cff6dcb6db86c7f3627c9e4357 100644
 --- a/private/compat/30.0/30.0.ignore.cil
 +++ b/private/compat/30.0/30.0.ignore.cil
-@@ -130,20 +130,21 @@
+@@ -131,20 +131,21 @@
      sysfs_devices_cs_etm
      sysfs_dma_heap
      sysfs_dmabuf_stats
@@ -387,6 +404,21 @@ index 0c36aed13958ef17837a9f7f2635a05a9c6202d2..c5feb2de245de96952d480c4dbeb9aab
      vibrator_manager_service
      virtualization_service
      vpn_management_service
+diff --git a/private/compat/31.0/31.0.ignore.cil b/private/compat/31.0/31.0.ignore.cil
+index 4e95cc6e485e6c8f4fbda9c838d9b6cbbd59b1ca..45e8322ebc8a0249de9d58d7a3df855c8d46ab5b 100644
+--- a/private/compat/31.0/31.0.ignore.cil
++++ b/private/compat/31.0/31.0.ignore.cil
+@@ -1,9 +1,10 @@
+ ;; new_objects - a collection of types that have been introduced that have no
+ ;;   analogue in older policy.  Thus, we do not need to map these types to
+ ;;   previous ones.  Add here to pass checkapi tests.
+ (type new_objects)
+ (typeattribute new_objects)
+ (typeattributeset new_objects
+   ( new_objects
+     hypervisor_prop
++    updater_app
+   ))
 diff --git a/private/seapp_contexts b/private/seapp_contexts
 index a7ed61f782b086fe8a3778dc2df68752ff268a47..e11e144b6a5db1e0edb8d52eb78bb41aec17c006 100644
 --- a/private/seapp_contexts
@@ -471,7 +503,7 @@ index 0000000000000000000000000000000000000000..97a850ba19008bf220eb55c09bacf86f
 +
 +type updater_app, domain;
 
-commit 186e8e8cb501a92d8341e6b58bd71682c56d2582
+commit 9fa803f0a814c54288861f83590e5602e9b7f073
 Author: aeonsolution@protonmail.com <theaeonsolution@protonmail.com>
 Date:   Mon 2020-09-14 23:37:37-0500
 
@@ -479,14 +511,14 @@ Date:   Mon 2020-09-14 23:37:37-0500
     
     This is already permitted for priv_app and even untrusted_app.
 ---
- prebuilts/api/31.0/private/platform_app.te | 1 +
+ prebuilts/api/32.0/private/platform_app.te | 1 +
  private/platform_app.te                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/platform_app.te b/prebuilts/api/31.0/private/platform_app.te
+diff --git a/prebuilts/api/32.0/private/platform_app.te b/prebuilts/api/32.0/private/platform_app.te
 index f746f1cc400505810dc68c9749228a2954866d45..8bff85d77a5479a811a6c648b7d3f93824674aad 100644
---- a/prebuilts/api/31.0/private/platform_app.te
-+++ b/prebuilts/api/31.0/private/platform_app.te
+--- a/prebuilts/api/32.0/private/platform_app.te
++++ b/prebuilts/api/32.0/private/platform_app.te
 @@ -52,20 +52,21 @@ userdebug_or_eng(`
    auditallow platform_app proc_net_type:{ dir file lnk_file } { getattr open read };
  ')
@@ -536,7 +568,7 @@ index f746f1cc400505810dc68c9749228a2954866d45..8bff85d77a5479a811a6c648b7d3f938
  
  # Allow platform apps to log via statsd.
 
-commit ab8c62ef5700c5dcedf800f393cc2f3c2cae54a0
+commit 452bfdca38a4ffc3d3a2df9439694fcb8d0f9def
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-07-18 21:21:40-0400
 
@@ -546,14 +578,14 @@ Date:   Thu 2019-07-18 21:21:40-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/genfs_contexts | 2 ++
+ prebuilts/api/32.0/private/genfs_contexts | 2 ++
  private/genfs_contexts                    | 2 ++
  2 files changed, 4 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/genfs_contexts b/prebuilts/api/31.0/private/genfs_contexts
+diff --git a/prebuilts/api/32.0/private/genfs_contexts b/prebuilts/api/32.0/private/genfs_contexts
 index 13bfb46e1c5f76074f0d214ec851a0531e31de7c..30f3496e6ceccc92d2780d6636250276f355107a 100644
---- a/prebuilts/api/31.0/private/genfs_contexts
-+++ b/prebuilts/api/31.0/private/genfs_contexts
+--- a/prebuilts/api/32.0/private/genfs_contexts
++++ b/prebuilts/api/32.0/private/genfs_contexts
 @@ -32,21 +32,23 @@ genfscon proc /pressure/cpu u:object_r:proc_pressure_cpu:s0
  genfscon proc /pressure/io u:object_r:proc_pressure_io:s0
  genfscon proc /pressure/memory u:object_r:proc_pressure_mem:s0
@@ -607,20 +639,20 @@ index 13bfb46e1c5f76074f0d214ec851a0531e31de7c..30f3496e6ceccc92d2780d6636250276
  genfscon proc /sys/kernel/hotplug u:object_r:usermodehelper:s0
  genfscon proc /sys/kernel/hung_task_ u:object_r:proc_hung_task:s0
 
-commit 30d70fe6ab627442ae64b9d8f964d245a71a0fbd
+commit 92eac7141fa9fbf75a87cbbd3aefa36c882d4347
 Author: inthewaves <inthewaves@pm.me>
 Date:   Mon 2021-10-11 02:16:39+0100
 
     allow system to use persist.keyguard.camera
 ---
- prebuilts/api/31.0/private/property_contexts | 1 +
+ prebuilts/api/32.0/private/property_contexts | 1 +
  private/property_contexts                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index 73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae..b6c347f6d388c489c1021df4f38600e3e28ef4ee 100644
---- a/prebuilts/api/31.0/private/property_contexts
-+++ b/prebuilts/api/31.0/private/property_contexts
+diff --git a/prebuilts/api/32.0/private/property_contexts b/prebuilts/api/32.0/private/property_contexts
+index 7ba633b447e7a91c3e5ebaa005a13f16a73bf804..500618349d00dbd0f542deb301c7267b5eab926d 100644
+--- a/prebuilts/api/32.0/private/property_contexts
++++ b/prebuilts/api/32.0/private/property_contexts
 @@ -48,20 +48,21 @@ security.lower_kptr_restrict u:object_r:lower_kptr_restrict_prop:s0
  service.adb.root        u:object_r:shell_prop:s0
  sys.update.             u:object_r:shell_prop:s0
@@ -644,7 +676,7 @@ index 73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae..b6c347f6d388c489c1021df4f38600e3
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index 73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae..b6c347f6d388c489c1021df4f38600e3e28ef4ee 100644
+index 7ba633b447e7a91c3e5ebaa005a13f16a73bf804..500618349d00dbd0f542deb301c7267b5eab926d 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -48,20 +48,21 @@ security.lower_kptr_restrict u:object_r:lower_kptr_restrict_prop:s0
@@ -670,24 +702,24 @@ index 73962ef01a11deb1482da2e0c7e3bd17b1a7f3ae..b6c347f6d388c489c1021df4f38600e3
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 
-commit 95fc23148160e0e5db682f0b02bb271e86785048
+commit 1969d65929ce84a75f502cd4980ad8f10b10db0c
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Mon 2021-10-11 02:33:31+0100
 
     allow init to control kernel.yama.ptrace_scope
 ---
- prebuilts/api/31.0/private/domain.te      | 1 +
- prebuilts/api/31.0/private/genfs_contexts | 1 +
- prebuilts/api/31.0/public/init.te         | 3 +++
+ prebuilts/api/32.0/private/domain.te      | 1 +
+ prebuilts/api/32.0/private/genfs_contexts | 1 +
+ prebuilts/api/32.0/public/init.te         | 3 +++
  private/domain.te                         | 1 +
  private/genfs_contexts                    | 1 +
  public/init.te                            | 3 +++
  6 files changed, 10 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/domain.te b/prebuilts/api/31.0/private/domain.te
+diff --git a/prebuilts/api/32.0/private/domain.te b/prebuilts/api/32.0/private/domain.te
 index b91d36d85d24c202327f2f99d92ce505978c3e12..d4ca398de20fcec0a9aaf0515449ad1486d1ec5d 100644
---- a/prebuilts/api/31.0/private/domain.te
-+++ b/prebuilts/api/31.0/private/domain.te
+--- a/prebuilts/api/32.0/private/domain.te
++++ b/prebuilts/api/32.0/private/domain.te
 @@ -109,20 +109,21 @@ userdebug_or_eng(`
  allow domain linkerconfig_file:dir search;
  allow domain linkerconfig_file:file r_file_perms;
@@ -710,10 +742,10 @@ index b91d36d85d24c202327f2f99d92ce505978c3e12..d4ca398de20fcec0a9aaf0515449ad14
  } self:global_capability_class_set sys_ptrace;
  
  # Limit ability to generate hardware unique device ID attestations to priv_apps
-diff --git a/prebuilts/api/31.0/private/genfs_contexts b/prebuilts/api/31.0/private/genfs_contexts
+diff --git a/prebuilts/api/32.0/private/genfs_contexts b/prebuilts/api/32.0/private/genfs_contexts
 index 30f3496e6ceccc92d2780d6636250276f355107a..5c3332f1a888bc702ffccf9c76d5fb6fdc185d68 100644
---- a/prebuilts/api/31.0/private/genfs_contexts
-+++ b/prebuilts/api/31.0/private/genfs_contexts
+--- a/prebuilts/api/32.0/private/genfs_contexts
++++ b/prebuilts/api/32.0/private/genfs_contexts
 @@ -69,20 +69,21 @@ genfscon proc /sys/kernel/sched_latency_ns u:object_r:proc_sched:s0
  genfscon proc /sys/kernel/sched_rt_period_us u:object_r:proc_sched:s0
  genfscon proc /sys/kernel/sched_rt_runtime_us u:object_r:proc_sched:s0
@@ -736,10 +768,10 @@ index 30f3496e6ceccc92d2780d6636250276f355107a..5c3332f1a888bc702ffccf9c76d5fb6f
  genfscon proc /sys/vm/mmap_rnd_compat_bits u:object_r:proc_security:s0
  genfscon proc /sys/vm/page-cluster u:object_r:proc_page_cluster:s0
  genfscon proc /sys/vm/drop_caches u:object_r:proc_drop_caches:s0
-diff --git a/prebuilts/api/31.0/public/init.te b/prebuilts/api/31.0/public/init.te
+diff --git a/prebuilts/api/32.0/public/init.te b/prebuilts/api/32.0/public/init.te
 index ea5a9793d1042b5732672aa6f58ac3814d77f922..49b23ee6182110fedf14eac7dbe785d19bd97ebc 100644
---- a/prebuilts/api/31.0/public/init.te
-+++ b/prebuilts/api/31.0/public/init.te
+--- a/prebuilts/api/32.0/public/init.te
++++ b/prebuilts/api/32.0/public/init.te
 @@ -146,20 +146,23 @@ allow init metadata_file:dir mounton;
  allow init tmpfs:dir relabelfrom;
  
@@ -845,20 +877,20 @@ index ea5a9793d1042b5732672aa6f58ac3814d77f922..49b23ee6182110fedf14eac7dbe785d1
  # declarations.
  allow init {
 
-commit 4f19a00b1426f9fd97254f8b419b82bf5849d0b3
+commit 5009524a0aa2930c51dba42390a73bb0da376851
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Mon 2021-10-11 02:35:13+0100
 
     allow system to use persist.native_debug
 ---
- prebuilts/api/31.0/private/property_contexts | 1 +
+ prebuilts/api/32.0/private/property_contexts | 1 +
  private/property_contexts                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index b6c347f6d388c489c1021df4f38600e3e28ef4ee..4816516cd303441a8d7cc69007828cb0eb102893 100644
---- a/prebuilts/api/31.0/private/property_contexts
-+++ b/prebuilts/api/31.0/private/property_contexts
+diff --git a/prebuilts/api/32.0/private/property_contexts b/prebuilts/api/32.0/private/property_contexts
+index 500618349d00dbd0f542deb301c7267b5eab926d..7e933f87ac679869c0c5b7aca6a01c818cccf5d6 100644
+--- a/prebuilts/api/32.0/private/property_contexts
++++ b/prebuilts/api/32.0/private/property_contexts
 @@ -49,20 +49,21 @@ service.adb.root        u:object_r:shell_prop:s0
  sys.update.             u:object_r:shell_prop:s0
  service.adb.tls.port    u:object_r:adbd_prop:s0
@@ -882,7 +914,7 @@ index b6c347f6d388c489c1021df4f38600e3e28ef4ee..4816516cd303441a8d7cc69007828cb0
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index b6c347f6d388c489c1021df4f38600e3e28ef4ee..4816516cd303441a8d7cc69007828cb0eb102893 100644
+index 500618349d00dbd0f542deb301c7267b5eab926d..7e933f87ac679869c0c5b7aca6a01c818cccf5d6 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -49,20 +49,21 @@ service.adb.root        u:object_r:shell_prop:s0
@@ -908,7 +940,7 @@ index b6c347f6d388c489c1021df4f38600e3e28ef4ee..4816516cd303441a8d7cc69007828cb0
  persist.netd.stable_secret      u:object_r:netd_stable_secret_prop:s0
  persist.pm.mock-upgrade u:object_r:mock_ota_prop:s0
 
-commit 279d7027232ad17f70b9f4773a9ef4f297240103
+commit da305f6d213f94ffc6803fa45224fc5fbe6be3a1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-11 03:15:01+0100
 
@@ -918,25 +950,28 @@ Date:   Mon 2021-10-11 03:15:01+0100
  prebuilts/api/28.0/vendor_sepolicy.cil          | 2 +-
  prebuilts/api/29.0/plat_pub_versioned.cil       | 2 ++
  prebuilts/api/30.0/plat_pub_versioned.cil       | 2 ++
- prebuilts/api/31.0/private/compat/26.0/26.0.cil | 1 +
- prebuilts/api/31.0/private/compat/27.0/27.0.cil | 1 +
- prebuilts/api/31.0/private/compat/28.0/28.0.cil | 2 ++
- prebuilts/api/31.0/private/compat/29.0/29.0.cil | 2 ++
- prebuilts/api/31.0/private/compat/30.0/30.0.cil | 2 ++
- prebuilts/api/31.0/private/genfs_contexts       | 1 +
- prebuilts/api/31.0/private/property_contexts    | 1 +
- prebuilts/api/31.0/public/file.te               | 1 +
- prebuilts/api/31.0/public/init.te               | 1 +
+ prebuilts/api/31.0/plat_pub_versioned.cil       | 2 ++
+ prebuilts/api/32.0/private/compat/26.0/26.0.cil | 1 +
+ prebuilts/api/32.0/private/compat/27.0/27.0.cil | 1 +
+ prebuilts/api/32.0/private/compat/28.0/28.0.cil | 2 ++
+ prebuilts/api/32.0/private/compat/29.0/29.0.cil | 2 ++
+ prebuilts/api/32.0/private/compat/30.0/30.0.cil | 2 ++
+ prebuilts/api/32.0/private/compat/31.0/31.0.cil | 2 ++
+ prebuilts/api/32.0/private/genfs_contexts       | 1 +
+ prebuilts/api/32.0/private/property_contexts    | 1 +
+ prebuilts/api/32.0/public/file.te               | 1 +
+ prebuilts/api/32.0/public/init.te               | 1 +
  private/compat/26.0/26.0.cil                    | 1 +
  private/compat/27.0/27.0.cil                    | 1 +
  private/compat/28.0/28.0.cil                    | 2 ++
  private/compat/29.0/29.0.cil                    | 2 ++
  private/compat/30.0/30.0.cil                    | 2 ++
+ private/compat/31.0/31.0.cil                    | 2 ++
  private/genfs_contexts                          | 1 +
  private/property_contexts                       | 1 +
  public/file.te                                  | 1 +
  public/init.te                                  | 1 +
- 22 files changed, 34 insertions(+), 3 deletions(-)
+ 25 files changed, 40 insertions(+), 3 deletions(-)
 
 diff --git a/prebuilts/api/28.0/plat_pub_versioned.cil b/prebuilts/api/28.0/plat_pub_versioned.cil
 index d98a249a0b044859462db561931b7afd5c9ef82c..50df7caea1ecca9907bf0acfe8a85ba3974d9ac7 100644
@@ -1126,10 +1161,58 @@ index 3942219c2c9f321c808bc18154082eb9b5b1a0cb..9af16fb76a1b2dcfbb4bc0e64c8a83ab
  (typeattribute proc_hung_task_30_0)
  (typeattribute proc_interrupts_30_0)
  (typeattribute proc_iomem_30_0)
-diff --git a/prebuilts/api/31.0/private/compat/26.0/26.0.cil b/prebuilts/api/31.0/private/compat/26.0/26.0.cil
+diff --git a/prebuilts/api/31.0/plat_pub_versioned.cil b/prebuilts/api/31.0/plat_pub_versioned.cil
+index 9a086c50274c883e0e177893834389785b98fa4c..533d9511aeb38570bc8a6cf2cf9e6e411afe4608 100644
+--- a/prebuilts/api/31.0/plat_pub_versioned.cil
++++ b/prebuilts/api/31.0/plat_pub_versioned.cil
+@@ -725,20 +725,21 @@
+ (type priv_app)
+ (type privapp_data_file)
+ (type proc)
+ (type proc_abi)
+ (type proc_asound)
+ (type proc_bluetooth_writable)
+ (type proc_bootconfig)
+ (type proc_buddyinfo)
+ (type proc_cmdline)
+ (type proc_cpuinfo)
++(type proc_deny_new_usb)
+ (type proc_dirty)
+ (type proc_diskstats)
+ (type proc_drop_caches)
+ (type proc_extra_free_kbytes)
+ (type proc_filesystems)
+ (type proc_fs_verity)
+ (type proc_hostname)
+ (type proc_hung_task)
+ (type proc_interrupts)
+ (type proc_iomem)
+@@ -2749,20 +2750,21 @@
+ (typeattribute priv_app_31_0)
+ (typeattribute privapp_data_file_31_0)
+ (typeattribute proc_31_0)
+ (typeattribute proc_abi_31_0)
+ (typeattribute proc_asound_31_0)
+ (typeattribute proc_bluetooth_writable_31_0)
+ (typeattribute proc_bootconfig_31_0)
+ (typeattribute proc_buddyinfo_31_0)
+ (typeattribute proc_cmdline_31_0)
+ (typeattribute proc_cpuinfo_31_0)
++(typeattribute proc_deny_new_usb_31_0)
+ (typeattribute proc_dirty_31_0)
+ (typeattribute proc_diskstats_31_0)
+ (typeattribute proc_drop_caches_31_0)
+ (typeattribute proc_extra_free_kbytes_31_0)
+ (typeattribute proc_filesystems_31_0)
+ (typeattribute proc_fs_verity_31_0)
+ (typeattribute proc_hostname_31_0)
+ (typeattribute proc_hung_task_31_0)
+ (typeattribute proc_interrupts_31_0)
+ (typeattribute proc_iomem_31_0)
+diff --git a/prebuilts/api/32.0/private/compat/26.0/26.0.cil b/prebuilts/api/32.0/private/compat/26.0/26.0.cil
 index 498bca5a77136ff26fd77d2ab221c1dc51407ca5..0a2d8eb9ac1d7eb532b4b81a43a19284f1818e67 100644
---- a/prebuilts/api/31.0/private/compat/26.0/26.0.cil
-+++ b/prebuilts/api/31.0/private/compat/26.0/26.0.cil
+--- a/prebuilts/api/32.0/private/compat/26.0/26.0.cil
++++ b/prebuilts/api/32.0/private/compat/26.0/26.0.cil
 @@ -461,20 +461,21 @@
  (typeattributeset preopt2cachename_26_0 (preopt2cachename))
  (typeattributeset preopt2cachename_exec_26_0 (preopt2cachename_exec))
@@ -1152,10 +1235,10 @@ index 498bca5a77136ff26fd77d2ab221c1dc51407ca5..0a2d8eb9ac1d7eb532b4b81a43a19284
      proc_loadavg
      proc_max_map_count
      proc_min_free_order_shift
-diff --git a/prebuilts/api/31.0/private/compat/27.0/27.0.cil b/prebuilts/api/31.0/private/compat/27.0/27.0.cil
+diff --git a/prebuilts/api/32.0/private/compat/27.0/27.0.cil b/prebuilts/api/32.0/private/compat/27.0/27.0.cil
 index 0d883c0c74c9d8a8bee052000d270b9d1e45a8cb..c8f209a9b23c9024cd2208ec25e30ba299d8ba03 100644
---- a/prebuilts/api/31.0/private/compat/27.0/27.0.cil
-+++ b/prebuilts/api/31.0/private/compat/27.0/27.0.cil
+--- a/prebuilts/api/32.0/private/compat/27.0/27.0.cil
++++ b/prebuilts/api/32.0/private/compat/27.0/27.0.cil
 @@ -1175,20 +1175,21 @@
  (typeattributeset preopt2cachename_27_0 (preopt2cachename))
  (typeattributeset preopt2cachename_exec_27_0 (preopt2cachename_exec))
@@ -1178,10 +1261,10 @@ index 0d883c0c74c9d8a8bee052000d270b9d1e45a8cb..c8f209a9b23c9024cd2208ec25e30ba2
      proc_loadavg
      proc_max_map_count
      proc_min_free_order_shift
-diff --git a/prebuilts/api/31.0/private/compat/28.0/28.0.cil b/prebuilts/api/31.0/private/compat/28.0/28.0.cil
+diff --git a/prebuilts/api/32.0/private/compat/28.0/28.0.cil b/prebuilts/api/32.0/private/compat/28.0/28.0.cil
 index 321e9387ed3817dfc61136de9c807a49fffbd785..ba3263e6b0ed1aef4ea3792a28b2bd9dd33016c8 100644
---- a/prebuilts/api/31.0/private/compat/28.0/28.0.cil
-+++ b/prebuilts/api/31.0/private/compat/28.0/28.0.cil
+--- a/prebuilts/api/32.0/private/compat/28.0/28.0.cil
++++ b/prebuilts/api/32.0/private/compat/28.0/28.0.cil
 @@ -536,20 +536,21 @@
  (expandtypeattribute (preopt2cachename_exec_28_0) true)
  (expandtypeattribute (print_service_28_0) true)
@@ -1226,10 +1309,10 @@ index 321e9387ed3817dfc61136de9c807a49fffbd785..ba3263e6b0ed1aef4ea3792a28b2bd9d
  (typeattributeset proc_hung_task_28_0 (proc_hung_task))
  (typeattributeset proc_interrupts_28_0 (proc_interrupts))
  (typeattributeset proc_iomem_28_0 (proc_iomem))
-diff --git a/prebuilts/api/31.0/private/compat/29.0/29.0.cil b/prebuilts/api/31.0/private/compat/29.0/29.0.cil
+diff --git a/prebuilts/api/32.0/private/compat/29.0/29.0.cil b/prebuilts/api/32.0/private/compat/29.0/29.0.cil
 index 0fb0a1c5ba68dfb32205bf0de4950ec2182feb98..6052ff958ecdcaabcb080df79b5d8f9da69761f1 100644
---- a/prebuilts/api/31.0/private/compat/29.0/29.0.cil
-+++ b/prebuilts/api/31.0/private/compat/29.0/29.0.cil
+--- a/prebuilts/api/32.0/private/compat/29.0/29.0.cil
++++ b/prebuilts/api/32.0/private/compat/29.0/29.0.cil
 @@ -592,20 +592,21 @@
  (expandtypeattribute (print_service_29_0) true)
  (expandtypeattribute (priv_app_29_0) true)
@@ -1274,10 +1357,10 @@ index 0fb0a1c5ba68dfb32205bf0de4950ec2182feb98..6052ff958ecdcaabcb080df79b5d8f9d
  (typeattributeset proc_hostname_29_0 (proc_hostname))
  (typeattributeset proc_hung_task_29_0 (proc_hung_task))
  (typeattributeset proc_interrupts_29_0 (proc_interrupts))
-diff --git a/prebuilts/api/31.0/private/compat/30.0/30.0.cil b/prebuilts/api/31.0/private/compat/30.0/30.0.cil
+diff --git a/prebuilts/api/32.0/private/compat/30.0/30.0.cil b/prebuilts/api/32.0/private/compat/30.0/30.0.cil
 index 9f40876682452ce5620999c1adb965042f63774b..e6bd5cec6e63c75e3548cc8ad69e382418e3dbf8 100644
---- a/prebuilts/api/31.0/private/compat/30.0/30.0.cil
-+++ b/prebuilts/api/31.0/private/compat/30.0/30.0.cil
+--- a/prebuilts/api/32.0/private/compat/30.0/30.0.cil
++++ b/prebuilts/api/32.0/private/compat/30.0/30.0.cil
 @@ -667,20 +667,21 @@
  (expandtypeattribute (print_service_30_0) true)
  (expandtypeattribute (priv_app_30_0) true)
@@ -1322,10 +1405,58 @@ index 9f40876682452ce5620999c1adb965042f63774b..e6bd5cec6e63c75e3548cc8ad69e3824
  (typeattributeset proc_hung_task_30_0 (proc_hung_task))
  (typeattributeset proc_interrupts_30_0 (proc_interrupts))
  (typeattributeset proc_iomem_30_0 (proc_iomem))
-diff --git a/prebuilts/api/31.0/private/genfs_contexts b/prebuilts/api/31.0/private/genfs_contexts
+diff --git a/prebuilts/api/32.0/private/compat/31.0/31.0.cil b/prebuilts/api/32.0/private/compat/31.0/31.0.cil
+index 009d8b2def681d4ae849917f8be61f971b8dbdcd..9923125d92d723d3a0a0467b486aa003715ee2ed 100644
+--- a/prebuilts/api/32.0/private/compat/31.0/31.0.cil
++++ b/prebuilts/api/32.0/private/compat/31.0/31.0.cil
+@@ -725,20 +725,21 @@
+ (expandtypeattribute (priv_app_31_0) true)
+ (expandtypeattribute (privapp_data_file_31_0) true)
+ (expandtypeattribute (proc_31_0) true)
+ (expandtypeattribute (proc_abi_31_0) true)
+ (expandtypeattribute (proc_asound_31_0) true)
+ (expandtypeattribute (proc_bluetooth_writable_31_0) true)
+ (expandtypeattribute (proc_bootconfig_31_0) true)
+ (expandtypeattribute (proc_buddyinfo_31_0) true)
+ (expandtypeattribute (proc_cmdline_31_0) true)
+ (expandtypeattribute (proc_cpuinfo_31_0) true)
++(expandtypeattribute (proc_deny_new_usb_31_0) true)
+ (expandtypeattribute (proc_dirty_31_0) true)
+ (expandtypeattribute (proc_diskstats_31_0) true)
+ (expandtypeattribute (proc_drop_caches_31_0) true)
+ (expandtypeattribute (proc_extra_free_kbytes_31_0) true)
+ (expandtypeattribute (proc_filesystems_31_0) true)
+ (expandtypeattribute (proc_fs_verity_31_0) true)
+ (expandtypeattribute (proc_hostname_31_0) true)
+ (expandtypeattribute (proc_hung_task_31_0) true)
+ (expandtypeattribute (proc_interrupts_31_0) true)
+ (expandtypeattribute (proc_iomem_31_0) true)
+@@ -1960,20 +1961,21 @@
+ (typeattributeset priv_app_31_0 (priv_app))
+ (typeattributeset privapp_data_file_31_0 (privapp_data_file))
+ (typeattributeset proc_31_0 (proc))
+ (typeattributeset proc_abi_31_0 (proc_abi))
+ (typeattributeset proc_asound_31_0 (proc_asound))
+ (typeattributeset proc_bluetooth_writable_31_0 (proc_bluetooth_writable))
+ (typeattributeset proc_bootconfig_31_0 (proc_bootconfig))
+ (typeattributeset proc_buddyinfo_31_0 (proc_buddyinfo))
+ (typeattributeset proc_cmdline_31_0 (proc_cmdline))
+ (typeattributeset proc_cpuinfo_31_0 (proc_cpuinfo))
++(typeattributeset proc_deny_new_usb_31_0 (proc_deny_new_usb))
+ (typeattributeset proc_dirty_31_0 (proc_dirty))
+ (typeattributeset proc_diskstats_31_0 (proc_diskstats))
+ (typeattributeset proc_drop_caches_31_0 (proc_drop_caches))
+ (typeattributeset proc_extra_free_kbytes_31_0 (proc_extra_free_kbytes))
+ (typeattributeset proc_filesystems_31_0 (proc_filesystems))
+ (typeattributeset proc_fs_verity_31_0 (proc_fs_verity))
+ (typeattributeset proc_hostname_31_0 (proc_hostname))
+ (typeattributeset proc_hung_task_31_0 (proc_hung_task))
+ (typeattributeset proc_interrupts_31_0 (proc_interrupts))
+ (typeattributeset proc_iomem_31_0 (proc_iomem))
+diff --git a/prebuilts/api/32.0/private/genfs_contexts b/prebuilts/api/32.0/private/genfs_contexts
 index 5c3332f1a888bc702ffccf9c76d5fb6fdc185d68..7f9cf4cfa0def9c24b437b2b8342299d6a25ceb3 100644
---- a/prebuilts/api/31.0/private/genfs_contexts
-+++ b/prebuilts/api/31.0/private/genfs_contexts
+--- a/prebuilts/api/32.0/private/genfs_contexts
++++ b/prebuilts/api/32.0/private/genfs_contexts
 @@ -40,20 +40,21 @@ genfscon proc /kpageflags u:object_r:proc_kpageflags:s0
  genfscon proc /sys/abi/swp u:object_r:proc_abi:s0
  genfscon proc /sys/fs/pipe-max-size u:object_r:proc_pipe_conf:s0
@@ -1348,10 +1479,10 @@ index 5c3332f1a888bc702ffccf9c76d5fb6fdc185d68..7f9cf4cfa0def9c24b437b2b8342299d
  genfscon proc /sys/kernel/modules_disabled u:object_r:proc_security:s0
  genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
  genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
-diff --git a/prebuilts/api/31.0/private/property_contexts b/prebuilts/api/31.0/private/property_contexts
-index 4816516cd303441a8d7cc69007828cb0eb102893..6701dba6c775c39546749b92e6044358c439f732 100644
---- a/prebuilts/api/31.0/private/property_contexts
-+++ b/prebuilts/api/31.0/private/property_contexts
+diff --git a/prebuilts/api/32.0/private/property_contexts b/prebuilts/api/32.0/private/property_contexts
+index 7e933f87ac679869c0c5b7aca6a01c818cccf5d6..fdda3ffb2c497b180e32b83ce48766c7344b4aaf 100644
+--- a/prebuilts/api/32.0/private/property_contexts
++++ b/prebuilts/api/32.0/private/property_contexts
 @@ -91,20 +91,21 @@ ro.serialno             u:object_r:serialno_prop:s0
  ro.boot.btmacaddr       u:object_r:bluetooth_prop:s0
  ro.boot.serialno        u:object_r:serialno_prop:s0
@@ -1374,10 +1505,10 @@ index 4816516cd303441a8d7cc69007828cb0eb102893..6701dba6c775c39546749b92e6044358
  suspend.backoff_threshold_count u:object_r:suspend_prop:s0 exact uint
  suspend.short_suspend_threshold_millis u:object_r:suspend_prop:s0 exact uint
  suspend.sleep_time_scale_factor u:object_r:suspend_prop:s0 exact double
-diff --git a/prebuilts/api/31.0/public/file.te b/prebuilts/api/31.0/public/file.te
+diff --git a/prebuilts/api/32.0/public/file.te b/prebuilts/api/32.0/public/file.te
 index dc788ac6a39631fe5096a3ab271df52f48aa5149..ecc907291ca32cfd1d63fb47f5a52f7d3a6b2c22 100644
---- a/prebuilts/api/31.0/public/file.te
-+++ b/prebuilts/api/31.0/public/file.te
+--- a/prebuilts/api/32.0/public/file.te
++++ b/prebuilts/api/32.0/public/file.te
 @@ -18,20 +18,21 @@ type usermodehelper, fs_type, proc_type;
  type sysfs_usermodehelper, fs_type, sysfs_type;
  type proc_qtaguid_ctrl, fs_type, mlstrustedobject, proc_type;
@@ -1400,10 +1531,10 @@ index dc788ac6a39631fe5096a3ab271df52f48aa5149..ecc907291ca32cfd1d63fb47f5a52f7d
  type proc_interrupts, fs_type, proc_type;
  type proc_iomem, fs_type, proc_type;
  type proc_kallsyms, fs_type, proc_type;
-diff --git a/prebuilts/api/31.0/public/init.te b/prebuilts/api/31.0/public/init.te
+diff --git a/prebuilts/api/32.0/public/init.te b/prebuilts/api/32.0/public/init.te
 index 49b23ee6182110fedf14eac7dbe785d19bd97ebc..4c28cc08aee244f92ef7ab7e519ec2906122a7c6 100644
---- a/prebuilts/api/31.0/public/init.te
-+++ b/prebuilts/api/31.0/public/init.te
+--- a/prebuilts/api/32.0/public/init.te
++++ b/prebuilts/api/32.0/public/init.te
 @@ -366,20 +366,21 @@ allow init {
    proc_diskstats
    proc_kmsg # Open /proc/kmsg for logd service.
@@ -1622,6 +1753,54 @@ index 9f40876682452ce5620999c1adb965042f63774b..e6bd5cec6e63c75e3548cc8ad69e3824
  (typeattributeset proc_hung_task_30_0 (proc_hung_task))
  (typeattributeset proc_interrupts_30_0 (proc_interrupts))
  (typeattributeset proc_iomem_30_0 (proc_iomem))
+diff --git a/private/compat/31.0/31.0.cil b/private/compat/31.0/31.0.cil
+index 009d8b2def681d4ae849917f8be61f971b8dbdcd..9923125d92d723d3a0a0467b486aa003715ee2ed 100644
+--- a/private/compat/31.0/31.0.cil
++++ b/private/compat/31.0/31.0.cil
+@@ -725,20 +725,21 @@
+ (expandtypeattribute (priv_app_31_0) true)
+ (expandtypeattribute (privapp_data_file_31_0) true)
+ (expandtypeattribute (proc_31_0) true)
+ (expandtypeattribute (proc_abi_31_0) true)
+ (expandtypeattribute (proc_asound_31_0) true)
+ (expandtypeattribute (proc_bluetooth_writable_31_0) true)
+ (expandtypeattribute (proc_bootconfig_31_0) true)
+ (expandtypeattribute (proc_buddyinfo_31_0) true)
+ (expandtypeattribute (proc_cmdline_31_0) true)
+ (expandtypeattribute (proc_cpuinfo_31_0) true)
++(expandtypeattribute (proc_deny_new_usb_31_0) true)
+ (expandtypeattribute (proc_dirty_31_0) true)
+ (expandtypeattribute (proc_diskstats_31_0) true)
+ (expandtypeattribute (proc_drop_caches_31_0) true)
+ (expandtypeattribute (proc_extra_free_kbytes_31_0) true)
+ (expandtypeattribute (proc_filesystems_31_0) true)
+ (expandtypeattribute (proc_fs_verity_31_0) true)
+ (expandtypeattribute (proc_hostname_31_0) true)
+ (expandtypeattribute (proc_hung_task_31_0) true)
+ (expandtypeattribute (proc_interrupts_31_0) true)
+ (expandtypeattribute (proc_iomem_31_0) true)
+@@ -1960,20 +1961,21 @@
+ (typeattributeset priv_app_31_0 (priv_app))
+ (typeattributeset privapp_data_file_31_0 (privapp_data_file))
+ (typeattributeset proc_31_0 (proc))
+ (typeattributeset proc_abi_31_0 (proc_abi))
+ (typeattributeset proc_asound_31_0 (proc_asound))
+ (typeattributeset proc_bluetooth_writable_31_0 (proc_bluetooth_writable))
+ (typeattributeset proc_bootconfig_31_0 (proc_bootconfig))
+ (typeattributeset proc_buddyinfo_31_0 (proc_buddyinfo))
+ (typeattributeset proc_cmdline_31_0 (proc_cmdline))
+ (typeattributeset proc_cpuinfo_31_0 (proc_cpuinfo))
++(typeattributeset proc_deny_new_usb_31_0 (proc_deny_new_usb))
+ (typeattributeset proc_dirty_31_0 (proc_dirty))
+ (typeattributeset proc_diskstats_31_0 (proc_diskstats))
+ (typeattributeset proc_drop_caches_31_0 (proc_drop_caches))
+ (typeattributeset proc_extra_free_kbytes_31_0 (proc_extra_free_kbytes))
+ (typeattributeset proc_filesystems_31_0 (proc_filesystems))
+ (typeattributeset proc_fs_verity_31_0 (proc_fs_verity))
+ (typeattributeset proc_hostname_31_0 (proc_hostname))
+ (typeattributeset proc_hung_task_31_0 (proc_hung_task))
+ (typeattributeset proc_interrupts_31_0 (proc_interrupts))
+ (typeattributeset proc_iomem_31_0 (proc_iomem))
 diff --git a/private/genfs_contexts b/private/genfs_contexts
 index 5c3332f1a888bc702ffccf9c76d5fb6fdc185d68..7f9cf4cfa0def9c24b437b2b8342299d6a25ceb3 100644
 --- a/private/genfs_contexts
@@ -1649,7 +1828,7 @@ index 5c3332f1a888bc702ffccf9c76d5fb6fdc185d68..7f9cf4cfa0def9c24b437b2b8342299d
  genfscon proc /sys/kernel/panic_on_oops u:object_r:proc_panic:s0
  genfscon proc /sys/kernel/perf_event_max_sample_rate u:object_r:proc_perf:s0
 diff --git a/private/property_contexts b/private/property_contexts
-index 4816516cd303441a8d7cc69007828cb0eb102893..6701dba6c775c39546749b92e6044358c439f732 100644
+index 7e933f87ac679869c0c5b7aca6a01c818cccf5d6..fdda3ffb2c497b180e32b83ce48766c7344b4aaf 100644
 --- a/private/property_contexts
 +++ b/private/property_contexts
 @@ -91,20 +91,21 @@ ro.serialno             u:object_r:serialno_prop:s0
@@ -1727,7 +1906,7 @@ index 49b23ee6182110fedf14eac7dbe785d19bd97ebc..4c28cc08aee244f92ef7ab7e519ec290
    proc_panic
    proc_page_cluster
 
-commit 364201100b121ba88ad29c37f14d7319a936a218
+commit 7794ef2c12ac7660d7f4c2cc12fc42f184661da7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-09-13 22:56:27-0400
 
@@ -1735,16 +1914,16 @@ Date:   Fri 2019-09-13 22:56:27-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/file_contexts           |  1 -
- prebuilts/api/31.0/private/preloads_copy.te (gone) | 18 ------------------
+ prebuilts/api/32.0/private/file_contexts           |  1 -
+ prebuilts/api/32.0/private/preloads_copy.te (gone) | 18 ------------------
  private/file_contexts                              |  1 -
  private/preloads_copy.te (gone)                    | 18 ------------------
  4 files changed, 38 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/file_contexts b/prebuilts/api/31.0/private/file_contexts
-index 351cd7c5fbc6ca21b65fa5e41fb8d02745ecf18a..c908149d4cc1c7803d5b33afff2b4662efaea355 100644
---- a/prebuilts/api/31.0/private/file_contexts
-+++ b/prebuilts/api/31.0/private/file_contexts
+diff --git a/prebuilts/api/32.0/private/file_contexts b/prebuilts/api/32.0/private/file_contexts
+index 0330d888d3532ea0edf1d5ba42997ddd44d5a08d..d1929304219fa7749688c207df6868ccbacd8588 100644
+--- a/prebuilts/api/32.0/private/file_contexts
++++ b/prebuilts/api/32.0/private/file_contexts
 @@ -306,21 +306,20 @@
  /system/bin/perfetto        u:object_r:perfetto_exec:s0
  /system/bin/traced        u:object_r:traced_exec:s0
@@ -1767,10 +1946,10 @@ index 351cd7c5fbc6ca21b65fa5e41fb8d02745ecf18a..c908149d4cc1c7803d5b33afff2b4662
  /system/bin/tzdatacheck u:object_r:tzdatacheck_exec:s0
  /system/bin/flags_health_check -- u:object_r:flags_health_check_exec:s0
  /system/bin/idmap u:object_r:idmap_exec:s0
-diff --git a/prebuilts/api/31.0/private/preloads_copy.te b/prebuilts/api/31.0/private/preloads_copy.te
+diff --git a/prebuilts/api/32.0/private/preloads_copy.te b/prebuilts/api/32.0/private/preloads_copy.te
 deleted file mode 100644
 index ba54b70acad2b89a5cbe4e0610d585ce7154555f..0000000000000000000000000000000000000000
---- a/prebuilts/api/31.0/private/preloads_copy.te
+--- a/prebuilts/api/32.0/private/preloads_copy.te
 +++ /dev/null
 @@ -1,18 +0,0 @@
 -type preloads_copy, domain, coredomain;
@@ -1792,7 +1971,7 @@ index ba54b70acad2b89a5cbe4e0610d585ce7154555f..00000000000000000000000000000000
 -# is wiped, but preloads_copy.sh still runs.
 -dontaudit preloads_copy postinstall_mnt_dir:dir search;
 diff --git a/private/file_contexts b/private/file_contexts
-index 351cd7c5fbc6ca21b65fa5e41fb8d02745ecf18a..c908149d4cc1c7803d5b33afff2b4662efaea355 100644
+index 0330d888d3532ea0edf1d5ba42997ddd44d5a08d..d1929304219fa7749688c207df6868ccbacd8588 100644
 --- a/private/file_contexts
 +++ b/private/file_contexts
 @@ -306,21 +306,20 @@
@@ -1842,7 +2021,7 @@ index ba54b70acad2b89a5cbe4e0610d585ce7154555f..00000000000000000000000000000000
 -# is wiped, but preloads_copy.sh still runs.
 -dontaudit preloads_copy postinstall_mnt_dir:dir search;
 
-commit 767d7da4363e5257043511c2742b54f20bff86b5
+commit 9210a60710beb2f1dcbd75b3065663e99d218a9b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:14:26-0400
 
@@ -1850,14 +2029,14 @@ Date:   Sun 2019-05-05 08:14:26-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/priv_app.te | 11 -----------
+ prebuilts/api/32.0/private/priv_app.te | 11 -----------
  private/priv_app.te                    | 11 -----------
  2 files changed, 22 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/priv_app.te b/prebuilts/api/31.0/private/priv_app.te
+diff --git a/prebuilts/api/32.0/private/priv_app.te b/prebuilts/api/32.0/private/priv_app.te
 index 3ceb7a3058be3664788660e6d2a2ab126caec27d..180f97d9ef11c691c690f91f123ce55203a25fd5 100644
---- a/prebuilts/api/31.0/private/priv_app.te
-+++ b/prebuilts/api/31.0/private/priv_app.te
+--- a/prebuilts/api/32.0/private/priv_app.te
++++ b/prebuilts/api/32.0/private/priv_app.te
 @@ -7,31 +7,20 @@ app_domain(priv_app)
  
  # Access the network.
@@ -1927,7 +2106,7 @@ index 3ceb7a3058be3664788660e6d2a2ab126caec27d..180f97d9ef11c691c690f91f123ce552
  allow priv_app system_api_service:service_manager find;
  
 
-commit 41815cb348df13b89ded942c65310dfe0d0ef5cf
+commit 1e41a1e93f6f6fac87daef7518684244ca8b4522
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:17:31-0400
 
@@ -1935,14 +2114,14 @@ Date:   Sun 2019-05-05 08:17:31-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/public/healthd.te | 1 -
+ prebuilts/api/32.0/public/healthd.te | 1 -
  public/healthd.te                    | 1 -
  2 files changed, 2 deletions(-)
 
-diff --git a/prebuilts/api/31.0/public/healthd.te b/prebuilts/api/31.0/public/healthd.te
+diff --git a/prebuilts/api/32.0/public/healthd.te b/prebuilts/api/32.0/public/healthd.te
 index 05acb84a023cfb1f05172e2066341a6fc318725c..1d42fb5be76a1817274c0bf2ab9f6227dcac4972 100644
---- a/prebuilts/api/31.0/public/healthd.te
-+++ b/prebuilts/api/31.0/public/healthd.te
+--- a/prebuilts/api/32.0/public/healthd.te
++++ b/prebuilts/api/32.0/public/healthd.te
 @@ -39,12 +39,11 @@ r_dir_file(healthd, sysfs_batteryinfo)
  # Don't worry about overly broad permissions for now, as there's
  # only one file in /sys/fs/pstore
@@ -1974,7 +2153,7 @@ index 05acb84a023cfb1f05172e2066341a6fc318725c..1d42fb5be76a1817274c0bf2ab9f6227
 -allow healthd ashmem_device:chr_file execute;
  allow healthd proc_sysrq:file rw_file_perms;
 
-commit df4d005976a2dbbd4dd04e588bfc4fe38d67aa2f
+commit 6f4379a59f7142c101abd2aee0b3c085aa0f2ea4
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:20:43-0400
 
@@ -1984,14 +2163,14 @@ Date:   Sun 2019-05-05 08:20:43-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/public/app.te | 1 +
+ prebuilts/api/32.0/public/app.te | 1 +
  public/app.te                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index 5527f9994137d506b4e265ac6631087677ddbd0e..11bc5a1ef47462ddfbdc96a264ced0ac40e53183 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -3,20 +3,21 @@
  ###
  ### This file is the base policy for all zygote spawned apps.
@@ -2041,7 +2220,7 @@ index 5527f9994137d506b4e265ac6631087677ddbd0e..11bc5a1ef47462ddfbdc96a264ced0ac
  
  # gdbserver for ndk-gdb reads the zygote.
 
-commit 07447dad4ba7efc6153c74a18ada852c0f7e9e95
+commit 2ea92991d0175305937cc6eed99e0a4387e24e39
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2019-05-05 08:21:01-0400
 
@@ -2051,14 +2230,14 @@ Date:   Sun 2019-05-05 08:21:01-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/public/app.te | 1 +
+ prebuilts/api/32.0/public/app.te | 1 +
  public/app.te                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index 11bc5a1ef47462ddfbdc96a264ced0ac40e53183..8dd14179257e92b396bb32b333edf88a468aaba2 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -6,20 +6,21 @@
  ### extend from this policy. Only policies which should apply to ALL
  ### zygote spawned apps should be added here.
@@ -2108,7 +2287,7 @@ index 11bc5a1ef47462ddfbdc96a264ced0ac40e53183..8dd14179257e92b396bb32b333edf88a
  # valgrind needs mmap exec for zygote
  allow appdomain zygote_exec:file rx_file_perms;
 
-commit ef1be724d18a8f8e05cc758f911faae2cb8ce96a
+commit 4270332ba67dfbecb0ac39f53373b5b1b31b4361
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2020-10-22 23:39:34-0400
 
@@ -2116,16 +2295,16 @@ Date:   Thu 2020-10-22 23:39:34-0400
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/mac_permissions.xml | 10 ++++++++++
- prebuilts/api/31.0/private/seapp_contexts      | 16 ++++++++++++++++
+ prebuilts/api/32.0/private/mac_permissions.xml | 10 ++++++++++
+ prebuilts/api/32.0/private/seapp_contexts      | 18 ++++++++++++++++++
  private/mac_permissions.xml                    | 10 ++++++++++
- private/seapp_contexts                         | 16 ++++++++++++++++
- 4 files changed, 52 insertions(+)
+ private/seapp_contexts                         | 18 ++++++++++++++++++
+ 4 files changed, 56 insertions(+)
 
-diff --git a/prebuilts/api/31.0/private/mac_permissions.xml b/prebuilts/api/31.0/private/mac_permissions.xml
+diff --git a/prebuilts/api/32.0/private/mac_permissions.xml b/prebuilts/api/32.0/private/mac_permissions.xml
 index 7fc37c13efd9826040450b0b6bbda69e6bd7374f..6b2d6ad094a96ac80640ed8c631d8c68982c684e 100644
---- a/prebuilts/api/31.0/private/mac_permissions.xml
-+++ b/prebuilts/api/31.0/private/mac_permissions.xml
+--- a/prebuilts/api/32.0/private/mac_permissions.xml
++++ b/prebuilts/api/32.0/private/mac_permissions.xml
 @@ -49,14 +49,24 @@
      <!-- Platform dev key in AOSP -->
      <signer signature="@PLATFORM" >
@@ -2151,14 +2330,24 @@ index 7fc37c13efd9826040450b0b6bbda69e6bd7374f..6b2d6ad094a96ac80640ed8c631d8c68
        <seinfo value="network_stack" />
      </signer>
  </policy>
-diff --git a/prebuilts/api/31.0/private/seapp_contexts b/prebuilts/api/31.0/private/seapp_contexts
-index e11e144b6a5db1e0edb8d52eb78bb41aec17c006..59f4e745b75836741482b499da35aa705aa51a71 100644
---- a/prebuilts/api/31.0/private/seapp_contexts
-+++ b/prebuilts/api/31.0/private/seapp_contexts
-@@ -143,32 +143,48 @@ neverallow isEphemeralApp=true domain=((?!ephemeral_app).)*
+diff --git a/prebuilts/api/32.0/private/seapp_contexts b/prebuilts/api/32.0/private/seapp_contexts
+index e11e144b6a5db1e0edb8d52eb78bb41aec17c006..a919d162bd893d97b22b0eb73bf46b779b0bc589 100644
+--- a/prebuilts/api/32.0/private/seapp_contexts
++++ b/prebuilts/api/32.0/private/seapp_contexts
+@@ -135,40 +135,58 @@ neverallow user=shell domain=((?!shell).)*
+ 
+ # only the package named com.android.shell can run in the shell domain
+ neverallow domain=shell name=((?!com\.android\.shell).)*
+ neverallow user=shell name=((?!com\.android\.shell).)*
+ 
+ # Ephemeral Apps must run in the ephemeral_app domain
+ neverallow isEphemeralApp=true domain=((?!ephemeral_app).)*
+ 
  isSystemServer=true domain=system_server_startup
  
++user=_app seinfo=base isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
++user=_app seinfo=base isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=system seinfo=platform domain=system_app type=system_app_data_file
  user=bluetooth seinfo=platform domain=bluetooth type=bluetooth_data_file
@@ -2234,13 +2423,23 @@ index 7fc37c13efd9826040450b0b6bbda69e6bd7374f..6b2d6ad094a96ac80640ed8c631d8c68
      </signer>
  </policy>
 diff --git a/private/seapp_contexts b/private/seapp_contexts
-index e11e144b6a5db1e0edb8d52eb78bb41aec17c006..59f4e745b75836741482b499da35aa705aa51a71 100644
+index e11e144b6a5db1e0edb8d52eb78bb41aec17c006..a919d162bd893d97b22b0eb73bf46b779b0bc589 100644
 --- a/private/seapp_contexts
 +++ b/private/seapp_contexts
-@@ -143,32 +143,48 @@ neverallow isEphemeralApp=true domain=((?!ephemeral_app).)*
+@@ -135,40 +135,58 @@ neverallow user=shell domain=((?!shell).)*
+ 
+ # only the package named com.android.shell can run in the shell domain
+ neverallow domain=shell name=((?!com\.android\.shell).)*
+ neverallow user=shell name=((?!com\.android\.shell).)*
+ 
+ # Ephemeral Apps must run in the ephemeral_app domain
+ neverallow isEphemeralApp=true domain=((?!ephemeral_app).)*
+ 
  isSystemServer=true domain=system_server_startup
  
++user=_app seinfo=base isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
++user=_app seinfo=base isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=system seinfo=platform domain=system_app type=system_app_data_file
  user=bluetooth seinfo=platform domain=bluetooth type=bluetooth_data_file
@@ -2287,7 +2486,7 @@ index e11e144b6a5db1e0edb8d52eb78bb41aec17c006..59f4e745b75836741482b499da35aa70
 +user=_app seinfo=base fromRunAs=true domain=runas_app levelFrom=user
  user=_app fromRunAs=true domain=runas_app levelFrom=user
 
-commit a221d896bcafacff07a49065f9958153648ca1b8
+commit ea9598fd2b3dcdd4925d09dc672cfd284a2c9fa3
 Author: Renlord <me@renlord.com>
 Date:   Sat 2020-02-22 02:04:41+1100
 
@@ -2295,44 +2494,46 @@ Date:   Sat 2020-02-22 02:04:41+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/app_neverallows.te      | 19 +++++++-
- .../api/31.0/private/compat/26.0/26.0.ignore.cil   |  4 ++
- .../api/31.0/private/compat/27.0/27.0.ignore.cil   |  4 ++
- .../api/31.0/private/compat/28.0/28.0.ignore.cil   |  4 ++
- .../api/31.0/private/compat/29.0/29.0.ignore.cil   |  4 ++
- .../api/31.0/private/compat/30.0/30.0.ignore.cil   |  4 ++
- prebuilts/api/31.0/private/seapp_contexts          | 10 ++--
- .../api/31.0/private/untrusted_base_app.te (new)   | 16 +++++++
- .../31.0/private/untrusted_base_app_25.te (new)    | 53 ++++++++++++++++++++++
- .../31.0/private/untrusted_base_app_27.te (new)    | 41 +++++++++++++++++
- .../31.0/private/untrusted_base_app_29.te (new)    | 19 ++++++++
- prebuilts/api/31.0/public/domain.te                |  4 +-
- .../api/31.0/public/untrusted_base_app.te (new)    | 19 ++++++++
- .../api/31.0/public/untrusted_base_app_25.te (new) | 19 ++++++++
- .../api/31.0/public/untrusted_base_app_27.te (new) | 19 ++++++++
- .../api/31.0/public/untrusted_base_app_29.te (new) | 19 ++++++++
+ prebuilts/api/32.0/private/app_neverallows.te      | 19 +++++++-
+ .../api/32.0/private/compat/26.0/26.0.ignore.cil   |  4 ++
+ .../api/32.0/private/compat/27.0/27.0.ignore.cil   |  4 ++
+ .../api/32.0/private/compat/28.0/28.0.ignore.cil   |  4 ++
+ .../api/32.0/private/compat/29.0/29.0.ignore.cil   |  4 ++
+ .../api/32.0/private/compat/30.0/30.0.ignore.cil   |  4 ++
+ .../api/32.0/private/compat/31.0/31.0.ignore.cil   |  4 ++
+ prebuilts/api/32.0/private/seapp_contexts          | 10 ++--
+ .../api/32.0/private/untrusted_base_app.te (new)   | 16 +++++++
+ .../32.0/private/untrusted_base_app_25.te (new)    | 53 +++++++++++++++++++++
+ .../32.0/private/untrusted_base_app_27.te (new)    | 41 ++++++++++++++++
+ .../32.0/private/untrusted_base_app_29.te (new)    | 19 ++++++++
+ prebuilts/api/32.0/public/domain.te                |  4 +-
+ .../api/32.0/public/untrusted_base_app.te (new)    | 19 ++++++++
+ .../api/32.0/public/untrusted_base_app_25.te (new) | 19 ++++++++
+ .../api/32.0/public/untrusted_base_app_27.te (new) | 19 ++++++++
+ .../api/32.0/public/untrusted_base_app_29.te (new) | 19 ++++++++
  private/app_neverallows.te                         | 19 +++++++-
  private/compat/26.0/26.0.ignore.cil                |  4 ++
  private/compat/27.0/27.0.ignore.cil                |  4 ++
  private/compat/28.0/28.0.ignore.cil                |  4 ++
  private/compat/29.0/29.0.ignore.cil                |  4 ++
  private/compat/30.0/30.0.ignore.cil                |  4 ++
+ private/compat/31.0/31.0.ignore.cil                |  4 ++
  private/seapp_contexts                             | 10 ++--
  private/untrusted_base_app.te (new)                | 16 +++++++
- private/untrusted_base_app_25.te (new)             | 53 ++++++++++++++++++++++
- private/untrusted_base_app_27.te (new)             | 41 +++++++++++++++++
- private/untrusted_base_app_29.te (new)             | 19 ++++++++
+ private/untrusted_base_app_25.te (new)             | 54 ++++++++++++++++++++++
+ private/untrusted_base_app_27.te (new)             | 42 +++++++++++++++++
+ private/untrusted_base_app_29.te (new)             | 20 ++++++++
  public/domain.te                                   |  4 +-
  public/untrusted_base_app.te (new)                 | 19 ++++++++
  public/untrusted_base_app_25.te (new)              | 19 ++++++++
  public/untrusted_base_app_27.te (new)              | 19 ++++++++
  public/untrusted_base_app_29.te (new)              | 19 ++++++++
- 32 files changed, 502 insertions(+), 14 deletions(-)
+ 34 files changed, 513 insertions(+), 14 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/app_neverallows.te b/prebuilts/api/31.0/private/app_neverallows.te
+diff --git a/prebuilts/api/32.0/private/app_neverallows.te b/prebuilts/api/32.0/private/app_neverallows.te
 index 82713420ca2e80103c630ee6398afd478ac8b3bd..c8e4a23b0437872da4426a752d26835994e0c966 100644
---- a/prebuilts/api/31.0/private/app_neverallows.te
-+++ b/prebuilts/api/31.0/private/app_neverallows.te
+--- a/prebuilts/api/32.0/private/app_neverallows.te
++++ b/prebuilts/api/32.0/private/app_neverallows.te
 @@ -5,20 +5,24 @@
  define(`all_untrusted_apps',`{
    ephemeral_app
@@ -2455,10 +2656,10 @@ index 82713420ca2e80103c630ee6398afd478ac8b3bd..c8e4a23b0437872da4426a752d268359
  
  # Only privileged apps may find the incident service
  neverallow all_untrusted_apps incident_service:service_manager find;
-diff --git a/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil b/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil b/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil
 index 98d5840f6c3543d64574add4396c3b723b74350e..8721e9b736ed0c9f91b6b7732caa57550ba3bf95 100644
---- a/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil
 @@ -189,20 +189,24 @@
      traceur_app_tmpfs
      traced
@@ -2484,10 +2685,10 @@ index 98d5840f6c3543d64574add4396c3b723b74350e..8721e9b736ed0c9f91b6b7732caa5755
      usbd_tmpfs
      vendor_apex_file
      vendor_init
-diff --git a/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil b/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil b/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil
 index 427f4d4d186944e252f2e127b8d782db41159d54..3a019302728c52a81077d6634be329ebf98ab6ca 100644
---- a/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil
 @@ -205,20 +205,24 @@
      traced_enabled_prop
      traced_exec
@@ -2513,10 +2714,10 @@ index 427f4d4d186944e252f2e127b8d782db41159d54..3a019302728c52a81077d6634be329eb
      vendor_apex_file
      vendor_default_prop
      vendor_init
-diff --git a/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil b/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil b/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil
 index e7ddf48057715e44bb75716d8a58761fe1354dc5..9ab335b0e695eb0eac3a1d041d5da4e0b438f1bc 100644
---- a/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil
 @@ -139,20 +139,24 @@
      task_profiles_file
      testharness_service
@@ -2542,10 +2743,10 @@ index e7ddf48057715e44bb75716d8a58761fe1354dc5..9ab335b0e695eb0eac3a1d041d5da4e0
      vendor_socket_hook_prop
      vendor_task_profiles_file
      vndk_prop
-diff --git a/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
 index b47eb81b867c9e38093dc21d4d490707c7d85fcc..0d74d4bd38f2f25152f9a4c493e7981732faa5f1 100644
---- a/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
 @@ -114,18 +114,22 @@
      timezonedetector_service
      untrusted_app_29
@@ -2569,11 +2770,11 @@ index b47eb81b867c9e38093dc21d4d490707c7d85fcc..0d74d4bd38f2f25152f9a4c493e79817
      vendor_socket_hook_prop
      vendor_socket_hook_prop
      virtual_ab_prop))
-diff --git a/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil b/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-index c5feb2de245de96952d480c4dbeb9aab07e27ffe..aa13ef0145252208763218f4dc93c7b48a655273 100644
---- a/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-@@ -129,20 +129,24 @@
+diff --git a/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil b/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
+index a8d7421a2cb067cff6dcb6db86c7f3627c9e4357..f4dff53212b2abb933424922804affd2e745dd55 100644
+--- a/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
+@@ -130,20 +130,24 @@
      sysfs_devfreq_dir
      sysfs_devices_cs_etm
      sysfs_dma_heap
@@ -2598,11 +2799,30 @@ index c5feb2de245de96952d480c4dbeb9aab07e27ffe..aa13ef0145252208763218f4dc93c7b4
      vendor_kernel_modules
      vendor_modprobe
      vibrator_manager_service
-diff --git a/prebuilts/api/31.0/private/seapp_contexts b/prebuilts/api/31.0/private/seapp_contexts
-index 59f4e745b75836741482b499da35aa705aa51a71..5904336bb7e586892922d092ee2acd4b5f381a73 100644
---- a/prebuilts/api/31.0/private/seapp_contexts
-+++ b/prebuilts/api/31.0/private/seapp_contexts
-@@ -167,24 +167,24 @@ user=_app seinfo=base isPrivApp=true name=com.google.android.permissioncontrolle
+diff --git a/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil b/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
+index 45e8322ebc8a0249de9d58d7a3df855c8d46ab5b..cce473dc2a86a3d51c11054440be08dd62b363cb 100644
+--- a/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
+@@ -1,10 +1,14 @@
+ ;; new_objects - a collection of types that have been introduced that have no
+ ;;   analogue in older policy.  Thus, we do not need to map these types to
+ ;;   previous ones.  Add here to pass checkapi tests.
+ (type new_objects)
+ (typeattribute new_objects)
+ (typeattributeset new_objects
+   ( new_objects
+     hypervisor_prop
++    untrusted_base_app
++    untrusted_base_app_25
++    untrusted_base_app_27
++    untrusted_base_app_29
+     updater_app
+   ))
+diff --git a/prebuilts/api/32.0/private/seapp_contexts b/prebuilts/api/32.0/private/seapp_contexts
+index a919d162bd893d97b22b0eb73bf46b779b0bc589..b7b668d7c15efda748f1b4367fac7f212fc27db5 100644
+--- a/prebuilts/api/32.0/private/seapp_contexts
++++ b/prebuilts/api/32.0/private/seapp_contexts
+@@ -169,24 +169,24 @@ user=_app seinfo=base isPrivApp=true name=com.google.android.permissioncontrolle
  user=_app isPrivApp=true name=com.google.android.permissioncontroller domain=permissioncontroller_app type=privapp_data_file levelFrom=all
  user=_app seinfo=base isPrivApp=true name=com.android.providers.media.module domain=mediaprovider_app type=privapp_data_file levelFrom=all
  user=_app seinfo=media isPrivApp=true name=com.android.providers.media.module domain=mediaprovider_app type=privapp_data_file levelFrom=all
@@ -2632,11 +2852,11 @@ index 59f4e745b75836741482b499da35aa705aa51a71..5904336bb7e586892922d092ee2acd4b
  user=_app minTargetSdkVersion=28 fromRunAs=true domain=runas_app levelFrom=all
  user=_app seinfo=base fromRunAs=true domain=runas_app levelFrom=user
  user=_app fromRunAs=true domain=runas_app levelFrom=user
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app.te b/prebuilts/api/31.0/private/untrusted_base_app.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app.te b/prebuilts/api/32.0/private/untrusted_base_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..8ee2819f16bd19bb7f418f3281ffbec7d7b71551
 --- /dev/null
-+++ b/prebuilts/api/31.0/private/untrusted_base_app.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app.te
 @@ -0,0 +1,16 @@
 +###
 +### Untrusted apps.
@@ -2654,11 +2874,11 @@ index 0000000000000000000000000000000000000000..8ee2819f16bd19bb7f418f3281ffbec7
 +untrusted_app_domain(untrusted_base_app)
 +net_domain(untrusted_base_app)
 +bluetooth_domain(untrusted_base_app)
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_25.te b/prebuilts/api/31.0/private/untrusted_base_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_25.te b/prebuilts/api/32.0/private/untrusted_base_app_25.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..4bcaa19eb3432a045ce94b18c6521c894125ee32
 --- /dev/null
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_25.te
 @@ -0,0 +1,53 @@
 +###
 +### untrusted_base_app_25
@@ -2713,11 +2933,11 @@ index 0000000000000000000000000000000000000000..4bcaa19eb3432a045ce94b18c6521c89
 +
 +# allow binding to netlink route sockets and sending RTM_GETLINK messages.
 +allow untrusted_base_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_27.te b/prebuilts/api/31.0/private/untrusted_base_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_27.te b/prebuilts/api/32.0/private/untrusted_base_app_27.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..4ef4e963cd1b12b546a923d985e0d1c54dc60a74
 --- /dev/null
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_27.te
 @@ -0,0 +1,41 @@
 +###
 +### Untrusted_27.
@@ -2760,11 +2980,11 @@ index 0000000000000000000000000000000000000000..4ef4e963cd1b12b546a923d985e0d1c5
 +
 +# allow binding to netlink route sockets and sending RTM_GETLINK messages.
 +allow untrusted_base_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_29.te b/prebuilts/api/31.0/private/untrusted_base_app_29.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_29.te b/prebuilts/api/32.0/private/untrusted_base_app_29.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..a027578017ca22d8789d2b96e1766047e1e6810c
 --- /dev/null
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_29.te
 @@ -0,0 +1,19 @@
 +###
 +### Untrusted_29.
@@ -2785,10 +3005,10 @@ index 0000000000000000000000000000000000000000..a027578017ca22d8789d2b96e1766047
 +
 +# allow binding to netlink route sockets and sending RTM_GETLINK messages.
 +allow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
-diff --git a/prebuilts/api/31.0/public/domain.te b/prebuilts/api/31.0/public/domain.te
+diff --git a/prebuilts/api/32.0/public/domain.te b/prebuilts/api/32.0/public/domain.te
 index 799a2f1c570b91f1bf724c86f017fcc2f24aaf39..11c6519a132c42c42e6e05b295f7417fc4d686ba 100644
---- a/prebuilts/api/31.0/public/domain.te
-+++ b/prebuilts/api/31.0/public/domain.te
+--- a/prebuilts/api/32.0/public/domain.te
++++ b/prebuilts/api/32.0/public/domain.te
 @@ -1106,21 +1106,21 @@ neverallow * {
    -asec_public_file
  }:file execmod;
@@ -2832,11 +3052,11 @@ index 799a2f1c570b91f1bf724c86f017fcc2f24aaf39..11c6519a132c42c42e6e05b295f7417f
  
  # Linux lockdown "integrity" level is enforced for user builds.
  neverallow { domain userdebug_or_eng(`-domain') } self:lockdown integrity;
-diff --git a/prebuilts/api/31.0/public/untrusted_base_app.te b/prebuilts/api/31.0/public/untrusted_base_app.te
+diff --git a/prebuilts/api/32.0/public/untrusted_base_app.te b/prebuilts/api/32.0/public/untrusted_base_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..39071d9b9f5dc468d2e063c0ce663f35c9c890d6
 --- /dev/null
-+++ b/prebuilts/api/31.0/public/untrusted_base_app.te
++++ b/prebuilts/api/32.0/public/untrusted_base_app.te
 @@ -0,0 +1,19 @@
 +###
 +### Untrusted apps.
@@ -2857,11 +3077,11 @@ index 0000000000000000000000000000000000000000..39071d9b9f5dc468d2e063c0ce663f35
 +###
 +
 +type untrusted_base_app, domain;
-diff --git a/prebuilts/api/31.0/public/untrusted_base_app_25.te b/prebuilts/api/31.0/public/untrusted_base_app_25.te
+diff --git a/prebuilts/api/32.0/public/untrusted_base_app_25.te b/prebuilts/api/32.0/public/untrusted_base_app_25.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..45763c533f84f2e46bfebd0e5add6a8261f2d3eb
 --- /dev/null
-+++ b/prebuilts/api/31.0/public/untrusted_base_app_25.te
++++ b/prebuilts/api/32.0/public/untrusted_base_app_25.te
 @@ -0,0 +1,19 @@
 +###
 +### Untrusted apps.
@@ -2882,11 +3102,11 @@ index 0000000000000000000000000000000000000000..45763c533f84f2e46bfebd0e5add6a82
 +###
 +
 +type untrusted_base_app_25, domain;
-diff --git a/prebuilts/api/31.0/public/untrusted_base_app_27.te b/prebuilts/api/31.0/public/untrusted_base_app_27.te
+diff --git a/prebuilts/api/32.0/public/untrusted_base_app_27.te b/prebuilts/api/32.0/public/untrusted_base_app_27.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..62a8618a6d9e069d03c6d233bc0458f407fc5f98
 --- /dev/null
-+++ b/prebuilts/api/31.0/public/untrusted_base_app_27.te
++++ b/prebuilts/api/32.0/public/untrusted_base_app_27.te
 @@ -0,0 +1,19 @@
 +###
 +### Untrusted apps.
@@ -2907,11 +3127,11 @@ index 0000000000000000000000000000000000000000..62a8618a6d9e069d03c6d233bc0458f4
 +###
 +
 +type untrusted_base_app_27, domain;
-diff --git a/prebuilts/api/31.0/public/untrusted_base_app_29.te b/prebuilts/api/31.0/public/untrusted_base_app_29.te
+diff --git a/prebuilts/api/32.0/public/untrusted_base_app_29.te b/prebuilts/api/32.0/public/untrusted_base_app_29.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..f6b7aa8ea60c9172cc4bbf55eefcce307d60a398
 --- /dev/null
-+++ b/prebuilts/api/31.0/public/untrusted_base_app_29.te
++++ b/prebuilts/api/32.0/public/untrusted_base_app_29.te
 @@ -0,0 +1,19 @@
 +###
 +### Untrusted apps.
@@ -3173,10 +3393,10 @@ index b47eb81b867c9e38093dc21d4d490707c7d85fcc..0d74d4bd38f2f25152f9a4c493e79817
      vendor_socket_hook_prop
      virtual_ab_prop))
 diff --git a/private/compat/30.0/30.0.ignore.cil b/private/compat/30.0/30.0.ignore.cil
-index c5feb2de245de96952d480c4dbeb9aab07e27ffe..aa13ef0145252208763218f4dc93c7b48a655273 100644
+index a8d7421a2cb067cff6dcb6db86c7f3627c9e4357..f4dff53212b2abb933424922804affd2e745dd55 100644
 --- a/private/compat/30.0/30.0.ignore.cil
 +++ b/private/compat/30.0/30.0.ignore.cil
-@@ -129,20 +129,24 @@
+@@ -130,20 +130,24 @@
      sysfs_devfreq_dir
      sysfs_devices_cs_etm
      sysfs_dma_heap
@@ -3201,11 +3421,30 @@ index c5feb2de245de96952d480c4dbeb9aab07e27ffe..aa13ef0145252208763218f4dc93c7b4
      vendor_kernel_modules
      vendor_modprobe
      vibrator_manager_service
+diff --git a/private/compat/31.0/31.0.ignore.cil b/private/compat/31.0/31.0.ignore.cil
+index 45e8322ebc8a0249de9d58d7a3df855c8d46ab5b..cce473dc2a86a3d51c11054440be08dd62b363cb 100644
+--- a/private/compat/31.0/31.0.ignore.cil
++++ b/private/compat/31.0/31.0.ignore.cil
+@@ -1,10 +1,14 @@
+ ;; new_objects - a collection of types that have been introduced that have no
+ ;;   analogue in older policy.  Thus, we do not need to map these types to
+ ;;   previous ones.  Add here to pass checkapi tests.
+ (type new_objects)
+ (typeattribute new_objects)
+ (typeattributeset new_objects
+   ( new_objects
+     hypervisor_prop
++    untrusted_base_app
++    untrusted_base_app_25
++    untrusted_base_app_27
++    untrusted_base_app_29
+     updater_app
+   ))
 diff --git a/private/seapp_contexts b/private/seapp_contexts
-index 59f4e745b75836741482b499da35aa705aa51a71..5904336bb7e586892922d092ee2acd4b5f381a73 100644
+index a919d162bd893d97b22b0eb73bf46b779b0bc589..b7b668d7c15efda748f1b4367fac7f212fc27db5 100644
 --- a/private/seapp_contexts
 +++ b/private/seapp_contexts
-@@ -167,24 +167,24 @@ user=_app seinfo=base isPrivApp=true name=com.google.android.permissioncontrolle
+@@ -169,24 +169,24 @@ user=_app seinfo=base isPrivApp=true name=com.google.android.permissioncontrolle
  user=_app isPrivApp=true name=com.google.android.permissioncontroller domain=permissioncontroller_app type=privapp_data_file levelFrom=all
  user=_app seinfo=base isPrivApp=true name=com.android.providers.media.module domain=mediaprovider_app type=privapp_data_file levelFrom=all
  user=_app seinfo=media isPrivApp=true name=com.android.providers.media.module domain=mediaprovider_app type=privapp_data_file levelFrom=all
@@ -3259,10 +3498,10 @@ index 0000000000000000000000000000000000000000..8ee2819f16bd19bb7f418f3281ffbec7
 +bluetooth_domain(untrusted_base_app)
 diff --git a/private/untrusted_base_app_25.te b/private/untrusted_base_app_25.te
 new file mode 100644
-index 0000000000000000000000000000000000000000..4bcaa19eb3432a045ce94b18c6521c894125ee32
+index 0000000000000000000000000000000000000000..ef83692eaa06cf0e1a7a716f54349a058b2c304a
 --- /dev/null
 +++ b/private/untrusted_base_app_25.te
-@@ -0,0 +1,53 @@
+@@ -0,0 +1,54 @@
 +###
 +### untrusted_base_app_25
 +###
@@ -3316,12 +3555,13 @@ index 0000000000000000000000000000000000000000..4bcaa19eb3432a045ce94b18c6521c89
 +
 +# allow binding to netlink route sockets and sending RTM_GETLINK messages.
 +allow untrusted_base_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
++auditallow untrusted_base_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
 diff --git a/private/untrusted_base_app_27.te b/private/untrusted_base_app_27.te
 new file mode 100644
-index 0000000000000000000000000000000000000000..4ef4e963cd1b12b546a923d985e0d1c54dc60a74
+index 0000000000000000000000000000000000000000..273ee2491a2f65d5fd96503ac063116ad76c1bf9
 --- /dev/null
 +++ b/private/untrusted_base_app_27.te
-@@ -0,0 +1,41 @@
+@@ -0,0 +1,42 @@
 +###
 +### Untrusted_27.
 +###
@@ -3363,12 +3603,13 @@ index 0000000000000000000000000000000000000000..4ef4e963cd1b12b546a923d985e0d1c5
 +
 +# allow binding to netlink route sockets and sending RTM_GETLINK messages.
 +allow untrusted_base_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
++auditallow untrusted_base_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
 diff --git a/private/untrusted_base_app_29.te b/private/untrusted_base_app_29.te
 new file mode 100644
-index 0000000000000000000000000000000000000000..a027578017ca22d8789d2b96e1766047e1e6810c
+index 0000000000000000000000000000000000000000..11c2f4236e0eacf8fcdefd621196bc5b6a0c6e17
 --- /dev/null
 +++ b/private/untrusted_base_app_29.te
-@@ -0,0 +1,19 @@
+@@ -0,0 +1,20 @@
 +###
 +### Untrusted_29.
 +###
@@ -3388,6 +3629,7 @@ index 0000000000000000000000000000000000000000..a027578017ca22d8789d2b96e1766047
 +
 +# allow binding to netlink route sockets and sending RTM_GETLINK messages.
 +allow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
++auditallow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
 diff --git a/public/domain.te b/public/domain.te
 index 799a2f1c570b91f1bf724c86f017fcc2f24aaf39..11c6519a132c42c42e6e05b295f7417fc4d686ba 100644
 --- a/public/domain.te
@@ -3536,7 +3778,7 @@ index 0000000000000000000000000000000000000000..f6b7aa8ea60c9172cc4bbf55eefcce30
 +
 +type untrusted_base_app_29, domain;
 
-commit b7cc4374d4f26114934e6c613b5f52d2ad2c0b40
+commit dd40626b5c3dbee1acceefa2647c321a3d2c5333
 Author: Renlord <me@renlord.com>
 Date:   Sun 2020-02-23 22:41:07+1100
 
@@ -3544,24 +3786,28 @@ Date:   Sun 2020-02-23 22:41:07+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/app_neverallows.te      |   1 +
- prebuilts/api/31.0/private/app_zygote.te           |   4 +-
- .../api/31.0/private/compat/26.0/26.0.ignore.cil   |   1 +
- .../api/31.0/private/compat/27.0/27.0.ignore.cil   |   1 +
- .../api/31.0/private/compat/28.0/28.0.ignore.cil   |   1 +
- .../api/31.0/private/compat/29.0/29.0.ignore.cil   |   1 +
- .../api/31.0/private/compat/30.0/30.0.ignore.cil   |   1 +
- .../api/31.0/private/isolated_base_app.te (new)    | 153 +++++++++++++++++++++
- prebuilts/api/31.0/private/seapp_contexts          |   6 +-
- prebuilts/api/31.0/private/technical_debt.cil      |  30 ++--
- prebuilts/api/31.0/private/webview_zygote.te       |   4 +-
- prebuilts/api/31.0/public/app.te                   |  86 ++++++------
- prebuilts/api/31.0/public/domain.te                |   3 +-
- prebuilts/api/31.0/public/hal_camera.te            |   2 +-
- prebuilts/api/31.0/public/hal_drm.te               |   2 +-
- prebuilts/api/31.0/public/hal_omx.te               |   2 +-
- prebuilts/api/31.0/public/hal_sensors.te           |   2 +-
- .../api/31.0/public/isolated_base_app.te (new)     |   9 ++
+ prebuilts/api/32.0/private/app_neverallows.te      |   1 +
+ prebuilts/api/32.0/private/app_zygote.te           |   4 +-
+ .../api/32.0/private/compat/26.0/26.0.ignore.cil   |   1 +
+ .../api/32.0/private/compat/27.0/27.0.ignore.cil   |   1 +
+ .../api/32.0/private/compat/28.0/28.0.ignore.cil   |   1 +
+ .../api/32.0/private/compat/29.0/29.0.ignore.cil   |   1 +
+ .../api/32.0/private/compat/30.0/30.0.ignore.cil   |   1 +
+ .../api/32.0/private/compat/31.0/31.0.ignore.cil   |   1 +
+ .../api/32.0/private/isolated_base_app.te (new)    | 153 +++++++++++++++++++++
+ prebuilts/api/32.0/private/seapp_contexts          |   6 +-
+ prebuilts/api/32.0/private/technical_debt.cil      |  30 ++--
+ .../api/32.0/private/untrusted_base_app_25.te      |   1 +
+ .../api/32.0/private/untrusted_base_app_27.te      |   1 +
+ .../api/32.0/private/untrusted_base_app_29.te      |   1 +
+ prebuilts/api/32.0/private/webview_zygote.te       |   4 +-
+ prebuilts/api/32.0/public/app.te                   |  86 ++++++------
+ prebuilts/api/32.0/public/domain.te                |   3 +-
+ prebuilts/api/32.0/public/hal_camera.te            |   2 +-
+ prebuilts/api/32.0/public/hal_drm.te               |   2 +-
+ prebuilts/api/32.0/public/hal_omx.te               |   2 +-
+ prebuilts/api/32.0/public/hal_sensors.te           |   2 +-
+ .../api/32.0/public/isolated_base_app.te (new)     |   9 ++
  private/app_neverallows.te                         |   1 +
  private/app_zygote.te                              |   4 +-
  private/compat/26.0/26.0.ignore.cil                |   1 +
@@ -3569,6 +3815,7 @@ Date:   Sun 2020-02-23 22:41:07+1100
  private/compat/28.0/28.0.ignore.cil                |   1 +
  private/compat/29.0/29.0.ignore.cil                |   1 +
  private/compat/30.0/30.0.ignore.cil                |   1 +
+ private/compat/31.0/31.0.ignore.cil                |   1 +
  private/isolated_base_app.te (new)                 | 153 +++++++++++++++++++++
  private/seapp_contexts                             |   6 +-
  private/technical_debt.cil                         |  30 ++--
@@ -3580,12 +3827,12 @@ Date:   Sun 2020-02-23 22:41:07+1100
  public/hal_omx.te                                  |   2 +-
  public/hal_sensors.te                              |   2 +-
  public/isolated_base_app.te (new)                  |   9 ++
- 36 files changed, 484 insertions(+), 134 deletions(-)
+ 41 files changed, 489 insertions(+), 134 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/app_neverallows.te b/prebuilts/api/31.0/private/app_neverallows.te
+diff --git a/prebuilts/api/32.0/private/app_neverallows.te b/prebuilts/api/32.0/private/app_neverallows.te
 index c8e4a23b0437872da4426a752d26835994e0c966..ff18902778bdfae3467927dec74168aa40f6c809 100644
---- a/prebuilts/api/31.0/private/app_neverallows.te
-+++ b/prebuilts/api/31.0/private/app_neverallows.te
+--- a/prebuilts/api/32.0/private/app_neverallows.te
++++ b/prebuilts/api/32.0/private/app_neverallows.te
 @@ -1,17 +1,18 @@
  ###
  ### neverallow rules for untrusted app domains
@@ -3605,10 +3852,10 @@ index c8e4a23b0437872da4426a752d26835994e0c966..ff18902778bdfae3467927dec74168aa
    untrusted_base_app
    untrusted_base_app_25
    untrusted_base_app_27
-diff --git a/prebuilts/api/31.0/private/app_zygote.te b/prebuilts/api/31.0/private/app_zygote.te
+diff --git a/prebuilts/api/32.0/private/app_zygote.te b/prebuilts/api/32.0/private/app_zygote.te
 index 004c10844d8935d67174038f6082a179dded8898..e671a99216698750dd3c1f5f3bc37b82b54fae09 100644
---- a/prebuilts/api/31.0/private/app_zygote.te
-+++ b/prebuilts/api/31.0/private/app_zygote.te
+--- a/prebuilts/api/32.0/private/app_zygote.te
++++ b/prebuilts/api/32.0/private/app_zygote.te
 @@ -9,34 +9,36 @@ typeattribute app_zygote coredomain;
  tmpfs_domain(app_zygote);
  
@@ -3669,10 +3916,10 @@ index 004c10844d8935d67174038f6082a179dded8898..e671a99216698750dd3c1f5f3bc37b82
  
  # The only way to enter this domain is for the zygote to fork a new
  # app_zygote child.
-diff --git a/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil b/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil b/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil
 index 8721e9b736ed0c9f91b6b7732caa57550ba3bf95..37f10ab1a30085ba4e30abb7ebf34e73c081a1fa 100644
---- a/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/26.0/26.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/26.0/26.0.ignore.cil
 @@ -98,20 +98,21 @@
      heapprofd
      heapprofd_exec
@@ -3695,10 +3942,10 @@ index 8721e9b736ed0c9f91b6b7732caa57550ba3bf95..37f10ab1a30085ba4e30abb7ebf34e73
      looper_stats_service
      lowpan_device
      lowpan_prop
-diff --git a/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil b/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil b/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil
 index 3a019302728c52a81077d6634be329ebf98ab6ca..895472976b99021e78c37a97dfc6f2af25b4dc43 100644
---- a/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/27.0/27.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/27.0/27.0.ignore.cil
 @@ -111,20 +111,21 @@
      heapprofd_socket
      incident_helper
@@ -3721,10 +3968,10 @@ index 3a019302728c52a81077d6634be329ebf98ab6ca..895472976b99021e78c37a97dfc6f2af
      lmkd_config_prop
      looper_stats_service
      lowpan_device
-diff --git a/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil b/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil b/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil
 index 9ab335b0e695eb0eac3a1d041d5da4e0b438f1bc..5e6a5ec7e91ac2891ae9906b8e23acde18eccf9b 100644
---- a/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/28.0/28.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/28.0/28.0.ignore.cil
 @@ -89,20 +89,21 @@
      looper_stats_service
      lpdumpd
@@ -3747,10 +3994,10 @@ index 9ab335b0e695eb0eac3a1d041d5da4e0b438f1bc..5e6a5ec7e91ac2891ae9906b8e23acde
      network_stack_tmpfs
      nnapi_ext_deny_product_prop
      overlayfs_file
-diff --git a/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
+diff --git a/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil b/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
 index 0d74d4bd38f2f25152f9a4c493e7981732faa5f1..25214c7dfc32dad7e58f571f692ba967dd345bb1 100644
---- a/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/29.0/29.0.ignore.cil
+--- a/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/29.0/29.0.ignore.cil
 @@ -65,20 +65,21 @@
      init_perf_lsm_hooks_prop
      init_svc_debug_prop
@@ -3773,12 +4020,11 @@ index 0d74d4bd38f2f25152f9a4c493e7981732faa5f1..25214c7dfc32dad7e58f571f692ba967
      lmkd_prop
      media_variant_prop
      metadata_bootstat_file
-diff --git a/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil b/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-index aa13ef0145252208763218f4dc93c7b48a655273..a5828a877470470dd6c8885c5c634b1a3c26a541 100644
---- a/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-+++ b/prebuilts/api/31.0/private/compat/30.0/30.0.ignore.cil
-@@ -63,20 +63,21 @@
-     hal_gnss_service
+diff --git a/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil b/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
+index f4dff53212b2abb933424922804affd2e745dd55..8e46053cf14d4034337e8d48f5fa0d92704b8485 100644
+--- a/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/30.0/30.0.ignore.cil
+@@ -64,20 +64,21 @@
      hal_keymint_service
      hal_neuralnetworks_service
      hal_power_stats_service
@@ -3788,6 +4034,7 @@ index aa13ef0145252208763218f4dc93c7b48a655273..a5828a877470470dd6c8885c5c634b1a
      hal_uwb_service
      hal_weaver_service
      hw_timeout_multiplier_prop
+     hypervisor_prop
 +    isolated_base_app
      keystore_compat_hal_service
      keystore_maintenance_service
@@ -3799,11 +4046,31 @@ index aa13ef0145252208763218f4dc93c7b48a655273..a5828a877470470dd6c8885c5c634b1a
      media_communication_service
      media_metrics_service
      mediatuner_exec
-diff --git a/prebuilts/api/31.0/private/isolated_base_app.te b/prebuilts/api/31.0/private/isolated_base_app.te
+diff --git a/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil b/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
+index cce473dc2a86a3d51c11054440be08dd62b363cb..56488bc1af5cf5b0176a7f4ced6058ce75e5b694 100644
+--- a/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
++++ b/prebuilts/api/32.0/private/compat/31.0/31.0.ignore.cil
+@@ -1,14 +1,15 @@
+ ;; new_objects - a collection of types that have been introduced that have no
+ ;;   analogue in older policy.  Thus, we do not need to map these types to
+ ;;   previous ones.  Add here to pass checkapi tests.
+ (type new_objects)
+ (typeattribute new_objects)
+ (typeattributeset new_objects
+   ( new_objects
+     hypervisor_prop
++    isolated_base_app
+     untrusted_base_app
+     untrusted_base_app_25
+     untrusted_base_app_27
+     untrusted_base_app_29
+     updater_app
+   ))
+diff --git a/prebuilts/api/32.0/private/isolated_base_app.te b/prebuilts/api/32.0/private/isolated_base_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..72db8f620fd3e892e07340ed07f483454c04640b
 --- /dev/null
-+++ b/prebuilts/api/31.0/private/isolated_base_app.te
++++ b/prebuilts/api/32.0/private/isolated_base_app.te
 @@ -0,0 +1,153 @@
 +###
 +### Services with isolatedProcess=true in their manifest.
@@ -3958,10 +4225,10 @@ index 0000000000000000000000000000000000000000..72db8f620fd3e892e07340ed07f48345
 +  ieee802154_socket caif_socket alg_socket nfc_socket vsock_socket kcm_socket
 +  qipcrtr_socket smc_socket xdp_socket
 +} create;
-diff --git a/prebuilts/api/31.0/private/seapp_contexts b/prebuilts/api/31.0/private/seapp_contexts
-index 5904336bb7e586892922d092ee2acd4b5f381a73..5fb26d566243ab7c6edc96e607c3454ee3450c77 100644
---- a/prebuilts/api/31.0/private/seapp_contexts
-+++ b/prebuilts/api/31.0/private/seapp_contexts
+diff --git a/prebuilts/api/32.0/private/seapp_contexts b/prebuilts/api/32.0/private/seapp_contexts
+index b7b668d7c15efda748f1b4367fac7f212fc27db5..3982c1e8543f594f7a09791ff11051de9e60151e 100644
+--- a/prebuilts/api/32.0/private/seapp_contexts
++++ b/prebuilts/api/32.0/private/seapp_contexts
 @@ -119,22 +119,22 @@ neverallow user=((?!system).)* type=system_app_data_file
  neverallow user=_app isPrivApp=false name=.* seinfo=""
  neverallow user=_app isPrivApp=false name=.* seinfo=default
@@ -3987,7 +4254,7 @@ index 5904336bb7e586892922d092ee2acd4b5f381a73..5fb26d566243ab7c6edc96e607c3454e
  neverallow user=shell name=((?!com\.android\.shell).)*
  
  # Ephemeral Apps must run in the ephemeral_app domain
-@@ -147,21 +147,21 @@ user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_a
+@@ -149,21 +149,21 @@ user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_a
  user=system seinfo=platform domain=system_app type=system_app_data_file
  user=bluetooth seinfo=platform domain=bluetooth type=bluetooth_data_file
  user=network_stack seinfo=network_stack domain=network_stack type=radio_data_file
@@ -4010,10 +4277,10 @@ index 5904336bb7e586892922d092ee2acd4b5f381a73..5fb26d566243ab7c6edc96e607c3454e
  user=_app isPrivApp=true domain=priv_app type=privapp_data_file levelFrom=user
  user=_app seinfo=base isPrivApp=true name=com.google.android.permissioncontroller domain=permissioncontroller_app type=privapp_data_file levelFrom=all
  user=_app isPrivApp=true name=com.google.android.permissioncontroller domain=permissioncontroller_app type=privapp_data_file levelFrom=all
-diff --git a/prebuilts/api/31.0/private/technical_debt.cil b/prebuilts/api/31.0/private/technical_debt.cil
+diff --git a/prebuilts/api/32.0/private/technical_debt.cil b/prebuilts/api/32.0/private/technical_debt.cil
 index 9b3e3c6adfdba9da482bb87568efdc72141fb876..f2acabe6471fcb7f2aee21335dbc166dc27684f4 100644
---- a/prebuilts/api/31.0/private/technical_debt.cil
-+++ b/prebuilts/api/31.0/private/technical_debt.cil
+--- a/prebuilts/api/32.0/private/technical_debt.cil
++++ b/prebuilts/api/32.0/private/technical_debt.cil
 @@ -1,71 +1,71 @@
  ; THIS IS A WORKAROUND for the current limitations of the module policy language
  ; This should be used sparingly until we figure out a saner way to achieve the
@@ -4101,10 +4368,58 @@ index 9b3e3c6adfdba9da482bb87568efdc72141fb876..f2acabe6471fcb7f2aee21335dbc166d
  ;     typeattribute { system_property_type && vendor_property_type } system_and_vendor_property_type;
  (typeattribute system_and_vendor_property_type)
  (typeattributeset system_and_vendor_property_type ((and (system_property_type) (vendor_property_type))))
-diff --git a/prebuilts/api/31.0/private/webview_zygote.te b/prebuilts/api/31.0/private/webview_zygote.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_25.te b/prebuilts/api/32.0/private/untrusted_base_app_25.te
+index 4bcaa19eb3432a045ce94b18c6521c894125ee32..ef83692eaa06cf0e1a7a716f54349a058b2c304a 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_25.te
+@@ -44,10 +44,11 @@ userdebug_or_eng(`auditallow untrusted_base_app_25 dex2oat_exec:file rx_file_per
+ # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
+ # ASharedMemory instead.
+ allow untrusted_base_app_25 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_base_app_25 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_base_app_25 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_base_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
++auditallow untrusted_base_app_25 self:netlink_route_socket { bind nlmsg_readpriv };
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_27.te b/prebuilts/api/32.0/private/untrusted_base_app_27.te
+index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..273ee2491a2f65d5fd96503ac063116ad76c1bf9 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_27.te
+@@ -32,10 +32,11 @@ userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_per
+ # The ability to talk to /dev/ashmem directly. targetApi>=29 must use
+ # ASharedMemory instead.
+ allow untrusted_base_app_27 ashmem_device:chr_file rw_file_perms;
+ auditallow untrusted_base_app_27 ashmem_device:chr_file open;
+ 
+ # Read /mnt/sdcard symlink.
+ allow untrusted_base_app_27 mnt_sdcard_file:lnk_file r_file_perms;
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_base_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
++auditallow untrusted_base_app_27 self:netlink_route_socket { bind nlmsg_readpriv };
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_29.te b/prebuilts/api/32.0/private/untrusted_base_app_29.te
+index a027578017ca22d8789d2b96e1766047e1e6810c..11c2f4236e0eacf8fcdefd621196bc5b6a0c6e17 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_29.te
+@@ -10,10 +10,11 @@
+ 
+ typeattribute untrusted_base_app_29 coredomain;
+ 
+ app_domain(untrusted_base_app_29)
+ untrusted_app_domain(untrusted_base_app_29)
+ net_domain(untrusted_base_app_29)
+ bluetooth_domain(untrusted_base_app_29)
+ 
+ # allow binding to netlink route sockets and sending RTM_GETLINK messages.
+ allow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
++auditallow untrusted_base_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
+diff --git a/prebuilts/api/32.0/private/webview_zygote.te b/prebuilts/api/32.0/private/webview_zygote.te
 index 3473ecaee77923e5080c2b4e8b176b97fcf4ce31..7dcfb5385c84c40e9047f28938963ad9ef8c43e9 100644
---- a/prebuilts/api/31.0/private/webview_zygote.te
-+++ b/prebuilts/api/31.0/private/webview_zygote.te
+--- a/prebuilts/api/32.0/private/webview_zygote.te
++++ b/prebuilts/api/32.0/private/webview_zygote.te
 @@ -21,40 +21,42 @@ allow webview_zygote apk_data_file:file { r_file_perms execute };
  allow webview_zygote shared_relro_file:dir search;
  allow webview_zygote shared_relro_file:file r_file_perms;
@@ -4171,10 +4486,10 @@ index 3473ecaee77923e5080c2b4e8b176b97fcf4ce31..7dcfb5385c84c40e9047f28938963ad9
  
  # The only way to enter this domain is for the zygote to fork a new
  # webview_zygote child.
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index 8dd14179257e92b396bb32b333edf88a468aaba2..561ddba08d4e0e79106581285fe1733ed563d025 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -26,22 +26,22 @@ allow appdomain app_zygote:fd use;
  allow appdomain zygote_exec:file rx_file_perms;
  
@@ -4506,10 +4821,10 @@ index 8dd14179257e92b396bb32b333edf88a468aaba2..561ddba08d4e0e79106581285fe1733e
  # Privileged netlink socket interfaces.
  neverallow { appdomain -network_stack }
      domain:{
-diff --git a/prebuilts/api/31.0/public/domain.te b/prebuilts/api/31.0/public/domain.te
+diff --git a/prebuilts/api/32.0/public/domain.te b/prebuilts/api/32.0/public/domain.te
 index 11c6519a132c42c42e6e05b295f7417fc4d686ba..cf834515fc8299cbd97fff90ac409b2649a20768 100644
---- a/prebuilts/api/31.0/public/domain.te
-+++ b/prebuilts/api/31.0/public/domain.te
+--- a/prebuilts/api/32.0/public/domain.te
++++ b/prebuilts/api/32.0/public/domain.te
 @@ -82,21 +82,21 @@ allow domain ashmem_libcutils_device:chr_file rw_file_perms;
  allow { domain -hwservicemanager -vndservicemanager } binder_device:chr_file rw_file_perms;
  
@@ -4555,10 +4870,10 @@ index 11c6519a132c42c42e6e05b295f7417fc4d686ba..cf834515fc8299cbd97fff90ac409b26
  # permissible for the "shell user". If you need a process to exec a shell
  # script with differing privilege, define a domain and set up a transition.
  #
-diff --git a/prebuilts/api/31.0/public/hal_camera.te b/prebuilts/api/31.0/public/hal_camera.te
+diff --git a/prebuilts/api/32.0/public/hal_camera.te b/prebuilts/api/32.0/public/hal_camera.te
 index 45fad56e7949d8b811ef1b6e0c6205979eb1385c..afa32661025c5afae165b16f0f503326cb4c6089 100644
---- a/prebuilts/api/31.0/public/hal_camera.te
-+++ b/prebuilts/api/31.0/public/hal_camera.te
+--- a/prebuilts/api/32.0/public/hal_camera.te
++++ b/prebuilts/api/32.0/public/hal_camera.te
 @@ -8,21 +8,21 @@ allow hal_camera device:dir r_dir_perms;
  allow hal_camera video_device:dir r_dir_perms;
  allow hal_camera video_device:chr_file rw_file_perms;
@@ -4582,10 +4897,10 @@ index 45fad56e7949d8b811ef1b6e0c6205979eb1385c..afa32661025c5afae165b16f0f503326
  ###
  ### neverallow rules
  ###
-diff --git a/prebuilts/api/31.0/public/hal_drm.te b/prebuilts/api/31.0/public/hal_drm.te
+diff --git a/prebuilts/api/32.0/public/hal_drm.te b/prebuilts/api/32.0/public/hal_drm.te
 index bb1bd91e67c6aeebdc9c62d565f27f89c83a6273..b7363db07e55629115e72b8731ffb7b0c227abfe 100644
---- a/prebuilts/api/31.0/public/hal_drm.te
-+++ b/prebuilts/api/31.0/public/hal_drm.te
+--- a/prebuilts/api/32.0/public/hal_drm.te
++++ b/prebuilts/api/32.0/public/hal_drm.te
 @@ -31,21 +31,21 @@ allow hal_drm hal_graphics_allocator:fd use;
  # Allow access to hidl_memory allocation service
  allow hal_drm hal_allocator_server:fd use;
@@ -4609,10 +4924,10 @@ index bb1bd91e67c6aeebdc9c62d565f27f89c83a6273..b7363db07e55629115e72b8731ffb7b0
  ###
  
  # hal_drm should never execute any executable without a
-diff --git a/prebuilts/api/31.0/public/hal_omx.te b/prebuilts/api/31.0/public/hal_omx.te
+diff --git a/prebuilts/api/32.0/public/hal_omx.te b/prebuilts/api/32.0/public/hal_omx.te
 index 8e74383d31b59239c297fb4bbf31c07a93cf4ea3..b4940f30b0daffcd6094d6eb73ac91c0953271c4 100644
---- a/prebuilts/api/31.0/public/hal_omx.te
-+++ b/prebuilts/api/31.0/public/hal_omx.te
+--- a/prebuilts/api/32.0/public/hal_omx.te
++++ b/prebuilts/api/32.0/public/hal_omx.te
 @@ -1,15 +1,15 @@
  # applies all permissions to hal_omx NOT hal_omx_server
  # since OMX must always be in its own process.
@@ -4630,10 +4945,10 @@ index 8e74383d31b59239c297fb4bbf31c07a93cf4ea3..b4940f30b0daffcd6094d6eb73ac91c0
  crash_dump_fallback(hal_omx_server)
  
  # Recieve gralloc buffer FDs from bufferhubd. Note that hal_omx_server never
-diff --git a/prebuilts/api/31.0/public/hal_sensors.te b/prebuilts/api/31.0/public/hal_sensors.te
+diff --git a/prebuilts/api/32.0/public/hal_sensors.te b/prebuilts/api/32.0/public/hal_sensors.te
 index 06e76f1e17e171b969f97e94461944d6c1d09892..0405b6eab322037f70965156f083dfc038c44c8d 100644
---- a/prebuilts/api/31.0/public/hal_sensors.te
-+++ b/prebuilts/api/31.0/public/hal_sensors.te
+--- a/prebuilts/api/32.0/public/hal_sensors.te
++++ b/prebuilts/api/32.0/public/hal_sensors.te
 @@ -1,14 +1,14 @@
  # HwBinder IPC from client to server
  binder_call(hal_sensors_client, hal_sensors_server)
@@ -4650,11 +4965,11 @@ index 06e76f1e17e171b969f97e94461944d6c1d09892..0405b6eab322037f70965156f083dfc0
  
  # allow to run with real-time scheduling policy
  allow hal_sensors self:global_capability_class_set sys_nice;
-diff --git a/prebuilts/api/31.0/public/isolated_base_app.te b/prebuilts/api/31.0/public/isolated_base_app.te
+diff --git a/prebuilts/api/32.0/public/isolated_base_app.te b/prebuilts/api/32.0/public/isolated_base_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..86740d042480b7f0c165b0e6f41cd0f1edce0b0f
 --- /dev/null
-+++ b/prebuilts/api/31.0/public/isolated_base_app.te
++++ b/prebuilts/api/32.0/public/isolated_base_app.te
 @@ -0,0 +1,9 @@
 +###
 +### Services with isolatedProcess=true in their manifest.
@@ -4857,11 +5172,10 @@ index 0d74d4bd38f2f25152f9a4c493e7981732faa5f1..25214c7dfc32dad7e58f571f692ba967
      media_variant_prop
      metadata_bootstat_file
 diff --git a/private/compat/30.0/30.0.ignore.cil b/private/compat/30.0/30.0.ignore.cil
-index aa13ef0145252208763218f4dc93c7b48a655273..a5828a877470470dd6c8885c5c634b1a3c26a541 100644
+index f4dff53212b2abb933424922804affd2e745dd55..8e46053cf14d4034337e8d48f5fa0d92704b8485 100644
 --- a/private/compat/30.0/30.0.ignore.cil
 +++ b/private/compat/30.0/30.0.ignore.cil
-@@ -63,20 +63,21 @@
-     hal_gnss_service
+@@ -64,20 +64,21 @@
      hal_keymint_service
      hal_neuralnetworks_service
      hal_power_stats_service
@@ -4871,6 +5185,7 @@ index aa13ef0145252208763218f4dc93c7b48a655273..a5828a877470470dd6c8885c5c634b1a
      hal_uwb_service
      hal_weaver_service
      hw_timeout_multiplier_prop
+     hypervisor_prop
 +    isolated_base_app
      keystore_compat_hal_service
      keystore_maintenance_service
@@ -4882,6 +5197,26 @@ index aa13ef0145252208763218f4dc93c7b48a655273..a5828a877470470dd6c8885c5c634b1a
      media_communication_service
      media_metrics_service
      mediatuner_exec
+diff --git a/private/compat/31.0/31.0.ignore.cil b/private/compat/31.0/31.0.ignore.cil
+index cce473dc2a86a3d51c11054440be08dd62b363cb..56488bc1af5cf5b0176a7f4ced6058ce75e5b694 100644
+--- a/private/compat/31.0/31.0.ignore.cil
++++ b/private/compat/31.0/31.0.ignore.cil
+@@ -1,14 +1,15 @@
+ ;; new_objects - a collection of types that have been introduced that have no
+ ;;   analogue in older policy.  Thus, we do not need to map these types to
+ ;;   previous ones.  Add here to pass checkapi tests.
+ (type new_objects)
+ (typeattribute new_objects)
+ (typeattributeset new_objects
+   ( new_objects
+     hypervisor_prop
++    isolated_base_app
+     untrusted_base_app
+     untrusted_base_app_25
+     untrusted_base_app_27
+     untrusted_base_app_29
+     updater_app
+   ))
 diff --git a/private/isolated_base_app.te b/private/isolated_base_app.te
 new file mode 100644
 index 0000000000000000000000000000000000000000..72db8f620fd3e892e07340ed07f483454c04640b
@@ -5042,7 +5377,7 @@ index 0000000000000000000000000000000000000000..72db8f620fd3e892e07340ed07f48345
 +  qipcrtr_socket smc_socket xdp_socket
 +} create;
 diff --git a/private/seapp_contexts b/private/seapp_contexts
-index 5904336bb7e586892922d092ee2acd4b5f381a73..5fb26d566243ab7c6edc96e607c3454ee3450c77 100644
+index b7b668d7c15efda748f1b4367fac7f212fc27db5..3982c1e8543f594f7a09791ff11051de9e60151e 100644
 --- a/private/seapp_contexts
 +++ b/private/seapp_contexts
 @@ -119,22 +119,22 @@ neverallow user=((?!system).)* type=system_app_data_file
@@ -5070,7 +5405,7 @@ index 5904336bb7e586892922d092ee2acd4b5f381a73..5fb26d566243ab7c6edc96e607c3454e
  neverallow user=shell name=((?!com\.android\.shell).)*
  
  # Ephemeral Apps must run in the ephemeral_app domain
-@@ -147,21 +147,21 @@ user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_a
+@@ -149,21 +149,21 @@ user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_a
  user=system seinfo=platform domain=system_app type=system_app_data_file
  user=bluetooth seinfo=platform domain=bluetooth type=bluetooth_data_file
  user=network_stack seinfo=network_stack domain=network_stack type=radio_data_file
@@ -5749,7 +6084,7 @@ index 0000000000000000000000000000000000000000..86740d042480b7f0c165b0e6f41cd0f1
 +
 +type isolated_base_app, domain;
 
-commit af85abbd519cfa7978ed6efac911be98496155e9
+commit 0bbd93392fc894e2c6c38e55f011c04489685b92
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:12:12+1100
 
@@ -5757,16 +6092,16 @@ Date:   Tue 2020-02-25 22:12:12+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/untrusted_base_app_25.te | 4 ----
- prebuilts/api/31.0/private/untrusted_base_app_27.te | 4 ----
+ prebuilts/api/32.0/private/untrusted_base_app_25.te | 4 ----
+ prebuilts/api/32.0/private/untrusted_base_app_27.te | 4 ----
  private/untrusted_base_app_25.te                    | 4 ----
  private/untrusted_base_app_27.te                    | 4 ----
  4 files changed, 16 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_25.te b/prebuilts/api/31.0/private/untrusted_base_app_25.te
-index 4bcaa19eb3432a045ce94b18c6521c894125ee32..3125cca4cf21438fa72bb6df64a729f320eebb7f 100644
---- a/prebuilts/api/31.0/private/untrusted_base_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_25.te b/prebuilts/api/32.0/private/untrusted_base_app_25.te
+index ef83692eaa06cf0e1a7a716f54349a058b2c304a..2f10ebcac798afaaebfeeda7f9ea3fbddfb19f81 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_25.te
 @@ -19,24 +19,20 @@ bluetooth_domain(untrusted_base_app_25)
  # This will go away in a future Android release
  allow untrusted_base_app_25 proc_misc:file r_file_perms;
@@ -5792,10 +6127,10 @@ index 4bcaa19eb3432a045ce94b18c6521c894125ee32..3125cca4cf21438fa72bb6df64a729f3
  # allowed for targetApi<=28 for compat reasons.
  allow untrusted_base_app_25 dex2oat_exec:file rx_file_perms;
  userdebug_or_eng(`auditallow untrusted_base_app_25 dex2oat_exec:file rx_file_perms;')
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_27.te b/prebuilts/api/31.0/private/untrusted_base_app_27.te
-index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d95374875 100644
---- a/prebuilts/api/31.0/private/untrusted_base_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_27.te b/prebuilts/api/32.0/private/untrusted_base_app_27.te
+index 273ee2491a2f65d5fd96503ac063116ad76c1bf9..b3cc763c966c94b43731e29bd4d5753bc1602175 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_27.te
 @@ -8,24 +8,20 @@
  ### placed in this selinux domain.
  ###
@@ -5822,7 +6157,7 @@ index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d
  userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
  
 diff --git a/private/untrusted_base_app_25.te b/private/untrusted_base_app_25.te
-index 4bcaa19eb3432a045ce94b18c6521c894125ee32..3125cca4cf21438fa72bb6df64a729f320eebb7f 100644
+index ef83692eaa06cf0e1a7a716f54349a058b2c304a..2f10ebcac798afaaebfeeda7f9ea3fbddfb19f81 100644
 --- a/private/untrusted_base_app_25.te
 +++ b/private/untrusted_base_app_25.te
 @@ -19,24 +19,20 @@ bluetooth_domain(untrusted_base_app_25)
@@ -5851,7 +6186,7 @@ index 4bcaa19eb3432a045ce94b18c6521c894125ee32..3125cca4cf21438fa72bb6df64a729f3
  allow untrusted_base_app_25 dex2oat_exec:file rx_file_perms;
  userdebug_or_eng(`auditallow untrusted_base_app_25 dex2oat_exec:file rx_file_perms;')
 diff --git a/private/untrusted_base_app_27.te b/private/untrusted_base_app_27.te
-index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d95374875 100644
+index 273ee2491a2f65d5fd96503ac063116ad76c1bf9..b3cc763c966c94b43731e29bd4d5753bc1602175 100644
 --- a/private/untrusted_base_app_27.te
 +++ b/private/untrusted_base_app_27.te
 @@ -8,24 +8,20 @@
@@ -5880,7 +6215,7 @@ index 4ef4e963cd1b12b546a923d985e0d1c54dc60a74..5d27d18ea288d370a08e8f9a9c54f38d
  userdebug_or_eng(`auditallow untrusted_base_app_27 dex2oat_exec:file rx_file_perms;')
  
 
-commit 05c94fe7a61b631d688834f712db16e71a81a967
+commit d3399367dabf75a005c1edc1765e18314888ae21
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:17:45+1100
 
@@ -5890,13 +6225,13 @@ Date:   Tue 2020-02-25 22:17:45+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/ephemeral_app.te    | 3 +++
- prebuilts/api/31.0/private/isolated_app.te     | 3 +++
- prebuilts/api/31.0/private/untrusted_app.te    | 3 +++
- prebuilts/api/31.0/private/untrusted_app_25.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_27.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_29.te | 3 +++
- prebuilts/api/31.0/public/app.te               | 4 ----
+ prebuilts/api/32.0/private/ephemeral_app.te    | 3 +++
+ prebuilts/api/32.0/private/isolated_app.te     | 3 +++
+ prebuilts/api/32.0/private/untrusted_app.te    | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_25.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_27.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_29.te | 3 +++
+ prebuilts/api/32.0/public/app.te               | 4 ----
  private/ephemeral_app.te                       | 3 +++
  private/isolated_app.te                        | 3 +++
  private/untrusted_app.te                       | 3 +++
@@ -5906,10 +6241,10 @@ Date:   Tue 2020-02-25 22:17:45+1100
  public/app.te                                  | 4 ----
  14 files changed, 36 insertions(+), 8 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/ephemeral_app.te b/prebuilts/api/31.0/private/ephemeral_app.te
+diff --git a/prebuilts/api/32.0/private/ephemeral_app.te b/prebuilts/api/32.0/private/ephemeral_app.te
 index e004891792232b5dc99dfc7a081bceea8591201f..c4db55a55ce4f8eb4b50a5dd97112e50c15e57d4 100644
---- a/prebuilts/api/31.0/private/ephemeral_app.te
-+++ b/prebuilts/api/31.0/private/ephemeral_app.te
+--- a/prebuilts/api/32.0/private/ephemeral_app.te
++++ b/prebuilts/api/32.0/private/ephemeral_app.te
 @@ -9,20 +9,23 @@
  ### applications may also opt-in to ephemeral to take advantage of the
  ### additional security features.
@@ -5934,10 +6269,10 @@ index e004891792232b5dc99dfc7a081bceea8591201f..c4db55a55ce4f8eb4b50a5dd97112e50
  
  # Follow priv-app symlinks. This is used for dynamite functionality.
  allow ephemeral_app privapp_data_file:lnk_file r_file_perms;
-diff --git a/prebuilts/api/31.0/private/isolated_app.te b/prebuilts/api/31.0/private/isolated_app.te
+diff --git a/prebuilts/api/32.0/private/isolated_app.te b/prebuilts/api/32.0/private/isolated_app.te
 index 71749c00f6c992e8a14423e7a5e4019570d5ffbb..cffc1628b2a28a1ec0bdf3e9f5706430b73407e4 100644
---- a/prebuilts/api/31.0/private/isolated_app.te
-+++ b/prebuilts/api/31.0/private/isolated_app.te
+--- a/prebuilts/api/32.0/private/isolated_app.te
++++ b/prebuilts/api/32.0/private/isolated_app.te
 @@ -3,20 +3,23 @@
  ###
  ### This file defines the rules for isolated apps. An "isolated
@@ -5962,10 +6297,10 @@ index 71749c00f6c992e8a14423e7a5e4019570d5ffbb..cffc1628b2a28a1ec0bdf3e9f5706430
  allow isolated_app activity_service:service_manager find;
  allow isolated_app display_service:service_manager find;
  allow isolated_app webviewupdate_service:service_manager find;
-diff --git a/prebuilts/api/31.0/private/untrusted_app.te b/prebuilts/api/31.0/private/untrusted_app.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app.te b/prebuilts/api/32.0/private/untrusted_app.te
 index 6e7a99cd8c64bfd8bd076a5e5420a16e1bb1bb5b..44e9295df9de755a08b4b8957898878911cbe786 100644
---- a/prebuilts/api/31.0/private/untrusted_app.te
-+++ b/prebuilts/api/31.0/private/untrusted_app.te
+--- a/prebuilts/api/32.0/private/untrusted_app.te
++++ b/prebuilts/api/32.0/private/untrusted_app.te
 @@ -7,10 +7,13 @@
  ### See public/untrusted_app.te for more information about which apps are
  ### placed in this selinux domain.
@@ -5980,10 +6315,10 @@ index 6e7a99cd8c64bfd8bd076a5e5420a16e1bb1bb5b..44e9295df9de755a08b4b89578988789
 +
 +allow untrusted_app self:process execmem;
 +auditallow untrusted_app self:process execmem;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_25.te b/prebuilts/api/31.0/private/untrusted_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_25.te b/prebuilts/api/32.0/private/untrusted_app_25.te
 index 41cabe878b07c7aa36bffdc85c15c095c6a1c859..fd7311bc8fee752251c5641ce4619abc1d8eb950 100644
---- a/prebuilts/api/31.0/private/untrusted_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_25.te
+--- a/prebuilts/api/32.0/private/untrusted_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_app_25.te
 @@ -8,20 +8,23 @@
  ### placed in this selinux domain.
  ###
@@ -6008,10 +6343,10 @@ index 41cabe878b07c7aa36bffdc85c15c095c6a1c859..fd7311bc8fee752251c5641ce4619abc
  # https://github.com/strazzere/anti-emulator/blob/master/AntiEmulator/src/diff/strazzere/anti/emulator/FindEmulator.java
  # This will go away in a future Android release
  allow untrusted_app_25 proc_tty_drivers:file r_file_perms;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_27.te b/prebuilts/api/31.0/private/untrusted_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_27.te b/prebuilts/api/32.0/private/untrusted_app_27.te
 index 0993faa9bd6bbddbf53162d4f0fdf7d410b57b0a..a0e98b59f748ac6068cdbde5655f7106179da1b9 100644
---- a/prebuilts/api/31.0/private/untrusted_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_27.te
+--- a/prebuilts/api/32.0/private/untrusted_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_app_27.te
 @@ -8,20 +8,23 @@
  ### placed in this selinux domain.
  ###
@@ -6036,10 +6371,10 @@ index 0993faa9bd6bbddbf53162d4f0fdf7d410b57b0a..a0e98b59f748ac6068cdbde5655f7106
  auditallow untrusted_app_27 app_data_file:file { execute execute_no_trans };
  
  # The ability to invoke dex2oat. Historically required by ART, now only
-diff --git a/prebuilts/api/31.0/private/untrusted_app_29.te b/prebuilts/api/31.0/private/untrusted_app_29.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_29.te b/prebuilts/api/32.0/private/untrusted_app_29.te
 index c5652b16943f79016f596b403309bb8725114ec5..c66adfc6d1c220666c34446cfac70fb45cc31c58 100644
---- a/prebuilts/api/31.0/private/untrusted_app_29.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_29.te
+--- a/prebuilts/api/32.0/private/untrusted_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_app_29.te
 @@ -8,13 +8,16 @@
  ### placed in this selinux domain.
  ###
@@ -6057,10 +6392,10 @@ index c5652b16943f79016f596b403309bb8725114ec5..c66adfc6d1c220666c34446cfac70fb4
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
  allow untrusted_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
  auditallow untrusted_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index 561ddba08d4e0e79106581285fe1733ed563d025..531547bef528d98b31c9b52eba949107132be43c 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -1,24 +1,20 @@
  ###
  ### Domain for all zygote spawned apps
@@ -6267,7 +6602,7 @@ index 561ddba08d4e0e79106581285fe1733ed563d025..531547bef528d98b31c9b52eba949107
  
  # gdbserver for ndk-gdb reads the zygote.
 
-commit 4f29515e3ba545f625599eaada0cbb1d13811275
+commit 49fc8ad01d669cff9151d10e4a5a56c2e89619ee
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 20:12:32-0500
 
@@ -6275,16 +6610,16 @@ Date:   Tue 2020-02-25 20:12:32-0500
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/untrusted_base_app_25.te | 6 ------
- prebuilts/api/31.0/private/untrusted_base_app_27.te | 5 -----
+ prebuilts/api/32.0/private/untrusted_base_app_25.te | 6 ------
+ prebuilts/api/32.0/private/untrusted_base_app_27.te | 5 -----
  private/untrusted_base_app_25.te                    | 6 ------
  private/untrusted_base_app_27.te                    | 5 -----
  4 files changed, 22 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_25.te b/prebuilts/api/31.0/private/untrusted_base_app_25.te
-index 3125cca4cf21438fa72bb6df64a729f320eebb7f..d805e85fec42b66ead714379c44a48901eccea07 100644
---- a/prebuilts/api/31.0/private/untrusted_base_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_25.te b/prebuilts/api/32.0/private/untrusted_base_app_25.te
+index 2f10ebcac798afaaebfeeda7f9ea3fbddfb19f81..dd107ef5c1b8c4e68cd8184d8b17b4f484f79001 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_25.te
 @@ -19,26 +19,20 @@ bluetooth_domain(untrusted_base_app_25)
  # This will go away in a future Android release
  allow untrusted_base_app_25 proc_misc:file r_file_perms;
@@ -6312,10 +6647,10 @@ index 3125cca4cf21438fa72bb6df64a729f320eebb7f..d805e85fec42b66ead714379c44a4890
  allow untrusted_base_app_25 ashmem_device:chr_file rw_file_perms;
  auditallow untrusted_base_app_25 ashmem_device:chr_file open;
  
-diff --git a/prebuilts/api/31.0/private/untrusted_base_app_27.te b/prebuilts/api/31.0/private/untrusted_base_app_27.te
-index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf4211357565c 100644
---- a/prebuilts/api/31.0/private/untrusted_base_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_base_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_base_app_27.te b/prebuilts/api/32.0/private/untrusted_base_app_27.te
+index b3cc763c966c94b43731e29bd4d5753bc1602175..c5135eb7a1eac5088d944066b16d54fab0f4fd0f 100644
+--- a/prebuilts/api/32.0/private/untrusted_base_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_base_app_27.te
 @@ -8,25 +8,20 @@
  ### placed in this selinux domain.
  ###
@@ -6343,7 +6678,7 @@ index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf421
  auditallow untrusted_base_app_27 ashmem_device:chr_file open;
  
 diff --git a/private/untrusted_base_app_25.te b/private/untrusted_base_app_25.te
-index 3125cca4cf21438fa72bb6df64a729f320eebb7f..d805e85fec42b66ead714379c44a48901eccea07 100644
+index 2f10ebcac798afaaebfeeda7f9ea3fbddfb19f81..dd107ef5c1b8c4e68cd8184d8b17b4f484f79001 100644
 --- a/private/untrusted_base_app_25.te
 +++ b/private/untrusted_base_app_25.te
 @@ -19,26 +19,20 @@ bluetooth_domain(untrusted_base_app_25)
@@ -6374,7 +6709,7 @@ index 3125cca4cf21438fa72bb6df64a729f320eebb7f..d805e85fec42b66ead714379c44a4890
  auditallow untrusted_base_app_25 ashmem_device:chr_file open;
  
 diff --git a/private/untrusted_base_app_27.te b/private/untrusted_base_app_27.te
-index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf4211357565c 100644
+index b3cc763c966c94b43731e29bd4d5753bc1602175..c5135eb7a1eac5088d944066b16d54fab0f4fd0f 100644
 --- a/private/untrusted_base_app_27.te
 +++ b/private/untrusted_base_app_27.te
 @@ -8,25 +8,20 @@
@@ -6404,7 +6739,7 @@ index 5d27d18ea288d370a08e8f9a9c54f38d95374875..59e79435d8666f17e8fc25949edaf421
  auditallow untrusted_base_app_27 ashmem_device:chr_file open;
  
 
-commit 097e2360196d80a099edeafefa35db54cad174fb
+commit 38291eacb01f640bb309b3d45863b67f40fb92a7
 Author: Renlord <me@renlord.com>
 Date:   Tue 2020-02-25 22:30:48+1100
 
@@ -6412,11 +6747,11 @@ Date:   Tue 2020-02-25 22:30:48+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/untrusted_app.te     | 7 +++++++
- prebuilts/api/31.0/private/untrusted_app_25.te  | 7 +++++++
- prebuilts/api/31.0/private/untrusted_app_27.te  | 7 +++++++
- prebuilts/api/31.0/private/untrusted_app_29.te  | 7 +++++++
- prebuilts/api/31.0/private/untrusted_app_all.te | 6 ------
+ prebuilts/api/32.0/private/untrusted_app.te     | 7 +++++++
+ prebuilts/api/32.0/private/untrusted_app_25.te  | 7 +++++++
+ prebuilts/api/32.0/private/untrusted_app_27.te  | 7 +++++++
+ prebuilts/api/32.0/private/untrusted_app_29.te  | 7 +++++++
+ prebuilts/api/32.0/private/untrusted_app_all.te | 6 ------
  private/untrusted_app.te                        | 7 +++++++
  private/untrusted_app_25.te                     | 7 +++++++
  private/untrusted_app_27.te                     | 7 +++++++
@@ -6424,10 +6759,10 @@ Date:   Tue 2020-02-25 22:30:48+1100
  private/untrusted_app_all.te                    | 6 ------
  10 files changed, 56 insertions(+), 12 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/untrusted_app.te b/prebuilts/api/31.0/private/untrusted_app.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app.te b/prebuilts/api/32.0/private/untrusted_app.te
 index 44e9295df9de755a08b4b8957898878911cbe786..112015c5a080496be6e9c6d09bec9c13e7fef09e 100644
---- a/prebuilts/api/31.0/private/untrusted_app.te
-+++ b/prebuilts/api/31.0/private/untrusted_app.te
+--- a/prebuilts/api/32.0/private/untrusted_app.te
++++ b/prebuilts/api/32.0/private/untrusted_app.te
 @@ -10,10 +10,17 @@
  
  typeattribute untrusted_app coredomain;
@@ -6446,10 +6781,10 @@ index 44e9295df9de755a08b4b8957898878911cbe786..112015c5a080496be6e9c6d09bec9c13
 +allow untrusted_app privapp_data_file:file { r_file_perms execute };
 +allow untrusted_app app_data_file:file     { r_file_perms execute };
 +auditallow untrusted_app app_data_file:file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_25.te b/prebuilts/api/31.0/private/untrusted_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_25.te b/prebuilts/api/32.0/private/untrusted_app_25.te
 index fd7311bc8fee752251c5641ce4619abc1d8eb950..ea293e4c6101e6efe6c6c5ae065fad8827ba7598 100644
---- a/prebuilts/api/31.0/private/untrusted_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_25.te
+--- a/prebuilts/api/32.0/private/untrusted_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_app_25.te
 @@ -32,20 +32,27 @@ allow untrusted_app_25 proc_tty_drivers:file r_file_perms;
  # Text relocation support for API < 23. This is now disallowed for targetSdkVersion>=Q.
  # https://android.googlesource.com/platform/bionic/+/master/android-changes-for-ndk-developers.md#text-relocations-enforced-for-api-level-23
@@ -6478,10 +6813,10 @@ index fd7311bc8fee752251c5641ce4619abc1d8eb950..ea293e4c6101e6efe6c6c5ae065fad88
  allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
  auditallow untrusted_app_25 ashmem_device:chr_file open;
  
-diff --git a/prebuilts/api/31.0/private/untrusted_app_27.te b/prebuilts/api/31.0/private/untrusted_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_27.te b/prebuilts/api/32.0/private/untrusted_app_27.te
 index a0e98b59f748ac6068cdbde5655f7106179da1b9..a9b2e35583ba8a986b7013acc5d1066faafb9e0b 100644
---- a/prebuilts/api/31.0/private/untrusted_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_27.te
+--- a/prebuilts/api/32.0/private/untrusted_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_app_27.te
 @@ -20,20 +20,27 @@ auditallow untrusted_app_27 self:process execmem;
  
  # Text relocation support for API < 23. This is now disallowed for targetSdkVersion>=Q.
@@ -6510,10 +6845,10 @@ index a0e98b59f748ac6068cdbde5655f7106179da1b9..a9b2e35583ba8a986b7013acc5d1066f
  allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
  auditallow untrusted_app_27 ashmem_device:chr_file open;
  
-diff --git a/prebuilts/api/31.0/private/untrusted_app_29.te b/prebuilts/api/31.0/private/untrusted_app_29.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_29.te b/prebuilts/api/32.0/private/untrusted_app_29.te
 index c66adfc6d1c220666c34446cfac70fb45cc31c58..215c69a9c9e05373de9891624d3fe62dab6bc611 100644
---- a/prebuilts/api/31.0/private/untrusted_app_29.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_29.te
+--- a/prebuilts/api/32.0/private/untrusted_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_app_29.te
 @@ -11,13 +11,20 @@
  typeattribute untrusted_app_29 coredomain;
  
@@ -6535,10 +6870,10 @@ index c66adfc6d1c220666c34446cfac70fb45cc31c58..215c69a9c9e05373de9891624d3fe62d
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
  allow untrusted_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
  auditallow untrusted_app_29 self:netlink_route_socket { bind nlmsg_readpriv };
-diff --git a/prebuilts/api/31.0/private/untrusted_app_all.te b/prebuilts/api/31.0/private/untrusted_app_all.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_all.te b/prebuilts/api/32.0/private/untrusted_app_all.te
 index 6064c1453994c2db28211905267017167a607f9c..14d881d00615a837a45ba1a89a5cb1b7247f499e 100644
---- a/prebuilts/api/31.0/private/untrusted_app_all.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_all.te
+--- a/prebuilts/api/32.0/private/untrusted_app_all.te
++++ b/prebuilts/api/32.0/private/untrusted_app_all.te
 @@ -14,26 +14,20 @@
  ### attribute is assigned to all non-system apps as well as to any system apps
  ### that are not signed by the platform key.  To move
@@ -6709,7 +7044,7 @@ index 6064c1453994c2db28211905267017167a607f9c..14d881d00615a837a45ba1a89a5cb1b7
  allow untrusted_app_all app_data_file:{ lnk_file sock_file fifo_file } create_file_perms;
  
 
-commit 3de4263e67093727e397022a95ed647690174eb7
+commit 1f2a0c7d9951caca9cd4aa9359df73477e88cba7
 Author: Renlord <me@renlord.com>
 Date:   Wed 2020-02-26 10:23:23+1100
 
@@ -6717,13 +7052,13 @@ Date:   Wed 2020-02-26 10:23:23+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/ephemeral_app.te    | 3 +++
- prebuilts/api/31.0/private/isolated_app.te     | 3 +++
- prebuilts/api/31.0/private/untrusted_app.te    | 3 +++
- prebuilts/api/31.0/private/untrusted_app_25.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_27.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_29.te | 3 +++
- prebuilts/api/31.0/public/app.te               | 3 ---
+ prebuilts/api/32.0/private/ephemeral_app.te    | 3 +++
+ prebuilts/api/32.0/private/isolated_app.te     | 3 +++
+ prebuilts/api/32.0/private/untrusted_app.te    | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_25.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_27.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_29.te | 3 +++
+ prebuilts/api/32.0/public/app.te               | 3 ---
  private/ephemeral_app.te                       | 3 +++
  private/isolated_app.te                        | 3 +++
  private/untrusted_app.te                       | 3 +++
@@ -6733,10 +7068,10 @@ Date:   Wed 2020-02-26 10:23:23+1100
  public/app.te                                  | 3 ---
  14 files changed, 36 insertions(+), 6 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/ephemeral_app.te b/prebuilts/api/31.0/private/ephemeral_app.te
+diff --git a/prebuilts/api/32.0/private/ephemeral_app.te b/prebuilts/api/32.0/private/ephemeral_app.te
 index c4db55a55ce4f8eb4b50a5dd97112e50c15e57d4..76fdec9956d2984c41fa687fbe6617b01ac9a620 100644
---- a/prebuilts/api/31.0/private/ephemeral_app.te
-+++ b/prebuilts/api/31.0/private/ephemeral_app.te
+--- a/prebuilts/api/32.0/private/ephemeral_app.te
++++ b/prebuilts/api/32.0/private/ephemeral_app.te
 @@ -56,20 +56,23 @@ perfetto_producer(ephemeral_app)
  can_profile_heap(ephemeral_app)
  can_profile_perf(ephemeral_app)
@@ -6761,10 +7096,10 @@ index c4db55a55ce4f8eb4b50a5dd97112e50c15e57d4..76fdec9956d2984c41fa687fbe6617b0
  neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
  
  # Receive or send generic netlink messages
-diff --git a/prebuilts/api/31.0/private/isolated_app.te b/prebuilts/api/31.0/private/isolated_app.te
+diff --git a/prebuilts/api/32.0/private/isolated_app.te b/prebuilts/api/32.0/private/isolated_app.te
 index cffc1628b2a28a1ec0bdf3e9f5706430b73407e4..3da789eb4d7c842f3bcae4a0df4b2b9d963accfe 100644
---- a/prebuilts/api/31.0/private/isolated_app.te
-+++ b/prebuilts/api/31.0/private/isolated_app.te
+--- a/prebuilts/api/32.0/private/isolated_app.te
++++ b/prebuilts/api/32.0/private/isolated_app.te
 @@ -63,20 +63,23 @@ dontaudit isolated_app shell_data_file:dir search;
  
  # Write app-specific trace data to the Perfetto traced damon. This requires
@@ -6789,10 +7124,10 @@ index cffc1628b2a28a1ec0bdf3e9f5706430b73407e4..3da789eb4d7c842f3bcae4a0df4b2b9d
  # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
  # TODO: are there situations where isolated_apps write to this file?
  # TODO: should we tighten these restrictions further?
-diff --git a/prebuilts/api/31.0/private/untrusted_app.te b/prebuilts/api/31.0/private/untrusted_app.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app.te b/prebuilts/api/32.0/private/untrusted_app.te
 index 112015c5a080496be6e9c6d09bec9c13e7fef09e..6e75a408746604cf6f6e1f8a811f524130b57de5 100644
---- a/prebuilts/api/31.0/private/untrusted_app.te
-+++ b/prebuilts/api/31.0/private/untrusted_app.te
+--- a/prebuilts/api/32.0/private/untrusted_app.te
++++ b/prebuilts/api/32.0/private/untrusted_app.te
 @@ -17,10 +17,13 @@ bluetooth_domain(untrusted_app)
  
  allow untrusted_app self:process execmem;
@@ -6807,10 +7142,10 @@ index 112015c5a080496be6e9c6d09bec9c13e7fef09e..6e75a408746604cf6f6e1f8a811f5241
 +
 +allow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
 +auditallow untrusted_app { ashmem_device ashmem_libcutils_device }:chr_file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_25.te b/prebuilts/api/31.0/private/untrusted_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_25.te b/prebuilts/api/32.0/private/untrusted_app_25.te
 index ea293e4c6101e6efe6c6c5ae065fad8827ba7598..9dd1196b1a1b69838942cb1cc672dbd328a98148 100644
---- a/prebuilts/api/31.0/private/untrusted_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_25.te
+--- a/prebuilts/api/32.0/private/untrusted_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_app_25.te
 @@ -55,10 +55,13 @@ userdebug_or_eng(`auditallow untrusted_app_25 dex2oat_exec:file rx_file_perms;')
  # ASharedMemory instead.
  allow untrusted_app_25 ashmem_device:chr_file rw_file_perms;
@@ -6825,10 +7160,10 @@ index ea293e4c6101e6efe6c6c5ae065fad8827ba7598..9dd1196b1a1b69838942cb1cc672dbd3
 +
 +allow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
 +auditallow untrusted_app_25 { ashmem_device ashmem_libcutils_device }:chr_file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_27.te b/prebuilts/api/31.0/private/untrusted_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_27.te b/prebuilts/api/32.0/private/untrusted_app_27.te
 index a9b2e35583ba8a986b7013acc5d1066faafb9e0b..920515d1c151860c66fee3a193bfb6c59d85f196 100644
---- a/prebuilts/api/31.0/private/untrusted_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_27.te
+--- a/prebuilts/api/32.0/private/untrusted_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_app_27.te
 @@ -43,10 +43,13 @@ userdebug_or_eng(`auditallow untrusted_app_27 dex2oat_exec:file rx_file_perms;')
  # ASharedMemory instead.
  allow untrusted_app_27 ashmem_device:chr_file rw_file_perms;
@@ -6843,10 +7178,10 @@ index a9b2e35583ba8a986b7013acc5d1066faafb9e0b..920515d1c151860c66fee3a193bfb6c5
 +
 +allow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
 +auditallow untrusted_app_27 { ashmem_device ashmem_libcutils_device }:chr_file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_29.te b/prebuilts/api/31.0/private/untrusted_app_29.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_29.te b/prebuilts/api/32.0/private/untrusted_app_29.te
 index 215c69a9c9e05373de9891624d3fe62dab6bc611..8cd04e9a0058827ecb6f62984ca2f83d7cdbc95a 100644
---- a/prebuilts/api/31.0/private/untrusted_app_29.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_29.te
+--- a/prebuilts/api/32.0/private/untrusted_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_app_29.te
 @@ -21,10 +21,13 @@ auditallow untrusted_app_29 self:process execmem;
  # Some apps ship with shared libraries and binaries that they write out
  # to their sandbox directory and then execute.
@@ -6861,10 +7196,10 @@ index 215c69a9c9e05373de9891624d3fe62dab6bc611..8cd04e9a0058827ecb6f62984ca2f83d
 +
 +allow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
 +auditallow untrusted_app_29 { ashmem_device ashmem_libcutils_device }:chr_file execute;
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index 531547bef528d98b31c9b52eba949107132be43c..ef39e7acfa3467141545c6a7e84edab4467deb4f 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -1,23 +1,20 @@
  ###
  ### Domain for all zygote spawned apps
@@ -7046,20 +7381,20 @@ index 531547bef528d98b31c9b52eba949107132be43c..ef39e7acfa3467141545c6a7e84edab4
  allow appdomain zygote_exec:file rx_file_perms;
  
 
-commit d8fab5133680ce087feb6c805d9fceebbc30a9dc
+commit e02121f3eb0393cc66fbf9ec5424b1dffa3f7f72
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:14:36-0400
 
     auditallow app tmpfs execute
 ---
- prebuilts/api/31.0/public/te_macros | 1 +
+ prebuilts/api/32.0/public/te_macros | 1 +
  public/te_macros                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/public/te_macros b/prebuilts/api/31.0/public/te_macros
+diff --git a/prebuilts/api/32.0/public/te_macros b/prebuilts/api/32.0/public/te_macros
 index 7dc5062c55759c26c6be52188022c809b63b5410..e20cced1587ccc197cbc13c18161a11d2daa2598 100644
---- a/prebuilts/api/31.0/public/te_macros
-+++ b/prebuilts/api/31.0/public/te_macros
+--- a/prebuilts/api/32.0/public/te_macros
++++ b/prebuilts/api/32.0/public/te_macros
 @@ -180,20 +180,21 @@ neverallow $1 ~$1_userfaultfd:anon_inode *;
  
  #####################################
@@ -7109,19 +7444,19 @@ index 7dc5062c55759c26c6be52188022c809b63b5410..e20cced1587ccc197cbc13c18161a11d
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit 83437ae72f108bf51ce20d9fed35e381df45eff0
+commit 04cca9823bb0f8f267417387b668d43045e777c7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-03-15 12:34:49-0400
 
     remove base system app tmpfs execute
 ---
- prebuilts/api/31.0/private/ephemeral_app.te    | 3 +++
- prebuilts/api/31.0/private/isolated_app.te     | 3 +++
- prebuilts/api/31.0/private/untrusted_app.te    | 3 +++
- prebuilts/api/31.0/private/untrusted_app_25.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_27.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_29.te | 3 +++
- prebuilts/api/31.0/public/te_macros            | 3 +--
+ prebuilts/api/32.0/private/ephemeral_app.te    | 3 +++
+ prebuilts/api/32.0/private/isolated_app.te     | 3 +++
+ prebuilts/api/32.0/private/untrusted_app.te    | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_25.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_27.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_29.te | 3 +++
+ prebuilts/api/32.0/public/te_macros            | 3 +--
  private/ephemeral_app.te                       | 3 +++
  private/isolated_app.te                        | 3 +++
  private/untrusted_app.te                       | 3 +++
@@ -7131,10 +7466,10 @@ Date:   Mon 2021-03-15 12:34:49-0400
  public/te_macros                               | 3 +--
  14 files changed, 38 insertions(+), 4 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/ephemeral_app.te b/prebuilts/api/31.0/private/ephemeral_app.te
+diff --git a/prebuilts/api/32.0/private/ephemeral_app.te b/prebuilts/api/32.0/private/ephemeral_app.te
 index 76fdec9956d2984c41fa687fbe6617b01ac9a620..bd8225247f7f2b62a45632f294f2ef3afb9109a0 100644
---- a/prebuilts/api/31.0/private/ephemeral_app.te
-+++ b/prebuilts/api/31.0/private/ephemeral_app.te
+--- a/prebuilts/api/32.0/private/ephemeral_app.te
++++ b/prebuilts/api/32.0/private/ephemeral_app.te
 @@ -59,20 +59,23 @@ can_profile_perf(ephemeral_app)
  # allow ephemeral apps to use UDP sockets provided by the system server but not
  # modify them other than to connect
@@ -7159,10 +7494,10 @@ index 76fdec9956d2984c41fa687fbe6617b01ac9a620..bd8225247f7f2b62a45632f294f2ef3a
  neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
  
  # Receive or send generic netlink messages
-diff --git a/prebuilts/api/31.0/private/isolated_app.te b/prebuilts/api/31.0/private/isolated_app.te
+diff --git a/prebuilts/api/32.0/private/isolated_app.te b/prebuilts/api/32.0/private/isolated_app.te
 index 3da789eb4d7c842f3bcae4a0df4b2b9d963accfe..c287f4f1fe2fc1a1a982750decf29ad75fcfd553 100644
---- a/prebuilts/api/31.0/private/isolated_app.te
-+++ b/prebuilts/api/31.0/private/isolated_app.te
+--- a/prebuilts/api/32.0/private/isolated_app.te
++++ b/prebuilts/api/32.0/private/isolated_app.te
 @@ -66,20 +66,23 @@ dontaudit isolated_app shell_data_file:dir search;
  perfetto_producer(isolated_app)
  
@@ -7187,10 +7522,10 @@ index 3da789eb4d7c842f3bcae4a0df4b2b9d963accfe..c287f4f1fe2fc1a1a982750decf29ad7
  # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
  # TODO: are there situations where isolated_apps write to this file?
  # TODO: should we tighten these restrictions further?
-diff --git a/prebuilts/api/31.0/private/untrusted_app.te b/prebuilts/api/31.0/private/untrusted_app.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app.te b/prebuilts/api/32.0/private/untrusted_app.te
 index 6e75a408746604cf6f6e1f8a811f524130b57de5..6789215f7587eed1f4e53322555a06aef3454a49 100644
---- a/prebuilts/api/31.0/private/untrusted_app.te
-+++ b/prebuilts/api/31.0/private/untrusted_app.te
+--- a/prebuilts/api/32.0/private/untrusted_app.te
++++ b/prebuilts/api/32.0/private/untrusted_app.te
 @@ -20,10 +20,13 @@ auditallow untrusted_app self:process execmem;
  
  # Some apps ship with shared libraries and binaries that they write out
@@ -7205,10 +7540,10 @@ index 6e75a408746604cf6f6e1f8a811f524130b57de5..6789215f7587eed1f4e53322555a06ae
 +
 +allow untrusted_app appdomain_tmpfs:file execute;
 +auditallow untrusted_app appdomain_tmpfs:file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_25.te b/prebuilts/api/31.0/private/untrusted_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_25.te b/prebuilts/api/32.0/private/untrusted_app_25.te
 index 9dd1196b1a1b69838942cb1cc672dbd328a98148..a402b72ea00332d90128c6b7d2ce7b46824b0907 100644
---- a/prebuilts/api/31.0/private/untrusted_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_25.te
+--- a/prebuilts/api/32.0/private/untrusted_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_app_25.te
 @@ -58,10 +58,13 @@ auditallow untrusted_app_25 ashmem_device:chr_file open;
  
  # Read /mnt/sdcard symlink.
@@ -7223,10 +7558,10 @@ index 9dd1196b1a1b69838942cb1cc672dbd328a98148..a402b72ea00332d90128c6b7d2ce7b46
 +
 +allow untrusted_app_25 appdomain_tmpfs:file execute;
 +auditallow untrusted_app_25 appdomain_tmpfs:file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_27.te b/prebuilts/api/31.0/private/untrusted_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_27.te b/prebuilts/api/32.0/private/untrusted_app_27.te
 index 920515d1c151860c66fee3a193bfb6c59d85f196..b541a9f0d6cb83b5fe757f36656ce497f89a69e6 100644
---- a/prebuilts/api/31.0/private/untrusted_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_27.te
+--- a/prebuilts/api/32.0/private/untrusted_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_app_27.te
 @@ -46,10 +46,13 @@ auditallow untrusted_app_27 ashmem_device:chr_file open;
  
  # Read /mnt/sdcard symlink.
@@ -7241,10 +7576,10 @@ index 920515d1c151860c66fee3a193bfb6c59d85f196..b541a9f0d6cb83b5fe757f36656ce497
 +
 +allow untrusted_app_27 appdomain_tmpfs:file execute;
 +auditallow untrusted_app_27 appdomain_tmpfs:file execute;
-diff --git a/prebuilts/api/31.0/private/untrusted_app_29.te b/prebuilts/api/31.0/private/untrusted_app_29.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_29.te b/prebuilts/api/32.0/private/untrusted_app_29.te
 index 8cd04e9a0058827ecb6f62984ca2f83d7cdbc95a..906a4c1d8e3a4465411adf1d534a93f9b2e695a8 100644
---- a/prebuilts/api/31.0/private/untrusted_app_29.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_29.te
+--- a/prebuilts/api/32.0/private/untrusted_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_app_29.te
 @@ -24,10 +24,13 @@ auditallow untrusted_app_29 self:process execmem;
  allow untrusted_app_29 privapp_data_file:file { r_file_perms execute };
  allow untrusted_app_29 app_data_file:file     { r_file_perms execute };
@@ -7259,10 +7594,10 @@ index 8cd04e9a0058827ecb6f62984ca2f83d7cdbc95a..906a4c1d8e3a4465411adf1d534a93f9
 +
 +allow untrusted_app_29 appdomain_tmpfs:file execute;
 +auditallow untrusted_app_29 appdomain_tmpfs:file execute;
-diff --git a/prebuilts/api/31.0/public/te_macros b/prebuilts/api/31.0/public/te_macros
+diff --git a/prebuilts/api/32.0/public/te_macros b/prebuilts/api/32.0/public/te_macros
 index e20cced1587ccc197cbc13c18161a11d2daa2598..ca7f61d7cd2c5c732e7783db72316b67cbd5973f 100644
---- a/prebuilts/api/31.0/public/te_macros
-+++ b/prebuilts/api/31.0/public/te_macros
+--- a/prebuilts/api/32.0/public/te_macros
++++ b/prebuilts/api/32.0/public/te_macros
 @@ -179,22 +179,21 @@ neverallow $1 ~$1_userfaultfd:anon_inode *;
  ')
  
@@ -7444,7 +7779,7 @@ index e20cced1587ccc197cbc13c18161a11d2daa2598..ca7f61d7cd2c5c732e7783db72316b67
  # apps. llkd is excluded, as it needs ptrace access to inspect stack traces for
  # live lock conditions.
 
-commit e8c95986b5b13d98445b309cdd9e42b2426ab39b
+commit a893abb1edba356ca346736252cded517cde61ab
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-02-29 11:03:35-0500
 
@@ -7459,14 +7794,14 @@ Date:   Sat 2020-02-29 11:03:35-0500
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/public/app.te | 1 +
+ prebuilts/api/32.0/public/app.te | 1 +
  public/app.te                    | 1 +
  2 files changed, 2 insertions(+)
 
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index ef39e7acfa3467141545c6a7e84edab4467deb4f..21650e1ae868a2980b94def4f27da95e6a9133a3 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -277,20 +277,21 @@ allow { appdomain -isolated_app -isolated_base_app -ephemeral_app } usbaccessory
  allow appdomain dalvikcache_data_file:file execute;
  allow appdomain dalvikcache_data_file:lnk_file r_file_perms;
@@ -7516,7 +7851,7 @@ index ef39e7acfa3467141545c6a7e84edab4467deb4f..21650e1ae868a2980b94def4f27da95e
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit aa97aae18ff5f317f33c17ba9c6d704b41a2fb04
+commit dc522f976db7b6080fd4c20e6d967b404ea266f7
 Author: Renlord <me@renlord.com>
 Date:   Thu 2020-02-27 20:37:55+1100
 
@@ -7524,13 +7859,13 @@ Date:   Thu 2020-02-27 20:37:55+1100
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/ephemeral_app.te    | 3 +++
- prebuilts/api/31.0/private/isolated_app.te     | 3 +++
- prebuilts/api/31.0/private/untrusted_app.te    | 3 +++
- prebuilts/api/31.0/private/untrusted_app_25.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_27.te | 3 +++
- prebuilts/api/31.0/private/untrusted_app_29.te | 3 +++
- prebuilts/api/31.0/public/app.te               | 3 +--
+ prebuilts/api/32.0/private/ephemeral_app.te    | 3 +++
+ prebuilts/api/32.0/private/isolated_app.te     | 3 +++
+ prebuilts/api/32.0/private/untrusted_app.te    | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_25.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_27.te | 3 +++
+ prebuilts/api/32.0/private/untrusted_app_29.te | 3 +++
+ prebuilts/api/32.0/public/app.te               | 3 +--
  private/ephemeral_app.te                       | 3 +++
  private/isolated_app.te                        | 3 +++
  private/untrusted_app.te                       | 3 +++
@@ -7540,10 +7875,10 @@ Date:   Thu 2020-02-27 20:37:55+1100
  public/app.te                                  | 3 +--
  14 files changed, 38 insertions(+), 4 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/ephemeral_app.te b/prebuilts/api/31.0/private/ephemeral_app.te
+diff --git a/prebuilts/api/32.0/private/ephemeral_app.te b/prebuilts/api/32.0/private/ephemeral_app.te
 index bd8225247f7f2b62a45632f294f2ef3afb9109a0..39576e02edb2c289bc70c62cb107cbdb36e5cea2 100644
---- a/prebuilts/api/31.0/private/ephemeral_app.te
-+++ b/prebuilts/api/31.0/private/ephemeral_app.te
+--- a/prebuilts/api/32.0/private/ephemeral_app.te
++++ b/prebuilts/api/32.0/private/ephemeral_app.te
 @@ -62,20 +62,23 @@ allow ephemeral_app system_server:udp_socket {
          connect getattr read recvfrom sendto write getopt setopt };
  
@@ -7568,10 +7903,10 @@ index bd8225247f7f2b62a45632f294f2ef3afb9109a0..39576e02edb2c289bc70c62cb107cbdb
  neverallow ephemeral_app domain:netlink_kobject_uevent_socket *;
  
  # Receive or send generic netlink messages
-diff --git a/prebuilts/api/31.0/private/isolated_app.te b/prebuilts/api/31.0/private/isolated_app.te
+diff --git a/prebuilts/api/32.0/private/isolated_app.te b/prebuilts/api/32.0/private/isolated_app.te
 index c287f4f1fe2fc1a1a982750decf29ad75fcfd553..e7fbdedc99962a49c7dd787bfe26c972da614026 100644
---- a/prebuilts/api/31.0/private/isolated_app.te
-+++ b/prebuilts/api/31.0/private/isolated_app.te
+--- a/prebuilts/api/32.0/private/isolated_app.te
++++ b/prebuilts/api/32.0/private/isolated_app.te
 @@ -69,20 +69,23 @@ perfetto_producer(isolated_app)
  # debuggable.
  can_profile_heap(isolated_app)
@@ -7596,10 +7931,10 @@ index c287f4f1fe2fc1a1a982750decf29ad75fcfd553..e7fbdedc99962a49c7dd787bfe26c972
  # Only allow appending to /data/anr/traces.txt (b/27853304, b/18340553)
  # TODO: are there situations where isolated_apps write to this file?
  # TODO: should we tighten these restrictions further?
-diff --git a/prebuilts/api/31.0/private/untrusted_app.te b/prebuilts/api/31.0/private/untrusted_app.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app.te b/prebuilts/api/32.0/private/untrusted_app.te
 index 6789215f7587eed1f4e53322555a06aef3454a49..4662b8fc743c2f1936c4146f3bca152ca6dbe757 100644
---- a/prebuilts/api/31.0/private/untrusted_app.te
-+++ b/prebuilts/api/31.0/private/untrusted_app.te
+--- a/prebuilts/api/32.0/private/untrusted_app.te
++++ b/prebuilts/api/32.0/private/untrusted_app.te
 @@ -23,10 +23,13 @@ auditallow untrusted_app self:process execmem;
  # This is allowed for non-base system apps targetAPI <=29.
  allow untrusted_app privapp_data_file:file { r_file_perms execute };
@@ -7614,10 +7949,10 @@ index 6789215f7587eed1f4e53322555a06aef3454a49..4662b8fc743c2f1936c4146f3bca152c
 +
 +allow untrusted_app apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app apk_data_file:file { execute execute_no_trans };
-diff --git a/prebuilts/api/31.0/private/untrusted_app_25.te b/prebuilts/api/31.0/private/untrusted_app_25.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_25.te b/prebuilts/api/32.0/private/untrusted_app_25.te
 index a402b72ea00332d90128c6b7d2ce7b46824b0907..5cc71a3bba854e0f48b3d03c58813b368fe79bdb 100644
---- a/prebuilts/api/31.0/private/untrusted_app_25.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_25.te
+--- a/prebuilts/api/32.0/private/untrusted_app_25.te
++++ b/prebuilts/api/32.0/private/untrusted_app_25.te
 @@ -61,10 +61,13 @@ allow untrusted_app_25 mnt_sdcard_file:lnk_file r_file_perms;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
@@ -7632,10 +7967,10 @@ index a402b72ea00332d90128c6b7d2ce7b46824b0907..5cc71a3bba854e0f48b3d03c58813b36
 +
 +allow untrusted_app_25 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_25 apk_data_file:file { execute execute_no_trans };
-diff --git a/prebuilts/api/31.0/private/untrusted_app_27.te b/prebuilts/api/31.0/private/untrusted_app_27.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_27.te b/prebuilts/api/32.0/private/untrusted_app_27.te
 index b541a9f0d6cb83b5fe757f36656ce497f89a69e6..44f96abd63f6f37936c2d7cac9e0de049164b128 100644
---- a/prebuilts/api/31.0/private/untrusted_app_27.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_27.te
+--- a/prebuilts/api/32.0/private/untrusted_app_27.te
++++ b/prebuilts/api/32.0/private/untrusted_app_27.te
 @@ -49,10 +49,13 @@ allow untrusted_app_27 mnt_sdcard_file:lnk_file r_file_perms;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
@@ -7650,10 +7985,10 @@ index b541a9f0d6cb83b5fe757f36656ce497f89a69e6..44f96abd63f6f37936c2d7cac9e0de04
 +
 +allow untrusted_app_27 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_27 apk_data_file:file { execute execute_no_trans };
-diff --git a/prebuilts/api/31.0/private/untrusted_app_29.te b/prebuilts/api/31.0/private/untrusted_app_29.te
+diff --git a/prebuilts/api/32.0/private/untrusted_app_29.te b/prebuilts/api/32.0/private/untrusted_app_29.te
 index 906a4c1d8e3a4465411adf1d534a93f9b2e695a8..6a3904e49b91720eec0ce5e8e8575dcc2d6b6012 100644
---- a/prebuilts/api/31.0/private/untrusted_app_29.te
-+++ b/prebuilts/api/31.0/private/untrusted_app_29.te
+--- a/prebuilts/api/32.0/private/untrusted_app_29.te
++++ b/prebuilts/api/32.0/private/untrusted_app_29.te
 @@ -27,10 +27,13 @@ auditallow untrusted_app_29 app_data_file:file execute;
  
  # allow binding to netlink route sockets and sending RTM_GETLINK messages.
@@ -7668,10 +8003,10 @@ index 906a4c1d8e3a4465411adf1d534a93f9b2e695a8..6a3904e49b91720eec0ce5e8e8575dcc
 +
 +allow untrusted_app_29 apk_data_file:file { execute execute_no_trans };
 +auditallow untrusted_app_29 apk_data_file:file { execute execute_no_trans };
-diff --git a/prebuilts/api/31.0/public/app.te b/prebuilts/api/31.0/public/app.te
+diff --git a/prebuilts/api/32.0/public/app.te b/prebuilts/api/32.0/public/app.te
 index 21650e1ae868a2980b94def4f27da95e6a9133a3..d5fb12604fa44e5504d382836f5a0fa3f7453756 100644
---- a/prebuilts/api/31.0/public/app.te
-+++ b/prebuilts/api/31.0/public/app.te
+--- a/prebuilts/api/32.0/public/app.te
++++ b/prebuilts/api/32.0/public/app.te
 @@ -276,22 +276,21 @@ allow { appdomain -isolated_app -isolated_base_app -ephemeral_app } usbaccessory
  # For art.
  allow appdomain dalvikcache_data_file:file execute;
@@ -7853,7 +8188,7 @@ index 21650e1ae868a2980b94def4f27da95e6a9133a3..d5fb12604fa44e5504d382836f5a0fa3
  # application inherit logd write socket (urge is to deprecate this long term)
  allow appdomain zygote:unix_dgram_socket write;
 
-commit 150dbbe13a82ea641e5d420651491be24cf193fe
+commit e3a7636b9d6740e140c492f265dcd157a20066c8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-02-25 06:41:22-0500
 
@@ -7863,18 +8198,18 @@ Date:   Tue 2020-02-25 06:41:22-0500
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/app_zygote.te     | 3 ---
- prebuilts/api/31.0/private/webview_zygote.te | 3 ---
- prebuilts/api/31.0/private/zygote.te         | 1 -
+ prebuilts/api/32.0/private/app_zygote.te     | 3 ---
+ prebuilts/api/32.0/private/webview_zygote.te | 3 ---
+ prebuilts/api/32.0/private/zygote.te         | 1 -
  private/app_zygote.te                        | 3 ---
  private/webview_zygote.te                    | 3 ---
  private/zygote.te                            | 1 -
  6 files changed, 14 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/app_zygote.te b/prebuilts/api/31.0/private/app_zygote.te
+diff --git a/prebuilts/api/32.0/private/app_zygote.te b/prebuilts/api/32.0/private/app_zygote.te
 index e671a99216698750dd3c1f5f3bc37b82b54fae09..6b8bb6330bc810bdba84597bc23df4d471007ac9 100644
---- a/prebuilts/api/31.0/private/app_zygote.te
-+++ b/prebuilts/api/31.0/private/app_zygote.te
+--- a/prebuilts/api/32.0/private/app_zygote.te
++++ b/prebuilts/api/32.0/private/app_zygote.te
 @@ -11,23 +11,20 @@ tmpfs_domain(app_zygote);
  # Set the UID/GID of the process.
  # This will be further limited to a range of isolated UIDs with seccomp.
@@ -7899,10 +8234,10 @@ index e671a99216698750dd3c1f5f3bc37b82b54fae09..6b8bb6330bc810bdba84597bc23df4d4
  
  # Interaction between the app_zygote and its children.
  allow app_zygote isolated_app:process setpgid;
-diff --git a/prebuilts/api/31.0/private/webview_zygote.te b/prebuilts/api/31.0/private/webview_zygote.te
+diff --git a/prebuilts/api/32.0/private/webview_zygote.te b/prebuilts/api/32.0/private/webview_zygote.te
 index 7dcfb5385c84c40e9047f28938963ad9ef8c43e9..81a1c2aa659aafd4b369c41d203d7c8003ced854 100644
---- a/prebuilts/api/31.0/private/webview_zygote.te
-+++ b/prebuilts/api/31.0/private/webview_zygote.te
+--- a/prebuilts/api/32.0/private/webview_zygote.te
++++ b/prebuilts/api/32.0/private/webview_zygote.te
 @@ -29,23 +29,20 @@ allow webview_zygote self:global_capability_class_set setpcap;
  allow webview_zygote self:process setcurrent;
  allow webview_zygote isolated_app:process dyntransition;
@@ -7927,10 +8262,10 @@ index 7dcfb5385c84c40e9047f28938963ad9ef8c43e9..81a1c2aa659aafd4b369c41d203d7c80
  
  # Interaction between the webview_zygote and its children.
  allow webview_zygote isolated_app:process setpgid;
-diff --git a/prebuilts/api/31.0/private/zygote.te b/prebuilts/api/31.0/private/zygote.te
-index 090e1214221363e2329eab22512e093e58abc141..7e9d2317ea8aff7ea8693a2dde6ec8b9cac5bf81 100644
---- a/prebuilts/api/31.0/private/zygote.te
-+++ b/prebuilts/api/31.0/private/zygote.te
+diff --git a/prebuilts/api/32.0/private/zygote.te b/prebuilts/api/32.0/private/zygote.te
+index 743647ec7a1c3b13a3178351ceb5a09bd0d17d24..af16e661f6a887f506aba13d4aef0c4e1fd1ed7c 100644
+--- a/prebuilts/api/32.0/private/zygote.te
++++ b/prebuilts/api/32.0/private/zygote.te
 @@ -90,21 +90,20 @@ allow zygote tmpfs:lnk_file create;
  allow zygote mirror_data_file:dir r_dir_perms;
  
@@ -8010,7 +8345,7 @@ index 7dcfb5385c84c40e9047f28938963ad9ef8c43e9..81a1c2aa659aafd4b369c41d203d7c80
  # Interaction between the webview_zygote and its children.
  allow webview_zygote isolated_app:process setpgid;
 diff --git a/private/zygote.te b/private/zygote.te
-index 090e1214221363e2329eab22512e093e58abc141..7e9d2317ea8aff7ea8693a2dde6ec8b9cac5bf81 100644
+index 743647ec7a1c3b13a3178351ceb5a09bd0d17d24..af16e661f6a887f506aba13d4aef0c4e1fd1ed7c 100644
 --- a/private/zygote.te
 +++ b/private/zygote.te
 @@ -90,21 +90,20 @@ allow zygote tmpfs:lnk_file create;
@@ -8036,7 +8371,7 @@ index 090e1214221363e2329eab22512e093e58abc141..7e9d2317ea8aff7ea8693a2dde6ec8b9
  
  # Allow apps access to /vendor/overlay
 
-commit 5ce711d7de5d4914c32380a873e9233f76fc1994
+commit 6e4c68b78f48c1b2424d10f98c8da4a59f39de3f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 18:29:13-0500
 
@@ -8050,16 +8385,16 @@ Date:   Wed 2020-02-26 18:29:13-0500
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/app_zygote.te     | 5 -----
- prebuilts/api/31.0/private/webview_zygote.te | 5 -----
+ prebuilts/api/32.0/private/app_zygote.te     | 5 -----
+ prebuilts/api/32.0/private/webview_zygote.te | 5 -----
  private/app_zygote.te                        | 5 -----
  private/webview_zygote.te                    | 5 -----
  4 files changed, 20 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/app_zygote.te b/prebuilts/api/31.0/private/app_zygote.te
+diff --git a/prebuilts/api/32.0/private/app_zygote.te b/prebuilts/api/32.0/private/app_zygote.te
 index 6b8bb6330bc810bdba84597bc23df4d471007ac9..819ddc8f5e249bff19d1e192b2b8fd7047e0beac 100644
---- a/prebuilts/api/31.0/private/app_zygote.te
-+++ b/prebuilts/api/31.0/private/app_zygote.te
+--- a/prebuilts/api/32.0/private/app_zygote.te
++++ b/prebuilts/api/32.0/private/app_zygote.te
 @@ -53,25 +53,20 @@ allow app_zygote zygote:process sigchld;
  
  # For ART (read /data/dalvik-cache).
@@ -8086,10 +8421,10 @@ index 6b8bb6330bc810bdba84597bc23df4d471007ac9..819ddc8f5e249bff19d1e192b2b8fd70
  allow app_zygote system_data_file:file { getattr read map };
  
  # Send unsolicited message to system_server
-diff --git a/prebuilts/api/31.0/private/webview_zygote.te b/prebuilts/api/31.0/private/webview_zygote.te
+diff --git a/prebuilts/api/32.0/private/webview_zygote.te b/prebuilts/api/32.0/private/webview_zygote.te
 index 81a1c2aa659aafd4b369c41d203d7c8003ced854..61594080a219149da2845e75051e4715b1b7ed9c 100644
---- a/prebuilts/api/31.0/private/webview_zygote.te
-+++ b/prebuilts/api/31.0/private/webview_zygote.te
+--- a/prebuilts/api/32.0/private/webview_zygote.te
++++ b/prebuilts/api/32.0/private/webview_zygote.te
 @@ -5,25 +5,20 @@ typeattribute webview_zygote coredomain;
  
  # The webview_zygote needs to be able to transition domains.
@@ -8177,7 +8512,7 @@ index 81a1c2aa659aafd4b369c41d203d7c8003ced854..61594080a219149da2845e75051e4715
  # Switch SELinux context to app domains.
  allow webview_zygote self:process setcurrent;
 
-commit a62e37fa8a629d923c61632ae084a128335d940e (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit fd5a6246d2bbea1b15109ab6688009d2bee1243b (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-02-26 06:19:11-0500
 
@@ -8188,11 +8523,11 @@ Date:   Wed 2020-02-26 06:19:11-0500
     
     Signed-off-by: anupritaisno1 <www.anuprita804@gmail.com>
 ---
- prebuilts/api/31.0/private/domain.te               |  1 -
- prebuilts/api/31.0/private/seapp_contexts          |  2 +-
- prebuilts/api/31.0/private/system_server.te        |  5 -----
- .../31.0/private/system_server_startup.te (gone)   | 24 ----------------------
- prebuilts/api/31.0/private/zygote.te               |  6 +++---
+ prebuilts/api/32.0/private/domain.te               |  1 -
+ prebuilts/api/32.0/private/seapp_contexts          |  2 +-
+ prebuilts/api/32.0/private/system_server.te        |  5 -----
+ .../32.0/private/system_server_startup.te (gone)   | 24 ----------------------
+ prebuilts/api/32.0/private/zygote.te               |  6 +++---
  private/domain.te                                  |  1 -
  private/seapp_contexts                             |  2 +-
  private/system_server.te                           |  5 -----
@@ -8200,10 +8535,10 @@ Date:   Wed 2020-02-26 06:19:11-0500
  private/zygote.te                                  |  6 +++---
  10 files changed, 8 insertions(+), 68 deletions(-)
 
-diff --git a/prebuilts/api/31.0/private/domain.te b/prebuilts/api/31.0/private/domain.te
+diff --git a/prebuilts/api/32.0/private/domain.te b/prebuilts/api/32.0/private/domain.te
 index d4ca398de20fcec0a9aaf0515449ad1486d1ec5d..ca9a67a7bd88e5f3976559ad7494b7ed44c3a82e 100644
---- a/prebuilts/api/31.0/private/domain.te
-+++ b/prebuilts/api/31.0/private/domain.te
+--- a/prebuilts/api/32.0/private/domain.te
++++ b/prebuilts/api/32.0/private/domain.te
 @@ -226,21 +226,20 @@ neverallow {
  # we want to avoid. See
  # https://bugs.chromium.org/p/project-zero/issues/detail?id=955 for example.
@@ -8226,10 +8561,10 @@ index d4ca398de20fcec0a9aaf0515449ad1486d1ec5d..ca9a67a7bd88e5f3976559ad7494b7ed
      -system_file_type
      -system_lib_file
      -system_linker_exec
-diff --git a/prebuilts/api/31.0/private/seapp_contexts b/prebuilts/api/31.0/private/seapp_contexts
-index 5fb26d566243ab7c6edc96e607c3454ee3450c77..58dad901c79228d905f1f4546725787a955fe236 100644
---- a/prebuilts/api/31.0/private/seapp_contexts
-+++ b/prebuilts/api/31.0/private/seapp_contexts
+diff --git a/prebuilts/api/32.0/private/seapp_contexts b/prebuilts/api/32.0/private/seapp_contexts
+index 3982c1e8543f594f7a09791ff11051de9e60151e..9e3b78e8bb30863a5c72cec2d7860199cc1e2221 100644
+--- a/prebuilts/api/32.0/private/seapp_contexts
++++ b/prebuilts/api/32.0/private/seapp_contexts
 @@ -133,21 +133,21 @@ neverallow user=((?!_isolated).)* domain=isolated_base_app
  # uid's can be in shell domain
  neverallow user=shell domain=((?!shell).)*
@@ -8244,19 +8579,19 @@ index 5fb26d566243ab7c6edc96e607c3454ee3450c77..58dad901c79228d905f1f4546725787a
 -isSystemServer=true domain=system_server_startup
 +isSystemServer=true domain=system_server
  
+ user=_app seinfo=base isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
+ user=_app seinfo=base isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=system seinfo=platform domain=system_app type=system_app_data_file
  user=bluetooth seinfo=platform domain=bluetooth type=bluetooth_data_file
  user=network_stack seinfo=network_stack domain=network_stack type=radio_data_file
  user=nfc seinfo=platform domain=nfc type=nfc_data_file
  user=secure_element seinfo=platform domain=secure_element levelFrom=all
- user=radio seinfo=platform domain=radio type=radio_data_file
- user=shared_relro seinfo=base domain=shared_relro levelFrom=all
-diff --git a/prebuilts/api/31.0/private/system_server.te b/prebuilts/api/31.0/private/system_server.te
+diff --git a/prebuilts/api/32.0/private/system_server.te b/prebuilts/api/32.0/private/system_server.te
 index 82b2a1f0669eb59e455478f09ac31efba171f9fa..4d34d9d3629d66959256d1ff59dff69360fdc99f 100644
---- a/prebuilts/api/31.0/private/system_server.te
-+++ b/prebuilts/api/31.0/private/system_server.te
+--- a/prebuilts/api/32.0/private/system_server.te
++++ b/prebuilts/api/32.0/private/system_server.te
 @@ -1248,25 +1248,20 @@ neverallow system_server { dev_type -frp_block_device }:blk_file no_rw_file_perm
  # rendering via SwiftShader, which requires JIT support. These builds are
  # never shipped to users.
@@ -8283,10 +8618,10 @@ index 82b2a1f0669eb59e455478f09ac31efba171f9fa..4d34d9d3629d66959256d1ff59dff693
  # Allow system server to read /apex/apex-info-list.xml
  allow system_server apex_info_file:file r_file_perms;
  
-diff --git a/prebuilts/api/31.0/private/system_server_startup.te b/prebuilts/api/31.0/private/system_server_startup.te
+diff --git a/prebuilts/api/32.0/private/system_server_startup.te b/prebuilts/api/32.0/private/system_server_startup.te
 deleted file mode 100644
 index 064e0383c41002f3c8cbca91e5255bd0ff568427..0000000000000000000000000000000000000000
---- a/prebuilts/api/31.0/private/system_server_startup.te
+--- a/prebuilts/api/32.0/private/system_server_startup.te
 +++ /dev/null
 @@ -1,24 +0,0 @@
 -type system_server_startup, domain, coredomain;
@@ -8313,10 +8648,10 @@ index 064e0383c41002f3c8cbca91e5255bd0ff568427..00000000000000000000000000000000
 -# Allow query ART device config properties
 -get_prop(system_server_startup, device_config_runtime_native_boot_prop)
 -get_prop(system_server_startup, device_config_runtime_native_prop)
-diff --git a/prebuilts/api/31.0/private/zygote.te b/prebuilts/api/31.0/private/zygote.te
-index 7e9d2317ea8aff7ea8693a2dde6ec8b9cac5bf81..34a7006aee86443889bd4abcb6dfa877d58af2e5 100644
---- a/prebuilts/api/31.0/private/zygote.te
-+++ b/prebuilts/api/31.0/private/zygote.te
+diff --git a/prebuilts/api/32.0/private/zygote.te b/prebuilts/api/32.0/private/zygote.te
+index af16e661f6a887f506aba13d4aef0c4e1fd1ed7c..02aaa7f47659bcbf49045377d8b48d58ebc69b45 100644
+--- a/prebuilts/api/32.0/private/zygote.te
++++ b/prebuilts/api/32.0/private/zygote.te
 @@ -8,21 +8,21 @@ tmpfs_domain(zygote)
  read_runtime_log_tags(zygote)
  
@@ -8395,7 +8730,7 @@ index d4ca398de20fcec0a9aaf0515449ad1486d1ec5d..ca9a67a7bd88e5f3976559ad7494b7ed
      -system_lib_file
      -system_linker_exec
 diff --git a/private/seapp_contexts b/private/seapp_contexts
-index 5fb26d566243ab7c6edc96e607c3454ee3450c77..58dad901c79228d905f1f4546725787a955fe236 100644
+index 3982c1e8543f594f7a09791ff11051de9e60151e..9e3b78e8bb30863a5c72cec2d7860199cc1e2221 100644
 --- a/private/seapp_contexts
 +++ b/private/seapp_contexts
 @@ -133,21 +133,21 @@ neverallow user=((?!_isolated).)* domain=isolated_base_app
@@ -8412,15 +8747,15 @@ index 5fb26d566243ab7c6edc96e607c3454ee3450c77..58dad901c79228d905f1f4546725787a
 -isSystemServer=true domain=system_server_startup
 +isSystemServer=true domain=system_server
  
+ user=_app seinfo=base isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.traceur domain=traceur_app type=app_data_file levelFrom=all
+ user=_app seinfo=base isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=_app isPrivApp=true name=com.android.remoteprovisioner domain=remote_prov_app type=app_data_file levelFrom=all
  user=system seinfo=platform domain=system_app type=system_app_data_file
  user=bluetooth seinfo=platform domain=bluetooth type=bluetooth_data_file
  user=network_stack seinfo=network_stack domain=network_stack type=radio_data_file
  user=nfc seinfo=platform domain=nfc type=nfc_data_file
  user=secure_element seinfo=platform domain=secure_element levelFrom=all
- user=radio seinfo=platform domain=radio type=radio_data_file
- user=shared_relro seinfo=base domain=shared_relro levelFrom=all
 diff --git a/private/system_server.te b/private/system_server.te
 index 82b2a1f0669eb59e455478f09ac31efba171f9fa..4d34d9d3629d66959256d1ff59dff69360fdc99f 100644
 --- a/private/system_server.te
@@ -8482,7 +8817,7 @@ index 064e0383c41002f3c8cbca91e5255bd0ff568427..00000000000000000000000000000000
 -get_prop(system_server_startup, device_config_runtime_native_boot_prop)
 -get_prop(system_server_startup, device_config_runtime_native_prop)
 diff --git a/private/zygote.te b/private/zygote.te
-index 7e9d2317ea8aff7ea8693a2dde6ec8b9cac5bf81..34a7006aee86443889bd4abcb6dfa877d58af2e5 100644
+index af16e661f6a887f506aba13d4aef0c4e1fd1ed7c..02aaa7f47659bcbf49045377d8b48d58ebc69b45 100644
 --- a/private/zygote.te
 +++ b/private/zygote.te
 @@ -8,21 +8,21 @@ tmpfs_domain(zygote)

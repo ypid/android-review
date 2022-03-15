@@ -1,0 +1,262 @@
+commit b347a239b338e07f656302c26e5dedd6d92156d4
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Mon 2021-11-29 23:59:09+0000
+
+    [temporary] disable broken AvoidAppsInCutoutOverlay
+    
+    Change-Id: Iaf6842c08b05c8a581fd7a8c44743556bc4d53f6
+---
+ device-oriole.mk | 1 -
+ device-raven.mk  | 1 -
+ 2 files changed, 2 deletions(-)
+
+diff --git a/device-oriole.mk b/device-oriole.mk
+index bec887541ac55d24263dfc723751391f8212d380..e4b079e4ef24b3c385bb995a1907064b9cf66ea4 100644
+--- a/device-oriole.mk
++++ b/device-oriole.mk
+@@ -169,21 +169,20 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+         device/google/gs101/init.hardware.wlc.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_PLATFORM).wlc.rc
+ endif
+ 
+ # Increment the SVN for any official public releases
+ PRODUCT_VENDOR_PROPERTIES += \
+     ro.vendor.build.svn=22
+ 
+ # Hide cutout overlays
+ PRODUCT_PACKAGES += \
+     NoCutoutOverlay \
+-    AvoidAppsInCutoutOverlay
+ 
+ # SKU specific RROs
+ PRODUCT_PACKAGES += \
+     SettingsOverlayGR1YH \
+     SettingsOverlayGB7N6 \
+     SettingsOverlayG9S9B
+ 
+ # Fingerprint antispoof property
+ PRODUCT_PRODUCT_PROPERTIES +=\
+     persist.vendor.fingerprint.disable.fake.override=none
+diff --git a/device-raven.mk b/device-raven.mk
+index bd162df99cd1ffd47230ba232bab01e6d3e6454d..63bd724eef444d86ef1f3a81685fa9b5032dfed7 100644
+--- a/device-raven.mk
++++ b/device-raven.mk
+@@ -181,21 +181,20 @@ ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
+         device/google/gs101/init.hardware.wlc.rc.userdebug:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.$(PRODUCT_PLATFORM).wlc.rc
+ endif
+ 
+ # Increment the SVN for any official public releases
+ PRODUCT_VENDOR_PROPERTIES += \
+     ro.vendor.build.svn=22
+ 
+ # Hide cutout overlays
+ PRODUCT_PACKAGES += \
+     NoCutoutOverlay \
+-    AvoidAppsInCutoutOverlay
+ 
+ # Fingerprint antispoof property
+ PRODUCT_PRODUCT_PROPERTIES +=\
+     persist.vendor.fingerprint.disable.fake.override=none
+ 
+ # Keyboard side padding in dp for portrait mode
+ PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.kb_pad_port_r=11
+ PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.kb_pad_port_l=11
+ 
+ # DCK properties based on target
+
+commit ae6fdca13dce582061987901f8ea3a670fef0458
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Thu 2022-01-27 20:34:38+0000
+
+    Add aggregated sysconfig xml with items from stock OS
+---
+ device-oriole.mk                  |  4 ++++
+ device-raven.mk                   |  4 ++++
+ product-sysconfig-stock.xml (new) | 22 ++++++++++++++++++++++
+ 3 files changed, 30 insertions(+)
+
+diff --git a/device-oriole.mk b/device-oriole.mk
+index e4b079e4ef24b3c385bb995a1907064b9cf66ea4..85293145e338b0802969185022635b1272bab3d6 100644
+--- a/device-oriole.mk
++++ b/device-oriole.mk
+@@ -35,20 +35,24 @@ include hardware/google/pixel/vibrator/cs40l25/device.mk
+ 
+ ifeq ($(filter factory_oriole, $(TARGET_PRODUCT)),)
+ include device/google/gs101/fingerprint/udfps_shipping.mk
+ else
+ include device/google/gs101/fingerprint/udfps_factory.mk
+ endif
+ 
+ SOONG_CONFIG_lyric_tuning_product := oriole
+ SOONG_CONFIG_google3a_config_target_device := oriole
+ 
++# sysconfig XML from stock
++PRODUCT_COPY_FILES += \
++	device/google/raviole/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
++
+ # Init files
+ PRODUCT_COPY_FILES += \
+ 	device/google/raviole/conf/init.raviole.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.raviole.rc \
+ 	device/google/raviole/conf/init.oriole.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.oriole.rc
+ 
+ # Recovery files
+ PRODUCT_COPY_FILES += \
+ 	device/google/gs101/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.oriole.rc
+ 
+ # insmod files
+diff --git a/device-raven.mk b/device-raven.mk
+index 63bd724eef444d86ef1f3a81685fa9b5032dfed7..da8c4afea5ef9df4954fbb3ce7a8a759e44fe82b 100644
+--- a/device-raven.mk
++++ b/device-raven.mk
+@@ -44,20 +44,24 @@ include device/google/raviole/uwb/uwb_calibration.mk
+ endif
+ 
+ include hardware/google/pixel/vibrator/cs40l25/device.mk
+ 
+ SOONG_CONFIG_lyric_tuning_product := raven
+ SOONG_CONFIG_google3a_config_target_device := raven
+ 
+ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.support_kernel_idle_timer=true
+ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.enable_frame_rate_override=true
+ 
++# sysconfig XML from stock
++PRODUCT_COPY_FILES += \
++	device/google/raviole/product-sysconfig-stock.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/product-sysconfig-stock.xml
++
+ # Init files
+ PRODUCT_COPY_FILES += \
+ 	device/google/raviole/conf/init.raviole.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.raviole.rc \
+ 	device/google/raviole/conf/init.raven.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.raven.rc
+ 
+ # Recovery files
+ PRODUCT_COPY_FILES += \
+ 	device/google/gs101/conf/init.recovery.device.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.raven.rc
+ 
+ # insmod files
+diff --git a/product-sysconfig-stock.xml b/product-sysconfig-stock.xml
+new file mode 100644
+index 0000000000000000000000000000000000000000..d49506c65478cd161794c122ed82517d358b6dc8
+--- /dev/null
++++ b/product-sysconfig-stock.xml
+@@ -0,0 +1,22 @@
++<?xml version="1.0" encoding="utf-8"?>
++
++<config>
++
++    <component-override package="com.android.settings" >
++        <!-- Display regulatory info in settings. -->
++        <component class=".RegulatoryInfoDisplayActivity" enabled="true" />
++    </component-override>
++
++    <feature name="com.google.android.feature.AER_OPTIMIZED" />
++    <feature name="com.google.android.feature.GOOGLE_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2017_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2018_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2019_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2020_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2021_MIDYEAR_EXPERIENCE" />
++    <feature name="com.google.android.feature.PIXEL_2021_EXPERIENCE" />
++
++</config>
+
+commit 012e7be8d13325aa2afb7111ab009ba7bf74ecc4
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Tue 2022-02-22 23:30:31+0000
+
+    Exclude Shannon IMS service from Location indicators
+---
+ oriole/overlay/frameworks/base/core/res/res/values/config.xml | 4 ++++
+ raven/overlay/frameworks/base/core/res/res/values/config.xml  | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+diff --git a/oriole/overlay/frameworks/base/core/res/res/values/config.xml b/oriole/overlay/frameworks/base/core/res/res/values/config.xml
+index cf57ec04f7eb8b9af61aae6c07d8fdbd0c70a43f..e4b2dce7b7cfc16271e9f376d5f43caa7aca8127 100644
+--- a/oriole/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/oriole/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -304,11 +304,15 @@
+         <item>-0.25</item>
+         <item>100.0</item>
+ 
+         <item>0.0</item>
+         <item>-0.85</item>
+         <item>50.0</item>
+     </array>
+ 
+     <!-- the number of the max cached processes in the system. -->
+     <integer name="config_customizedMaxCachedProcesses">64</integer>
++
++    <string-array name="config_locationExtraPackageNames" translatable="false">
++         <item>com.shannon.imsservice</item>
++    </string-array>
+ </resources>
+diff --git a/raven/overlay/frameworks/base/core/res/res/values/config.xml b/raven/overlay/frameworks/base/core/res/res/values/config.xml
+index 491a4cc327a9af6aa17ec74fb823f5a6f2a30ab4..f0fb56c790579ae4ceb753743f4ca4f34dee58ec 100644
+--- a/raven/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/raven/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -277,11 +277,15 @@
+         <item>50.0</item>
+     </array>
+ 
+     <!-- Height of the status bar.
+          Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
+          -->
+     <dimen name="status_bar_height">28dp</dimen>
+ 
+     <!-- the number of the max cached processes in the system. -->
+     <integer name="config_customizedMaxCachedProcesses">64</integer>
++
++    <string-array name="config_locationExtraPackageNames" translatable="false">
++         <item>com.shannon.imsservice</item>
++    </string-array>
+ </resources>
+
+commit c4b78705b0f520bead966ca96bd69de6157d524f (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Fri 2022-02-25 02:02:44+0000
+
+    Exclude Bluetooth app from Location indicators
+---
+ oriole/overlay/frameworks/base/core/res/res/values/config.xml | 1 +
+ raven/overlay/frameworks/base/core/res/res/values/config.xml  | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/oriole/overlay/frameworks/base/core/res/res/values/config.xml b/oriole/overlay/frameworks/base/core/res/res/values/config.xml
+index e4b2dce7b7cfc16271e9f376d5f43caa7aca8127..8b6db040452f3fc8c369fb3ecd10c42e5573b37f 100644
+--- a/oriole/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/oriole/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -306,13 +306,14 @@
+ 
+         <item>0.0</item>
+         <item>-0.85</item>
+         <item>50.0</item>
+     </array>
+ 
+     <!-- the number of the max cached processes in the system. -->
+     <integer name="config_customizedMaxCachedProcesses">64</integer>
+ 
+     <string-array name="config_locationExtraPackageNames" translatable="false">
++         <item>com.android.bluetooth</item>
+          <item>com.shannon.imsservice</item>
+     </string-array>
+ </resources>
+diff --git a/raven/overlay/frameworks/base/core/res/res/values/config.xml b/raven/overlay/frameworks/base/core/res/res/values/config.xml
+index f0fb56c790579ae4ceb753743f4ca4f34dee58ec..0e829cf11968f212d0525015dbcfc555cbfa9568 100644
+--- a/raven/overlay/frameworks/base/core/res/res/values/config.xml
++++ b/raven/overlay/frameworks/base/core/res/res/values/config.xml
+@@ -279,13 +279,14 @@
+ 
+     <!-- Height of the status bar.
+          Do not read this dimen directly. Use {@link SystemBarUtils#getStatusBarHeight} instead.
+          -->
+     <dimen name="status_bar_height">28dp</dimen>
+ 
+     <!-- the number of the max cached processes in the system. -->
+     <integer name="config_customizedMaxCachedProcesses">64</integer>
+ 
+     <string-array name="config_locationExtraPackageNames" translatable="false">
++         <item>com.android.bluetooth</item>
+          <item>com.shannon.imsservice</item>
+     </string-array>
+ </resources>

@@ -1,4 +1,4 @@
-commit 90b940d49e8b8b77233a92cb24e519fc54ccb9f8
+commit 0b3bd63d593f3182ab6295695dc092f8a9b0eb20
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2018-12-13 09:26:25-0500
 
@@ -10,10 +10,10 @@ Date:   Thu 2018-12-13 09:26:25-0500
  1 file changed, 2 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index d10689a011b43d45c9fe28db1bd7d7046388463f..606b001925875238f63734aab96bc2a811a3bf60 100644
+index 5116c0fead7905fcc2485f00d60430f06cbd2f3e..7176c694cc631ab623f883f37808cbbf3a8513ac 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -1000,20 +1000,22 @@ on boot
+@@ -1017,20 +1017,22 @@ on boot
      chmod 0664 /sys/block/zram0/writeback
  
      # to access F2FS sysfs on dm-<num> directly
@@ -37,7 +37,7 @@ index d10689a011b43d45c9fe28db1bd7d7046388463f..606b001925875238f63734aab96bc2a8
      # limit discard size to 128MB in order to avoid long IO latency
      # for filesystem tuning first (dm or sda)
 
-commit eecd1fdbed774849676f992fb426af11b5e80baf
+commit 8edccf1498a72f50deb3f5056d961ffaf1fc1d07
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2015-02-06 11:46:34-0500
 
@@ -49,7 +49,7 @@ Date:   Fri 2015-02-06 11:46:34-0500
  1 file changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/init/first_stage_init.cpp b/init/first_stage_init.cpp
-index 78e5b60a191b94351631328f5ee24388b5571ccd..3044ffbd71147d3036fd24493f668f634ed5850c 100644
+index c7b7b0c134b3f0a51bcb3239cca4814c9961f63a..3ccacf56e004f403695b1cab7d9f7e2730cc5037 100644
 --- a/init/first_stage_init.cpp
 +++ b/init/first_stage_init.cpp
 @@ -195,35 +195,35 @@ int FirstStageMain(int argc, char** argv) {
@@ -92,7 +92,7 @@ index 78e5b60a191b94351631328f5ee24388b5571ccd..3044ffbd71147d3036fd24493f668f63
      CHECKCALL(mknod("/dev/random", S_IFCHR | 0666, makedev(1, 8)));
      CHECKCALL(mknod("/dev/urandom", S_IFCHR | 0666, makedev(1, 9)));
 
-commit 4528ed1f682015f87259abcff82d7bef65a89c47
+commit c3a604a43cc055b1aba406b7b10ef2844a036189
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2016-06-15 17:51:42-0400
 
@@ -104,10 +104,10 @@ Date:   Wed 2016-06-15 17:51:42-0400
  1 file changed, 12 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 606b001925875238f63734aab96bc2a811a3bf60..a08adaf0d14da11850ea1ba9a76c1c683e6f8a45 100644
+index 7176c694cc631ab623f883f37808cbbf3a8513ac..03453be5cbc318408be56fcc2faaa2539ccdf902 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -1141,20 +1141,32 @@ on property:sys.sysctl.extra_free_kbytes=*
+@@ -1158,20 +1158,32 @@ on property:sys.sysctl.extra_free_kbytes=*
  
  # Allow users to drop caches
  on property:perf.drop_caches=3
@@ -141,7 +141,7 @@ index 606b001925875238f63734aab96bc2a811a3bf60..a08adaf0d14da11850ea1ba9a76c1c68
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
 
-commit 74226c1bbfd2a875328a70b3debd157c46b25a45
+commit ddf48612c160b13552588af4d64bc7bb55571618
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:49:29-0400
 
@@ -153,10 +153,10 @@ Date:   Tue 2019-07-16 14:49:29-0400
  1 file changed, 3 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index a08adaf0d14da11850ea1ba9a76c1c683e6f8a45..abe986d08d82ebccf26a2995d9704644fd0f6ca7 100644
+index 03453be5cbc318408be56fcc2faaa2539ccdf902..832766e0b9fff93b9321abe7de0fe57dadf9ff88 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -276,20 +276,23 @@ on init
+@@ -280,20 +280,23 @@ on init
      mkdir /mnt/runtime/full/self 0755 root root
  
      # Symlink to keep legacy apps working in multi-user world
@@ -181,7 +181,7 @@ index a08adaf0d14da11850ea1ba9a76c1c683e6f8a45..abe986d08d82ebccf26a2995d9704644
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 9abff2c581d49ef06f06b77b1d6f8e0373368813
+commit fc8f654d4f905ee88c3cdd3494c6a65b2de6d5a1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2019-07-16 14:54:28-0400
 
@@ -193,10 +193,10 @@ Date:   Tue 2019-07-16 14:54:28-0400
  1 file changed, 3 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index abe986d08d82ebccf26a2995d9704644fd0f6ca7..3b36489f7e1763cb79c8081554818747aedb2d43 100644
+index 832766e0b9fff93b9321abe7de0fe57dadf9ff88..b27bb71bcd966728d85615d70e9c967af8a406db 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -279,20 +279,23 @@ on init
+@@ -283,20 +283,23 @@ on init
      symlink /storage/self/primary /mnt/sdcard
      symlink /mnt/user/0/primary /mnt/runtime/default/self/primary
  
@@ -221,7 +221,7 @@ index abe986d08d82ebccf26a2995d9704644fd0f6ca7..3b36489f7e1763cb79c8081554818747
  
      write /proc/sys/kernel/randomize_va_space 2
 
-commit 029945a5403b49236b7c3e891aa2971f2fbc6311 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit e3f9fc0f142294720e0cc69b6b80a336747def72
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Mon 2021-04-05 03:02:51+0100
 
@@ -233,10 +233,10 @@ Date:   Mon 2021-04-05 03:02:51+0100
  1 file changed, 6 insertions(+)
 
 diff --git a/rootdir/init.rc b/rootdir/init.rc
-index 3b36489f7e1763cb79c8081554818747aedb2d43..85ee182b05a0bbd02cd786d1193c9f57e29a870e 100644
+index b27bb71bcd966728d85615d70e9c967af8a406db..59a42334df906f157053411621dfbf6337affb9c 100644
 --- a/rootdir/init.rc
 +++ b/rootdir/init.rc
-@@ -1159,20 +1159,26 @@ on property:persist.security.deny_new_usb=disabled
+@@ -1176,20 +1176,26 @@ on property:persist.security.deny_new_usb=disabled
  
  on property:persist.security.deny_new_usb=enabled
      write /proc/sys/kernel/deny_new_usb 1
@@ -263,3 +263,167 @@ index 3b36489f7e1763cb79c8081554818747aedb2d43..85ee182b05a0bbd02cd786d1193c9f57
  # can lower it to 1 (allowing thread-scoped pofiling) via security.perf_harden.
  on property:sys.init.perf_lsm_hooks=1
      write /proc/sys/kernel/perf_event_paranoid -1
+
+commit 3ab75101ae79e416c9c74a524b9b736da4762bf5 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: Daniel Micay <danielmicay@gmail.com>
+Date:   Thu 2022-03-10 13:37:52-0500
+
+    Revert "init: Wait for snapuserd before starting second stage"
+    
+    This reverts commit 7043054dfee9e29cd9a77903d7d63ed2a07e1707.
+---
+ init/snapuserd_transition.cpp | 58 -------------------------------------------
+ init/snapuserd_transition.h   |  1 -
+ 2 files changed, 59 deletions(-)
+
+diff --git a/init/snapuserd_transition.cpp b/init/snapuserd_transition.cpp
+index 7fd3f65ca621e8ba5f380adde93fd8e1c32512d2..40467b7d37bc84727fe7434ce6f9fd4ce1ee8a8d 100644
+--- a/init/snapuserd_transition.cpp
++++ b/init/snapuserd_transition.cpp
+@@ -25,21 +25,20 @@
+ #include <filesystem>
+ #include <string>
+ #include <string_view>
+ 
+ #include <android-base/file.h>
+ #include <android-base/logging.h>
+ #include <android-base/parseint.h>
+ #include <android-base/strings.h>
+ #include <android-base/unique_fd.h>
+ #include <cutils/sockets.h>
+-#include <fs_avb/fs_avb.h>
+ #include <libsnapshot/snapshot.h>
+ #include <libsnapshot/snapuserd_client.h>
+ #include <private/android_filesystem_config.h>
+ #include <procinfo/process_map.h>
+ #include <selinux/android.h>
+ 
+ #include "block_dev_initializer.h"
+ #include "service_utils.h"
+ #include "util.h"
+ 
+@@ -221,70 +220,20 @@ void SnapuserdSelinuxHelper::FinishTransition() {
+     selinux_android_restorecon("/dev/kmsg", 0);
+     selinux_android_restorecon("/dev/dm-user", SELINUX_ANDROID_RESTORECON_RECURSE);
+ 
+     RelaunchFirstStageSnapuserd();
+ 
+     if (munlockall() < 0) {
+         PLOG(ERROR) << "munlockall failed";
+     }
+ }
+ 
+-/*
+- * Before starting init second stage, we will wait
+- * for snapuserd daemon to be up and running; bionic libc
+- * may read /system/etc/selinux/plat_property_contexts file
+- * before invoking main() function. This will happen if
+- * init initializes property during second stage. Any access
+- * to /system without snapuserd daemon will lead to a deadlock.
+- *
+- * Thus, we do a simple probe by reading system partition. This
+- * read will eventually be serviced by daemon confirming that
+- * daemon is up and running. Furthermore, we are still in the kernel
+- * domain and sepolicy has not been enforced yet. Thus, access
+- * to these device mapper block devices are ok even though
+- * we may see audit logs.
+- */
+-bool SnapuserdSelinuxHelper::TestSnapuserdIsReady() {
+-    std::string dev = "/dev/block/mapper/system"s + fs_mgr_get_slot_suffix();
+-    android::base::unique_fd fd(open(dev.c_str(), O_RDONLY | O_DIRECT));
+-    if (fd < 0) {
+-        PLOG(ERROR) << "open " << dev << " failed";
+-        return false;
+-    }
+-
+-    void* addr;
+-    ssize_t page_size = getpagesize();
+-    if (posix_memalign(&addr, page_size, page_size) < 0) {
+-        PLOG(ERROR) << "posix_memalign with page size " << page_size;
+-        return false;
+-    }
+-
+-    std::unique_ptr<void, decltype(&::free)> buffer(addr, ::free);
+-
+-    int iter = 0;
+-    while (iter < 10) {
+-        ssize_t n = TEMP_FAILURE_RETRY(pread(fd.get(), buffer.get(), page_size, 0));
+-        if (n < 0) {
+-            // Wait for sometime before retry
+-            std::this_thread::sleep_for(100ms);
+-        } else if (n == page_size) {
+-            return true;
+-        } else {
+-            LOG(ERROR) << "pread returned: " << n << " from: " << dev << " expected: " << page_size;
+-        }
+-
+-        iter += 1;
+-    }
+-
+-    return false;
+-}
+-
+ void SnapuserdSelinuxHelper::RelaunchFirstStageSnapuserd() {
+     auto fd = GetRamdiskSnapuserdFd();
+     if (!fd) {
+         LOG(FATAL) << "Environment variable " << kSnapuserdFirstStageFdVar << " was not set!";
+     }
+     unsetenv(kSnapuserdFirstStageFdVar);
+ 
+     RestoreconRamdiskSnapuserd(fd.value());
+ 
+     pid_t pid = fork();
+@@ -292,27 +241,20 @@ void SnapuserdSelinuxHelper::RelaunchFirstStageSnapuserd() {
+         PLOG(FATAL) << "Fork to relaunch snapuserd failed";
+     }
+     if (pid > 0) {
+         // We don't need the descriptor anymore, and it should be closed to
+         // avoid leaking into subprocesses.
+         close(fd.value());
+ 
+         setenv(kSnapuserdFirstStagePidVar, std::to_string(pid).c_str(), 1);
+ 
+         LOG(INFO) << "Relaunched snapuserd with pid: " << pid;
+-
+-        if (!TestSnapuserdIsReady()) {
+-            PLOG(FATAL) << "snapuserd daemon failed to launch";
+-        } else {
+-            LOG(INFO) << "snapuserd daemon is up and running";
+-        }
+-
+         return;
+     }
+ 
+     // Make sure the descriptor is gone after we exec.
+     if (fcntl(fd.value(), F_SETFD, FD_CLOEXEC) < 0) {
+         PLOG(FATAL) << "fcntl FD_CLOEXEC failed for snapuserd fd";
+     }
+ 
+     std::vector<char*> argv;
+     for (auto& arg : argv_) {
+diff --git a/init/snapuserd_transition.h b/init/snapuserd_transition.h
+index 757af13776e42e4228b3618dffb70c1def00b0e2..a5ab652b7c2a73ee1c213d8218e87c85890cd915 100644
+--- a/init/snapuserd_transition.h
++++ b/init/snapuserd_transition.h
+@@ -44,21 +44,20 @@ class SnapuserdSelinuxHelper final {
+     // Return a helper for facilitating the selinux transition of snapuserd.
+     // If snapuserd is not in use, null is returned. StartTransition() should
+     // be called after reading policy. FinishTransition() should be called
+     // after loading policy. In between, no reads of /system or other dynamic
+     // partitions are possible.
+     static std::unique_ptr<SnapuserdSelinuxHelper> CreateIfNeeded();
+ 
+   private:
+     void RelaunchFirstStageSnapuserd();
+     void ExecSnapuserd();
+-    bool TestSnapuserdIsReady();
+ 
+     std::unique_ptr<SnapshotManager> sm_;
+     BlockDevInitializer block_dev_init_;
+     pid_t old_pid_;
+     std::vector<std::string> argv_;
+ };
+ 
+ // Remove /dev/socket/snapuserd. This ensures that (1) the existing snapuserd
+ // will receive no new requests, and (2) the next copy we transition to can
+ // own the socket.

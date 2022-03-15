@@ -1,4 +1,4 @@
-commit 1b0b7c24bac9a569ffafad2d62383aa1e9d6b56c
+commit fc7244e100c67f93defc4e6db7b30a1487b7957b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2017-08-06 08:19:36-0400
 
@@ -34,7 +34,7 @@ index 43cf258edf1ff16e4ccb440848431adb5383ecb5..dfce071d93e3fa522b9a768d035b44e0
          android:label="@string/permlab_accessAllDownloads"
          android:description="@string/permdesc_accessAllDownloads"
 
-commit a7125548f51fb4b2020f2eae6a467aca4b8be8f6 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 0bec1645c6f4cbcb3e58b1ff24c40479a0119c5f (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Fri 2021-11-19 13:30:32+0200
 
@@ -44,10 +44,10 @@ Date:   Fri 2021-11-19 13:30:32+0200
  1 file changed, 8 insertions(+)
 
 diff --git a/src/com/android/providers/downloads/DownloadProvider.java b/src/com/android/providers/downloads/DownloadProvider.java
-index a9e023771aa4539dd62b83fcafe2ffaf6c6bdfb1..edb73db6894c3d62ec19bf4bbebb40706fb46009 100644
+index 1afa090182a48864d33be66cdaeb5c6219e7cf66..9efe29b98fc3c1e86394dcd3613b9a8a9d712d05 100644
 --- a/src/com/android/providers/downloads/DownloadProvider.java
 +++ b/src/com/android/providers/downloads/DownloadProvider.java
-@@ -1222,20 +1222,28 @@ public final class DownloadProvider extends ContentProvider {
+@@ -1159,20 +1159,28 @@ public final class DownloadProvider extends ContentProvider {
                      Request.VISIBILITY_VISIBLE_NOTIFY_ONLY_COMPLETION);
          }
  

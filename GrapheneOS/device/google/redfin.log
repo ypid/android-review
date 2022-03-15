@@ -1,4 +1,4 @@
-commit d0b31c66421d7619b23b15098b28d63733b110e3
+commit ad1192278d6d01d0b01c9102b9a06422359215c3
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:18:01+0000
 
@@ -28,7 +28,7 @@ index 10b4b21a6a769d2eef94be807d430779f7b33c07..a5ccad1b0eec37d8d9877a6cdc66da8b
 -PRODUCT_MODEL := AOSP on redfin
 +PRODUCT_MODEL := Pixel 5
 
-commit 746a5d698774c4badc708eb38e57525e2cdee18a
+commit e1c47eba198c3c09f3cd0e453513309286672600
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 20:12:44-0400
 
@@ -58,7 +58,7 @@ index a5ccad1b0eec37d8d9877a6cdc66da8b05fa60dd..deda1b4899488e78f68959dab46f6008
  PRODUCT_DEVICE := redfin
  PRODUCT_MODEL := Pixel 5
 
-commit 50f8431372f2aa8e232087b60a46ab033b6adfa5
+commit 30dddba2bab02ad118cc480a0805cba9a48a8aa1
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 23:55:44-0400
 
@@ -105,7 +105,7 @@ index 0000000000000000000000000000000000000000..c4b2b589da33f1e4ba07b4d6d63c1f2d
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := redfin
 
-commit 87a69238d56b579cac8340a4352d7addf26013ee
+commit ea6850cd8d260bbede2550765232b7aa5438d310
 Author: Artem Borisov <dedsa2002@gmail.com>
 Date:   Fri 2020-11-20 11:50:44+0000
 
@@ -142,7 +142,7 @@ index 4f65487b378783fcb0a31aecdb58091be5c604fc..3ea3d56fe191c4adfe5b62661987a17d
  # All devices enabled
  setprop|vendor.all.devices.ready
 
-commit 48b0bdd9a43d356ea3a298ec3ad5c6b7cb48afb0
+commit 1d430823be7c3bb467fd1969384fc6290a8419ee
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Fri 2021-01-15 17:14:54+0530
 
@@ -155,7 +155,7 @@ Date:   Fri 2021-01-15 17:14:54+0530
  1 file changed, 1 insertion(+)
 
 diff --git a/device-redfin.mk b/device-redfin.mk
-index 6d6d43a223bdc62c88d0a68b7225182659dad2fd..ad44faae3fc3af38dd19337664a8d4029e749687 100644
+index 581da68c13f75e50f94e23d7683d85e475a5ad7e..1f65fb4d9b467a1c85dea58b889e5221bef72d9b 100644
 --- a/device-redfin.mk
 +++ b/device-redfin.mk
 @@ -9,20 +9,21 @@
@@ -181,7 +181,7 @@ index 6d6d43a223bdc62c88d0a68b7225182659dad2fd..ad44faae3fc3af38dd19337664a8d402
  endif
  
 
-commit 84c93bbfcea2954b21e284cafd483a3d02b75dba
+commit e69834434cdac513e4af06079b346e55e9256355
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 19:43:49-0800
 
@@ -224,7 +224,7 @@ index 0000000000000000000000000000000000000000..283ff25ff50d03d6e7d8c1651a74e66d
 +    <bool name="config_show_smooth_display">true</bool>
 +</resources>
 
-commit 4ba4468b7771734fd8c21b26ba1f25aed8480ca0
+commit 4aa6497206e035d471927ad035ccd2a0f3a15c97
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:58:23-0500
 
@@ -234,7 +234,7 @@ Date:   Tue 2021-03-02 05:58:23-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/device-redfin.mk b/device-redfin.mk
-index ad44faae3fc3af38dd19337664a8d4029e749687..47598577489f7afb0a184ca8e2da7e3b0ccfbf2c 100644
+index 1f65fb4d9b467a1c85dea58b889e5221bef72d9b..c5739aa6d88c87ffa909994f4915e6e10a520751 100644
 --- a/device-redfin.mk
 +++ b/device-redfin.mk
 @@ -20,21 +20,21 @@ TARGET_PREBUILT_KERNEL := device/google/redfin-kernel/Image.lz4
@@ -261,7 +261,7 @@ index ad44faae3fc3af38dd19337664a8d4029e749687..47598577489f7afb0a184ca8e2da7e3b
  
  PRODUCT_SOONG_NAMESPACES += \
 
-commit 6d0068135a63e7c5b4609a99265c207d2d20cdfb
+commit 1611f4791dc0a19bbd1bd0d5a790c0eeca5f09f0
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:32:51+0200
 
@@ -272,14 +272,14 @@ Date:   Sun 2021-06-20 14:32:51+0200
  2 files changed, 16 insertions(+)
 
 diff --git a/device-redfin.mk b/device-redfin.mk
-index 47598577489f7afb0a184ca8e2da7e3b0ccfbf2c..5013fa260a828b827701ff1c8a7a283c69331357 100644
+index c5739aa6d88c87ffa909994f4915e6e10a520751..f4cd794f153861d6e8077f9793e6b544f80c6c94 100644
 --- a/device-redfin.mk
 +++ b/device-redfin.mk
-@@ -238,10 +238,14 @@ PRODUCT_PACKAGES += \
+@@ -234,10 +234,14 @@ PRODUCT_PRODUCT_PROPERTIES += \
  
- # (b/183612348): Enable skia reduceOpsTaskSplitting
- PRODUCT_PROPERTY_OVERRIDES += \
-     renderthread.skia.reduceopstasksplitting=true
+ PRODUCT_PACKAGES += \
+     NoCutoutOverlay \
+     AvoidAppsInCutoutOverlay
  
  # Include the redfin product FCM.
  # Vendor Freeze system-only builds use a different FCM.
@@ -309,7 +309,7 @@ index 0000000000000000000000000000000000000000..5d0182c7f8816207afc386c031c52b12
 +    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
 +</config>
 
-commit 7285001d09088d42c63ad651713ce7be2e93da5d
+commit 38753d47b1f9a1b8ece94e547ad244d8071427c8
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 02:42:23+0100
 
@@ -346,7 +346,7 @@ index deda1b4899488e78f68959dab46f6008fbb76555..71986ef4f38ea934604e0b4b21e9dd6f
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit 152c25840c280006807c4588474c7c0c1d2655dc (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit fa02e48eebbffa77c1f8659e20080bd4caabef46 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:16:47-0400
 
@@ -356,7 +356,7 @@ Date:   Tue 2021-10-26 09:16:47-0400
  1 file changed, 1 deletion(-)
 
 diff --git a/device-redfin.mk b/device-redfin.mk
-index 5013fa260a828b827701ff1c8a7a283c69331357..8bfa930885f9b93311ff31071e6dbea52177aa03 100644
+index f4cd794f153861d6e8077f9793e6b544f80c6c94..f5d2efed852bc89772287225bf6d6566787c751f 100644
 --- a/device-redfin.mk
 +++ b/device-redfin.mk
 @@ -227,21 +227,20 @@ PRODUCT_COPY_FILES += \
@@ -372,12 +372,12 @@ index 5013fa260a828b827701ff1c8a7a283c69331357..8bfa930885f9b93311ff31071e6dbea5
      NoCutoutOverlay \
 -    AvoidAppsInCutoutOverlay
  
- # (b/183612348): Enable skia reduceOpsTaskSplitting
- PRODUCT_PROPERTY_OVERRIDES += \
-     renderthread.skia.reduceopstasksplitting=true
- 
  # Include the redfin product FCM.
  # Vendor Freeze system-only builds use a different FCM.
  ifneq ($(PRODUCT_VENDOR_FREEZE_SYSTEM_BUILD),true)
  PRODUCT_PACKAGES += redfin_product_compatibility_matrix.xml
  endif
+ 
+ # Set of *_EXPERIENCE features for redfin
+ PRODUCT_COPY_FILES += \
+     $(LOCAL_PATH)/google_experience.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/sysconfig/google_experience.xml

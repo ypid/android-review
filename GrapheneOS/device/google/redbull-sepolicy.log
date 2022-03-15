@@ -1,4 +1,4 @@
-commit d438c0f88ac933a2052b50d4bd159ccab918cca1 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit f06eab60395930170559e07046512401c4101e1d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2020-10-14 19:14:00-0400
 
@@ -27,3 +27,320 @@ index b2be68ff872e3e35bb70a16d2b2702624a02a7ce..d4af5114d54835367fce981218cc2e58
  
  allow hal_drm_widevine qce_device:chr_file rw_file_perms;
  allow hal_drm_widevine smcinvoke_device:chr_file rw_file_perms;
+
+commit 0bdfe901cea1a683964138dc78ac8b556688d4b7
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2022-02-09 02:26:53+0000
+
+    sq1a.220205.002 certs
+---
+ private/certs/wfcactivation.x509.pem           | 42 +++++++++----------
+ vendor/google/certs/EuiccSupportPixel.x509.pem | 57 +++++++++++++-------------
+ vendor/google/certs/app.x509.pem               | 48 +++++++++++-----------
+ vendor/google/certs/com_google_mds.x509.pem    | 57 +++++++++++++-------------
+ 4 files changed, 100 insertions(+), 104 deletions(-)
+
+diff --git a/private/certs/wfcactivation.x509.pem b/private/certs/wfcactivation.x509.pem
+index bead020beb3c684b8deb96ee546a54ec9e0d636a..b331e2ef463b5acd7d598f6e335f1a7dfe6de1d9 100644
+--- a/private/certs/wfcactivation.x509.pem
++++ b/private/certs/wfcactivation.x509.pem
+@@ -1,23 +1,23 @@
+ -----BEGIN CERTIFICATE-----
+-MIIDyTCCArGgAwIBAgIJAODrqTpclyUkMA0GCSqGSIb3DQEBCwUAMHsxCzAJBgNV
+-BAYTAlVTMRMwEQYDVQQIDApDYWxpZm9ybmlhMRYwFAYDVQQHDA1Nb3VudGFpbiBW
+-aWV3MRQwEgYDVQQKDAtHb29nbGUgSW5jLjEQMA4GA1UECwwHQW5kcm9pZDEXMBUG
+-A1UEAwwOd2ZjX2FjdGl2YXRpb24wHhcNMTgwMjIxMDA1NTM4WhcNNDUwNzA5MDA1
+-NTM4WjB7MQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UE
+-BwwNTW91bnRhaW4gVmlldzEUMBIGA1UECgwLR29vZ2xlIEluYy4xEDAOBgNVBAsM
+-B0FuZHJvaWQxFzAVBgNVBAMMDndmY19hY3RpdmF0aW9uMIIBIjANBgkqhkiG9w0B
+-AQEFAAOCAQ8AMIIBCgKCAQEAruKdMaQjRrlTwLHWAhUwLXoq+1glzoQ5ibqHDg4i
+-GPPlwT7qPG8xWW6UmTiLNES6YSDpvCvptqrZccecviYfYIg7/JCF/xr2cFt9Gyyo
+-L0muemdUMFjGQJxKCQMi8jlqPVgfcy7ZEfVvoDWUupD7hVVA6TFkWH1nv/5GzJVK
+-h7D4vBaYE6qwM1+NJjrbk1O8SMMCES7MkJhpnfbRYr8d5uxSzDWqqeqvM6CFSvKw
+-cxqbCcNl0MDgSCgtnxzZZjg5AFuPECV8lgJpxFEqgEIK1fsebK5G8o4buokMW+W4
+-ZT2LZtMq/qsZXl59h22KQX2w5mcI6KyV8WZOcPPOm8uf8wIDAQABo1AwTjAdBgNV
+-HQ4EFgQU9jpHDUfkIqBODCp9/c5TsraA9sowHwYDVR0jBBgwFoAU9jpHDUfkIqBO
+-DCp9/c5TsraA9sowDAYDVR0TBAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAZMf+
+-KD3oFS0cv/C0qQx28wW5BKFb/PM6RxDwTRF7yyJj4+uZU0+O8NJEqBNDgHusFJR6
+-2ZXXiWDqzNb0scZxD95FP1YxiLPAcbn2oCTkGPYcCsBmT1i25RsIKTb7fR3UJ/bY
+-V55CQy1FjX5H1katVpezi1bs17stqrjL0aCk8s7wZPQ9KTy7SfMF9rUfg8ltrj8s
+-MD5cq21GJuJMpI2kNUV7IT+4B3CeHzpm0iy8NmbavgNezZAx1za4QIySNcKfdsSs
+-7PsNYPS0R9BeZK/4u4/yrQvRV0lXzQcIJPpwr0cfuhcgcHG8sbCLaw4Ph6go9kRL
+-hvY7ZX9pdBLS8ukQ4w==
++MIIDxzCCAq+gAwIBAgIVALNdsIWw8RAlQd7BIdldf+kv/v+BMA0GCSqGSIb3DQEB
++CwUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQH
++Ew1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMH
++QW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0xODAyMjEwMDU0MjBaFw00ODAy
++MjEwMDU0MjBaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYw
++FAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4G
++A1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASIwDQYJKoZIhvcNAQEB
++BQADggEPADCCAQoCggEBAMC2qqWTcN7MfX8ILMKG6q8SDJIIlE+zXz67V7N3jZKh
++XpPzIMAv9nDrR6tmDye7S7qxp3UniErpTBCrVCAQUksniJ/4d9Ie6r99UeDq6YzJ
++Y9mcQtfvzD+ZELKgkNfBoUMNRMCx5v+srchcDVjnTuU3FxNhQMYpDhP7PCynJW9/
++YeNznLdAbYaHBVhTYueUxlwryf+1bBa3E54hqu0xoHrP0FjKiX1ifhuTBcQfmKnF
++JfC/I6r0x2vi+hAgBDXX/4WAUAtCFSeOKw5Qp4osqrMlguuotcgdznRI4Qqs2YDF
++TVeeagu/3x242sUJzSqn4rrU+kNt1Az+G2SEQsbK1akCAwEAAaNQME4wDAYDVR0T
++BAUwAwEB/zAdBgNVHQ4EFgQUOyhe5x68/4unqcqy4QAqn22NXPYwHwYDVR0jBBgw
++FoAUOyhe5x68/4unqcqy4QAqn22NXPYwDQYJKoZIhvcNAQELBQADggEBAGzl8klj
+++pOfYj91U5Xi5C9unsOWSx4uTufn62c5TvL/AvkCq5adzYlF2u320S+kfvYlAOR6
++MhN5tlFaKBDGCi+6zHnLTO2QLaZxYGJb5SdwaAF14shFg+7ZNMLb1X8GuKrLIGw1
++P2A5EWFSIwNaGQLz7Mwr66db7efBNWVvcMRdM67cip4LMeXGxuW+aKoJ2X7/x3Lc
++FKsKQ7Jx1RxoylUMNBS+0kPCqoUnMqgD9U8Drbp0NcQgkqe0Vks9I/j5bxMeXgES
++dkvy6CwcTB01ROO+VLwmWbculJy59K10HtqmeBrzb3DLnxBgAqgbFvIqKVXp8yp2
++l7kN8tGn0HIj4+0=
+ -----END CERTIFICATE-----
+diff --git a/vendor/google/certs/EuiccSupportPixel.x509.pem b/vendor/google/certs/EuiccSupportPixel.x509.pem
+index d11ad3d0f2a29d7765e76bd942db86a0ecab5706..0df909db07ce9aeb9b744a8312b7558b6f429c5e 100644
+--- a/vendor/google/certs/EuiccSupportPixel.x509.pem
++++ b/vendor/google/certs/EuiccSupportPixel.x509.pem
+@@ -1,29 +1,28 @@
+------BEGIN CERTIFICATE-----
+-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
+-0JD1T1qdCm3aUSEmFgEA4rOL/0K3
+------END CERTIFICATE-----
++-----BEGIN CERTIFICATE-----
++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
++-----END CERTIFICATE-----
+diff --git a/vendor/google/certs/app.x509.pem b/vendor/google/certs/app.x509.pem
+index 8e3e62739625d0a66f094e853323f4c0c812f2d2..1ccaade652351503238ca82c7152fb0b4862dd02 100644
+--- a/vendor/google/certs/app.x509.pem
++++ b/vendor/google/certs/app.x509.pem
+@@ -1,27 +1,25 @@
+ -----BEGIN CERTIFICATE-----
+-MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYD
+-VQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4g
+-VmlldzEQMA4GA1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UE
+-AxMHQW5kcm9pZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTAe
+-Fw0wODA0MTUyMzM2NTZaFw0zNTA5MDEyMzM2NTZaMIGUMQswCQYDVQQGEwJVUzET
+-MBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4G
+-A1UEChMHQW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9p
+-ZDEiMCAGCSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbTCCASAwDQYJKoZI
+-hvcNAQEBBQADggENADCCAQgCggEBANbOLggKv+IxTdGNs8/TGFy0PTP6DHThvbbR
+-24kT9ixcOd9W+EaBPWW+wPPKQmsHxajtWjmQwWfna8mZuSeJS48LIgAZlKkpFeVy
+-xW0qMBujb8X8ETrWy550NaFtI6t9+u7hZeTfHwqNvacKhp1RbE6dBRGWynwMVX8X
+-W8N1+UjFaq6GCJukT4qmpN2afb8sCjUigq0GuMwYXrFVee74bQgLHWGJwPmvmLHC
+-69EH6kWr22ijx4OKXlSIx2xT1AsSHee70w5iDBiK4aph27yH3TxkXy9V89TDdexA
+-cKk/cVHYNnDBapcavl7y0RiQ4biu8ymM8Ga/nmzhRKya6G0cGw8CAQOjgfwwgfkw
+-HQYDVR0OBBYEFI0cxb6VTEM8YYY6FbBMvAPyT+CyMIHJBgNVHSMEgcEwgb6AFI0c
+-xb6VTEM8YYY6FbBMvAPyT+CyoYGapIGXMIGUMQswCQYDVQQGEwJVUzETMBEGA1UE
+-CBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEQMA4GA1UEChMH
+-QW5kcm9pZDEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDEiMCAG
+-CSqGSIb3DQEJARYTYW5kcm9pZEBhbmRyb2lkLmNvbYIJANWFuGx90071MAwGA1Ud
+-EwQFMAMBAf8wDQYJKoZIhvcNAQEEBQADggEBABnTDPEF+3iSP0wNfdIjIz1AlnrP
+-zgAIHVvXxunW7SBrDhEglQZBbKJEk5kT0mtKoOD1JMrSu1xuTKEBahWRbqHsXcla
+-XjoBADb0kkjVEJu/Lh5hgYZnOjvlba8Ld7HCKePCVePoTJBdI4fvugnL8TsgK05a
+-IskyY0hKI9L8KfqfGTl1lzOv2KoWD0KWwtAWPoGChZxmQ+nBli+gwYMzM1vAkP+a
+-ayLe0a1EQimlOalO762r0GXO0ks+UeXde2Z4e+8S/pf7pITEI/tP+MxJTALw9QUW
+-Ev9lKTk+jkbqxbsh8nfBUapfKqYn0eidpwq2AzVp3juYl7//fKnaPhJD9gs=
++MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNV
++BAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBW
++aWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4G
++A1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQx
++CzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3Vu
++dGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9p
++ZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgC
++ggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0I9Y4sypEwPpt1TTcvZApxsdyxMJZ2JO
++Rland2qSGT2y5b+3JKkedxiLDmpHpDsz2WCbdxgxRczfey5YZnTJ4VZbH0xqWVW/
++8lGmPav5xVwnIiJS6HXk+BVKZF+JcWjAsb/GEuq/eFdpuzSqeYTcfi6idkyugwfY
++wXFU1+5fZKUaRKYCwkkFQVfcAs1fXA5V+++FGfvjJ/CxURaSxaBvGdGDhfXE28LW
++uT9ozCl5xw4Yq5OGazvV24mZVSoOO0yZ31j7kYvtwYK6NeADwbSxDdJEqO4k//0z
++OHKrUiGYXtqw/A0LFFtqoZKFjnkCAQOjgdkwgdYwHQYDVR0OBBYEFMd9jMIhF1Yl
++mn/Tgt9r45jk14alMIGmBgNVHSMEgZ4wgZuAFMd9jMIhF1Ylmn/Tgt9r45jk14al
++oXikdjB0MQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UE
++BxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xlIEluYy4xEDAOBgNVBAsT
++B0FuZHJvaWQxEDAOBgNVBAMTB0FuZHJvaWSCCQDC4IdGZEowjTAMBgNVHRMEBTAD
++AQH/MA0GCSqGSIb3DQEBBAUAA4IBAQBt0lLO74UwLDYKqs6Tm8/yzKkEu116FmH4
++rkaymUIE0P9KaMftGlMexFlaYjzmB2OxZyl6euNXEsQH8gjwyxCUKRJNexBiGcCE
++yj6z+a1fuHHvkiaai+KL8W1EyNmgjmyy8AW7P+LLlkR+ho5zEHatRbM/YAnqGcFh
++5iZBqpknHf1SKMXFh4dd239FJ1jWYfbMDMy3NS5CTMQ2XFI1MvcyUTdZPErjQfTb
++Qe3aDQsQcafEQPD+nqActifKZ0Np0IS9L9kR/wbNvyz6ENwPiTrjV2KRkEjH78ZM
++cUQXg0L3BYHJ3lc69Vs5Ddf9uUGGMYldX3WfMBEmh/9iFBDAaTCK
+ -----END CERTIFICATE-----
+diff --git a/vendor/google/certs/com_google_mds.x509.pem b/vendor/google/certs/com_google_mds.x509.pem
+index 640c6fb98894114884c759da0403321116da2f14..8cd5cd3dbbf9a917726a4cd279e678c03607b307 100644
+--- a/vendor/google/certs/com_google_mds.x509.pem
++++ b/vendor/google/certs/com_google_mds.x509.pem
+@@ -1,29 +1,28 @@
+------BEGIN CERTIFICATE-----
+-MIIF1TCCA72gAwIBAgIVAPZ4KZV2jpxRBCoVAidCu62l3cDqMA0GCSqGSIb3DQEBCwUAMHsxCzAJ
+-BgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQw
+-EgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEXMBUGA1UEAwwOY29tX2dvb2ds
+-ZV9tZHMwHhcNMTkwNDIyMTQ1NzA1WhcNNDkwNDIyMTQ1NzA1WjB7MQswCQYDVQQGEwJVUzETMBEG
+-A1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNTW91bnRhaW4gVmlldzEUMBIGA1UEChMLR29vZ2xl
+-IEluYy4xEDAOBgNVBAsTB0FuZHJvaWQxFzAVBgNVBAMMDmNvbV9nb29nbGVfbWRzMIICIjANBgkq
+-hkiG9w0BAQEFAAOCAg8AMIICCgKCAgEAqgNC0hhI3NzaPUllJfe01hCTuEpl35D02+DKJ5prPFxv
+-6KGTk6skjZOwV87Zf2pyj/cbnv28ioDjwvqMBe4ntFdKtH9gl2tTAVl69HMKXF4Iny/wnrt2mxzh
+-WxFUd5PuW+mWug+UQw/NGUuaf5d/yys/RrchHKM1+zBV6aOzH6BXiwDoOF2i43d5GlNQ/tFuMySW
+-LJftJN0QULFelxNDFFJZhw2P3c4opxjmF2yCoIiDfBEIhTZFKUbHX6YDLXmtUpXl35q+cxK4TCxP
+-URyzwdfiyheF3TTxagfzhvXNg/ifrY67S4qCGfzoEMPxrTz02gS0u3D6r/2+hl9vAJChLKDNdIs6
+-TqIw+YnABrELiZLLFnaABnjQ7xC3xv1s3W6dWxaxnoVMtC1YvdgwhC5gSpJ4A+AGcCLv96hoeB1I
+-IoGV9Yt0Z97MFpXeHFpAxFZ1F9feBqwOCDbu50dmdKZvqGHZ4Ts3uy7ukDQ08dquHpT+NmqkmmW5
+-GGhkuyZS3HHpU/QeVsZiyJCJBbDe5lz6NGXK56ruuF9ILeGHtldjQm40oYRc01ESScyVjSU0kpMO
+-C7hn1B7rKAm8xxG7eH04ieQrNnbbee7atOO4C3157W5CqujfLMeo6OCRVtcYkYIuSi8hIPNySu/q
+-OaEtEP4owVNZR0H6mCHy5pANsyBofMkCAwEAAaNQME4wDAYDVR0TBAUwAwEB/zAdBgNVHQ4EFgQU
+-gk8pmLx8yP3RILwR5am1G10PBEowHwYDVR0jBBgwFoAUgk8pmLx8yP3RILwR5am1G10PBEowDQYJ
+-KoZIhvcNAQELBQADggIBAC9iQ1huo6CzjcsB1IIw3WYPYVfHtvG7fiB49QO6cjth8fxM36YOxnMz
+-K9Zh89cnFx7BeXG4MdbR3lAWO+wTbEpM/5azAQfqHB/ZEEAo1THtqS58C1bTwJ5zxkA+wL/x1ucT
+-EV0QZtPHC1K5nIV5FuICiJjui5FHfj2HYu2A5a5729rdZ7sL8Vgx6TUFKpEPs5iCrlx5X/E+/wJa
+-DM5iIjVvrGJJq0VWHHeDJEE+Sw1CDxWYRzvu1WvCvhk149hf4LlfrR0A5t8QJRGx0WwF10DLGgJx
+-7epMBpzhMIXc529FTIx4Rx2PcufjTZC9EN7PkLgVfYahWEkt/YIfV/0F6U6viLxdNC5O0pimSV57
+-vT6HIthX1OC34eZca0cPqH1kOuhRDKOhbP4yIgdYX6knpvw8aXsYcyTfAmDyrt0EWffeBPedaxMo
+-xfijdlsBQUymviUQ8qBbfl1Ew9VoC+VEsiobK7Ubog0IK+82LQ7FOLMoNYnhk5wJ63i1kVvBVAgH
+-64PMME2KG//BwYFfKK6jUXibabyNke72+1Jr0xpw1BHJPxNJ8Q8yCBLF0wmXmFJSM+9lSDd10Bni
+-FJeMFMQ0T1Sf8GUSIxYYbMK5pDguRs+JOYkUID02ylJ3L6GAnxXCjGWzpdxw29/WWJc+qsYFEIbP
+-kKzTUNQHaaLHmcLK22Ht
+------END CERTIFICATE-----
++-----BEGIN CERTIFICATE-----
++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
++-----END CERTIFICATE-----
+
+commit 1bbb65f626c301ec2b64beacb9e751b1e513fc6b
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2022-03-02 18:52:13+0000
+
+    Remove sepolicy domain for Google Camera
+---
+ vendor/google/seapp_contexts | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/vendor/google/seapp_contexts b/vendor/google/seapp_contexts
+index feda6f8105391121b4c41e4d2e455ad62adaf108..04dc3400a2f20cf6af889d005d3b0b3281291f3a 100644
+--- a/vendor/google/seapp_contexts
++++ b/vendor/google/seapp_contexts
+@@ -4,23 +4,20 @@ user=_app seinfo=platform name=com.android.ramdump domain=ramdump_app type=app_d
+ 
+ # Domain for grilservice
+ user=_app isPrivApp=true name=com.google.android.grilservice domain=grilservice_app levelFrom=all
+ 
+ # Domain for Modem Diagnostic System
+ user=_app seinfo=mds name=com.google.mds domain=modem_diagnostic_app type=app_data_file levelFrom=user
+ 
+ # Domain for GoogleCBRS app
+ user=_app seinfo=platform name=com.google.googlecbrs domain=cbrs_setup_app type=app_data_file levelFrom=user
+ 
+-# Use a custom domain for GoogleCamera, to allow for Hexagon DSP access
+-user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=all
+-
+ # Also allow GoogleCameraNext, the dogfood beta version, the same access as GoogleCamera
+ user=_app seinfo=googlepulse name=com.google.android.apps.googlecamera.fishfood domain=google_camera_app type=app_data_file levelFrom=all
+ 
+ # Domain for Display
+ user=_app seinfo=platform name=com.android.hbmsvmanager domain=hbmsvmanager_app type=app_data_file levelFrom=all
+ 
+ # Domain for UvExposureReporter service
+ user=_app isPrivApp=true name=com.google.android.uvexposurereporter domain=uv_exposure_reporter type=app_data_file levelFrom=all
+ 
+ # Domain for DeviceDropMonitor service
+
+commit 94b10eaf7a2d4ec482a3c393fd206ca83b0f3966 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2022-03-02 18:54:24+0000
+
+    Remove sepolicy domain for Google Camera Internal Beta
+---
+ vendor/google/seapp_contexts | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/vendor/google/seapp_contexts b/vendor/google/seapp_contexts
+index 04dc3400a2f20cf6af889d005d3b0b3281291f3a..300e6926f9e927783b1faf8ea3bd3ca0ce114925 100644
+--- a/vendor/google/seapp_contexts
++++ b/vendor/google/seapp_contexts
+@@ -4,23 +4,20 @@ user=_app seinfo=platform name=com.android.ramdump domain=ramdump_app type=app_d
+ 
+ # Domain for grilservice
+ user=_app isPrivApp=true name=com.google.android.grilservice domain=grilservice_app levelFrom=all
+ 
+ # Domain for Modem Diagnostic System
+ user=_app seinfo=mds name=com.google.mds domain=modem_diagnostic_app type=app_data_file levelFrom=user
+ 
+ # Domain for GoogleCBRS app
+ user=_app seinfo=platform name=com.google.googlecbrs domain=cbrs_setup_app type=app_data_file levelFrom=user
+ 
+-# Also allow GoogleCameraNext, the dogfood beta version, the same access as GoogleCamera
+-user=_app seinfo=googlepulse name=com.google.android.apps.googlecamera.fishfood domain=google_camera_app type=app_data_file levelFrom=all
+-
+ # Domain for Display
+ user=_app seinfo=platform name=com.android.hbmsvmanager domain=hbmsvmanager_app type=app_data_file levelFrom=all
+ 
+ # Domain for UvExposureReporter service
+ user=_app isPrivApp=true name=com.google.android.uvexposurereporter domain=uv_exposure_reporter type=app_data_file levelFrom=all
+ 
+ # Domain for DeviceDropMonitor service
+ user=_app seinfo=platform name=com.google.android.devicedropmonitor domain=device_drop_monitor type=app_data_file levelFrom=all
+ 
+ # Domain for IpHealthMonitor service

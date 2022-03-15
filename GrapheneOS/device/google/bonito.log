@@ -1,4 +1,4 @@
-commit b6b3db82fad42a29184540734d593cd40e8b41a5
+commit 2d8c8aade164974e2b2b13f1bd1a63f20150a92a
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 16:42:55-0400
 
@@ -43,7 +43,7 @@ index 976af6608424794a24da7b3052e3b25be7494069..a37776f85d05173e92415dec60fc9de2
 -PRODUCT_MODEL := AOSP on sargo
 +PRODUCT_MODEL := Pixel 3a
 
-commit 95de541d061a8555cc18609a0df42a44d31554ee
+commit fceb3a04ac3e0997d67c1d3e141bcee1b7cb2eb0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 21:06:38-0400
 
@@ -94,7 +94,7 @@ index a37776f85d05173e92415dec60fc9de2fe566e64..208d1352d0cd5ac7a496e83b59ba9818
  PRODUCT_DEVICE := sargo
  PRODUCT_MODEL := Pixel 3a
 
-commit 4f9b499d09e6a1a3303467a6a7c54e951d2324a2
+commit 6f1a9e05fdcd1a549700b37db02bd704426a72f8
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 20:31:53-0400
 
@@ -155,7 +155,7 @@ index 0000000000000000000000000000000000000000..32d8cdd9c9446ee75d3baa9607890dc3
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := sargo
 
-commit 80d8f8b3307812896566373b6b799da19b58b1b6
+commit 46c4ad40a3d63386c4b61784acbf86c9b5eff806
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:48:08-0400
 
@@ -165,7 +165,7 @@ Date:   Thu 2019-06-20 12:48:08-0400
  1 file changed, 4 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index a13578e9ad86e12a9ace05555062b76e19f2a0ca..42a17fc59bbffa1f3a9cd4886d8290fcfba496a6 100644
+index 3cba50d04008bf01a3ad469b515fe16910f48405..be5a7e81a236f3c4ea3b571569feee9e0a7052f5 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -131,35 +131,31 @@ PRODUCT_COPY_FILES += \
@@ -205,7 +205,7 @@ index a13578e9ad86e12a9ace05555062b76e19f2a0ca..42a17fc59bbffa1f3a9cd4886d8290fc
      POSTINSTALL_OPTIONAL_system=true
  
 
-commit ed97dea72fafd0705b99ef5b0f30dd69ff583cbb
+commit 97f951342027c1a12b13ae35bf5ed99cd251e75b
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-20 12:50:53-0400
 
@@ -330,7 +330,7 @@ index 885c3e28c3960e1ff2cf72dd645e5ad8e0cfe00e..c6992bc817f15bff1772c143a7f81c75
 -insmod /vendor/lib/modules/machine_dlkm.ko
 -
 
-commit 418f67fc99942656c00f86574a73bee6d60ca0a0
+commit c1b79f085ce6547c08611bed28a64556f78840d0
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-06-13 15:19:03-0400
 
@@ -341,7 +341,7 @@ Date:   Thu 2019-06-13 15:19:03-0400
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index 42a17fc59bbffa1f3a9cd4886d8290fcfba496a6..ce10533874e7f133e9a0362273b893d6dfc270e1 100644
+index be5a7e81a236f3c4ea3b571569feee9e0a7052f5..1e44ac2760cc0e2cd97b992a73b59bec0ecd39c2 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -819,21 +819,21 @@ PRODUCT_PROPERTY_OVERRIDES += \
@@ -395,7 +395,7 @@ index 57993b0b31fcc336ed6768dc4cfefef9bad1a3b9..892a0929cf016e4642eae918fbacec77
  
      <!-- Enable system navigation keys. -->
 
-commit 8ff06b0bb5482ca5eedc005e403492ca62dcfe21
+commit 0c4c9af84cfba70d22b4f91379e1c2bfbdad7eb9
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2019-06-14 22:08:05-0400
 
@@ -432,7 +432,7 @@ index 892a0929cf016e4642eae918fbacec77845b43d0..a0a876e6d98e1bee86b1aa13eb8d4db5
  
      <!-- List of regexpressions describing the interface (if any) that represent tetherable
 
-commit 378328faccb19b63372d99ece60614859565fae2
+commit bf61cbae7c61654b8964c6290ddcb405b8586626
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-18 10:48:18-0400
 
@@ -442,7 +442,7 @@ Date:   Wed 2019-09-18 10:48:18-0400
  1 file changed, 3 deletions(-)
 
 diff --git a/device.mk b/device.mk
-index ce10533874e7f133e9a0362273b893d6dfc270e1..44de699fb6bd7f6cd593f9da92bce75761f6fe57 100644
+index 1e44ac2760cc0e2cd97b992a73b59bec0ecd39c2..c4604611007abba1b341ab30b3881482a0f06666 100644
 --- a/device.mk
 +++ b/device.mk
 @@ -64,23 +64,20 @@ PRODUCT_PACKAGES += \
@@ -470,7 +470,7 @@ index ce10533874e7f133e9a0362273b893d6dfc270e1..44de699fb6bd7f6cd593f9da92bce757
  endif
  
 
-commit 9d57d8b2addd63f8c2065aba9ac1e74c61fc5216
+commit 83aaea7d3fac1ce79203c466b1c9297c8e9a498f
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2020-09-15 02:29:31-0400
 
@@ -508,7 +508,7 @@ index f16c2abda2d821c98a383ddcc653047cdf76b7e0..f4f4d023c85e382ae942ba13a6765396
  
  # Set c2 codec in default
 
-commit 589f510046df0fb41d908d227474f4398c91cf83
+commit d722109348d7990d40dbcea5e74e18daeffd010d
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2020-11-14 03:11:59-0500
 
@@ -577,7 +577,7 @@ index 208d1352d0cd5ac7a496e83b59ba9818270ef4f5..a0402611e9506aab9b367f0c8036d18d
  # PRODUCT_ENFORCE_ARTIFACT_PATH_REQUIREMENTS := relaxed
  
 
-commit 4bc6b4545ce365975be596e69e22e6002f5a3fd7
+commit 915a63b81022812b85a3ec55a8dd565ce05b11fe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-01-03 11:41:36-0500
 
@@ -615,7 +615,7 @@ index 0d88b17d97b9fb498e72ba74c19c2eb83970aa72..a16227f3118e5a6865156580cf7551c9
      write /sys/module/msm_poweroff/parameters/warm_reset 1
  
 
-commit 4cff602d3d26d3be86c7c448a03a9c37a4f926d8
+commit b87fb93361b25a6c2014da144a12b98cda458688
 Author: razorloves <razorloves@gmail.com>
 Date:   Tue 2020-05-12 23:50:50-0500
 
@@ -674,7 +674,7 @@ index 0000000000000000000000000000000000000000..29691515b16f20c5b6ba81489c14fc7b
 +    </integer-array>
 +</resources>
 
-commit 9ec93a7e40396435397c9fcad2906bd840a65110
+commit 3b9333e5a30b7eebd007da490bf2b360609482a6
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:26:56+0200
 
@@ -739,7 +739,7 @@ index 0000000000000000000000000000000000000000..6ad44f13ccb58340803b1a9c7006a5d3
 +    <feature name="com.google.android.feature.PIXEL_2019_MIDYEAR_EXPERIENCE" />
 +</config>
 
-commit ec4a4605282f1d761b2ae7ff45f923d269f08a88
+commit 43efdbed6805a91fec8f693e4d2b888cbcfe65a4
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 00:44:51+0100
 
@@ -804,7 +804,7 @@ index a0402611e9506aab9b367f0c8036d18d17dfa82b..a673ee7e53defb5f957d416c3344cb36
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit 7d7990fd702deb32eee7e2a7a7885aa4f8f8ac37 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit 711f5bc68c5535d46d94f9dc8ef2963bef0cf1ea (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2021-10-11 18:08:28-0400
 

@@ -1,4 +1,4 @@
-commit b0783bea70155cf23e738fb50236d960e54b324e (tag: SQ1A.220105.002.2022010500)
+commit 562045f0a96488ca44bc6450a05a09ef4b0d6ee1
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2020-12-15 18:58:04-0800
 
@@ -61,7 +61,7 @@ index e82045de7d7af114cac139fd90577d3c9d33c23b..30e5c4dad37ba48cf73c7eff1997b5c1
                      }
                  }
 
-commit 174a5f7891596d6eae62627b81782fe9a959413c (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit ace16bf4ca6310065daf9da3729b591174079185 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2022-01-14 10:47:58+0000
 
@@ -71,10 +71,10 @@ Date:   Fri 2022-01-14 10:47:58+0000
  1 file changed, 14 deletions(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 72d721d7cb269deb158f5d8ca01b3f7509f22db7..bad42f666e9f00207a24f31847208b536e499542 100755
+index 9ed6dd5e0912bb70a91483cd560511af9f408830..8150d5d180e966a5e835a2d4e844624468dfc259 100755
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -68,34 +68,20 @@
+@@ -69,34 +69,20 @@
          android:label="@string/app_name"
          android:resizeableActivity="false"
          android:theme="@style/WallpaperTheme.NoBackground"

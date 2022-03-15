@@ -1,4 +1,4 @@
-commit a717a041b24c8d0df694b2b74798d21069bf6b0d
+commit f3201b48008e9283525026c7f9dfc99bcb4a5f31
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2021-02-11 05:33:06+0530
 
@@ -27,7 +27,7 @@ index 11d4684e6bc4a140d3dfc84311768bc98ac1a857..2a95c5bac70325a8697f5cbd36aa565f
 -PRODUCT_MODEL := AOSP on bramble
 +PRODUCT_MODEL := Pixel 4a (5G)
 
-commit 099acfebfb52efb4dc5d3564070b091ea301a555
+commit 903a87e193c26f52f2dbc81da27c1e91e331efa7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 23:54:30-0400
 
@@ -57,7 +57,7 @@ index 2a95c5bac70325a8697f5cbd36aa565f0fdd2c9b..c0661c30613d3ee2c0c488a818394c58
  PRODUCT_DEVICE := bramble
  PRODUCT_MODEL := Pixel 4a (5G)
 
-commit 470c303d96716299ae49119ecadde08f11abfe24
+commit d4b33598edf128efd5beb96c0c83a143e7df98fe
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-07-15 23:55:09-0400
 
@@ -102,7 +102,7 @@ index 0000000000000000000000000000000000000000..6ea6cb636f50335528ea8c4b24b16acb
 +# Remove AOSP prefix from product name
 +PRODUCT_NAME := bramble
 
-commit d4f3aa05080dc04c6c633584c3cac98b63e72341
+commit 67f545c63c3e233baaef1182c8a7469a6845c680
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2021-02-11 09:24:39+0530
 
@@ -114,7 +114,7 @@ Date:   Thu 2021-02-11 09:24:39+0530
  1 file changed, 1 insertion(+)
 
 diff --git a/device-bramble.mk b/device-bramble.mk
-index 0dce4eecf19eea0ac3bfd0331bfdde6f951c933f..7e936c71f25a66b793a5c8caee895f9c019c9792 100644
+index 65b0a544f30104bac20cd1bc55c3fefc047206b7..e5b670e8235178c76ecf58c8180ee9cd26ff2bb5 100644
 --- a/device-bramble.mk
 +++ b/device-bramble.mk
 @@ -9,20 +9,21 @@
@@ -140,7 +140,7 @@ index 0dce4eecf19eea0ac3bfd0331bfdde6f951c933f..7e936c71f25a66b793a5c8caee895f9c
  endif
  
 
-commit cddf5b5b360071671d33a74916a229cd33182211
+commit 496347fee782ce2654814aff66e078e3f52a63cd
 Author: anupritaisno1 <www.anuprita804@gmail.com>
 Date:   Thu 2021-02-11 09:25:27+0530
 
@@ -176,7 +176,7 @@ index f2728df28091a374ff6bfa6e4e50f3695420e722..2d0aabd674c2b8ccd2b3f754a5cf16a2
  # All devices enabled
  setprop|vendor.all.devices.ready
 
-commit 8462dd125b5deb46742a89dade776fc7dc9ad9c2
+commit 19c1d7069b3e44afefbed60c0f069046c3d84ccf
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-03-02 05:57:21-0500
 
@@ -186,7 +186,7 @@ Date:   Tue 2021-03-02 05:57:21-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/device-bramble.mk b/device-bramble.mk
-index 7e936c71f25a66b793a5c8caee895f9c019c9792..e830d0dddcfd28af47ee01d50ec310f073f43bc1 100644
+index e5b670e8235178c76ecf58c8180ee9cd26ff2bb5..34a5412c57d87e1dbacd729fd5be7043406a7bfc 100644
 --- a/device-bramble.mk
 +++ b/device-bramble.mk
 @@ -20,21 +20,21 @@ TARGET_PREBUILT_KERNEL := device/google/bramble-kernel/Image.lz4
@@ -213,31 +213,35 @@ index 7e936c71f25a66b793a5c8caee895f9c019c9792..e830d0dddcfd28af47ee01d50ec310f0
  
  PRODUCT_SOONG_NAMESPACES += \
 
-commit f2e38262212e81e5827570ec40f647d96a2a7b76
+commit 3a3ac6feb9a83e088ae2b742a097fa55a1d96133
 Author: Philip Rinn <rinni@inventati.org>
 Date:   Sun 2021-06-20 14:30:00+0200
 
     Add the set of PIXEL_*_EXPERIENCE features for bramble
 ---
- device-bramble.mk           |  4 ++++
+ device-bramble.mk           |  8 ++++++++
  google_experience.xml (new) | 12 ++++++++++++
- 2 files changed, 16 insertions(+)
+ 2 files changed, 20 insertions(+)
 
 diff --git a/device-bramble.mk b/device-bramble.mk
-index e830d0dddcfd28af47ee01d50ec310f073f43bc1..c4089140c274df6a5fdab74cbaa66e600c222bce 100644
+index 34a5412c57d87e1dbacd729fd5be7043406a7bfc..c4089140c274df6a5fdab74cbaa66e600c222bce 100644
 --- a/device-bramble.mk
 +++ b/device-bramble.mk
-@@ -199,10 +199,14 @@ PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.kb_pad_port_b=10
+@@ -195,10 +195,18 @@ PRODUCT_PACKAGES += \
+ # Keyboard bottom padding in dp for portrait mode
+ PRODUCT_PRODUCT_PROPERTIES += ro.com.google.ime.kb_pad_port_b=10
+ 
+ # Set support hide display cutout feature
  PRODUCT_PRODUCT_PROPERTIES += \
      ro.support_hide_display_cutout=true
  
  PRODUCT_PACKAGES += \
      NoCutoutOverlay \
      AvoidAppsInCutoutOverlay
- 
- # (b/183612348): Enable skia reduceOpsTaskSplitting
- PRODUCT_PROPERTY_OVERRIDES += \
-     renderthread.skia.reduceopstasksplitting=true
++
++# (b/183612348): Enable skia reduceOpsTaskSplitting
++PRODUCT_PROPERTY_OVERRIDES += \
++    renderthread.skia.reduceopstasksplitting=true
 +
 +# Set of *_EXPERIENCE features for bramble
 +PRODUCT_COPY_FILES += \
@@ -261,7 +265,7 @@ index 0000000000000000000000000000000000000000..5d0182c7f8816207afc386c031c52b12
 +    <feature name="com.google.android.feature.PIXEL_2020_EXPERIENCE" />
 +</config>
 
-commit 11bc4b5f358fb317fb662280bbe25aecf999a2bb
+commit 58e36f8ac4409ae8d605b62b537c3ca196fb3776
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-10 01:00:50+0100
 
@@ -298,7 +302,7 @@ index c0661c30613d3ee2c0c488a818394c584b6f6d5e..7ef7e0f1da911d2d1817c1515cb09601
  $(call inherit-product, $(SRC_TARGET_DIR)/product/generic_system.mk)
  
 
-commit 53fe4c0bbd8775a025daea95b952543920bd2e00 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 8691959805ca60de6f7afbcf93300eccca9beade (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-10-26 09:16:18-0400
 

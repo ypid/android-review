@@ -1,4 +1,4 @@
-commit 1f172cc0ab9f8e218a21debe576afbe21a7b401b
+commit 20c0c9bf60900ea3a1377f9e95427c849e3c441e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-10 18:47:54-0400
 
@@ -362,7 +362,7 @@ index 3e27c674d2f6fcca4e95bd162e1784d469555596..719190c81aebb94b2ae478c006a818ec
    FAST_NATIVE_METHOD(Character, isIdentifierIgnorableImpl, "(I)Z"),
    FAST_NATIVE_METHOD(Character, isIdeographicImpl, "(I)Z"),
 
-commit d9a7eb555490d40b83a2c51f8a2a59386d4e9e48
+commit 5567b6158b4b6e8f27515d3d05cd54fb62c0f60d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-07-28 17:13:00-0700
 
@@ -420,7 +420,7 @@ index daf5d8efffff19ac0c02a1296841b485d394a016..a7dce3cf2882af5d8998e5a4c02e70ea
          if (zip != 0) {
              result = ptr_to_jlong(zip);
 
-commit 7fe2eb0fe63aa08e3a78289604c06eb256e4bcf3
+commit 20cd53d3ffcc4e627d04b9aa3ac40ec7d4b34ef7
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2021-07-31 01:48:58-0700
 
@@ -862,7 +862,7 @@ index 003753411843534fb1d4521722f2e435c229a73b..06cd18c6bc867004cdd31d401bdc7a9f
       * that {@code 0L} is returned, or where several attributes of the same file
       * are required at the same time, then the {@link
 
-commit f97cbc543dfa12d8f125243d16a9a5acfc6e2968
+commit c5ee98157523315b3829d0158082433f8b9f96a3
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2019-09-11 06:46:38-0400
 
@@ -1043,7 +1043,7 @@ index 15741a780574b6e8464aa507a8ce8ccd448e4b2d..e554dd77cb84cd647b38ddf40fad63f8
  
  }
 
-commit f60a66c6a82d16cdc804cf775218fbcf7e3d1731
+commit 7f186c7a6745e1ce9e407e10782086fa35ef746e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2021-10-14 17:00:10-0400
 
@@ -1110,7 +1110,7 @@ index 763511d21870e7b0058eda5f52474286b57167f2..179c19ac8d5a54f92acf444e82e5727e
       * Called when the zygote has completed preloading classes and data.
       *
 
-commit 41b92898ee5ba84314fa149493a9887d2b76af8f (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 7110daa77503720bbd2f233df53be90b742ce85a (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Tue 2021-12-14 21:10:51+0200
 

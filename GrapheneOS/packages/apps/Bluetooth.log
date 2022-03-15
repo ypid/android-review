@@ -1,4 +1,4 @@
-commit f7a8ebe3cd6c5564ca4399322bc609ad3503cbe0 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit eecdcd777151732b6265dac81b900ebfe86bed96 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sun 2021-10-10 18:35:08-0400
 
@@ -212,10 +212,10 @@ index bceea1d735b7e7654fa05b87718f6e9cef51c0a8..6b8a317bcd774bc10a398283c1a82cd9
        "com/android/bluetooth/btservice/bluetoothkeystore/"
        "BluetoothKeystoreNativeInterface",
 diff --git a/jni/com_android_bluetooth_gatt.cpp b/jni/com_android_bluetooth_gatt.cpp
-index ead3f68fed7f86d2b2e2cde19f13de13d13b6b91..c00f0304c202f0ba34c4222a0cb14e02d6de23fd 100644
+index 3ba64811bf72c796e1fd9d719c059716d16a4e21..5ddf7f43c8ca2abd9015aeefff00c6710caad0b0 100644
 --- a/jni/com_android_bluetooth_gatt.cpp
 +++ b/jni/com_android_bluetooth_gatt.cpp
-@@ -2279,21 +2279,21 @@ static void gattTestNative(JNIEnv* env, jobject object, jint command,
+@@ -2283,21 +2283,21 @@ static void gattTestNative(JNIEnv* env, jobject object, jint command,
    params.u4 = p4;
    params.u5 = p5;
    sGattIf->client->test_command(command, params);
@@ -238,7 +238,7 @@ index ead3f68fed7f86d2b2e2cde19f13de13d13b6b91..c00f0304c202f0ba34c4222a0cb14e02
      {"getOwnAddressNative", "(I)V", (void*)getOwnAddressNative},
      {"stopAdvertisingSetNative", "(I)V", (void*)stopAdvertisingSetNative},
      {"enableAdvertisingSetNative", "(IZII)V",
-@@ -2306,30 +2306,30 @@ static JNINativeMethod sAdvertiseMethods[] = {
+@@ -2310,30 +2310,30 @@ static JNINativeMethod sAdvertiseMethods[] = {
      {"setPeriodicAdvertisingParametersNative",
       "(ILandroid/bluetooth/le/PeriodicAdvertisingParameters;)V",
       (void*)setPeriodicAdvertisingParametersNative},
@@ -271,7 +271,7 @@ index ead3f68fed7f86d2b2e2cde19f13de13d13b6b91..c00f0304c202f0ba34c4222a0cb14e02
       (void*)gattClientStartBatchScanNative},
      {"gattClientStopBatchScanNative", "(I)V",
       (void*)gattClientStopBatchScanNative},
-@@ -2348,21 +2348,21 @@ static JNINativeMethod sScanMethods[] = {
+@@ -2352,21 +2352,21 @@ static JNINativeMethod sScanMethods[] = {
       (void*)gattClientScanFilterAddNative},
      {"gattClientScanFilterClearNative", "(II)V",
       (void*)gattClientScanFilterClearNative},

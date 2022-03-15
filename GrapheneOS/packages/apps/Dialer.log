@@ -1,4 +1,4 @@
-commit b42fc5772be9d255bca747277edd4eaf3710b6e6
+commit 1fc9fd246a8678bdeea64fa91f6f52992b0a60bf
 Author: Adrian DC <radian.dc@gmail.com>
 Date:   Sat 2017-12-09 11:38:00-0600
 
@@ -55,7 +55,7 @@ index a21073d6551f3712555b07f9ba98f765f9ef386e..7abea5481e42c7d380086c6220355edd
  
    private void fling(float velocity, @FlingTarget int target, boolean centerBecauseOfFalsing) {
 
-commit 9b75c1e2109ba1aa8ffa1043882df519c435e41e
+commit a9d52571bb8bdd473579b5d65ac008629e2e42da
 Author: codeworkx <daniel.hillenbrand@codeworkx.de>
 Date:   Sat 2019-05-11 08:33:47+0200
 
@@ -93,7 +93,7 @@ index 6bdd23968eb229e93238c136a9bc1717a66278ae..17c8f998096d22222872d102ba11f063
        return CallAudioState.ROUTE_BLUETOOTH;
      }
 
-commit 8f752699e1be5959d53d8392c90e2381f9e6d62a
+commit cdf4709e74c58c9ab6fa409abe039868828b8d59
 Author: Jesse Chan <jc@lineageos.org>
 Date:   Mon 2020-05-18 14:14:56+0800
 
@@ -132,7 +132,7 @@ index db06df4bd2d47b19d562712678f385afa109a76b..3533cf92c3192b9ae42190efdc183528
      <item name="android:textColorSecondaryInverse">@color/google_grey_400</item>
      <item name="android:textColorHint">@color/google_grey_600</item>
 
-commit d5dc3ae4e76c783a03f6293646ea69f14b024726
+commit dcaf2025d33e2f710e2e01e1b33762988ced0a53
 Author: Scott Warner <Tortel1210@gmail.com>
 Date:   Wed 2020-06-24 15:38:56-0400
 
@@ -256,7 +256,7 @@ index 25f247e15c7cb175b50833884ac89a0feaf4294a..139b8b2490c55a34d62eee1b5ebf7084
      <!-- TODO(a bug): Check to see if we can remove this after NewVoicemailFragment launches -->
      <item name="actionModeStyle">@style/MainActionModeStyle</item>
 
-commit 4c6940d0ad2db1dfd211c915bbeb4db6aa7a08d0
+commit e2297909624222397558f0c29ed816cc4c95ae43
 Author: Timi <timi.rautamaki@gmail.com>
 Date:   Mon 2021-05-10 16:41:09+0200
 
@@ -344,7 +344,7 @@ index 4794b88236897c8de60c394bfa4e3067414ebcf1..4cba2a4709c44113fbb9ffe92027f5fd
  
    void setNotificationCount(int count) {
 
-commit d9cd34f4aa4cc65a9d361e99f23eccdee5d9010e
+commit dfae64095359b227d20280c3373debad61a737db
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Thu 2021-07-08 19:20:03+0200
 
@@ -388,7 +388,7 @@ index e5b72f2333a8fa6b78c501d0437505510839f236..a7b3aebd235961218fc7283cf01c7a11
        android:background="?attr/selectableItemBackgroundBorderless"
        android:contentDescription="@string/action_menu_back_from_search"
 
-commit 400fecca5fe9670b86bada46bfa1b29e59275ad0
+commit 414d990c061add8ffdf40a731b9f480a1f3d03b6
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 13:34:21+0200
 
@@ -434,7 +434,7 @@ index 0000000000000000000000000000000000000000..369656f445c90da1a32e2dde732f088b
 +  <color name="dialer_secondary_color">#5195EA</color>
 +</resources>
 
-commit ff571367b435a0080ca5c3fc15c283efbafffe9f
+commit 141b25f23fb81e2030c0e043827281270b93a1e8
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 13:38:50+0200
 
@@ -519,7 +519,7 @@ index 988aad78fd2df4b1225c8eda1f6c5b818137b2bc..e688ee1495f017cf1940c878e4ab846f
 +  <color name="dialer_ripple_color">#1f000000</color>
  </resources>
 
-commit f0818bf33fe49f7e3e83335e4c8a4fe6d44a94fd
+commit 603c8c114ba420ee2b2b44429e5c284efd75bf50
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 19:56:07+0200
 
@@ -694,7 +694,7 @@ index e688ee1495f017cf1940c878e4ab846fecf8129c..4aa0b121c799dcc9725dfddd00147746
 +  <color name="settings_primary_dark">#1C3AA9</color>
  </resources>
 
-commit 408eeaa1b2279539a86ca97a8bfe311703d9594d
+commit 0896c1644ca920cb9950d7562c334b3936d15a0b
 Author: Timi Rautamäki <timi.rautamaki@gmail.com>
 Date:   Sun 2021-07-11 20:40:27+0200
 
@@ -954,7 +954,7 @@ index 4aa0b121c799dcc9725dfddd001477461bd756e8..e4d1e29aafe202add75235eac423009e
    <color name="settings_primary_dark">#1C3AA9</color>
  </resources>
 
-commit e5a96e2d6b8196d50ae066c8f5b5b643b5026c01
+commit dadc7a3095809987f30338afa8bbdbed5877e4df
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Mon 2022-01-24 19:42:48+0000
 
@@ -1414,7 +1414,7 @@ index dd142ec9e83cace4669e61ddc25879f8fcc77443..3d79cef46ad8ccee3063246284434c8e
 +</list>
 \ No newline at end of file
 
-commit 02dcb5a1f813a9e39e787c1c97153e98997c23e2
+commit fc6db72109f03197d76c228e57d979acc5e3d561
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sat 2022-02-05 17:29:36+0000
 
@@ -1428,10 +1428,10 @@ Date:   Sat 2022-02-05 17:29:36+0000
  5 files changed, 43 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index a93fe2a835ae27ba52af13fee57713f4e95da738..fd8a1b4af55808c2898d1425887de51a3934322f 100644
+index aa83c183f8c1da94c95badeade27ac3619409037..6645af815c08c8a7844eef8cac5384bd1ac4b098 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -101,19 +101,20 @@
+@@ -105,19 +105,20 @@
  
    <!--for ZUK-->
    <uses-permission android:name="android.permission.READ_APP_BADGE"/>
@@ -1519,7 +1519,7 @@ index 0000000000000000000000000000000000000000..f42ada656ee26e30d170aaa67989f0f1
 +    <color name="ic_launcher_background">#FFFFFF</color>
 +</resources>
 
-commit 083db3a5d60923e6aac2209ac94ccbd68a4e9091 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit 52fd734572bd3956299637cf68bd219045faf685
 Author: Joey <joey@lineageos.org>
 Date:   Thu 2018-01-25 12:24:51+0100
 
@@ -1532,10 +1532,10 @@ Date:   Thu 2018-01-25 12:24:51+0100
  1 file changed, 1 insertion(+)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index fd8a1b4af55808c2898d1425887de51a3934322f..9a1fda0aee31523cac21ba81d37c06ba7390fc82 100644
+index 6645af815c08c8a7844eef8cac5384bd1ac4b098..a4f6b55d9cbaafc45192881a866f222cd9200eae 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
-@@ -105,16 +105,17 @@
+@@ -109,16 +109,17 @@
    <!--for OPPO-->
    <uses-permission android:name="com.oppo.launcher.permission.READ_SETTINGS"/>
    <uses-permission android:name="com.oppo.launcher.permission.WRITE_SETTINGS"/>
@@ -1553,3 +1553,58 @@ index fd8a1b4af55808c2898d1425887de51a3934322f..9a1fda0aee31523cac21ba81d37c06ba
    </application>
  
  </manifest>
+
+commit e942b851a7a01fb7b2190bd8b258b929c7cbaff6 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: smdyv <88971341+smdyv@users.noreply.github.com>
+Date:   Wed 2022-02-09 12:04:40+0100
+
+    Replace launcher icon
+---
+ .../app/res/drawable/ic_launcher_foreground.xml    | 23 ++++++++++++----------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
+
+diff --git a/java/com/android/dialer/app/res/drawable/ic_launcher_foreground.xml b/java/com/android/dialer/app/res/drawable/ic_launcher_foreground.xml
+index fd7ebacd2dee3d6029d7077cf834114429f8420f..56fadefb14ede1687c66462699c50ce1107d4185 100644
+--- a/java/com/android/dialer/app/res/drawable/ic_launcher_foreground.xml
++++ b/java/com/android/dialer/app/res/drawable/ic_launcher_foreground.xml
+@@ -1,27 +1,30 @@
+ <!--
+   Copyright (C) 2021 Google Inc.
++
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
++
+     http://www.apache.org/licenses/LICENSE-2.0
++
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+ <vector xmlns:android="http://schemas.android.com/apk/res/android"
+     android:width="108dp"
+     android:height="108dp"
+     android:viewportWidth="108"
+-    android:viewportHeight="108"
+-    android:tint="?attr/colorControlNormal">
+-  <group android:scaleX="2.25"
+-      android:scaleY="2.25"
+-      android:translateX="27"
+-      android:translateY="27">
+-    <path
+-        android:fillColor="@android:color/black"
+-        android:pathData="M21,15.46l-5.27,-0.61 -2.52,2.52c-2.83,-1.44 -5.15,-3.75 -6.59,-6.59l2.53,-2.53L8.54,3H3.03C2.45,13.18 10.82,21.55 21,20.97v-5.51z"/>
+-  </group>
++    android:viewportHeight="108">
++    <group
++        android:scaleX="2.1369512"
++        android:scaleY="2.1369512"
++        android:translateX="28.356585"
++        android:translateY="28.356585">
++        <path
++            android:fillColor="#000000"
++            android:pathData="M19.23,15.26l-2.54,-0.29c-0.61,-0.07 -1.21,0.14 -1.64,0.57l-1.84,1.84c-2.83,-1.44 -5.15,-3.75 -6.59,-6.59l1.85,-1.85c0.43,-0.43 0.64,-1.03 0.57,-1.64l-0.29,-2.52c-0.12,-1.01 -0.97,-1.77 -1.99,-1.77H5.03c-1.13,0 -2.07,0.94 -2,2.07 0.53,8.54 7.36,15.36 15.89,15.89 1.13,0.07 2.07,-0.87 2.07,-2v-1.73c0.01,-1.01 -0.75,-1.86 -1.76,-1.98z" />
++    </group>
+ </vector>

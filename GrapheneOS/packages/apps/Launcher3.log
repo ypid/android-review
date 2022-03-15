@@ -1,4 +1,4 @@
-commit f5f04221cda1c1a5dd41eaae81ca6229bdfcafe5
+commit 038b0621da594489904b0a804afac365fb6b05bf
 Author: Damian Patel <damianpatel@google.com>
 Date:   Wed 2021-07-28 14:38:39+0000
 
@@ -18,7 +18,7 @@ Date:   Wed 2021-07-28 14:38:39+0000
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/AndroidManifest.xml b/AndroidManifest.xml
-index 8066816e892bd4325ae9d4ef589c0b24f6f9fb13..f793131fd3d603fd952b2f2a2d59485570e284ec 100644
+index b838a516be133d45e93efc7a9aec6043cbdf9ee1..398489044e0f261cbe2eb09e46b956aa8c061188 100644
 --- a/AndroidManifest.xml
 +++ b/AndroidManifest.xml
 @@ -13,21 +13,21 @@
@@ -45,10 +45,10 @@ index 8066816e892bd4325ae9d4ef589c0b24f6f9fb13..f793131fd3d603fd952b2f2a2d594855
          android:fullBackupContent="@xml/backupscheme"
          android:hardwareAccelerated="true"
 diff --git a/build.gradle b/build.gradle
-index a7eef13a3d36f9b63101177159610618162c36c0..0622d877643c356e00fca2265eeb2394b984bbd6 100644
+index 683a4cfaf19dde85af3a28e77f4e3cf298e11df4..e4ade88af80ff6e40fe61fa1478a6cb02048231e 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -14,22 +14,22 @@ final String ANDROID_TOP = "${rootDir}/../../.."
+@@ -13,22 +13,22 @@ final String ANDROID_TOP = "${rootDir}/../../.."
  final String FRAMEWORK_PREBUILTS_DIR = "${ANDROID_TOP}/prebuilts/framework_intermediates/"
  
  apply plugin: 'com.android.application'
@@ -74,7 +74,7 @@ index a7eef13a3d36f9b63101177159610618162c36c0..0622d877643c356e00fca2265eeb2394
              minifyEnabled false
          }
 
-commit 685ac608649e821954eabd6c056a827fa331d40f
+commit 656d7012a187793b968062105c3d216d04e4e902
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2019-11-14 07:32:46-0500
 
@@ -84,7 +84,7 @@ Date:   Thu 2019-11-14 07:32:46-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/quickstep/res/values/strings.xml b/quickstep/res/values/strings.xml
-index 4aee2a9ccb3469f14f846343b618169c2d465d68..03439cc4aa9f09ac6bdf4fde237465c89bf67553 100644
+index 6caed1cf7dd9cc2e8a54220bf6838cc595607ff4..dbe8de74d62b3a05d68dfb56e80fecaff6b7e83e 100644
 --- a/quickstep/res/values/strings.xml
 +++ b/quickstep/res/values/strings.xml
 @@ -12,21 +12,21 @@
@@ -111,7 +111,7 @@ index 4aee2a9ccb3469f14f846343b618169c2d465d68..03439cc4aa9f09ac6bdf4fde237465c8
      <string name="recents_empty_message">No recent items</string>
  
 
-commit 4b7625fc9943f028662249827b0de5c8c789393c
+commit fd3dfc6f9f97de1c34a9d66e0c8ace9b3deb9fbb
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-09 05:04:58-0400
 
@@ -121,7 +121,7 @@ Date:   Sat 2021-10-09 05:04:58-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/res/values/config.xml b/res/values/config.xml
-index 72959b2d5c39e71b439932edbf732e5e296fb3ed..924e0ae7a5e3a0547645465d647dbe0f5396eee4 100644
+index 25911e688ffa8cc80a738907c400b7ff282d1587..210167e54cbd89d03f6b94e51cef2d3baa7dc8ef 100644
 --- a/res/values/config.xml
 +++ b/res/values/config.xml
 @@ -79,21 +79,21 @@
@@ -148,7 +148,7 @@ index 72959b2d5c39e71b439932edbf732e5e296fb3ed..924e0ae7a5e3a0547645465d647dbe0f
      <item type="id" name="action_move_to_workspace" />
      <item type="id" name="action_move_screen_backwards" />
 
-commit c5531c1e0461e84effbdcf19364da114ae0b3831
+commit ddc4eb09dcac5b943cbf1942eb6e7c452bb16922
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2016-12-06 22:05:39-0500
 
@@ -158,7 +158,7 @@ Date:   Tue 2016-12-06 22:05:39-0500
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index e0769dbfb5e028423f994544aea3b1f1b25ab576..0ba9dfae0b3ebca8d02532d9f5f06e43dc56b5e0 100644
+index 2d31aa4687a48c5b6dedddbe1a7bdb22ddc7c53c..2cc845eac90b50711de25f66663061e27492eb59 100644
 --- a/src/com/android/launcher3/config/FeatureFlags.java
 +++ b/src/com/android/launcher3/config/FeatureFlags.java
 @@ -45,21 +45,21 @@ public final class FeatureFlags {
@@ -185,142 +185,7 @@ index e0769dbfb5e028423f994544aea3b1f1b25ab576..0ba9dfae0b3ebca8d02532d9f5f06e43
       *    and set a default value for the flag. This will be the default value on Debug builds.
       */
 
-commit 6953082ba505fbd7e7feb8bf6e48b1710c564063
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Mon 2021-10-11 20:48:24-0700
-
-    Enable new app open/close animations
-    
-    Change-Id: Ia676c935700f306b90f7810b32eb1aa630cea355
----
- src/com/android/launcher3/config/FeatureFlags.java | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index 0ba9dfae0b3ebca8d02532d9f5f06e43dc56b5e0..de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80 100644
---- a/src/com/android/launcher3/config/FeatureFlags.java
-+++ b/src/com/android/launcher3/config/FeatureFlags.java
-@@ -224,38 +224,38 @@ public final class FeatureFlags {
- 
-     public static final BooleanFlag ENABLE_OVERVIEW_GRID = getDebugFlag(
-             "ENABLE_OVERVIEW_GRID", false, "Uses grid overview layout. "
-             + "Only applicable on large screen devices.");
- 
-     public static final BooleanFlag ENABLE_TWO_PANEL_HOME = getDebugFlag(
-             "ENABLE_TWO_PANEL_HOME", false,
-             "Uses two panel on home screen. Only applicable on large screen devices.");
- 
-     public static final BooleanFlag ENABLE_SCRIM_FOR_APP_LAUNCH = getDebugFlag(
--            "ENABLE_SCRIM_FOR_APP_LAUNCH", false,
-+            "ENABLE_SCRIM_FOR_APP_LAUNCH", true,
-             "Enables scrim during app launch animation.");
- 
-     public static final BooleanFlag ENABLE_SPLIT_SELECT = getDebugFlag(
-             "ENABLE_SPLIT_SELECT", false, "Uses new split screen selection overview UI");
- 
-     public static final BooleanFlag ENABLE_ENFORCED_ROUNDED_CORNERS = new DeviceFlag(
-             "ENABLE_ENFORCED_ROUNDED_CORNERS", true, "Enforce rounded corners on all App Widgets");
- 
-     public static final BooleanFlag ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER = new DeviceFlag(
-             "ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER", true,
-             "Enables a local filter for recommended widgets.");
- 
-     public static final BooleanFlag NOTIFY_CRASHES = getDebugFlag("NOTIFY_CRASHES", false,
-             "Sends a notification whenever launcher encounters an uncaught exception.");
- 
-     public static final BooleanFlag PROTOTYPE_APP_CLOSE = getDebugFlag(
--            "PROTOTYPE_APP_CLOSE", false, "Enables new app close");
-+            "PROTOTYPE_APP_CLOSE", true, "Enables new app close");
- 
-     public static final BooleanFlag ENABLE_WALLPAPER_SCRIM = getDebugFlag(
-             "ENABLE_WALLPAPER_SCRIM", false,
-             "Enables scrim over wallpaper for text protection.");
- 
-     public static final BooleanFlag WIDGETS_IN_LAUNCHER_PREVIEW = getDebugFlag(
-             "WIDGETS_IN_LAUNCHER_PREVIEW", true,
-             "Enables widgets in Launcher preview for the Wallpaper app.");
- 
-     public static void initialize(Context context) {
-
-commit 5d354b80704a03976109123693fb6b53f543ca9b
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Mon 2021-10-11 20:48:31-0700
-
-    Enable crossfade when changing theme
-    
-    Change-Id: Id376cd3bfdd3b280cfca14c736bbd0f36174cdc2
----
- src/com/android/launcher3/config/FeatureFlags.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80..c29a21e46783fbefad13e4ed65e4aebca36d35d6 100644
---- a/src/com/android/launcher3/config/FeatureFlags.java
-+++ b/src/com/android/launcher3/config/FeatureFlags.java
-@@ -204,21 +204,21 @@ public final class FeatureFlags {
-     public static final BooleanFlag ENABLE_MINIMAL_DEVICE = getDebugFlag(
-             "ENABLE_MINIMAL_DEVICE", false,
-             "Allow user to toggle minimal device mode in launcher.");
- 
-     public static final BooleanFlag EXPANDED_SMARTSPACE = new DeviceFlag(
-             "EXPANDED_SMARTSPACE", false, "Expands smartspace height to two rows. "
-               + "Any apps occupying the first row will be removed from workspace.");
- 
-     // TODO: b/172467144 Remove ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE feature flag.
-     public static final BooleanFlag ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE = new DeviceFlag(
--            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", false, "Enables a "
-+            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", true, "Enables a "
-             + "crossfade animation when the system these changes.");
- 
-     // TODO: b/174174514 Remove ENABLE_APP_PREDICTIONS_WHILE_VISIBLE feature flag.
-     public static final BooleanFlag ENABLE_APP_PREDICTIONS_WHILE_VISIBLE = new DeviceFlag(
-             "ENABLE_APP_PREDICTIONS_WHILE_VISIBLE", true, "Allows app "
-             + "predictions to be updated while they are visible to the user.");
- 
-     public static final BooleanFlag ENABLE_TASKBAR = getDebugFlag(
-             "ENABLE_TASKBAR", false, "Allows a system Taskbar to be shown on larger devices.");
- 
-
-commit 5a341d7d8129ac3eb5adef759ffbdff7970777c1
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Mon 2021-10-11 20:48:38-0700
-
-    Enable new keyguard-to-launcher animation
-    
-    Change-Id: I45acf7708da2b4e302c100b8fd95abba2dd964f8
----
- src/com/android/launcher3/config/FeatureFlags.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index c29a21e46783fbefad13e4ed65e4aebca36d35d6..aa9352ca47bb550dbd161f5092de65705636d87f 100644
---- a/src/com/android/launcher3/config/FeatureFlags.java
-+++ b/src/com/android/launcher3/config/FeatureFlags.java
-@@ -75,21 +75,21 @@ public final class FeatureFlags {
-     public static final BooleanFlag QUICKSTEP_SPRINGS = getDebugFlag(
-             "QUICKSTEP_SPRINGS", true, "Enable springs for quickstep animations");
- 
-     public static final BooleanFlag UNSTABLE_SPRINGS = getDebugFlag(
-             "UNSTABLE_SPRINGS", false, "Enable unstable springs for quickstep animations");
- 
-     public static final BooleanFlag ENABLE_LOCAL_COLOR_POPUPS = getDebugFlag(
-             "ENABLE_LOCAL_COLOR_POPUPS", false, "Enable local color extraction for popups.");
- 
-     public static final BooleanFlag KEYGUARD_ANIMATION = getDebugFlag(
--            "KEYGUARD_ANIMATION", false, "Enable animation for keyguard going away on wallpaper");
-+            "KEYGUARD_ANIMATION", true, "Enable animation for keyguard going away on wallpaper");
- 
-     public static final BooleanFlag ADAPTIVE_ICON_WINDOW_ANIM = getDebugFlag(
-             "ADAPTIVE_ICON_WINDOW_ANIM", true, "Use adaptive icons for window animations.");
- 
-     public static final BooleanFlag ENABLE_QUICKSTEP_LIVE_TILE = getDebugFlag(
-             "ENABLE_QUICKSTEP_LIVE_TILE", true, "Enable live tile in Quickstep overview");
- 
-     public static final BooleanFlag ENABLE_QUICKSTEP_WIDGET_APP_START = getDebugFlag(
-             "ENABLE_QUICKSTEP_WIDGET_APP_START", true,
-             "Enable Quickstep animation when launching activities from an app widget");
-
-commit 306ff933ea98e06e3a16f49f26dbe3a2f3013990
+commit e5b6086cf829f04fe45cefd237ef2e48633902c4
 Author: Luca Stefani <luca.stefani.ge1@gmail.com>
 Date:   Fri 2019-11-01 23:17:59+0100
 
@@ -332,10 +197,10 @@ Date:   Fri 2019-11-01 23:17:59+0100
  1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/AndroidManifest-common.xml b/AndroidManifest-common.xml
-index 4eecf29d67f5b06a5758fe340ee934f371713d74..e7ca83882c3888c3ef7289500801ecbf53a349ca 100644
+index eee6db5ec0e4f09cc9b1743cd3ff3860e4369adf..db6829af07d47eb0063290bc92f6bb7a298b2e31 100644
 --- a/AndroidManifest-common.xml
 +++ b/AndroidManifest-common.xml
-@@ -129,21 +129,23 @@
+@@ -128,21 +128,23 @@
              android:writePermission="${packageName}.permission.WRITE_SETTINGS"
              android:readPermission="${packageName}.permission.READ_SETTINGS" />
  
@@ -361,7 +226,7 @@ index 4eecf29d67f5b06a5758fe340ee934f371713d74..e7ca83882c3888c3ef7289500801ecbf
              android:exported="true"
              android:autoRemoveFromRecents="true">
 
-commit 2c56a33a5096eff1842612ceb53c7314db51c2b0
+commit 1b75fb28735a4d3c427ec694a98101f83b7d9d62
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:46:39-0800
 
@@ -375,7 +240,7 @@ Date:   Mon 2020-11-02 22:46:39-0800
  1 file changed, 2 insertions(+), 1 deletion(-)
 
 diff --git a/res/xml/default_workspace_5x5.xml b/res/xml/default_workspace_5x5.xml
-index ccdde2ca8004de83895446d6fe1e38e103dc6aef..223ad38e91a9aa5bbeb48e003b80c84ce08ec9c3 100644
+index b4ac8f63dfabe71100ca864b8f5018a803a4d7c4..e612cebf921c9e1b19271273a95e45844ea779da 100644
 --- a/res/xml/default_workspace_5x5.xml
 +++ b/res/xml/default_workspace_5x5.xml
 @@ -10,21 +10,21 @@
@@ -424,7 +289,7 @@ index ccdde2ca8004de83895446d6fe1e38e103dc6aef..223ad38e91a9aa5bbeb48e003b80c84c
              launcher:uri="#Intent;action=android.intent.action.MAIN;category=android.intent.category.APP_BROWSER;end" />
          <favorite launcher:uri="http://www.example.com/" />
 
-commit f3b6b33b91d36bd8e549e74f1e99d7a712062461
+commit f966bac6d794bc89874696fb532da1f859cd1c22
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Mon 2020-11-02 22:47:19-0800
 
@@ -435,8 +300,8 @@ Date:   Mon 2020-11-02 22:47:19-0800
     Change-Id: I059f81c24eeb42acdabdc29e0cc773830f778181
 ---
  res/xml/default_workspace_2x2.xml (new) | 61 +++++++++++++++++++++++++++++++++
- res/xml/device_profiles.xml             | 30 +++++++++++++++-
- 2 files changed, 90 insertions(+), 1 deletion(-)
+ res/xml/device_profiles.xml             | 28 +++++++++++++++
+ 2 files changed, 89 insertions(+)
 
 diff --git a/res/xml/default_workspace_2x2.xml b/res/xml/default_workspace_2x2.xml
 new file mode 100644
@@ -506,7 +371,7 @@ index 0000000000000000000000000000000000000000..51d9e07005ce9cdffd0a8f5ccc185d8d
 +
 +</favorites>
 diff --git a/res/xml/device_profiles.xml b/res/xml/device_profiles.xml
-index 256999cd7f4835340f7aa378a2eb517bf6b37fa6..34e0f569e358679b175dfb30feacee898d8c9af8 100644
+index 08698e7d9de395f9b924b754e59418f12e04de13..f8207d47931f19ff217ec5358d3161113247aee7 100644
 --- a/res/xml/device_profiles.xml
 +++ b/res/xml/device_profiles.xml
 @@ -10,20 +10,48 @@
@@ -556,24 +421,10 @@ index 256999cd7f4835340f7aa378a2eb517bf6b37fa6..34e0f569e358679b175dfb30feacee89
          launcher:numFolderColumns="3"
          launcher:numHotseatIcons="3"
          launcher:dbFile="launcher_3_by_3.db"
-         launcher:defaultLayoutId="@xml/default_workspace_3x3" >
- 
-@@ -126,11 +154,11 @@
-         <display-option
-             launcher:name="Shorter Stubby"
-             launcher:minWidthDps="255"
-             launcher:minHeightDps="400"
-             launcher:iconImageSize="48"
-             launcher:iconTextSize="13.0"
-             launcher:canBeDefault="true" />
- 
-     </grid-option>
- 
--</profiles>
-\ No newline at end of file
-+</profiles>
+         launcher:defaultLayoutId="@xml/default_workspace_3x3"
+         launcher:deviceCategory="phone|multi_display" >
 
-commit 037650aa095439d5a46ee25e693c2ea85fede6cd
+commit ce576a0e3ee63bc671a113569dc98428177f826d
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sat 2020-12-12 19:05:59-0800
 
@@ -586,14 +437,14 @@ Date:   Sat 2020-12-12 19:05:59-0800
     
     Change-Id: I6ad63c14237f1f38c86ec02059b03896e5dd3a77
 ---
- res/xml/device_profiles.xml | 24 ++++++++++++------------
- 1 file changed, 12 insertions(+), 12 deletions(-)
+ res/xml/device_profiles.xml | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/res/xml/device_profiles.xml b/res/xml/device_profiles.xml
-index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977bdb7f01a4 100644
+index f8207d47931f19ff217ec5358d3161113247aee7..dab8c87e08bc78f998c3ea6f4dfbdcc012974c74 100644
 --- a/res/xml/device_profiles.xml
 +++ b/res/xml/device_profiles.xml
-@@ -25,140 +25,140 @@
+@@ -25,148 +25,148 @@
          launcher:numFolderColumns="2"
          launcher:numHotseatIcons="2"
          launcher:dbFile="launcher_2_by_2.db"
@@ -627,7 +478,8 @@ index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977b
          launcher:numFolderColumns="3"
          launcher:numHotseatIcons="3"
          launcher:dbFile="launcher_3_by_3.db"
-         launcher:defaultLayoutId="@xml/default_workspace_3x3" >
+         launcher:defaultLayoutId="@xml/default_workspace_3x3"
+         launcher:deviceCategory="phone|multi_display" >
  
          <display-option
              launcher:name="Super Short Stubby"
@@ -657,7 +509,8 @@ index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977b
          launcher:numFolderColumns="4"
          launcher:numHotseatIcons="4"
          launcher:dbFile="launcher_4_by_4.db"
-         launcher:defaultLayoutId="@xml/default_workspace_4x4" >
+         launcher:defaultLayoutId="@xml/default_workspace_4x4"
+         launcher:deviceCategory="phone|multi_display" >
  
          <display-option
              launcher:name="Short Stubby"
@@ -714,7 +567,8 @@ index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977b
          launcher:numFolderColumns="4"
          launcher:numHotseatIcons="5"
          launcher:dbFile="launcher.db"
-         launcher:defaultLayoutId="@xml/default_workspace_5x5" >
+         launcher:defaultLayoutId="@xml/default_workspace_5x5"
+         launcher:deviceCategory="phone|multi_display" >
  
          <display-option
              launcher:name="Large Phone"
@@ -732,7 +586,7 @@ index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977b
              launcher:iconImageSize="56"
 -            launcher:iconTextSize="14.4"
 +            launcher:iconTextSize="12.0"
-             launcher:canBeDefault="split_display" />
+             launcher:canBeDefault="true" />
  
          <display-option
              launcher:name="Shorter Stubby"
@@ -745,96 +599,28 @@ index 34e0f569e358679b175dfb30feacee898d8c9af8..78a710640a6007182978091cce69977b
  
      </grid-option>
  
- </profiles>
-
-commit 1e083a21e6e64e68c023e674151460e036038126
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Tue 2021-10-05 22:39:21-0700
-
-    Revert "Modifying screenshot button visibility"
-    
-    This reverts commit 02fc23c99354ce5e3f3e428ccb75557380f610d4.
-    
-    Google never added code to change the visibility of the screenshot
-    button in AOSP, so it gets stuck on GONE. Simply revert the change to
-    fix it.
-    
-    Signed-off-by: Danny Lin <danny@kdrag0n.dev>
-    Change-Id: I5b2558ec2daeff2fd45a64c9ef26b3a8912a2ce7
----
- quickstep/res/layout/overview_actions_container.xml | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/quickstep/res/layout/overview_actions_container.xml b/quickstep/res/layout/overview_actions_container.xml
-index 68680d3f38c7676da905eab6cc385e700add2420..b652252ce1bd6281efe05c77bd85ef9da7faa3cb 100644
---- a/quickstep/res/layout/overview_actions_container.xml
-+++ b/quickstep/res/layout/overview_actions_container.xml
-@@ -32,22 +32,21 @@
-             android:layout_height="1dp"
-             android:layout_weight="1" />
+     <grid-option
+         launcher:name="6_by_5"
+         launcher:numRows="5"
+         launcher:numColumns="6"
+         launcher:numFolderRows="3"
+         launcher:numFolderColumns="3"
+@@ -185,11 +185,11 @@
+             launcher:iconImageSize="60"
+             launcher:iconTextSize="14"
+             launcher:borderSpaceDps="16"
+             launcher:allAppsIconSize="60"
+             launcher:allAppsIconTextSize="14"
+             launcher:allAppsCellSpacingDps="16"
+             launcher:canBeDefault="true" />
  
-         <Button
-             android:id="@+id/action_screenshot"
-             style="@style/OverviewActionButton"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:drawableStart="@drawable/ic_screenshot"
-             android:text="@string/action_screenshot"
--            android:theme="@style/ThemeControlHighlightWorkspaceColor"
--            android:visibility="gone" />
-+            android:theme="@style/ThemeControlHighlightWorkspaceColor" />
+     </grid-option>
  
-         <Space
-             android:layout_width="0dp"
-             android:layout_height="1dp"
-             android:layout_weight="1" />
- 
-         <Button
-             android:id="@+id/action_share"
-             style="@style/OverviewActionButton"
-             android:layout_width="wrap_content"
+-</profiles>
+\ No newline at end of file
++</profiles>
 
-commit 8bb7da30ae7b9818c2ebd75f46642290b02405f1
-Author: Danny Lin <danny@kdrag0n.dev>
-Date:   Wed 2021-10-06 22:31:24-0700
-
-    Add ripple animation to task menu items
-    
-    Change-Id: If69416ede272267743c96deff8876bc50c6c9075
----
- quickstep/res/drawable/task_menu_item_bg.xml | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/quickstep/res/drawable/task_menu_item_bg.xml b/quickstep/res/drawable/task_menu_item_bg.xml
-index b6a8b909ee9a39f017e252bc8fe22338ffc2f660..bfd8d9e012ae63b263ba7a9ab5b5713c62ec8852 100644
---- a/quickstep/res/drawable/task_menu_item_bg.xml
-+++ b/quickstep/res/drawable/task_menu_item_bg.xml
-@@ -8,14 +8,19 @@
- 
-           http://www.apache.org/licenses/LICENSE-2.0
- 
-      Unless required by applicable law or agreed to in writing, software
-      distributed under the License is distributed on an "AS IS" BASIS,
-      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-      See the License for the specific language governing permissions and
-      limitations under the License.
- -->
- 
--<shape xmlns:android="http://schemas.android.com/apk/res/android">
--    <solid android:color="?android:attr/colorPrimary"/>
--    <corners android:radius="@dimen/task_menu_item_corner_radius"/>
--</shape>
-+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
-+     android:color="?android:attr/colorControlHighlight">
-+     <item>
-+          <shape>
-+               <solid android:color="?android:attr/colorPrimary"/>
-+               <corners android:radius="@dimen/task_menu_item_corner_radius"/>
-+          </shape>
-+     </item>
-+</ripple>
-
-commit d61dd4d0026b799e4f6b89761514d1c91b935569
+commit ff0af505cb742317061506ca52f8a0518349139f
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Wed 2021-10-06 22:45:33-0700
 
@@ -846,10 +632,10 @@ Date:   Wed 2021-10-06 22:45:33-0700
  1 file changed, 1 insertion(+)
 
 diff --git a/res/values/styles.xml b/res/values/styles.xml
-index b7661b9798d2e6feff924877a63255a3c50ce868..ff68581d4bc0740498d1e047740f84afe33f5fac 100644
+index 818a032f949a6be1340f1ba94ca9e26b763fb702..090419b06ccc44a042c0482a63c7643a75c39d35 100644
 --- a/res/values/styles.xml
 +++ b/res/values/styles.xml
-@@ -90,20 +90,21 @@
+@@ -92,20 +92,21 @@
      </style>
  
      <style name="LauncherTheme.Dark" parent="@style/LauncherTheme">
@@ -872,7 +658,7 @@ index b7661b9798d2e6feff924877a63255a3c50ce868..ff68581d4bc0740498d1e047740f84af
          <item name="popupShadeThird">@color/popup_shade_third_dark</item>
          <item name="widgetsTheme">@style/WidgetContainerTheme.Dark</item>
 
-commit 69759a21ec1aacc2bb81149d5985bad8545a7b06
+commit 74c1a7c637556c7e07b17c1687199c0e540bd68f (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Sun 2021-10-10 03:38:23-0700
 
@@ -956,138 +742,3 @@ index c3520a7ab59b8119e9d09a1bc0450d073aa8f30e..d133a31a2d271361a88160302bf01e58
 +    <item android:color="?android:textColorPrimary" android:state_selected="true"/>
 +    <item android:color="?android:textColorSecondary"/>
 +</selector>
-
-commit eb1d837f81bef8950b835e2b0a6cabdd36eaaf16
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sun 2021-10-24 23:25:26-0400
-
-    Revert "Enable new keyguard-to-launcher animation"
-    
-    This reverts commit e05a7454af78b0d3c71e7a29021c871cc7f10f0d.
----
- src/com/android/launcher3/config/FeatureFlags.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index aa9352ca47bb550dbd161f5092de65705636d87f..c29a21e46783fbefad13e4ed65e4aebca36d35d6 100644
---- a/src/com/android/launcher3/config/FeatureFlags.java
-+++ b/src/com/android/launcher3/config/FeatureFlags.java
-@@ -75,21 +75,21 @@ public final class FeatureFlags {
-     public static final BooleanFlag QUICKSTEP_SPRINGS = getDebugFlag(
-             "QUICKSTEP_SPRINGS", true, "Enable springs for quickstep animations");
- 
-     public static final BooleanFlag UNSTABLE_SPRINGS = getDebugFlag(
-             "UNSTABLE_SPRINGS", false, "Enable unstable springs for quickstep animations");
- 
-     public static final BooleanFlag ENABLE_LOCAL_COLOR_POPUPS = getDebugFlag(
-             "ENABLE_LOCAL_COLOR_POPUPS", false, "Enable local color extraction for popups.");
- 
-     public static final BooleanFlag KEYGUARD_ANIMATION = getDebugFlag(
--            "KEYGUARD_ANIMATION", true, "Enable animation for keyguard going away on wallpaper");
-+            "KEYGUARD_ANIMATION", false, "Enable animation for keyguard going away on wallpaper");
- 
-     public static final BooleanFlag ADAPTIVE_ICON_WINDOW_ANIM = getDebugFlag(
-             "ADAPTIVE_ICON_WINDOW_ANIM", true, "Use adaptive icons for window animations.");
- 
-     public static final BooleanFlag ENABLE_QUICKSTEP_LIVE_TILE = getDebugFlag(
-             "ENABLE_QUICKSTEP_LIVE_TILE", true, "Enable live tile in Quickstep overview");
- 
-     public static final BooleanFlag ENABLE_QUICKSTEP_WIDGET_APP_START = getDebugFlag(
-             "ENABLE_QUICKSTEP_WIDGET_APP_START", true,
-             "Enable Quickstep animation when launching activities from an app widget");
-
-commit 7b83c1ab14146aa70a136f3be725939821bc7d02
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sun 2021-10-24 23:25:17-0400
-
-    Revert "Enable crossfade when changing theme"
-    
-    This reverts commit ad57ac4de56e5567c4101bb6c76314553c69d464.
----
- src/com/android/launcher3/config/FeatureFlags.java | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index c29a21e46783fbefad13e4ed65e4aebca36d35d6..de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80 100644
---- a/src/com/android/launcher3/config/FeatureFlags.java
-+++ b/src/com/android/launcher3/config/FeatureFlags.java
-@@ -204,21 +204,21 @@ public final class FeatureFlags {
-     public static final BooleanFlag ENABLE_MINIMAL_DEVICE = getDebugFlag(
-             "ENABLE_MINIMAL_DEVICE", false,
-             "Allow user to toggle minimal device mode in launcher.");
- 
-     public static final BooleanFlag EXPANDED_SMARTSPACE = new DeviceFlag(
-             "EXPANDED_SMARTSPACE", false, "Expands smartspace height to two rows. "
-               + "Any apps occupying the first row will be removed from workspace.");
- 
-     // TODO: b/172467144 Remove ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE feature flag.
-     public static final BooleanFlag ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE = new DeviceFlag(
--            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", true, "Enables a "
-+            "ENABLE_LAUNCHER_ACTIVITY_THEME_CROSSFADE", false, "Enables a "
-             + "crossfade animation when the system these changes.");
- 
-     // TODO: b/174174514 Remove ENABLE_APP_PREDICTIONS_WHILE_VISIBLE feature flag.
-     public static final BooleanFlag ENABLE_APP_PREDICTIONS_WHILE_VISIBLE = new DeviceFlag(
-             "ENABLE_APP_PREDICTIONS_WHILE_VISIBLE", true, "Allows app "
-             + "predictions to be updated while they are visible to the user.");
- 
-     public static final BooleanFlag ENABLE_TASKBAR = getDebugFlag(
-             "ENABLE_TASKBAR", false, "Allows a system Taskbar to be shown on larger devices.");
- 
-
-commit a9c889caa9ef8d674d277cc56d78f29683871a96 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sun 2021-10-24 23:43:00-0400
-
-    Revert "Enable new app open/close animations"
-    
-    This reverts commit d2306682c05b612c6d81eefd1a70399f32bfa2c3.
----
- src/com/android/launcher3/config/FeatureFlags.java | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/src/com/android/launcher3/config/FeatureFlags.java b/src/com/android/launcher3/config/FeatureFlags.java
-index de3a1be85a1b7c3dea4a8c096e6af7a933b5cd80..0ba9dfae0b3ebca8d02532d9f5f06e43dc56b5e0 100644
---- a/src/com/android/launcher3/config/FeatureFlags.java
-+++ b/src/com/android/launcher3/config/FeatureFlags.java
-@@ -224,38 +224,38 @@ public final class FeatureFlags {
- 
-     public static final BooleanFlag ENABLE_OVERVIEW_GRID = getDebugFlag(
-             "ENABLE_OVERVIEW_GRID", false, "Uses grid overview layout. "
-             + "Only applicable on large screen devices.");
- 
-     public static final BooleanFlag ENABLE_TWO_PANEL_HOME = getDebugFlag(
-             "ENABLE_TWO_PANEL_HOME", false,
-             "Uses two panel on home screen. Only applicable on large screen devices.");
- 
-     public static final BooleanFlag ENABLE_SCRIM_FOR_APP_LAUNCH = getDebugFlag(
--            "ENABLE_SCRIM_FOR_APP_LAUNCH", true,
-+            "ENABLE_SCRIM_FOR_APP_LAUNCH", false,
-             "Enables scrim during app launch animation.");
- 
-     public static final BooleanFlag ENABLE_SPLIT_SELECT = getDebugFlag(
-             "ENABLE_SPLIT_SELECT", false, "Uses new split screen selection overview UI");
- 
-     public static final BooleanFlag ENABLE_ENFORCED_ROUNDED_CORNERS = new DeviceFlag(
-             "ENABLE_ENFORCED_ROUNDED_CORNERS", true, "Enforce rounded corners on all App Widgets");
- 
-     public static final BooleanFlag ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER = new DeviceFlag(
-             "ENABLE_LOCAL_RECOMMENDED_WIDGETS_FILTER", true,
-             "Enables a local filter for recommended widgets.");
- 
-     public static final BooleanFlag NOTIFY_CRASHES = getDebugFlag("NOTIFY_CRASHES", false,
-             "Sends a notification whenever launcher encounters an uncaught exception.");
- 
-     public static final BooleanFlag PROTOTYPE_APP_CLOSE = getDebugFlag(
--            "PROTOTYPE_APP_CLOSE", true, "Enables new app close");
-+            "PROTOTYPE_APP_CLOSE", false, "Enables new app close");
- 
-     public static final BooleanFlag ENABLE_WALLPAPER_SCRIM = getDebugFlag(
-             "ENABLE_WALLPAPER_SCRIM", false,
-             "Enables scrim over wallpaper for text protection.");
- 
-     public static final BooleanFlag WIDGETS_IN_LAUNCHER_PREVIEW = getDebugFlag(
-             "WIDGETS_IN_LAUNCHER_PREVIEW", true,
-             "Enables widgets in Launcher preview for the Wallpaper app.");
- 
-     public static void initialize(Context context) {

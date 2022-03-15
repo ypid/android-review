@@ -1,4 +1,4 @@
-commit fafbb8c3705fc0e959e10243c9a798e65057a625
+commit e2252559d76ec1cacf2e4a58c3447310ad34c654
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2020-06-05 03:15:21-0400
 
@@ -25,27 +25,7 @@ index 1e35dc6787972d1f253cb68d8ac4a47cebf0692e..78dd28801cc24a83a266c5de72b1b4b2
  from subprocess import Popen, PIPE
  from tempfile import mkstemp
 
-commit ff660000e22638b07817e666b4b0f0afb5fbb880
-Author: Daniel Micay <danielmicay@gmail.com>
-Date:   Sat 2021-10-09 20:14:08-0400
-
-    remove obsolete wallpaper_picker_package override
----
- overlay/packages/apps/Launcher3/res/values/config.xml (gone) | 4 ----
- 1 file changed, 4 deletions(-)
-
-diff --git a/overlay/packages/apps/Launcher3/res/values/config.xml b/overlay/packages/apps/Launcher3/res/values/config.xml
-deleted file mode 100644
-index 27e41023af5366b1860ca3d974d105c538815f88..0000000000000000000000000000000000000000
---- a/overlay/packages/apps/Launcher3/res/values/config.xml
-+++ /dev/null
-@@ -1,4 +0,0 @@
--<resources>
--    <!-- Package name of the default wallpaper picker. -->
--    <string name="wallpaper_picker_package" translatable="false">com.android.wallpaper.livepicker</string>
--</resources>
-
-commit 0c4411f674a71c060f9509ef00526acc6da0c3db (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 2a86cf03bf012ddf9e085cc814a1019bf4966e64 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2021-10-16 21:36:34-0400
 

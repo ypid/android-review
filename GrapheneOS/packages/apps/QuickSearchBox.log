@@ -1,4 +1,4 @@
-commit 951189445528e6455155e5a1fe805f010a07378b
+commit 8275876778a75ba0e8a7c63e6248b18e12826bc7
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2016-12-10 23:32:38-0500
 
@@ -38,7 +38,7 @@ index 8b83023671c9ad9d9d43f6888b8c77702037e80e..a697c88be760f00b11f867d3a2903f4f
              </intent-filter>
              <meta-data android:name="com.android.launcher.toolbar_icon" android:resource="@drawable/ic_google_logo_normal" />
 
-commit 6c2850403027d5ebcd8ea820877156226bde7968 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 4d12d91dfd011681a09cbe7a7e66fdf5e7a51eed (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Thu 2016-12-22 08:20:57-0500
 

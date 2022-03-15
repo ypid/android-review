@@ -1,4 +1,4 @@
-commit 0f5f61bdb613da21166b98c5cc06e90e2fafaed4 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 72c19932c2ee4c6c508ff048b211ba134a5bde15
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Mon 2020-04-06 08:41:19-0400
 
@@ -34,3 +34,41 @@ index b4a3c180d64c218d555cc237597b346ebda91ec2..1baf1258c5b8c9a0847e4b65e8253658
  allow hal_drm_widevine hal_display_config_hwservice:hwservice_manager find;
  allow hal_drm_widevine qce_device:chr_file rw_file_perms;
  binder_call(hal_drm_widevine, hal_graphics_composer_default)
+
+commit e92c57b992a95826622b3438402f0581290bf2eb (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Wed 2022-03-02 18:58:52+0000
+
+    Remove sepolicy domains for Google Camera apps
+---
+ vendor/qcom/common/seapp_contexts | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/vendor/qcom/common/seapp_contexts b/vendor/qcom/common/seapp_contexts
+index d2fd37e939bca3a7950c7a3acb115378d7b86581..49da2b28bfbfdb18de5a5d84c3c5e7ed7e770e57 100644
+--- a/vendor/qcom/common/seapp_contexts
++++ b/vendor/qcom/common/seapp_contexts
+@@ -10,23 +10,20 @@ user=radio seinfo=platform name=.dataservices domain=dataservice_app type=radio_
+ # The default domain for tango_core process
+ user=_app seinfo=tango name=com.google.tango domain=tango_core type=app_data_file levelFrom=user
+ user=_app seinfo=tango name=com.google.tango.* domain=tango_core type=app_data_file levelFrom=user
+ 
+ # A fallback in case tango_core is missing something critical that untrusted_app provides
+ user=_app seinfo=tango name=com.google.tango:app domain=untrusted_app type=app_data_file levelFrom=user
+ 
+ # Hardware Info Collection
+ user=_app isPrivApp=true name=com.google.android.hardwareinfo domain=hardware_info_app type=app_data_file levelFrom=user
+ 
+-# Use a custom domain for GoogleCamera, to allow for Hexagon DSP access
+-user=_app seinfo=google name=com.google.android.GoogleCamera domain=google_camera_app type=app_data_file levelFrom=user
+-
+ #Needed for time service apk
+ user=_app seinfo=platform name=com.qualcomm.timeservice domain=timeservice_app type=app_data_file levelFrom=all
+ 
+ # Domain for easelservice app
+ user=_app seinfo=easel name=com.google.android.imaging.easel.service domain=easelservice_app type=app_data_file levelFrom=user
+ 
+ #Domain for connectivity monitor
+ user=_app seinfo=platform isPrivApp=true name=com.google.android.connectivitymonitor domain=con_monitor_app type=app_data_file levelFrom=all
+ 
+ #Domain for omadm

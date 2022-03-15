@@ -1,4 +1,4 @@
-commit 314705652290871b5d97553d72ce078a07eed502 (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit 05d1a0300b9d1f5fca7f9c4e01bfc6cac55c05f0 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2022-01-07 09:58:37+0000
 
@@ -8,7 +8,7 @@ Date:   Fri 2022-01-07 09:58:37+0000
     
     Change-Id: Ie75b26ba3f529eb989eddb2212938f2ece668c73
 ---
- ..._config_carrierid_10000_Tracfone-ATT.xml (gone) |  35 ----
+ ..._config_carrierid_10000_Tracfone-ATT.xml (gone) |  36 ----
  ..._config_carrierid_10001_Tracfone-TMO.xml (gone) |   9 -
  ...fig_carrierid_10004_sprintprepaid-us.xml (gone) |   6 -
  ..._config_carrierid_10008_Tracfone-VZW.xml (gone) |  10 --
@@ -24,7 +24,7 @@ Date:   Fri 2022-01-07 09:58:37+0000
  .../carrier_config_carrierid_1098_AIS.xml (gone)   |   6 -
  ...rier_config_carrierid_10_T-Mobile-ME.xml (gone) |  11 --
  ...ork-Partnership-dba-Pioneer-Cellular.xml (gone) |  13 --
- .../carrier_config_carrierid_1187_AT&T.xml (gone)  |  82 ---------
+ .../carrier_config_carrierid_1187_AT&T.xml (gone)  |  83 ---------
  ...id_1190_Cincinnati-Bell-Wireless-LLC.xml (gone) |   6 -
  ...rrierid_1193_North-East-Cellular-Inc.xml (gone) |   6 -
  ...r_config_carrierid_11_Slovak-Telekom.xml (gone) |   8 -
@@ -113,7 +113,7 @@ Date:   Fri 2022-01-07 09:58:37+0000
  ..._carrierid_1737_T\303\274rk-Telekom.xml" (gone) |   6 -
  .../carrier_config_carrierid_1776_MCI.xml (gone)   |  14 --
  ...config_carrierid_1778_Mobile-Tel-Inc.xml (gone) |   4 -
- ...nfig_carrierid_1779_Cricket-Wireless.xml (gone) |  35 ----
+ ...nfig_carrierid_1779_Cricket-Wireless.xml (gone) |  36 ----
  ..._MTA-Communications-dba-MTA-Wireless.xml (gone) |  13 --
  ...carrier_config_carrierid_1788_Sprint.xml (gone) |  39 -----
  ...arrierid_1789_Carolina-West-Wireless.xml (gone) |  13 --
@@ -376,14 +376,14 @@ Date:   Fri 2022-01-07 09:58:37+0000
  assets/carrier_config_mccmnc_46668.xml (gone)      |   6 -
  assets/carrier_config_mccmnc_52023.xml (gone)      |   8 -
  assets/carrier_config_mccmnc_52025.xml (gone)      |   8 -
- 368 files changed, 4266 deletions(-)
+ 368 files changed, 4269 deletions(-)
 
 diff --git a/assets/carrier_config_carrierid_10000_Tracfone-ATT.xml b/assets/carrier_config_carrierid_10000_Tracfone-ATT.xml
 deleted file mode 100644
-index 93ee3cd3b7bfe430e3b21bf5fd6c6f6850bba8e5..0000000000000000000000000000000000000000
+index 59408ba7b31e836208488ceb352b5e72345308fe..0000000000000000000000000000000000000000
 --- a/assets/carrier_config_carrierid_10000_Tracfone-ATT.xml
 +++ /dev/null
-@@ -1,35 +0,0 @@
+@@ -1,36 +0,0 @@
 -<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 -<carrier_config>
 -    <string-array name="mmi_two_digit_number_pattern_string_array" num="22">
@@ -417,6 +417,7 @@ index 93ee3cd3b7bfe430e3b21bf5fd6c6f6850bba8e5..00000000000000000000000000000000
 -        <item value="55BB3B316919620008AA76A4891E90384BFF2A76AE95C395FE738C2AC609F13F"/>
 -    </string-array>
 -    <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
+-    <int name="nr_advanced_threshold_bandwidth_khz_int" value="50000" />
 -    <boolean name="inflate_signal_strength_bool" value="true" />
 -</carrier_config>
 diff --git a/assets/carrier_config_carrierid_10001_Tracfone-TMO.xml b/assets/carrier_config_carrierid_10001_Tracfone-TMO.xml
@@ -659,10 +660,10 @@ index cac305ed1491a4f5ad2b803f52f13eb992771965..00000000000000000000000000000000
 -</carrier_config>
 diff --git a/assets/carrier_config_carrierid_1187_AT&T.xml b/assets/carrier_config_carrierid_1187_AT&T.xml
 deleted file mode 100644
-index 7fea3f2fff8e980646bd5f7dd47cbf7b2b7e0d1b..0000000000000000000000000000000000000000
+index 68a392642416d4eb774d70d942355fa408eb7536..0000000000000000000000000000000000000000
 --- a/assets/carrier_config_carrierid_1187_AT&T.xml
 +++ /dev/null
-@@ -1,82 +0,0 @@
+@@ -1,83 +0,0 @@
 -<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 -<carrier_config>
 -    <boolean name="allow_hold_call_during_emergency_bool" value="false"/>
@@ -744,6 +745,7 @@ index 7fea3f2fff8e980646bd5f7dd47cbf7b2b7e0d1b..00000000000000000000000000000000
 -    <string name="5g_icon_display_grace_period_string">connected_mmwave,any,30</string>
 -    <boolean name="inflate_signal_strength_bool" value="true" />
 -    <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
+-    <int name="nr_advanced_threshold_bandwidth_khz_int" value="50000" />
 -</carrier_config>
 diff --git a/assets/carrier_config_carrierid_1190_Cincinnati-Bell-Wireless-LLC.xml b/assets/carrier_config_carrierid_1190_Cincinnati-Bell-Wireless-LLC.xml
 deleted file mode 100644
@@ -1948,16 +1950,17 @@ index a41269c85f88610289e2bab010f099648fb84ff0..00000000000000000000000000000000
 -</carrier_config>
 diff --git a/assets/carrier_config_carrierid_1779_Cricket-Wireless.xml b/assets/carrier_config_carrierid_1779_Cricket-Wireless.xml
 deleted file mode 100644
-index 1c889ca433b66297d0968e5b59100c59b45a57e9..0000000000000000000000000000000000000000
+index 2213cb56f946341aa4f6e8fe742dada2a9e0ea93..0000000000000000000000000000000000000000
 --- a/assets/carrier_config_carrierid_1779_Cricket-Wireless.xml
 +++ /dev/null
-@@ -1,35 +0,0 @@
+@@ -1,36 +0,0 @@
 -<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 -<carrier_config>
 -    <boolean name="allow_hold_call_during_emergency_bool" value="false"/>
 -    <boolean name="csp_enabled_bool" value="true"/>
 -    <boolean name="show_4g_for_3g_data_icon_bool" value="true"/>
 -    <string name="5g_icon_configuration_string">connected_mmwave:5G_Plus,connected:5G,not_restricted_rrc_idle:5G,not_restricted_rrc_con:5G</string>
+-    <int name="nr_advanced_threshold_bandwidth_khz_int" value="50000" />
 -    <int name="maxImageHeight" value="1944"/>
 -    <int name="maxMessageSize" value="614400"/>
 -    <int name="maxImageWidth" value="2592"/>

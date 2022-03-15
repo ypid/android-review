@@ -1,4 +1,4 @@
-commit c26cfdecaf90005a74d8201a0ad270a936cdbd2b
+commit 9c4a5ac0cb34b751dbd8cda9f75f21f39b566681
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 17:05:49-0700
 
@@ -223,7 +223,7 @@ index a49c0a6e8e0c414158d7751f9543a139663068c8..a43ee18b395d87b5c4b0485cc82eafea
          for (int uid : uids) {
              mUidsAllowedOnRestrictedNetworks.add(UserHandle.getAppId(uid));
 
-commit 9f5214de4c74cd37ecc134fe7f7ffcfbfb7aaf69
+commit 039c4ab8f52da3142581bcf54a7719b47a360045
 Author: Danny Lin <danny@kdrag0n.dev>
 Date:   Tue 2021-10-05 18:42:40-0700
 
@@ -289,7 +289,7 @@ index fd37a9746a79b8ab003cae83f6a552c4b16e8a73..60e6c3d46d4ab361efcf713958a4034c
       */
      @SystemApi
 
-commit 09ad6ab18db87dde37e66ac1df84feff5d26f754
+commit dbf6ae4cd96450a21be0a4dd85fb5addeba67462
 Author: Pratyush <codelab@pratyush.dev>
 Date:   Wed 2021-10-13 22:20:53+0530
 
@@ -770,7 +770,7 @@ index a43ee18b395d87b5c4b0485cc82eafea3f8b88f5..8625f3c8035814fa6e80b2ee04b5ef65
              pw.println("Interface: " + vpn.getKey());
              pw.println("UIDs: " + vpn.getValue().toString());
 
-commit 54b0993de49052b9383643142c8f209f8c19c709
+commit 8b2b4f54213d98f19dc358806d1818ec3c2ae757
 Author: Dave Daynard <nardholio@gmail.com>
 Date:   Fri 2021-10-15 18:02:03+0100
 
@@ -851,7 +851,7 @@ index b6240c456186e50d5b0c8102c98863c82c0ec6df..727317c555feb7d28b63a1deae15281b
      }
  
 
-commit 4a5d8237622d9669f46b3f18fa99eb11ef941811
+commit 1dd4475feb1bdf997061fd3b713bfdcf6d5b4016
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-17 23:27:09+0100
 
@@ -958,7 +958,7 @@ index 2e51be39bfae397eb293a6fb9c56a4df7572de52..9aa754ea36a7ff80b8f5df42f83bc26f
      public static enum DnsResponseCode { NOERROR, FORMERR, SERVFAIL, NXDOMAIN, NOTIMP, REFUSED };
  
 
-commit 3ff65a5f4f2228a33ed13e281844161b8626398d
+commit c1f52306a55e6d605bfb533ac370d56e0e158604
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sun 2021-10-17 23:31:28+0100
 
@@ -995,7 +995,7 @@ index d4da9a42a65810e6707edb09b0ab9517e988661e..8d23e2c896590539d9f2480ed47a38b4
  
      // How long to wait before putting up a "This network doesn't have an Internet connection,
 
-commit 0180cd7cf7109c657c28a3d0bd57a636503cc5e9 (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 34cded990ebd8da8c47cab88f0b1ef523a05d122 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Dmitry Muhomor <muhomor.dmitry@gmail.com>
 Date:   Tue 2021-12-14 18:17:11+0200
 

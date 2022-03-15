@@ -1,4 +1,4 @@
-commit 861b94e0fe66200c31816bf2b5560b74b21c73fa (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 776beebd3d221740ac1b77d8535f745415d171a0 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: renlord <me@renlord.com>
 Date:   Fri 2021-10-15 19:11:18+0530
 
@@ -15,10 +15,10 @@ Date:   Fri 2021-10-15 19:11:18+0530
  2 files changed, 25 insertions(+), 8 deletions(-)
 
 diff --git a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
-index 994331a69543c3252fae69e89fba22a60d27019f..56e81099c42f4b9aacd7921f37f0eb29a099b743 100644
+index 4f63ced830f13ba8414e1a4a74e2dfba32ae5e5b..3d3000d335625a16685a12b6b2a964e125fa937f 100644
 --- a/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
 +++ b/libs/WifiTrackerLib/src/com/android/wifitrackerlib/StandardWifiEntry.java
-@@ -247,21 +247,21 @@ public class StandardWifiEntry extends WifiEntry {
+@@ -253,21 +253,21 @@ public class StandardWifiEntry extends WifiEntry {
  
      @Override
      public synchronized String getMacAddress() {
@@ -41,7 +41,7 @@ index 994331a69543c3252fae69e89fba22a60d27019f..56e81099c42f4b9aacd7921f37f0eb29
      }
  
      @Override
-@@ -501,40 +501,56 @@ public class StandardWifiEntry extends WifiEntry {
+@@ -515,40 +515,56 @@ public class StandardWifiEntry extends WifiEntry {
      }
  
      @Override

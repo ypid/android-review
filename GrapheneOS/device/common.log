@@ -1,4 +1,4 @@
-commit 2548f1c385b4afd22f6cb2e760645efadfa6f616
+commit 102e7d51865385cbf22bad3fabb48849fb5ae07e
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Wed 2018-12-12 01:10:55-0500
 
@@ -124,7 +124,7 @@ index 95f4e35c846810c99d6d46388061d6ef94618116..5628a25578fcbdff23542f68979de400
  # Write flash-base.sh
  cat > tmp/$PRODUCT-$VERSION/flash-base.sh << EOF
 
-commit 73db6ef243d1f41d42295fbd3bfb5cc1ac31f480
+commit 74d7497b4e2b3460336f590f058fbd2e5b9a8d10
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Sat 2019-03-16 12:54:05-0400
 
@@ -211,7 +211,7 @@ index a0e2a7d14896c21c63b182900a83b2949ab5b44b..27c95e74132b42ba633f0e420db38c18
  SUPL_HOST=supl.google.com
  SUPL_PORT=7276
 
-commit a2f3ef6352f729cd59c24586dd1b9204f4da2357
+commit bd335a42d56bfaecbcf6b2ce4cfcc4befd5f98f4
 Author: SatelliteSnyper <51929686+SatelliteSnyper@users.noreply.github.com>
 Date:   Mon 2019-06-17 20:12:05+0000
 
@@ -274,7 +274,7 @@ index 5628a25578fcbdff23542f68979de40043e87feb..a138551047a88c13807a0a61f48e38c9
  #!/bin/sh
  
 
-commit 77ace111ea900b41c86adcae2c0e77655362055f
+commit 2e5d136687fbb140bfa7c3c07db9f328971ed198
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Fri 2020-05-01 15:52:26-0400
 
@@ -305,7 +305,7 @@ index a138551047a88c13807a0a61f48e38c9c8fc3074..9a318e598fe13c46b6f9ff2ecd01f485
  # Clean up
  rm -rf tmp
 
-commit b1c8199dace947bf063ebcf00a1c41fdd9756531
+commit 7a9e57c30380ab834558766837528cb390251b17
 Author: JTL <jtl999@users.noreply.github.com>
 Date:   Mon 2020-06-01 10:45:25-0700
 
@@ -361,7 +361,7 @@ index 9a318e598fe13c46b6f9ff2ecd01f48563a7b75e..df1b2759a30123f2b78010252a0daea5
  then
  cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
 
-commit 6a5e2f8ece0384e50c59091caccdc3de4b44878c
+commit b485df4b184e50280eeef2fb5b7e1612ff14b6f8
 Author: Chirayu Desai <chirayudesai1@gmail.com>
 Date:   Wed 2020-06-03 03:59:34+0530
 
@@ -425,7 +425,7 @@ index df1b2759a30123f2b78010252a0daea57cbe77f7..f1f2ebc96f27912a15b7e5c61d02dc7d
  #!/bin/sh
  
 
-commit d5619d84eddc924356e8c1445dfe1c51051b2fb5
+commit b8aba0737e7f10b996c29f4a8a5c20e057a376c0
 Author: Maxim Baz <git@maximbaz.com>
 Date:   Tue 2020-10-27 16:25:20+0100
 
@@ -514,7 +514,7 @@ index f1f2ebc96f27912a15b7e5c61d02dc7dff7754a9..0efff882b077839cf7c80e4067e395d4
  fastboot flash xloader xloader-$DEVICE-$XLOADER.img
  EOF
 
-commit fca95a923e3d34a80a657ebef74845d34aebb4d5
+commit 5958dc94cf2e29456cba41bf6c7bf5d15fb8ebc1
 Author: flawedworld <38294951+flawedworld@users.noreply.github.com>
 Date:   Tue 2021-07-13 18:24:44+0000
 
@@ -609,7 +609,7 @@ index 0efff882b077839cf7c80e4067e395d4501176bd..ee1b1aded7f6e526007cdd57f49c0ad8
  EOF
  
 
-commit 1942d94a17949ee12f23c7d82342b70c492192f8
+commit 471287aa3c6209571498cb57a1a8df60417beca6
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Thu 2021-12-16 23:06:29+0000
 
@@ -706,7 +706,7 @@ index ee1b1aded7f6e526007cdd57f49c0ad8e5d22ba9..8bfe8a97c7564da31b0d92734d573c55
  EOF
  
 
-commit f448c3da4ddd000e3b374aece11f4b90bc2b1b9c
+commit acceeca3ae77383cbfa6831b355dc9d5bcd0fa95
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-12-17 22:10:43+0000
 
@@ -803,7 +803,7 @@ index 8bfe8a97c7564da31b0d92734d573c55620b8df9..72cf063212c72a1792a4710f60303849
  EOF
  
 
-commit 0dd4b7b2def89cbb0fa2a470bda02fc22bd407bf (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit e7bb9608c2687da1032667cc8c93b0ab50138156
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Fri 2021-12-17 22:35:42+0000
 
@@ -897,3 +897,61 @@ index 72cf063212c72a1792a4710f6030384990f68529..2278effab2898bae0d7fe9de782b3191
  exit
  EOF
  
+
+commit 14af7e540a5907480c221db5d3effa5ecbe00969 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: flawedworld <flawedworld@flawed.world>
+Date:   Tue 2022-02-15 23:35:56+0000
+
+    Erase OTA state
+---
+ generate-factory-images-common.sh | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/generate-factory-images-common.sh b/generate-factory-images-common.sh
+index 2278effab2898bae0d7fe9de782b31916ae07e54..e2637147bee46cd4d523d486b9eb804fc953e2c4 100644
+--- a/generate-factory-images-common.sh
++++ b/generate-factory-images-common.sh
+@@ -195,20 +195,21 @@ fastboot erase msadp_a
+ fastboot erase msadp_b
+ EOF
+ fi
+ if test "$DISABLE_FIPS" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
+ fastboot erase fips
+ EOF
+ fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.sh << EOF
++fastboot snapshot-update cancel
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ sleep $SLEEPDURATION
+ EOF
+ chmod a+x tmp/$PRODUCT-$VERSION/flash-all.sh
+ 
+ # Write flash-all.bat
+ cat > tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ @ECHO OFF
+ :: Copyright 2012 The Android Open Source Project
+@@ -330,20 +331,21 @@ fastboot erase msadp_a
+ fastboot erase msadp_b
+ EOF
+ fi
+ if test "$DISABLE_FIPS" = "true"
+ then
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
+ fastboot erase fips
+ EOF
+ fi
+ cat >> tmp/$PRODUCT-$VERSION/flash-all.bat << EOF
++fastboot snapshot-update cancel
+ fastboot -w --skip-reboot update image-$PRODUCT-$VERSION.zip
+ fastboot reboot-bootloader
+ ping -n $SLEEPDURATION 127.0.0.1 >nul
+ 
+ echo Press any key to exit...
+ pause >nul
+ exit
+ EOF
+ 
+ # Write flash-base.sh

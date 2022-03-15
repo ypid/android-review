@@ -1,4 +1,4 @@
-commit ac40c38f66b4291f3676eac162d2881ac61732b4
+commit b76a3dda8aebe53a3d739a18c0000d085b335149
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sat 2022-02-05 16:38:12+0000
 
@@ -37,7 +37,7 @@ index 8b86febcfc1137aab8df771fdbf59312dfb6cb91..25a2f8dff7ed8167087dc465dc595fc4
      <uses-permission android:name="android.permission.INTERACT_ACROSS_USERS" />
      <uses-permission android:name="android.permission.MODIFY_QUIET_MODE" />
 
-commit 95132fd9cc0275766d1b11af44fa038cc3d6382a
+commit cae5740baed17e7b853ec8c9753ebd47dba789cb
 Author: Joey <joey@lineageos.org>
 Date:   Thu 2018-01-25 12:16:21+0100
 
@@ -76,7 +76,7 @@ index 25a2f8dff7ed8167087dc465dc595fc49524e182..54652e301c36efa3f8e0dfb758d8d9d2
              android:name=".picker.PickActivity"
              android:exported="true"
 
-commit 298453d7fd03a052c3fa29093286b0cc6d6f5aaf
+commit c45cb277d4c00fd9f07bf589ceeadeab60d552b7
 Author: Michael Bestas <mkbestas@lineageos.org>
 Date:   Sat 2020-11-21 02:21:02+0200
 
@@ -4516,7 +4516,7 @@ index b8bf096bf2ed34bd999a625bdb6ed6bb658351ce..00000000000000000000000000000000
 -    <string name="directory_type" msgid="2702987727566226354">"Ifolda"</string>
 -</resources>
 
-commit e93dedb4a3866a141f619ed598c47f59579e051c (HEAD, tag: SQ1A.220205.002.2022020800, m/master, grapheneos/12)
+commit 5ab88928eb526217fa0df893c138caa5caf9d2f2
 Author: flawedworld <flawedworld@flawed.world>
 Date:   Sat 2022-02-05 16:57:16+0000
 
@@ -4669,3 +4669,62 @@ index 0000000000000000000000000000000000000000..f42ada656ee26e30d170aaa67989f0f1
 +<resources>
 +    <color name="ic_launcher_background">#FFFFFF</color>
 +</resources>
+
+commit 5545bcc199e2884f14e83b23c1505815a73120a9 (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
+Author: smdyv <88971341+smdyv@users.noreply.github.com>
+Date:   Wed 2022-02-09 11:40:52+0100
+
+    Replace launcher icon
+---
+ res/drawable/ic_launcher_foreground.xml | 31 +++++++++++++++++--------------
+ 1 file changed, 17 insertions(+), 14 deletions(-)
+
+diff --git a/res/drawable/ic_launcher_foreground.xml b/res/drawable/ic_launcher_foreground.xml
+index d717293a500e5f5638e79620cf949918a595ef76..66cd7d1d3c1c45e58962d0384dd7b833d9a63278 100644
+--- a/res/drawable/ic_launcher_foreground.xml
++++ b/res/drawable/ic_launcher_foreground.xml
+@@ -1,27 +1,30 @@
+ <!--
+   Copyright (C) 2021 Google Inc.
++
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
++
+     http://www.apache.org/licenses/LICENSE-2.0
++
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+   -->
+-  <vector xmlns:android="http://schemas.android.com/apk/res/android"
+-  android:width="108dp"
+-  android:height="108dp"
+-  android:viewportWidth="108"
+-  android:viewportHeight="108"
+-  android:tint="?attr/colorControlNormal">
+-<group android:scaleX="2.25"
+-    android:scaleY="2.25"
+-    android:translateX="27"
+-    android:translateY="27">
+-  <path
+-      android:fillColor="@android:color/black"
+-      android:pathData="M10,4H2v16h20V6H12l-2,-2z"/>
+-</group>
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++    android:width="108dp"
++    android:height="108dp"
++    android:viewportWidth="108"
++    android:viewportHeight="108">
++    <group
++        android:scaleX="2.079"
++        android:scaleY="2.079"
++        android:translateX="29.052"
++        android:translateY="29.052">
++        <path
++            android:fillColor="#000000"
++            android:pathData="M10.59,4.59C10.21,4.21 9.7,4 9.17,4H4c-1.1,0 -1.99,0.9 -1.99,2L2,18c0,1.1 0.9,2 2,2h16c1.1,0 2,-0.9 2,-2V8c0,-1.1 -0.9,-2 -2,-2h-8l-1.41,-1.41z" />
++    </group>
+ </vector>

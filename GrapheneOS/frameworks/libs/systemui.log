@@ -1,4 +1,4 @@
-commit 8f80cf36a1218a7e3fbbaa4265f21f0c63fdf62e (HEAD, tag: SQ1A.220205.002.2022020800, tag: SQ1A.220105.002.2022010500, m/master, grapheneos/12)
+commit 5b67eac60d807e6b159a334577296e3c606e275f (HEAD, tag: SP2A.220305.012.2022030801, m/master, grapheneos/12.1)
 Author: Daniel Micay <danielmicay@gmail.com>
 Date:   Tue 2021-11-02 14:44:13-0400
 
@@ -8,10 +8,10 @@ Date:   Tue 2021-11-02 14:44:13-0400
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java b/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java
-index d685737c447cc4ce743c5009484d8c611f576def..ef49892032a3a5c285d8127a7f448e9ce5f4f0a9 100644
+index 7c4624dbab851d4be4ce4bd74e2e08171e7c6b36..c2b8eeb64cfaef5f41a0ec719356a0507a1fa205 100644
 --- a/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java
 +++ b/iconloaderlib/src/com/android/launcher3/icons/cache/BaseIconCache.java
-@@ -221,21 +221,21 @@ public abstract class BaseIconCache {
+@@ -222,21 +222,21 @@ public abstract class BaseIconCache {
          return new IconCacheUpdateHandler(this);
      }
  
