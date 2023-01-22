@@ -6,6 +6,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 
 # Android review
 
+**The solution put together here is deprecated. Use git range-diff. See https://grapheneos.org/faq#audit This was somehow missed when research was done how to diff rebases.**
+
 This repository represents an independent ongoing code review of Android Open
 Source Project (AOSP) or custom ROMs that are based on it.
 ypid sees this review effort as part of a community working on AOSP based
